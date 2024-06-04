@@ -1,0 +1,20 @@
+2. Scopes II
+
+
+Objective
+
+Write another scope called graveyard which only shows tweets where the show_location column is true and the location is "graveyard"
+
+
+app/models/tweet.rb
+class Tweet < ActiveRecord::Base
+  scope :recent, order('created_at desc').limit(4) 
+end
+
+
+Answer:
+app/models/tweet.rb
+class Tweet < ActiveRecord::Base
+  scope :recent, order('created_at desc').limit(4) 
+  scope :graveyard, where(show_location: true, location: "graveyard") 
+end

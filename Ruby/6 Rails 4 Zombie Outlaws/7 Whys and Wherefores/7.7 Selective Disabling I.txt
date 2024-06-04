@@ -1,0 +1,31 @@
+7.7 Selective Disabling I
+
+
+Disable Turbolinks for the home link.
+
+
+app/views/zombies/show.html.erb
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @zombie.name %>
+</p>
+
+<%= link_to 'Edit', edit_zombie_path(@zombie) %> |
+<%= link_to 'Back', zombies_path %> | 
+<%= link_to 'Home', welcome_path %>
+
+
+Answer:
+app/views/zombies/show.html.erb
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @zombie.name %>
+</p>
+
+<%= link_to 'Edit', edit_zombie_path(@zombie) %> |
+<%= link_to 'Back', zombies_path %> | 
+<%= link_to 'Home', welcome_path, "data-no-turbolink" => true %>

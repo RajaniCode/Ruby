@@ -1,0 +1,57 @@
+10. Has Many Through
+
+
+Objective
+
+Now that we have our new tables, it's time to define the relationships between each of the models. Define the has_many through relationships in the Tweet & Category model and the belongs_to relationships in the Categorization model.
+	
+
+schema.rb
+ActiveRecord::Schema.define(:version => 20110814152905) do
+ 
+  create_table "categories" do |t|
+    t.string "name" 
+  end
+      
+  create_table "categorizations" do |t| 
+    t.integer "tweet_id"
+    t.integer "category_id"
+  end
+      
+  create_table "tweets" do |t|
+    t.string "message"
+    t.string "location", :limit => 30
+    t.boolean "show_location", :default => false
+    t.integer "zombie_id"
+        
+    t.timestamps
+  end
+ 
+end
+
+
+Models
+class Tweet < ActiveRecord::Base
+end
+class Categorization < ActiveRecord::Base
+end
+class Category < ActiveRecord::Base
+end
+
+
+Answer:
+Models
+class Tweet < ActiveRecord::Base
+  has_many :categorizations
+  has_many :categories, through: :categorizations
+end
+
+class Categorization < ActiveRecord::Base
+  belongs_to :tweet
+  belongs_to :category
+end
+
+class Category < ActiveRecord::Base
+  has_many :categorizations
+  has_many :tweets, through: :categorizations
+end

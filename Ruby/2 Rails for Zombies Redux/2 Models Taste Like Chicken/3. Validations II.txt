@@ -1,0 +1,22 @@
+3. Validations II
+
+
+Add a validation that checks for the uniqueness of a Zombie's name.
+
+
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Father's Basement
+
+
+app/models/zombie.rb
+
+
+Answer:
+app/models/zombie.rb
+class Zombie < ActiveRecord::Base
+  # insert validation here
+  validates_uniqueness_of :name
+end

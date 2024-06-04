@@ -1,0 +1,50 @@
+2. Nested before filters
+
+
+We've decided to refactor out the smart zombie into its own context. Add a before filter specific to this context that will make our smart zombie spec pass.
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :name
+  validates :name, presence: true
+ 
+  def dummy?
+    iq < 3
+  end
+ 
+  def genius?
+    iq >= 3
+  end
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  let(:zombie) { Zombie.new }
+  before { zombie.iq = 0 }
+  subject { zombie }
+
+  it { should be_dummy }
+
+  context 'with a smart zombie' do
+    # Add 'before' here
+    it { should_not be_dummy }
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Zombie do
+  let(:zombie) { Zombie.new }
+  before { zombie.iq = 0 }
+  subject { zombie }
+
+  it { should be_dummy }
+
+  context 'with a smart zombie' do
+    # Add 'before' here
+    before { should_not be_dummy }
+  end
+end

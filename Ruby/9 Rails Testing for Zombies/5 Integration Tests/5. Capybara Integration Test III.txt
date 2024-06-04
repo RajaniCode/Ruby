@@ -1,0 +1,60 @@
+5. Capybara Integration Test III
+
+
+Now lets test that from the home page root_path we can click the New Tweet link and it brings us to the new_tweet_path.
+
+
+tweets_controller.rb
+class TweetsController < ApplicationController
+
+  def index
+    @tweets = Tweet.all
+  end
+
+  def new
+    @tweet = Tweet.new
+  end
+
+end
+
+
+index.html.erb
+<h1>Listing tweets</h1>
+<p><%= link_to("New Tweet", new_tweet_url) %></p>
+
+<% if @tweets.empty? %>
+  <em>No tweets found</em>
+<% else %>
+  <table>
+    <tr>
+      <th>Status</th>
+      <th>Zombie</th>
+    </tr>
+
+    <%= render @tweets %>
+  </table>
+<% end %>
+
+
+test/integration/creating_a_tweet_test.rb
+class CreatingATweetTest < ActionDispatch::IntegrationTest
+  test 'should go to new tweet page' do
+    
+  end
+end
+
+
+Answer:
+test/integration/creating_a_tweet_test.rb
+class CreatingATweetTest < ActionDispatch::IntegrationTest
+  test 'should go to new tweet page' do
+    visit root_path
+    click_link "New Tweet"
+    assert_equal new_tweet_path, current_path
+  end
+end
+
+Test Output:
+.
+
+Finished tests in 0.032452s, 30.8152 tests/s, 123.2608 assertions/s.

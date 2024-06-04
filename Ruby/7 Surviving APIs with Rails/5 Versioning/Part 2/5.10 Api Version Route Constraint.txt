@@ -1,0 +1,64 @@
+5.10 Api Version Route Constraint
+
+Now that we have tests in place, we’ll implement the ApiVersion class. This class will read the Mime Type from the Accept request header and then check it against a specific API version that we will pass as the first argument to the constructor.
+
+
+lib/api_version.rb
+class ApiVersion
+  def initialize(version, default_version) # Task 1
+    @version, @default_version = version, default_version
+  end
+
+  def matches?(request)
+    @default_version || check_headers(request.headers)
+  end
+
+  private
+    def check_headers(headers)
+      # Task 2
+    end
+end
+
+
+1. The default_version argument on the constructor needs to have a default value of false.
+
+Answer:
+lib/api_version.rb
+class ApiVersion
+
+  def initialize(version, default_version = false) # Task 1
+    @version, @default_version = version, default_version
+  end
+
+  def matches?(request)
+    @default_version || check_headers(request.headers)
+  end
+
+  private
+    def check_headers(headers)
+      # Task 2
+    end
+end
+
+
+2. The check_headers method needs to read from the Accept header, which can return either nil or an array. We’ll return true if it’s not nil and if it includes application/vnd.zombies.#{@version}+json.
+
+Answer:
+lib/api_version.rb
+class ApiVersion
+
+  def initialize(version, default_version = false) # Task 1
+    @version, @default_version = version, default_version
+  end
+
+  def matches?(request)
+    @default_version || check_headers(request.headers)
+  end
+
+  private
+    def check_headers(headers)
+      # Task 2
+      accept = headers['Accept']
+      accept && accept.include?("application/vnd.zombies.#{@version}+json")
+    end
+end

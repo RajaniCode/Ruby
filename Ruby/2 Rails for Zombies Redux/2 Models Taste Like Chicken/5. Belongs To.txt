@@ -1,0 +1,28 @@
+5. Belongs To
+
+
+A Weapon belongs to a Zombie. Create that relationship.
+
+
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+weapons
+id	name	strength	zombie_id
+1	Hammer	1	1
+2	Chainsaw	3	2
+3	Other Zombie	10	3
+
+
+app/models/zombie.rb
+class Weapon < ActiveRecord::Base
+end
+
+Answer:
+app/models/zombie.rb
+class Weapon < ActiveRecord::Base 
+  belongs_to :zombie #Note: singular
+end
+

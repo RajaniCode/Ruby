@@ -1,0 +1,19 @@
+5.2 Basic Serializer
+
+Create a serializer class for the Review model which serializes the id and description properties.
+
+
+review.rb
+class Review < ActiveRecord::Base
+  belongs_to :item
+end
+
+
+review_serializer.rb
+
+
+Answer:
+review_serializer.rb
+class ReviewSerializer < ActiveModel::Serializer
+  attributes :id, :description
+end

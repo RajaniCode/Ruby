@@ -1,0 +1,15 @@
+2.8 Using curl to Issue Network Requests
+
+Use the curl command to issue a GET request to http://cs-zombies-dev.com:3000/humans
+
+Answer: curl http://cs-zombies-dev.com:3000/humans 
+
+Console
+
+Press Enter to submit. Type 'answer' and press Enter for the current answer or 'help' and press Enter for information on using the console
+
+$ curl http://cs-zombies-dev.com:3000/humans
+
+[{"id":1,"name":"Ash","brain_type":"large","created_at":"2014-02-24T20:41:59.343Z","updated_at":"2014-02-24T20:41:59.343Z"},{"id":2,"name":"John","brain_type":"small","created_at":"2014-02-24T20:41:59.343Z","updated_at":"2014-02-24T20:41:59.343Z"}]
+
+Success! To move on, use <ctrl + j>, type 'next' or click continue.

@@ -1,0 +1,23 @@
+1. Factories
+
+
+Convert the zombies fixture to a Factory Girl Factory called :zombie.
+
+
+test/fixtures/zombies.yml
+zombie:
+name: 'Sally'
+graveyard: 'Valley Dim'
+
+
+test/factories/zombies.rb
+
+
+Answer:
+test/factories/zombies.rb
+FactoryGirl.define do
+  factory :zombie do
+    name "Sally"
+    graveyard "Valley Dim"
+  end
+end

@@ -1,0 +1,66 @@
+3.2 Strong Parameters
+
+
+We haven't upgraded our ZombiesController to use Rails 4 yet, and users are getting a ActiveModel::ForbiddenAttributesError when they try to create a new zombie. Can you update the controller to fix this? You'll need to require the :zombie parameter hash, and permit the :name and :most_wanted keys within that hash.
+
+
+app/views/zombies/_form.html.erb
+<%= form_for(@zombie) do |f| %>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :most_wanted %><br />
+    <%= f.check_box :most_wanted %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def show
+    @zombie = Zombie.find(params[:id])
+  end
+
+  def new
+    @zombie = Zombie.new
+  end
+
+  def create
+    zombie_params = params[:zombie]
+    @zombie = Zombie.new(zombie_params)
+    if @zombie.save
+      redirect_to @zombie, notice: 'Created.'
+    else
+      render action: 'new'
+    end
+  end
+end
+
+
+Answer:
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def show
+    @zombie = Zombie.find(params[:id])
+  end
+
+  def new
+    @zombie = Zombie.new
+  end
+
+  def create
+    zombie_params = params.require(:zombie).permit(:name, :most_wanted)
+    @zombie = Zombie.new(zombie_params)
+    if @zombie.save
+      redirect_to @zombie, notice: 'Created.'
+    else
+      render action: 'new'
+    end
+  end
+end
+

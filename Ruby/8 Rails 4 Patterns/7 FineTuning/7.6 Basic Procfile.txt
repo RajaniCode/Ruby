@@ -1,0 +1,12 @@
+7.6 Basic Procfile
+
+Let's create a Procfile so other developers don't have to spend time figuring out how to run the application. So far, our app just needs one process to run - the web app itself. Add the command to start the Rails server. The app server in question will automatically be detected from the Gemfile, but we do need to specify the port via an environment variable $PORT.
+
+
+Procfile
+web: <add command here>
+
+
+Answer:
+Procfile
+web: bundle exec rails s -p $PORT

@@ -1,0 +1,117 @@
+5.7 Extracting Duplicate Code
+
+Now let’s refactor some code that is currently being repeated across different controllers from the same API version. We’ll create a common base controller that’s specific to v2, and move our duplicate code there.
+
+
+application_controller.rb
+class ApplicationController < ActionController::Base
+  protected
+    def log_survival_request
+      SurvivalRequestLogger.log!
+    end
+end
+
+
+v2/zombies_controller.rb
+module V2
+  class ZombiesController < ApplicationController
+    before_action -> { log_survival_request }
+
+    def index
+      zombies = Zombie.all
+      render json: zombies, status: 200
+    end
+  end
+end
+
+
+v2/humans_controller.rb
+module V2
+  class HumansController < ApplicationController
+    before_action -> { log_survival_request }
+
+    def index
+      humans = Human.all
+      render json: humans, status: 200
+    end
+  end
+end
+
+
+v2/version_controller.rb
+module V2
+  # code here
+end
+
+
+1. Create a base class called VersionController under the V2 namespace. This class should inherit from ApplicationController.
+
+Answer:
+v2/version_controller.rb
+module V2
+  # code here
+  class VersionController < ApplicationController
+  end
+end
+
+
+2. Specify this base class as being abstract!.
+
+Answer:
+v2/version_controller.rb
+module V2
+  # code here
+  class VersionController < ApplicationController
+    abstract!
+  end
+end
+
+
+3. Now extract the duplicate code out from the other controllers and into the new base class.
+
+Answer:
+v2/version_controller.rb
+module V2
+  # code here
+  class VersionController < ApplicationController
+    abstract!
+    before_action -> { log_survival_request }
+
+    def index
+      humans = Human.all
+      render json: humans, status: 200
+    end
+  end
+end
+
+v2/humans_controller.rb
+module V2
+  class HumansController < ApplicationController
+
+  end
+end
+
+v2/zombies_controller.rb
+module V2
+  class ZombiesController < ApplicationController
+
+  end
+end
+
+
+4. Update both V2::HumansController and V2::ZombiesController to inherit from VersionController.
+
+Answer:
+v2/humans_controller.rb
+module V2
+  class HumansController < VersionController
+
+  end
+end
+
+v2/zombies_controller.rb
+module V2
+  class ZombiesController < VersionController
+
+  end
+end

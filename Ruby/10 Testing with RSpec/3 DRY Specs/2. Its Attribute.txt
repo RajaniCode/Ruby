@@ -1,0 +1,31 @@
+2. Its Attribute
+
+
+Refactor the following code to use its but use the same matcher.
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :iq
+  validates :name, presence: true
+ 
+  def genius?
+    iq >= 3
+  end
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  it 'should have an iq of zero' do
+    subject.iq.should == 0
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Zombie do
+  it 'should have an iq of zero' 
+  its(:iq) { should == 0 }
+end

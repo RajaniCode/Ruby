@@ -1,0 +1,27 @@
+5. delegating Part 3
+
+
+Refactor the following code to use Ruby's built in SimpleDelegator.
+
+
+library.rb
+class Library
+  def initialize(console)
+    @manager = console
+  end
+
+  def method_missing(name, *args)
+    @manager.send(name, *args)
+  end
+end
+
+
+Answer:
+library.rb
+require 'delegate'
+class Library < SimpleDelegator
+  def initialize(console)   
+    @manager = console
+    super(console)
+  end
+end

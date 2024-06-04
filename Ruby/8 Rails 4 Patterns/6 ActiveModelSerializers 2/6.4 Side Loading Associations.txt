@@ -1,0 +1,22 @@
+6.4 Side Loading Associations
+
+The client-side JavaScript library we are using automatically connects side-loaded objects with their respective ids embeded in parent associations. On our ItemSerializer, let's add an option to the embed method to make sure our reviews are side-loaded.
+
+
+item_serializer.rb
+class ItemSerializer < ActiveModel::Serializer
+  attributes :id, :name
+  
+  has_many :reviews
+  embed :ids
+end
+
+
+Answer:
+item_serializer.rb
+class ItemSerializer < ActiveModel::Serializer
+  attributes :id, :name
+  
+  has_many :reviews
+  embed :ids, include: true
+end

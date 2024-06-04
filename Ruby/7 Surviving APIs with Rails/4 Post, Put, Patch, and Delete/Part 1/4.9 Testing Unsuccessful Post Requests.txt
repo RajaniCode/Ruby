@@ -1,0 +1,54 @@
+4.9 Testing Unsuccessful Post Requests
+
+We want to be sure that our API does not allow creating humans with invalid data. In our tests, we’ll intentionally try and create a new human with no name to make sure our server reponds with the proper error.
+
+
+test/integration/creating_humans_test.rb
+class CreatingHumansTest < ActionDispatch::IntegrationTest
+  test 'does not create human with name nil' do
+    post '/humans',
+      { human:
+        { name: 'Johnny', brain_type: 'large' }
+      }.to_json,
+      { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+
+    assert_equal Mime::JSON, response.content_type
+  end
+end
+
+  
+1. On our human’s attribute, set the name property to nil.
+
+
+Answer:
+test/integration/creating_humans_test.rb
+class CreatingHumansTest < ActionDispatch::IntegrationTest
+  test 'does not create human with name nil' do
+    post '/humans',
+      { human:
+        { name: nil, brain_type: 'large' }
+      }.to_json,
+      { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+
+    assert_equal Mime::JSON, response.content_type
+  end
+end
+
+
+2. Add an assertion that checks for the response status code of 422 - Unprocessable Entity.
+
+
+Answer:
+test/integration/creating_humans_test.rb
+class CreatingHumansTest < ActionDispatch::IntegrationTest
+  test 'does not create human with name nil' do
+    post '/humans',
+      { human:
+        { name: nil, brain_type: 'large' }
+      }.to_json,
+      { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+
+    assert_equal Mime::JSON, response.content_type
+    assert_equal 422, response.status
+  end
+end

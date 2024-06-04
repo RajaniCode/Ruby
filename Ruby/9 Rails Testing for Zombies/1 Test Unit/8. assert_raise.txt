@@ -1,0 +1,43 @@
+8. assert_raise
+
+
+Notice in zombifier.rb how we now raise a RuntimeError if the string already looks like a zombie (contains 'BRAINS'). Test for this behavior using assert_raise.
+
+
+zombifier.rb
+class Zombifier
+  def initialize(str)
+    @str = str
+  end
+
+  def zombify
+    raise RuntimeError if @str =~ /BRAINS/
+    "#{@str.upcase} BRAINS"
+  end
+end
+
+
+test/unit/zombifier_test.rb
+class ZombifierTest < Test::Unit::TestCase
+  def test_brains_in_zombify_raises_error
+    z = Zombifier.new('BRAINS')
+  end
+end
+
+
+Answer:
+test/unit/zombifier_test.rb
+class ZombifierTest < Test::Unit::TestCase
+  def test_brains_in_zombify_raises_error
+    z = Zombifier.new('BRAINS')
+    assert_raise(RuntimeError) { z.zombify }
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.001000s, 1000.4632 tests/s, 6002.7793 assertions/s.
+
+

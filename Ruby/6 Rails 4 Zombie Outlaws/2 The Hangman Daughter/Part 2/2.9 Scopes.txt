@@ -1,0 +1,27 @@
+2.9 Scopes
+
+
+The code in zombie.rb does not behave as expected. Fix the errors and deprecation warnings by using the new scope syntax.
+
+
+Database:
+zombies
+id	name	weapon	status	killed_on
+1	Ash	Chainsaw	outlaw	null
+2	Bob	Bone	dead	2015-07-18
+3	Jim	Axe	dead	2015-07-17
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  scope :recent, where('killed_on > ?', 2.days.ago)
+  scope :outlaws, where(status: 'outlaw')
+end
+
+
+Answer:
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  scope :recent, -> {where('killed_on > ?', 2.days.ago)}
+  scope :outlaws, -> {where(status: 'outlaw')}
+end

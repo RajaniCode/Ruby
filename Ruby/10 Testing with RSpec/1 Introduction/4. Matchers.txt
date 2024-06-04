@@ -1,0 +1,36 @@
+4. Matchers
+
+
+Using a predicate 'be' matcher, make sure that a tweet like "Nom nom nom" (which is not a reply because it doesn't start with an '@' sign) is public.
+
+
+tweet.rb
+class Tweet
+  attr_accessor :status
+ 
+  def initialize(options={})
+    self.status = options[:status]
+  end
+ 
+  def public?
+    self.status && self.status[0] != "@"                                 
+  end
+end
+
+
+tweet_spec.rb
+describe Tweet do
+  it 'without a leading @ symbol should be public' do
+    tweet = Tweet.new(status: 'Nom nom nom')
+  end
+end
+
+
+Answer:
+tweet_spec.rb
+describe Tweet do
+  it 'without a leading @ symbol should be public' do
+    tweet = Tweet.new(status: 'Nom nom nom')
+    tweet.public?.should be_true
+  end
+end

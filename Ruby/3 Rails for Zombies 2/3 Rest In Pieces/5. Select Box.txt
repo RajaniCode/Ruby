@@ -1,0 +1,40 @@
+5. Select Box
+
+
+Objective
+
+Instead of using radio buttons, use a select box for the condition. Refactor the code below:
+
+    
+schema.rb
+ActiveRecord::Schema.define(:version => 20110814152905) do
+ 
+  create_table "weapons" do |t|
+    t.string "name"
+    t.integer "ammo"
+    t.string "condition"
+  end
+ 
+end
+
+
+app/views/weapons/new.html.erb
+<%= form_for(@weapon) do |f| %>
+  <%= f.radio_button :condition, "New", checked: true %> New
+  <%= f.radio_button :condition, "Rusty" %> Rusty
+  <%= f.radio_button :condition, "Broken" %> Broken
+<% end %>
+
+
+Answer:
+app/views/weapons/new.html.erb
+<%= form_for(@weapon) do |f| %>
+  <%= f.select :condition, ['New', 'Rusty', 'Broken'] %>
+<% end %>
+
+
+#Note:
+<%= form_for(@weapon) do |f| %>
+  <%= f.select :condition, ['New', 'Rusty', 'Broken'] %>
+  <%= f.select :condition, [['New', 1], ['Rusty', 2], ['Broken', 3]] %>
+<% end %> 	

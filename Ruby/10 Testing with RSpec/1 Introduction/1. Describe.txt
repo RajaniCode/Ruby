@@ -1,0 +1,20 @@
+1. Describe
+
+
+Lets start writing a specification for the Tweet class. Write a describe block for the Tweet model without any examples inside it.
+
+
+tweet.rb
+class Tweet
+end
+
+
+tweet_spec.rb
+# Insert your code here!
+
+
+Answer:
+tweet_spec.rb
+# Insert your code here!
+describe Tweet do
+end

@@ -1,0 +1,26 @@
+5.4 Rendering Zombies
+
+With our routes test in place we can now implement the index action for our V1::ZombiesController and render back some zombies in JSON format.
+
+
+1. Create the proper class for V1::ZombiesController. Notice the controller needs to be part of the V1 namespace.
+
+Answer:
+app/controllers/v1/zombies_controller.rb
+module V1
+  class ZombiesController < ApplicationController
+  end
+end
+
+
+2. Implement the index action, returning a JSON list of all zombies and setting the status code to 200 - Success.
+
+Answer:
+app/controllers/v1/zombies_controller.rb
+module V1
+  class ZombiesController < ApplicationController
+    def index
+      render json: Zombie.all, status: 200
+    end
+  end
+end

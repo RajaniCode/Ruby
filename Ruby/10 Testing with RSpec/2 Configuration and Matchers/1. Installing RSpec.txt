@@ -1,0 +1,31 @@
+1. Installing RSpec
+
+
+In this level we'll start by getting you setup on a regular Ruby project, then move onto using RSpec within Rails. Let's start by installing the rspec gem from the console.
+
+
+Answer: gem install rspec
+
+
+Console
+
+$ gem install rspec
+Fetching: rspec-core-2.10.1.gem (100%)
+Fetching: rspec-expectations-2.10.0.gem (100%)
+Fetching: rspec-mocks-2.10.1.gem (100%)
+Fetching: rspec-2.10.0.gem (100%)
+Successfully installed rspec-core-2.10.1
+Successfully installed rspec-expectations-2.10.0
+Successfully installed rspec-mocks-2.10.1
+Successfully installed rspec-2.10.0
+4 gems installed
+Installing ri documentation for rspec-core-2.10.1...
+Installing ri documentation for rspec-expectations-2.10.0...
+Installing ri documentation for rspec-mocks-2.10.1...
+Installing ri documentation for rspec-2.10.0...
+Installing RDoc documentation for rspec-core-2.10.1...
+Installing RDoc documentation for rspec-expectations-2.10.0...
+Installing RDoc documentation for rspec-mocks-2.10.1...
+Installing RDoc documentation for rspec-2.10.0...
+Success!
+$

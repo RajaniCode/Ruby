@@ -1,0 +1,29 @@
+2.10 Displaying Response Headers
+
+Use curl with a specific argument so that it only shows response headers from a GET request to http://cs-zombies-dev.com:3000/humans.
+
+Answer: curl -I http://cs-zombies-dev.com:3000/humans
+
+Console
+
+Press Enter to submit. Type 'answer' and press Enter for the current answer or 'help' and press Enter for information on using the console
+
+$ curl -I http://cs-zombies-dev.com:3000/humans
+
+HTTP/1.1 200 OK
+X-Frame-Options: SAMEORIGIN
+X-Xss-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+X-Ua-Compatible: chrome=1
+Content-Type: application/json; charset=utf-8
+Etag: "90deb1cb3be5841d803b0ee7c0170cb3"
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 96d4783f-3e2e-4f25-afb7-4fd60b3faf7f
+X-Runtime: 0.605759
+Server: WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
+Date: Tue, 21 Jul 2015 11:35:43 GMT
+Content-Length: 0
+Connection: Keep-Alive
+Set-Cookie: request_method=HEAD; path=/
+
+Success! To move on, use <ctrl + j>, type 'next' or click continue.

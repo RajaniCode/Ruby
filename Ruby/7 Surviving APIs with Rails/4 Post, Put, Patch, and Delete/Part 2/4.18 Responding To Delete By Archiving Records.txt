@@ -1,0 +1,35 @@
+4.18 Responding To Delete By Archiving Records
+
+We’ve decided we don’t want to allow zombies resources to be removed from the database. Instead, they’ll be flagged as archived. Let’s create methods that’ll allow us to archive zombies and also allow us to find unarchived ones.
+
+
+app/models/zombie.rb
+class Zombie < ActiveRecord::Base
+end
+
+
+1. Create an archive method on the Zombie class. This method should set the available property to false and then save the record.
+
+Answer:
+app/models/zombie.rb
+class Zombie < ActiveRecord::Base
+  def archive
+    self.available = false
+    self.save
+  end
+end
+
+
+2. Create a self.find_available method (class method) that takes an id as its only argument. This method should find a record by its id and with the available property set to true.
+
+Answer:
+app/models/zombie.rb
+class Zombie < ActiveRecord::Base
+  def archive
+    self.available = false
+    self.save
+  end
+  def self.find_available(id)
+    find_by!(id: id, available: true)
+  end
+end

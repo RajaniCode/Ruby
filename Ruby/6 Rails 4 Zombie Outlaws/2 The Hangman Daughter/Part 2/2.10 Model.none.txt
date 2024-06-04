@@ -1,0 +1,51 @@
+2.10 Model.none
+
+
+Let's refactor the model to return Deputy.none instead of an empty array when there are no zombies at large.
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  def self.at_large_count
+    where(status: 'outlaw').count
+  end
+end
+
+
+Database:
+
+deputies
+id	name			weapon		status
+1	Jimmy Bob		Shotgun		available
+2	Sidewinder Bill 	Colt		available
+3	Robin			Shotgun		infected
+
+zombies
+id	name	weapon		status	killed_on
+1	Ash	Chainsaw	outlaw	null
+2	Bob	Bone		dead	2015-07-18
+3	Jim	Axe		dead	2015-07-17
+
+models/deputy.rb
+class Deputy < ActiveRecord::Base
+  def self.zombie_counterforce
+    if Zombie.at_large_count.zero?
+      []
+    else
+      Deputy.where(status: 'available')
+    end
+  end
+end
+
+
+Answer:
+models/deputy.rb
+class Deputy < ActiveRecord::Base
+  def self.zombie_counterforce
+    if Zombie.at_large_count.zero?
+      Deputy.none
+    else
+      Deputy.where(status: 'available')
+    end
+  end
+end

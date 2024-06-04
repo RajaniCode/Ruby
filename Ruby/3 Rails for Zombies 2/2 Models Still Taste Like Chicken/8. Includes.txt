@@ -1,0 +1,33 @@
+8. Includes
+
+
+Objective
+
+We're going to be iterating through many tweets and printing out their location. Refactor the controller code below to use the includes method.
+   
+
+models
+class Tweet < ActiveRecord::Base
+  has_one :location, dependent: :destroy
+end
+ 
+class Location < ActiveRecord::Base
+  belongs_to :tweet
+end
+
+
+app/controllers/tweets_controller.rb
+class TweetsController < ApplicationController 
+  def index
+    @tweets = Tweet.recent
+  end
+end
+
+
+Answer:
+app/controllers/tweets_controller.rb
+class TweetsController < ApplicationController 
+  def index
+    @tweets = Tweet.recent.includes(:location).all
+  end
+end

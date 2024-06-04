@@ -1,0 +1,41 @@
+3.9 Using Jbuilder to Return Localized JSON
+
+Next, we will use jBuilder to implement our view template which returns JSON.
+
+
+app/views/humans/index.json.jbuilder
+json.array(@humans) do |human|
+  # your code here
+end
+
+
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+    def index
+      @humans = Human.all
+      respond_to do |format|
+      format.json
+    end
+  end
+end
+
+
+1. Out of each human, extract the properties id, name, and brain_type.
+
+Answer:
+app/views/humans/index.json.jbuilder
+json.array(@humans) do |human|
+  # your code here
+  json.extract! human, :id, :name, :brain_type
+end
+
+
+2. Create a member item called message that uses our human_message translation key. Don’t forget to pass the human name as the value for the name option.
+
+Answer:
+app/views/humans/index.json.jbuilder
+json.array(@humans) do |human|
+  # your code here
+  json.extract! human, :id, :name, :brain_type
+  json.message I18n.t('human_message', name: human.name)
+end

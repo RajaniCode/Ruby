@@ -1,0 +1,56 @@
+6.4 Declarative ETags II
+
+
+Turns out some users are seeing inaccurate data on our 'Most Wanted Zombie' page. To solve this, let's add an extra etag method call and pass in the current_user.city.
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  def most_wanted
+    where(status: 'outlaw', killed_on: nil).first
+  end
+end
+
+
+Database:
+zombies
+id	name	weapon
+1	Ash	Chainsaw
+2	Bob	Bone
+3	Jim	Axe
+
+
+controllers/most_wanted_controller.rb
+class MostWantedController < ApplicationController
+
+  etag { current_user.country }
+
+  def show
+    @zombie = Zombie.most_wanted
+    fresh_when(@zombie)
+  end
+
+  def edit
+    @zombie = Zombie.most_wanted
+    fresh_when(@zombie)
+  end
+end
+
+
+Answer:
+controllers/most_wanted_controller.rb
+class MostWantedController < ApplicationController
+
+  etag { current_user.country }
+  etag { current_user.city }
+
+  def show
+    @zombie = Zombie.most_wanted
+    fresh_when(@zombie)
+  end
+
+  def edit
+    @zombie = Zombie.most_wanted
+    fresh_when(@zombie)
+  end
+end

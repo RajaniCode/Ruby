@@ -1,0 +1,27 @@
+7.5 Alternative Events
+
+
+Now let's use the alternative way of binding a click event to the document so the clickAlert function gets called when #alert_resolved is clicked.
+
+
+app/assets/javascripts/click_alert.js
+function clickAlert(event) {
+  if (event.target.checked) {
+    alert("You can collect the bounty at the Sheriff's office!");
+  }
+}
+
+
+app/assets/javascripts/alerts.js
+function initialize() {
+  $('#alert_resolved').click(clickAlert);
+}
+
+
+$(document).ready(initialize);
+$(document).on('page:load', initialize);
+
+
+Answer:
+app/assets/javascripts/alerts.js
+$(document).on('click', '#alert_resolved', clickAlert);

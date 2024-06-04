@@ -1,0 +1,147 @@
+9. Ajax Response II
+
+
+Objective
+
+Now write the controller and JavaScript code needed to properly reload the weapon using the ajaxified form. In the reload.js.erb use jQuery to update the #ammo text to the current @weapon.ammo value and if the ammo value is over or equal to 30, fadeOut the #reload_form div.
+
+    
+rendered html
+<p id="notice"></p> 
+<ul> 
+<li> 
+  <em>Name:</em> 
+  Gun
+</li> 
+<li> 
+  <em>Condition:</em> 
+  <span id="condition">New</span> 
+  <a href="/users/2/weapons/7/toggle_condition" data-remote="true">Toggle</a> 
+</li> 
+<li> 
+  <em>Ammo:</em> 
+  <span id="ammo">15</span> 
+</li> 
+</ul> 
+
+<div id="reload_form"> 
+<form accept-charset="UTF-8" action="/users/2/weapons/7/reload" class="edit_weapon" id="edit_weapon_7" method="post">
+  <div class="field"> 
+	<label>Number of bullets to reload:</label>
+	<input id="ammo_to_reload" name="ammo_to_reload" value="15" type="number">
+	<input name="commit" value="Reload" type="submit">
+  </div> 
+</form>
+</div>
+
+
+show.html.erb
+<p id="notice"><%= notice %></p>
+<ul>
+  <li>
+    <em>Name:</em>
+    <%= @weapon.name %>
+  </li>
+  <li>
+    <em>Condition:</em>
+    <span id="condition"><%= @weapon.condition %></span> 
+    <%= link_to "Toggle", toggle_condition_user_weapon_path(@user, @weapon), remote: true %>
+  </li>
+  <li>
+    <em>Ammo:</em>
+    <span id="ammo"><%= @weapon.ammo %></span>
+  </li>
+</ul>
+
+
+weapons_controller.rb
+class WeaponsController < ApplicationController
+  def reload
+    @weapon = Weapon.find(params[:id]) 
+    respond_to do |format|
+      if @weapon.ammo < 30
+        @weapon.reload(params[:ammo_to_reload])
+      
+        format.json { render json: @weapon.to_json(only: :ammo), status: :ok }
+        format.html { redirect_to @weapon, notice: 'Weapon ammo reloaded' }
+      else
+        format.json { render json: @weapon.to_json(only: :ammo), status: :unprocessable_entity }
+        format.html { redirect_to @weapon, notice: 'Weapon not reloaded' }
+      end
+    end
+  end
+end
+
+
+reload.js.erb
+<div id="reload_form">
+<%= form_for [@user, @weapon], url: reload_user_weapon_path(@user, @weapon), remote:true do |f| %>
+  <div class="field">
+    Number of bullets to reload:
+    <%= number_field_tag :ammo_to_reload, 30 %> <br />
+    <%= f.submit "Reload" %>
+  </div>
+<% end %>
+</div>
+ 
+<%= link_to 'Edit', edit_weapon_path(@weapon) %> |
+<%= link_to 'Back', weapons_path %>
+
+
+Answer:
+weapons_controller.rb
+class WeaponsController < ApplicationController
+  def reload
+    @weapon = Weapon.find(params[:id]) 
+
+    respond_to do |format|      
+      if @weapon.ammo < 30
+        @weapon.reload(params[:ammo_to_reload])
+        
+        format.json { render json: @weapon.to_json(only: :ammo), status: :ok }
+        format.html { redirect_to @weapon, notice: 'Weapon ammo reloaded' }
+      else
+        format.json { render json: @weapon.to_json(only: :ammo), status: :unprocessable_entity }
+        format.html { redirect_to @weapon, notice: 'Weapon not reloaded' }
+      end
+      format.js
+    end
+  end
+end
+
+
+reload.js.erb
+$('span#ammo').text("<%= @weapon.ammo %>")
+
+<% if @weapon.ammo >= 30 %> 
+  $('div#reload_form').fadeOut()
+<% end %>
+
+
+rendered html
+<p id="notice"></p> 
+<ul> 
+<li> 
+  <em>Name:</em> 
+  Gun
+</li> 
+<li> 
+  <em>Condition:</em> 
+  <span id="condition">New</span> 
+  <a href="/users/2/weapons/7/toggle_condition" data-remote="true">Toggle</a> 
+</li> 
+<li> 
+  <em>Ammo:</em> 
+  <span id="ammo">15</span> 
+</li> 
+</ul> 
+
+<div id="reload_form"> 
+<form accept-charset="UTF-8" action="/users/2/weapons/7/reload" class="edit_weapon" id="edit_weapon_7" method="post">
+  <div class="field"> 
+	<label>Number of bullets to reload:</label>
+	<input id="ammo_to_reload" name="ammo_to_reload" value="15" type="number">
+	<input name="commit" value="Reload" type="submit">
+  </div> 
+</form>
+</div>

@@ -1,0 +1,19 @@
+3.4 Listing Mime Types
+
+Sometimes it’s useful to check for the different Mime Types supported by our Rails application, especially when debugging!
+
+Type the code that lists all Mime Types registered in our app.
+
+
+Answer: Mime::SET
+
+
+Console
+
+Press Enter to submit. Type 'answer' and press Enter for the current answer or 'help' and press Enter for information on using the console
+
+> Mime::SET
+
+"[#<Mime::Type:0x007fe83ec20f28 @synonyms=["application/xhtml+xml"], @symbol=:html, @string="text/html">, #<Mime::Type:0x007fe83ec20b90 @synonyms=[], @symbol=:text, @string="text/plain">, #<Mime::Type:0x007fe83ec207f8 @synonyms=["application/javascript", "application/x-javascript"], @symbol=:js, @string="text/javascript">, #<Mime::Type:0x007fe83ec20438 @synonyms=[], @symbol=:css, @string="text/css">, #<Mime::Type:0x007fe83ec2be00 @synonyms=[], @symbol=:ics, @string="text/calendar">, #<Mime::Type:0x007fe83ec2bb58 @synonyms=[], @symbol=:csv, @string="text/csv">, #<Mime::Type:0x007fe83ec2b888 @synonyms=[], @symbol=:png, @string="image/png">, #<Mime::Type:0x007fe83ec2b4c8 @synonyms=[], @symbol=:jpeg, @string="image/jpeg">, #<Mime::Type:0x007fe83ec2b158 @synonyms=[], @symbol=:gif, @string="image/gif">, #<Mime::Type:0x007fe83ec2ae10 @synonyms=[], @symbol=:bmp, @string="image/bmp">, #<Mime::Type:0x007fe83ec2aa50 @synonyms=[], @symbol=:tiff, @string="image/tiff">, #<Mime::Type:0x007fe83ec2a708 @synonyms=[], @symbol=:mpeg, @string="video/mpeg">, #<Mime::Type:0x007fe83ec2a280 @synonyms=["text/xml", "application/x-xml"], @symbol=:xml, @string="application/xml">, #<Mime::Type:0x007fe83ec29dd0 @synonyms=[], @symbol=:rss, @string="application/rss+xml">, #<Mime::Type:0x007fe83ec299e8 @synonyms=[], @symbol=:atom, @string="application/atom+xml">, #<Mime::Type:0x007fe83ec294c0 @synonyms=["text/yaml"], @symbol=:yaml, @string="application/x-yaml">, #<Mime::Type:0x007fe83ec28e58 @synonyms=[], @symbol=:multipart_form, @string="multipart/form-data">, #<Mime::Type:0x007fe83ec28958 @synonyms=[], @symbol=:url_encoded_form, @string="application/x-www-form-urlencoded">, #<Mime::Type:0x007fe83ec28480 @synonyms=["text/x-json", "application/jsonrequest"], @symbol=:json, @string="application/json">, #<Mime::Type:0x007fe83ec32cf0 @synonyms=[], @symbol=:pdf, @string="application/pdf">, #<Mime::Type:0x007fe83ec33c40 @synonyms=[], @symbol=:zip, @string="application/zip">]"
+
+Success! To move on, use <ctrl + j>, type 'next' or click continue.

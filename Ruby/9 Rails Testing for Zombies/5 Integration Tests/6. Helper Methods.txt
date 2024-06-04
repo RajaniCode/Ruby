@@ -1,0 +1,93 @@
+6. Helper Methods
+
+
+Refactor the tweet creation code of this test into its own helper method in test_helper.
+
+    
+tweets_controller.rb
+class TweetsController < ApplicationController
+
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def new
+    @tweet = Tweet.new
+  end
+
+  def create
+    @tweet = Tweet.new(params[:tweet])
+    if @tweet.save
+      redirect_to @tweet
+    else
+      render :new
+    end
+  end
+
+end
+
+
+new.html
+<h1>New tweet</h1>
+
+<form accept-charset="UTF-8" action="/tweets" class="new_tweet" id="new_tweet" method="post">
+
+  <label for="tweet_status">Status</label>
+  <input id="tweet_status" name="tweet[status]" size="30" type="text" />
+
+  <label for="tweet_zombie_id">Zombie</label>
+  <select id="tweet_zombie_id" name="tweet[zombie_id]">
+    <option value="1">Ash</option>
+    <option value="2">bob</option>
+  </select>
+
+  <input name="commit" type="submit" value="Create Tweet" />
+
+</form>
+
+
+test/integration/creating_a_tweet_test.rb
+class CreatingATweetTest < ActionDispatch::IntegrationTest
+  test 'should create a new tweet' do
+    visit new_tweet_url
+    fill_in 'Status', with: 'I love the way your brain feels'
+    select 'Ash', from: 'Zombie'
+    click_button 'Create Tweet'
+    assert_equal tweet_path(Tweet.last), current_path
+  end
+end
+
+
+test/test_helper.rb
+class ActiveSupport::TestCase
+  def create_tweet_for(zombie, status)
+    
+  end
+end
+
+
+Answer:
+test/test_helper.rb
+class ActiveSupport::TestCase
+  def create_tweet_for(zombie, status)
+    visit new_tweet_url
+    fill_in 'Status', with: status
+    select zombie, from: 'Zombie'
+    click_button 'Create Tweet'
+  end
+end
+
+
+test/integration/creating_a_tweet_test.rb
+class CreatingATweetTest < ActionDispatch::IntegrationTest
+  test 'should create a new tweet' do
+    create_tweet_for 'Ash', 'I love the way your brain feels'
+    assert_equal tweet_path(Tweet.last), current_path
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.044012s, 22.7209 tests/s, 90.8836 assertions/s.

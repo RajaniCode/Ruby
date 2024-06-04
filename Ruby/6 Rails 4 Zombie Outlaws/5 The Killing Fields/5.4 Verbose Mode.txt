@@ -1,0 +1,27 @@
+5.4 Verbose Mode
+
+
+Let's see how our test's run time compares to the others. Run the model tests in verbose mode.
+
+
+Answer: rake test:models TEST_OPTS="--verbose"
+
+
+Console
+Press Enter to submit, or type 'help' and press En­ter for info on using the console
+$ rake test:models TEST_OPTS="--verbose" 
+Run options: --verbose --seed 14951
+
+# Running tests:
+
+ZombieTest#test_should_be_hungry = 0.01 s = .
+ZombieTest#test_should_have_a_bounty = 0.00 s = .
+ZombieTest­#test_should_match_number_of_Items = 0.05 s = .
+ZombieTest­#test_should_start_with_4_Limbs = 0.00 s = .
+
+
+Finished tests in 0.062201s, 64.3076 tests/s, 64.3076 assertions/s.
+
+4 tests, 4 assertions, 0 failures, 0 errors, 0 skips
+Success! To move on, use <ctrl + j>, type 'next' or click continue.
+  

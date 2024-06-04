@@ -1,0 +1,34 @@
+3. Expectation
+
+
+Now let's write the example. Go ahead and instantiate a tweet, give it the status "Nom nom nom", and test the status has been properly set to this value using an == equality matcher.
+
+
+tweet.rb
+class Tweet
+  attr_accessor :status
+ 
+  def initialize(options={})
+    self.status = options[:status]
+  end
+ 
+  def public?
+    self.status && self.status[0] != "@"                                 
+  end
+end
+
+
+tweet_spec.rb
+describe Tweet do
+  it 'can set status'
+end
+
+
+Answer:
+tweet_spec.rb
+describe Tweet do
+  it 'can set status' do
+    tweet = Tweet.new(:status => "Nom nom nom")
+    tweet.status.should == "Nom nom nom"
+  end
+end

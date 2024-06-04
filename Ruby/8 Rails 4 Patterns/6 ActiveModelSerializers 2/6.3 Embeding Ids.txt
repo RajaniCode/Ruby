@@ -1,0 +1,28 @@
+6.3 Embeding Ids
+
+Turns out serializing the entire comment record is affecting our application's response time. For now, let's change our ReviewSerializer to only embed each comment's id.
+
+
+review_array_serializer.rb
+class ReviewSerializer < ActiveModel::Serializer
+  attributes :id, :description, :approve_url
+
+  has_many :comments
+
+  def approve_url
+    approve_review_url(object)
+  end
+end
+
+
+Answer:
+review_array_serializer.rb
+class ReviewSerializer < ActiveModel::Serializer
+  attributes :id, :description, :approve_url
+
+  has_many :comments, embed: :ids
+
+  def approve_url
+    approve_review_url(object)
+  end
+end

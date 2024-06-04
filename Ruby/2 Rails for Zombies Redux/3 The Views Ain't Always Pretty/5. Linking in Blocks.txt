@@ -1,0 +1,55 @@
+5. Linking in Blocks
+
+
+In the each block, make the zombie's name link to its edit page.
+
+Database:
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+tweets
+id	status					zombie_id
+1	Where can I get a good bite to eat?		1
+2	My left arm is missing, but I don't care	2
+3	I just ate some delicious brains		3
+4	OMG, my fingers turned green. #FML		1
+	
+app/views/zombies/index.html.erb
+<% zombies = Zombie.all %>
+
+<ul>
+  <% zombies.each do |zombie| %>
+    <li>
+      <%= zombie.name %>
+    </li>
+  <% end %>
+</ul>
+
+
+Answer:
+app/views/zombies/index.html.erb
+<% zombies = Zombie.all %>
+
+<ul>
+  <% zombies.each do |zombie| %>
+    <li>
+      <%= link_to zombie.name, edit_zombie_path(zombie) %>
+    </li>
+  <% end %>
+</ul>
+
+
+Output:
+<ul>
+    <li>
+      <a href="/zombies/1/edit">Ashley</a>
+    </li>
+    <li>
+      <a href="/zombies/2/edit">Bob</a>
+    </li>
+    <li>
+      <a href="/zombies/3/edit">Katie</a>
+    </li>
+</ul>

@@ -1,0 +1,64 @@
+2.2 Integration Intro
+
+Integration tests help drive the design of our API endpoints and simulate clients interacting with our application. Let’s start writing some integration tests for our humans resources.
+
+
+test/integration/listing_humans_test.rb
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  # setup code here
+
+  test 'returns a list of humans' do
+    # test code here
+  end
+end
+
+
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  namespace :api, path: '/', constraints: { subdomain: 'api' } do
+    resources :humans
+  end
+end
+
+
+1. Our API resources live under their own api subdomain constraint. Add the proper setup code to add subdomain support for our integration tests. Remember, Rails uses example.com as the domain for test runs.
+
+Answer:
+require 'test_helper'
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  # setup code here
+  setup {host! 'api.example.com'}
+  test 'returns a list of humans' do
+    # test code here    
+  end
+end
+
+
+2. If you look inside of our test block, the first thing we must do is to issue a GET request to the humans resources URI.
+
+Answer:
+require 'test_helper'
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  # setup code here
+  setup {host! 'api.example.com'}
+  test 'returns a list of humans' do
+    # test code here   
+    get '/humans'
+  end
+end
+
+
+3. Use assert_equal to check for a 200 - Success response status, and refute_empty to check for a non-empty response body.
+
+Answer:
+require 'test_helper'
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  # setup code here
+  setup {host! 'api.example.com'}
+  test 'returns a list of humans' do
+    # test code here   
+    get '/humans'
+    assert_equal 200, response.status
+    refute_empty response.body
+  end
+end

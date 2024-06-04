@@ -1,0 +1,84 @@
+5.11 Route Version Constraint
+
+With our ApiVersion class in place, all that’s left to do is use this class on our routes file. We’ll need create two ApiVersion objects - one for each API version that we need to support. Don’t forget to indicate that version 2 is the default API version!
+
+
+lib/api_version.rb
+class ApiVersion
+  def initialize(version, default_version=false)
+    @version, @default_version = version, default_version
+  end
+
+  def matches?(request)
+    @default_version || check_headers(request.headers)
+  end
+  private
+  def check_headers(headers)
+    accept = headers['Accept']
+    accept && accept.include?("application/vnd.apocalypse.+json")
+  end
+end
+
+
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  scope defaults: { format: 'json' } do
+    scope module: :v1, constraints: ... do # Task 2
+      resources :zombies
+    end
+    scope module: :v2, constraints: ... do # Task 3
+      resources :zombies
+    end
+  end
+end
+
+
+1. First, require the ApiVersion class file, which lives under the lib folder. The lib folder is currently added to the Rails load path.
+
+Answer:
+config/routes.rb
+require 'api_version'
+SurvivingRails::Application.routes.draw do
+  scope defaults: { format: 'json' } do
+    scope module: :v1, constraints: ApiVersion.new('v1') do # Task 2
+      resources :zombies
+    end
+    scope module: :v2, constraints: ApiVersion.new('v2') do # Task 3
+      resources :zombies
+    end
+  end
+end
+
+
+2. Set the v1 module constraint to a new object from the ApiVersion class. This object should be initialized to version v1.
+
+Answer:
+config/routes.rb
+require 'api_version'
+SurvivingRails::Application.routes.draw do
+  scope defaults: { format: 'json' } do
+    scope module: :v1, constraints: ApiVersion.new('v1') do # Task 2
+      resources :zombies
+    end
+    scope module: :v2, constraints: ApiVersion.new('v2') do # Task 3
+      resources :zombies
+    end
+  end
+end
+
+
+3. Set the v2 module constraint to a new object from the ApiVersion class. This object should be initialized to version v2 and this is the default API version.
+
+Answer:
+config/routes.rb
+require 'api_version'
+SurvivingRails::Application.routes.draw do
+  scope defaults: { format: 'json' } do
+    scope module: :v1, constraints: ApiVersion.new('v1') do # Task 2
+      resources :zombies
+    end
+    scope module: :v2, constraints: ApiVersion.new('v2', true) do # Task 3
+      resources :zombies
+    end
+  end
+end

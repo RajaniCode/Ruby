@@ -1,0 +1,169 @@
+###########################################################################################################################
+
+# Ruby on Rails
+
+###########################################################################################################################
+
+% brew install ruby
+% nano ~/.zprofile
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+% cat ~/.zprofile
+% brew pin ruby
+% ruby --version
+% where ruby
+% which ruby
+% type ruby
+% man ruby
+
+% irb --version
+% where irb
+% which irb
+% type irb
+% man irb
+
+# REPL
+% irb
+> RUBY_DESCRIPTION
+> exit
+
+# Server
+% ruby -run -e httpd
+# Or
+% ruby -run -e httpd . -p 8000
+http://127.0.0.1:8080
+
+% gem --version
+% gem update
+% gem update --system
+% where gem
+% which gem
+% type gem
+% man gem
+
+[
+% bundler install
+]
+% bundler --version
+% where bundler
+% which bundler
+% type bundler
+[
+% nano Gemfile                            
+[                           
+source "https://rubygems.org"
+ruby "3.2.2"
+gem 'nokogiri', '~> 1.15', '>= 1.15.4'
+gem 'rack', '~> 3.0', '>= 3.0.8'
+gem 'rspec', '~> 3.12'
+]
+% cat Gemfile
+% bundler install                         
+Resolving dependencies...
+Fetching gem metadata from https://rubygems.org/.......
+Bundle complete! 3 Gemfile dependencies, 10 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+% cat Gemfile.lock
+% bundler config set --local frozen 'true'
+]
+
+[
+% bundle install
+]
+% bundle --version
+% where bundle
+% which bundle
+% type bundle
+% man bundle
+[
+% nano Gemfile                            
+[                           
+source "https://rubygems.org"
+ruby "3.2.2"
+gem 'nokogiri', '~> 1.15', '>= 1.15.4'
+gem 'rack', '~> 3.0', '>= 3.0.8'
+gem 'rspec', '~> 3.12'
+]
+% cat Gemfile
+% bundle install                         
+Fetching gem metadata from https://rubygems.org/.......
+Resolving dependencies...
+Bundle complete! 3 Gemfile dependencies, 10 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+% cat Gemfile.lock
+% bundle config set --local frozen 'true'
+]
+
+% rake --version
+% where rake
+% which rake
+% type rake
+
+% gem install rails
+# Restart terminal window
+% rails --version
+% where rails
+% which rails
+% type rails
+
+# rvm
+% curl -sSL https://get.rvm.io | bash -s stable
+# Restart terminal window
+% rvm --version
+% where rvm
+% which rvm
+% type rvm
+% man rvm
+
+% rvm install "ruby-3.2.2" --with-openssl-dir="$(brew --prefix)/opt/openssl@1.1/"
+% ruby --version
+% gem --version
+% gem update
+% gem update --system
+% bundler --version
+% bundle --version
+% rake --version
+% gem install rails
+% rails --version
+
+# rbenv
+% brew install rbenv
+# % echo 'eval "$(rbenv init -)"' >> $HOME/.zprofile
+% nano ~/.zprofile
+eval "$(rbenv init -)"
+% cat ~/.zprofile
+% source ~/.zprofile
+% type rbenv
+% rbenv --version
+% rbenv install -l
+% rbenv install 3.2.2
+% rbenv global 3.2.2
+% ruby --version
+% gem --version
+% gem update
+% gem update --system
+% echo "gem: --no-document" > ~/.gemrc
+% bundler --version
+% bundle --version
+% rake --version
+% gem env home
+% gem install rails
+% rails --version
+% gem search '^rails$' --all
+# % gem install rails --version 6.1.7.6
+# For a new version of Ruby or a gem 
+# % rbenv rehash
+% brew upgrade rbenv ruby-build
+# Uninstall Ruby version 3.0.6
+# % rbenv uninstall 3.0.6
+# % sed -in-place '/eval "$(rbenv init -)"/d' $HOME/.zprofile
+# % nano ~/.zprofile
+eval "$(rbenv init -)"
+# % cat ~/.zprofile
+# % source ~/.zprofile
+# % rm -rf `rbenv root`
+# % brew uninstall rbenv
+
+###########################################################################################################################

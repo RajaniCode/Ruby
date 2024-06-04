@@ -1,0 +1,41 @@
+1.6 Routing Concerns I
+
+
+Looks like there's a lot of duplication in our routes file. Extract the shotguns, rifles, and knives into a concern. Name this concern defensible, and reference it from the three existing resources.
+
+
+config/routes.rb
+ZombieOutlaws::Application.routes.draw do
+  resources :sheriffs do
+    resources :shotguns
+    resources :rifles
+    resources :knives
+  end
+
+  resources :gunslingers do
+    resources :shotguns
+    resources :rifles
+    resources :knives
+  end
+
+  resources :preachers do
+    resources :shotguns
+    resources :rifles
+    resources :knives
+  end
+end
+
+
+Answer:
+config/routes.rb
+ZombieOutlaws::Application.routes.draw do
+  concern :defensible do
+    resources :shotguns
+    resources :rifles
+    resources :knives
+  end
+  
+  resources :sheriffs, concerns: :defensible
+  resources :gunslingers, concerns: :defensible
+  resources :preachers, concerns: :defensible
+end

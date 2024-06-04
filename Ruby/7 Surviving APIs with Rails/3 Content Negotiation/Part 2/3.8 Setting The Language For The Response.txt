@@ -1,0 +1,36 @@
+3.8 Setting The Language For The Response
+
+With all tests in place, it is now time to implement our feature. We’ll start with a method that sets the application’s locale with the value from the Accept-Language request header.
+
+
+app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+end
+
+
+1. Create a controller callback that calls the set_locale method everytime a new request comes in. Define this method, but don’t worry about implementing it just yet. By following the convention for controller callback methods, mark this method as protected.
+
+Answer:
+app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  before_action :set_locale  
+  protected
+  	def set_locale     
+  	end
+end
+
+
+2. Now it is time to implement the set_locale method. This method reads from the Accept-Language request header and sets the application’s locale with the value from it.
+
+Answer:
+app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+  before_action :set_locale  
+  protected
+    def set_locale    
+      I18n.locale = request.headers['Accept-Language']
+    end
+end

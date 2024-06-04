@@ -1,0 +1,46 @@
+4.2 Integration Tests for POST
+
+Our web API needs an end point to register humans who have survived the Zombie Apocalypse. We will start by writing some integration tests for the POST method. These tests will ensure that only valid humans can be created and that our API generates the proper response. Use the following data for creating a valid human: { human: { name: 'John', brain_type: 'small' } }.to_json.
+
+
+test/integration/creating_humans_test.rb
+class CreatingHumansTest < ActionDispatch::IntegrationTest
+  test 'creates human' do
+    # code here
+  end
+end
+
+
+1. Use the post method to issue a request to the humans resource URI. The request will need to include valid human data as its second argument. The third argument will need to send in a hash that tells the server that our request expects the response to be in JSON, and that the payload we are sending is also in JSON.
+
+
+Answer:
+test/integration/creating_humans_test.rb
+class CreatingHumansTest < ActionDispatch::IntegrationTest
+  test 'creates human' do
+    # code here
+    post '/humans',
+    { human: 
+      { name: 'John', brain_type: 'small' } 
+    }.to_json,
+    { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+  end
+end
+
+
+2. Assert the response status code is 201 - Created.
+
+
+Answer:
+test/integration/creating_humans_test.rb
+class CreatingHumansTest < ActionDispatch::IntegrationTest
+  test 'creates human' do
+    # code here
+    post '/humans',
+    { human: 
+      { name: 'John', brain_type: 'small' } 
+    }.to_json,
+    { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+    assert_equal 201, response.status
+  end
+end

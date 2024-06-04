@@ -1,0 +1,75 @@
+1. Stubbing
+
+
+Refactor the spec below to use stubs rather than hitting the database.
+
+
+models
+# zombie.rb
+class Zombie < ActiveRecord::Base
+  has_many :tweets
+  validates :email, presence: true
+  attr_accessible :email
+end
+ 
+# tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+  validates :message, presence: true
+  attr_accessible :message
+end
+
+
+zombie_mailer.rb
+class ZombieMailer < ActionMailer::Base
+  def tweet(zombie, tweet)
+    mail(:from => 'admin@codeschool.com',
+         :to => zombie.email, 
+         :subject => tweet.message)
+  end
+end
+
+
+zombie_spec.rb
+describe ZombieMailer do
+  context '#tweet' do
+    let(:zombie) { Zombie.create(email: 'anything@example.org') }
+    let(:tweet) { Tweet.create(message: 'Arrrrgggghhhh', zombie: zombie) }
+
+    subject { ZombieMailer.tweet(zombie, tweet) }
+    its(:from) { should include('admin@codeschool.com') }
+    its(:to) { should include(zombie.email) }
+    its(:subject) { should == tweet.message }
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe ZombieMailer do
+  context '#tweet' do
+    let(:zombie) { stub(email: 'anything@example.org') }
+    let(:tweet) { stub(message: 'Arrrrgggghhhh', zombie: zombie) }
+
+    subject { ZombieMailer.tweet(zombie, tweet) }
+    its(:from) { should include('admin@codeschool.com') }
+    its(:to) { should include(zombie.email) }
+    its(:subject) { should == tweet.message }
+  end
+end
+
+
+#OR
+
+
+describe ZombieMailer do
+  context '#tweet' do
+    let(:zombie) { stub(:zombie, email: 'anything@example.org') }
+    let(:tweet) { stub(:zombie, message: 'Arrrrgggghhhh', zombie: zombie) }
+
+    subject { ZombieMailer.tweet(zombie, tweet) }
+    its(:from) { should include('admin@codeschool.com') }
+    its(:to) { should include(zombie.email) }
+    its(:subject) { should == tweet.message }
+  end
+end

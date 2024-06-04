@@ -1,0 +1,38 @@
+6.2 fresh_when
+
+
+In order to save our Rails application some CPU cycles let's use the fresh_when method, passing in our @zombie model. Make it so the ETag is generated from the @zombie model rather than from the whole response body.
+
+
+Database:
+zombies 
+id	name	weapon
+1	Ash	Chainsaw
+2	Bob	Bone
+3	Jim	Axe
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  def most_wanted
+    where(status: 'outlaw', killed_on: nil).first
+  end
+end
+
+
+controllers/most_wanted_controller.rb
+class MostWantedController < ApplicationController
+  def show
+    @zombie = Zombie.most_wanted
+  end
+end
+
+
+Answer:
+controllers/most_wanted_controller.rb
+class MostWantedController < ApplicationController
+  def show
+    @zombie = Zombie.most_wanted
+    fresh_when(@zombie)
+  end
+end

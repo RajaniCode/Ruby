@@ -1,0 +1,24 @@
+5. More To JSON options
+
+Objective
+
+Modify the show action so that the JSON it renders includes the zombie record the @weapon belongs to. Also make it exclude the :id, :created_at, and :updated_at fields.
+
+    
+app/controllers/weapons_controller.rb
+class WeaponsController < ApplicationController
+  def show
+    @weapon = Weapon.find(params[:id])
+    render
+  end
+end
+
+
+Answer:
+app/controllers/weapons_controller.rb
+class WeaponsController < ApplicationController
+  def show
+    @weapon = Weapon.find(params[:id])
+    render json: @weapon.to_json(include: :zombie, except: [:id, :created_at, :updated_at])
+  end
+end

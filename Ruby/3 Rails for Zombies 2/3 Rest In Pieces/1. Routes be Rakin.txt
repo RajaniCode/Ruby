@@ -1,0 +1,21 @@
+1. Routes be Rakin
+
+
+Objective
+
+Please type the rake command you use to list out all the routes on the command line
+
+
+Answer: rake routes
+
+
+$ rake route­s
+tweets GET    /tweets(.:format)          {:action=>"index", :controller=>"tweets"}
+           POST   /tweets(.:format)          {:action=>"create", :controller=>"tweets"}
+ new_tweet GET    /tweets/new(.:format)      {:action=>"new", :controller=>"tweets"}
+edit_tweet GET    /tweets/:id/edit(.:format) {:action=>"edit", :controller=>"tweets"}
+     tweet GET    /tweets/:id(.:format)      {:action=>"show", :controller=>"tweets"}
+           PUT    /tweets/:id(.:format)      {:action=>"update", :controller=>"tweets"}
+           DELETE /tweets/:id(.:format)      {:action=>"destroy", :controller=>"tweets"}
+Success!
+$  

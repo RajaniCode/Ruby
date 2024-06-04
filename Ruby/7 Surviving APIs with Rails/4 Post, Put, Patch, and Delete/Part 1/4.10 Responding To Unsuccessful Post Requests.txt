@@ -1,0 +1,71 @@
+4.10 Responding To Unsuccessful Post Requests
+
+For unsuccessful POST requests, our API needs to respond with the errors that prevented the request from being fulfilled, along with the proper status code.
+
+
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def create
+    human = Human.new(human_params)
+
+    if human.save
+      head 204, location: human
+    else
+      # code here
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+1. If a new human cannot be saved, then respond with the errors in JSON.
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def create
+    human = Human.new(human_params)
+
+    if human.save
+      head 204, location: human
+    else
+      # code here
+      render json: human.errors
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+2. Now set the 422 - Unprocessable Entity status code when responding with the errors.
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def create
+    human = Human.new(human_params)
+
+    if human.save
+      head 204, location: human
+    else
+      # code here
+      render json: human.errors, status: 422
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end

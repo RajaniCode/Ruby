@@ -1,0 +1,14 @@
+6.6 Curl With Basic Auth
+
+
+Use curl to make an authenticated request using HTTP Basic Auth to the following URL: http://cs-zombies-dev.com:3000/zombies. Set the username to foo and password to secret, and make sure to use a request header to specify JSON as the expected format for the response.
+
+Answer: curl -H "Accept: application/json" \ -u 'foo:secret' http://cs-zombies-dev.com:3000/zombies
+
+Press Enter to submit. Type 'answer' and press Enter for the current answer or 'help' and press Enter for information on using the console
+
+$ curl -H "Accept: application/json" \ -u 'foo:secret' http://cs-zombies-dev.com:3000/zombies
+
+Success! To move on, use <ctrl + j>, type 'next' or click continue.
+
+$ 

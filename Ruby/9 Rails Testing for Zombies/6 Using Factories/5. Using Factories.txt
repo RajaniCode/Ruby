@@ -1,0 +1,40 @@
+5. Using Factories
+
+
+Using factories write a test to verify that a tweet is invalid without a status. Be sure to build the Tweet, rather than create it.
+
+
+test/factories/tweet.rb
+FactoryGirl.define do
+  factory :tweet do
+    association :zombie
+    status "Need brain factory."
+  end
+end
+
+
+spec/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  test "A tweet requires a status" do
+    
+  end
+end
+
+
+spec/models/tweet_test.rb
+
+
+Answer:
+spec/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  test "A tweet requires a status" do
+    tweet = Factory.build(:tweet, status: nil)
+    assert !tweet.valid?, "Need brain factory"
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.009244s, 108.1727 tests/s, 216.3454 assertions/s.

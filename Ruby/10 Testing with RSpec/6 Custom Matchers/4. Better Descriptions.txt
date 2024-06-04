@@ -1,0 +1,102 @@
+4. Better Descriptions
+
+
+When our spec runs, we'll see the description print as the spec name in red or green, depending on if our spec passes. Let's make this more informative by having it return a message indicating that it validates numericality of the passed in attribute.
+
+
+zombie_spec
+describe Zombie do
+  subject { Zombie.new }
+  it { should validate_numericality_of(:iq) }
+end
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :iq
+  validates :iq, presence: true, 
+                 numericality: {
+                   only_integers: true
+                 }
+end
+
+
+validate_numericality_of.rb
+module ValidateNumericalityOf
+  class Matcher
+    def initialize(attribute)
+      @attribute = attribute
+    end
+
+    def matches?(model)
+      check_for_number model
+    end
+
+    def failure_message
+      "Not implemented"
+    end
+
+    def negative_failure_message
+      "Not implemented"
+    end
+
+    def description
+      "Not implemented"
+    end
+    
+    def check_for_number model
+      model[@attribute] = "not a number"
+      model.valid?
+      model.errors[@attribute].include?("is not a number")
+    end
+  end
+
+  def validate_numericality_of(attribute)
+    Matcher.new(attribute)
+  end
+end
+
+RSpec.configure do |config|
+  config.include ValidateNumericalityOf, type: :model
+end
+
+
+Answer:
+validate_numericality_of.rb
+module ValidateNumericalityOf
+  class Matcher
+    def initialize(attribute)
+      @attribute = attribute
+    end
+
+    def matches?(model)
+      check_for_number model
+    end
+
+    def failure_message
+      "Not implemented"
+    end
+
+    def negative_failure_message
+      "Not implemented"
+    end
+
+    def description
+      "validate numericality of #{@attribute}"
+    end
+    
+    def check_for_number model
+      model[@attribute] = "not a number"
+      model.valid?
+      model.errors[@attribute].include?("is not a number")
+    end
+  end
+
+  def validate_numericality_of(attribute)
+    Matcher.new(attribute)
+  end
+end
+
+RSpec.configure do |config|
+  config.include ValidateNumericalityOf, type: :model, color: :green
+end

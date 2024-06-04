@@ -1,0 +1,81 @@
+5.6 Using before_action To Set The IP
+
+Our app now strictly serves a web API, which means we can use ApplicationController to share common code across different API versions.
+
+
+v2/zombies_controller.rb
+module V2
+  class ZombiesController < ApplicationController
+    def index
+      render json: "", status: 200
+    end
+  end
+end
+
+
+test/integration/zombies_with_ip_test.rb
+require 'test_helper'
+class ZombiesWithIpTest < ActionDispatch::IntegrationTest
+  setup { @ip = '192.168.1.12' }
+  test '/v1 returns ip and v1' do
+    get '/v1/zombies', {}, { 'REMOTE_ADDR' => @ip }
+    assert_equal 200, response.status
+    assert_equal "#{@ip} and version one", response.body
+  end
+
+  test '/v2 returns ip and v2' do
+    get '/v2/zombies', {}, { 'REMOTE_ADDR' => @ip }
+    assert_equal 200, response.status
+    assert_equal "#{@ip} and version two", response.body
+  end
+end
+
+
+v1/zombies_controller.rb
+module V1
+  class ZombiesController < ApplicationController
+    def index
+      render json: "", status: 200
+    end
+  end
+end
+
+
+application_controller.rb
+class ApplicationController < ActionController::Base
+end
+
+
+1. On ApplicationController, create a before_action that sets the instance variable @user_ip with the value from the REMOTE_ADDR request header.
+
+Answer:
+application_controller.rb
+class ApplicationController < ActionController::Base
+  before_action -> {@user_ip = request.headers['REMOTE_ADDR']}
+end
+
+
+2. On V1::ZombiesController, render the proper JSON message that includes the client’s ip address. Make sure to check the integration test file tab on the far right for the actual message.
+
+Answer:
+v1/zombies_controller.rb
+module V1
+  class ZombiesController < ApplicationController
+    def index
+      render json: "#{@user_ip} and version one", status: 200
+    end
+  end 
+end
+
+
+3. On V2::ZombiesController, render the proper JSON message that includes the client’s ip address.
+
+Answer:
+v2/zombies_controller.rb
+module V2
+  class ZombiesController < ApplicationController
+    def index
+      render json: "#{@user_ip} and version two", status: 200
+    end
+  end
+end

@@ -1,0 +1,49 @@
+6.3 Declarative ETags I
+
+
+Because our 'Most Wanted Zombie' page now requires a user to be signed in, we added current_user.country as an additional argument to fresh_when. This allows Rails to generate a different ETag for each user. Refactor the code to use controller level etag methods in order to reduce duplication.
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  def most_wanted
+    where(status: 'outlaw', killed_on: nil).first
+  end
+end
+
+
+zombies 
+id	name	weapon
+1	Ash	Chainsaw
+2	Bob	Bone
+3	Jim	Axe
+
+
+controllers/most_wanted_controller.rb
+class MostWantedController < ApplicationController
+  def show
+    @zombie = Zombie.most_wanted
+    fresh_when([@zombie, current_user.country])
+  end
+
+  def edit
+    @zombie = Zombie.most_wanted
+    fresh_when([@zombie, current_user.country])
+  end
+end
+
+
+Answer:
+controllers/most_wanted_controller.rb
+class MostWantedController < ApplicationController
+  etag {current_user.country}
+  def show
+    @zombie = Zombie.most_wanted
+    fresh_when(@zombie)
+  end
+
+  def edit
+    @zombie = Zombie.most_wanted
+    fresh_when(@zombie)
+  end
+end

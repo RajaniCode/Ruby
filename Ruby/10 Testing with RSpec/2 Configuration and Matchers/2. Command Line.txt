@@ -1,0 +1,18 @@
+2. Command Line
+
+
+With the RSpec gem installed, you will have access to the command line tool, rspec.
+
+RSpec has a few settings you can configure, so to help us get started, let's initialize this as an RSpec project. This will generate a placeholder for our RSpec configuration.
+
+
+Answer: rspec --init
+
+
+Console
+
+my_project $ rspec --init
+create   spec/spec_helper.rb
+create   .rspec
+Success!
+my_project $  

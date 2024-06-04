@@ -1,0 +1,22 @@
+3. class_eval Part 1
+
+
+Using class_eval, add a method to the Game class called find_by_owner that takes one argument (the owner's name).
+
+
+game.rb
+class Game
+  def self.find_by_title(name)
+  end
+end
+
+
+game_override.rb
+
+
+Answer:
+game_override.rb
+Game.class_eval do
+  def self.find_by_owner(name)
+  end
+end

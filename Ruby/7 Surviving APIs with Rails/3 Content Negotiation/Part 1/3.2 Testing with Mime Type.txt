@@ -1,0 +1,38 @@
+3.2 Testing with Mime Type
+
+It’s time to improve the way our API determines the best response representation for different types of clients.
+
+Let’s start by writing a test to ensure our API is able to serve humans resources in JSON.
+
+
+test/integration/listing_humans_test.rb
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  test 'returns humans in JSON' do
+  end
+end
+
+
+1. Issue a GET request to the humans resource URI. Use the proper request header to ask for the JSON Mime Type.
+
+
+Answer:
+test/integration/listing_humans_test.rb
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  test 'returns humans in JSON' do
+    get '/humans', {},  {'Accept' => Mime::JSON}
+  end
+end
+
+
+2. Assert that the response status is 200 - Success and the response Content-Type is set to JSON.
+
+
+Answer:
+test/integration/listing_humans_test.rb
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  test 'returns humans in JSON' do
+    get '/humans', {},  {'Accept' => Mime::JSON}
+    assert_equal 200, response.status
+    assert_equal Mime::JSON, response.content_type
+  end
+end

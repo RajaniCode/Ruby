@@ -1,0 +1,35 @@
+2. Create
+
+
+Create a new Zombie.
+
+
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+
+
+Answer:
+z = Zombie.new
+z.name = "Latin"
+z.graveyard = "Latium"
+z.save
+
+
+Console
+
+Press Enter to submit, or type 'help' for info
+
+$ z = Zombie.new
+
+z.name = "Latin"
+
+z.graveyard = "Latium"
+
+z.save
+
+true
+
+Created a Zombie record.

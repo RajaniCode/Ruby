@@ -1,0 +1,29 @@
+3.5 Using Custom Headers with curl
+
+Use curl to issue a GET request to http://cs-zombies-dev.com:3000/humans. Make sure that application/json is specified as the the accepted Mime Type using a request header, and that only response headers are displayed.
+
+Answer: curl -IH "Accept: application/json" http://cs-zombies-dev.com:3000/humans
+
+Console
+
+Enter for information on using the console
+
+$ curl -IH "Accept: application/json" http://cs-zombies-dev.com:3000/humans
+
+     HTTP/1.1 200 OK
+      X-Frame-Options: SAMEORIGIN
+      X-Xss-Protection: 1; mode=block
+      X-Content-Type-Options: nosniff
+      X-Ua-Compatible: chrome=1
+      Content-Type: application/json; charset=utf-8
+      Etag: "d2836fd998ab5e4585f21055c435ebc5"
+      Cache-Control: max-age=0, private, must-revalidate
+      X-Request-Id: 269f9800-f15e-48d2-913a-b5e48f02f80f
+      X-Runtime: 0.101925
+      Server: WEBrick/1.3.1 (Ruby/2.0.0/2013-06-27)
+      Date: Tue, 21 Jul 2015 12:57:48 GMT
+      Content-Length: 0
+      Connection: Keep-Alive
+      Set-Cookie: request_method=HEAD; path=/
+
+Success! To move on, use <ctrl + j>, type 'next' or click continue.

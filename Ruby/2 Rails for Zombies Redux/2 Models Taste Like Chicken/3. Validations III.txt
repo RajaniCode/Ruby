@@ -1,0 +1,24 @@
+3. Validations III
+
+
+Validate both the uniqueness and the presence of a Zombie's name on a single line, using the new validation syntax.
+
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Father's Basement
+
+
+app/models/zombie.rb
+class Zombie < ActiveRecord::Base
+  # insert validation here
+end
+
+
+Answer:
+app/models/zombie.rb
+class Zombie < ActiveRecord::Base
+  # insert validation here
+  validates :name, uniqueness: true, presence: true
+end

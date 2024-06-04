@@ -1,0 +1,52 @@
+3.2 Model Concerns I
+
+Both the User and Item models have many reviews, and they also have the exact same reviews_rating method. Let's move the association code and the reviews_rating method code to the Reviewable concern. Make sure to use ActiveSupport::Concern.
+
+
+user.rb
+class User < ActiveRecord::Base
+  has_many :reviews, as: :reviewable, dependent: :destroy
+
+  def reviews_rating
+    (reviews.positive.count / reviews.approved.count.to_f).round(2)
+  end
+end
+
+
+item.rb
+class Item < ActiveRecord::Base
+  has_many :reviews, as: :reviewable, dependent: :destroy
+
+  def reviews_rating
+    (reviews.positive.count / reviews.approved.count.to_f).round(2)
+  end
+end
+
+
+review.rb
+class Review < ActiveRecord::Base
+  belongs_to :reviewable, polymorphic: true
+
+  MINIMUM_POSITIVE_RATING = 5
+  scope :positive, -> { where('is_approved = ? AND rating > ?', true, MINIMUM_POSITIVE_RATING) }
+  scope :approved, -> { where(is_approved: true) }
+end
+
+
+reviewable.rb
+module Reviewable
+end
+
+
+Answer:
+reviewable.rb
+module Reviewable
+  extend ActiveSupport::Concern    
+    included do
+      has_many :reviews, as: :reviewable, dependent: :destroy
+    end  
+  
+    def reviews_rating
+      (reviews.positive.count / reviews.approved.count.to_f).round(2)
+    end  
+end

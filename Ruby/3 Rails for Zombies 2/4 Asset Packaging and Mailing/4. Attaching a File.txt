@@ -1,0 +1,27 @@
+4. Attaching a File
+
+
+Objective
+
+Change the low_ammo method to include a picture of the weapon that's low on ammo as an attachment. You can name the file weapon.jpg and load the file using weapon.picture_file.
+
+
+app/mailers/weapon_mailer.rb
+class WeaponMailer < ActionMailer::Base
+  default from: "admin@rfz.com"
+
+  def low_ammo(weapon, zombie)
+    mail to: zombie.email, subject: "#{weapon.name} has low ammo"
+  end 
+end
+
+
+Answer:
+app/mailers/weapon_mailer.rb
+class WeaponMailer < ActionMailer::Base
+  default from: "admin@rfz.com"
+  def low_ammo(weapon, zombie)
+    mail to: zombie.email, subject: "#{weapon.name} has low ammo"
+    attachments['weapon.jpg'] = weapon.picture_file()
+  end 
+end

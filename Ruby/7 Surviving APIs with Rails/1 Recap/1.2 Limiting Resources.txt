@@ -1,0 +1,30 @@
+1.2 Limiting Resources
+
+Our web API is exposing endpoints for the humans and weapons resources. Currently, all operations are allowed on these resources. However, if we want to make it through the Zombie Apocalypse, we need to be extremely careful about what operations we allow.
+
+
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  resources :humans
+  resources :weapons
+end
+
+
+1. We cannot to allow the humans resources to be destroyed. Add the option that prevents that from happening. 
+
+Answer:
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  resources :humans, except: :destroy
+  resources :weapons
+end
+
+
+2. We must limit the operations allowed on the weapons resources to :index and :show.
+
+Answer:
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  resources :humans, except: :destroy
+  resources :weapons, only: [:index, :show]
+end

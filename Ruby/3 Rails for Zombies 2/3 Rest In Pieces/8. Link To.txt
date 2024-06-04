@@ -1,0 +1,55 @@
+8. Link To
+
+
+Objective
+
+Now create the proper link_to for when we view a zombie and want to show each of its weapons, and when we want to create a new weapon for this zombie.
+
+weapons_controller.rb
+class WeaponsController < ApplicationController
+ 
+  def index
+    @zombie = Zombie.find(params[:zombie_id])
+    @weapons = @zombie.weapons
+ 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @weapons }
+    end
+  end
+ 
+end
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  has_many :weapons
+end
+
+
+weapon.rb
+class Weapon < ActiveRecord::Base
+  belongs_to :zombie
+end
+
+
+app/views/weapons/index.html.erb
+<h2><%= @zombie.name %>'s weapons</h2>
+<ul>
+  <% @weapons.each do |w| %>
+    <li><%= link_to w.name, # add show weapon path here %></li>
+  <% end %>
+</ul>
+<%= link_to "New Weapon", # add new weapon path here %>
+
+
+Answer:
+app/views/weapons/index.html.erb
+<h2><%= @zombie.name %>'s weapons</h2>
+<ul>
+  <% @weapons.each do |w| %>
+    <li><%= link_to w.name, zombie_weapon_path(@zombie, w) %></li>
+  <% end %>
+</ul>
+
+<%= link_to "New Weapon", new_zombie_weapon_path(@zombie) %>

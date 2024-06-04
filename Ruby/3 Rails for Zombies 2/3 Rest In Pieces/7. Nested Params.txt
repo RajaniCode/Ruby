@@ -1,0 +1,43 @@
+7. Nested Params
+
+
+Objective
+
+Now that we have the proper route, we need to make sure the weapons controller properly looks up both the zombie and the weapon when we request /zombies/2/weapons/1. Finish this controller:
+
+
+params
+# Here is the parameters hash sent into the controller
+ 
+params = { zombie_id: 2, id: 1 }
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  has_many :weapons
+end
+
+
+weapon.rb
+class Weapon < ActiveRecord::Base
+  belongs_to :zombie
+end
+
+
+weapons_controller.rb
+class WeaponsController < ApplicationController
+  def show 
+    @zombie = 
+    @weapon =
+  end
+end
+	
+
+Answer:
+weapons_controller.rb
+class WeaponsController < ApplicationController
+  def show 
+    @zombie = Zombie.find(params[:zombie_id])
+    @weapon = @zombie.weapons.find(params[:id])
+  end
+end

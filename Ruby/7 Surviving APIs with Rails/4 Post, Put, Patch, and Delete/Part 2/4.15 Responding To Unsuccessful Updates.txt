@@ -1,0 +1,70 @@
+4.15 Responding To Unsuccessful Updates
+
+
+Complete our update action and render errors when a human cannot be updated.
+
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def update
+    human = Human.find(params[:id])
+
+    if human.update(human_params)
+      render json: human, status: 200
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+   
+1. If human.update returns false, render the errors back as JSON.
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def update
+    human = Human.find(params[:id])
+
+    if human.update(human_params)
+      render json: human, status: 200
+    else
+      render json: human.errors, status: 422
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+2. Set the reponse status code to 422 - Unprocessable Entity.
+
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def update
+    human = Human.find(params[:id])
+
+    if human.update(human_params)
+      render json: human, status: 200
+    else
+      render json: human.errors, status: 422
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end

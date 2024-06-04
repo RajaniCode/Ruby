@@ -1,0 +1,29 @@
+2.6 Update
+
+
+Let's use the new, and shorter, method for updating attributes from a model.
+
+
+Database:
+zombies 
+id	name	weapon
+1	Ash	Chainsaw
+2	Bob	Bone
+3	Jim	Axe
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+end
+
+zombie.rb
+@zombie.update_attributes(@zombie_params)
+
+
+Answer:
+zombie.rb
+@zombie.update(@zombie_params)
+
+
+#OR:
+@zombie.update(attributes: @zombie_params)
+

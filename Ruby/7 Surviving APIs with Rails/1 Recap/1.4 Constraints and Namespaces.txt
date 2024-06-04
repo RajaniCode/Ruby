@@ -1,0 +1,50 @@
+1.4 Constraints and Namespaces
+
+Our codebase is serving both a web API and a web site. Therefore, it is very important that we keep our code extremely organized. This helps mitigate the risk of file conflicts, specially when multiple people work on the same project.
+
+
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  resources :announcements
+  resources :zombies
+  resources :humans
+end
+
+
+1. Use the namespace method to create a namespace for api, and move the zombies and humans resources into it.
+
+Answer:
+config/routes.rb
+SurvivingRails::Application.routes.draw do  
+  namespace :api do
+   resources :zombies
+   resources :humans
+  end
+  resources :announcements
+end
+
+
+2. Add a constraints option to our namespace and set its subdomain to api.
+
+Answer:
+config/routes.rb
+SurvivingRails::Application.routes.draw do 
+  namespace :api, constraints: {subdomain: 'api'} do
+    resources :zombies
+    resources :humans
+  end 
+  resources :announcements
+end
+
+
+3. To avoid api being repeated on both the subdomain and on the URI path, add a path option to our namespace and set it to /.
+
+Answer:
+config/routes.rb
+SurvivingRails::Application.routes.draw do 
+  namespace :api, path: '/', constraints: {subdomain: 'api'} do
+    resources :zombies
+    resources :humans
+  end 
+  resources :announcements
+end

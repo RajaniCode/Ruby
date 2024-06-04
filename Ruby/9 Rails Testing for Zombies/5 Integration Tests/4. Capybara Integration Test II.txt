@@ -1,0 +1,73 @@
+4. Capybara Integration Test II
+
+
+Using Capybara, test that tweet creation works properly. The url to the tweet creation page is new_tweet_url. Hint: You should assert that you've ended up at 'tweet_path(Tweet.last)' after submitting the form. Take a close look at the new.html file below to determine the labels and contents of the form fields.
+
+
+tweets_controller.rb
+class TweetsController < ApplicationController
+
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def new
+    @tweet = Tweet.new
+  end
+
+  def create
+    @tweet = Tweet.new(params[:tweet])
+    if @tweet.save
+      redirect_to @tweet
+    else
+      render :new
+    end
+  end
+
+end
+
+
+new.html
+<h1>New tweet</h1>
+
+<form accept-charset="UTF-8" action="/tweets" class="new_tweet" id="new_tweet" method="post">
+
+  <label for="tweet_status">Status</label>
+  <input id="tweet_status" name="tweet[status]" size="30" type="text" />
+
+  <label for="tweet_zombie_id">Zombie</label>
+  <select id="tweet_zombie_id" name="tweet[zombie_id]">
+    <option value="1">Ash</option>
+    <option value="2">bob</option>
+  </select>
+
+  <input name="commit" type="submit" value="Create Tweet" />
+
+</form>
+
+
+test/integration/creating_a_tweet_test.rb
+class CreatingATweetTest < ActionDispatch::IntegrationTest
+  test 'should create a new tweet' do
+    
+  end
+end
+
+
+Answer:
+test/integration/creating_a_tweet_test.rb
+class CreatingATweetTest < ActionDispatch::IntegrationTest
+  test 'should create a new tweet' do
+    visit new_tweet_url
+    fill_in "tweet_status", with: "Hello"
+    select "Ash", from: "tweet_zombie_id"
+    click_button "Create Tweet"
+    assert_equal tweet_path(Tweet.last), current_path
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.121967s, 8.1989 tests/s, 32.7956 assertions/s.

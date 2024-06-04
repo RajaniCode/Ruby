@@ -1,0 +1,20 @@
+4.4 Dates
+
+
+We've added a field to track the date each Limb was found. We've been using a group of select inputs in the form, but we'd like to switch it to an input with type="date". Update the form to use a single field.
+
+
+app/views/limbs/_form.html.erb
+<%= form_for(@limb) do |f| %>
+  <div class="field">
+    <%= f.label :date_found %><br />
+    <%= f.date_select :date_found %>
+  </div>
+<% end %>
+
+
+Answer:
+app/views/limbs/_form.html.erb
+<%= form_for(@limb) do |f| %>
+  <%= f.date_field :date_found %>
+<% end %>

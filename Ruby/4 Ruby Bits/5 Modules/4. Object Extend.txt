@@ -1,0 +1,23 @@
+4. Object Extend
+
+
+Extend the single game object with the Playable module, so we can call the play method on it.
+
+
+playable.rb
+module Playable
+  def play
+  end
+end
+
+
+#file_name
+game = Game.new("Contra")
+game.play
+
+
+Answer:
+#file_name
+game = Game.new("Contra")
+game.extend(Playable)
+game.play

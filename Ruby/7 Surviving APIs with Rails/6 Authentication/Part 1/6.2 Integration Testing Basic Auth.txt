@@ -1,0 +1,77 @@
+6.2 Integration Testing Basic Auth
+
+Our zombies resources need to be protected against unauthorized access. Let’s start by writing some integration tests that simulate authenticated requests using HTTP Basic Auth.
+
+
+test/test_helper.rb
+ENV['RAILS_ENV'] = 'test'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails/test_help'
+
+class ActiveSupport::TestCase
+  ActiveRecord::Migration.check_pending!
+    fixtures :all
+    def encode_credentials(username, password)
+      ActionController::HttpAuthentication::Basic.encode_credentials(username, password)
+    end
+end
+
+
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  setup { @user = User.create!(username: 'foo', password: 'secret') }
+
+  test 'valid authentication lists zombies' do
+  end
+end
+
+
+1. Issue a GET request to the zombies resources URI.
+
+Answer:
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  setup { @user = User.create!(username: 'foo', password: 'secret') }  
+  test 'valid authentication lists zombies' do
+    get '/zombies'
+  end
+end
+
+
+2. Using Basic Auth, authenticate the request using the proper request header. Make sure to check test_helper.rb on the secondary tab for a helper method that you will need.
+
+Answer:
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  setup { @user = User.create!(username: 'foo', password: 'secret') }  
+  test 'valid authentication lists zombies' do
+    get '/zombies', {}, {'Authorization' =>	encode_credentials(@user.username, @user.password)}
+  end
+end
+
+
+3. Verify that the response returns a 200 - Successful status code.
+
+Answer:
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  setup { @user = User.create!(username: 'foo', password: 'secret') }  
+  test 'valid authentication lists zombies' do
+    get '/zombies', {}, {'Authorization' =>	encode_credentials(@user.username, @user.password)}
+    assert_equal 200, response.status
+  end
+end
+
+
+4. Now verify that the response Content-Type is set to JSON.
+
+Answer:
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  setup { @user = User.create!(username: 'foo', password: 'secret') }  
+  test 'valid authentication lists zombies' do
+    get '/zombies', {}, {'Authorization' => encode_credentials(@user.username, @user.password)}
+    assert_equal 200, response.status
+    assert_equal Mime::JSON, response.content_type
+  end
+end

@@ -1,0 +1,18 @@
+1.8 Thread Safety
+
+
+Change the production settings in our production environment file, from an application that's being upgraded to Rails 4, so that it's threadsafe. You will need to add two new settings.
+
+
+config/environments/production.rb
+ZombieOutlaws::Application.configure do
+  # config.threadsafe!
+end
+
+
+config/environments/production.rb
+ZombieOutlaws::Application.configure do
+  # config.threadsafe!
+  config.cache_classes = true
+  config.eager_load = true
+end

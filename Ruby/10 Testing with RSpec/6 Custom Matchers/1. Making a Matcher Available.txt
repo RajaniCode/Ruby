@@ -1,0 +1,86 @@
+1. Making a Matcher Available
+
+
+Creating a custom matcher takes quite a few steps. We'll create one from scratch over the next few challenges.
+
+For starters, let's configure RSpec to include our new module only for models.
+
+
+zombie_spec
+describe Zombie do
+  subject { Zombie.new }
+  it { should validate_numericality_of(:iq) }
+end
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :iq
+  validates :iq, presence: true, 
+                 numericality: {
+                   only_integers: true
+                 }
+end
+
+
+validate_numericality_of.rb
+module ValidateNumericalityOf
+  class Matcher
+    def initialize(attribute)
+    end
+
+    def matches?(model)
+      false
+    end
+
+    def failure_message
+      "Not implemented"
+    end
+
+    def negative_failure_message
+      "Not implemented"
+    end
+
+    def description
+      "Not implemented"
+    end
+  end
+
+  def validate_numericality_of(attribute)
+    pending
+  end
+end
+
+
+Answer:
+validate_numericality_of.rb
+module ValidateNumericalityOf
+  class Matcher
+    def initialize(attribute)
+    end
+
+    def matches?(model)
+      false
+    end
+
+    def failure_message
+      "Not implemented"
+    end
+
+    def negative_failure_message
+      "Not implemented"
+    end
+
+    def description
+      "Not implemented"
+    end
+  end
+
+  def validate_numericality_of(attribute)
+     Matcher.new(attribute)
+  end
+end
+
+RSpec.configure do |config|
+  config.include ValidateNumericalityOf, type: :model
+end

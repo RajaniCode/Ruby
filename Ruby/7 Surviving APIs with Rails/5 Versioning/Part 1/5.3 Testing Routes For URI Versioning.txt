@@ -1,0 +1,38 @@
+5.3 Testing Routes For URI Versioning
+
+Routes tests help ensure URIs are routed to the proper controller#action. Let’s use the assert_generates method to verify that versioned URIs are pointing to the right controllers.
+
+
+test/integration/routes_test.rb
+class RoutesTest < ActionDispatch::IntegrationTest
+  test 'routes to proper versions' do
+    # your code here
+  end
+end
+
+
+1. Create an assertion that checks that /v1/zombies points to the index action on the V1::ZombiesController.
+
+
+Answer:
+test/integration/routes_test.rb
+class RoutesTest < ActionDispatch::IntegrationTest
+  test 'routes to proper versions' do
+    # your code here
+    assert_generates '/v1/zombies', { controller: 'v1/zombies', action: 'index' }
+  end
+end
+
+
+2. Now create an assertion that checks that /v2/zombies is mapped to the index action on the V2::ZombiesController.
+
+
+Answer:
+test/integration/routes_test.rb
+class RoutesTest < ActionDispatch::IntegrationTest
+  test 'routes to proper versions' do
+    # your code here
+    assert_generates '/v1/zombies', { controller: 'v1/zombies', action: 'index' }
+    assert_generates '/v2/zombies', { controller: 'v2/zombies', action: 'index' }
+  end
+end

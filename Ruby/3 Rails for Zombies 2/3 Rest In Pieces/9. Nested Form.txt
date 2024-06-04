@@ -1,0 +1,51 @@
+9. Nested Form
+
+
+Objective
+
+Change the form_for below to use the proper nesting for creating a new weapon for a Zombie.
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  has_many :weapons
+end
+    
+
+weapon.rb
+class Weapon < ActiveRecord::Base
+  belongs_to :zombie
+end
+
+
+weapons_controller.rb
+class WeaponsController < ApplicationController
+ 
+  def new
+    @zombie = Zombie.find(params[:zombie_id])
+    @weapon = @zombie.weapons.build
+ 
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @weapon }
+    end
+  end
+ 
+end
+
+
+app/views/weapons/new.html.erb
+<%= form_for(@weapon) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+
+
+Answer:
+app/views/weapons/new.html.erb
+<%= form_for([@zombie, @weapon]) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
+
+#Note documentation:
+http://api.rubyonrails.org/classes/ActionView/Helpers/FormHelper.html#method-i-form_for

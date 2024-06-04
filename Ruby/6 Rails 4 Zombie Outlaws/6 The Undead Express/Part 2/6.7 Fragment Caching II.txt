@@ -1,0 +1,53 @@
+6.7 Fragment Caching II
+
+We've added caching to the zombie section as well, but we are missing one thing. When a given zombie record is updated, it should change the cache_key from its parent weapon record. To make this happen, add the missing option to the belongs_to relationship on the Zombie class.
+
+
+Database:
+zombies 
+id	name	weapon_id	status	killed_on
+1	Ash	1		outlaw	null
+2	Bob	2		dead	2015-07-18
+3	Jim	3		dead	2015-07-17
+weapons 
+id	name
+1	Chainsaw
+2	Bone
+3	Axe
+
+
+views/weapons/index.html.erb
+<% cache @weapon do %>
+  <section>
+  <h3><%= @weapon.name %></h3>
+    <ul>
+      <%= render @weapon.zombies %>
+    </ul>
+      <%= link_to 'Details', @weapon %>
+  </section>
+<% end %>
+
+
+views/zombies/zombie.html.erb
+<% cache zombie do %>
+  <li><%= zombie %></li>
+<% end %>
+
+
+models/weapon.rb
+class Weapon < ActiveRecord::Base
+  has_many :zombies
+end
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  belongs_to :weapon
+end
+
+
+Answer:
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  belongs_to :weapon, touch: true
+end

@@ -1,0 +1,35 @@
+1. Scopes I
+
+
+Objective
+
+Write a scope on the Tweet model called recent which returns the 4 most recent tweets. Hint: You'll need an order AND a limit scope.
+
+
+schema:
+ActiveRecord::Schema.define(:version => 20110814152905) do
+ 
+  create_table "tweets", :force => true do |t|
+    t.string "message"
+    t.string "location", :limit => 30
+    t.boolean "show_location", :default => false
+    t.integer "zombie_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+ 
+end
+
+
+app/models/tweet.rb
+class Tweet < ActiveRecord::Base
+end
+
+
+Answer:
+app/models/tweet.rb
+class Tweet < ActiveRecord::Base
+  scope :recent, order("created_at desc").limit(4)
+end
+
+

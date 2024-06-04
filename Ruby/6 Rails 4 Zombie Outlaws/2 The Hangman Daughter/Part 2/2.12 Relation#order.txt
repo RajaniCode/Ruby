@@ -1,0 +1,26 @@
+2.12 Relation#order
+
+
+Change the code to use the new order method syntax.
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+end
+
+
+Database:
+zombies 
+id	name	weapon	status	killed_on
+1	Ash	Chainsaw	outlaw	null
+2	Bob	Bone	dead	2015-07-18
+3	Jim	Axe	dead	2015-07-17
+
+
+models/deputy.rb
+Zombie.order('name DESC, killed_on DESC')
+
+
+Answer:
+models/deputy.rb
+Zombie.order(name: :desc, killed_on: :desc)

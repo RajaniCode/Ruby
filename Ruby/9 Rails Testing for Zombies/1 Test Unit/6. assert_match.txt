@@ -1,0 +1,41 @@
+6. assert_match
+
+
+Notice our zombifier.rb file and how the zombify method adds 'BRAINS' to the string, use assert_match to test if zombify is doing this correctly. 
+
+
+zombifier.rb
+class Zombifier
+  def initialize(str)
+    @str = str
+  end
+
+  def zombify
+    "#{@str} BRAINS"
+  end
+end
+
+
+test/unit/zombifier_test.rb
+class ZombifierTest < Test::Unit::TestCase
+  def test_zombify_brains
+    z = Zombifier.new('I love your arms')
+    
+  end
+end
+
+
+Answer:
+test/unit/zombifier_test.rb
+class ZombifierTest < Test::Unit::TestCase
+  def test_zombify_brains
+    z = Zombifier.new('I love your arms')
+    assert_match z.zombify, "I love your arms BRAINS"
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.000937s, 1067.5287 tests/s, 8540.2293 assertions/s.

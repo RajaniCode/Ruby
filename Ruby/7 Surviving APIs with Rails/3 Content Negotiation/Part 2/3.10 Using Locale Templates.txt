@@ -1,0 +1,29 @@
+3.10 Using Locale Templates
+
+Both English and Portuguese speaking humans will need to be able to understand the message in our response. If you check the Resources tab, the file for Portugese is already filled out for us. The file for English is still pending, so we will need to implement that.
+
+
+config/locales/en.yml
+en:
+  # your code here
+
+
+config/locales/pt-BR.yml
+pt-BR:
+    human_message: "Meu nome é %{name} e ainda estou vivo!"
+
+
+1. Add an entry for human_message to the locale file.
+
+Answer:
+config/locales/en.yml
+en:
+  human_message:
+
+
+2. The value for the human_message entry should say, “My name is %{name} and I am still alive!”. Don’t forget about the proper placeholder.
+
+Answer:
+config/locales/en.yml
+en:
+  human_message: "My name is %{name} and I am still alive!"

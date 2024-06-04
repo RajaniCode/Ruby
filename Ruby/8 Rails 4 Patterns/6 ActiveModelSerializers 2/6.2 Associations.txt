@@ -1,0 +1,25 @@
+6.2 Associations
+
+Reviews have comments. For each Review that is serialized, let's also include its comments.
+
+
+review_array_serializer.rb
+class ReviewSerializer < ActiveModel::Serializer
+  attributes :id, :description, :approve_url
+
+  def approve_url
+    approve_review_url(object)
+  end
+end
+
+
+Answer:
+review_array_serializer.rb
+class ReviewSerializer < ActiveModel::Serializer
+  attributes :id, :description, :approve_url
+  has_many :comments
+  
+  def approve_url
+    approve_review_url(object)
+  end
+end

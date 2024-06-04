@@ -1,0 +1,45 @@
+6. Has One
+
+
+Objective
+
+
+Instead of storing location inside the Tweet model, let's instead break it out into a separate table (as you see below). In this case we want to define that a Tweet can have one Location, and a Location belongs to a Tweet. Fill out the models below accordingly.
+
+
+schema.rb
+ActiveRecord::Schema.define(:version => 20110814152905) do
+ 
+  create_table "locations" do |t| 
+    t.integer "name"
+    t.integer "tweet_id"
+  end
+      
+  create_table "tweets" do |t|
+    t.string "message"
+    t.boolean "show_location", :default => false
+    t.integer "zombie_id"
+        
+    t.timestamps
+  end
+ 
+end
+
+
+Models
+class Tweet < ActiveRecord::Base
+end
+
+class Location < ActiveRecord::Base
+end
+
+
+Answer:
+Models
+class Tweet < ActiveRecord::Base
+  has_one :location
+end
+
+class Location < ActiveRecord::Base
+  belongs_to :tweet
+end

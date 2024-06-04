@@ -1,0 +1,17 @@
+1.4 Match III
+
+
+We enjoy living on the edge, and we have a really good reason to allow all HTTP methods for the route in our routes file. Still, Rails 4 won't allow us to do that unless we explicitly tell it so. Fix this using the via options.
+
+
+config/routes.rb
+ZombieOutlaws::Application.routes.draw do
+  match '/undeads', to: 'undeads#index'
+end
+
+
+Answer:
+config/routes.rb
+ZombieOutlaws::Application.routes.draw do
+  match '/undeads', to: 'undeads#index', via: :all
+end

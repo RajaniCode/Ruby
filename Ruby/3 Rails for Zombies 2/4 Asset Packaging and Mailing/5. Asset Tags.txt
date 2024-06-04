@@ -1,0 +1,19 @@
+5. Asset Tags
+
+
+Objective
+
+Convert the following to their appropriate asset tags.
+
+
+app/views/layouts/application.html.erb
+<img src="/assets/weapon.png" />
+<script src="/assets/weapon.js" />
+<link href="/assets/weapon.css" media="screen" rel="stylesheet" type="text/css" />
+
+
+Answer:
+app/views/layouts/application.html.erb
+<%= javascript_include_tag "weapon" %>
+<%= stylesheet_link_tag "weapon" %>
+<%= image_tag "weapon.png" %>

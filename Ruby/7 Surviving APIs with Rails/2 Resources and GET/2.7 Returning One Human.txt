@@ -1,0 +1,45 @@
+2.7 Returning One Human
+
+With tests in place, now let’s implement the show action for our API::HumansController. We’ll fetch a specific Human by its id and return its JSON representation.
+
+
+app/controllers/api/humans_controller.rb
+module API
+  class HumansController < ApplicationController
+    def show
+      # code here
+    end
+  end
+end
+
+
+1. Find a Human by its id and render it back as JSON.
+
+
+Answer:
+app/controllers/api/humans_controller.rb
+module API
+  class HumansController < ApplicationController
+    def show
+      # code here
+      human = Human.find(params[:id])
+      render json: human
+    end
+  end
+end
+
+
+2. Respond with a 200 - Success status code.
+
+
+Answer:
+app/controllers/api/humans_controller.rb
+module API
+  class HumansController < ApplicationController
+    def show
+      # code here
+      human = Human.find(params[:id])
+      render json: human, status: 200
+    end
+  end
+end

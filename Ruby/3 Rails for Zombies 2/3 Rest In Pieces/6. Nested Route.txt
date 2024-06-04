@@ -1,0 +1,24 @@
+6. Nested Route
+
+
+Objective
+
+Write the nested route that will allow us to nest tweets and weapons under the zombie resource. The idea here is that a zombie has many tweets and zombie has many weapons.
+    
+
+config/routes.rb
+RailsForZombies::Application.routes.draw do
+  resources :zombies
+  resources :tweets
+  resources :weapons
+end
+
+
+Answer:
+config/routes.rb
+RailsForZombies::Application.routes.draw do
+  resources :zombies do
+    resources :tweets
+    resources :weapons
+  end
+end

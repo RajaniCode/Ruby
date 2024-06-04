@@ -1,0 +1,19 @@
+4.6 Posting Data With curl
+
+Let’s issue some real network calls to verify that our API is able to respond to POST requests. Using curl, POST the data human[name]=Ash to the following url: http://cs-zombies-dev.com:3000/humans.
+
+
+Answer: curl -X POST -d 'human[name]=Ash' \ 'http://cs-zombies-dev.com:3000/humans'
+
+
+Console
+
+Press Enter to submit. Type 'answer' and press Enter for the current answer or 'help' and press Enter for information on using the console
+ 
+
+$ curl -X POST -d 'human[name]=Ash' \ 'http://cs-zombies-dev.com:3000/humans'
+
+     {id:"6",name:"Ash"}
+
+Success! To move on, use <ctrl + j>, type 'next' or click continue.
+

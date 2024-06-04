@@ -1,0 +1,43 @@
+1. Views Simple
+
+
+Print out the zombie's name and graveyard.
+
+
+Database
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+
+
+app/views/zombies/show.html.erb
+<% zombie = Zombie.first %>
+
+<h1><%= #insert zombie name here %></h1>
+<p>
+  <%= # insert zombie graveyard here %>
+</p>
+
+
+Answer:
+app/views/zombies/show.html.erb
+<% zombie = Zombie.first %>
+
+<h1><%= zombie.name %></h1>
+
+<p>
+  <%= zombie.graveyard %>
+</p>
+
+
+Output:
+<h1>Ashley</h1>
+
+<p>
+  Glen Haven Memorial Cemetery
+</p>
+
+
+

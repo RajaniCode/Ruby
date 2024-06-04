@@ -1,0 +1,16 @@
+1.3 Match II
+
+
+The following route is also raising an error. This time, don't change match method. Instead, pass additional options to the route so that it only responds to the GET HTTP method.
+
+
+config/routes.rb
+ZombieOutlaws::Application.routes.draw do
+  match '/outlaws', to: 'zombies#outlaws'
+end
+
+
+config/routes.rb
+ZombieOutlaws::Application.routes.draw do
+  match '/outlaws', to: 'zombies#outlaws', via: :get
+end

@@ -1,0 +1,39 @@
+6. Relationship Find
+
+
+Assuming the models and relationships are properly defined, find all the weapons that belong to Zombie 'Ashley'.
+
+Models
+class Zombie < ActiveRecord::Base
+  has_many :weapons
+end
+ 
+class Weapon < ActiveRecord::Base
+  belongs_to :zombie
+end
+
+
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+
+weapons
+id	name		strength	zombie_id
+1	Hammer		1		1
+2	Chainsaw	3		2
+3	Other Zombie	10		3
+
+
+Answer: Weapon.where(zombie_id: 1).all
+
+Console
+
+Press Enter to submit, or type 'help' for info
+
+$ Weapon.where(zombie_id: 1).all
+
+[#<Weapon id: 1, name: "Hammer", strength: 1, zombie_id: 1>]
+
+Successfully found all of Ashley's weapons.

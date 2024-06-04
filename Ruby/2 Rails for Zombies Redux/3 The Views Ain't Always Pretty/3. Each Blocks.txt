@@ -1,0 +1,39 @@
+Each Blocks
+
+
+Use an each block to print the names of all the zombies.
+
+
+Database:
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+
+
+app/views/zombies/index.html.erb
+<% zombies = Zombie.all %>
+
+<ul>
+<% # insert block here %>
+</ul>
+
+
+Answer:
+app/views/zombies/index.html.erb
+<% zombies = Zombie.all %>
+
+<ul>
+<% zombies.each do |zombie| %>
+<li> <%= zombie.name %> </li>
+<% end %>
+</ul>
+
+
+Output:
+<ul>
+<li> Ashley </li>
+<li> Bob </li>
+<li> Katie </li>
+</ul>

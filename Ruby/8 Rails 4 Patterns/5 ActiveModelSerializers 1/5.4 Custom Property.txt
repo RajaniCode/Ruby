@@ -1,0 +1,20 @@
+5.4 Custom Property
+
+Some reviews might be waiting for approval. Add a custom property named approve_url to our serializer and define its respective method. This method will invoke the URL helper method approve_review_url, which expects the current object being serialized as its single argument.
+
+
+review_serializer.rb
+class ReviewSerializer < ActiveModel::Serializer
+  attributes :id, :description
+end
+
+
+Answer:
+review_serializer.rb
+class ReviewSerializer < ActiveModel::Serializer
+  attributes :id, :description
+  
+  def approve_url
+    approve_review_url(object)
+  end 
+end

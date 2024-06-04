@@ -1,0 +1,16 @@
+3. Route Redirecting
+
+
+Create a redirect for '/undead' to '/zombies'.
+
+
+config/routes.rb
+TwitterForZombies::Application.routes.draw do
+
+end
+
+Answer:
+config/routes.rb
+TwitterForZombies::Application.routes.draw do
+  get '/undead' => redirect('/zombies')
+end

@@ -1,0 +1,19 @@
+1. Create Model
+
+
+Define a Zombie model.
+
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+
+
+app/models/zombie.rb
+
+
+Answer:
+app/models/zombie.rb
+class Zombie < ActiveRecord::Base
+end

@@ -1,0 +1,38 @@
+2.14 Relation#references II
+
+
+Now without using references, change the code so that it doesn't generate a deprecation warning.
+
+
+models/weapon.rb
+class Weapon < ActiveRecord::Base
+  has_many :zombies
+end
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  belongs_to :weapon
+end
+
+
+Database:
+zombies 
+id	name	weapon_id	status	killed_on
+1	Ash	1		outlaw	null
+2	Bob	2		dead	2015-07-18
+3	Jim	3		dead	2015-07-17
+weapons 
+id	name
+1	Chainsaw
+2	Bone
+3	Axe
+
+
+Answer:
+zombie.rb
+Weapon.includes(:zombies).where("zombies.name = 'Ash'")
+
+
+zombie.rb
+Weapon.includes(:zombies).where('zombies.name' => 'Ash')

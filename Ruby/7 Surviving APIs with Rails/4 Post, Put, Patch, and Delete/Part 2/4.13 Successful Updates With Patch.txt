@@ -1,0 +1,63 @@
+4.13 Successful Updates With Patch
+
+Now it’s time to make our tests pass. To do this, we need to write an update action that uses human_params to update the attributes for the given human, and returns a successful response when a human is successfully updated.
+
+
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def update
+    human = Human.find(params[:id])
+
+    # your code here
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+1. Update the fetched object with human_params and return its JSON representation.
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def update
+    human = Human.find(params[:id])
+
+    # your code here
+    if human.update(human_params)
+      render json: human, status: 200
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+2. Set the status code for the response to 200 - Success.
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def update
+    human = Human.find(params[:id])
+
+    # your code here
+    if human.update(human_params)
+      render json: human
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end

@@ -1,0 +1,33 @@
+6. Asset Path
+
+
+Objective
+
+Convert the following scss.erb file to properly reference the asset_path for the image listed in it. Also, try refactoring the scss to use nesting.
+
+
+stylesheets/application.css.scss.erb
+h2#newUser {
+  text-indent: -9999px; 
+}
+
+h2#newUser a {
+  height: 64px;
+  width: 50px;
+  display: block;
+  background: url(/assets/rails.png) no-repeat;
+}
+
+
+Answer:
+stylesheets/application.css.scss.erb
+h2#newUser {
+  text-indent: -9999px; 
+}
+
+h2#newUser a {
+  height: 64px;
+  width: 50px;
+  display: block;
+  background: url(<%= asset_path('rails.png') %>) no-repeat;
+}

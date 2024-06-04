@@ -1,0 +1,15 @@
+6.12 Curl and Token Based Auth
+
+Use curl to make an authenticated request to http://cs-zombies-dev.com:3000/zombies using Token Based Auth. Set the token value to a45fb396579a25458d23208560742610 and use a request header to specify JSON as the expected format for the response. For this request, we want the response body back, and not only headers.
+
+Answer: curl -H "Authorization: Token token=a45fb396579a25458d23208560742610" \ -H "Accept: application/json" http://cs-zombies-dev.com:3000/zombies
+
+Console
+
+Press Enter to submit. Type 'answer' and press Enter for the current answer or 'help' and press Enter for information on using the console
+ 
+$ curl -H "Authorization: Token token=a45fb396579a25458d23208560742610" \ -H "Accept: application/json" http://cs-zombies-dev.com:3000/zombies
+
+[{"id":1,"name":"Graveyard Joe","weapon":"Axe","created_at":"2014-02-24T20:41:59.343Z","updated_at":"2014-02-24T20:41:59.343Z"},{"id":2,"name":"Brainy Allegheny","weapon":"shotgun","created_at":"2014-02-24T20:41:59.343Z","updated_at":"2014-02-24T20:41:59.343Z"}]
+
+Success! To move on, use <ctrl + j>, type 'next' or click continue.

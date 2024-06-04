@@ -1,0 +1,28 @@
+2.3 Extract query II
+
+Replace the query in the index action with a call to the featured class method on the Item model.
+
+
+item.rb
+class Item < ActiveRecord::Base
+  def self.featured
+    where('rating  > ? AND published_on > ?', 5, 2.days.ago)
+  end
+end
+
+
+items_controller.rb
+class ItemsController < ApplicationController
+   def index
+     @items = Item.where('rating > ? AND published_on > ?', 5, 2.days.ago)
+   end
+end
+
+
+Answer:
+items_controller.rb
+class ItemsController < ApplicationController
+  def index
+    @items = Item.featured
+  end
+end

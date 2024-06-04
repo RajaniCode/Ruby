@@ -1,0 +1,39 @@
+2.5 find_or_create_by
+
+
+Use the new find_or_create_by method on the Zombie class to get rid of this ugly conditional on the code.
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+end
+
+
+Database:
+zombies 
+id	name	weapon
+1	Ash	Chainsaw
+2	Bob	Bone
+3	Jim	Axe
+
+
+controllers/most_wanted_controller.rb
+class MostWantedController < ApplicationController
+  def create
+    @zombie = Zombie.where(name: params[:name]).first
+    unless @zombie
+      @zombie = Zombie.create(name: params[:name])
+    end
+    redirect_to @zombie
+  end
+end
+
+
+Answer:
+controllers/most_wanted_controller.rb
+class MostWantedController < ApplicationController
+  def create
+    @zombie = Zombie.find_or_create_by(name: params[:name]) 
+    redirect_to @zombie
+  end
+end

@@ -1,0 +1,62 @@
+3.3 Using respond_to
+
+We will now move onto production code, where we will add the ability to respond to different formats from our HumansController.
+
+
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def index
+    humans = Human.all
+
+    # your code here
+  end
+end
+
+
+1. Call the respond_to method, which takes a block with a single argument named format.
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def index
+    humans = Human.all
+
+    # your code here
+    respond_to do |format|    
+    end   
+  end
+end
+
+
+2. Inside the block, use the format object to respond back with humans in JSON format and with a 200 - Success status code.
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def index
+    humans = Human.all
+
+    # your code here
+    respond_to do |format|   
+      format.json {render json: humans, status: 200 }
+    end   
+  end
+end
+
+
+3. Now use the format object to respond back with humans in XML format and with a 200 - Success status code.
+
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def index
+    humans = Human.all
+
+    # your code here
+    respond_to do |format|   
+      format.json {render json: humans, status: 200 }
+      format.xml {render xml: humans, status: 200 }
+    end   
+  end
+end

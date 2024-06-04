@@ -1,0 +1,56 @@
+8. Raises an Error
+
+
+Testing for exceptions is tricky business. Refactor the spec below to use the raise_error matcher with an expect block.
+
+
+tweet.rb  
+class Tweet < ActiveRecord::Base
+  attr_accessible :message
+  belongs_to :zombie
+  validates :message, presence: true
+end
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  validates :name, presence: true
+ 
+  class NotSmartEnoughError < StandardError; end
+ 
+  def genius?
+    iq >= 3
+  end
+ 
+  def make_decision!
+    raise NotSmartEnoughError unless genius?
+    return true
+  end
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  it 'raises a Zombie::NotSmartEnoughError if not able to make a decision' do
+    zombie = Zombie.new
+    begin
+      zombie.make_decision!
+    rescue Zombie::NotSmartEnoughError => e
+      e.should be_an_instance_of(Zombie::NotSmartEnoughError)
+    end
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Zombie do
+  it 'raises a Zombie::NotSmartEnoughError if not able to make a decision' do
+    zombie = Zombie.new
+    begin
+      expect {zombie.make_decision!}.to raise_error (Zombie::NotSmartEnoughError)
+    rescue Zombie::NotSmartEnoughError => e
+      e.should be_an_instance_of(Zombie::NotSmartEnoughError)
+    end
+  end
+end

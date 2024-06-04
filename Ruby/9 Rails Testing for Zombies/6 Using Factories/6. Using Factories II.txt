@@ -1,0 +1,62 @@
+6. Using Factories II
+
+
+Create a tweet using a factory. Then, using Capybara, go to the tweets_url, click on the tweet.status link. Finally, assert that the tweet's show page contains the @tweet.zombie.name in its h3. Use Capybara's within and has_content? methods.
+
+
+index.html.erb
+<ul class="tweets">
+  <li><%= link_to @tweet.status, tweets_url(@tweet) %></li>
+</ul>
+
+
+show.html.erb
+<div id='<%="tweet_#{@tweet.id}"%>'>
+  <h3><%= @tweet.zombie.name %></h3>
+  <p><%= @tweet.status %></p>
+</div>
+  
+
+factories/tweet.rb
+FactoryGirl.define do
+  factory :tweet do
+    association :zombie
+    status "Need brain factory."
+  end
+end 
+
+
+factories/zombie.rb
+FactoryGirl.define do
+  factory :zombie do
+    name "Ash"
+    graveyard "Factory Hills Cemetary"
+  end
+end  
+
+
+spec/models/tweet_test.rb
+class TweetTest < ActionDispatch::IntegrationTest
+  test "tweet page has zombie link" do 
+  end
+end
+
+
+Answer:
+spec/models/tweet_test.rb
+class TweetTest < ActionDispatch::IntegrationTest
+  test "tweet page has zombie link" do 
+    tweet = Factory(:tweet)   
+    visit tweets_url
+    click_link tweet.status
+    within("h3") do      
+      assert has_content?(tweet.zombie.name)
+    end  
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.104269s, 9.5906 tests/s, 19.1812 assertions/s.

@@ -1,0 +1,57 @@
+1. Clean up your code with before
+
+
+Refactor the zombie spec to use a before hook. For bonus points refactor the examples to one line.
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :name
+  validates :name, presence: true
+
+  def eat_brains
+    self.iq += 3
+  end
+
+  def dummy?
+    iq < 3
+  end
+
+  def genius?
+    iq >= 3
+  end
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  let(:zombie) { Zombie.new }
+  subject { zombie }
+
+  it 'is not a dummy zombie' do
+    zombie.eat_brains
+    zombie.should_not be_dummy
+  end
+
+  it 'is a genius zombie' do
+    zombie.eat_brains
+    zombie.should be_genius
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Zombie do
+  let(:zombie) { Zombie.new }
+  subject { zombie }
+  before { zombie.eat_brains }
+    
+  it 'is not a dummy zombie' do    
+    zombie.should_not be_dummy
+  end
+
+  it 'is a genius zombie' do
+    zombie.should be_genius
+  end
+end

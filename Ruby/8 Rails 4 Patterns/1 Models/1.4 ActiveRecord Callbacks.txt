@@ -1,0 +1,41 @@
+1.4 ActiveRecord Callbacks
+
+Notice how inside our ItemsController create action we're setting the item.pretty_url attribute. This would be a good method to place inside our model as a callback so it would happen every time the model is saved. Create a set_pretty_url method inside of the Item model and use a before_save callback to call it whenever the model is saved. Make sure the set_pretty_url method is protected so it doesn't accidentally get used outside of the callback.
+
+
+items_controller.rb
+class ItemsController < ApplicationController
+  def create
+    @item = Item.new(item_params)
+    @item.pretty_url = @item.name.parameterize
+
+    if @item.save
+      redirect_to @item
+    else
+      render :new
+    end
+  end
+
+  # GET to /features/:pretty_url
+  def featured
+    @item = Item.find_by(pretty_url: params[:pretty_url])
+  end
+end
+
+
+item.rb
+class Item < ActiveRecord::Base
+
+end
+
+
+Answer:
+item.rb
+class Item < ActiveRecord::Base
+  before_save :set_pretty_url
+  
+  protected  
+  def set_pretty_url
+    self.pretty_url = self.name.parameterize
+  end
+end

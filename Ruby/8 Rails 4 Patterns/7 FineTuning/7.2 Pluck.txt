@@ -1,0 +1,22 @@
+7.2 Pluck
+
+Our recent query is returning way too many User records, which is causing unnecessary memory consumption. Since we just need id and name properties, use the pluck method to only return those two properties as an array of arrays.
+
+
+app/models/item.rb
+class Item < ActiveRecord::Base
+
+  def self.recent
+    where('published_on > ?', 2.days.ago)
+  end
+end
+
+
+Answer:
+app/models/item.rb
+class Item < ActiveRecord::Base
+
+  def self.recent
+    where('published_on > ?', 2.days.ago).pluck(:id, :name)
+  end
+end

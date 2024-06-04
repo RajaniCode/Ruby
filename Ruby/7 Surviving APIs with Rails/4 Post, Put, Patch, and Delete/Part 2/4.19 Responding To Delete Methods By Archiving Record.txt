@@ -1,0 +1,72 @@
+4.19 Responding To Delete Methods By Archiving Record
+
+One final step to prevent zombies from being deleted from the database upon DELETE requests, is to update the ZombiesController to use our newly created methods.
+
+
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def show
+    zombie = Zombie.find(params[:id])
+    render json: zombie, status: 200
+  end
+
+  def destroy
+    zombie = Zombie.find(params[:id])
+    zombie.destroy
+    head 204
+  end
+end
+
+
+1. Change the destroy action to use the find_available class method on the Zombie class.
+
+Answer:
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def show
+    zombie = Zombie.find(params[:id])
+    render json: zombie, status: 200
+  end
+
+  def destroy
+    zombie = Zombie.find_available(params[:id])
+    zombie.destroy
+    head 204
+  end
+end
+
+
+2. Change the destroy action to use the archive method on the zombie instance.
+
+Answer:
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def show
+    zombie = Zombie.find(params[:id])
+    render json: zombie, status: 200
+  end
+
+  def destroy
+    zombie = Zombie.find_available(params[:id])
+    zombie.archive
+    head 204
+  end
+end
+
+
+3. Update the show action to use the find_available class method on Zombie.
+
+Answer:
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def show
+    zombie = Zombie.find_available(params[:id])
+    render json: zombie, status: 200
+  end
+
+  def destroy
+    zombie = Zombie.find_available(params[:id])
+    zombie.archive
+    head 204
+  end
+end

@@ -1,0 +1,41 @@
+7. Have Matcher
+
+
+We're verifying the count to be greater than 0, but we really could be using a have matcher here to verify that the zombie has exactly one tweet. Refactor the spec to use the have matcher.
+
+
+tweet.rb
+class Tweet < ActiveRecord::Base
+  attr_accessible :message
+  belongs_to :zombie
+  validates :message, presence: true
+end
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :name
+  validates :name, presence: true
+  has_many :tweets
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  it 'increases the number of tweets' do
+    zombie = Zombie.new(name: 'Ash')
+    zombie.tweets.new(message: "Arrrgggggggghhhhh")
+    zombie.tweets.count.should > 0
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Zombie do
+  it 'increases the number of tweets' do
+    zombie = Zombie.new(name: 'Ash')
+    zombie.tweets.new(message: "Arrrgggggggghhhhh")
+    zombie.should have(1).tweets
+  end
+end

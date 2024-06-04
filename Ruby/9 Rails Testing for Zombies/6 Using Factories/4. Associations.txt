@@ -1,0 +1,31 @@
+4. Associations
+
+
+Create a tweet factory with a zombie association, don't forget to set a tweet status.
+
+
+factories/zombie.rb
+FactoryGirl.define do
+  factory :zombie do
+    name 'Sally'
+    graveyard 'Valley Dim'
+  end
+end
+
+
+test/factories/tweets.rb
+FactoryGirl.define do
+  factory :tweet do
+    
+  end
+end
+
+
+Answer:
+test/factories/tweets.rb
+FactoryGirl.define do
+  factory :tweet do
+    association :zombie 
+    status 'Hello'
+  end
+end

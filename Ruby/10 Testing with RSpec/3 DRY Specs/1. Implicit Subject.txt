@@ -1,0 +1,33 @@
+1. Implicit Subject
+
+
+Add the implicit subject rather than creating a new Zombie and then simplify the example to use it { }
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :iq
+  validates :name, presence: true
+ 
+  def genius?
+    iq >= 3
+  end
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  it 'should not be a genius' do
+    zombie = Zombie.new
+    zombie.should_not be_genius
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Zombie do
+  it 'should not be a genius' do
+    subject.should_not be_genius
+  end
+end

@@ -1,0 +1,46 @@
+7.6 Other Turbolinks Events
+
+
+We want to show the #loading div when a page is fetched via Turbolinks, and hide it when we change to the new page. Use TurboLinks event handlers to call showLoading and hideLoading at the appropriate times.
+
+
+app/assets/javascripts/loading.js
+function hideLoading() {
+  $('#loading').hide();
+}
+       
+function showLoading() {
+  $('#loading').show();
+}
+
+
+app/assets/views/application.html.erb
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Zombie Outlaws</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body> 
+  <%= yield %>
+  <div id="loading">Loading...</div>
+</body>
+</html>
+
+
+app/assets/javascripts/alerts.js
+
+
+Answer:
+app/assets/javascripts/alerts.js
+$(document).on('page:fetch', function() {
+  showLoading();
+});
+
+$(document).on('page:change', function() {
+   hideLoading();
+});
+
+

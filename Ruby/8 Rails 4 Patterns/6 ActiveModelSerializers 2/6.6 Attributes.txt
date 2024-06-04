@@ -1,0 +1,30 @@
+6.6 Attributes
+
+For users that are logged in, we also want to return the price for each item. On the attributes method, add object.price to data[:price] if a current_user is present.
+
+
+item_serializer.rb
+class ItemSerializer < ActiveModel::Serializer
+  attributes :id, :name
+
+  def attributes
+    data = super
+    # add conditional here...
+  end
+end
+
+
+Answer:
+item_serializer.rb
+class ItemSerializer < ActiveModel::Serializer
+  attributes :id, :name
+
+  def attributes
+    data = super
+    # add conditional here...
+    if current_user.present?
+      data[:price] = object.price      
+    end
+    data
+  end
+end
