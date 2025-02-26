@@ -1,0 +1,15 @@
+2.9 Curl With Query Strings
+
+Use curl to issue a similar GET request to http://cs-zombies-dev.com:3000/humans. This time, we also want to send along the brain_type value set to large using query string parameters.
+
+Answer: curl http://cs-zombies-dev.com:3000/humans?brain_type=large
+
+Console
+
+Press Enter to submit. Type 'answer' and press Enter for the current answer or 'help' and press Enter for information on using the console
+
+$ curl http://cs-zombies-dev.com:3000/humans?brain_type=large
+
+[{"id":1,"name":"Ash","brain_type":"large","created_at":"2014-02-24T20:41:59.343Z","updated_at":"2014-02-24T20:41:59.343Z"}]
+
+Success! To move on, use <ctrl + j>, type 'next' or click continue.

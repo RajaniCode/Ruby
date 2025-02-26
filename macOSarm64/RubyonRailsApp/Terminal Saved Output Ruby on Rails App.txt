@@ -1,0 +1,2838 @@
+Last login: Tue Feb  4 10:12:17 on ttys000
+rajaniapple@Rajanis-MacBook-Pro ~ % sw_vers                                         
+ProductName:		macOS
+ProductVersion:		15.1
+BuildVersion:		24B83
+rajaniapple@Rajanis-MacBook-Pro ~ % arch
+arm64
+rajaniapple@Rajanis-MacBook-Pro ~ % cd $HOME/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64
+rajaniapple@Rajanis-MacBook-Pro macOSarm64 % mkdir -p RubyonRailsApp                         
+rajaniapple@Rajanis-MacBook-Pro macOSarm64 % cd RubyonRailsApp                          
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp % ruby --version
+ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp % gem --version
+3.6.3
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp % bundler --version
+Bundler version 2.6.3
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp % bundle --version
+Bundler version 2.6.3
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp % rake --version
+rake, version 13.2.1
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp % rails --version
+Rails 8.0.1
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp % rails new store
+      create  
+      create  README.md
+      create  Rakefile
+      create  .ruby-version
+      create  config.ru
+      create  .gitignore
+      create  .gitattributes
+      create  Gemfile
+         run  git init -b main from "."
+Initialized empty Git repository in /Users/rajaniapple/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/RubyonRailsApp/store/.git/
+      create  app
+      create  app/assets/stylesheets/application.css
+      create  app/controllers/application_controller.rb
+      create  app/helpers/application_helper.rb
+      create  app/jobs/application_job.rb
+      create  app/mailers/application_mailer.rb
+      create  app/models/application_record.rb
+      create  app/views/layouts/application.html.erb
+      create  app/views/layouts/mailer.html.erb
+      create  app/views/layouts/mailer.text.erb
+      create  app/views/pwa/manifest.json.erb
+      create  app/views/pwa/service-worker.js
+      create  app/assets/images
+      create  app/assets/images/.keep
+      create  app/controllers/concerns/.keep
+      create  app/models/concerns/.keep
+      create  bin
+      create  bin/brakeman
+      create  bin/dev
+      create  bin/rails
+      create  bin/rake
+      create  bin/rubocop
+      create  bin/setup
+      create  bin/thrust
+      create  Dockerfile
+      create  .dockerignore
+      create  bin/docker-entrypoint
+      create  .rubocop.yml
+      create  .github/workflows
+      create  .github/workflows/ci.yml
+      create  .github/dependabot.yml
+      create  config
+      create  config/routes.rb
+      create  config/application.rb
+      create  config/environment.rb
+      create  config/cable.yml
+      create  config/puma.rb
+      create  config/storage.yml
+      create  config/environments
+      create  config/environments/development.rb
+      create  config/environments/production.rb
+      create  config/environments/test.rb
+      create  config/initializers
+      create  config/initializers/assets.rb
+      create  config/initializers/content_security_policy.rb
+      create  config/initializers/cors.rb
+      create  config/initializers/filter_parameter_logging.rb
+      create  config/initializers/inflections.rb
+      create  config/initializers/new_framework_defaults_8_0.rb
+      create  config/locales
+      create  config/locales/en.yml
+      create  config/master.key
+      append  .gitignore
+      create  config/boot.rb
+      create  config/database.yml
+      create  db
+      create  db/seeds.rb
+      create  lib
+      create  lib/tasks
+      create  lib/tasks/.keep
+      create  log
+      create  log/.keep
+      create  public
+      create  public/400.html
+      create  public/404.html
+      create  public/406-unsupported-browser.html
+      create  public/422.html
+      create  public/500.html
+      create  public/icon.png
+      create  public/icon.svg
+      create  public/robots.txt
+      create  script
+      create  script/.keep
+      create  tmp
+      create  tmp/.keep
+      create  tmp/pids
+      create  tmp/pids/.keep
+      create  vendor
+      create  vendor/.keep
+      create  test/fixtures/files
+      create  test/fixtures/files/.keep
+      create  test/controllers
+      create  test/controllers/.keep
+      create  test/mailers
+      create  test/mailers/.keep
+      create  test/models
+      create  test/models/.keep
+      create  test/helpers
+      create  test/helpers/.keep
+      create  test/integration
+      create  test/integration/.keep
+      create  test/test_helper.rb
+      create  test/system
+      create  test/system/.keep
+      create  test/application_system_test_case.rb
+      create  storage
+      create  storage/.keep
+      create  tmp/storage
+      create  tmp/storage/.keep
+      remove  config/initializers/cors.rb
+      remove  config/initializers/new_framework_defaults_8_0.rb
+         run  bundle install --quiet
+         run  bundle lock --add-platform=x86_64-linux
+Writing lockfile to /Users/rajaniapple/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/RubyonRailsApp/store/Gemfile.lock
+         run  bundle lock --add-platform=aarch64-linux
+Writing lockfile to /Users/rajaniapple/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/RubyonRailsApp/store/Gemfile.lock
+         run  bundle binstubs bundler
+       rails  importmap:install
+       apply  /opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/importmap-rails-2.1.0/lib/install/install.rb
+  Add Importmap include tags in application layout
+      insert    app/views/layouts/application.html.erb
+  Create application.js module as entrypoint
+      create    app/javascript/application.js
+  Use vendor/javascript for downloaded pins
+      create    vendor/javascript
+      create    vendor/javascript/.keep
+  Configure importmap paths in config/importmap.rb
+      create    config/importmap.rb
+  Copying binstub
+      create    bin/importmap
+         run  bundle install --quiet
+       rails  turbo:install stimulus:install
+       apply  /opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/turbo-rails-2.0.11/lib/install/turbo_with_importmap.rb
+  Import Turbo
+      append    app/javascript/application.js
+  Pin Turbo
+      append    config/importmap.rb
+         run  bundle install --quiet
+       apply  /opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/stimulus-rails-1.3.4/lib/install/stimulus_with_importmap.rb
+  Create controllers directory
+      create    app/javascript/controllers
+      create    app/javascript/controllers/index.js
+      create    app/javascript/controllers/application.js
+      create    app/javascript/controllers/hello_controller.js
+  Import Stimulus controllers
+      append    app/javascript/application.js
+  Pin Stimulus
+  Appending: pin "@hotwired/stimulus", to: "stimulus.min.js"
+      append    config/importmap.rb
+  Appending: pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
+      append    config/importmap.rb
+  Pin all controllers
+  Appending: pin_all_from "app/javascript/controllers", under: "controllers"
+      append    config/importmap.rb
+         run  bundle install --quiet
+         run  bundle binstubs kamal
+         run  bundle exec kamal init
+Created configuration file in config/deploy.yml
+Created .kamal/secrets file
+Created sample hooks in .kamal/hooks
+       force  .kamal/secrets
+       force  config/deploy.yml
+       rails  solid_cache:install solid_queue:install solid_cable:install
+      create  config/cache.yml
+      create  db/cache_schema.rb
+        gsub  config/environments/production.rb
+      create  config/queue.yml
+      create  config/recurring.yml
+      create  db/queue_schema.rb
+      create  bin/jobs
+        gsub  config/environments/production.rb
+      create  db/cable_schema.rb
+       force  config/cable.yml
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp % cd store
+rajaniapple@Rajanis-MacBook-Pro store % tree
+.
+├── Dockerfile
+├── Gemfile
+├── Gemfile.lock
+├── README.md
+├── Rakefile
+├── app
+│   ├── assets
+│   │   ├── images
+│   │   └── stylesheets
+│   │       └── application.css
+│   ├── controllers
+│   │   ├── application_controller.rb
+│   │   └── concerns
+│   ├── helpers
+│   │   └── application_helper.rb
+│   ├── javascript
+│   │   ├── application.js
+│   │   └── controllers
+│   │       ├── application.js
+│   │       ├── hello_controller.js
+│   │       └── index.js
+│   ├── jobs
+│   │   └── application_job.rb
+│   ├── mailers
+│   │   └── application_mailer.rb
+│   ├── models
+│   │   ├── application_record.rb
+│   │   └── concerns
+│   └── views
+│       ├── layouts
+│       │   ├── application.html.erb
+│       │   ├── mailer.html.erb
+│       │   └── mailer.text.erb
+│       └── pwa
+│           ├── manifest.json.erb
+│           └── service-worker.js
+├── bin
+│   ├── brakeman
+│   ├── bundle
+│   ├── dev
+│   ├── docker-entrypoint
+│   ├── importmap
+│   ├── jobs
+│   ├── kamal
+│   ├── rails
+│   ├── rake
+│   ├── rubocop
+│   ├── setup
+│   └── thrust
+├── config
+│   ├── application.rb
+│   ├── boot.rb
+│   ├── cable.yml
+│   ├── cache.yml
+│   ├── credentials.yml.enc
+│   ├── database.yml
+│   ├── deploy.yml
+│   ├── environment.rb
+│   ├── environments
+│   │   ├── development.rb
+│   │   ├── production.rb
+│   │   └── test.rb
+│   ├── importmap.rb
+│   ├── initializers
+│   │   ├── assets.rb
+│   │   ├── content_security_policy.rb
+│   │   ├── filter_parameter_logging.rb
+│   │   └── inflections.rb
+│   ├── locales
+│   │   └── en.yml
+│   ├── master.key
+│   ├── puma.rb
+│   ├── queue.yml
+│   ├── recurring.yml
+│   ├── routes.rb
+│   └── storage.yml
+├── config.ru
+├── db
+│   ├── cable_schema.rb
+│   ├── cache_schema.rb
+│   ├── queue_schema.rb
+│   └── seeds.rb
+├── lib
+│   └── tasks
+├── log
+│   └── development.log
+├── public
+│   ├── 400.html
+│   ├── 404.html
+│   ├── 406-unsupported-browser.html
+│   ├── 422.html
+│   ├── 500.html
+│   ├── icon.png
+│   ├── icon.svg
+│   └── robots.txt
+├── script
+├── storage
+├── test
+│   ├── application_system_test_case.rb
+│   ├── controllers
+│   ├── fixtures
+│   │   └── files
+│   ├── helpers
+│   ├── integration
+│   ├── mailers
+│   ├── models
+│   ├── system
+│   └── test_helper.rb
+├── tmp
+│   ├── cache
+│   │   └── bootsnap
+│   │       ├── compile-cache-iseq
+│   │       │   ├── 00
+│   │       │   │   ├── 1fc6da5de59fd1
+│   │       │   │   ├── 4377a1188aa393
+│   │       │   │   ├── 642af5b10717d9
+│   │       │   │   ├── 99bb90a90947af
+│   │       │   │   ├── a2b06186d8260d
+│   │       │   │   └── c1aac88e46a53e
+│   │       │   ├── 01
+│   │       │   │   ├── 09ad4545d9a47b
+│   │       │   │   ├── 1b9ac7a5430d01
+│   │       │   │   ├── 3aecea6d7c1adf
+│   │       │   │   ├── 53aa7f7a0c6bfa
+│   │       │   │   ├── 7e8dea1e81bc24
+│   │       │   │   ├── 845d9b3cc7c038
+│   │       │   │   ├── a86e169c13faab
+│   │       │   │   ├── b1324ce8fd6c06
+│   │       │   │   ├── b34f6a52698fee
+│   │       │   │   ├── e0ced2bde2858c
+│   │       │   │   └── ebe8c502b42fce
+│   │       │   ├── 02
+│   │       │   │   ├── 1971a87be6596a
+│   │       │   │   ├── 1987754ab52d39
+│   │       │   │   ├── 2a6fb9bcd9c0a8
+│   │       │   │   ├── 2ef754d9c2946f
+│   │       │   │   └── 6f55721a5eb4b2
+│   │       │   ├── 03
+│   │       │   │   ├── 505fd3cd284707
+│   │       │   │   ├── 5f85dbbfe27212
+│   │       │   │   ├── 95ae8726cefdc0
+│   │       │   │   ├── abb6e8907fbcae
+│   │       │   │   ├── c8bfc0cbdc7116
+│   │       │   │   ├── daae5d8045c828
+│   │       │   │   ├── e91aa1681ffdc2
+│   │       │   │   └── eb7cc5473d1b5a
+│   │       │   ├── 04
+│   │       │   │   ├── 01c3745ec830e6
+│   │       │   │   ├── 08b5b0858fc3e2
+│   │       │   │   ├── 70de328f377e2c
+│   │       │   │   └── ff67089d5ceeaf
+│   │       │   ├── 05
+│   │       │   │   ├── 1cff824bf09c40
+│   │       │   │   ├── 1e5925d495d869
+│   │       │   │   ├── 38b50a3f26b3e5
+│   │       │   │   ├── 520bc9022f4b74
+│   │       │   │   ├── 6e328429fe43b7
+│   │       │   │   ├── 8222503513c36c
+│   │       │   │   └── 8f2a119e2e3565
+│   │       │   ├── 06
+│   │       │   │   ├── 213c47a656f9a4
+│   │       │   │   ├── 97360bf0c7b91b
+│   │       │   │   ├── 975032200a5b20
+│   │       │   │   └── c61aa8a9eeae36
+│   │       │   ├── 07
+│   │       │   │   ├── 5f27d23011b6b1
+│   │       │   │   ├── a4f32907813feb
+│   │       │   │   └── d8990980a720c2
+│   │       │   ├── 08
+│   │       │   │   ├── 8153fb71708fc5
+│   │       │   │   ├── afb1a3a0b08b6b
+│   │       │   │   └── f41efd0267f347
+│   │       │   ├── 09
+│   │       │   │   ├── 0ab5462f553c0e
+│   │       │   │   ├── 2b5d88b5d0549f
+│   │       │   │   ├── 912bda792baaf2
+│   │       │   │   ├── f97ed54fa7613d
+│   │       │   │   └── fdd519a190f332
+│   │       │   ├── 0a
+│   │       │   │   ├── 3237794e2da28b
+│   │       │   │   ├── 3751b123087b54
+│   │       │   │   ├── 52e857ce2e4c3c
+│   │       │   │   ├── 57a3b6fe6f81c9
+│   │       │   │   └── 89ea0fa341f984
+│   │       │   ├── 0b
+│   │       │   │   ├── 051c67e2b10e17
+│   │       │   │   └── 0c0dc299a8c546
+│   │       │   ├── 0c
+│   │       │   │   ├── 504da51e249da9
+│   │       │   │   ├── 52126735b2147c
+│   │       │   │   ├── a45667068d19c9
+│   │       │   │   ├── b7c96edc893b0d
+│   │       │   │   └── d0d6e98181fe21
+│   │       │   ├── 0d
+│   │       │   │   ├── 0c9bff5aee3f11
+│   │       │   │   ├── 217ec9478c8156
+│   │       │   │   ├── 6f6b65779d81c4
+│   │       │   │   └── 9d0bdfdb676ffd
+│   │       │   ├── 0e
+│   │       │   │   ├── 47227f5e690201
+│   │       │   │   ├── b6089ba8b8dfe8
+│   │       │   │   └── d5116d882c5e90
+│   │       │   ├── 0f
+│   │       │   │   ├── 13cd97680fd3c4
+│   │       │   │   ├── 7ad605fc476723
+│   │       │   │   └── fd20563e2b326e
+│   │       │   ├── 10
+│   │       │   │   ├── 71d2687e5971d5
+│   │       │   │   ├── b9d178525e8279
+│   │       │   │   └── e6a4dee1d823de
+│   │       │   ├── 11
+│   │       │   │   ├── 192c7e802197f2
+│   │       │   │   ├── 332659de21eac3
+│   │       │   │   ├── 39ec29c24da9d3
+│   │       │   │   ├── 5b65c74ecc3b35
+│   │       │   │   ├── 5bf1b58089a815
+│   │       │   │   ├── 742b3792483c38
+│   │       │   │   ├── 75db3fb0e135e1
+│   │       │   │   ├── 8239ca884934ce
+│   │       │   │   └── e175fb450e50c5
+│   │       │   ├── 12
+│   │       │   │   ├── 01c29838149d48
+│   │       │   │   ├── 45ad8942cee0d8
+│   │       │   │   ├── 67d4844f2e1a9b
+│   │       │   │   ├── 90b80577b3dce7
+│   │       │   │   ├── c582dbbc3db0b3
+│   │       │   │   ├── f3b6cbc111ec45
+│   │       │   │   ├── f45a447a8624b9
+│   │       │   │   ├── f719f344337093
+│   │       │   │   └── fc3aa2d0dee34e
+│   │       │   ├── 13
+│   │       │   │   ├── 10c7368dfafba0
+│   │       │   │   ├── 49b422db09164e
+│   │       │   │   ├── 62d888c77c3f0f
+│   │       │   │   ├── 870af37b0db76d
+│   │       │   │   ├── 8d95d98c85eff2
+│   │       │   │   ├── c33c3d4c2de6d6
+│   │       │   │   └── eba799eb40e012
+│   │       │   ├── 14
+│   │       │   │   ├── 2094f44f50e3c2
+│   │       │   │   ├── 2d14fc0c722cae
+│   │       │   │   ├── 2f2e953073c265
+│   │       │   │   ├── 674d4e3377f426
+│   │       │   │   └── b46ed0608e8f5a
+│   │       │   ├── 15
+│   │       │   │   ├── 03f271bf50a3b1
+│   │       │   │   ├── 08ec9ab1aa30c3
+│   │       │   │   ├── 247a9f09e01588
+│   │       │   │   ├── 4ed0ad5611d497
+│   │       │   │   ├── 624bd577bc18ca
+│   │       │   │   ├── 8f472996fec934
+│   │       │   │   ├── b9d599da41d9f3
+│   │       │   │   └── cb7418f5c153d7
+│   │       │   ├── 16
+│   │       │   │   ├── 122cb1d21a6cc8
+│   │       │   │   ├── 506723c2ecb5ed
+│   │       │   │   ├── 637950e015e9c8
+│   │       │   │   ├── 7fd8655cac5312
+│   │       │   │   └── aa385049ca11c1
+│   │       │   ├── 17
+│   │       │   │   ├── 042a5543f35d84
+│   │       │   │   ├── 07150c93f7f4a2
+│   │       │   │   ├── 0cb92e7ec475b7
+│   │       │   │   ├── 12290b0c1c0862
+│   │       │   │   ├── 4f64d526da7b9e
+│   │       │   │   ├── 7b30b8ba441121
+│   │       │   │   ├── e12f976b7a2c35
+│   │       │   │   └── fe773c14dbb571
+│   │       │   ├── 18
+│   │       │   │   ├── 2e465fcb2b905e
+│   │       │   │   ├── 4461217312cb63
+│   │       │   │   ├── b9919e2031720c
+│   │       │   │   ├── ce0bfe99760407
+│   │       │   │   ├── d0555861a9e401
+│   │       │   │   ├── e21960b9261708
+│   │       │   │   └── fc82047e1c3ea3
+│   │       │   ├── 19
+│   │       │   │   ├── 02a87841271e5a
+│   │       │   │   ├── 4c84e05ab0aa82
+│   │       │   │   ├── 4f08b28b784049
+│   │       │   │   ├── beb6e89a22176d
+│   │       │   │   ├── d0b9c383faf3fc
+│   │       │   │   └── f85c1c0761ee1c
+│   │       │   ├── 1a
+│   │       │   │   ├── 00772dcda31c62
+│   │       │   │   ├── 29a37a3ab70072
+│   │       │   │   └── ed3a255f4ff0e9
+│   │       │   ├── 1b
+│   │       │   │   ├── 64b0540bf1293f
+│   │       │   │   ├── 853c4d220e872e
+│   │       │   │   └── bd2af07eb204e8
+│   │       │   ├── 1c
+│   │       │   │   ├── 346214d4d73ed0
+│   │       │   │   ├── 5971fe5faf4600
+│   │       │   │   ├── 80bcabd87c3bc0
+│   │       │   │   └── fc7a4ab934bf7c
+│   │       │   ├── 1d
+│   │       │   │   ├── 5171dfb1cd1cf0
+│   │       │   │   ├── 71225f2cad696d
+│   │       │   │   ├── a0e4fc2e61bb09
+│   │       │   │   ├── d525b22559612d
+│   │       │   │   ├── dfd35ba67ca573
+│   │       │   │   └── f02ad25c4c9fdf
+│   │       │   ├── 1e
+│   │       │   │   ├── 022dccb5e2af56
+│   │       │   │   ├── 1c431e3a0b72f3
+│   │       │   │   ├── 3121b3e70d0526
+│   │       │   │   ├── 53bc4fa19e1dcb
+│   │       │   │   ├── 74dcd6fdbb59f6
+│   │       │   │   └── c18c7000058938
+│   │       │   ├── 1f
+│   │       │   │   ├── 121dd4da5011ac
+│   │       │   │   ├── 685e070a525980
+│   │       │   │   ├── 8308ea837ff3b5
+│   │       │   │   ├── c066f07f4a87e8
+│   │       │   │   ├── d18e49da840f61
+│   │       │   │   ├── d2bf27071b8299
+│   │       │   │   └── d7cec13f436d7d
+│   │       │   ├── 20
+│   │       │   │   ├── 9d891a5438ca89
+│   │       │   │   ├── bfc5a73c49bab4
+│   │       │   │   ├── c688caee7d1555
+│   │       │   │   └── d103dfc865b0ab
+│   │       │   ├── 21
+│   │       │   │   ├── 4666c0536f8d8f
+│   │       │   │   ├── 75d5df34482355
+│   │       │   │   ├── 76690cab218e33
+│   │       │   │   ├── 9a85c9293f2ecd
+│   │       │   │   ├── d47b22de2fc61d
+│   │       │   │   ├── dd953eeada761c
+│   │       │   │   └── f134f990e13a0e
+│   │       │   ├── 22
+│   │       │   │   ├── 2c11d15d28d0c0
+│   │       │   │   ├── 33799609f2dfcb
+│   │       │   │   ├── 608535d79131f3
+│   │       │   │   ├── a39a961ad14cc6
+│   │       │   │   ├── d24b8d0ec29f65
+│   │       │   │   └── e2f9ea3b866b9f
+│   │       │   ├── 23
+│   │       │   │   ├── 5e7d33af872c5f
+│   │       │   │   ├── 8e8a3ade70af90
+│   │       │   │   ├── 92d8a5a7be57c0
+│   │       │   │   └── bfb9c6b0800168
+│   │       │   ├── 24
+│   │       │   │   ├── bee74545af367d
+│   │       │   │   ├── e58b31fb9535c7
+│   │       │   │   └── e9cf9b5cfd1fdb
+│   │       │   ├── 25
+│   │       │   │   ├── 00040830ec159b
+│   │       │   │   ├── 0ee0fb782e0420
+│   │       │   │   ├── 274d2eaf28e5be
+│   │       │   │   ├── a57060a8a3ed95
+│   │       │   │   ├── bdfa640882c1f4
+│   │       │   │   └── da6d7e426f82c5
+│   │       │   ├── 26
+│   │       │   │   ├── 079d95a0c4fbb0
+│   │       │   │   ├── 1953c39e3a9ddd
+│   │       │   │   ├── 339c53e147753c
+│   │       │   │   └── 7858403dbcec8c
+│   │       │   ├── 27
+│   │       │   │   ├── 01875d675fd0d2
+│   │       │   │   ├── 518bbe074b9ad5
+│   │       │   │   ├── 5fe5dafd5ff48c
+│   │       │   │   ├── 75f172754f028f
+│   │       │   │   ├── b5bfb6d33383d1
+│   │       │   │   └── c18fe49b5831e7
+│   │       │   ├── 28
+│   │       │   │   ├── 29604884aec08d
+│   │       │   │   ├── 6bc5f73ff7be16
+│   │       │   │   ├── 88edb11f316220
+│   │       │   │   ├── a5e9bc9f36dfa1
+│   │       │   │   └── def6b7a1c9bbb5
+│   │       │   ├── 29
+│   │       │   │   ├── 0062d3fe5a0bde
+│   │       │   │   ├── 0d4834e8350cbd
+│   │       │   │   ├── 4a44b3e729a458
+│   │       │   │   ├── 6a5f41126017e2
+│   │       │   │   ├── 87471031a0c907
+│   │       │   │   ├── 9683462beb22c4
+│   │       │   │   ├── 98364ede937872
+│   │       │   │   ├── 9c178cdc9eeba6
+│   │       │   │   └── ff60184a23b007
+│   │       │   ├── 2a
+│   │       │   │   ├── 38592f05a5c2d5
+│   │       │   │   ├── 65c3c75cd9f8da
+│   │       │   │   ├── 8ebacf0f1ade8c
+│   │       │   │   ├── 9eb051e1125031
+│   │       │   │   ├── bb3f81c4a8f99b
+│   │       │   │   ├── cc4e402aa119f3
+│   │       │   │   └── d3b4285c4bef08
+│   │       │   ├── 2b
+│   │       │   │   ├── 17af71c77280bb
+│   │       │   │   ├── 22ee8eded6111e
+│   │       │   │   ├── 998e10f814613c
+│   │       │   │   ├── f43a17b97969ed
+│   │       │   │   └── f729e3ca4e7801
+│   │       │   ├── 2c
+│   │       │   │   ├── 4c59c37091b814
+│   │       │   │   ├── 5d20d4b3e99dc1
+│   │       │   │   ├── 766354f0a87a81
+│   │       │   │   ├── 886cadc8e38f8a
+│   │       │   │   ├── 9b27c08b76ee81
+│   │       │   │   ├── b2d9bbc5fca64b
+│   │       │   │   ├── e09367cae2a2e1
+│   │       │   │   └── fd9180fb01a337
+│   │       │   ├── 2d
+│   │       │   │   ├── 293d6c329d3135
+│   │       │   │   ├── 62046045b136dd
+│   │       │   │   ├── 74481b627935cf
+│   │       │   │   ├── b48dc52e8c7dae
+│   │       │   │   ├── ba4682aab1c06b
+│   │       │   │   └── eb96d9c22ddbbb
+│   │       │   ├── 2e
+│   │       │   │   ├── 2118e55d5dc2fb
+│   │       │   │   ├── 39f7bb78fa50bd
+│   │       │   │   ├── 4b45aad9cd10c5
+│   │       │   │   ├── c78c8dc9a756f1
+│   │       │   │   ├── f838e19d72810c
+│   │       │   │   └── fcd3688248eddb
+│   │       │   ├── 2f
+│   │       │   │   ├── 0d27c2d9446605
+│   │       │   │   ├── 1b1459f47d811e
+│   │       │   │   ├── 1f052329db0163
+│   │       │   │   ├── 31984863638c0e
+│   │       │   │   ├── 3ca61f505e850d
+│   │       │   │   ├── 90813e9e35c003
+│   │       │   │   ├── bf1f0e9b694d62
+│   │       │   │   ├── c6af074a2c4a1a
+│   │       │   │   └── df67945d3bfc3d
+│   │       │   ├── 30
+│   │       │   │   ├── 0f09933216fea9
+│   │       │   │   ├── 1585a5eea499c7
+│   │       │   │   ├── 7bcb9d05bf9b7f
+│   │       │   │   └── b5e36f74cb8002
+│   │       │   ├── 31
+│   │       │   │   ├── 204c5fd2d34a2a
+│   │       │   │   ├── 215833e9ce2d40
+│   │       │   │   ├── 471491a45b59c1
+│   │       │   │   ├── bfda503049e072
+│   │       │   │   ├── d9f532506a8a43
+│   │       │   │   └── fefb7c94abeba2
+│   │       │   ├── 32
+│   │       │   │   ├── 047201b3d1291a
+│   │       │   │   ├── 241f6ce4043965
+│   │       │   │   └── eedb5c98292044
+│   │       │   ├── 33
+│   │       │   │   ├── 4e6cffbb264bfa
+│   │       │   │   ├── 8b07e0608e4da4
+│   │       │   │   ├── 95f9dcb4f66fc9
+│   │       │   │   ├── d2343710f16ca5
+│   │       │   │   ├── d59e8c7fdae1d2
+│   │       │   │   └── ff4a53780aa614
+│   │       │   ├── 34
+│   │       │   │   ├── 0b5d870b116e78
+│   │       │   │   ├── 46bc8514c8ef10
+│   │       │   │   ├── 67190820391ae3
+│   │       │   │   ├── 81a90f27c4ab3c
+│   │       │   │   └── 97dcf37304136e
+│   │       │   ├── 35
+│   │       │   │   ├── 107f239ac0470e
+│   │       │   │   ├── 3a909610e2ba55
+│   │       │   │   ├── 5273d125c6d489
+│   │       │   │   └── d5303be0c97271
+│   │       │   ├── 36
+│   │       │   │   ├── 02ee11eea65edb
+│   │       │   │   ├── 1060dd441bf11c
+│   │       │   │   ├── 7f1d9122ef8739
+│   │       │   │   ├── 9681cf223de2a2
+│   │       │   │   ├── b05de8a37c2bff
+│   │       │   │   └── da1f5c106b4f1e
+│   │       │   ├── 37
+│   │       │   │   ├── 1e849ae58bef66
+│   │       │   │   ├── 36b4cf8bd8873d
+│   │       │   │   ├── 403e381ad144bd
+│   │       │   │   ├── 6f36752b9cbf19
+│   │       │   │   ├── 73c6bbd63d2c72
+│   │       │   │   └── d72a1d1bb5abcb
+│   │       │   ├── 38
+│   │       │   │   ├── 1adccf96d8a30b
+│   │       │   │   ├── 39a5e51bdf12db
+│   │       │   │   ├── 529ec352d0afa5
+│   │       │   │   ├── 56b641a819e798
+│   │       │   │   ├── 60e2e9169523d9
+│   │       │   │   └── fe2543ed39c4ab
+│   │       │   ├── 39
+│   │       │   │   ├── 12093826117631
+│   │       │   │   ├── 420755bc227cf1
+│   │       │   │   ├── 473fc706bce88a
+│   │       │   │   └── 48c730fd2610e3
+│   │       │   ├── 3a
+│   │       │   │   ├── 00c1ecde263721
+│   │       │   │   ├── 08b2e2a03421c8
+│   │       │   │   ├── 183df9ea33da0f
+│   │       │   │   ├── 5895efbe2cd4d8
+│   │       │   │   ├── 85f0a6f7c46fe9
+│   │       │   │   ├── 9dd7b1c1daaccc
+│   │       │   │   └── aff733cbd46ef2
+│   │       │   ├── 3b
+│   │       │   │   ├── 18a9b8f2d8fd03
+│   │       │   │   ├── 341134eddd836f
+│   │       │   │   ├── b328cec5dcbfc7
+│   │       │   │   └── d7c53d6c24eb48
+│   │       │   ├── 3c
+│   │       │   │   ├── 5b413110449e2e
+│   │       │   │   ├── 814b5f74308afc
+│   │       │   │   └── f5dda055f071d9
+│   │       │   ├── 3d
+│   │       │   │   ├── 1e0a36c85ac58b
+│   │       │   │   ├── 7c2d8e7c2607d1
+│   │       │   │   └── ed5e00a5f25775
+│   │       │   ├── 3e
+│   │       │   │   ├── 1b4d0be305a2c2
+│   │       │   │   ├── 22b2d9be29c869
+│   │       │   │   ├── 6e356dca359854
+│   │       │   │   ├── 6f0ddd7f0619f6
+│   │       │   │   ├── 8f40c7287f653f
+│   │       │   │   ├── c979eebc95075e
+│   │       │   │   └── e92d8108185383
+│   │       │   ├── 3f
+│   │       │   │   ├── 0e0a975310872b
+│   │       │   │   ├── 34e02ec7fb337c
+│   │       │   │   ├── 3a362bb81962d7
+│   │       │   │   ├── 84c3313614cd84
+│   │       │   │   └── b9c084e18efb5e
+│   │       │   ├── 40
+│   │       │   │   ├── d3ff17e9be0ecc
+│   │       │   │   └── edcd1ddafd62ba
+│   │       │   ├── 41
+│   │       │   │   ├── 303dd6fb6809b0
+│   │       │   │   ├── 56f232fc5019bf
+│   │       │   │   ├── 636b9a95242849
+│   │       │   │   ├── dc759450d2922e
+│   │       │   │   └── e0acc24273dc72
+│   │       │   ├── 42
+│   │       │   │   ├── 0822b63848a4d5
+│   │       │   │   ├── 0a6ecb2d50cd3c
+│   │       │   │   ├── 187f8c2f5319c3
+│   │       │   │   ├── 1a07aeda4fc07d
+│   │       │   │   ├── 4b6ea54d1a3c36
+│   │       │   │   ├── 4f9a6b1100e911
+│   │       │   │   ├── 4fda680e56df3a
+│   │       │   │   ├── 617a4ae9565e87
+│   │       │   │   ├── 79008f8aa99d75
+│   │       │   │   └── f2731e56992f4c
+│   │       │   ├── 43
+│   │       │   │   ├── 165480af66dbd1
+│   │       │   │   ├── 519875b5fe8dde
+│   │       │   │   ├── 60819f479ed894
+│   │       │   │   ├── e72a9babd2b7af
+│   │       │   │   └── fd21089cc3afe6
+│   │       │   ├── 44
+│   │       │   │   ├── 0240909e09f481
+│   │       │   │   ├── 06a7da0327f4b5
+│   │       │   │   ├── 1706cc018884bd
+│   │       │   │   ├── 383b4740bdeb43
+│   │       │   │   ├── 616597b3c59749
+│   │       │   │   ├── 958302800c4cb2
+│   │       │   │   ├── 997d78ce333dc2
+│   │       │   │   ├── c9b96e71591dd6
+│   │       │   │   └── e0e739ffb4361b
+│   │       │   ├── 45
+│   │       │   │   ├── 204353faac26ee
+│   │       │   │   ├── 4e77ceb657b82f
+│   │       │   │   ├── 7569b5f28e8046
+│   │       │   │   ├── 7a44572a4a4ae1
+│   │       │   │   ├── 95949bbdb54ee2
+│   │       │   │   └── b422ff92de5f5c
+│   │       │   ├── 46
+│   │       │   │   ├── 40d35092807085
+│   │       │   │   ├── bc96847146ef98
+│   │       │   │   └── eaa07ec413399b
+│   │       │   ├── 47
+│   │       │   │   ├── 0bf82baa7bdc8f
+│   │       │   │   ├── 35abc193934fac
+│   │       │   │   ├── 3d46e1834d7efc
+│   │       │   │   ├── 4206edbb8eee31
+│   │       │   │   ├── 9ff6de9bdc4474
+│   │       │   │   ├── b0d04c44a01bbd
+│   │       │   │   ├── be29dccc04f91e
+│   │       │   │   └── f1fd19b7650168
+│   │       │   ├── 48
+│   │       │   │   ├── 0cd3f54ce78ab0
+│   │       │   │   ├── 12bb6c7777fd1e
+│   │       │   │   ├── 5bc43b1b59e110
+│   │       │   │   ├── 9612d171ee82f2
+│   │       │   │   ├── b45e0d516998fa
+│   │       │   │   └── b5c07d1daf395f
+│   │       │   ├── 49
+│   │       │   │   ├── 4e6bae6b25b579
+│   │       │   │   ├── 7b9822f6342fdb
+│   │       │   │   ├── 8894314ab8ae23
+│   │       │   │   ├── 9086d85c181c13
+│   │       │   │   ├── adc6cdf8ba7c90
+│   │       │   │   ├── f4e248ac125dc2
+│   │       │   │   └── fae9958df64305
+│   │       │   ├── 4a
+│   │       │   │   └── 4270d16e83dabc
+│   │       │   ├── 4b
+│   │       │   │   ├── 13ab6c18ec0f62
+│   │       │   │   ├── 13c3266a277b2b
+│   │       │   │   ├── 52c029a0191d10
+│   │       │   │   ├── 5433508ab8ad82
+│   │       │   │   ├── 800f98d23d37bb
+│   │       │   │   ├── 84f9773d965dbc
+│   │       │   │   ├── a30cd9d29032dc
+│   │       │   │   └── d56271e88e4f21
+│   │       │   ├── 4c
+│   │       │   │   ├── 3d4b8eaa29654b
+│   │       │   │   ├── 3fb0bf7b7cb71c
+│   │       │   │   ├── 3fb6b639236ee4
+│   │       │   │   ├── 8b136914a94150
+│   │       │   │   ├── 9eeb31156da2a1
+│   │       │   │   ├── a33726f0ac0905
+│   │       │   │   └── e2e4c8dfcb480a
+│   │       │   ├── 4d
+│   │       │   │   ├── 0a7ffaeeb5c38c
+│   │       │   │   ├── 32ae86e5109064
+│   │       │   │   ├── 4eb73a98633070
+│   │       │   │   ├── 85790402a8ff0c
+│   │       │   │   ├── be305da238313b
+│   │       │   │   ├── cdd7650b6a6037
+│   │       │   │   ├── d8e58181ae4194
+│   │       │   │   ├── e5c05031e07f34
+│   │       │   │   └── f34406050eaa29
+│   │       │   ├── 4e
+│   │       │   │   ├── 0ac746c768468e
+│   │       │   │   ├── 278b04a3ebcafc
+│   │       │   │   ├── 2dd4f8ea4d7d85
+│   │       │   │   ├── 66d527fb048200
+│   │       │   │   ├── 79f2dd97ddcebf
+│   │       │   │   ├── 8338c0e3dbde4a
+│   │       │   │   ├── 8346e3eab95167
+│   │       │   │   ├── 9bb8b0cf043eb4
+│   │       │   │   └── cc0c953d347b0b
+│   │       │   ├── 4f
+│   │       │   │   ├── 2e255e03efe70d
+│   │       │   │   ├── a04a3dcd2d089b
+│   │       │   │   ├── c905056244a921
+│   │       │   │   ├── dae9dea4f5222f
+│   │       │   │   └── efdc5a0bc23d46
+│   │       │   ├── 50
+│   │       │   │   ├── 22ae40ff0f145e
+│   │       │   │   ├── 3cdc9e1573ac07
+│   │       │   │   ├── 5219f1020f6599
+│   │       │   │   ├── 61c59f3e6cadf6
+│   │       │   │   ├── 8102af2202888a
+│   │       │   │   ├── 9aa759d95a9088
+│   │       │   │   ├── ca8f5141087113
+│   │       │   │   └── f5fae0f0bdc4cb
+│   │       │   ├── 51
+│   │       │   │   ├── 60c82bee71f320
+│   │       │   │   ├── 76ea7b425c3db9
+│   │       │   │   └── dfec339a207494
+│   │       │   ├── 52
+│   │       │   │   ├── 40d81d6b056686
+│   │       │   │   └── cb83a9cecab228
+│   │       │   ├── 53
+│   │       │   │   ├── 0057f6cf40868e
+│   │       │   │   ├── 2aee0096f215e2
+│   │       │   │   ├── 90ce444a23a48f
+│   │       │   │   └── bc03d1e2293121
+│   │       │   ├── 54
+│   │       │   │   ├── 79125ee1867a47
+│   │       │   │   ├── 7eb2ddc2c2986d
+│   │       │   │   ├── a6d667dee2dc07
+│   │       │   │   ├── ae704d507a1225
+│   │       │   │   ├── d72af475e5b9b9
+│   │       │   │   ├── df1c20616a4d0f
+│   │       │   │   └── ffe2b1857e8c59
+│   │       │   ├── 55
+│   │       │   │   ├── a1bd11eaeb5142
+│   │       │   │   ├── f80b316d8b0501
+│   │       │   │   └── fca5a61d377e2f
+│   │       │   ├── 56
+│   │       │   │   ├── 053ce8cafa7d1e
+│   │       │   │   └── f6c262fac427a2
+│   │       │   ├── 57
+│   │       │   │   ├── 12f733f11155c8
+│   │       │   │   ├── 43a28279e393a7
+│   │       │   │   ├── 9eddb5bf4eb79c
+│   │       │   │   ├── c429d2d370bb09
+│   │       │   │   └── f3801284c810e5
+│   │       │   ├── 58
+│   │       │   │   └── a35fff6a25307e
+│   │       │   ├── 59
+│   │       │   │   ├── 11ec87e18d19ef
+│   │       │   │   ├── 131029170d4448
+│   │       │   │   ├── 38fa7c6362980e
+│   │       │   │   ├── 6bd92f36df8f51
+│   │       │   │   ├── a005f483b3cbac
+│   │       │   │   ├── dab9a4bd9c5dd1
+│   │       │   │   └── e2e057624f973b
+│   │       │   ├── 5a
+│   │       │   │   ├── 5d4ab681d317bc
+│   │       │   │   ├── 924f345af34839
+│   │       │   │   └── d2c8f9b0647412
+│   │       │   ├── 5b
+│   │       │   │   ├── 2182ebb50c5dfb
+│   │       │   │   └── 35ee450326b875
+│   │       │   ├── 5c
+│   │       │   │   ├── 1694126ec5e190
+│   │       │   │   ├── 1965ba0bf20f92
+│   │       │   │   ├── 43377ddddb9b2a
+│   │       │   │   ├── 504f89ed49167e
+│   │       │   │   ├── 6634beff7db006
+│   │       │   │   ├── 71445f1c7d5908
+│   │       │   │   ├── 77f4d7997378cb
+│   │       │   │   ├── 79f9880ce8afa2
+│   │       │   │   ├── 7cf8075efb6073
+│   │       │   │   ├── 7e6a0d9e2e7123
+│   │       │   │   ├── c2d0abdd9257b1
+│   │       │   │   └── d436cb5679c174
+│   │       │   ├── 5d
+│   │       │   │   ├── 11f92cc4fbcfcc
+│   │       │   │   ├── 2e1edb78a362f3
+│   │       │   │   ├── f826b89a2d8ffa
+│   │       │   │   └── ff3e4154408c89
+│   │       │   ├── 5e
+│   │       │   │   ├── 1d6f59bd667bfe
+│   │       │   │   ├── 45751483af3b21
+│   │       │   │   ├── 4caaef097cf54f
+│   │       │   │   ├── 8ce87cbef38c14
+│   │       │   │   └── b1301964d00c0a
+│   │       │   ├── 5f
+│   │       │   │   ├── 37f51ff70a463e
+│   │       │   │   └── e9aa0de9b3a705
+│   │       │   ├── 60
+│   │       │   │   ├── 0822e761c05200
+│   │       │   │   ├── 101ec2890aa2cc
+│   │       │   │   ├── 1cb67d1549f566
+│   │       │   │   ├── 55a3a4edd81bb8
+│   │       │   │   ├── 760cd30e57144a
+│   │       │   │   ├── 9156d425883b85
+│   │       │   │   ├── 977a4da195d8ff
+│   │       │   │   ├── c5e98a80c31a62
+│   │       │   │   └── fc364158a0a3bd
+│   │       │   ├── 61
+│   │       │   │   ├── 32916fdc4ea560
+│   │       │   │   ├── 3da117150564f0
+│   │       │   │   ├── 4c61d17636f54d
+│   │       │   │   ├── 762caee3b97735
+│   │       │   │   └── b01d552a052d1a
+│   │       │   ├── 62
+│   │       │   │   ├── cbe5656784fbff
+│   │       │   │   └── edc65f3cfc1a91
+│   │       │   ├── 63
+│   │       │   │   ├── 14ab6030084fba
+│   │       │   │   ├── 4aa7d0be3fb49a
+│   │       │   │   ├── 6fdd3c60ec42d5
+│   │       │   │   ├── df9470cdeea4fd
+│   │       │   │   └── ffe70df6294204
+│   │       │   ├── 64
+│   │       │   │   ├── 660234fa5173c6
+│   │       │   │   ├── 87c83c21bfffaf
+│   │       │   │   ├── 90fd80786d4936
+│   │       │   │   ├── 9491dd398c83bc
+│   │       │   │   └── d13de5132e6710
+│   │       │   ├── 65
+│   │       │   │   ├── 30115f8791f1b9
+│   │       │   │   ├── 3b429a4ffcc15a
+│   │       │   │   ├── 4529228b1c8b7b
+│   │       │   │   ├── 82404f0841374e
+│   │       │   │   ├── 85609fb751e8f7
+│   │       │   │   ├── 90df45f18b3c77
+│   │       │   │   └── d657d186e6a286
+│   │       │   ├── 66
+│   │       │   │   ├── 2696a90e181e46
+│   │       │   │   ├── 364295dfea482d
+│   │       │   │   ├── 61a3fc9016c022
+│   │       │   │   ├── 7ec52bb2635190
+│   │       │   │   ├── 8d82477c02a50d
+│   │       │   │   └── d57a569a7ceadd
+│   │       │   ├── 67
+│   │       │   │   ├── 0128995cdf42fa
+│   │       │   │   ├── 09b1adc4e5f2ee
+│   │       │   │   ├── 26f584aec4e99b
+│   │       │   │   ├── 3dbd6ec239e8bb
+│   │       │   │   ├── 3f56bcec60bc29
+│   │       │   │   ├── 9afbfcfe934781
+│   │       │   │   ├── a5c56b25220dea
+│   │       │   │   ├── c5900915163d38
+│   │       │   │   ├── cd5a4ede41ac20
+│   │       │   │   └── f44939862b42e6
+│   │       │   ├── 68
+│   │       │   │   ├── 7cb083455e9790
+│   │       │   │   ├── 85814edd78bcd5
+│   │       │   │   ├── 87bed68b76270a
+│   │       │   │   └── e8d3169794faea
+│   │       │   ├── 69
+│   │       │   │   ├── b3358d7b161ba9
+│   │       │   │   ├── c4e00a5efd98f5
+│   │       │   │   └── fdae58de854297
+│   │       │   ├── 6a
+│   │       │   │   ├── 22e767799304be
+│   │       │   │   ├── 5cc558d3b99a6e
+│   │       │   │   └── c6175827fd6957
+│   │       │   ├── 6b
+│   │       │   │   ├── 25f1e643dd85a6
+│   │       │   │   ├── 537af38572e91a
+│   │       │   │   ├── 6f4b4aaebd6931
+│   │       │   │   ├── c125243adfa4dc
+│   │       │   │   └── e9ee0a11285144
+│   │       │   ├── 6c
+│   │       │   │   ├── 40c29f068f8154
+│   │       │   │   ├── 8b9d59f2258a25
+│   │       │   │   ├── a808a99835ca41
+│   │       │   │   └── d57b2660c0f323
+│   │       │   ├── 6d
+│   │       │   │   ├── 27e7efe5a9b999
+│   │       │   │   ├── a27b420c634a95
+│   │       │   │   ├── ce8f0be35ab043
+│   │       │   │   ├── d1439ea822f421
+│   │       │   │   └── f060b60b85900b
+│   │       │   ├── 6e
+│   │       │   │   ├── 003de9ded15784
+│   │       │   │   ├── 37dc4e41849997
+│   │       │   │   ├── 53ee96accb5bf7
+│   │       │   │   ├── 5bd72dab5b36a4
+│   │       │   │   ├── 9f6e8b7f427193
+│   │       │   │   ├── 9f7d894cb1cd73
+│   │       │   │   └── bdbc48b6401289
+│   │       │   ├── 6f
+│   │       │   │   ├── 8168e438d9f6df
+│   │       │   │   ├── 8826735fa4ac2a
+│   │       │   │   ├── 99af4e5989045d
+│   │       │   │   └── f8b0782224a84b
+│   │       │   ├── 70
+│   │       │   │   ├── 10f687c4c21812
+│   │       │   │   ├── 1a5a4bf1f26917
+│   │       │   │   ├── 44a5624b812a1d
+│   │       │   │   ├── 9b660b67a3ebfa
+│   │       │   │   └── a545ec55363357
+│   │       │   ├── 71
+│   │       │   │   ├── a02302068605d0
+│   │       │   │   ├── ca2bb1e530942d
+│   │       │   │   └── f196c31f019790
+│   │       │   ├── 72
+│   │       │   │   ├── 012271196cff0c
+│   │       │   │   ├── 0e425b4e6ca508
+│   │       │   │   ├── 161e10c29895ac
+│   │       │   │   ├── 1840ab017fdd6f
+│   │       │   │   ├── 2d403f7754e1d1
+│   │       │   │   ├── 7965de059accc1
+│   │       │   │   └── 806222e942dfe8
+│   │       │   ├── 73
+│   │       │   │   ├── 079e4364cc4809
+│   │       │   │   ├── 144933980b97e4
+│   │       │   │   ├── 1f8fb293714c3c
+│   │       │   │   ├── 7314029fedeba2
+│   │       │   │   ├── ce0483e77da7ec
+│   │       │   │   ├── d78171de9454e2
+│   │       │   │   ├── dd25ac44670d54
+│   │       │   │   └── dd3f0060337787
+│   │       │   ├── 74
+│   │       │   │   ├── 1dd2f5ec13eb83
+│   │       │   │   ├── 50bfaea2e30780
+│   │       │   │   └── b950dba1d0d9e0
+│   │       │   ├── 75
+│   │       │   │   ├── 1ed6a2a18e048c
+│   │       │   │   ├── 2e0a737ee3f66b
+│   │       │   │   ├── 2fdc23a43aeac8
+│   │       │   │   ├── 4f931b49df9015
+│   │       │   │   ├── 6760026b2dd504
+│   │       │   │   ├── d29922e4cc67ff
+│   │       │   │   ├── e57a20311dcd37
+│   │       │   │   └── ff7623884381f9
+│   │       │   ├── 76
+│   │       │   │   ├── 47141cb9b3eafe
+│   │       │   │   ├── 90b13fd22fdb45
+│   │       │   │   └── bb3b1af57673cb
+│   │       │   ├── 77
+│   │       │   │   ├── 23812dd1c79be1
+│   │       │   │   ├── 7206a3ebba705b
+│   │       │   │   ├── 7f01d10e24f781
+│   │       │   │   ├── 8cccf274ad1304
+│   │       │   │   ├── d7c1f074654906
+│   │       │   │   └── f87d54a6c5745a
+│   │       │   ├── 78
+│   │       │   │   ├── 1368acaa853f45
+│   │       │   │   ├── 4c604f36c7b0e7
+│   │       │   │   ├── 5d8d06d7448d77
+│   │       │   │   ├── 93e1784761826a
+│   │       │   │   ├── c5657ed401e6cb
+│   │       │   │   └── caee88e089c3f9
+│   │       │   ├── 79
+│   │       │   │   ├── 03cce0577d9047
+│   │       │   │   ├── 629e3d0920d42f
+│   │       │   │   ├── 7ad567504aa832
+│   │       │   │   ├── 8234b1c88887a7
+│   │       │   │   └── d2b78dfa293320
+│   │       │   ├── 7a
+│   │       │   │   ├── 0f4fe941aa3256
+│   │       │   │   ├── 3c5fdd6ec048e5
+│   │       │   │   ├── a2da4cd07c9a08
+│   │       │   │   ├── c33204c7b43103
+│   │       │   │   └── fe3545150581b9
+│   │       │   ├── 7b
+│   │       │   │   ├── 14ff6c699979a3
+│   │       │   │   └── cafe2009c9cd86
+│   │       │   ├── 7c
+│   │       │   │   ├── 07de38c2f30a3c
+│   │       │   │   ├── 0ac32fc65a7f6c
+│   │       │   │   └── dfb8a61901c7f4
+│   │       │   ├── 7d
+│   │       │   │   ├── 4d42e817dd18f1
+│   │       │   │   ├── 95a89228448b46
+│   │       │   │   ├── 9eebcc5a79005b
+│   │       │   │   ├── c1a0bc065e1bb9
+│   │       │   │   └── cef9b58e37f4e8
+│   │       │   ├── 7e
+│   │       │   │   ├── 14fb33352d3317
+│   │       │   │   ├── 6e7a14988784bd
+│   │       │   │   ├── 78843a5f711b86
+│   │       │   │   ├── 984b975e5c5095
+│   │       │   │   ├── c41646ccf76dcc
+│   │       │   │   ├── c4ed6f01b12f36
+│   │       │   │   ├── d040e0e32f422f
+│   │       │   │   ├── ee289989e90f44
+│   │       │   │   └── f862f232c20f97
+│   │       │   ├── 7f
+│   │       │   │   ├── 415d9fdd04a8a0
+│   │       │   │   ├── b6236c9f674b5d
+│   │       │   │   └── d9b4e5068b4e00
+│   │       │   ├── 80
+│   │       │   │   ├── 2bf679bfe9e45d
+│   │       │   │   ├── 3214504bda6b13
+│   │       │   │   ├── 57d3d5e6b9ee6e
+│   │       │   │   ├── 8eb1dc1e7de4c8
+│   │       │   │   ├── a98a3fe25a4ed3
+│   │       │   │   ├── d4b23c0a107d2b
+│   │       │   │   └── f620a2ad8f9d04
+│   │       │   ├── 81
+│   │       │   │   ├── 1245f8dcf34443
+│   │       │   │   ├── 154263e864074e
+│   │       │   │   ├── 4c4c668881c086
+│   │       │   │   ├── 8f7bfb33831ce9
+│   │       │   │   ├── b2f9d323f50700
+│   │       │   │   └── e925a16b2ea401
+│   │       │   ├── 82
+│   │       │   │   └── c41036dfc1f020
+│   │       │   ├── 83
+│   │       │   │   ├── b8b81d1fb1bc48
+│   │       │   │   ├── cd37e83c52beee
+│   │       │   │   ├── d2af009182b9d2
+│   │       │   │   ├── d7987b0285a789
+│   │       │   │   ├── dafb3c378d8465
+│   │       │   │   ├── e4efbe6a52a59d
+│   │       │   │   └── eb180b440fd345
+│   │       │   ├── 84
+│   │       │   │   ├── 27c9b5bbd54286
+│   │       │   │   ├── 33901d1f2f769d
+│   │       │   │   ├── eb3ca591aa8d7b
+│   │       │   │   └── f55a0043447746
+│   │       │   ├── 85
+│   │       │   │   ├── 07c245e5df5ff0
+│   │       │   │   ├── 4b1866fcccdfdb
+│   │       │   │   ├── 541f6e33623f47
+│   │       │   │   ├── 7ff2525aa10e5f
+│   │       │   │   ├── b6f72651d9acdf
+│   │       │   │   └── c87bd5a26633af
+│   │       │   ├── 86
+│   │       │   │   ├── 185a0674fedbcc
+│   │       │   │   ├── 6e0b575fc6d0c8
+│   │       │   │   ├── 7425391a44d848
+│   │       │   │   ├── c9942d621b1fb4
+│   │       │   │   ├── d6d30dbd21142b
+│   │       │   │   ├── dd0266466ca316
+│   │       │   │   └── e12e1380a35897
+│   │       │   ├── 87
+│   │       │   │   └── 14f70edb92e69b
+│   │       │   ├── 88
+│   │       │   │   ├── 08499493f2913e
+│   │       │   │   ├── 1c53939fa0f63f
+│   │       │   │   ├── 21a10334243fc6
+│   │       │   │   ├── 3ec627cc10c9c5
+│   │       │   │   ├── 991388f8803ae8
+│   │       │   │   ├── b181a5022d7fd6
+│   │       │   │   └── c36b84bb4b5d86
+│   │       │   ├── 89
+│   │       │   │   ├── 16c373722f752f
+│   │       │   │   ├── 25793ed73e9b99
+│   │       │   │   ├── 39bf7783f72cc7
+│   │       │   │   ├── 812806d3085511
+│   │       │   │   ├── b59dedd7233b6b
+│   │       │   │   └── c44dcd57bcaf73
+│   │       │   ├── 8a
+│   │       │   │   ├── 386fbf6c379e3e
+│   │       │   │   ├── 3a337e7f80a790
+│   │       │   │   ├── 4b3c0ee27e3c51
+│   │       │   │   ├── 57c3bc6393a29c
+│   │       │   │   └── 70a46ed8cddb5e
+│   │       │   ├── 8b
+│   │       │   │   ├── 0b33e285a82577
+│   │       │   │   ├── 54fb8f36af913a
+│   │       │   │   ├── 6f0c8cf3d1422b
+│   │       │   │   ├── 9d9fd91087da4c
+│   │       │   │   ├── a37df9a7698cbb
+│   │       │   │   ├── cc674f68c05e26
+│   │       │   │   ├── dd2ac15392f47e
+│   │       │   │   ├── df254d12da2bac
+│   │       │   │   └── f702da6c579ed7
+│   │       │   ├── 8c
+│   │       │   │   ├── 05e460cc7ae96b
+│   │       │   │   ├── 1405d1067d97e0
+│   │       │   │   ├── 342deae68101c9
+│   │       │   │   ├── 59e7baa100d207
+│   │       │   │   ├── 7a5066d5f44d79
+│   │       │   │   ├── a64528cd56acfc
+│   │       │   │   └── f2ebe211cf5687
+│   │       │   ├── 8d
+│   │       │   │   ├── 1c33f0b7cf8f95
+│   │       │   │   ├── 3aa77c828193d9
+│   │       │   │   ├── 51653efeb0e2eb
+│   │       │   │   ├── 53e7bb4eb48304
+│   │       │   │   ├── ce8d07581c10c7
+│   │       │   │   ├── de2acda9cc9f2f
+│   │       │   │   └── e3e1991b3f446c
+│   │       │   ├── 8e
+│   │       │   │   ├── 092b2d9b462284
+│   │       │   │   ├── 2f9b0b1cc0a609
+│   │       │   │   ├── a5197dbabab317
+│   │       │   │   ├── ca656133a5af8b
+│   │       │   │   └── e28da92874cb2d
+│   │       │   ├── 8f
+│   │       │   │   ├── 89b6aa38251330
+│   │       │   │   └── 99272bb1685902
+│   │       │   ├── 90
+│   │       │   │   ├── 3b534df872b35b
+│   │       │   │   ├── 9b1dc82da24d25
+│   │       │   │   ├── b4872da3dab3d1
+│   │       │   │   └── e1ae407c93d99c
+│   │       │   ├── 91
+│   │       │   │   ├── 534e3313e86d50
+│   │       │   │   └── 6229ee3f0ad795
+│   │       │   ├── 92
+│   │       │   │   ├── b4f16e6fbff820
+│   │       │   │   └── bfcca559699bca
+│   │       │   ├── 93
+│   │       │   │   ├── 31ebe8d98f9b0c
+│   │       │   │   ├── 33bdf43560d5e9
+│   │       │   │   ├── 8a40b4b1299771
+│   │       │   │   └── b52046f6e20ed7
+│   │       │   ├── 94
+│   │       │   │   ├── 6e16cc48c72fe9
+│   │       │   │   ├── 845e80664d64ef
+│   │       │   │   ├── 990ce37a65d5be
+│   │       │   │   ├── b92ca02659bb51
+│   │       │   │   └── ff9445a8d7ba9f
+│   │       │   ├── 95
+│   │       │   │   ├── 19d5d2615f6064
+│   │       │   │   ├── 81a7ed3466890a
+│   │       │   │   ├── b5ec8293ee077b
+│   │       │   │   └── c6f2b6c22f73e7
+│   │       │   ├── 96
+│   │       │   │   ├── 06dad7d426a393
+│   │       │   │   ├── 7a31b598e20b49
+│   │       │   │   ├── 7d4facb41ab061
+│   │       │   │   ├── f77cfeac623630
+│   │       │   │   └── ff6fe87b328ca3
+│   │       │   ├── 97
+│   │       │   │   ├── 9475cf6abd70cd
+│   │       │   │   └── d7cc8d6eb37ea9
+│   │       │   ├── 98
+│   │       │   │   ├── 6e089ba314debe
+│   │       │   │   ├── b942b9f74b5950
+│   │       │   │   ├── d6598339d1cb9c
+│   │       │   │   └── fbc556dd2add61
+│   │       │   ├── 99
+│   │       │   │   ├── 27bedd8c106347
+│   │       │   │   ├── 46507b9fd4b9b1
+│   │       │   │   ├── 8525abd79deef1
+│   │       │   │   ├── 91b0f3a6c5e0f5
+│   │       │   │   ├── bd9ff4fc1d5d8c
+│   │       │   │   └── f76dbe0310ef63
+│   │       │   ├── 9a
+│   │       │   │   ├── 0c20aeeebaae86
+│   │       │   │   ├── 191fe64be14ed4
+│   │       │   │   ├── 24807ee9cdd290
+│   │       │   │   ├── 4fcf651ec4967e
+│   │       │   │   ├── be0af1200c7de3
+│   │       │   │   └── e642bc13ca1895
+│   │       │   ├── 9b
+│   │       │   │   ├── 10a5d9dcbdae53
+│   │       │   │   ├── 1c152a22449973
+│   │       │   │   ├── 213dae7266e7e6
+│   │       │   │   ├── 3f49735cde3082
+│   │       │   │   ├── 611e750649e2f1
+│   │       │   │   ├── 95a2cfc34d438e
+│   │       │   │   ├── b40c3579077ff2
+│   │       │   │   ├── dbd562f1f5e4c8
+│   │       │   │   └── e1cfa1093b5ee0
+│   │       │   ├── 9c
+│   │       │   │   ├── 0112c154724a96
+│   │       │   │   ├── 56a92abaa8dcaa
+│   │       │   │   ├── 702f99c1d240a8
+│   │       │   │   ├── 9457c8273aef50
+│   │       │   │   ├── 95b224689670b4
+│   │       │   │   ├── b719ce66739b8f
+│   │       │   │   └── d45e9f3b21ba5f
+│   │       │   ├── 9d
+│   │       │   │   ├── 321f775c3534f3
+│   │       │   │   ├── 6e528d6e609293
+│   │       │   │   ├── 843c05fe2d3693
+│   │       │   │   ├── 96ffc6ac51eee5
+│   │       │   │   └── ae5e8d2ff84880
+│   │       │   ├── 9e
+│   │       │   │   ├── 155510ddc9d124
+│   │       │   │   ├── 9ab7bf3c869833
+│   │       │   │   ├── b73f9ca5098305
+│   │       │   │   └── fa7703dd310af9
+│   │       │   ├── 9f
+│   │       │   │   ├── 0274edd6058f75
+│   │       │   │   ├── 21a844c7055487
+│   │       │   │   ├── 44d854be7fc022
+│   │       │   │   ├── 732f2a05377231
+│   │       │   │   ├── 8cdef20b30a6c6
+│   │       │   │   ├── 9ff390e95261a2
+│   │       │   │   ├── ad2106beedaddf
+│   │       │   │   ├── dd0b0cb8a5f4e0
+│   │       │   │   └── eb89ecdfa51b75
+│   │       │   ├── a0
+│   │       │   │   ├── 621184114444c3
+│   │       │   │   ├── 66efb4c0cd190c
+│   │       │   │   ├── c0da07dcb30247
+│   │       │   │   └── d92f2738d7a83e
+│   │       │   ├── a1
+│   │       │   │   ├── 568a35d3121b52
+│   │       │   │   ├── 64cca1d60c082c
+│   │       │   │   ├── 6649823ec45529
+│   │       │   │   └── 708d70c27d1a00
+│   │       │   ├── a2
+│   │       │   │   ├── 4be377ba0a5b49
+│   │       │   │   ├── 57201ed5df08f3
+│   │       │   │   └── e853e14cb33524
+│   │       │   ├── a3
+│   │       │   │   ├── 4b1139435795cc
+│   │       │   │   ├── 5fc51fb2dc6cb8
+│   │       │   │   ├── 74d68cf3cc6eeb
+│   │       │   │   └── bafaad004f6625
+│   │       │   ├── a4
+│   │       │   │   ├── 124fb222c9d49f
+│   │       │   │   ├── 13c0cccbbf8c75
+│   │       │   │   ├── 4dae8bf3974afe
+│   │       │   │   ├── ad6d7a441748fa
+│   │       │   │   └── fba3c56731df66
+│   │       │   ├── a5
+│   │       │   │   ├── 3b203f1970eb9f
+│   │       │   │   ├── 3dcda5ab06158d
+│   │       │   │   ├── 63f14b95e4b0f3
+│   │       │   │   ├── 7d6d8c64b299f9
+│   │       │   │   └── f3d7172950bc57
+│   │       │   ├── a6
+│   │       │   │   ├── 08d7e8b461f5ea
+│   │       │   │   └── 11d897684d10cc
+│   │       │   ├── a7
+│   │       │   │   ├── dbb0902e19d8c0
+│   │       │   │   └── e71552e5e71b45
+│   │       │   ├── a8
+│   │       │   │   ├── 08f519c6891fef
+│   │       │   │   ├── 176d3c7f2bbfdf
+│   │       │   │   ├── 4ee31c44611c02
+│   │       │   │   ├── 5e22986208dea7
+│   │       │   │   ├── 7ad87c2353a737
+│   │       │   │   ├── 88559080dd6b32
+│   │       │   │   ├── 926b01ddb51d05
+│   │       │   │   ├── becf75a1ce8fde
+│   │       │   │   ├── c50360e785f641
+│   │       │   │   └── e9dca166d71bba
+│   │       │   ├── a9
+│   │       │   │   ├── 0a3ea69211d05a
+│   │       │   │   ├── 150dac78d9dadd
+│   │       │   │   ├── 208784feefb18e
+│   │       │   │   ├── 837ca94d1bff35
+│   │       │   │   ├── f172024cb09242
+│   │       │   │   ├── f6e63d588cd0b1
+│   │       │   │   └── fb698b191eedff
+│   │       │   ├── aa
+│   │       │   │   ├── 61fe74149a87be
+│   │       │   │   ├── baf793002e2eac
+│   │       │   │   ├── c968277d7d7bca
+│   │       │   │   ├── da7c9a7e14bca2
+│   │       │   │   ├── f366f6d089cc36
+│   │       │   │   └── f4e728c01a8e39
+│   │       │   ├── ab
+│   │       │   │   ├── 00f91c3f0da1f7
+│   │       │   │   ├── b998aa6976b643
+│   │       │   │   ├── e047d3cb8dc560
+│   │       │   │   └── f402f6f86b15eb
+│   │       │   ├── ac
+│   │       │   │   ├── 96fc6261c2fcd2
+│   │       │   │   ├── e96c40312313aa
+│   │       │   │   └── f413b14abeefd3
+│   │       │   ├── ad
+│   │       │   │   ├── 3a9fbc1d2b883e
+│   │       │   │   ├── 3cbaa717a462a7
+│   │       │   │   ├── 60f6da47f80012
+│   │       │   │   ├── a2fc147a8f7a0a
+│   │       │   │   └── ced803ad2a68d8
+│   │       │   ├── ae
+│   │       │   │   ├── 01fb5a31781f2f
+│   │       │   │   ├── 890ba53505c178
+│   │       │   │   ├── 998c0d10e8c5dc
+│   │       │   │   └── b08accc404380a
+│   │       │   ├── af
+│   │       │   │   ├── 266baa6a35c90c
+│   │       │   │   ├── 48277fbb599319
+│   │       │   │   ├── 96be3fda8c29f6
+│   │       │   │   ├── c85d66a0abe7c7
+│   │       │   │   ├── c8b80362216c5a
+│   │       │   │   └── faa9ac70547595
+│   │       │   ├── b0
+│   │       │   │   ├── 118c580f23b53e
+│   │       │   │   ├── 21ca2248baea5a
+│   │       │   │   ├── 32f6f5f9099788
+│   │       │   │   ├── 76b8b83724e745
+│   │       │   │   ├── 96992a79a8c70f
+│   │       │   │   ├── ae13b117df6a33
+│   │       │   │   ├── bc6a83414052fa
+│   │       │   │   └── eaba3b7332e572
+│   │       │   ├── b1
+│   │       │   │   ├── 430acf2a183ead
+│   │       │   │   ├── 8171a210e9aeac
+│   │       │   │   ├── be49586b7cf230
+│   │       │   │   ├── bed2c324b20971
+│   │       │   │   ├── daf9248ca624e9
+│   │       │   │   └── fe5acb362f74e9
+│   │       │   ├── b2
+│   │       │   │   ├── 4ac3302f1568e9
+│   │       │   │   ├── a6f6cbfc977a2d
+│   │       │   │   └── c440ad790fcba1
+│   │       │   ├── b3
+│   │       │   │   ├── 580ca136718fa8
+│   │       │   │   ├── 9c9284626832bb
+│   │       │   │   ├── c292e46ea15b71
+│   │       │   │   ├── ce20bb066605e9
+│   │       │   │   └── d7bd673df144de
+│   │       │   ├── b4
+│   │       │   │   ├── 349cbb59f53ef6
+│   │       │   │   ├── 52efe3a1497517
+│   │       │   │   ├── a8c29616a3bdec
+│   │       │   │   ├── c1946cdd3d0d53
+│   │       │   │   ├── c42902f3707a9d
+│   │       │   │   └── eff50a7f22d471
+│   │       │   ├── b5
+│   │       │   │   ├── 431c4009bf2a24
+│   │       │   │   ├── 5ab6db606c1f88
+│   │       │   │   ├── a027ba73e92776
+│   │       │   │   ├── a0ae2e29713b4d
+│   │       │   │   ├── a48a386181f6ef
+│   │       │   │   ├── e31203e3faa41c
+│   │       │   │   └── ebf6f1b5a84128
+│   │       │   ├── b6
+│   │       │   │   ├── 4f17a5b976c141
+│   │       │   │   ├── 502dbc07c36a58
+│   │       │   │   ├── c6e109cafd5345
+│   │       │   │   ├── d2096bcbf3d48f
+│   │       │   │   └── eddd60f4eb1046
+│   │       │   ├── b7
+│   │       │   │   ├── 7c73968a7db7b3
+│   │       │   │   ├── 9be338656f3536
+│   │       │   │   └── d16fef8a507bbc
+│   │       │   ├── b8
+│   │       │   │   ├── 05cc89794ba1c5
+│   │       │   │   ├── b0091292354c20
+│   │       │   │   ├── d2e4915a9b8cf2
+│   │       │   │   ├── d5a0893a6a99e7
+│   │       │   │   ├── e5893c4c717709
+│   │       │   │   └── f8b1d58d030540
+│   │       │   ├── b9
+│   │       │   │   ├── 375f13230f0f89
+│   │       │   │   ├── 3b418a0ff89ef7
+│   │       │   │   ├── 7374efba70312f
+│   │       │   │   ├── 9196e6dc1c75e5
+│   │       │   │   └── e9b9fe043ce6a6
+│   │       │   ├── ba
+│   │       │   │   ├── 3b47b75453bb4f
+│   │       │   │   ├── 5987b7649e1dc9
+│   │       │   │   ├── 94f0fd45b10a1f
+│   │       │   │   ├── b3b2ae57ef1047
+│   │       │   │   ├── bffa60e212e921
+│   │       │   │   └── dfcbc10e0bac72
+│   │       │   ├── bb
+│   │       │   │   ├── 00857ddd808989
+│   │       │   │   ├── 081d5121fc93cf
+│   │       │   │   ├── 0c94e6d9de7c10
+│   │       │   │   ├── 428487d1091ff3
+│   │       │   │   ├── 66779fb7b9f748
+│   │       │   │   ├── 9108e90005f199
+│   │       │   │   ├── a8c9c3e82fef47
+│   │       │   │   └── e7c5454bd6eb21
+│   │       │   ├── bc
+│   │       │   │   ├── 0171f56959c4b8
+│   │       │   │   ├── 172d68984bc71f
+│   │       │   │   ├── 485f4addfc0903
+│   │       │   │   ├── 7cdc4604b43771
+│   │       │   │   ├── b135b5f102f7ff
+│   │       │   │   ├── d607228333a178
+│   │       │   │   └── e1d94e114969b7
+│   │       │   ├── bd
+│   │       │   │   ├── 4472e751ba0cf2
+│   │       │   │   ├── 66a73753e2a3b1
+│   │       │   │   ├── 9410ef62d6ab9b
+│   │       │   │   ├── 94e077dbb187c0
+│   │       │   │   ├── 9ee06946615ff2
+│   │       │   │   ├── adfe057b7bbc02
+│   │       │   │   └── c28d9288df29f8
+│   │       │   ├── be
+│   │       │   │   ├── 02c89b646b68b2
+│   │       │   │   ├── 3612b9f3237aaa
+│   │       │   │   └── bbd3d9c416b972
+│   │       │   ├── bf
+│   │       │   │   ├── b3c054f4999b01
+│   │       │   │   ├── b6a4133eeb52aa
+│   │       │   │   └── ca48c44a51e4e9
+│   │       │   ├── c0
+│   │       │   │   ├── 1c48b2004e90a5
+│   │       │   │   ├── 272053d06e2e8d
+│   │       │   │   ├── 28eb4bf54311c3
+│   │       │   │   ├── 425e251674a30f
+│   │       │   │   └── d349cffc553816
+│   │       │   ├── c1
+│   │       │   │   ├── 0268762522c7d7
+│   │       │   │   ├── 44a65e146702a8
+│   │       │   │   ├── 568bfbce601fc0
+│   │       │   │   ├── c071f1ea80e720
+│   │       │   │   └── e323b4e98fb094
+│   │       │   ├── c2
+│   │       │   │   ├── 33595a58ed297e
+│   │       │   │   ├── 4bf90678a68c1e
+│   │       │   │   ├── 7139b4bb04993a
+│   │       │   │   ├── af48b49437febc
+│   │       │   │   ├── bbf5cc3f0d2a71
+│   │       │   │   ├── c43404cf079a50
+│   │       │   │   ├── c6f6ea53bf4f35
+│   │       │   │   ├── e671cc02c53a92
+│   │       │   │   └── f925eed8b147f2
+│   │       │   ├── c3
+│   │       │   │   ├── 1d239caa92ccc6
+│   │       │   │   ├── 564aab4583ecb8
+│   │       │   │   ├── 9c5f3a830b1119
+│   │       │   │   ├── c140894fe4ad8a
+│   │       │   │   └── e87790d3b9a72f
+│   │       │   ├── c4
+│   │       │   │   ├── 366fb955daae3c
+│   │       │   │   ├── 4e8c90c52919ef
+│   │       │   │   ├── 74f5c64420ef18
+│   │       │   │   ├── b9a294232795e2
+│   │       │   │   ├── cb40f89ce4b034
+│   │       │   │   ├── d67c5739f4edd2
+│   │       │   │   ├── ea81121372df74
+│   │       │   │   └── ee8768339c4540
+│   │       │   ├── c5
+│   │       │   │   ├── 13fd83437fd0c7
+│   │       │   │   ├── 1b43d4c3375171
+│   │       │   │   ├── 28af9e366a887d
+│   │       │   │   ├── 4aaccaa13b23e3
+│   │       │   │   ├── 8c0603ce71e7b9
+│   │       │   │   ├── affe46d394ceb5
+│   │       │   │   ├── b613d967284e03
+│   │       │   │   └── ead7f8e1fb49bf
+│   │       │   ├── c6
+│   │       │   │   ├── 9d9a5836df3b9a
+│   │       │   │   ├── a81832fef50c2b
+│   │       │   │   ├── e44fb82b95888c
+│   │       │   │   └── fc663a1e69b85c
+│   │       │   ├── c7
+│   │       │   │   ├── 02e2568db3623f
+│   │       │   │   ├── 0993d381f06ccf
+│   │       │   │   ├── 192ce4f4b0fec5
+│   │       │   │   ├── 24607a4b9e15e3
+│   │       │   │   ├── 263854f9702b10
+│   │       │   │   ├── 2799fdecb98b7a
+│   │       │   │   ├── 31a755ccb7dc06
+│   │       │   │   ├── 54c88190c83338
+│   │       │   │   ├── d1ff369fc1e330
+│   │       │   │   ├── d9d199ded979ff
+│   │       │   │   ├── e2454808d45da8
+│   │       │   │   ├── f0f09dc1604694
+│   │       │   │   └── f16507dafc1689
+│   │       │   ├── c8
+│   │       │   │   ├── 965f82c48e5016
+│   │       │   │   ├── a5ca4a58340c20
+│   │       │   │   ├── a8cfe57779c343
+│   │       │   │   ├── b6eee6c99e1f24
+│   │       │   │   ├── e09502105d650c
+│   │       │   │   └── fcee05aaa803f8
+│   │       │   ├── c9
+│   │       │   │   ├── 02cb83481b5fd9
+│   │       │   │   ├── 2701db13d523ce
+│   │       │   │   ├── 3058a4f7803b07
+│   │       │   │   ├── 38d271c7d81219
+│   │       │   │   ├── 66db21589d6a61
+│   │       │   │   ├── 83f0433e982f07
+│   │       │   │   ├── b6ae707d0752e1
+│   │       │   │   └── fd73b307d247d1
+│   │       │   ├── ca
+│   │       │   │   ├── 3f48f944121de2
+│   │       │   │   ├── 6f2041571250bf
+│   │       │   │   ├── 75aa8ddc183442
+│   │       │   │   ├── 7b2c10d748dc27
+│   │       │   │   └── a61b258cf77c15
+│   │       │   ├── cb
+│   │       │   │   ├── 2f4e117800a813
+│   │       │   │   ├── 32c727795a54c3
+│   │       │   │   ├── 7077bac49d73b0
+│   │       │   │   ├── 9681a77f3402af
+│   │       │   │   ├── a3ea895a85e13b
+│   │       │   │   ├── a55718da33a3e7
+│   │       │   │   ├── d52365d84539a0
+│   │       │   │   └── e6c87e161eb0ca
+│   │       │   ├── cc
+│   │       │   │   ├── 59ab4267101890
+│   │       │   │   ├── 8b0e8055ed77e6
+│   │       │   │   └── f12799e8d89911
+│   │       │   ├── cd
+│   │       │   │   ├── 41c0aa728347da
+│   │       │   │   ├── 6f7637223324fe
+│   │       │   │   ├── 7d36f7d9cae620
+│   │       │   │   ├── b20b8b46fef146
+│   │       │   │   ├── bf2f6852b0f9ad
+│   │       │   │   └── df881d90ea5729
+│   │       │   ├── ce
+│   │       │   │   ├── 2b007b18626755
+│   │       │   │   ├── 2f3984d7c75b0f
+│   │       │   │   ├── 49c20ffdac6439
+│   │       │   │   ├── a0001442d1f74d
+│   │       │   │   ├── bbe996307c0ce9
+│   │       │   │   └── e1459afadff334
+│   │       │   ├── cf
+│   │       │   │   ├── 74d79a311e784e
+│   │       │   │   ├── 93df4c48a3daa8
+│   │       │   │   └── dc8d3a5cbba112
+│   │       │   ├── d0
+│   │       │   │   ├── 283db6db337012
+│   │       │   │   ├── 3ab0c99d930498
+│   │       │   │   ├── b4dd2a6f63378e
+│   │       │   │   ├── ca49fdfd74c2f5
+│   │       │   │   └── e4162a2532b3e6
+│   │       │   ├── d1
+│   │       │   │   ├── 390a1cd9f2b4e5
+│   │       │   │   └── 5544e6ab91ed2a
+│   │       │   ├── d2
+│   │       │   │   ├── c16abe1782112b
+│   │       │   │   ├── c1ec29e3a885a7
+│   │       │   │   ├── c8f7e9ee32fe90
+│   │       │   │   └── efbe19e996aff7
+│   │       │   ├── d3
+│   │       │   │   ├── 08e44abeeba89f
+│   │       │   │   ├── ab313956a00751
+│   │       │   │   ├── c880673af04c31
+│   │       │   │   ├── d9a6f0aa68f1a8
+│   │       │   │   └── f8ee374f520a01
+│   │       │   ├── d4
+│   │       │   │   ├── 0e5c17aa8c1389
+│   │       │   │   ├── 30c7af5a57d621
+│   │       │   │   ├── 343c05baa18f6a
+│   │       │   │   ├── 6ad9ef0f5b32e3
+│   │       │   │   ├── 848bf5ea286f8d
+│   │       │   │   ├── 8575bda5d4cd4c
+│   │       │   │   ├── a977e3622fb9a7
+│   │       │   │   ├── add04bd53964ec
+│   │       │   │   ├── dd56379b7ac6f2
+│   │       │   │   └── e164ffb5d624f9
+│   │       │   ├── d5
+│   │       │   │   ├── 34be1e1acac9af
+│   │       │   │   ├── 6bd5f22ca9ad31
+│   │       │   │   ├── 6fda739b0c9486
+│   │       │   │   ├── 8253b040d30f55
+│   │       │   │   ├── b71d6608c85d93
+│   │       │   │   ├── bbe6c90fc7d962
+│   │       │   │   ├── bbe9d5f5ea77e4
+│   │       │   │   ├── d17311cbe157be
+│   │       │   │   ├── dd9ef12d691079
+│   │       │   │   └── e7f044680c4cbc
+│   │       │   ├── d6
+│   │       │   │   ├── 408381c0cb9416
+│   │       │   │   ├── 493090aa57a51c
+│   │       │   │   ├── 7616f51b23e297
+│   │       │   │   └── fa83664bc9c3f7
+│   │       │   ├── d7
+│   │       │   │   ├── 019e11511b6d6f
+│   │       │   │   ├── 0b4e75f046268b
+│   │       │   │   ├── 48117e3d934d16
+│   │       │   │   ├── 5d1744d4fc40d0
+│   │       │   │   ├── a485079dab1702
+│   │       │   │   ├── c4d2b80843ed1d
+│   │       │   │   └── ca84c73398e68a
+│   │       │   ├── d8
+│   │       │   │   └── eb6275bc8ade58
+│   │       │   ├── d9
+│   │       │   │   └── c448d22ef1b0de
+│   │       │   ├── da
+│   │       │   │   ├── 03acfe26045223
+│   │       │   │   ├── 16ca0631520d66
+│   │       │   │   ├── 9b0e9c1b455d1d
+│   │       │   │   ├── d687bb449e99eb
+│   │       │   │   ├── db78933370a18c
+│   │       │   │   ├── dd1b697c95af6c
+│   │       │   │   └── f1514d29096eb9
+│   │       │   ├── db
+│   │       │   │   ├── 181c502b34bbe9
+│   │       │   │   ├── 26b0f027cc84ca
+│   │       │   │   ├── 681692ea07ad92
+│   │       │   │   ├── d016d7454e2dc5
+│   │       │   │   ├── e1ec7855062697
+│   │       │   │   └── ea6eb0b3e97439
+│   │       │   ├── dc
+│   │       │   │   ├── 3a2740bbaf90f9
+│   │       │   │   ├── 401b74a7fc20fa
+│   │       │   │   ├── 517af88bb4bcf8
+│   │       │   │   └── af8d53fede6010
+│   │       │   ├── dd
+│   │       │   │   ├── 65499f1dfa5ded
+│   │       │   │   ├── a5946cad06a8a4
+│   │       │   │   └── aa33dd3328e975
+│   │       │   ├── de
+│   │       │   │   ├── 060aa223dc10e2
+│   │       │   │   ├── 7587bd1bc9ebb8
+│   │       │   │   ├── 9b538cffd33ee7
+│   │       │   │   ├── 9c0b6e50371f28
+│   │       │   │   ├── a0627fa811b3cb
+│   │       │   │   ├── b31e524c06d57a
+│   │       │   │   └── e5d0a457f72448
+│   │       │   ├── df
+│   │       │   │   ├── 35cb884783d39b
+│   │       │   │   ├── 4a65985f30ec4c
+│   │       │   │   ├── 62031fdada2055
+│   │       │   │   ├── 623025a9a12980
+│   │       │   │   ├── 8ec8e9b8a7ff74
+│   │       │   │   ├── bb78ffb80537b7
+│   │       │   │   └── ed261e2e90ea2f
+│   │       │   ├── e0
+│   │       │   │   ├── 5e74000090fb5a
+│   │       │   │   ├── 6bce082df7b1cc
+│   │       │   │   ├── 944c1d402727d8
+│   │       │   │   ├── 9c407e915aaf37
+│   │       │   │   ├── be55a28815dfe6
+│   │       │   │   └── cd8940eda7fd0b
+│   │       │   ├── e1
+│   │       │   │   ├── 1dda6dce3725ba
+│   │       │   │   ├── 3b4487e9e4597d
+│   │       │   │   ├── 7985c9fa18f5e2
+│   │       │   │   ├── 8045c7dcb698da
+│   │       │   │   ├── add73e33a7854f
+│   │       │   │   ├── c334f30abb0752
+│   │       │   │   ├── d4a2ed1389508f
+│   │       │   │   └── d4a4c39a04aaf9
+│   │       │   ├── e2
+│   │       │   │   ├── 335463ea555af6
+│   │       │   │   ├── 399d021a52344c
+│   │       │   │   ├── 729bcff5a38262
+│   │       │   │   ├── 7ddfbc65358a31
+│   │       │   │   ├── 8cca54ce7014ee
+│   │       │   │   ├── ab21109637ef21
+│   │       │   │   └── ae6068a7d8c075
+│   │       │   ├── e3
+│   │       │   │   ├── 10ac3600736a32
+│   │       │   │   ├── 64dae501e8c35a
+│   │       │   │   ├── 6a32fdf81e8cc1
+│   │       │   │   ├── ab79a87dc3fbf2
+│   │       │   │   ├── ae212718c548ba
+│   │       │   │   ├── afd4095af951aa
+│   │       │   │   ├── c05174103a147f
+│   │       │   │   └── ea820524eea8b7
+│   │       │   ├── e4
+│   │       │   │   ├── 612c1cf2eac6ca
+│   │       │   │   ├── 9b8cb92c21a4aa
+│   │       │   │   └── b171b4867c54d1
+│   │       │   ├── e5
+│   │       │   │   ├── 025bd47316d0a1
+│   │       │   │   ├── 0270e683c26454
+│   │       │   │   ├── 403abb772f0e89
+│   │       │   │   └── fbb326f8f54852
+│   │       │   ├── e6
+│   │       │   │   ├── 0524d3fff7e42c
+│   │       │   │   ├── 0bed349fe88927
+│   │       │   │   ├── 2eba96170b00bf
+│   │       │   │   ├── 37e1a574a4ff5a
+│   │       │   │   ├── 4a937a0668d0e0
+│   │       │   │   ├── 743803a08cb757
+│   │       │   │   ├── 872d3fd316d680
+│   │       │   │   ├── a3ee2cf62eae47
+│   │       │   │   ├── ac145632ab3ac6
+│   │       │   │   └── b14ab23ece4175
+│   │       │   ├── e7
+│   │       │   │   └── aabcea7d4811fc
+│   │       │   ├── e8
+│   │       │   │   ├── 0fcb0dec45db46
+│   │       │   │   ├── 509846374250b6
+│   │       │   │   ├── 7be7eef935a300
+│   │       │   │   ├── 80a2a572bcb7be
+│   │       │   │   ├── b106085c871843
+│   │       │   │   └── f96a505d50df92
+│   │       │   ├── e9
+│   │       │   │   ├── 1563439588362f
+│   │       │   │   ├── 3a7b24663b59b2
+│   │       │   │   ├── 7eb699ab9d81e0
+│   │       │   │   └── b0be356e645e6f
+│   │       │   ├── ea
+│   │       │   │   ├── 1fdc819556245a
+│   │       │   │   ├── aad7fa99a8154a
+│   │       │   │   ├── b15ada79347e31
+│   │       │   │   └── bf5e09677f914c
+│   │       │   ├── eb
+│   │       │   │   ├── 1c6d48c57900f8
+│   │       │   │   ├── 48c253a49b0019
+│   │       │   │   ├── 985342db6b59f6
+│   │       │   │   ├── c74aaf5d728136
+│   │       │   │   ├── c8ec289e7f01ca
+│   │       │   │   ├── e63997ef2e355a
+│   │       │   │   └── fc8e60c5f55b0f
+│   │       │   ├── ec
+│   │       │   │   ├── 33c0b7aff541a8
+│   │       │   │   ├── 3ea82d7c3937bd
+│   │       │   │   ├── ce504826adfe4b
+│   │       │   │   ├── d3d0f6a562fe36
+│   │       │   │   └── e98c4fa1917249
+│   │       │   ├── ed
+│   │       │   │   ├── 00684de689e427
+│   │       │   │   ├── 334e8dece7e4bc
+│   │       │   │   ├── 4ac12ee8673189
+│   │       │   │   ├── 66c75585afc511
+│   │       │   │   ├── 89ea0510f71c82
+│   │       │   │   ├── a4103b971b481d
+│   │       │   │   ├── a83a72204099f0
+│   │       │   │   ├── a8859da78a61c9
+│   │       │   │   └── e9fe1b6767eaf7
+│   │       │   ├── ee
+│   │       │   │   ├── 0efabc50e713aa
+│   │       │   │   ├── 0f569f05d39a7c
+│   │       │   │   ├── 3eb563bc0faa1b
+│   │       │   │   ├── 9b9dc4b9558d0b
+│   │       │   │   └── f20648d8d67066
+│   │       │   ├── ef
+│   │       │   │   ├── 1ebaee4f9850b9
+│   │       │   │   ├── 35d0a7b6e24d65
+│   │       │   │   ├── 3db0d693e6b71a
+│   │       │   │   ├── 3f29b676d91566
+│   │       │   │   ├── 943fa95ad77b01
+│   │       │   │   ├── e99e01e3b33917
+│   │       │   │   └── f59ade8b3893a9
+│   │       │   ├── f0
+│   │       │   │   ├── 4f4e17633073ee
+│   │       │   │   ├── 7087f8953d7ad3
+│   │       │   │   └── d7329949eb7c2b
+│   │       │   ├── f1
+│   │       │   │   ├── 281b78f00c9ebe
+│   │       │   │   ├── 42cf19e4fb43a8
+│   │       │   │   ├── 7d7296b61278a5
+│   │       │   │   ├── d454018644d9a6
+│   │       │   │   ├── d6220844fe5c05
+│   │       │   │   └── fc741e8fee0687
+│   │       │   ├── f2
+│   │       │   │   ├── 0644a971a4cbcc
+│   │       │   │   ├── 0666c3cd2ab810
+│   │       │   │   ├── 247945ff03e37f
+│   │       │   │   ├── 3d4931407f94f0
+│   │       │   │   ├── 420f092dd0125d
+│   │       │   │   ├── 4f06b03823033b
+│   │       │   │   └── 7c349ce2e7f9dc
+│   │       │   ├── f3
+│   │       │   │   ├── 60d5592847eff8
+│   │       │   │   ├── 656a11b96edd30
+│   │       │   │   ├── 9025b05f278595
+│   │       │   │   ├── 99ad051f0e042d
+│   │       │   │   ├── a86834fe6d99b2
+│   │       │   │   └── c66d4019c79a5b
+│   │       │   ├── f4
+│   │       │   │   └── e21f3ac9c2e3c6
+│   │       │   ├── f5
+│   │       │   │   ├── 4073b6142c92c0
+│   │       │   │   └── 748053eb072118
+│   │       │   ├── f6
+│   │       │   │   ├── 0486e933acbcfa
+│   │       │   │   ├── 11284fd6b2d59d
+│   │       │   │   ├── 452bac83742aa3
+│   │       │   │   ├── 60526bcd1b5455
+│   │       │   │   ├── 70278d8cc7e492
+│   │       │   │   ├── 815331956ac10a
+│   │       │   │   └── fa7e97be501bcc
+│   │       │   ├── f7
+│   │       │   │   ├── 3082779955331e
+│   │       │   │   ├── 620df6f858dbe5
+│   │       │   │   ├── 87b5f61e69f248
+│   │       │   │   └── c6f89122663785
+│   │       │   ├── f8
+│   │       │   │   ├── 079c15f070f201
+│   │       │   │   ├── 4a71808c41b432
+│   │       │   │   ├── 576e12fe858749
+│   │       │   │   ├── 7989ec07c0ef41
+│   │       │   │   ├── 822ac5f3ec75ca
+│   │       │   │   ├── 92a35199fb7bc8
+│   │       │   │   └── ded00056812df8
+│   │       │   ├── f9
+│   │       │   │   ├── 160361ec048ed1
+│   │       │   │   ├── 2f4c897bb61df4
+│   │       │   │   ├── 3bf72441a51567
+│   │       │   │   ├── 4973fa5151fcf9
+│   │       │   │   ├── 5d3643743891b5
+│   │       │   │   ├── 90e377eddc4e5a
+│   │       │   │   ├── a1167c4249ed2b
+│   │       │   │   ├── a3646e19e9fbd4
+│   │       │   │   ├── aa51c7b9338c9a
+│   │       │   │   ├── c43fe77274adf9
+│   │       │   │   ├── de78badb62612b
+│   │       │   │   ├── e6df804a6733e8
+│   │       │   │   └── fa51592c02cb96
+│   │       │   ├── fa
+│   │       │   │   ├── 368951ff333ff6
+│   │       │   │   ├── 6511fe532f075c
+│   │       │   │   ├── 82ec81b5fb60da
+│   │       │   │   ├── b8c5d0385ee8c0
+│   │       │   │   ├── c56e0e20095582
+│   │       │   │   └── fa289eaf944dd2
+│   │       │   ├── fb
+│   │       │   │   ├── 13ce407b7fd8b3
+│   │       │   │   └── 20ab8cd9c7bb6d
+│   │       │   ├── fc
+│   │       │   │   ├── 25cd8b92b6368d
+│   │       │   │   └── 9ca7e928cf2d69
+│   │       │   ├── fd
+│   │       │   │   ├── 128fab2665997c
+│   │       │   │   └── 317567afe8e751
+│   │       │   ├── fe
+│   │       │   │   ├── 042584b0aea9f3
+│   │       │   │   ├── 3fd28627acf154
+│   │       │   │   ├── 79a14fc64043f4
+│   │       │   │   ├── c0c4c1cb9bb31c
+│   │       │   │   └── ca577a786e326d
+│   │       │   └── ff
+│   │       │       ├── 470e3b99fe5436
+│   │       │       ├── 470ede12c16f38
+│   │       │       ├── 63fc51209e8761
+│   │       │       ├── 644277f0437baf
+│   │       │       ├── 7a812f86519e3b
+│   │       │       └── ff1434b7a8acb4
+│   │       └── load-path-cache
+│   ├── local_secret.txt
+│   ├── pids
+│   └── storage
+└── vendor
+    └── javascript
+
+302 directories, 1441 files
+rajaniapple@Rajanis-MacBook-Pro store % bin/rails server
+=> Booting Puma
+=> Rails 8.0.1 application starting in development 
+=> Run `bin/rails server --help` for more startup options
+Puma starting in single mode...
+* Puma version: 6.6.0 ("Return to Forever")
+* Ruby version: ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +YJIT +PRISM [arm64-darwin24]
+*  Min threads: 3
+*  Max threads: 3
+*  Environment: development
+*          PID: 2105
+* Listening on http://127.0.0.1:3000
+* Listening on http://[::1]:3000
+Use Ctrl-C to stop
+Started GET "/" for 127.0.0.1 at 2025-02-04 10:23:02 +0530
+   (1.3ms)  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Store'*/
+   (0.1ms)  CREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Store'*/
+  ActiveRecord::SchemaMigration Load (0.1ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/
+Processing by Rails::WelcomeController#index as */*
+  Rendering /opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | GC: 0.0ms)
+Completed 200 OK in 70ms (Views: 5.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-04 10:23:08 +0530
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/railties-8.0.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 36ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2025-02-04 10:24:12 +0530 ===
+- Goodbye!
+Exiting
+rajaniapple@Rajanis-MacBook-Pro store % bin/rails generate model Product name:string
+      invoke  active_record
+      create    db/migrate/20250204045540_create_products.rb
+      create    app/models/product.rb
+      invoke    test_unit
+      create      test/models/product_test.rb
+      create      test/fixtures/products.yml
+rajaniapple@Rajanis-MacBook-Pro store % cat db/migrate/20250204045540_create_products.rb
+class CreateProducts < ActiveRecord::Migration[8.0]
+  def change
+    create_table :products do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+end
+rajaniapple@Rajanis-MacBook-Pro store % bin/rails db:migrate
+== 20250204045540 CreateProducts: migrating ===================================
+-- create_table(:products)
+   -> 0.0024s
+== 20250204045540 CreateProducts: migrated (0.0024s) ==========================
+
+rajaniapple@Rajanis-MacBook-Pro store % cat app/models/product.rb
+class Product < ApplicationRecord
+end
+rajaniapple@Rajanis-MacBook-Pro store % bin/rails console
+Loading development environment (Rails 8.0.1)
+store(dev)> Rails.version
+=> "8.0.1"
+store(dev)> RUBY_VERSION
+=> "3.4.1"
+store(dev)> RUBY_DESCRIPTION
+=> "ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +YJIT +PRISM [arm64-darwin24]"
+store(dev)> Product.column_names
+=> ["id", "name", "created_at", "updated_at"]
+store(dev)> product = Product.new(name: "Bloomberg")
+=> #<Product:0x000000010dc302e0 id: nil, name: "Bloomberg", created_at: nil, updated_at: nil>
+store(dev)> product.save
+  TRANSACTION (0.3ms)  BEGIN immediate TRANSACTION /*application='Store'*/
+  Product Create (6.0ms)  INSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('Bloomberg', '2025-02-04 05:02:12.584379', '2025-02-04 05:02:12.584379') RETURNING "id" /*application='Store'*/
+  TRANSACTION (1.4ms)  COMMIT TRANSACTION /*application='Store'*/
+=> true
+store(dev)> product
+=> 
+#<Product:0x000000010dc302e0
+ id: 1,
+ name: "Bloomberg",
+ created_at: "2025-02-04 05:02:12.584379000 +0000",
+ updated_at: "2025-02-04 05:02:12.584379000 +0000">
+store(dev)> Product.create(name: "GitHub")
+  TRANSACTION (2.9ms)  BEGIN immediate TRANSACTION /*application='Store'*/
+  Product Create (11.1ms)  INSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('GitHub', '2025-02-04 05:08:45.229133', '2025-02-04 05:08:45.229133') RETURNING "id" /*application='Store'*/
+  TRANSACTION (1.1ms)  COMMIT TRANSACTION /*application='Store'*/
+=> 
+#<Product:0x000000010c5ae8a0
+ id: 2,
+ name: "GitHub",
+ created_at: "2025-02-04 05:08:45.229133000 +0000",
+ updated_at: "2025-02-04 05:08:45.229133000 +0000">
+store(dev)> Product.all
+  Product Load (1.6ms)  SELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='Store'*/
+=> 
+[#<Product:0x000000010c546548
+  id: 1,
+  name: "Bloomberg",
+  created_at: "2025-02-04 05:02:12.584379000 +0000",
+  updated_at: "2025-02-04 05:02:12.584379000 +0000">,
+ #<Product:0x000000010c546408
+  id: 2,
+  name: "GitHub",
+  created_at: "2025-02-04 05:08:45.229133000 +0000",
+  updated_at: "2025-02-04 05:08:45.229133000 +0000">]
+store(dev)> Product.where(name: "Bloomberg")
+  Product Load (0.3ms)  SELECT "products".* FROM "products" WHERE "products"."name" = 'Bloomberg' /* loading for pp */ LIMIT 11 /*application='Store'*/
+=> 
+[#<Product:0x00000001086bd718
+  id: 1,
+  name: "Bloomberg",
+  created_at: "2025-02-04 05:02:12.584379000 +0000",
+  updated_at: "2025-02-04 05:02:12.584379000 +0000">]
+store(dev)> Product.order(name: :desc)
+  Product Load (0.6ms)  SELECT "products".* FROM "products" /* loading for pp */ ORDER BY "products"."name" DESC LIMIT 11 /*application='Store'*/
+=> 
+[#<Product:0x00000001086ba298
+  id: 2,
+  name: "GitHub",
+  created_at: "2025-02-04 05:08:45.229133000 +0000",
+  updated_at: "2025-02-04 05:08:45.229133000 +0000">,
+ #<Product:0x00000001086ba158
+  id: 1,
+  name: "Bloomberg",
+  created_at: "2025-02-04 05:02:12.584379000 +0000",
+  updated_at: "2025-02-04 05:02:12.584379000 +0000">]
+store(dev)> Product.find(1)
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='Store'*/
+=> 
+#<Product:0x00000001086b6198
+ id: 1,
+ name: "Bloomberg",
+ created_at: "2025-02-04 05:02:12.584379000 +0000",
+ updated_at: "2025-02-04 05:02:12.584379000 +0000">
+store(dev)> product = Product.find(1)
+  Product Load (1.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='Store'*/
+=> 
+#<Product:0x00000001086b3358
+...
+store(dev)> product.update(name: "Zendesk")
+  TRANSACTION (0.1ms)  BEGIN immediate TRANSACTION /*application='Store'*/
+  Product Update (1.7ms)  UPDATE "products" SET "name" = 'Zendesk', "updated_at" = '2025-02-04 05:15:31.331471' WHERE "products"."id" = 1 /*application='Store'*/
+  TRANSACTION (0.1ms)  COMMIT TRANSACTION /*application='Store'*/
+=> true
+store(dev)> Product.all
+  Product Load (0.2ms)  SELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='Store'*/
+=> 
+[#<Product:0x000000010861c458
+  id: 1,
+  name: "Zendesk",
+  created_at: "2025-02-04 05:02:12.584379000 +0000",
+  updated_at: "2025-02-04 05:15:31.331471000 +0000">,
+ #<Product:0x000000010861c318
+  id: 2,
+  name: "GitHub",
+  created_at: "2025-02-04 05:08:45.229133000 +0000",
+  updated_at: "2025-02-04 05:08:45.229133000 +0000">]
+store(dev)> product = Product.find(1)
+  Product Load (0.2ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='Store'*/
+=> 
+#<Product:0x000000010c5af520
+...
+store(dev)> product.name = "Bloomberg"
+=> "Bloomberg"
+store(dev)> product.destroy
+  TRANSACTION (0.6ms)  BEGIN immediate TRANSACTION /*application='Store'*/
+  Product Destroy (1.3ms)  DELETE FROM "products" WHERE "products"."id" = 1 /*application='Store'*/
+  TRANSACTION (0.1ms)  COMMIT TRANSACTION /*application='Store'*/
+=> 
+#<Product:0x000000010c5af520
+ id: 1,
+ name: "Bloomberg",
+ created_at: "2025-02-04 05:02:12.584379000 +0000",
+ updated_at: "2025-02-04 05:15:31.331471000 +0000">
+store(dev)> Product.all
+  Product Load (0.3ms)  SELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='Store'*/
+=> 
+[#<Product:0x000000010c5a6ba0
+  id: 2,
+  name: "GitHub",
+  created_at: "2025-02-04 05:08:45.229133000 +0000",
+  updated_at: "2025-02-04 05:08:45.229133000 +0000">]
+store(dev)> reload!
+Reloading...
+=> nil
+store(dev)> product = Product.new
+=> #<Product:0x000000010861c6d8 id: nil, name: nil, created_at: nil, updated_at: nil>
+store(dev)> product.save
+=> false
+store(dev)> product.errors
+=> #<ActiveModel::Errors [#<ActiveModel::Error attribute=name, type=blank, options={}>]>
+store(dev)> product.errors.full_messages
+=> ["Name can't be blank"]
+store(dev)> exit
+rajaniapple@Rajanis-MacBook-Pro store % nano config/routes.rb
+rajaniapple@Rajanis-MacBook-Pro store % cat config/routes.rb
+Rails.application.routes.draw do
+  resources :products
+end
+rajaniapple@Rajanis-MacBook-Pro store % bin/rails routes
+                                  Prefix Verb   URI Pattern                                                                                       Controller#Action
+                                                /assets                                                                                           Propshaft::Server
+                                products GET    /products(.:format)                                                                               products#index
+                                         POST   /products(.:format)                                                                               products#create
+                             new_product GET    /products/new(.:format)                                                                           products#new
+                            edit_product GET    /products/:id/edit(.:format)                                                                      products#edit
+                                 product GET    /products/:id(.:format)                                                                           products#show
+                                         PATCH  /products/:id(.:format)                                                                           products#update
+                                         PUT    /products/:id(.:format)                                                                           products#update
+                                         DELETE /products/:id(.:format)                                                                           products#destroy
+        turbo_recede_historical_location GET    /recede_historical_location(.:format)                                                             turbo/native/navigation#recede
+        turbo_resume_historical_location GET    /resume_historical_location(.:format)                                                             turbo/native/navigation#resume
+       turbo_refresh_historical_location GET    /refresh_historical_location(.:format)                                                            turbo/native/navigation#refresh
+           rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                           action_mailbox/ingresses/postmark/inbound_emails#create
+              rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                              action_mailbox/ingresses/relay/inbound_emails#create
+           rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                           action_mailbox/ingresses/sendgrid/inbound_emails#create
+     rails_mandrill_inbound_health_check GET    /rails/action_mailbox/mandrill/inbound_emails(.:format)                                           action_mailbox/ingresses/mandrill/inbound_emails#health_check
+           rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                           action_mailbox/ingresses/mandrill/inbound_emails#create
+            rails_mailgun_inbound_emails POST   /rails/action_mailbox/mailgun/inbound_emails/mime(.:format)                                       action_mailbox/ingresses/mailgun/inbound_emails#create
+          rails_conductor_inbound_emails GET    /rails/conductor/action_mailbox/inbound_emails(.:format)                                          rails/conductor/action_mailbox/inbound_emails#index
+                                         POST   /rails/conductor/action_mailbox/inbound_emails(.:format)                                          rails/conductor/action_mailbox/inbound_emails#create
+       new_rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/new(.:format)                                      rails/conductor/action_mailbox/inbound_emails#new
+           rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                                      rails/conductor/action_mailbox/inbound_emails#show
+new_rails_conductor_inbound_email_source GET    /rails/conductor/action_mailbox/inbound_emails/sources/new(.:format)                              rails/conductor/action_mailbox/inbound_emails/sources#new
+   rails_conductor_inbound_email_sources POST   /rails/conductor/action_mailbox/inbound_emails/sources(.:format)                                  rails/conductor/action_mailbox/inbound_emails/sources#create
+   rails_conductor_inbound_email_reroute POST   /rails/conductor/action_mailbox/:inbound_email_id/reroute(.:format)                               rails/conductor/action_mailbox/reroutes#create
+rails_conductor_inbound_email_incinerate POST   /rails/conductor/action_mailbox/:inbound_email_id/incinerate(.:format)                            rails/conductor/action_mailbox/incinerates#create
+                      rails_service_blob GET    /rails/active_storage/blobs/redirect/:signed_id/*filename(.:format)                               active_storage/blobs/redirect#show
+                rails_service_blob_proxy GET    /rails/active_storage/blobs/proxy/:signed_id/*filename(.:format)                                  active_storage/blobs/proxy#show
+                                         GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                                        active_storage/blobs/redirect#show
+               rails_blob_representation GET    /rails/active_storage/representations/redirect/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations/redirect#show
+         rails_blob_representation_proxy GET    /rails/active_storage/representations/proxy/:signed_blob_id/:variation_key/*filename(.:format)    active_storage/representations/proxy#show
+                                         GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format)          active_storage/representations/redirect#show
+                      rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                                       active_storage/disk#show
+               update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                               active_storage/disk#update
+                    rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                                    active_storage/direct_uploads#create
+rajaniapple@Rajanis-MacBook-Pro store % bin/rails generate controller Products index --skip-routes
+      create  app/controllers/products_controller.rb
+      invoke  erb
+      create    app/views/products
+      create    app/views/products/index.html.erb
+      invoke  test_unit
+      create    test/controllers/products_controller_test.rb
+      invoke  helper
+      create    app/helpers/products_helper.rb
+      invoke    test_unit
+rajaniapple@Rajanis-MacBook-Pro store % nano config/routes.rb
+rajaniapple@Rajanis-MacBook-Pro store % cat config/routes.rb 
+Rails.application.routes.draw do
+  root "products#index"
+  resources :products
+end
+rajaniapple@Rajanis-MacBook-Pro store % nano app/views/products/index.html.erb 
+rajaniapple@Rajanis-MacBook-Pro store % cat app/views/products/index.html.erb
+<h1>Ruby on Rails App</h1>
+
+<h2>Products</h2>
+
+<div id="products">
+  <% @products.each do |product| %>
+      <ul><li><h3><%= link_to product.name, product %></h3></li></ul>
+  <% end %>
+</div>
+
+<%= link_to "Add", new_product_path %>
+rajaniapple@Rajanis-MacBook-Pro store % nano app/views/products/show.html.erb
+rajaniapple@Rajanis-MacBook-Pro store % cat app/views/products/show.html.erb
+<h1>Ruby on Rails App</h1>
+
+<h2>Name</h2>
+  
+<h3><%= @product.name %></h3>
+  
+<%= link_to "Back", products_path %> | <%= link_to "Edit", edit_product_path(@product) %>
+  
+<p><%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" } %></p>
+rajaniapple@Rajanis-MacBook-Pro store % nano app/views/products/new.html.erb
+rajaniapple@Rajanis-MacBook-Pro store % cat app/views/products/new.html.erb
+<h1>Ruby on Rails App</h1>
+
+<h2>Add</h2>
+
+<h3><%= render "form", product: @product %></h3>
+<%= link_to "Cancel", products_path %>
+rajaniapple@Rajanis-MacBook-Pro store % nano app/views/products/edit.html.erb
+rajaniapple@Rajanis-MacBook-Pro store % cat app/views/products/edit.html.erb
+<h1>Ruby on Rails App</h1>
+
+<h2>Edit</h2>
+
+<h3><%= render "form", product: @product %></h3>
+
+<p><%= link_to "Cancel", @product %></p>
+rajaniapple@Rajanis-MacBook-Pro store % nano app/views/products/_form.html.erb
+rajaniapple@Rajanis-MacBook-Pro store % cat app/views/products/_form.html.erb
+<%= form_with model: product do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.submit %></p>
+<% end %>
+rajaniapple@Rajanis-MacBook-Pro store % nano app/controllers/products_controller.rb
+rajaniapple@Rajanis-MacBook-Pro store % cat app/controllers/products_controller.rb
+class ProductsController < ApplicationController
+  before_action :set_product, only: %i[ show edit update destroy ]
+
+  def index
+    @products = Product.all
+  end
+
+  def show
+  end
+
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to @product
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to @product
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_path
+  end
+
+  private
+    def set_product
+      @product = Product.find(params[:id])
+    end
+
+    def product_params
+      params.expect(product: [ :name ])
+    end
+end
+rajaniapple@Rajanis-MacBook-Pro store % bin/rails server
+=> Booting Puma
+=> Rails 8.0.1 application starting in development 
+=> Run `bin/rails server --help` for more startup options
+Puma starting in single mode...
+* Puma version: 6.6.0 ("Return to Forever")
+* Ruby version: ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +YJIT +PRISM [arm64-darwin24]
+*  Min threads: 3
+*  Max threads: 3
+*  Environment: development
+*          PID: 2524
+* Listening on http://127.0.0.1:3000
+* Listening on http://[::1]:3000
+Use Ctrl-C to stop
+Started GET "/products/" for 127.0.0.1 at 2025-02-04 11:16:28 +0530
+  ActiveRecord::SchemaMigration Load (0.3ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Store'*/
+Processing by ProductsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.8ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 11.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.5ms | GC: 0.0ms)
+Completed 200 OK in 98ms (Views: 21.7ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/" for 127.0.0.1 at 2025-02-04 11:16:38 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (2.2ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | GC: 0.0ms)
+Completed 200 OK in 42ms (Views: 6.1ms | ActiveRecord: 2.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-8b441ae0.css" for 127.0.0.1 at 2025-02-04 11:16:38 +0530
+Started GET "/assets/application-bfcdf840.js" for 127.0.0.1 at 2025-02-04 11:16:38 +0530
+Started GET "/assets/turbo.min-fae85750.js" for 127.0.0.1 at 2025-02-04 11:16:38 +0530
+Started GET "/assets/stimulus.min-4b1e420e.js" for 127.0.0.1 at 2025-02-04 11:16:38 +0530
+Started GET "/assets/controllers/index-ee64e1f1.js" for 127.0.0.1 at 2025-02-04 11:16:38 +0530
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for 127.0.0.1 at 2025-02-04 11:16:38 +0530
+Started GET "/assets/controllers/application-3affb389.js" for 127.0.0.1 at 2025-02-04 11:16:38 +0530
+Started GET "/assets/controllers/hello_controller-708796bd.js" for 127.0.0.1 at 2025-02-04 11:16:38 +0530
+Started GET "/products/2" for 127.0.0.1 at 2025-02-04 11:16:40 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id" => "2"}
+  Product Load (0.4ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 2 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 9.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | GC: 0.0ms)
+Completed 200 OK in 56ms (Views: 11.6ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:16:42 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.3ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | GC: 0.0ms)
+Completed 200 OK in 55ms (Views: 8.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2025-02-04 11:16:43 +0530
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 5.8ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 14.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.8ms | GC: 0.0ms)
+Completed 200 OK in 60ms (Views: 19.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2025-02-04 11:16:43 +0530
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | GC: 0.0ms)
+Completed 200 OK in 50ms (Views: 2.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:16:44 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.1ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 48ms (Views: 5.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2025-02-04 11:18:20 +0530
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "product" => {"name" => "Twitter"}, "commit" => "Create Product"}
+  TRANSACTION (0.1ms)  BEGIN immediate TRANSACTION /*action='create',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:17:in 'ProductsController#create'
+  Product Create (0.9ms)  INSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('Twitter', '2025-02-04 05:48:20.713029', '2025-02-04 05:48:20.713029') RETURNING "id" /*action='create',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:17:in 'ProductsController#create'
+  TRANSACTION (1.0ms)  COMMIT TRANSACTION /*action='create',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:17:in 'ProductsController#create'
+Redirected to http://127.0.0.1:3000/products/3
+Completed 302 Found in 62ms (ActiveRecord: 2.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2025-02-04 11:18:20 +0530
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id" => "3"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 3.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:18:24 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.2ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 3.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | GC: 0.0ms)
+Completed 200 OK in 56ms (Views: 9.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/apple-touch-icon-precomposed.png" for 127.0.0.1 at 2025-02-04 11:18:29 +0530
+Started GET "/apple-touch-icon.png" for 127.0.0.1 at 2025-02-04 11:18:29 +0530
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-02-04 11:18:29 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/apple-touch-icon-precomposed.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:18:34 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.3ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | GC: 0.0ms)
+Completed 200 OK in 36ms (Views: 2.9ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-8b441ae0.css" for 127.0.0.1 at 2025-02-04 11:18:34 +0530
+Started GET "/assets/application-bfcdf840.js" for 127.0.0.1 at 2025-02-04 11:18:34 +0530
+Started GET "/assets/turbo.min-fae85750.js" for 127.0.0.1 at 2025-02-04 11:18:34 +0530
+Started GET "/assets/controllers/hello_controller-708796bd.js" for 127.0.0.1 at 2025-02-04 11:18:34 +0530
+Started GET "/assets/controllers/index-ee64e1f1.js" for 127.0.0.1 at 2025-02-04 11:18:34 +0530
+Started GET "/assets/stimulus.min-4b1e420e.js" for 127.0.0.1 at 2025-02-04 11:18:34 +0530
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for 127.0.0.1 at 2025-02-04 11:18:34 +0530
+Started GET "/assets/controllers/application-3affb389.js" for 127.0.0.1 at 2025-02-04 11:18:34 +0530
+Started GET "/products/3" for 127.0.0.1 at 2025-02-04 11:18:38 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id" => "3"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 45ms (Views: 3.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/3/edit" for 127.0.0.1 at 2025-02-04 11:18:39 +0530
+Processing by ProductsController#edit as HTML
+  Parameters: {"id" => "3"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='edit',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 5.2ms | GC: 0.0ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 10.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | GC: 0.0ms)
+Completed 200 OK in 68ms (Views: 11.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/products/3/edit" for 127.0.0.1 at 2025-02-04 11:18:39 +0530
+Processing by ProductsController#edit as HTML
+  Parameters: {"id" => "3"}
+  Product Load (0.4ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='edit',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 6.1ms | GC: 0.0ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 7.6ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | GC: 0.2ms)
+Completed 200 OK in 44ms (Views: 9.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started PATCH "/products/3" for 127.0.0.1 at 2025-02-04 11:18:45 +0530
+Processing by ProductsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "product" => {"name" => "X"}, "commit" => "Update Product", "id" => "3"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='update',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  TRANSACTION (0.1ms)  BEGIN immediate TRANSACTION /*action='update',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:28:in 'ProductsController#update'
+  Product Update (1.2ms)  UPDATE "products" SET "name" = 'X', "updated_at" = '2025-02-04 05:48:45.363970' WHERE "products"."id" = 3 /*action='update',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:28:in 'ProductsController#update'
+  TRANSACTION (0.1ms)  COMMIT TRANSACTION /*action='update',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:28:in 'ProductsController#update'
+Redirected to http://127.0.0.1:3000/products/3
+Completed 302 Found in 56ms (ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2025-02-04 11:18:45 +0530
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id" => "3"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 1.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 2.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/3/edit" for 127.0.0.1 at 2025-02-04 11:18:46 +0530
+Processing by ProductsController#edit as HTML
+  Parameters: {"id" => "3"}
+  Product Load (0.9ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 3 LIMIT 1 /*action='edit',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 4.7ms | GC: 0.0ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 4.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 0.0ms)
+Completed 200 OK in 63ms (Views: 8.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:18:46 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.1ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | GC: 0.0ms)
+Completed 200 OK in 55ms (Views: 6.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:18:46 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.3ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | GC: 0.0ms)
+Completed 200 OK in 56ms (Views: 3.4ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:18:55 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.1ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 3.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | GC: 0.0ms)
+Completed 200 OK in 49ms (Views: 3.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2025-02-04 11:20:29 +0530
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 4.1ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 4.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | GC: 0.0ms)
+Completed 200 OK in 54ms (Views: 5.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2025-02-04 11:22:04 +0530
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "product" => {"name" => "Viva Engage (formerly Yammer)"}, "commit" => "Create Product"}
+  TRANSACTION (0.1ms)  BEGIN immediate TRANSACTION /*action='create',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:17:in 'ProductsController#create'
+  Product Create (1.7ms)  INSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('Viva Engage (formerly Yammer)', '2025-02-04 05:52:04.424827', '2025-02-04 05:52:04.424827') RETURNING "id" /*action='create',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:17:in 'ProductsController#create'
+  TRANSACTION (0.1ms)  COMMIT TRANSACTION /*action='create',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:17:in 'ProductsController#create'
+Redirected to http://127.0.0.1:3000/products/4
+Completed 302 Found in 53ms (ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/4" for 127.0.0.1 at 2025-02-04 11:22:04 +0530
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id" => "4"}
+  Product Load (0.2ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 3.0ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:22:08 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.1ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | GC: 0.0ms)
+Completed 200 OK in 47ms (Views: 2.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2025-02-04 11:22:10 +0530
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.3ms | GC: 0.0ms)
+Completed 200 OK in 52ms (Views: 1.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:22:12 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.1ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | GC: 0.0ms)
+Completed 200 OK in 53ms (Views: 4.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/4" for 127.0.0.1 at 2025-02-04 11:22:12 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id" => "4"}
+  Product Load (0.2ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 5.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | GC: 0.0ms)
+Completed 200 OK in 52ms (Views: 7.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/4" for 127.0.0.1 at 2025-02-04 11:22:13 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id" => "4"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.9ms | GC: 0.0ms)
+Completed 200 OK in 48ms (Views: 1.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/4/edit" for 127.0.0.1 at 2025-02-04 11:22:52 +0530
+Processing by ProductsController#edit as HTML
+  Parameters: {"id" => "4"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='edit',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 5.2ms | GC: 0.0ms)
+  Rendered products/edit.html.erb within layouts/application (Duration: 5.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | GC: 0.0ms)
+Completed 200 OK in 55ms (Views: 5.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:22:54 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.1ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | GC: 0.0ms)
+Completed 200 OK in 60ms (Views: 12.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2025-02-04 11:24:15 +0530
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 51ms (Views: 1.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2025-02-04 11:24:21 +0530
+Processing by ProductsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "product" => {"name" => "RoR"}, "commit" => "Create Product"}
+  TRANSACTION (0.1ms)  BEGIN immediate TRANSACTION /*action='create',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:17:in 'ProductsController#create'
+  Product Create (1.1ms)  INSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('RoR', '2025-02-04 05:54:21.078745', '2025-02-04 05:54:21.078745') RETURNING "id" /*action='create',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:17:in 'ProductsController#create'
+  TRANSACTION (0.1ms)  COMMIT TRANSACTION /*action='create',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:17:in 'ProductsController#create'
+Redirected to http://127.0.0.1:3000/products/5
+Completed 302 Found in 56ms (ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/5" for 127.0.0.1 at 2025-02-04 11:24:21 +0530
+Processing by ProductsController#show as TURBO_STREAM
+  Parameters: {"id" => "5"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 5 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 0.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:24:29 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.1ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | GC: 0.0ms)
+Completed 200 OK in 58ms (Views: 14.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products/5" for 127.0.0.1 at 2025-02-04 11:24:30 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id" => "5"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 5 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 1.6ms | GC: 0.0ms)
+Completed 200 OK in 51ms (Views: 1.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/products/5" for 127.0.0.1 at 2025-02-04 11:24:34 +0530
+Processing by ProductsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "id" => "5"}
+  Product Load (0.2ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 5 LIMIT 1 /*action='destroy',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  TRANSACTION (0.0ms)  BEGIN immediate TRANSACTION /*action='destroy',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:36:in 'ProductsController#destroy'
+  Product Destroy (0.5ms)  DELETE FROM "products" WHERE "products"."id" = 5 /*action='destroy',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:36:in 'ProductsController#destroy'
+  TRANSACTION (0.1ms)  COMMIT TRANSACTION /*action='destroy',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:36:in 'ProductsController#destroy'
+Redirected to http://127.0.0.1:3000/products
+Completed 302 Found in 57ms (ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:24:34 +0530
+Processing by ProductsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.1ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 2.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started DELETE "/products/5" for 127.0.0.1 at 2025-02-04 11:24:41 +0530
+Processing by ProductsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "id" => "5"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 5 LIMIT 1 /*action='destroy',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+Completed 404 Not Found in 48ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=5):
+  
+app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+Started GET "/products/5" for 127.0.0.1 at 2025-02-04 11:24:41 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id" => "5"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 5 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+Completed 404 Not Found in 24ms (ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Product with 'id'=5):
+  
+app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+Started GET "/favicon.ico" for 127.0.0.1 at 2025-02-04 11:24:42 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/products/new" for 127.0.0.1 at 2025-02-04 11:24:51 +0530
+Processing by ProductsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (Duration: 2.3ms | GC: 0.0ms)
+  Rendered products/new.html.erb within layouts/application (Duration: 2.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | GC: 0.0ms)
+Completed 200 OK in 54ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2025-02-04 11:24:53 +0530
+Processing by ProductsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering products/index.html.erb within layouts/application
+  Product Load (0.1ms)  SELECT "products".* FROM "products" /*action='index',application='Store',controller='products'*/
+  ↳ app/views/products/index.html.erb:6
+  Rendered products/index.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | GC: 0.0ms)
+Completed 200 OK in 54ms (Views: 2.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/products/4" for 127.0.0.1 at 2025-02-04 11:25:01 +0530
+Processing by ProductsController#show as HTML
+  Parameters: {"id" => "4"}
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 4 LIMIT 1 /*action='show',application='Store',controller='products'*/
+  ↳ app/controllers/products_controller.rb:42:in 'ProductsController#set_product'
+  Rendering layout layouts/application.html.erb
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 37ms (Views: 0.8ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2025-02-04 11:25:27 +0530 ===
+- Goodbye!
+Exiting
+rajaniapple@Rajanis-MacBook-Pro store % 

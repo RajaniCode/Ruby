@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 0.9.5: A world of fixes and tweaks</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This release is mostly about polishing the Rails by closing holes, deficiencies, and subtle extensions to existing features. The long-awaited Directions and generator upgrade have been postponed to the next release. The highlights of this release is:	Rewritten reloading: Working in development with models and controllers reloading on every request now resembles &#8220;the real thing&#8221; a lot more by actually removing the model classes before reloading them. This fixes a bunch of subtle bugs and makes it possible to remove a method and see it reflected without restarting the application.	Create and update collections: Through calls like text_field "student[]", "last_name", it&#8217;s now much easier to get input tags like input name="student[123][last_name]"..., which together with the fact that Base#create, Base#update, Base#destroy, Base#delete, AssociationCollection#build, and AssociationCollection#create now all accept arrays enables handling of many records at once.	Stopping after render/redirect: Any before_filter can now terminate the chain by calling render or redirect and the pattern of redirect-and-return now works again. The first call to either render or redirect wins as well and subsequent calls are ignored.That&#8217;s just three of the 37 changes, fixes, and additions available in Rails 0.9.5. You can read the full story in the changelogs for Active Record, Action Pack, and Rails.This release shouldn&#8217;t require any changes to your application if you&#8217;re coming from Rails 0.9.4 unless you were relying on const_missing to load non-AR/AO/AC classes. In that case, you&#8217;ll have to start being explicit with require_dependency for the reloading to be triggered." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 0.9.5: A world of fixes and tweaks" />
+  <meta property="og:description" content="This release is mostly about polishing the Rails by closing holes, deficiencies, and subtle extensions to existing features. The long-awaited Directions and generator upgrade have been postponed to the next release. The highlights of this release is:	Rewritten reloading: Working in development with models and controllers reloading on every request now resembles &#8220;the real thing&#8221; a lot more by actually removing the model classes before reloading them. This fixes a bunch of subtle bugs and makes it possible to remove a method and see it reflected without restarting the application.	Create and update collections: Through calls like text_field "student[]", "last_name", it&#8217;s now much easier to get input tags like input name="student[123][last_name]"..., which together with the fact that Base#create, Base#update, Base#destroy, Base#delete, AssociationCollection#build, and AssociationCollection#create now all accept arrays enables handling of many records at once.	Stopping after render/redirect: Any before_filter can now terminate the chain by calling render or redirect and the pattern of redirect-and-return now works again. The first call to either render or redirect wins as well and subsequent calls are ignored.That&#8217;s just three of the 37 changes, fixes, and additions available in Rails 0.9.5. You can read the full story in the changelogs for Active Record, Action Pack, and Rails.This release shouldn&#8217;t require any changes to your application if you&#8217;re coming from Rails 0.9.4 unless you were relying on const_missing to load non-AR/AO/AC classes. In that case, you&#8217;ll have to start being explicit with require_dependency for the reloading to be triggered." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/1/26/rails-0-9-5-a-world-of-fixes-and-tweaks" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 0.9.5: A world of fixes and tweaks" />
+  <meta name="twitter:description" content="This release is mostly about polishing the Rails by closing holes, deficiencies, and subtle extensions to existing features. The long-awaited Directions and generator upgrade have been postponed to the next release. The highlights of this release is:	Rewritten reloading: Working in development with models and controllers reloading on every request now resembles &#8220;the real thing&#8221; a lot more by actually removing the model classes before reloading them. This fixes a bunch of subtle bugs and makes it possible to remove a method and see it reflected without restarting the application.	Create and update collections: Through calls like text_field "student[]", "last_name", it&#8217;s now much easier to get input tags like input name="student[123][last_name]"..., which together with the fact that Base#create, Base#update, Base#destroy, Base#delete, AssociationCollection#build, and AssociationCollection#create now all accept arrays enables handling of many records at once.	Stopping after render/redirect: Any before_filter can now terminate the chain by calling render or redirect and the pattern of redirect-and-return now works again. The first call to either render or redirect wins as well and subsequent calls are ignored.That&#8217;s just three of the 37 changes, fixes, and additions available in Rails 0.9.5. You can read the full story in the changelogs for Active Record, Action Pack, and Rails.This release shouldn&#8217;t require any changes to your application if you&#8217;re coming from Rails 0.9.4 unless you were relying on const_missing to load non-AR/AO/AC classes. In that case, you&#8217;ll have to start being explicit with require_dependency for the reloading to be triggered." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/1/26/rails-0-9-5-a-world-of-fixes-and-tweaks"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 0.9.5: A world of fixes and tweaks",
+      "description": "This release is mostly about polishing the Rails by closing holes, deficiencies, and subtle extensions to existing features. The long-awaited Directions and generator upgrade have been postponed to the next release. The highlights of this release is:	Rewritten reloading: Working in development with models and controllers reloading on every request now resembles &#8220;the real thing&#8221; a lot more by actually removing the model classes before reloading them. This fixes a bunch of subtle bugs and makes it possible to remove a method and see it reflected without restarting the application.	Create and update collections: Through calls like text_field "student[]", "last_name", it&#8217;s now much easier to get input tags like input name="student[123][last_name]"..., which together with the fact that Base#create, Base#update, Base#destroy, Base#delete, AssociationCollection#build, and AssociationCollection#create now all accept arrays enables handling of many records at once.	Stopping after render/redirect: Any before_filter can now terminate the chain by calling render or redirect and the pattern of redirect-and-return now works again. The first call to either render or redirect wins as well and subsequent calls are ignored.That&#8217;s just three of the 37 changes, fixes, and additions available in Rails 0.9.5. You can read the full story in the changelogs for Active Record, Action Pack, and Rails.This release shouldn&#8217;t require any changes to your application if you&#8217;re coming from Rails 0.9.4 unless you were relying on const_missing to load non-AR/AO/AC classes. In that case, you&#8217;ll have to start being explicit with require_dependency for the reloading to be triggered.",
+      "url": "http://localhost:4000/2005/1/26/rails-0-9-5-a-world-of-fixes-and-tweaks",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-01-26T06:55:03+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, January 26, 2005</h5>
+        <h2>Rails 0.9.5: A world of fixes and tweaks</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>This release is mostly about polishing the Rails by closing holes, deficiencies, and subtle extensions to existing features. The long-awaited <a href="http://www.soapbx.com/viewer/show/34">Directions</a> and <a href="http://dev.rubyonrails.com/ticket/487">generator upgrade</a> have been postponed to the next release. The highlights of this release is:</p>
+<ul>
+	<li><strong>Rewritten reloading</strong>: Working in development with models and controllers reloading on every request now resembles &#8220;the real thing&#8221; a lot more by actually removing the model classes before reloading them. This fixes a bunch of subtle bugs and makes it possible to remove a method and see it reflected without restarting the application.</li>
+</ul>
+<ul>
+	<li><strong>Create and update collections:</strong> Through calls like <code>text_field "student[]", "last_name"</code>, it&#8217;s now much easier to get input tags like <code>input name="student[123][last_name]"...</code>, which together with the fact that Base#create, Base#update, Base#destroy, Base#delete, AssociationCollection#build, and AssociationCollection#create now all accept arrays enables handling of many records at once.</li>
+</ul>
+<ul>
+	<li><strong>Stopping after render/redirect:</strong> Any before_filter can now terminate the chain by calling render or redirect and the pattern of redirect-and-return now works again. The first call to either render or redirect wins as well and subsequent calls are ignored.</li>
+</ul>
+<p>That&#8217;s just three of the 37 changes, fixes, and additions available in Rails 0.9.5. You can read the full story in the changelogs for <a href="http://ar.rubyonrails.com/files/CHANGELOG.html">Active Record</a>, <a href="http://ap.rubyonrails.com/files/CHANGELOG.html">Action Pack</a>, and <a href="http://rails.rubyonrails.com/files/CHANGELOG.html">Rails</a>.</p>
+<p>This release shouldn&#8217;t require any changes to your application if you&#8217;re coming from Rails 0.9.4 unless you were relying on const_missing to load non-AR/AO/AC classes. In that case, you&#8217;ll have to start being explicit with require_dependency for the reloading to be triggered.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

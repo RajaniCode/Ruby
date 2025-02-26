@@ -1,0 +1,43 @@
+4.16 Integration Tests With Delete
+
+Now it is time to write some integration tests to ensure our API responds properly to DELETE requests to the zombies resources. Our previous developers started to write these tests before falling victim to the Zombie Apocalypse. Let’s finish it!
+
+
+test/integration/deleting_zombies_test.rb
+class DeletingZombiesTest < ActionDispatch::IntegrationTest
+  setup { @zombie = Zombie.create!(name: 'Undead Jack', brain_type: 'large') }
+
+  test 'deletes existing zombie' do
+    # your code here
+  end
+end
+
+
+1. Issue a DELETE request to the zombie URI that points to Undead Jack.
+
+Answer:
+test/integration/deleting_zombies_test.rb
+class DeletingZombiesTest < ActionDispatch::IntegrationTest
+  setup { @zombie = Zombie.create!(name: 'Undead Jack', brain_type: 'large') }
+
+  test 'deletes existing zombie' do
+    # your code here
+    delete "/zombies/#{@zombie.id}"
+  end
+end
+
+
+2. Assert that the response status code is 204 - No Content.
+
+
+Answer:
+test/integration/deleting_zombies_test.rb
+class DeletingZombiesTest < ActionDispatch::IntegrationTest
+  setup { @zombie = Zombie.create!(name: 'Undead Jack', brain_type: 'large') }
+
+  test 'deletes existing zombie' do
+    # your code here
+    delete "/zombies/#{@zombie.id}"
+    assert_equal 204, response.status
+  end
+end

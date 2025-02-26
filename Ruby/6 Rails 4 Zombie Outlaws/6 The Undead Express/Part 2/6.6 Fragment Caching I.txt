@@ -1,0 +1,53 @@
+6.6 Fragment Caching I
+
+
+Our Zombie Outlaws app has made it to #1 on ZombieWeaponHacker News! Zombies all over the globe are now visiting our web site. Unfortunately, we've noticed that our zombie partial is taking quite some time to render. Let's fragment cache it by wrapping its content in a call to the cache method, using zombie as the key.
+
+
+Database:
+zombies 
+id	name	weapon_id	status	killed_on
+1	Ash	1		outlaw	null
+2	Bob	2		dead	2015-07-18
+3	Jim	3		dead	2015-07-17
+weapons 
+id	name
+1	Chainsaw
+2	Bone
+3	Axe
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  belongs_to :weapon
+  def self.recent
+    self.order(id: :asc).last
+  end
+end
+
+
+views/weapons/index.html.erb
+<section>
+  <h3><%= @weapon.name %></h3>
+  <ul>
+    <%= render @weapon.zombies %>
+  </ul>
+    <%= link_to 'Details', @weapon %>
+</section>
+
+
+models/weapon.rb
+class Weapon < ActiveRecord::Base
+  has_many :zombies
+end
+
+
+views/weapons/index.html.erb
+<li><%= zombie %></li>
+
+
+Answer:
+views/weapons/index.html.erb
+<% cache zombie do %>
+  <li><%= zombie %></li>
+<% end %>

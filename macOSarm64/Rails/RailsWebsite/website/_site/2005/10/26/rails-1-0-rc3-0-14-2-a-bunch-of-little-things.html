@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 1.0 RC3 (0.14.2): A bunch of little things</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We&#8217;ve pushed out the third release candidate for 1.0 of Rails. This release most prominently fixes a memory leak with render_component (which affected Typo among others), the scaffolding bug, and a number of other small things. Please do upgrade. If you&#8217;re already running 0.14.1 (RC2), then you don&#8217;t need to change anything in the application." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 1.0 RC3 (0.14.2): A bunch of little things" />
+  <meta property="og:description" content="We&#8217;ve pushed out the third release candidate for 1.0 of Rails. This release most prominently fixes a memory leak with render_component (which affected Typo among others), the scaffolding bug, and a number of other small things. Please do upgrade. If you&#8217;re already running 0.14.1 (RC2), then you don&#8217;t need to change anything in the application." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/10/26/rails-1-0-rc3-0-14-2-a-bunch-of-little-things" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 1.0 RC3 (0.14.2): A bunch of little things" />
+  <meta name="twitter:description" content="We&#8217;ve pushed out the third release candidate for 1.0 of Rails. This release most prominently fixes a memory leak with render_component (which affected Typo among others), the scaffolding bug, and a number of other small things. Please do upgrade. If you&#8217;re already running 0.14.1 (RC2), then you don&#8217;t need to change anything in the application." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/10/26/rails-1-0-rc3-0-14-2-a-bunch-of-little-things"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 1.0 RC3 (0.14.2): A bunch of little things",
+      "description": "We&#8217;ve pushed out the third release candidate for 1.0 of Rails. This release most prominently fixes a memory leak with render_component (which affected Typo among others), the scaffolding bug, and a number of other small things. Please do upgrade. If you&#8217;re already running 0.14.1 (RC2), then you don&#8217;t need to change anything in the application.",
+      "url": "http://localhost:4000/2005/10/26/rails-1-0-rc3-0-14-2-a-bunch-of-little-things",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-10-26T03:15:45+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, October 26, 2005</h5>
+        <h2>Rails 1.0 RC3 (0.14.2): A bunch of little things</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We&#8217;ve pushed out the third release candidate for 1.0 of Rails. This release most prominently fixes a memory leak with render_component (which affected Typo among others), the scaffolding bug, and a number of other small things. Please do upgrade. If you&#8217;re already running 0.14.1 (RC2), then you don&#8217;t need to change anything in the application.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

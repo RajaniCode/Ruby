@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Performance of Rails Metal</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Josh recently added Rails Metal, which has been getting a fair bit of publicity. Metal is a great piece of functionality for those rare cases where the speed of your framework actually matters.However, people have been reporting 25x speed increase over a regular Rails action, and that just doesn&#8217;t seem right. So I decided to do some benchmarking of &#8216;Hello World&#8217; Rails action v/s Metal. Here are my results :Rails actionTime per request : 1.244 [ms]Throughput : 800 request/secondMetalTime per request : 0.386 [ms]Throughput : 3000 request/secondYou can find more details about benchmark command/code at http://gist.github.com/38080Of course, these are not very scientific benchmarks and your results may vary a little from what you see here. You should also make sure you run your benchmarks in production mode.Now, if you compare these results, 3000 r/s against 800 r/s, you may think you&#8217;re seeing a 3x performance increase. However, that&#8217;d a wrong perception and throughput isn&#8217;t the best metric here.Difference in Time per request is what you should looking at. In my benchmarks, speed increase I get when using Metal is about 1 millisecond. And that&#8217;s a constant speed increase I&#8217;ll get over a regular Rails action. It&#8217;s very important to understand that it&#8217;s a constant speed increase. It&#8217;ll always be 1 ms for me.For example, if my Rails action takes 12ms, when I reimplement it all in Metal, it will take about 11 ms and not 4 ms.To conclude, I&#8217;ll just quote DHH :But for those few, specialized cases where you just need as much raw speed as possible, Metal can be exactly what the doctor ordered. It allows you to have the best of both worlds in one package. The lowest possible overhead for a Rack application when that matters and the full-featured goodness of Action Controller when it doesn’t." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Performance of Rails Metal" />
+  <meta property="og:description" content="Josh recently added Rails Metal, which has been getting a fair bit of publicity. Metal is a great piece of functionality for those rare cases where the speed of your framework actually matters.However, people have been reporting 25x speed increase over a regular Rails action, and that just doesn&#8217;t seem right. So I decided to do some benchmarking of &#8216;Hello World&#8217; Rails action v/s Metal. Here are my results :Rails actionTime per request : 1.244 [ms]Throughput : 800 request/secondMetalTime per request : 0.386 [ms]Throughput : 3000 request/secondYou can find more details about benchmark command/code at http://gist.github.com/38080Of course, these are not very scientific benchmarks and your results may vary a little from what you see here. You should also make sure you run your benchmarks in production mode.Now, if you compare these results, 3000 r/s against 800 r/s, you may think you&#8217;re seeing a 3x performance increase. However, that&#8217;d a wrong perception and throughput isn&#8217;t the best metric here.Difference in Time per request is what you should looking at. In my benchmarks, speed increase I get when using Metal is about 1 millisecond. And that&#8217;s a constant speed increase I&#8217;ll get over a regular Rails action. It&#8217;s very important to understand that it&#8217;s a constant speed increase. It&#8217;ll always be 1 ms for me.For example, if my Rails action takes 12ms, when I reimplement it all in Metal, it will take about 11 ms and not 4 ms.To conclude, I&#8217;ll just quote DHH :But for those few, specialized cases where you just need as much raw speed as possible, Metal can be exactly what the doctor ordered. It allows you to have the best of both worlds in one package. The lowest possible overhead for a Rack application when that matters and the full-featured goodness of Action Controller when it doesn’t." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2008/12/20/performance-of-rails-metal" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Performance of Rails Metal" />
+  <meta name="twitter:description" content="Josh recently added Rails Metal, which has been getting a fair bit of publicity. Metal is a great piece of functionality for those rare cases where the speed of your framework actually matters.However, people have been reporting 25x speed increase over a regular Rails action, and that just doesn&#8217;t seem right. So I decided to do some benchmarking of &#8216;Hello World&#8217; Rails action v/s Metal. Here are my results :Rails actionTime per request : 1.244 [ms]Throughput : 800 request/secondMetalTime per request : 0.386 [ms]Throughput : 3000 request/secondYou can find more details about benchmark command/code at http://gist.github.com/38080Of course, these are not very scientific benchmarks and your results may vary a little from what you see here. You should also make sure you run your benchmarks in production mode.Now, if you compare these results, 3000 r/s against 800 r/s, you may think you&#8217;re seeing a 3x performance increase. However, that&#8217;d a wrong perception and throughput isn&#8217;t the best metric here.Difference in Time per request is what you should looking at. In my benchmarks, speed increase I get when using Metal is about 1 millisecond. And that&#8217;s a constant speed increase I&#8217;ll get over a regular Rails action. It&#8217;s very important to understand that it&#8217;s a constant speed increase. It&#8217;ll always be 1 ms for me.For example, if my Rails action takes 12ms, when I reimplement it all in Metal, it will take about 11 ms and not 4 ms.To conclude, I&#8217;ll just quote DHH :But for those few, specialized cases where you just need as much raw speed as possible, Metal can be exactly what the doctor ordered. It allows you to have the best of both worlds in one package. The lowest possible overhead for a Rack application when that matters and the full-featured goodness of Action Controller when it doesn’t." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2008/12/20/performance-of-rails-metal"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Performance of Rails Metal",
+      "description": "Josh recently added Rails Metal, which has been getting a fair bit of publicity. Metal is a great piece of functionality for those rare cases where the speed of your framework actually matters.However, people have been reporting 25x speed increase over a regular Rails action, and that just doesn&#8217;t seem right. So I decided to do some benchmarking of &#8216;Hello World&#8217; Rails action v/s Metal. Here are my results :Rails actionTime per request : 1.244 [ms]Throughput : 800 request/secondMetalTime per request : 0.386 [ms]Throughput : 3000 request/secondYou can find more details about benchmark command/code at http://gist.github.com/38080Of course, these are not very scientific benchmarks and your results may vary a little from what you see here. You should also make sure you run your benchmarks in production mode.Now, if you compare these results, 3000 r/s against 800 r/s, you may think you&#8217;re seeing a 3x performance increase. However, that&#8217;d a wrong perception and throughput isn&#8217;t the best metric here.Difference in Time per request is what you should looking at. In my benchmarks, speed increase I get when using Metal is about 1 millisecond. And that&#8217;s a constant speed increase I&#8217;ll get over a regular Rails action. It&#8217;s very important to understand that it&#8217;s a constant speed increase. It&#8217;ll always be 1 ms for me.For example, if my Rails action takes 12ms, when I reimplement it all in Metal, it will take about 11 ms and not 4 ms.To conclude, I&#8217;ll just quote DHH :But for those few, specialized cases where you just need as much raw speed as possible, Metal can be exactly what the doctor ordered. It allows you to have the best of both worlds in one package. The lowest possible overhead for a Rack application when that matters and the full-featured goodness of Action Controller when it doesn’t.",
+      "url": "http://localhost:4000/2008/12/20/performance-of-rails-metal",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Pratik Naik"
+      },
+      "datePublished": "2008-12-20T05:55:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, December 20, 2008</h5>
+        <h2>Performance of Rails Metal</h2>
+
+        <h6>Posted by Pratik Naik</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Josh recently added <a href="https://rubyonrails.org/2008/12/17/introducing-rails-metal">Rails Metal</a>, which has been getting a fair bit of publicity. Metal is a great piece of functionality for those rare cases where the speed of your framework actually matters.</p>
+<p>However, people have been reporting <a href="http://www.infoq.com/news/2008/12/rails-metal">25x speed increase</a> over a regular Rails action, and that just doesn&#8217;t seem right. So I decided to do some benchmarking of &#8216;Hello World&#8217; Rails action v/s Metal. Here are my results :</p>
+<h2>Rails action</h2>
+<filter:code>Time per request : 1.244 [ms]<br />
+Throughput : 800 request/second</filter:code>
+<h2>Metal</h2>
+<filter:code>Time per request : 0.386 [ms]<br />
+Throughput : 3000 request/second</filter:code>
+<p><i>You can find more details about benchmark command/code at <a href="http://gist.github.com/38080">http://gist.github.com/38080</a></i></p>
+<p>Of course, these are not very scientific benchmarks and your results may vary a little from what you see here. You should also make sure you <strong>run your benchmarks in production mode</strong>.</p>
+<p>Now, if you compare these results, 3000 r/s against 800 r/s, you may think you&#8217;re seeing a 3x performance increase. However, that&#8217;d a wrong perception and throughput isn&#8217;t the best metric here.</p>
+<p>Difference in <strong>Time per request</strong> is what you should looking at. In my benchmarks, speed increase I get when using Metal is about <strong>1 millisecond</strong>. And that&#8217;s a constant speed increase I&#8217;ll get over a regular Rails action. It&#8217;s very important to understand that it&#8217;s a <strong>constant speed increase</strong>. It&#8217;ll always be 1 ms for me.</p>
+<p>For example, if my Rails action takes <strong>12ms</strong>, when I reimplement it all in Metal, it will take about <strong>11 ms</strong> and not 4 ms.</p>
+<p>To conclude, I&#8217;ll just quote <span class="caps">DHH</span> :</p>
+<blockquote>
+<p>But for those few, specialized cases where you just need as much raw speed as possible, Metal can be exactly what the doctor ordered. It allows you to have the best of both worlds in one package. The lowest possible overhead for a Rack application when that matters and the full-featured goodness of Action Controller when it doesn’t.</p>
+</blockquote>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: An Apology, Initializer Changes, and More!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey, team. Todd here, bringing you another edition of This Week in Rails! Due to a scheduling mishap, we missed an issue last week - we won’t cover it here, but I encourage you to check out the repo activity during that period." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: An Apology, Initializer Changes, and More!" />
+  <meta property="og:description" content="Hey, team. Todd here, bringing you another edition of This Week in Rails! Due to a scheduling mishap, we missed an issue last week - we won’t cover it here, but I encourage you to check out the repo activity during that period." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/6/4/this-week-in-rails-an-apology-initializer-changes-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: An Apology, Initializer Changes, and More!" />
+  <meta name="twitter:description" content="Hey, team. Todd here, bringing you another edition of This Week in Rails! Due to a scheduling mishap, we missed an issue last week - we won’t cover it here, but I encourage you to check out the repo activity during that period." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/6/4/this-week-in-rails-an-apology-initializer-changes-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: An Apology, Initializer Changes, and More!",
+      "description": "Hey, team. Todd here, bringing you another edition of This Week in Rails! Due to a scheduling mishap, we missed an issue last week - we won’t cover it here, but I encourage you to check out the repo activity during that period.",
+      "url": "http://localhost:4000/2016/6/4/this-week-in-rails-an-apology-initializer-changes-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "chancancode"
+      },
+      "datePublished": "2016-06-04T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, June 4, 2016</h5>
+        <h2>This Week in Rails: An Apology, Initializer Changes, and More!</h2>
+
+        <h6>Posted by chancancode</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey, team. <a href="https://twitter.com/toddbealmear">Todd</a> here, bringing you another edition of This Week in Rails! Due to a scheduling mishap, we missed an issue last week - we won’t cover it here, but I encourage you to check out the <a href="https://github.com/rails/rails/compare/master@%7B2016-05-20%7D...@%7B2016-05-28%7D">repo activity</a> during that period.</p>
+
+<p>Anyway, let’s get to the exciting stuff from this week!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-week-in-rails--now-in-korean"><a href="http://suhanlee.github.io/2016/ruby-2-4-integer-action-mailer-rescued-and-more.html">This Week in Rails – Now in Korean!</a></h3>
+
+<p>First off, a very special thanks to <a href="http://suhanlee.github.io/about">Suhan Lee</a> for translating our newsletter into Korean! He’s going to try to translate each newsletter going forward. If you’re interested in providing more translations, feel free to get in touch with <a href="https://twitter.com/chancancode">Godfrey</a>.</p>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160528-20160603">This Week’s Contributors</a></h3>
+
+<p>We had 25 of you lovely individuals contribute code and documentation to Rails this week. You all rock! Keep the contributions coming!</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="collapse-default-initializers-into-a-single-file"><a href="https://github.com/rails/rails/pull/25231">Collapse Default Initializers Into a Single File</a></h3>
+
+<p>A late addition to Rails 5: default Rails initializers will no longer live in their own files. Instead, a new <code class="language-plaintext highlighter-rouge">new_framework_defaults.rb</code> file will be included in new apps generated with Rails 5.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="add-websocket-and-logger-configuration-options-for-action-cable"><a href="https://github.com/rails/rails/pull/25170">Add <code class="language-plaintext highlighter-rouge">WebSocket</code> and <code class="language-plaintext highlighter-rouge">logger</code> Configuration Options for Action Cable</a></h3>
+
+<p>You can now configure your own WebSocket and logger options when using Action Cable.</p>
+
+<h3 id="slim-down-active-record-yaml-dumps"><a href="https://github.com/rails/rails/commit/c4cb6862babd2665a65056e205c2a5fd17a5d99d">Slim Down Active Record YAML Dumps</a></h3>
+
+<p>This patch decreases the size of model dumps to YAML - in some cases by a whopping 80%!</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="fixed-issue-chaining-exists-to-includes"><a href="https://github.com/rails/rails/commit/02da8aea832485044fde1b94c021a66d37d54dec">Fixed Issue Chaining <code class="language-plaintext highlighter-rouge">#exists?</code> to <code class="language-plaintext highlighter-rouge">#includes</code></a></h3>
+
+<p>Sean was able to fix an issue where chaining <code class="language-plaintext highlighter-rouge">#exists?</code> on <code class="language-plaintext highlighter-rouge">#includes</code> would raise an error. It sounds like there’s more work to do here yet, so I encourage giving the commit message a look-see.</p>
+
+<h3 id="activerecordbasehash-should-differ-between-classes"><a href="https://github.com/rails/rails/commit/c8be4574a2a35c896560ff58b26111ad6dd9d60f"><code class="language-plaintext highlighter-rouge">ActiveRecord::Base#hash</code> Should Differ Between Classes</a></h3>
+
+<p>Previously, there was an issue where it was possible to have collisions if <code class="language-plaintext highlighter-rouge">#hash</code> was called on two different models with the same ID. This is now fixed on master.</p>
+
+<h3 id="remove-openssl-deprecation-warnings"><a href="https://github.com/rails/rails/pull/25194">Remove OpenSSL Deprecation Warnings</a></h3>
+
+<p>This patch fixes deprecation warnings caused by the <code class="language-plaintext highlighter-rouge">OpenSSL::Cipher::Cipher</code> namespace changing to simply <code class="language-plaintext highlighter-rouge">OpenSSL::Cipher</code>.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s a wrap for This Week in Rails! There were plenty of other things going on, so feel free to jump in and <a href="https://github.com/rails/rails/compare/master@%7B2016-05-14%7D...@%7B2016-05-20%7D">check them out yourself</a>!</p>
+
+<p>See you next week!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

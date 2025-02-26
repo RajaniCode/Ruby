@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails World talks online, fix of a 13 years old bug and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s Greg, bringing you this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails World talks online, fix of a 13 years old bug and more!" />
+  <meta property="og:description" content="Hi, it’s Greg, bringing you this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/10/20/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails World talks online, fix of a 13 years old bug and more!" />
+  <meta name="twitter:description" content="Hi, it’s Greg, bringing you this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/10/20/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails World talks online, fix of a 13 years old bug and more!",
+      "description": "Hi, it’s Greg, bringing you this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2023/10/20/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Greg Molnar"
+      },
+      "datePublished": "2023-10-20T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, October 20, 2023</h5>
+        <h2>Rails World talks online, fix of a 13 years old bug and more!</h2>
+
+        <h6>Posted by Greg Molnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://greg.molnar.io">Greg</a>, bringing you this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://www.youtube.com/watch?v=9RZVdXyzwCw&amp;list=PLHFP2OPUpCeY9IX3Ht727dwu5ZJ2BBbZP">Rails World talks are online</a><br />
+The talks from Rails World 2023 are now available to watch online!  You can watch all of them on the YouTube playlist.<br />
+Also, Amanda Perino wrote <a href="https://rubyonrails.org/2023/10/19/rails-world-2023-recap">a recap of Rails World</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49636">Do not memoize auto/eager load paths in engines</a><br />
+This pull request fixes an issue from 13 years ago. In a Rails engine, if you manipulate the auto/eager load paths like this:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span><span class="p">.</span><span class="nf">eager_load_paths</span> <span class="o">&lt;&lt;</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/extras"</span>
+<span class="n">config</span><span class="p">.</span><span class="nf">paths</span><span class="p">[</span><span class="s2">"app/helpers"</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/custom/helpers"</span>
+</code></pre></div></div>
+<p>Then custom/helpers would not end up in the autoload and eager load paths. In newly generated Rails 7.1 applications lib is pushed to to <code class="language-plaintext highlighter-rouge">config.eager_load_paths</code>. If they are used together with something that edits <code class="language-plaintext highlighter-rouge">config.paths</code> afterwards, that latent bug now surfaces. I guess this combination, while possible, was not happening much in practice until now.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49625">Raise on <em>foreign_key:</em> being passed as an array in associations</a><br />
+Associations have never allowed nor supported <code class="language-plaintext highlighter-rouge">foreign_key</code> option being passed as an <em>Array</em>. This still holds true for Rails 7.1. However, with support for composite primary keys it may become more common for applications to mistakenly pass an array to <code class="language-plaintext highlighter-rouge">foreign_key:</code>. With this commit, an exception is raised when <code class="language-plaintext highlighter-rouge">foreign_key:</code> is passed as an array.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49612">Fix <em>capture</em> view helper for HAML and Slim</a><br />
+When a blank string is captured in HAML or Slim (and possibly other template engines) it returns an entire buffer. This pull request fixes that.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-10-13%7D...main@%7B2023-10-20%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20231013-20231020">26 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

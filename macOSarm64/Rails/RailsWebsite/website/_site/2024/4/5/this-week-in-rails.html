@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Deferring jobs enqueueing to after the transaction commit, queries count in rendering logs and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, Wojtek here exploring this week’s changes." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Deferring jobs enqueueing to after the transaction commit, queries count in rendering logs and more" />
+  <meta property="og:description" content="Hi, Wojtek here exploring this week’s changes." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/4/5/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Deferring jobs enqueueing to after the transaction commit, queries count in rendering logs and more" />
+  <meta name="twitter:description" content="Hi, Wojtek here exploring this week’s changes." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/4/5/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Deferring jobs enqueueing to after the transaction commit, queries count in rendering logs and more",
+      "description": "Hi, Wojtek here exploring this week’s changes.",
+      "url": "http://localhost:4000/2024/4/5/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "Wojtek"
+      },
+      "datePublished": "2024-04-05T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, April 5, 2024</h5>
+        <h2>Deferring jobs enqueueing to after the transaction commit, queries count in rendering logs and more</h2>
+
+        <h6>Posted by Wojtek</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://twitter.com/morgoth85">Wojtek</a> here exploring this week’s changes.</p>
+
+<p><a href="https://rubyonrails.org/world/2024">Rails World 2024 edition website is now live</a><br />
+With tickets going on sale in April.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51474">Allow to register transaction callbacks outside of a record</a><br />
+<em>ActiveRecord::Base.transaction</em> now yields an <em>ActiveRecord::Transaction</em> object, which allows to register callbacks on it.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Article</span><span class="p">.</span><span class="nf">transaction</span> <span class="k">do</span> <span class="o">|</span><span class="n">transaction</span><span class="o">|</span>
+  <span class="n">article</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">published: </span><span class="kp">true</span><span class="p">)</span>
+  <span class="n">transaction</span><span class="p">.</span><span class="nf">after_commit</span> <span class="k">do</span>
+    <span class="no">PublishNotificationMailer</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="ss">article: </span><span class="n">article</span><span class="p">).</span><span class="nf">deliver_later</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Added <em>ActiveRecord::Base.current_transaction</em> which also allows to register callbacks on it.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Article</span><span class="p">.</span><span class="nf">current_transaction</span><span class="p">.</span><span class="nf">after_commit</span> <span class="k">do</span>
+  <span class="no">PublishNotificationMailer</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="ss">article: </span><span class="n">article</span><span class="p">).</span><span class="nf">deliver_later</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Add <em>ActiveRecord.after_all_transactions_commit</em> callback.</p>
+
+<p>Useful for code that may run either inside or outside a transaction and needs to perform work after the state changes have been properly persisted.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">publish_article</span><span class="p">(</span><span class="n">article</span><span class="p">)</span>
+  <span class="n">article</span><span class="p">.</span><span class="nf">update</span><span class="p">(</span><span class="ss">published: </span><span class="kp">true</span><span class="p">)</span>
+  <span class="no">ActiveRecord</span><span class="p">.</span><span class="nf">after_all_transactions_commit</span> <span class="k">do</span>
+    <span class="no">PublishNotificationMailer</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="ss">article: </span><span class="n">article</span><span class="p">).</span><span class="nf">deliver_later</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/51426">Automatically delay Active Job enqueues to after commit</a><br />
+A common mistake with Active Job is to enqueue jobs from inside a transaction, causing them to potentially be picked and ran by another process, before the transaction is committed, which result in various errors.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Topic</span><span class="p">.</span><span class="nf">transaction</span> <span class="k">do</span>
+  <span class="n">topic</span> <span class="o">=</span> <span class="no">Topic</span><span class="p">.</span><span class="nf">create</span>
+  <span class="no">NewTopicNotificationJob</span><span class="p">.</span><span class="nf">perform_later</span><span class="p">(</span><span class="n">topic</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Now Active Job will automatically defer the enqueuing to after the transaction is committed, and drop the job if the transaction is rolled back.</p>
+
+<p>Various queue implementations can choose to disable this behavior, and users can disable it, or force it on a per job basis:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">NewTopicNotificationJob</span> <span class="o">&lt;</span> <span class="no">ApplicationJob</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">enqueue_after_transaction_commit</span> <span class="o">=</span> <span class="ss">:never</span> <span class="c1"># or :always or :default</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/51457">Add queries count to template rendering instrumentation</a><br />
+There is often a need to quickly see how many SQL queries the current action produced. For example, to quickly check if N+1 was solved or if the caching is working and so the number of queries reduced etc. This can be done manually by inspecting the logs and counting the number of queries, but for largish actions with tens-hundreds of SQL queries this is not a simple task.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Before
+Completed 200 OK in 3804ms (Views: 41.0ms | ActiveRecord: 33.5ms | Allocations: 112788)
+# After
+Completed 200 OK in 3804ms (Views: 41.0ms | ActiveRecord: 33.5ms (2 queries, 1 cached) | Allocations: 112788)
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/51453">Add the ability to ignore counter cache columns while they are backfilling</a><br />
+Starting to use counter caches on existing large tables can be troublesome, because the column values must be backfilled separately of the column addition (to not lock the table for too long) and before the use of <em>:counter_cache</em> (otherwise methods like <em>size/any?</em>, which use counter caches internally, can produce incorrect results). People usually use database triggers or callbacks on child associations while backfilling before introducing a counter cache configuration to the association.</p>
+
+<p>Now, to safely backfill the column, while keeping the column updated with child records added/removed, use:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Comment</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">belongs_to</span> <span class="ss">:post</span><span class="p">,</span> <span class="ss">counter_cache: </span><span class="p">{</span> <span class="ss">active: </span><span class="kp">false</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>While the counter cache is not “active”, the methods like <em>size/any?</em> will not use it, but get the results directly from the database. After the counter cache column is backfilled, simply remove the <em>{ active: false }</em> part from the counter cache definition, and it will now be used by the mentioned methods.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50941">Retry Actionable Error when running tests</a><br />
+Allow Actionable Errors encountered when running tests to be retried. This feature will only be present on interactive terminals.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51478">Raise named exception when database reports an invalid version</a><br />
+When the MySQL database returns an invalid version string the <em>ActiveRecord::ActiveRecordError</em> error will now be raised.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51447">Make ActiveSupport::BacktraceCleaner copy filters and silencers on dup and clone</a><br />
+ Previously the copy would still share the internal silencers and filters array, causing state to leak.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-03-29%7D...main@%7B2024-04-05%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240329-20240405">16 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

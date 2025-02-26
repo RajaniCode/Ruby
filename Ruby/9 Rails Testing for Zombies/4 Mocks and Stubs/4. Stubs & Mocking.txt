@@ -1,0 +1,59 @@
+4. Stubs & Mocking
+
+
+Notice how the status_image method now has a return value which is expecting image to be an Array. Modify the mock to return an array with two string values.
+
+    
+models/tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+
+  validates :status, presence: true, length: {within: 3..140, allow_blank: true}
+  validates :zombie, presence: true
+  
+  def brains?
+    status =~ /(brains|breins)/i
+  end
+
+  def show_author_summary
+    self.status = self.zombie.zombie_summary
+  end
+
+  def status_image
+    image = ZwitPic.get_status_image(self.id) # This is returning an array
+    {image_name: image[0], image_url: image[1]}
+  end
+end
+
+
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+  test "status_image calls the ZwitPic get_status_image api" do 
+    ZwitPic.expects(:get_status_image).with(@tweet.id)
+    @tweet.status_image
+  end
+end
+
+
+Answer:
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+
+  test "status_image calls the ZwitPic get_status_image api" do 
+    ZwitPic.expects(:get_status_image).with(@tweet.id)
+    .returns(['image', 'image_url'])
+    @tweet.status_image
+  end
+end
+  
+
+Test Output:
+.
+
+Finished tests in 0.007952s, 125.7623 tests/s, 0.0000 assertions/s.

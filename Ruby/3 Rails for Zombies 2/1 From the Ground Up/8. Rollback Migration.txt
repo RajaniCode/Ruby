@@ -1,0 +1,18 @@
+8. Rollback Migration
+
+
+Objective
+
+Assume we ran that last migration. However we forgot a column we wanted to add, could you please roll it back from the command line?
+
+Answer: rake db:rollback
+
+$ rake db:rollback
+==  AddLocationToTweets: reverting ============================================
+-- remove_column("tweets", :show_location)
+   -> 0.0008s
+-- remove_column("tweets", :location)
+   -> 0.0003s
+==  AddLocationToTweets: reverted (0.0012s) ===================================
+Successfully completed Challenge 8
+ 

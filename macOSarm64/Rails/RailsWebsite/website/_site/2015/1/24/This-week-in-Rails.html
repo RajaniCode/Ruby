@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: model error details, drop table if exists and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="It’s Friday! Gotta get down on This Week in Rails!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: model error details, drop table if exists and more!" />
+  <meta property="og:description" content="It’s Friday! Gotta get down on This Week in Rails!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/1/24/This-week-in-Rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: model error details, drop table if exists and more!" />
+  <meta name="twitter:description" content="It’s Friday! Gotta get down on This Week in Rails!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/1/24/This-week-in-Rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: model error details, drop table if exists and more!",
+      "description": "It’s Friday! Gotta get down on This Week in Rails!",
+      "url": "http://localhost:4000/2015/1/24/This-week-in-Rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "claudiob"
+      },
+      "datePublished": "2015-01-24T06:31:58+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, January 24, 2015</h5>
+        <h2>This week in Rails: model error details, drop table if exists and more!</h2>
+
+        <h6>Posted by claudiob</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>It’s Friday! Gotta get down on This Week in Rails!</p>
+
+<p>This is <a href="http://claudiob.github.io">Claudio</a>, rushing to get you the weekly updates on interesting commits and pull requests from <a href="https://github.com/rails/rails">Rails</a>.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/this-week">This week’s Rails contributors</a></h3>
+
+<p>25 contributors helped Rails become a better framework. Keep the patches coming, and Rails 5 will be ready before you know it.</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="activemodelerrorsdetails"><a href="https://github.com/rails/rails/pull/18322">ActiveModel::Errors#details</a></h3>
+
+<p>Given a user without an email, <code class="language-plaintext highlighter-rouge">user.errors.details</code> will return <code class="language-plaintext highlighter-rouge">{email: [{error: :blank}]}</code>. In some cases, this is more useful than the message <code class="language-plaintext highlighter-rouge">{email: ["can't be blank"]}</code> provided by <code class="language-plaintext highlighter-rouge">user.errors.messages</code>.<br />
+There’s a good usage example <a href="https://cowbell-labs.com/2015-01-22-active-model-errors-details.html">in this blog post</a>.</p>
+
+<h3 id="if_exists-option-for-drop_table"><a href="https://github.com/rails/rails/pull/16366">:if_exists option for drop_table</a></h3>
+
+<p>Writing <code class="language-plaintext highlighter-rouge">drop_table(:users, if_exists: true)</code> in a migration ensures that the migration will run without exceptions, whether or not the “users” table exists.</p>
+
+<h3 id="actioncontrollerrenderer"><a href="https://github.com/rails/rails/pull/18546">ActionController::Renderer</a></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">ActionController::Base#render</code> method can now output a template anywhere, even outside of a controller!</p>
+
+<h3 id="activerecordbaseaccessed_fields"><a href="https://github.com/rails/rails/commit/be9b680">ActiveRecord::Base#accessed_fields</a></h3>
+
+<p>Calling <code class="language-plaintext highlighter-rouge">@users = User.all</code> to list all users works, but you can get better performance by indicating the exact fields you intend to access, for instance with <code class="language-plaintext highlighter-rouge">@users = User.select(:name, :email)</code>.</p>
+
+<p>The new <code class="language-plaintext highlighter-rouge">@users.accessed_fields</code> method will give you the list of fields accessed from the model, so you can easily optimize your queries using <code class="language-plaintext highlighter-rouge">.select</code> rather than <code class="language-plaintext highlighter-rouge">.all</code>.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="speed-up-actioncontrollerrenderer"><a href="https://github.com/rails/rails/pull/18643">Speed up ActionController::Renderer</a></h3>
+
+<p>Everyone loves a pull request that speeds up Rails,
+especially if the performance gain is documented and verifiable.<br />
+When in doubt, always use <a href="https://github.com/evanphx/benchmark-ips">benchmark/ips</a> to provide benchmark results for comparison.</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s all for <em>This week in Rails</em>. As always, there are more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails">check them out</a> yourself!</p>
+
+<p>P.S. If you enjoyed this newsletter, why not <a href="https://rails-weekly.ongoodbits.com">share it with your friends</a>? :) If you wish to be part of this project please don’t hesitate to contact <a href="mailto:godfrey@brewhouse.io">Godfrey</a> – there’re a lot of ways you could help make this newsletter more awesome!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

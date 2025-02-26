@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; A Month in Rails</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lots of great content coming out of the community in the past month.  Below you&#8217;ll find some of the most useful tutorials and libraries I&#8217;ve found over the past few weeks.  These stories came directly from the Ruby5 podcast, which covers news from the Ruby and Rails community twice weekly.Improving your Rails codeJames Golick released a gem called Observational recently which provides you with a better way of using observers in Rails. Instead of creating one file per observer, this gem allows you to define multiple observed objects and specific methods to call for each object&#8217;s events.If you want to develop a Rails app that takes advantage of Subdomains Taylor Luk has the recipe. He recommends using subdomain-fu, shows how to use a Proxy PAC file in development, and introduces a piece of Rack middleware he wrote which allows you to use full custom domains in your application.If you like to TATFT like the rest of us, I have two libraries to tell you about.  The first is a gem by the guys over at Devver called Construct which makes it easy to test code which interacts with your filesystem.  The second is Blue Ridge by Larry Karnowski and Chris Redinger which makes it easy to write tests for your javascript.  Blue Ridge has been out for a while, but this week Noel Rappin wrote a great introductory article to get you started.Just yesterday Fabio Akita put together a screencast showing how the &#8220;Weblog in 15 minutes&#8221; code could be simplified using Inherited Resources, a gem by José Valim which helps reduce controller code duplication.  The gem uses the same sort of technique you may have seen before with make_resourceful or resource_controller, but has improved syntactic sugar.Libraries you should know aboutPatrick McKenzie released A/Bingo, a gem/plugin for your Rails application that makes A/B Testing easy. It uses a fairly intuitive and simple interface for defining your tests and provides information on which sample performed best and by what margins.Steve Richert released a gem called vestal_versions which allows you to keep a history of all of your ActiveRecord model changes in your database. It takes advantage of several newer features in Rails 2.2+ including recognizing dirty objects.Railscast #176 by Ryan Bates covered Searchlogic by Ben Johnson, which makes it really easy to create advanced search forms in Rails.David Bock released new gem called Crondonkulous which allows you to write crontab recipes in Ruby from within your Rails application.   These recipes get automatically published to your server&#8217;s crontab when you deploy.SecurityJames Harton released Lockbox and acts_as_lockbox, which provide a simple interface for securing sensitive data by managing RSA public key cryptography for your application. This allows you to define which attributes are sensitive and provides an application-wide locking and unlocking ability.Hongli Lai wrote up a great article on keeping your user&#8217;s passwords secure. He writes about how to store passwords, hashing algorithms, salting, and more. Specifically, he recommends using Blowfish File Encryption, or &#8220;bcrypt,&#8221; because it&#8217;s a slower-running algorithm which will make it more difficult to crack.In your DatabaseMauricio Linhares released a plugin for Rails which allows you to do master / slave replication. Unlike masochism, master_slave_adapter works in conjunction with the Rails database connection pool and is implemented as a new database adapter. So, no monkey patching necessary.Matt Jankowski provided a great article on properly indexing your database for your Rails application. He covers indexing validation and STI columns, state columns for state machines, association columns, and more.The developers of xing created a plugin called FlagShihTzu. It&#8217;s not a dog.. or even a multiplayer game for your Tamagotchi. FlagShihTzu stores any number of ActiveRecord boolean model attributes as a single database field, using each bit as unique keys. But, the interesting part is that the interface remains exactly the same to the rest of your application.Thanks for reading and if you have any news or libraries you&#8217;d like to get the word out about, feel free to drop me a line by submitting news over at Ruby5.Image Credit: Blue Sky on Rails by ecstaticist, Analog Solutions 606 Mod by Formication, RailsConf Europe 2006 by Paul Watson, Rainbow by One Good Bumblebee. Orange County Security by henning" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="A Month in Rails" />
+  <meta property="og:description" content="Lots of great content coming out of the community in the past month.  Below you&#8217;ll find some of the most useful tutorials and libraries I&#8217;ve found over the past few weeks.  These stories came directly from the Ruby5 podcast, which covers news from the Ruby and Rails community twice weekly.Improving your Rails codeJames Golick released a gem called Observational recently which provides you with a better way of using observers in Rails. Instead of creating one file per observer, this gem allows you to define multiple observed objects and specific methods to call for each object&#8217;s events.If you want to develop a Rails app that takes advantage of Subdomains Taylor Luk has the recipe. He recommends using subdomain-fu, shows how to use a Proxy PAC file in development, and introduces a piece of Rack middleware he wrote which allows you to use full custom domains in your application.If you like to TATFT like the rest of us, I have two libraries to tell you about.  The first is a gem by the guys over at Devver called Construct which makes it easy to test code which interacts with your filesystem.  The second is Blue Ridge by Larry Karnowski and Chris Redinger which makes it easy to write tests for your javascript.  Blue Ridge has been out for a while, but this week Noel Rappin wrote a great introductory article to get you started.Just yesterday Fabio Akita put together a screencast showing how the &#8220;Weblog in 15 minutes&#8221; code could be simplified using Inherited Resources, a gem by José Valim which helps reduce controller code duplication.  The gem uses the same sort of technique you may have seen before with make_resourceful or resource_controller, but has improved syntactic sugar.Libraries you should know aboutPatrick McKenzie released A/Bingo, a gem/plugin for your Rails application that makes A/B Testing easy. It uses a fairly intuitive and simple interface for defining your tests and provides information on which sample performed best and by what margins.Steve Richert released a gem called vestal_versions which allows you to keep a history of all of your ActiveRecord model changes in your database. It takes advantage of several newer features in Rails 2.2+ including recognizing dirty objects.Railscast #176 by Ryan Bates covered Searchlogic by Ben Johnson, which makes it really easy to create advanced search forms in Rails.David Bock released new gem called Crondonkulous which allows you to write crontab recipes in Ruby from within your Rails application.   These recipes get automatically published to your server&#8217;s crontab when you deploy.SecurityJames Harton released Lockbox and acts_as_lockbox, which provide a simple interface for securing sensitive data by managing RSA public key cryptography for your application. This allows you to define which attributes are sensitive and provides an application-wide locking and unlocking ability.Hongli Lai wrote up a great article on keeping your user&#8217;s passwords secure. He writes about how to store passwords, hashing algorithms, salting, and more. Specifically, he recommends using Blowfish File Encryption, or &#8220;bcrypt,&#8221; because it&#8217;s a slower-running algorithm which will make it more difficult to crack.In your DatabaseMauricio Linhares released a plugin for Rails which allows you to do master / slave replication. Unlike masochism, master_slave_adapter works in conjunction with the Rails database connection pool and is implemented as a new database adapter. So, no monkey patching necessary.Matt Jankowski provided a great article on properly indexing your database for your Rails application. He covers indexing validation and STI columns, state columns for state machines, association columns, and more.The developers of xing created a plugin called FlagShihTzu. It&#8217;s not a dog.. or even a multiplayer game for your Tamagotchi. FlagShihTzu stores any number of ActiveRecord boolean model attributes as a single database field, using each bit as unique keys. But, the interesting part is that the interface remains exactly the same to the rest of your application.Thanks for reading and if you have any news or libraries you&#8217;d like to get the word out about, feel free to drop me a line by submitting news over at Ruby5.Image Credit: Blue Sky on Rails by ecstaticist, Analog Solutions 606 Mod by Formication, RailsConf Europe 2006 by Paul Watson, Rainbow by One Good Bumblebee. Orange County Security by henning" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/9/2/a-month-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="A Month in Rails" />
+  <meta name="twitter:description" content="Lots of great content coming out of the community in the past month.  Below you&#8217;ll find some of the most useful tutorials and libraries I&#8217;ve found over the past few weeks.  These stories came directly from the Ruby5 podcast, which covers news from the Ruby and Rails community twice weekly.Improving your Rails codeJames Golick released a gem called Observational recently which provides you with a better way of using observers in Rails. Instead of creating one file per observer, this gem allows you to define multiple observed objects and specific methods to call for each object&#8217;s events.If you want to develop a Rails app that takes advantage of Subdomains Taylor Luk has the recipe. He recommends using subdomain-fu, shows how to use a Proxy PAC file in development, and introduces a piece of Rack middleware he wrote which allows you to use full custom domains in your application.If you like to TATFT like the rest of us, I have two libraries to tell you about.  The first is a gem by the guys over at Devver called Construct which makes it easy to test code which interacts with your filesystem.  The second is Blue Ridge by Larry Karnowski and Chris Redinger which makes it easy to write tests for your javascript.  Blue Ridge has been out for a while, but this week Noel Rappin wrote a great introductory article to get you started.Just yesterday Fabio Akita put together a screencast showing how the &#8220;Weblog in 15 minutes&#8221; code could be simplified using Inherited Resources, a gem by José Valim which helps reduce controller code duplication.  The gem uses the same sort of technique you may have seen before with make_resourceful or resource_controller, but has improved syntactic sugar.Libraries you should know aboutPatrick McKenzie released A/Bingo, a gem/plugin for your Rails application that makes A/B Testing easy. It uses a fairly intuitive and simple interface for defining your tests and provides information on which sample performed best and by what margins.Steve Richert released a gem called vestal_versions which allows you to keep a history of all of your ActiveRecord model changes in your database. It takes advantage of several newer features in Rails 2.2+ including recognizing dirty objects.Railscast #176 by Ryan Bates covered Searchlogic by Ben Johnson, which makes it really easy to create advanced search forms in Rails.David Bock released new gem called Crondonkulous which allows you to write crontab recipes in Ruby from within your Rails application.   These recipes get automatically published to your server&#8217;s crontab when you deploy.SecurityJames Harton released Lockbox and acts_as_lockbox, which provide a simple interface for securing sensitive data by managing RSA public key cryptography for your application. This allows you to define which attributes are sensitive and provides an application-wide locking and unlocking ability.Hongli Lai wrote up a great article on keeping your user&#8217;s passwords secure. He writes about how to store passwords, hashing algorithms, salting, and more. Specifically, he recommends using Blowfish File Encryption, or &#8220;bcrypt,&#8221; because it&#8217;s a slower-running algorithm which will make it more difficult to crack.In your DatabaseMauricio Linhares released a plugin for Rails which allows you to do master / slave replication. Unlike masochism, master_slave_adapter works in conjunction with the Rails database connection pool and is implemented as a new database adapter. So, no monkey patching necessary.Matt Jankowski provided a great article on properly indexing your database for your Rails application. He covers indexing validation and STI columns, state columns for state machines, association columns, and more.The developers of xing created a plugin called FlagShihTzu. It&#8217;s not a dog.. or even a multiplayer game for your Tamagotchi. FlagShihTzu stores any number of ActiveRecord boolean model attributes as a single database field, using each bit as unique keys. But, the interesting part is that the interface remains exactly the same to the rest of your application.Thanks for reading and if you have any news or libraries you&#8217;d like to get the word out about, feel free to drop me a line by submitting news over at Ruby5.Image Credit: Blue Sky on Rails by ecstaticist, Analog Solutions 606 Mod by Formication, RailsConf Europe 2006 by Paul Watson, Rainbow by One Good Bumblebee. Orange County Security by henning" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/9/2/a-month-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "A Month in Rails",
+      "description": "Lots of great content coming out of the community in the past month.  Below you&#8217;ll find some of the most useful tutorials and libraries I&#8217;ve found over the past few weeks.  These stories came directly from the Ruby5 podcast, which covers news from the Ruby and Rails community twice weekly.Improving your Rails codeJames Golick released a gem called Observational recently which provides you with a better way of using observers in Rails. Instead of creating one file per observer, this gem allows you to define multiple observed objects and specific methods to call for each object&#8217;s events.If you want to develop a Rails app that takes advantage of Subdomains Taylor Luk has the recipe. He recommends using subdomain-fu, shows how to use a Proxy PAC file in development, and introduces a piece of Rack middleware he wrote which allows you to use full custom domains in your application.If you like to TATFT like the rest of us, I have two libraries to tell you about.  The first is a gem by the guys over at Devver called Construct which makes it easy to test code which interacts with your filesystem.  The second is Blue Ridge by Larry Karnowski and Chris Redinger which makes it easy to write tests for your javascript.  Blue Ridge has been out for a while, but this week Noel Rappin wrote a great introductory article to get you started.Just yesterday Fabio Akita put together a screencast showing how the &#8220;Weblog in 15 minutes&#8221; code could be simplified using Inherited Resources, a gem by José Valim which helps reduce controller code duplication.  The gem uses the same sort of technique you may have seen before with make_resourceful or resource_controller, but has improved syntactic sugar.Libraries you should know aboutPatrick McKenzie released A/Bingo, a gem/plugin for your Rails application that makes A/B Testing easy. It uses a fairly intuitive and simple interface for defining your tests and provides information on which sample performed best and by what margins.Steve Richert released a gem called vestal_versions which allows you to keep a history of all of your ActiveRecord model changes in your database. It takes advantage of several newer features in Rails 2.2+ including recognizing dirty objects.Railscast #176 by Ryan Bates covered Searchlogic by Ben Johnson, which makes it really easy to create advanced search forms in Rails.David Bock released new gem called Crondonkulous which allows you to write crontab recipes in Ruby from within your Rails application.   These recipes get automatically published to your server&#8217;s crontab when you deploy.SecurityJames Harton released Lockbox and acts_as_lockbox, which provide a simple interface for securing sensitive data by managing RSA public key cryptography for your application. This allows you to define which attributes are sensitive and provides an application-wide locking and unlocking ability.Hongli Lai wrote up a great article on keeping your user&#8217;s passwords secure. He writes about how to store passwords, hashing algorithms, salting, and more. Specifically, he recommends using Blowfish File Encryption, or &#8220;bcrypt,&#8221; because it&#8217;s a slower-running algorithm which will make it more difficult to crack.In your DatabaseMauricio Linhares released a plugin for Rails which allows you to do master / slave replication. Unlike masochism, master_slave_adapter works in conjunction with the Rails database connection pool and is implemented as a new database adapter. So, no monkey patching necessary.Matt Jankowski provided a great article on properly indexing your database for your Rails application. He covers indexing validation and STI columns, state columns for state machines, association columns, and more.The developers of xing created a plugin called FlagShihTzu. It&#8217;s not a dog.. or even a multiplayer game for your Tamagotchi. FlagShihTzu stores any number of ActiveRecord boolean model attributes as a single database field, using each bit as unique keys. But, the interesting part is that the interface remains exactly the same to the rest of your application.Thanks for reading and if you have any news or libraries you&#8217;d like to get the word out about, feel free to drop me a line by submitting news over at Ruby5.Image Credit: Blue Sky on Rails by ecstaticist, Analog Solutions 606 Mod by Formication, RailsConf Europe 2006 by Paul Watson, Rainbow by One Good Bumblebee. Orange County Security by henning",
+      "url": "http://localhost:4000/2009/9/2/a-month-in-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Gregg Pollack"
+      },
+      "datePublished": "2009-09-02T18:26:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, September 2, 2009</h5>
+        <h2>A Month in Rails</h2>
+
+        <h6>Posted by Gregg Pollack</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><img src="/assets/2008/10/10/BlueSky.png" /></p>
+<p>Lots of great content coming out of the community in the past month.  Below you&#8217;ll find some of the most useful tutorials and libraries I&#8217;ve found over the past few weeks.  These stories came directly from the <a href="http://ruby5.envylabs.com">Ruby5 podcast</a>, which covers news from the Ruby and Rails community twice weekly.</p>
+<p><strong>Improving your Rails code</strong></p>
+<p>James Golick released a gem called <a href="http://jamesgolick.com/2009/8/5/observational-better-observers-for-activerecord.html">Observational</a> recently which provides you with a better way of using observers in Rails. Instead of creating one file per observer, this gem allows you to define multiple observed objects and specific methods to call for each object&#8217;s events.</p>
+<p>If you want to develop a Rails app that takes advantage of Subdomains Taylor Luk has <a href="http://www.taylorluk.com/articles/2009/08/12/hey-pac-man-sup-subdomains">the recipe</a>. He recommends using subdomain-fu, shows how to use a Proxy <span class="caps">PAC</span> file in development, and introduces a piece of Rack middleware he wrote which allows you to use full custom domains in your application.</p>
+<p>If you like to <span class="caps">TATFT</span> like the rest of us, I have two libraries to tell you about.  The first is a gem by the guys over at Devver called <a href="http://devver.net/blog/2009/08/unit-testing-filesystem-interaction/">Construct</a> which makes it easy to test code which interacts with your filesystem.  The second is <a href="http://github.com/relevance/blue-ridge/tree/master">Blue Ridge</a> by Larry Karnowski and Chris Redinger which makes it easy to write tests for your javascript.  Blue Ridge has been out for a while, but this week Noel Rappin wrote a <a href="http://www.pathf.com/blogs/2009/08/rails-testing-first-look-blue-ridge/">great introductory article</a> to get you started.</p>
+<p>Just yesterday Fabio Akita put together <a href="http://akitaonrails.com/2009/09/01/screencast-real-thin-restful-controllers-with-inherited-resources">a screencast</a> showing how the &#8220;Weblog in 15 minutes&#8221; code could be simplified using <a href="http://wiki.github.com/josevalim/inherited_resources">Inherited Resources</a>, a gem by José Valim which helps reduce controller code duplication.  The gem uses the same sort of technique you may have seen before with make_resourceful or resource_controller, but has improved syntactic sugar.</p>
+<p><strong>Libraries you should know about</strong></p>
+<p><img src="/assets/2008/10/10/libraries.png" /></p>
+<p>Patrick McKenzie released <a href="http://www.kalzumeus.com/2009/08/15/introducing-abingo-rails-split-testing/">A/Bingo</a>, a gem/plugin for your Rails application that makes A/B Testing easy. It uses a fairly intuitive and simple interface for defining your tests and provides information on which sample performed best and by what margins.</p>
+<p>Steve Richert released a gem called <a href="http://github.com/laserlemon/vestal_versions/tree/master">vestal_versions</a> which allows you to keep a history of all of your ActiveRecord model changes in your database. It takes advantage of several newer features in Rails 2.2+ including recognizing dirty objects.</p>
+<p><a href="http://railscasts.com/episodes/176-searchlogic">Railscast #176</a> by Ryan Bates covered Searchlogic by Ben Johnson, which makes it really easy to create advanced search forms in Rails.</p>
+<p>David Bock released new gem called <a href="http://blog.codesherpas.com/on_the_path/2009/08/introducing-crondonkulous.html">Crondonkulous</a> which allows you to write crontab recipes in Ruby from within your Rails application.   These recipes get automatically published to your server&#8217;s crontab when you deploy.</p>
+<p><strong>Security</strong></p>
+<p><img src="/assets/2009/9/1/camera.jpg" /></p>
+<p>James Harton released <a href="http://www.mashd.cc/tag/lockbox">Lockbox and acts_as_lockbox</a>, which provide a simple interface for securing sensitive data by managing <span class="caps">RSA</span> public key cryptography for your application. This allows you to define which attributes are sensitive and provides an application-wide locking and unlocking ability.</p>
+<p>Hongli Lai wrote up a great article on <a href="http://blog.phusion.nl/2009/08/13/securely-store-passwords-with-bcrypt-ruby-now-compatible-with-jruby-and-ruby-1-9/">keeping your user&#8217;s passwords secure</a>. He writes about how to store passwords, hashing algorithms, salting, and more. Specifically, he recommends using Blowfish File Encryption, or &#8220;bcrypt,&#8221; because it&#8217;s a slower-running algorithm which will make it more difficult to crack.</p>
+<p><strong>In your Database</strong></p>
+<p><img src="/assets/2008/10/10/performance.png" /></p>
+<p>Mauricio Linhares released a plugin for Rails which allows you to do <a href="http://codeshooter.wordpress.com/2009/08/24/why-i-am-not-using-masochism-for-my-master-slave-setups-and-why-monkey-patching-isn’t-the-only-solution/">master / slave replication</a>. Unlike masochism, master_slave_adapter works in conjunction with the Rails database connection pool and is implemented as a new database adapter. So, no monkey patching necessary.</p>
+<p>Matt Jankowski provided a great article on <a href="http://robots.thoughtbot.com/post/163627511/a-grand-piano-for-your-violin">properly indexing your database</a> for your Rails application. He covers indexing validation and <span class="caps">STI</span> columns, state columns for state machines, association columns, and more.</p>
+<p>The developers of xing created a plugin called <a href="http://github.com/xing/flag_shih_tzu/tree/master">FlagShihTzu</a>. It&#8217;s not a dog.. or even a multiplayer game for your Tamagotchi. FlagShihTzu stores any number of ActiveRecord boolean model attributes as a single database field, using each bit as unique keys. But, the interesting part is that the interface remains exactly the same to the rest of your application.</p>
+<hr />
+
+<p>Thanks for reading and if you have any news or libraries you&#8217;d like to get the word out about, feel free to drop me a line by submitting news over at <a href="http://ruby5.envylabs.com">Ruby5</a>.</p>
+<p><small>Image Credit: <a href="http://www.flickr.com/photos/ecstaticist/2589723846/">Blue Sky on Rails</a> by <a href="http://www.flickr.com/photos/ecstaticist/2589723846/">ecstaticist</a>, <a href="http://www.flickr.com/photos/formication/2759753856/">Analog Solutions 606 Mod</a> by <a href="http://www.flickr.com/photos/formication/2759753856/">Formication</a>, <a href="http://www.flickr.com/photos/paulwatson/245553627/">RailsConf Europe 2006</a> by <a href="http://www.flickr.com/photos/paulwatson/245553627/">Paul Watson</a>, <a href="http://www.flickr.com/photos/onegoodbumblebee/839927986/">Rainbow</a> by <a href="http://www.flickr.com/photos/onegoodbumblebee/839927986/">One Good Bumblebee</a>. <a href="http://www.flickr.com/photos/muehlinghaus/241755891/">Orange County Security</a> by <a href="http://www.flickr.com/photos/muehlinghaus/">henning</a></small></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

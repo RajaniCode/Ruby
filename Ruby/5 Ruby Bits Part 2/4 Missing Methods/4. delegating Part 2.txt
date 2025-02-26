@@ -1,0 +1,33 @@
+4. delegating Part 2
+
+
+Change method_missing on the Library class so that it only delegates to @manager if the method name contains the string 'atari'. Otherwise, call super.
+
+
+library.rb
+class Library
+  def initialize(console)
+    @manager = console
+  end
+
+  def method_missing(name, *args)
+    @manager.send(name, *args)
+  end
+end
+
+
+Answer:
+library.rb
+class Library
+  def initialize(console)
+    @manager = console
+  end
+
+  def method_missing(name, *args)
+    if name.to_s =~ /atari/
+      @manager.send(name, *args)
+    elsif
+      super
+    end
+  end
+end

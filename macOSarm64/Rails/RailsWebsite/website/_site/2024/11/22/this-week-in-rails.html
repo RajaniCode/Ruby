@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Active Support's NotificationAssertions and `sql.active_record` gets `affected_rows`</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Active Support's NotificationAssertions and `sql.active_record` gets `affected_rows`" />
+  <meta property="og:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/11/22/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Active Support's NotificationAssertions and `sql.active_record` gets `affected_rows`" />
+  <meta name="twitter:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/11/22/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Active Support's NotificationAssertions and `sql.active_record` gets `affected_rows`",
+      "description": "Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2024/11/22/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2024-11-22T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, November 22, 2024</h5>
+        <h2>Active Support's NotificationAssertions and `sql.active_record` gets `affected_rows`</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://github.com/zzak">zzak</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53065">Add Active Support Notifications test helper module</a><br />
+This PR has been created because it’s currently cumbersome to test that a certain code block/action triggers an <code class="language-plaintext highlighter-rouge">ActiveSupport::Notifications::Event</code> to be emitted. It would be ideal to have some helpers to <code class="language-plaintext highlighter-rouge">assert</code> against such event emission. Have heard such helpers could be helpful internal to Rails as well.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53277">Add “affected_rows” to “sql.active_record” event</a><br />
+The <a href="https://github.com/rails/rails/pull/50887">recently added</a> <code class="language-plaintext highlighter-rouge">row_count</code> value is very useful for identifying cases where a query would return a large result set as large results can end up using a lot of memory or even be blocked by databases like Vitess.<br />
+However, somewhere that <code class="language-plaintext highlighter-rouge">row_count</code> falls short is for queries that do not necessarily return their results back to the client. These queries that affect too many rows can lead to their own set of problems, such as overwhelming replication and causing replication lag.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53512">Allow “hidden_field” tag to accept a custom autocomplete value</a><br />
+In <a href="https://github.com/rails/rails/pull/43280">#43280</a> <code class="language-plaintext highlighter-rouge">autocomplete="off"</code> was enforced for all hidden inputs generated by Rails to fix a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=520561">firefox bug</a>.
+Unfortunately it’s also a legitimate use-case to specify an <code class="language-plaintext highlighter-rouge">autocomplete</code> with a value such as <code class="language-plaintext highlighter-rouge">username</code> and a value on a hidden input. This hints to the browser that (in this example) the username of a password reset form is what we’ve provided as the value and the password manager can store it as such.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44971">Allow to reset cache counters for multiple records</a><br />
+There is often a need to reset counter caches for multiple records. Achieving this before will generate many extra queries.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53236">Allow setting content type with a symbol of the Mime Type</a></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Before
+response.content_type = "text/html"
+
+# After
+response.content_type = :html
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/53629">Parallel tests with :number_of_processors uses cgroups-aware usable processor count</a><br />
+When using parallel tests the default will now try to allocate a worker pool based of the total number of processors available to the system.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53692">Fix Mysql2Adapter support for prepared statements</a><br />
+If you’re using the Mysql2 adapter and rely on prepared statements, you may want to wait for the next bug-fix release before upgrading to Rails 8.0.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53647">Silence deprecate message during “app:update” command</a><br />
+When running the <code class="language-plaintext highlighter-rouge">app:update</code> command you previously may see warnings due to not adopting the <code class="language-plaintext highlighter-rouge">new_framework_defaults</code>. This PR silences those messages to avoid confusion.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53698">Reword error message for NoDatabaseError</a><br />
+This patch adds some suggestions on what to do when you run into this error.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53657">Redesign ActionView::Template::Handlers::ERB.find_offset to handle edge cases</a><br />
+Some excellent work was put into improving the ERB template error highlighting in this PR, as well as fixing a bug with <a href="https://github.com/rails/rails/pull/53655">multibyte character tokenization</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53643">Make column_definitions queries retryable</a><br />
+Previously when an application wasn’t using a schema cache in production a <code class="language-plaintext highlighter-rouge">ping</code> query would be executed for each table when it was loaded the first time.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53626">Make Action Dispatch Session#store method conform to Rack spec</a><br />
+The <a href="https://github.com/rack/rack/blob/main/SPEC.rdoc">Rack specification</a> states that a hash-like object stored in environment with <code class="language-plaintext highlighter-rouge">rack.session</code> key must implement <code class="language-plaintext highlighter-rouge">store/2</code> method with <code class="language-plaintext highlighter-rouge">[]=</code> semantics.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52188">Preserve timezone and locale in ActiveJob exception handlers</a><br />
+This PR fixes a bug where the job locale and timezone were wrong inside the <code class="language-plaintext highlighter-rouge">rescue_from</code> block.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-11-15%7D...main@%7B2024-11-22%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20241115-20241122">26 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

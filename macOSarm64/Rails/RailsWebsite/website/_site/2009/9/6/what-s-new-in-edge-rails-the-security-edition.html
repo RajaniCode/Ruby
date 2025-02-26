@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; What's New in Edge Rails: The Security Edition</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="What's New in Edge Rails: The Security Edition" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/9/6/what-s-new-in-edge-rails-the-security-edition" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="What's New in Edge Rails: The Security Edition" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/9/6/what-s-new-in-edge-rails-the-security-edition"
+      },
+      "name": "Ruby on Rails",
+      "headline": "What's New in Edge Rails: The Security Edition",
+      "description": "",
+      "url": "http://localhost:4000/2009/9/6/what-s-new-in-edge-rails-the-security-edition",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Nathaniel Bibler"
+      },
+      "datePublished": "2009-09-06T21:37:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, September 6, 2009</h5>
+        <h2>What's New in Edge Rails: The Security Edition</h2>
+
+        <h6>Posted by Nathaniel Bibler</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><img src="/assets/2009/9/6/restricted.jpg" height="100" width="450" alt="" /></p>
+
+<p>It’s been a bit over two weeks since the last WNiER (“winner”?) post and in the time since our last visit, <a href="https://rubyonrails.org/2009/9/4/ruby-on-rails-2-3-4">Ruby on Rails 2.3.4 was released</a> to fix some reported security issues.  It is important that you try to upgrade your applications as soon as possible, or even just apply the <a href="https://rubyonrails.org/2009/9/4/timing-weakness-in-ruby-on-rails">provided</a> <a href="https://rubyonrails.org/2009/9/4/xss-vulnerability-in-ruby-on-rails">patches</a> if a full upgrade isn’t easily accomplished in your situation.</p>
+
+<p>Along with this release, you’re also going to see several bug fixes and enhancements to the Rails  framework, coming from many contributors, that have been discussed here over the previous weeks and  even a few that are mentioned just below.</p>
+
+<h2 id="security-updates">Security updates</h2>
+
+<p>Michael Koziarski posted fixes (<a href="http://github.com/rails/rails/commit/b16e0c922344da256ab977fd5e7a7f69e0be90fc">here</a> and <a href="http://github.com/rails/rails/commit/9a73630d935e360f3dc896e50dd673afb97cf3b5">here</a>) for cleaning and verifying multibyte (unicode) strings.  The problem was reported by Brian Mastenbrook and Manfred Stienstra provided input for the fix.  These changes should disallow malformed unicode strings from getting past the HTML escaping logic provided by the form helpers.</p>
+
+<p>Coda Hale reported and also <a href="http://github.com/rails/rails/commit/5e6dab8b34152bc48c89032d20e5bda1511e28fb">added a patch</a> to Rails, fixing a timing attack vulnerability in <code class="language-plaintext highlighter-rouge">ActiveSupport::MessageVerifier</code>.  Although not likely to be exploited in the wild, the vulnerability may allow an attacker to forge the signatures which encode your application’s cookie store.  If successfully broken, an attacker could modify their session objects without altering your application to the change.</p>
+
+<p>There have been some issues reported around the Rails 2.3.4 release, specifically with regard to Ruby 1.9 support.  While they have not all yet been fully substantiated, this certainly underscores the importance of having proper test coverage and both a staging and production environment for your applications.</p>
+
+<h2 id="down-to-the-metal">Down to the metal</h2>
+
+<p>Yehuda Katz and Carl Lerche put in quite a bit of work around <code class="language-plaintext highlighter-rouge">ActionController::Metal</code> and Rack’s Middleware, recently.  <code class="language-plaintext highlighter-rouge">ActionController::Metal</code> now <a href="http://github.com/rails/rails/commit/c7ba911a43e513bd1adbee93f16d2b8efea7cc88">acts as a Rack middleware</a> and at the same time, there is a new <a href="http://github.com/rails/rails/commit/9408fcd2e858ae48dd30d9e8d1bb1dcbbfffb840"><code class="language-plaintext highlighter-rouge">ActionController::Middleware</code></a> class that operates as normal Rack middleware.</p>
+
+<p>And, if that wasn’t enough, Yehuda went on to add <a href="http://github.com/rails/rails/commit/dbf20c2dbb5d1f2640517c468aa7c269d93414b9"><code class="language-plaintext highlighter-rouge">ActiveModel::Lint</code></a>.  <code class="language-plaintext highlighter-rouge">ActiveModel::Lint</code> allows you to determine whether or not an object is compliant with the ActiveModel API, via:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	ActiveModel::Compliance.test(object)
+</code></pre></div></div>
+
+<p>The output is similar to a Test::Unit output and will indicate with which portions of the ActiveModel API the given object is - or more importantly is not - compliant.</p>
+
+<p>If Metal is your thing, you may want to take a look at Yehuda Katz’s recent blog post, <a href="http://yehudakatz.com/2009/08/26/how-to-build-sinatra-on-rails-3">How to Build Sinatra on Rails 3</a>.</p>
+
+<h2 id="pour-some-sugar-on-me">Pour some sugar on me</h2>
+
+<p>Quite a few changes, small and large, occurred around ActiveRecord and friends.  Most of these cleaned up some existing functionality, either making it easier to use, perform more closely to what would be expected, or even adding some new features that will soon feel like old friends.</p>
+
+<p>Taryn East added a little ActiveRecord-like love to ActiveResource.  In <a href="http://github.com/rails/rails/commit/ce61a6bd551a96205892a125c8835c4bc69c4fad">this patch</a>, ActiveResource received the familiar <code class="language-plaintext highlighter-rouge">first</code>, <code class="language-plaintext highlighter-rouge">last</code>, and <code class="language-plaintext highlighter-rouge">all</code> shortcut methods for wrapping the basic <code class="language-plaintext highlighter-rouge">find</code> method.</p>
+
+<p><a href="http://github.com/rails/rails/commit/cf9f361699d72b5b34a655f8940c024cba0f0e09">Proc and symbol support</a> was added to the <code class="language-plaintext highlighter-rouge">validates_numericality_of</code> ActiveRecord validation, by Kane.</p>
+
+<p>For those of you who use the <code class="language-plaintext highlighter-rouge">:anchor</code> option when generating URLs, you may notice that after <a href="http://github.com/rails/rails/commit/05b529ca57f75ce64540b9d34597e0c3bfe1fca7">this patch</a> by Jeffrey Hardy, Rails will now execute the <code class="language-plaintext highlighter-rouge">to_param</code> method on the object provided as an <code class="language-plaintext highlighter-rouge">:anchor</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	@post 		= Post.first
+	@comment 	= Comment.first
+	post_url(@post, :anchor =&gt; @comment) # =&gt; http://www.example.com/posts/1#comment-1
+</code></pre></div></div>
+
+<p>Well, something similar to that, anyway.  :)  This updates the <code class="language-plaintext highlighter-rouge">:anchor</code> options to follow a similar functionality as the other options provided when generating URLs.</p>
+
+<p>José Valim cleaned up some bits in the Rails scaffold.  The generated <code class="language-plaintext highlighter-rouge">new</code> and <code class="language-plaintext highlighter-rouge">edit</code> views will <a href="http://github.com/rails/rails/commit/5d645c271b350c2a3ed7fd835e539322cda61d8c">now reference</a> a new <code class="language-plaintext highlighter-rouge">_form</code> partial.  This is a much DRYer way to go about it, and more closely follows what would likely happen if you were to code it yourself.  Also, while he was there, he <a href="http://github.com/rails/rails/commit/5096ba961c49e5b419c3400acd7c87373a36d6d4">removed a bit</a> of inline CSS (specifically, a green flash message), in favor of a CSS class and updating the default scaffold stylesheet.</p>
+
+<p>And, probably the most interesting change in this group is the addition of a <a href="http://github.com/rails/rails/commit/80989437dc1502f9194b0600941b6d70a3efa3b2">new <code class="language-plaintext highlighter-rouge">ActivRecord#previous_changes</code> method</a>, by Scott Barr.  <code class="language-plaintext highlighter-rouge">previous_changes</code> allows you to see what changed before the last save in your local ActiveRecord object instance.  This is particularly useful when calling <code class="language-plaintext highlighter-rouge">after_save</code> methods which might need to know what exactly had changed.  I’ll let him give you a code sample:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	person 			= Person.find_by_name('bob')
+  person.name = 'robert'
+  person.changes 						# =&gt; {'name' =&gt; ['bob, 'robert']}
+  person.save
+  person.changes 						# =&gt; {}
+  person.previous_changes 	# =&gt; {'name' =&gt; ['bob, 'robert']}
+  person.reload
+  person.previous_changes 	# =&gt; {}
+</code></pre></div></div>
+
+<h2 id="okay-lets-do-it-your-way">Okay, let’s do it your way</h2>
+
+<p>While a lot of us prefer US English, we (begrudgingly) recognize that we aren’t <em>always</em> the center of the universe.  As such, there are some more localization updates to report in Edge Rails:</p>
+
+<p>Sven Fuchs added <a href="http://github.com/rails/rails/commit/d672a14ee766e86c606db566dd073a3d2332cc60">localization support</a> to the ActiveRecord::RecordInvalid exception’s error message.  Then, Akira Matsuda followed Sven with support for localizing the SELECT tag helper’s <a href="http://github.com/rails/rails/commit/cc9af20da7af98464ece18d4abc6a22ef3f00b5d">prompt text</a> (the default being, “Please select”).</p>
+
+<p>Finally, this is certainly a welcome addition and potentially a major player in localization support within Rails:  Antonio Tapiador del Dujo added a patch which allows Rails plugins to define and maintain <a href="http://github.com/rails/rails/commit/cf4846c6ae991143afaef987a63c3ad9a3a2546b">their own locale files</a>.  All that is necessary for the plugin developer to do is to provide a <code class="language-plaintext highlighter-rouge">config/locales/</code> directory within their plugin and then create their own <code class="language-plaintext highlighter-rouge">.rb</code> or <code class="language-plaintext highlighter-rouge">.yml</code> files (i.e. <code class="language-plaintext highlighter-rouge">en.yml</code>).  That means that plugins can now be much more responsible for their own localization support and do not have to modify the application’s locale files after installation.</p>
+
+<h2 id="food-for-thought">Food for thought</h2>
+
+<p>Finally, just a small note that the default, preferred table collation for MySQL <a href="http://github.com/rails/rails/commit/f6ca7e4e75408bc42f515fc7206d6c6ff0dce7c6">has been changed</a>.  Previously, Rails defaulted to <code class="language-plaintext highlighter-rouge">utf8_general_ci</code> when either the database or the table creation script did not dictate otherwise.  Now, that has been changed to <code class="language-plaintext highlighter-rouge">utf8_unicode_ci</code>.  Certainly worth a note with so many Rails applications using MySQL in their back-end.</p>
+
+<p><strong>Update</strong>: Set the attribution of <code class="language-plaintext highlighter-rouge">previous_changes</code> to Scott Barr.  Sorry, Scott!</p>
+
+<p><small>Photo: <a href="http://www.flickr.com/photos/proimos/3652878454/">Security at the Hoover Dam</a> by Alex E. Proimos</small></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

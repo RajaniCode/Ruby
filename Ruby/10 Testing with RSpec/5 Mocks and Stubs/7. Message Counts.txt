@@ -1,0 +1,72 @@
+7. Message Counts
+
+
+Notice on the tweet.rb source that we're now emailing every zombie in the horde in our email_tweeter. Update the spec to verify that tweet is called exactly as many times as there are zombies.
+
+
+tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+  validates :message, presence: true
+  attr_accessible :message
+ 
+  after_create :email_tweeter
+ 
+  def email_tweeter
+    Zombie.all.each do |zombie|
+      ZombieMailer.tweet(zombie, self).deliver
+    end
+  end
+  private :email_tweeter
+end
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  has_many :tweets
+  validates :email, presence: true
+  attr_accessible :email
+end
+
+
+zombie_mailer.rb
+class ZombieMailer < ActionMailer::Base
+  def tweet(zombie, tweet)
+    mail(:from => 'admin@codeschool.com',
+         :to => zombie.email,
+         :subject => tweet.message)
+  end
+end
+
+
+zombie_spec.rb
+describe Tweet do
+  context 'after create' do
+    let(:zombie) { Zombie.create(email: 'anything@example.org') }
+    let(:tweet) { zombie.tweets.new(message: 'Arrrrgggghhhh') }
+    let(:mail) { stub(:mail, deliver: true) }
+
+    it 'calls "tweet" on the ZombieMailer as many times as there are zombies' do
+      Zombie.stub(all: [stub, stub, stub])
+      ZombieMailer.should_receive(:tweet).and_return(mail)
+      tweet.save
+    end
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Tweet do
+  context 'after create' do
+    let(:zombie) { Zombie.create(email: 'anything@example.org') }
+    let(:tweet) { zombie.tweets.new(message: 'Arrrrgggghhhh') }
+    let(:mail) { stub(:mail, deliver: true) }
+
+    it 'calls "tweet" on the ZombieMailer as many times as there are zombies' do
+      Zombie.stub(all: [stub, stub, stub])
+      ZombieMailer.should_receive(:tweet).exactly(3).times.and_return(mail)      
+      tweet.save
+    end
+  end
+end

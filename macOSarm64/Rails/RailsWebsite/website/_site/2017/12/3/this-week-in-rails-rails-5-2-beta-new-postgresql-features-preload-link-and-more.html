@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: Rails 5.2 beta, new PostgreSQL features, preload link and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone! This is Roque bringing you the latest news from the Rails world." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: Rails 5.2 beta, new PostgreSQL features, preload link and more!" />
+  <meta property="og:description" content="Hello everyone! This is Roque bringing you the latest news from the Rails world." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/12/3/this-week-in-rails-rails-5-2-beta-new-postgresql-features-preload-link-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: Rails 5.2 beta, new PostgreSQL features, preload link and more!" />
+  <meta name="twitter:description" content="Hello everyone! This is Roque bringing you the latest news from the Rails world." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/12/3/this-week-in-rails-rails-5-2-beta-new-postgresql-features-preload-link-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: Rails 5.2 beta, new PostgreSQL features, preload link and more!",
+      "description": "Hello everyone! This is Roque bringing you the latest news from the Rails world.",
+      "url": "http://localhost:4000/2017/12/3/this-week-in-rails-rails-5-2-beta-new-postgresql-features-preload-link-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "repinel"
+      },
+      "datePublished": "2017-12-03T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, December 3, 2017</h5>
+        <h2>This Week in Rails: Rails 5.2 beta, new PostgreSQL features, preload link and more!</h2>
+
+        <h6>Posted by repinel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone! This is <a href="https://twitter.com/repinel">Roque</a> bringing you the latest news from the Rails world.</p>
+
+<h3 id="rails-520-beta-released-"><a href="https://rubyonrails.org/2017/11/27/Rails-5-2-Active-Storage-Redis-Cache-Store-HTTP2-Early-Hints-Credentials">Rails 5.2.0 beta released 🎉</a></h3>
+
+<p>This release includes <a href="https://github.com/rails/rails/blob/d3893ec38ec61282c2598b01a298124356d6b35a/activestorage/README.md">Active Storage</a>, a new framework provided by Rails to make it easier to upload and process files.</p>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20171127-20171202">This Week’s Contributors</a></h3>
+
+<p>24 people contributed to Rails the past week! If you’d like to join them, why not check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>?</p>
+
+<h3 id="add-support-for-postgresql-operator-classes-to-add_index"><a href="https://github.com/rails/rails/pull/19090">Add support for PostgreSQL operator classes to <code class="language-plaintext highlighter-rouge">add_index</code></a></h3>
+
+<p>The operator classes identify database operators to be used by the index for the columns. You can assign the same operator to all columns, or not.
+It currently only supports PostgreSQL.</p>
+
+<h3 id="add-ability-to-create-postgresql-foreign-keys-without-validation"><a href="https://github.com/rails/rails/pull/27756">Add ability to create PostgreSQL foreign keys without validation</a></h3>
+
+<p>Normally, PostgresSQL verifies that all rows in a table satisfy its foreign keys constraints. With this option, you can create these constraints without the overhead of checking if they are valid.</p>
+
+<h3 id="add-preload_link_tag-helper"><a href="https://github.com/rails/rails/pull/31251">Add <code class="language-plaintext highlighter-rouge">preload_link_tag</code> helper</a></h3>
+
+<p>The helper creates a link tag with the <a href="https://w3c.github.io/preload"><code class="language-plaintext highlighter-rouge">preload</code></a> keyword that allows you to basically define resources that pages will need very soon after loading. In addition, Rails will send <a href="http://eileencodes.com/posts/http2-early-hints">HTTP2 Early Hints if the proxy server supports it</a>, helping the fetch process.</p>
+
+<h3 id="prevent-active-record-scopes-with-reserved-names"><a href="https://github.com/rails/rails/pull/31179">Prevent Active Record scopes with reserved names</a></h3>
+
+<p>An error will be raised when defining scopes with names already defined by <code class="language-plaintext highlighter-rouge">ActiveRecord::Relation</code> instance methods.</p>
+
+<p>That’s it for this week, as always, we couldn’t cover all of the changes, but feel free to check the <a href="https://github.com/rails/rails/compare/master@%7B2017-11-27%7D...@%7B2017-12-02%7D">commits</a>. If you’d like to join them, check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>. Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

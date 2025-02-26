@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [ANN] Rails 2.3.14</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[ANN] Rails 2.3.14" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/8/17/ann-rails-2-3-14" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[ANN] Rails 2.3.14" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/8/17/ann-rails-2-3-14"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[ANN] Rails 2.3.14",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2011/8/17/ann-rails-2-3-14",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "aaronp"
+      },
+      "datePublished": "2011-08-17T04:05:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, August 17, 2011</h5>
+        <h2>[ANN] Rails 2.3.14</h2>
+
+        <h6>Posted by aaronp</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>Rails 2.3.14 has been released.  This release contains critical security fixes.</p>
+
+<h2 id="changes">CHANGES</h2>
+
+<p>You can find an exhaustive list of changes on <a href="https://github.com/rails/rails/compare/v2.3.12...v2.3.14">github</a>.  Here are some notable excerpts:</p>
+
+<h2 id="4-security-fixes">4 Security Fixes</h2>
+
+<ul>
+  <li><a href="http://groups.google.com/group/rubyonrails-security/browse_thread/thread/6ffc93bde0298768">Response Splitting</a></li>
+  <li><a href="http://groups.google.com/group/rubyonrails-security/browse_thread/thread/6a1e473744bc389b">SQL Injection issues</a></li>
+  <li><a href="http://groups.google.com/group/rubyonrails-security/browse_thread/thread/2b9130749b74ea12">Parse error in <code class="language-plaintext highlighter-rouge">strip_tags</code></a></li>
+  <li><a href="http://groups.google.com/group/rubyonrails-security/browse_thread/thread/56bffb5923ab1195">UTF-8 escaping vulnerability</a></li>
+</ul>
+
+<p>Please follow the links to see specific information about each vulnerability, along with individual patches for fixing them.</p>
+
+<p>Also remember to subscribe to the <a href="http://groups.google.com/group/rubyonrails-security">Ruby on Rails Security mailing list</a>.</p>
+
+<h2 id="2-bug-fixes">2 Bug Fixes</h2>
+
+<ul>
+  <li>Rescue from RDoc task errors</li>
+  <li>OrderedHash can merge with blocks</li>
+</ul>
+
+<h2 id="the-end">THE END</h2>
+
+<p>Thanks! &lt;3</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

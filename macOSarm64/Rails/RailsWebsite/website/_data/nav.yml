@@ -1,0 +1,25 @@
+items:
+
+  - title: Source
+    url: https://github.com/rails/rails
+
+  - title: Docs
+    url: /docs
+
+  - title: Community
+    url: /community
+
+  - title: News
+    url: /blog
+
+  - title: Events
+    url: /world
+
+  - title: Jobs
+    url: https://jobs.rubyonrails.org
+
+  - title: Merch
+    url: https://merch.rubyonrails.org
+
+  - title: Foundation
+    url: /foundation

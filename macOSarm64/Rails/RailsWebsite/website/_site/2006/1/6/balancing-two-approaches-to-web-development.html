@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Balancing two approaches to web development</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ruby superstar Jim Weirich gives an insightful overview of the environment that led to Rails, showing how it strikes a balance between PHP and Java. We&#8217;ve seen this bisection played out culturally as well, with widespread Rails adoption by designers and enterprise Java programmers alike.Jim prefaces his talk by saying it isn&#8217;t technical but more of an introduction to Rails. Don&#8217;t let that dissuade you from watching. He presents a very lucid and concise illustration of how Rails has positioned itself amongst the old garde, cherry picking the best of both worlds.The video is not to be missed. Jim&#8217;s rapid fire style of presentation is a site to behold. Great stuff." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Balancing two approaches to web development" />
+  <meta property="og:description" content="Ruby superstar Jim Weirich gives an insightful overview of the environment that led to Rails, showing how it strikes a balance between PHP and Java. We&#8217;ve seen this bisection played out culturally as well, with widespread Rails adoption by designers and enterprise Java programmers alike.Jim prefaces his talk by saying it isn&#8217;t technical but more of an introduction to Rails. Don&#8217;t let that dissuade you from watching. He presents a very lucid and concise illustration of how Rails has positioned itself amongst the old garde, cherry picking the best of both worlds.The video is not to be missed. Jim&#8217;s rapid fire style of presentation is a site to behold. Great stuff." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2006/1/6/balancing-two-approaches-to-web-development" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Balancing two approaches to web development" />
+  <meta name="twitter:description" content="Ruby superstar Jim Weirich gives an insightful overview of the environment that led to Rails, showing how it strikes a balance between PHP and Java. We&#8217;ve seen this bisection played out culturally as well, with widespread Rails adoption by designers and enterprise Java programmers alike.Jim prefaces his talk by saying it isn&#8217;t technical but more of an introduction to Rails. Don&#8217;t let that dissuade you from watching. He presents a very lucid and concise illustration of how Rails has positioned itself amongst the old garde, cherry picking the best of both worlds.The video is not to be missed. Jim&#8217;s rapid fire style of presentation is a site to behold. Great stuff." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2006/1/6/balancing-two-approaches-to-web-development"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Balancing two approaches to web development",
+      "description": "Ruby superstar Jim Weirich gives an insightful overview of the environment that led to Rails, showing how it strikes a balance between PHP and Java. We&#8217;ve seen this bisection played out culturally as well, with widespread Rails adoption by designers and enterprise Java programmers alike.Jim prefaces his talk by saying it isn&#8217;t technical but more of an introduction to Rails. Don&#8217;t let that dissuade you from watching. He presents a very lucid and concise illustration of how Rails has positioned itself amongst the old garde, cherry picking the best of both worlds.The video is not to be missed. Jim&#8217;s rapid fire style of presentation is a site to behold. Great stuff.",
+      "url": "http://localhost:4000/2006/1/6/balancing-two-approaches-to-web-development",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "marcel"
+      },
+      "datePublished": "2006-01-06T22:40:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, January 6, 2006</h5>
+        <h2>Balancing two approaches to web development</h2>
+
+        <h6>Posted by marcel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Ruby superstar <a href="http://www.onestepback.org/">Jim Weirich</a> gives an <a href="http://www.onestepback.org/index.cgi/News/IntroToRailsMovieAvailable.red">insightful overview</a> of the environment that led to Rails, showing how it strikes a balance between <span class="caps">PHP</span> and Java. We&#8217;ve seen this bisection played out culturally as well, with widespread Rails adoption by designers and enterprise Java programmers alike.</p>
+<p>Jim prefaces his talk by saying it isn&#8217;t technical but more of an introduction to Rails. Don&#8217;t let that dissuade you from watching. He presents a very lucid and concise illustration of how Rails has positioned itself amongst the old garde, cherry picking the best of both worlds.</p>
+<p>The <a href="http://www.rubynuby.org/pages/downloads">video</a> is not to be missed. Jim&#8217;s rapid fire style of presentation is a site to behold. Great stuff.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

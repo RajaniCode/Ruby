@@ -1,0 +1,26 @@
+2.2 Dynamic Finders I
+
+
+Rewrite the code to use ActiveRecord::Relation's API (the where method).
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+end
+
+
+Database
+zombies 
+id	name	weapon
+1	Ash	Chainsaw
+2	Bob	Bone
+3	Jim	Axe
+
+
+zombie.rb
+Zombie.find_all_by_weapon('Chainsaw')
+
+
+Answer:
+zombie.rb
+Zombie.where(weapon: 'Chainsaw')

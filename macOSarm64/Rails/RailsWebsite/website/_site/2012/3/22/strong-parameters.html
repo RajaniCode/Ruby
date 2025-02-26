@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Strong parameters: Dealing with mass assignment in the controller instead of the model</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We’re exploring a new way to deal with mass-assignment protection in Rails. Or actually, it’s not really a new way, it’s more of an extraction of established practice with some vinegar mixed in for when you forget. This new approach is going to be a part of Rails 4.0 by default, but we’d like your help in testing and forming it well in advance of that release." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Strong parameters: Dealing with mass assignment in the controller instead of the model" />
+  <meta property="og:description" content="We’re exploring a new way to deal with mass-assignment protection in Rails. Or actually, it’s not really a new way, it’s more of an extraction of established practice with some vinegar mixed in for when you forget. This new approach is going to be a part of Rails 4.0 by default, but we’d like your help in testing and forming it well in advance of that release." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2012/3/22/strong-parameters" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Strong parameters: Dealing with mass assignment in the controller instead of the model" />
+  <meta name="twitter:description" content="We’re exploring a new way to deal with mass-assignment protection in Rails. Or actually, it’s not really a new way, it’s more of an extraction of established practice with some vinegar mixed in for when you forget. This new approach is going to be a part of Rails 4.0 by default, but we’d like your help in testing and forming it well in advance of that release." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2012/3/22/strong-parameters"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Strong parameters: Dealing with mass assignment in the controller instead of the model",
+      "description": "We’re exploring a new way to deal with mass-assignment protection in Rails. Or actually, it’s not really a new way, it’s more of an extraction of established practice with some vinegar mixed in for when you forget. This new approach is going to be a part of Rails 4.0 by default, but we’d like your help in testing and forming it well in advance of that release.",
+      "url": "http://localhost:4000/2012/3/22/strong-parameters",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2012-03-22T03:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, March 22, 2012</h5>
+        <h2>Strong parameters: Dealing with mass assignment in the controller instead of the model</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We’re exploring a new way to deal with mass-assignment protection in Rails. Or actually, it’s not really a new way, it’s more of an extraction of established practice with some vinegar mixed in for when you forget. This new approach is going to be a part of Rails 4.0 by default, but we’d like your help in testing and forming it well in advance of that release.</p>
+
+<h3 id="strong-parameters">Strong parameters</h3>
+
+<p>This new approach is an extraction of the <a href="https://gist.github.com/1975644">slice pattern</a> and we’re calling the plugin for it <a href="https://github.com/rails/strong_parameters">strong_parameters</a> (already available <a href="http://rubygems.org/gems/strong_parameters">as a gem</a> as well). The basic idea is to move mass-assignment protection out of the model and into the controller where it belongs.</p>
+
+<p>The whole point of the controller is to control the flow between user and application, including authentication, authorization, and as part of that access control. We should never have put mass-assignment protection into the model, and many people stopped doing so long ago with a move to the slice pattern or a variation there of. It’s time to extract that pattern and bring it to the people.</p>
+
+<h3 id="example">Example</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class PeopleController &lt; ActionController::Base
+  # This will raise an ActiveModel::ForbiddenAttributes exception because it's using mass assignment
+  # without an explicit permit step.
+  def create
+    Person.create(params[:person])
+  end
+  
+  # This will pass with flying colors as long as there's a person key in the parameters, otherwise
+  # it'll raise a ActionController::MissingParameter exception, which will get caught by 
+  # ActionController::Base and turned into that 400 Bad Request reply.
+  def update
+    redirect_to current_account.people.find(params[:id]).tap do |person|
+      person.update_attributes!(person_params)
+    end
+  end
+  
+  private
+    # Using a private method to encapsulate the permissible parameters is just a good pattern
+    # since you'll be able to reuse the same permit list between create and update. Also, you
+    # can specialize this method with per-user checking of permissible attributes.
+    def person_params
+      params.required(:person).permit(:name, :age)
+    end
+end
+</code></pre></div></div>
+
+<p>We’re still fiddling with the API, but it’s good enough to use now and I’ve replaced our own slice pattern in the new Basecamp with the strong parameters’ approach of permit.</p>
+
+<h3 id="more-work-to-be-done">More work to be done</h3>
+
+<p>We’re still working on a tidy way to deal with nested parameters, but there’s a design ready for implementation, so it shouldn’t be far off. In addition, Yehuda is going to work on form signing that’ll alleviate the need to manually declare the permitted parameters in the standard HTML form case (you’ll still need to use manually permit parameters for APIs and other clients).</p>
+
+<p>But this is good enough to be useful now. The plugin is currently only fully compatible with rails/3-2-stable rev <a href="https://github.com/rails/rails/commit/275ee0dc7b">275ee0dc7b</a> and forward as well as rails/master rev <a href="https://github.com/rails/rails/commit/b49a7ddce1">b49a7ddce1</a> and forward because of a testing issue with wrapped parameters (if you’re not using wrapped parameters for your json API, you can use the plugin with any version of Rails 3.2).</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

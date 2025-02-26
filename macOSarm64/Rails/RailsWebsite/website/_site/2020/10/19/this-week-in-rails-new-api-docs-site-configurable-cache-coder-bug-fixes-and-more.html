@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; New API Docs site, configurable cache coder, bug fixes, and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there! This is Andy bringing you the latest on what’s shipped this week in Ruby on Rails!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="New API Docs site, configurable cache coder, bug fixes, and more!" />
+  <meta property="og:description" content="Hi there! This is Andy bringing you the latest on what’s shipped this week in Ruby on Rails!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2020/10/19/this-week-in-rails-new-api-docs-site-configurable-cache-coder-bug-fixes-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="New API Docs site, configurable cache coder, bug fixes, and more!" />
+  <meta name="twitter:description" content="Hi there! This is Andy bringing you the latest on what’s shipped this week in Ruby on Rails!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2020/10/19/this-week-in-rails-new-api-docs-site-configurable-cache-coder-bug-fixes-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "New API Docs site, configurable cache coder, bug fixes, and more!",
+      "description": "Hi there! This is Andy bringing you the latest on what’s shipped this week in Ruby on Rails!",
+      "url": "http://localhost:4000/2020/10/19/this-week-in-rails-new-api-docs-site-configurable-cache-coder-bug-fixes-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "andyatkinson"
+      },
+      "datePublished": "2020-10-19T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, October 19, 2020</h5>
+        <h2>New API Docs site, configurable cache coder, bug fixes, and more!</h2>
+
+        <h6>Posted by andyatkinson</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there! This is <a href="https://andyatkinson.com">Andy</a> bringing you the latest on what’s shipped this week in Ruby on Rails!</p>
+
+<h3 id="new-api-docs-back-end"><a href="https://github.com/rails/rails/pull/40396">New API docs back-end</a></h3>
+
+<p>The frames-based Rails API docs site has been replaced with CSS and Turbolinks. Deep linking is now supported! Let’s take a moment and remember the humble 1990s era &lt;frame/&gt;! Check it out at <a href="https://edgeapi.rubyonrails.org">https://edgeapi.rubyonrails.org</a>.</p>
+
+<h3 id="stable-sorting-for-databaseconfigurationsfind_db_config"><a href="https://github.com/rails/rails/pull/40372">Stable sorting for DatabaseConfigurations#find_db_config</a></h3>
+
+<p>Sorting configuration for multiple databases was not guaranteed to be stable. This PR fixes that, and includes a supporting test with more information.</p>
+
+<h3 id="handle-binary-strings-in-active-record-serialized-columns"><a href="https://github.com/rails/rails/pull/40383">Handle binary strings in Active Record serialized columns</a></h3>
+
+<p>When binary data is stored in a serialized column, this change ensures that the original value is preserved. Check out the supporting test for an example.</p>
+
+<h3 id="make-activesupportcache-coder-configurable"><a href="https://github.com/rails/rails/pull/39770">Make ActiveSupport::Cache coder configurable</a></h3>
+
+<p>This PR lays the groundwork to specify a custom coder. The PR author describes a scenario migrating between 2 different cache stores as a potential use case.</p>
+
+<h3 id="include-layout-when-rendering-objects-from-controllers"><a href="https://github.com/rails/rails/pull/39869">Include layout when rendering objects from controllers</a></h3>
+
+<p>Did you ever notice Rails was like “nah”, when trying to render from a controller with a layout? Well, I’ve got some good news for you.</p>
+
+<h3 id="fix-read_attribute_before_type_cast"><a href="https://github.com/rails/rails/pull/40395">Fix <code class="language-plaintext highlighter-rouge">read_attribute_before_type_cast</code></a></h3>
+
+<p>From the author: “With this change, read_attribute_before_type_cast will be able to get the value before typecast even if the attr_name is an attribute_alias.”</p>
+
+<h3 id="fixes-optimizations-and-documentation">Fixes, optimizations and documentation</h3>
+
+<p>And finally, let’s recognize these contributors that <a href="https://github.com/rails/rails/pull/40366">fixed a flaky test</a>, created an <a href="https://github.com/rails/rails/pull/40387">optimization</a> to avoid unnecessary queries and another that avoids a <a href="https://github.com/rails/rails/pull/40379">duplicate record</a>. In addition to that, 5 PRs shipped this week with documentation improvements! Thank you!</p>
+
+<p>Thank you to the <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20201012-20201017">20 people that contributed</a> to Rails this week. If you’d like to be part of that, check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>. Until next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

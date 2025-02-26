@@ -1,0 +1,22 @@
+8. Requiring Javascripts
+
+
+Objective
+
+Modify the application.js below adding the calendar.js and color_picker.js libraries after jquery_ujs.
+
+
+app/assets/javascripts/application.js
+Toggle Editor Mode
+//= require jquery
+//= require jquery_ujs 
+//= require_tree .
+
+
+Answer:
+app/assets/javascripts/application.js
+//= require jquery
+//= require calendar
+//= require jquery_ujs 
+//= require color_picker
+//= require_tree .

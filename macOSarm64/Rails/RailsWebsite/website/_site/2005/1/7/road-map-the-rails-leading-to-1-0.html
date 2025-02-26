@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Road Map: The rails leading to 1.0</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rails is already an incredibly capable environment, but we&#8217;re still not quite ready to slap on the 1.0 sticker according to my own standards for that label. So what&#8217;s missing? Here&#8217;s a list of the major achievements that I want to see happen before we go to the big one-o:	Directions: While its fully possible to do intricate custom URL layouts, its not as easy as it could be. The combination of mod_rewrite going in and the hoops you need to jump going out ensures that most people just stick with the defaults. Directions is the path that&#8217;ll rectify that by pulling URL rewriting into Rails, so WEBrick and Apache will share the same format and it&#8217;ll be possible to handle both in and out in a coherent fashion. Nicholas Seckar is leading a development effort guided by a design from Dave Thomas.	Packaging: Instiki has had great success with the OS X native .app format. We want to enable all Rails applications to have push-button package outputs to .app, .exe, and one-file scripts for the rest of &#8216;nix. The rise of SQLite3 will make this even easier (thanks to Jeremy Kemper for the adapter and Jamis Buck for the bindings) to have self-contained applications. Marcel Molina is leading the development on the one-file scripts that&#8217;ll serve as the foundation for the native compilations.	Web Service Dispatcher: XML-RPC and SOAP could easily be supported by the same controllers and models as the rest of the application if the calls were translated into controller calls. That&#8217;s what the new WebServiceDispatchers will do.	Caching &amp; Performance: One of the easiest ways to deal with performance is to start caching, so that&#8217;s what we&#8217;ll do. There&#8217;s a lot of different schemes to pursue and that&#8217;s exactly what we&#8217;ll do. From full-page caching that sidesteps Rails to per-request model caching to integration with MemCached. Lots of opportunities to take what&#8217;s already there and make it much faster with a bit of sprinkled caching. Getting a good benchmarking suite together is part of that. Florian Weber has promised us the later since 0.7, so he expect a delivery any day now :)	Documentation: I really do need to fulfill my obligation to renew the introduction video and accompany it with more. On top of that, we&#8217;ll need to start the long rumored Rails User Manual. We&#8217;re already off to a fantastic start, though, with great API documentation and quite a few guides and tutorials. The last push will round off the polished feel a lot, though.Five major areas of improvement. I hope we&#8217;re able to reach all of these goals by mid February or early March. But there&#8217;s no inherent pressure. We&#8217;ll continue to release updates at the current staggering rate and when its ready to ring the bell of 1.0, we&#8217;ll ring the bell." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Road Map: The rails leading to 1.0" />
+  <meta property="og:description" content="Rails is already an incredibly capable environment, but we&#8217;re still not quite ready to slap on the 1.0 sticker according to my own standards for that label. So what&#8217;s missing? Here&#8217;s a list of the major achievements that I want to see happen before we go to the big one-o:	Directions: While its fully possible to do intricate custom URL layouts, its not as easy as it could be. The combination of mod_rewrite going in and the hoops you need to jump going out ensures that most people just stick with the defaults. Directions is the path that&#8217;ll rectify that by pulling URL rewriting into Rails, so WEBrick and Apache will share the same format and it&#8217;ll be possible to handle both in and out in a coherent fashion. Nicholas Seckar is leading a development effort guided by a design from Dave Thomas.	Packaging: Instiki has had great success with the OS X native .app format. We want to enable all Rails applications to have push-button package outputs to .app, .exe, and one-file scripts for the rest of &#8216;nix. The rise of SQLite3 will make this even easier (thanks to Jeremy Kemper for the adapter and Jamis Buck for the bindings) to have self-contained applications. Marcel Molina is leading the development on the one-file scripts that&#8217;ll serve as the foundation for the native compilations.	Web Service Dispatcher: XML-RPC and SOAP could easily be supported by the same controllers and models as the rest of the application if the calls were translated into controller calls. That&#8217;s what the new WebServiceDispatchers will do.	Caching &amp; Performance: One of the easiest ways to deal with performance is to start caching, so that&#8217;s what we&#8217;ll do. There&#8217;s a lot of different schemes to pursue and that&#8217;s exactly what we&#8217;ll do. From full-page caching that sidesteps Rails to per-request model caching to integration with MemCached. Lots of opportunities to take what&#8217;s already there and make it much faster with a bit of sprinkled caching. Getting a good benchmarking suite together is part of that. Florian Weber has promised us the later since 0.7, so he expect a delivery any day now :)	Documentation: I really do need to fulfill my obligation to renew the introduction video and accompany it with more. On top of that, we&#8217;ll need to start the long rumored Rails User Manual. We&#8217;re already off to a fantastic start, though, with great API documentation and quite a few guides and tutorials. The last push will round off the polished feel a lot, though.Five major areas of improvement. I hope we&#8217;re able to reach all of these goals by mid February or early March. But there&#8217;s no inherent pressure. We&#8217;ll continue to release updates at the current staggering rate and when its ready to ring the bell of 1.0, we&#8217;ll ring the bell." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/1/7/road-map-the-rails-leading-to-1-0" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Road Map: The rails leading to 1.0" />
+  <meta name="twitter:description" content="Rails is already an incredibly capable environment, but we&#8217;re still not quite ready to slap on the 1.0 sticker according to my own standards for that label. So what&#8217;s missing? Here&#8217;s a list of the major achievements that I want to see happen before we go to the big one-o:	Directions: While its fully possible to do intricate custom URL layouts, its not as easy as it could be. The combination of mod_rewrite going in and the hoops you need to jump going out ensures that most people just stick with the defaults. Directions is the path that&#8217;ll rectify that by pulling URL rewriting into Rails, so WEBrick and Apache will share the same format and it&#8217;ll be possible to handle both in and out in a coherent fashion. Nicholas Seckar is leading a development effort guided by a design from Dave Thomas.	Packaging: Instiki has had great success with the OS X native .app format. We want to enable all Rails applications to have push-button package outputs to .app, .exe, and one-file scripts for the rest of &#8216;nix. The rise of SQLite3 will make this even easier (thanks to Jeremy Kemper for the adapter and Jamis Buck for the bindings) to have self-contained applications. Marcel Molina is leading the development on the one-file scripts that&#8217;ll serve as the foundation for the native compilations.	Web Service Dispatcher: XML-RPC and SOAP could easily be supported by the same controllers and models as the rest of the application if the calls were translated into controller calls. That&#8217;s what the new WebServiceDispatchers will do.	Caching &amp; Performance: One of the easiest ways to deal with performance is to start caching, so that&#8217;s what we&#8217;ll do. There&#8217;s a lot of different schemes to pursue and that&#8217;s exactly what we&#8217;ll do. From full-page caching that sidesteps Rails to per-request model caching to integration with MemCached. Lots of opportunities to take what&#8217;s already there and make it much faster with a bit of sprinkled caching. Getting a good benchmarking suite together is part of that. Florian Weber has promised us the later since 0.7, so he expect a delivery any day now :)	Documentation: I really do need to fulfill my obligation to renew the introduction video and accompany it with more. On top of that, we&#8217;ll need to start the long rumored Rails User Manual. We&#8217;re already off to a fantastic start, though, with great API documentation and quite a few guides and tutorials. The last push will round off the polished feel a lot, though.Five major areas of improvement. I hope we&#8217;re able to reach all of these goals by mid February or early March. But there&#8217;s no inherent pressure. We&#8217;ll continue to release updates at the current staggering rate and when its ready to ring the bell of 1.0, we&#8217;ll ring the bell." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/1/7/road-map-the-rails-leading-to-1-0"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Road Map: The rails leading to 1.0",
+      "description": "Rails is already an incredibly capable environment, but we&#8217;re still not quite ready to slap on the 1.0 sticker according to my own standards for that label. So what&#8217;s missing? Here&#8217;s a list of the major achievements that I want to see happen before we go to the big one-o:	Directions: While its fully possible to do intricate custom URL layouts, its not as easy as it could be. The combination of mod_rewrite going in and the hoops you need to jump going out ensures that most people just stick with the defaults. Directions is the path that&#8217;ll rectify that by pulling URL rewriting into Rails, so WEBrick and Apache will share the same format and it&#8217;ll be possible to handle both in and out in a coherent fashion. Nicholas Seckar is leading a development effort guided by a design from Dave Thomas.	Packaging: Instiki has had great success with the OS X native .app format. We want to enable all Rails applications to have push-button package outputs to .app, .exe, and one-file scripts for the rest of &#8216;nix. The rise of SQLite3 will make this even easier (thanks to Jeremy Kemper for the adapter and Jamis Buck for the bindings) to have self-contained applications. Marcel Molina is leading the development on the one-file scripts that&#8217;ll serve as the foundation for the native compilations.	Web Service Dispatcher: XML-RPC and SOAP could easily be supported by the same controllers and models as the rest of the application if the calls were translated into controller calls. That&#8217;s what the new WebServiceDispatchers will do.	Caching &amp; Performance: One of the easiest ways to deal with performance is to start caching, so that&#8217;s what we&#8217;ll do. There&#8217;s a lot of different schemes to pursue and that&#8217;s exactly what we&#8217;ll do. From full-page caching that sidesteps Rails to per-request model caching to integration with MemCached. Lots of opportunities to take what&#8217;s already there and make it much faster with a bit of sprinkled caching. Getting a good benchmarking suite together is part of that. Florian Weber has promised us the later since 0.7, so he expect a delivery any day now :)	Documentation: I really do need to fulfill my obligation to renew the introduction video and accompany it with more. On top of that, we&#8217;ll need to start the long rumored Rails User Manual. We&#8217;re already off to a fantastic start, though, with great API documentation and quite a few guides and tutorials. The last push will round off the polished feel a lot, though.Five major areas of improvement. I hope we&#8217;re able to reach all of these goals by mid February or early March. But there&#8217;s no inherent pressure. We&#8217;ll continue to release updates at the current staggering rate and when its ready to ring the bell of 1.0, we&#8217;ll ring the bell.",
+      "url": "http://localhost:4000/2005/1/7/road-map-the-rails-leading-to-1-0",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-01-07T02:26:33+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, January 7, 2005</h5>
+        <h2>Road Map: The rails leading to 1.0</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Rails is already an incredibly capable environment, but we&#8217;re still not quite ready to slap on the 1.0 sticker according to my own standards for that label. So what&#8217;s missing? Here&#8217;s a list of the major achievements that I want to see happen before we go to the big one-o:</p>
+<ul>
+	<li><strong>Directions:</strong> While its fully possible to do intricate custom <span class="caps">URL</span> layouts, its not as easy as it could be. The combination of mod_rewrite going in and the hoops you need to jump going out ensures that most people just stick with the defaults. Directions is the path that&#8217;ll rectify that by pulling <span class="caps">URL</span> rewriting into Rails, so WEBrick and Apache will share the same format and it&#8217;ll be possible to handle both in and out in a coherent fashion. Nicholas Seckar is leading a development effort guided by a design from Dave Thomas.</li>
+</ul>
+<ul>
+	<li><strong>Packaging:</strong> Instiki has had great success with the OS X native .app format. We want to enable all Rails applications to have push-button package outputs to .app, .exe, and one-file scripts for the rest of &#8216;nix. The rise of SQLite3 will make this even easier (thanks to Jeremy Kemper for the adapter and Jamis Buck for the bindings) to have self-contained applications. Marcel Molina is leading the development on the one-file scripts that&#8217;ll serve as the foundation for the native compilations.</li>
+</ul>
+<ul>
+	<li><strong>Web Service Dispatcher:</strong> <span class="caps">XML</span>-<span class="caps">RPC</span> and <span class="caps">SOAP</span> could easily be supported by the same controllers and models as the rest of the application if the calls were translated into controller calls. That&#8217;s what the new WebServiceDispatchers will do.</li>
+</ul>
+<ul>
+	<li><strong>Caching &amp; Performance:</strong> One of the easiest ways to deal with performance is to start caching, so that&#8217;s what we&#8217;ll do. There&#8217;s a lot of different schemes to pursue and that&#8217;s exactly what we&#8217;ll do. From full-page caching that sidesteps Rails to per-request model caching to integration with MemCached. Lots of opportunities to take what&#8217;s already there and make it much faster with a bit of sprinkled caching. Getting a good benchmarking suite together is part of that. Florian Weber has promised us the later since 0.7, so he expect a delivery any day now :)</li>
+</ul>
+<ul>
+	<li><strong>Documentation:</strong> I really do need to fulfill my obligation to renew the introduction video and accompany it with more. On top of that, we&#8217;ll need to start the long rumored Rails User Manual. We&#8217;re already off to a fantastic start, though, with great <span class="caps">API</span> documentation and quite a few guides and tutorials. The last push will round off the polished feel a lot, though.</li>
+</ul>
+<p>Five major areas of improvement. I hope we&#8217;re able to reach all of these goals by mid February or early March. But there&#8217;s no inherent pressure. We&#8217;ll continue to release updates at the current staggering rate and when its ready to ring the bell of 1.0, we&#8217;ll ring the bell.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

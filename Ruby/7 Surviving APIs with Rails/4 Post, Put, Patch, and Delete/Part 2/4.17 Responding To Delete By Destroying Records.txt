@@ -1,0 +1,42 @@
+4.17 Responding To Delete By Destroying Records
+
+Now let’s make our failing tests pass by implementing the delete action on our ZombiesController. This action needs to destroy a zombie and return a 204 - No Content status code.
+
+
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def destroy
+    zombie = Zombie.find(params[:id])
+
+    # your code here
+  end
+end
+
+
+1. Destroy the existing zombie record from the database.
+
+Answer:
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def destroy
+    zombie = Zombie.find(params[:id])
+
+    # your code here
+    zombie.destroy
+  end
+end
+
+
+2. Use the head method to return a response with an empty body and with the status code 204 - No Content.
+
+Answer:
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def destroy
+    zombie = Zombie.find(params[:id])
+
+    # your code here
+    zombie.destroy
+    head 204
+  end
+end

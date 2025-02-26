@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; 🎎 First edition of March</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="🎎 First edition of March" />
+  <meta property="og:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/3/3/this-week-in-rails-first-edition-of-march" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="🎎 First edition of March" />
+  <meta name="twitter:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/3/3/this-week-in-rails-first-edition-of-march"
+      },
+      "name": "Ruby on Rails",
+      "headline": "🎎 First edition of March",
+      "description": "Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2023/3/3/this-week-in-rails-first-edition-of-march",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2023-03-03T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, March 3, 2023</h5>
+        <h2>🎎 First edition of March</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://github.com/zzak">zzak</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/hotwired/turbo/releases/tag/v7.3.0">Turbo v7.3.0 is out!</a><br />
+Be sure to check the release notes to see what changed.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44873">Configurable digest algorithm for Active Record Encryption</a><br />
+This adds a new option to configure the digest algorithm in Active Record Encryption. It sets SHA-256 as the new default starting in 7.1 and SHA-1 for previous versions.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47550">Add a drop shadow to the boot screen</a><br />
+<a href="https://twitter.com/bradgessler/status/1630655637096108032">This tweet</a> inspired a long conversation on Discord. A lot of it re-hashed the conversation at <a href="https://github.com/rails/rails/pull/43802">#43802</a>… but one takeaway was that not everyone realises the Rails logo is also a link.
+When you first run the Rails server after <code class="language-plaintext highlighter-rouge">rails new</code> you are greeted with the bootscreen which shows the Rails logo and current Ruby and Rails versions. This PR adds a drop shadow, which I think makes the logo look a bit more clickable at a glance.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47545">Install dartsass-rails when generating app with sass</a><br />
+When generating a new app using <code class="language-plaintext highlighter-rouge">--css sass</code> the <code class="language-plaintext highlighter-rouge">dartsass-rails</code> gem will now be included in the Gemfile and <code class="language-plaintext highlighter-rouge">dartsass:install</code> will be executed for you.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47541">Support assignments for composite key has_many through associations</a><br />
+Similarly to <a href="https://github.com/rails/rails/pull/47230">#47230</a> this PR adds support for assigning <code class="language-plaintext highlighter-rouge">has_many :items, through: :items_source</code> associations that use composite <code class="language-plaintext highlighter-rouge">query_constraints</code> config.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47522">Allow applications to register custom database configurations</a><br />
+Previously, applications could only have two types of database configuration objects, <code class="language-plaintext highlighter-rouge">HashConfig</code> and <code class="language-plaintext highlighter-rouge">UrlConfig</code>. This meant that if you wanted your config to implement custom methods you had to monkey patch <code class="language-plaintext highlighter-rouge">DatabaseConfigurations</code> to take a custom class into account.
+This PR allows applications to register a custom db_config handler so that custom configs can respond to needed methods. This is especially useful for tools like Vitess where we may want to indicate it’s sharded, but not give Rails direct access to that knowledge.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47536">Allow configs_for to accept a custom hash key</a><br />
+Now that we support a way to register custom configurations we need to allow applications to find those configurations. This change adds a <code class="language-plaintext highlighter-rouge">config_key</code> option to <code class="language-plaintext highlighter-rouge">configs_for</code> to find db configs where the configuration_hash contains a particular key.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47520">Introduce #deliver_enqueued_emails method to ActionMailer::TestHelper</a><br />
+This test helper allows you to deliver all enqueued emails either up to the point of the test, or within the given block, so that you can make assertions on them.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47515">Remove debug from the default Gemfile</a><br />
+Due to a <a href="https://bugs.ruby-lang.org/issues/19158">bug</a> in Ruby’s bundled debug gem, we had to temporarily remove it from the generated Gemfile in order to fix generating apps from main.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47517">Run yarn install with –frozen-lockfile in the Dockerfile</a><br />
+Similar to <code class="language-plaintext highlighter-rouge">BUNDLE_DEPLOYMENT</code>, but for yarn, this flag make sure no package is upgraded or downgraded in the lockfile.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47492">Add x86_64-linux and aarch64-linux platforms by default</a><br />
+When generating a new Rails app, the <code class="language-plaintext highlighter-rouge">bundle install</code> command will now set the default platforms to x86_64-linux (or aarch64-linux on a Mac) automatically.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47513">Don’t install the redis package in the Dockerfile</a><br />
+Since the redis client gem doesn’t require this package to be installed, we can remove the dependency.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47477">Rack 3 static lowercase headers.</a><br />
+<code class="language-plaintext highlighter-rouge">ActionDispatch::Static</code> uses mixed-case headers and merges them with lower case headers. This produces duplicate headers. Prefer lowercase headers to avoid this situation.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47422">Stop serializing columns as YAML by default</a><br />
+YAML is great for configuration and such, but for serializing arbitrary data it has many problem, both in term of performance and efficiency but also in term of security.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47484">Suppress output from mail parser warnings</a><br />
+Previously, requiring any ragel generated parsers in mail would output tons of warnings in tests, making output much harder to read (especially in Railties).</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-02-24%7D...main@%7B2023-03-03%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230224-20230303">32 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

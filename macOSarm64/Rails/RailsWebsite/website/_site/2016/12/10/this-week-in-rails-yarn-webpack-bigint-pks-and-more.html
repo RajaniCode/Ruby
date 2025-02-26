@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: yarn, webpack, BIGINT PKs and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone, this is Godfrey reporting from Portland, OR. This week has been a mix bag for me – on one hand, Portland had a pretty miserable week due to the storm; on the other hand, a lot of exciting changes landed in Rails. Does that make things even? I guess we’ll go through the changes and you can decide for yourself!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: yarn, webpack, BIGINT PKs and more!" />
+  <meta property="og:description" content="Hello everyone, this is Godfrey reporting from Portland, OR. This week has been a mix bag for me – on one hand, Portland had a pretty miserable week due to the storm; on the other hand, a lot of exciting changes landed in Rails. Does that make things even? I guess we’ll go through the changes and you can decide for yourself!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/12/10/this-week-in-rails-yarn-webpack-bigint-pks-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: yarn, webpack, BIGINT PKs and more!" />
+  <meta name="twitter:description" content="Hello everyone, this is Godfrey reporting from Portland, OR. This week has been a mix bag for me – on one hand, Portland had a pretty miserable week due to the storm; on the other hand, a lot of exciting changes landed in Rails. Does that make things even? I guess we’ll go through the changes and you can decide for yourself!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/12/10/this-week-in-rails-yarn-webpack-bigint-pks-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: yarn, webpack, BIGINT PKs and more!",
+      "description": "Hello everyone, this is Godfrey reporting from Portland, OR. This week has been a mix bag for me – on one hand, Portland had a pretty miserable week due to the storm; on the other hand, a lot of exciting changes landed in Rails. Does that make things even? I guess we’ll go through the changes and you can decide for yourself!",
+      "url": "http://localhost:4000/2016/12/10/this-week-in-rails-yarn-webpack-bigint-pks-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "chancancode"
+      },
+      "datePublished": "2016-12-10T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, December 10, 2016</h5>
+        <h2>This Week in Rails: yarn, webpack, BIGINT PKs and more!</h2>
+
+        <h6>Posted by chancancode</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone, this is <a href="https://twitter.com/chancancode">Godfrey</a> reporting from Portland, OR. This week has been a mix bag for me – on one hand, Portland had a pretty miserable week due to <a href="http://www.oregonlive.com/weather/index.ssf/2016/12/portland_winter_weather_decemb.html">the storm</a>; on the other hand, a lot of exciting changes landed in Rails. Does that make things even? I guess we’ll go through the changes and you can decide for yourself!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="yarn-is-good-yarn-works"><a href="https://github.com/rails/rails/pull/27300">“Yarn is good. Yarn works.”</a></h3>
+
+<p>Last week, we mentioned that <a href="https://github.com/rails/rails/pull/26836">Rails 5.1 is gaining a <strong>–yarn</strong>  option</a>. This option is now promoted to be the default: every new Rails app will be set up to use yarn out-of-the-box. It’s also worth noting that yarn packages <a href="https://github.com/rails/rails/pull/27245">are now installed into the <strong>vendor/node_modules</strong> directory</a>.</p>
+
+<h3 id="basic-webpack-integration"><a href="https://github.com/rails/rails/pull/27288">Basic webpack integration</a></h3>
+
+<p>While we are talking about JavaScript, the asset bundling side of things is also getting some love. Rails 5.1 will gain first-class support for webpack via the <strong>–webpack</strong> option. This is still a pretty early spike, so definitely try it out and <a href="https://github.com/rails/webpacker#work-left-to-do">help improve it</a>.</p>
+
+<h3 id="change-default-primary-keys-to-bigints"><a href="https://github.com/rails/rails/pull/26266">Change default primary keys to BIGINTs</a></h3>
+
+<p><a href="https://twitter.com/schneems/status/731167572096253952">Friends don’t let friends use INT as a primary key</a> – your app might hit Webscale™ before you know it, resulting in much sadness when your primary key column overflows. To help put you on the right path, Rails 5.1 will default to using BIGINTs for primary key columns in MySQL and PostgreSQL.</p>
+
+<h2 id="new">New</h2>
+
+<h3 id="introduce-activerecordnotnullviolation-error"><a href="https://github.com/rails/rails/pull/25451">Introduce <code class="language-plaintext highlighter-rouge">ActiveRecord::NotNullViolation</code> error</a></h3>
+
+<p>As of this pull request, if your model failed to save due to a NOT NULL constraint, Rails will raise a <strong>NotNullViolation</strong> error (instead of a generic <strong>StatementInvalid</strong> error) so you could rescue the error and handle it appropriately.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="speeding-up-rspec-integration-tests-by-40"><a href="https://github.com/rails/rails/pull/27271">Speeding up RSpec integration tests by 40%</a></h3>
+
+<p>This patch fixes an issue where templates are needlessly recompiled between integration test, resulting in a significant speedup.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="idempotent-after_commit-callbacks"><a href="https://github.com/rails/rails/pull/27248">Idempotent <code class="language-plaintext highlighter-rouge">after_commit</code> callbacks</a></h3>
+
+<p>Previously, certain race conditions could cause your <strong>after_commit</strong> callbacks to fire more often than expected. This patch attempts to more accurately track the work that actually happened in the database to ensure your hooks are triggered only when appropriate.</p>
+
+<h3 id="allow-variales-named-block-in-templates"><a href="https://github.com/rails/rails/pull/27303">Allow variales named <code class="language-plaintext highlighter-rouge">block</code> in templates</a></h3>
+
+<p>Have you tried using variables named <strong>block</strong>  in your templates? If you did, you might have seen a pretty strange error from Rails. Not anymore! With this patch, you would be able to do that without issues.</p>
+
+<h3 id="exclude-singleton-classes-from-subclasses-and-descendants"><a href="https://github.com/rails/rails/commit/4e73ffa9b45904492815f8f67d4695ef719e0350">Exclude singleton classes from <code class="language-plaintext highlighter-rouge">subclasses</code> and <code class="language-plaintext highlighter-rouge">descendants</code></a></h3>
+
+<p><a href="https://bugs.ruby-lang.org/issues/11360">A change in Ruby 2.3.0</a>unexpectedly changed the behavior of Active Support’s <strong>Class#subclasses</strong> and <strong>Class#descendants</strong>  methods to include singleton classes. This patch restores the previous behavior and made things consistent across different versions of Ruby (again).</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s it from This Week in Rails! There were many other great contributions, so please feel free to <a href="https://github.com/rails/rails/compare/master@%7B2016-11-19%7D...@%7B2016-11-25%7D">check them out</a> yourself!</p>
+
+<p>Until next week!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+2. Forms
+
+Objective
+
+Create the form for entering tweet status (text_area) and location (text_field) using the appropriate Rails view helpers. All you need is a form_for block, the input helpers, and a submit button.
+
+  
+tweets_controller.rb
+class TweetsController < ApplicationController
+ 
+  # GET /tweets/new
+  # GET /tweets/new.json
+  def new
+    @tweet = Tweet.new
+ 
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @tweet }
+    end
+  end
+ 
+  # POST /tweets
+  # POST /tweets.json
+  def create
+    @tweet = Tweet.new(params[:tweet])
+ 
+    respond_to do |format|
+      if @tweet.save
+        format.html { redirect_to @tweet, notice: 'Tweet was successfully created.' }
+        format.json { render json: @tweet, status: :created, location: @tweet }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @tweet.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+ 
+  ...
+end
+
+
+app/views/tweets/new.html.erb
+<h1>New tweet</h1>
+
+
+Answer:
+app/views/tweets/new.html.erb
+<h1>New tweet</h1>
+
+<%= form_for(@tweet) do |f| %>
+  <%= f.text_area :status %>
+  <%= f.text_field :location %>
+  <%= f.submit %>
+<% end %>

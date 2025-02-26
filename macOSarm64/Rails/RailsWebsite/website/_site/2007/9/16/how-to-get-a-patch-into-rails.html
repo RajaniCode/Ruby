@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; How to get a patch into Rails</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="For a while, the patch queue was getting badly out of hand. The flood of new entries was simply too great to be reasonably managed by a small group of people. Too much got stuff got stale and their creators got disillusioned, understandably so. But for a while now, we&#8217;ve been running with a new policy on patches, which seems to be working a lot better for those who&#8217;ve been following it.But I&#8217;m sensing that a fair number of people are not aware of those changes in policy, so I thought best to bring them up again here.Step 1: Raise the barriers of qualityPart of the reason that the original patch queue got out of hand was due to the large number of patches coming in that lacked essential qualities of a good patch. They were either missing a good rationale (why am I doing this? what&#8217;s the benefits?), good test cases, or didn&#8217;t update the relevant documentation. To apply such a patch meant that this work had to be shouldered by someone else, usually the guy who wanted to apply the patch.Now the barriers of quality are more apparent. Your patch will simply not be considered for inclusion before it has all those elements. It&#8217;ll live with the &#8220;unverified&#8221; keyword until you or someone else that cares especially deeply about the patch (like someone else having the same problem) gets the quality up to par. Then the patch moves on to step 2.Step 2: Get the community engaged to review your patchThe last step before your patch is ready to be put in the queue for inclusion is to get community support round up. We now require that three different people must review your patch, apply it, run the tests, read your documentation, and like what it does and how it&#8217;s implemented. When they do, they&#8217;ll make a comment on the ticket with a &#8220;+1&#8221;.Get three such +1s and you can tag your patch with the &#8220;verified&#8221; keyword. That&#8217;ll make the patch appear in Report #12: Verified Patches, which is a bell telling the core team that you patch is baked and ready to be included (barring a final review).The core team is trying to keep report #12 empty at all times. There shouldn&#8217;t be a big lag time between getting to &#8220;verified&#8221; and getting a final review of your patch, which will either send it back to unverified (because the implementation is deemed in need of work or because there&#8217;s some fundemental disagreement over whether or how this patch goes about its business) or it&#8217;ll be applied and available in edge.So if you have a patch that you still care about sitting in the queue, dust it off, and put it through these two simple steps and you&#8217;ll be back on the road to glory. There are still no guarantees that your patch will receive immediate attention, but so far we&#8217;ve managed to keep report #12 moving very nicely. It&#8217;s all empty as of today!The front page of http://dev.rubyonrails.org has been updated to reflect this policy." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="How to get a patch into Rails" />
+  <meta property="og:description" content="For a while, the patch queue was getting badly out of hand. The flood of new entries was simply too great to be reasonably managed by a small group of people. Too much got stuff got stale and their creators got disillusioned, understandably so. But for a while now, we&#8217;ve been running with a new policy on patches, which seems to be working a lot better for those who&#8217;ve been following it.But I&#8217;m sensing that a fair number of people are not aware of those changes in policy, so I thought best to bring them up again here.Step 1: Raise the barriers of qualityPart of the reason that the original patch queue got out of hand was due to the large number of patches coming in that lacked essential qualities of a good patch. They were either missing a good rationale (why am I doing this? what&#8217;s the benefits?), good test cases, or didn&#8217;t update the relevant documentation. To apply such a patch meant that this work had to be shouldered by someone else, usually the guy who wanted to apply the patch.Now the barriers of quality are more apparent. Your patch will simply not be considered for inclusion before it has all those elements. It&#8217;ll live with the &#8220;unverified&#8221; keyword until you or someone else that cares especially deeply about the patch (like someone else having the same problem) gets the quality up to par. Then the patch moves on to step 2.Step 2: Get the community engaged to review your patchThe last step before your patch is ready to be put in the queue for inclusion is to get community support round up. We now require that three different people must review your patch, apply it, run the tests, read your documentation, and like what it does and how it&#8217;s implemented. When they do, they&#8217;ll make a comment on the ticket with a &#8220;+1&#8221;.Get three such +1s and you can tag your patch with the &#8220;verified&#8221; keyword. That&#8217;ll make the patch appear in Report #12: Verified Patches, which is a bell telling the core team that you patch is baked and ready to be included (barring a final review).The core team is trying to keep report #12 empty at all times. There shouldn&#8217;t be a big lag time between getting to &#8220;verified&#8221; and getting a final review of your patch, which will either send it back to unverified (because the implementation is deemed in need of work or because there&#8217;s some fundemental disagreement over whether or how this patch goes about its business) or it&#8217;ll be applied and available in edge.So if you have a patch that you still care about sitting in the queue, dust it off, and put it through these two simple steps and you&#8217;ll be back on the road to glory. There are still no guarantees that your patch will receive immediate attention, but so far we&#8217;ve managed to keep report #12 moving very nicely. It&#8217;s all empty as of today!The front page of http://dev.rubyonrails.org has been updated to reflect this policy." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2007/9/16/how-to-get-a-patch-into-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="How to get a patch into Rails" />
+  <meta name="twitter:description" content="For a while, the patch queue was getting badly out of hand. The flood of new entries was simply too great to be reasonably managed by a small group of people. Too much got stuff got stale and their creators got disillusioned, understandably so. But for a while now, we&#8217;ve been running with a new policy on patches, which seems to be working a lot better for those who&#8217;ve been following it.But I&#8217;m sensing that a fair number of people are not aware of those changes in policy, so I thought best to bring them up again here.Step 1: Raise the barriers of qualityPart of the reason that the original patch queue got out of hand was due to the large number of patches coming in that lacked essential qualities of a good patch. They were either missing a good rationale (why am I doing this? what&#8217;s the benefits?), good test cases, or didn&#8217;t update the relevant documentation. To apply such a patch meant that this work had to be shouldered by someone else, usually the guy who wanted to apply the patch.Now the barriers of quality are more apparent. Your patch will simply not be considered for inclusion before it has all those elements. It&#8217;ll live with the &#8220;unverified&#8221; keyword until you or someone else that cares especially deeply about the patch (like someone else having the same problem) gets the quality up to par. Then the patch moves on to step 2.Step 2: Get the community engaged to review your patchThe last step before your patch is ready to be put in the queue for inclusion is to get community support round up. We now require that three different people must review your patch, apply it, run the tests, read your documentation, and like what it does and how it&#8217;s implemented. When they do, they&#8217;ll make a comment on the ticket with a &#8220;+1&#8221;.Get three such +1s and you can tag your patch with the &#8220;verified&#8221; keyword. That&#8217;ll make the patch appear in Report #12: Verified Patches, which is a bell telling the core team that you patch is baked and ready to be included (barring a final review).The core team is trying to keep report #12 empty at all times. There shouldn&#8217;t be a big lag time between getting to &#8220;verified&#8221; and getting a final review of your patch, which will either send it back to unverified (because the implementation is deemed in need of work or because there&#8217;s some fundemental disagreement over whether or how this patch goes about its business) or it&#8217;ll be applied and available in edge.So if you have a patch that you still care about sitting in the queue, dust it off, and put it through these two simple steps and you&#8217;ll be back on the road to glory. There are still no guarantees that your patch will receive immediate attention, but so far we&#8217;ve managed to keep report #12 moving very nicely. It&#8217;s all empty as of today!The front page of http://dev.rubyonrails.org has been updated to reflect this policy." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2007/9/16/how-to-get-a-patch-into-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "How to get a patch into Rails",
+      "description": "For a while, the patch queue was getting badly out of hand. The flood of new entries was simply too great to be reasonably managed by a small group of people. Too much got stuff got stale and their creators got disillusioned, understandably so. But for a while now, we&#8217;ve been running with a new policy on patches, which seems to be working a lot better for those who&#8217;ve been following it.But I&#8217;m sensing that a fair number of people are not aware of those changes in policy, so I thought best to bring them up again here.Step 1: Raise the barriers of qualityPart of the reason that the original patch queue got out of hand was due to the large number of patches coming in that lacked essential qualities of a good patch. They were either missing a good rationale (why am I doing this? what&#8217;s the benefits?), good test cases, or didn&#8217;t update the relevant documentation. To apply such a patch meant that this work had to be shouldered by someone else, usually the guy who wanted to apply the patch.Now the barriers of quality are more apparent. Your patch will simply not be considered for inclusion before it has all those elements. It&#8217;ll live with the &#8220;unverified&#8221; keyword until you or someone else that cares especially deeply about the patch (like someone else having the same problem) gets the quality up to par. Then the patch moves on to step 2.Step 2: Get the community engaged to review your patchThe last step before your patch is ready to be put in the queue for inclusion is to get community support round up. We now require that three different people must review your patch, apply it, run the tests, read your documentation, and like what it does and how it&#8217;s implemented. When they do, they&#8217;ll make a comment on the ticket with a &#8220;+1&#8221;.Get three such +1s and you can tag your patch with the &#8220;verified&#8221; keyword. That&#8217;ll make the patch appear in Report #12: Verified Patches, which is a bell telling the core team that you patch is baked and ready to be included (barring a final review).The core team is trying to keep report #12 empty at all times. There shouldn&#8217;t be a big lag time between getting to &#8220;verified&#8221; and getting a final review of your patch, which will either send it back to unverified (because the implementation is deemed in need of work or because there&#8217;s some fundemental disagreement over whether or how this patch goes about its business) or it&#8217;ll be applied and available in edge.So if you have a patch that you still care about sitting in the queue, dust it off, and put it through these two simple steps and you&#8217;ll be back on the road to glory. There are still no guarantees that your patch will receive immediate attention, but so far we&#8217;ve managed to keep report #12 moving very nicely. It&#8217;s all empty as of today!The front page of http://dev.rubyonrails.org has been updated to reflect this policy.",
+      "url": "http://localhost:4000/2007/9/16/how-to-get-a-patch-into-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2007-09-16T02:16:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, September 16, 2007</h5>
+        <h2>How to get a patch into Rails</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>For a while, the patch queue was getting badly out of hand. The flood of new entries was simply too great to be reasonably managed by a small group of people. Too much got stuff got stale and their creators got disillusioned, understandably so. But for a while now, we&#8217;ve been running with a new policy on patches, which seems to be working a lot better for those who&#8217;ve been following it.</p>
+<p>But I&#8217;m sensing that a fair number of people are not aware of those changes in policy, so I thought best to bring them up again here.</p>
+<p><strong>Step 1: Raise the barriers of quality</strong></p>
+<p>Part of the reason that the original patch queue got out of hand was due to the large number of patches coming in that lacked essential qualities of a good patch. They were either missing a good rationale (why am I doing this? what&#8217;s the benefits?), good test cases, or didn&#8217;t update the relevant documentation. To apply such a patch meant that this work had to be shouldered by someone else, usually the guy who wanted to apply the patch.</p>
+<p>Now the barriers of quality are more apparent. Your patch will simply not be considered for inclusion before it has all those elements. It&#8217;ll live with the &#8220;unverified&#8221; keyword until you or someone else that cares especially deeply about the patch (like someone else having the same problem) gets the quality up to par. Then the patch moves on to step 2.</p>
+<p><strong>Step 2: Get the community engaged to review your patch</strong></p>
+<p>The last step before your patch is ready to be put in the queue for inclusion is to get community support round up. We now require that three different people must review your patch, apply it, run the tests, read your documentation, and like what it does and how it&#8217;s implemented. When they do, they&#8217;ll make a comment on the ticket with a &#8220;+1&#8221;.</p>
+<p>Get three such +1s and you can tag your patch with the &#8220;verified&#8221; keyword. That&#8217;ll make the patch appear in <a href="http://dev.rubyonrails.org/report/12">Report #12: Verified Patches</a>, which is a bell telling the core team that you patch is baked and ready to be included (barring a final review).</p>
+<p>The core team is trying to keep report #12 empty at all times. There shouldn&#8217;t be a big lag time between getting to &#8220;verified&#8221; and getting a final review of your patch, which will either send it back to unverified (because the implementation is deemed in need of work or because there&#8217;s some fundemental disagreement over whether or how this patch goes about its business) or it&#8217;ll be applied and available in edge.</p>
+<p>So if you have a patch that you still care about sitting in the queue, dust it off, and put it through these two simple steps and you&#8217;ll be back on the road to glory. There are still no guarantees that your patch will receive immediate attention, but so far we&#8217;ve managed to keep report #12 moving very nicely. It&#8217;s all empty as of today!</p>
+<p>The front page of http://dev.rubyonrails.org has been updated to reflect this policy.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

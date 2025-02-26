@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Bla-bla List: Cloning a Rails app in RIFE</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Geert Bevin gets an A+ for trying, no doubt about that. In an attempt to hold the fort for Java as the troops are deserting left and right, Geert went away for a few months to contemplate and implement Bla-bla List. A more or less functional clone of Ta-da List done in Laszlo and RIFE (a Java web framework).With the introduction of Bla-bla, Geert was even so kind as to point out a few security and usability issues with Ta-da, which was promptly resolved. Even kinder, he has put up a Subversion repository with the full source.I gave it a glance and decided to share a few snippets from Ta-da (which unlike Bla-bla is not open source) to show the difference in how the two implementations deal with the core action: checking off todo items.While no comparison between two different implementations is going to be perfect, this is as close as it gets. What surprised me the most was the lack of a real domain model. Apparently, the model in Blabla is just a bunch of data containers while the logic is in a service/controller layer. Ouch. I sure don&#8217;t hope that procedural excuse for an object-oriented system is par for course with RIFE.Regardless, this was surely good fun. Geert put a lot of effort into it and a pat on the back for that. Whether this implementation is going to lure any of the deserters back into the camp is more doubtful, though.P.S.: Geert&#8217;s posting includes a doomsday warning that data will be lost on Ta-da if your session expires. That was true for about half an hour, but has since been resolved." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Bla-bla List: Cloning a Rails app in RIFE" />
+  <meta property="og:description" content="Geert Bevin gets an A+ for trying, no doubt about that. In an attempt to hold the fort for Java as the troops are deserting left and right, Geert went away for a few months to contemplate and implement Bla-bla List. A more or less functional clone of Ta-da List done in Laszlo and RIFE (a Java web framework).With the introduction of Bla-bla, Geert was even so kind as to point out a few security and usability issues with Ta-da, which was promptly resolved. Even kinder, he has put up a Subversion repository with the full source.I gave it a glance and decided to share a few snippets from Ta-da (which unlike Bla-bla is not open source) to show the difference in how the two implementations deal with the core action: checking off todo items.While no comparison between two different implementations is going to be perfect, this is as close as it gets. What surprised me the most was the lack of a real domain model. Apparently, the model in Blabla is just a bunch of data containers while the logic is in a service/controller layer. Ouch. I sure don&#8217;t hope that procedural excuse for an object-oriented system is par for course with RIFE.Regardless, this was surely good fun. Geert put a lot of effort into it and a pat on the back for that. Whether this implementation is going to lure any of the deserters back into the camp is more doubtful, though.P.S.: Geert&#8217;s posting includes a doomsday warning that data will be lost on Ta-da if your session expires. That was true for about half an hour, but has since been resolved." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/3/19/bla-bla-list-cloning-a-rails-app-in-rife" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Bla-bla List: Cloning a Rails app in RIFE" />
+  <meta name="twitter:description" content="Geert Bevin gets an A+ for trying, no doubt about that. In an attempt to hold the fort for Java as the troops are deserting left and right, Geert went away for a few months to contemplate and implement Bla-bla List. A more or less functional clone of Ta-da List done in Laszlo and RIFE (a Java web framework).With the introduction of Bla-bla, Geert was even so kind as to point out a few security and usability issues with Ta-da, which was promptly resolved. Even kinder, he has put up a Subversion repository with the full source.I gave it a glance and decided to share a few snippets from Ta-da (which unlike Bla-bla is not open source) to show the difference in how the two implementations deal with the core action: checking off todo items.While no comparison between two different implementations is going to be perfect, this is as close as it gets. What surprised me the most was the lack of a real domain model. Apparently, the model in Blabla is just a bunch of data containers while the logic is in a service/controller layer. Ouch. I sure don&#8217;t hope that procedural excuse for an object-oriented system is par for course with RIFE.Regardless, this was surely good fun. Geert put a lot of effort into it and a pat on the back for that. Whether this implementation is going to lure any of the deserters back into the camp is more doubtful, though.P.S.: Geert&#8217;s posting includes a doomsday warning that data will be lost on Ta-da if your session expires. That was true for about half an hour, but has since been resolved." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/3/19/bla-bla-list-cloning-a-rails-app-in-rife"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Bla-bla List: Cloning a Rails app in RIFE",
+      "description": "Geert Bevin gets an A+ for trying, no doubt about that. In an attempt to hold the fort for Java as the troops are deserting left and right, Geert went away for a few months to contemplate and implement Bla-bla List. A more or less functional clone of Ta-da List done in Laszlo and RIFE (a Java web framework).With the introduction of Bla-bla, Geert was even so kind as to point out a few security and usability issues with Ta-da, which was promptly resolved. Even kinder, he has put up a Subversion repository with the full source.I gave it a glance and decided to share a few snippets from Ta-da (which unlike Bla-bla is not open source) to show the difference in how the two implementations deal with the core action: checking off todo items.While no comparison between two different implementations is going to be perfect, this is as close as it gets. What surprised me the most was the lack of a real domain model. Apparently, the model in Blabla is just a bunch of data containers while the logic is in a service/controller layer. Ouch. I sure don&#8217;t hope that procedural excuse for an object-oriented system is par for course with RIFE.Regardless, this was surely good fun. Geert put a lot of effort into it and a pat on the back for that. Whether this implementation is going to lure any of the deserters back into the camp is more doubtful, though.P.S.: Geert&#8217;s posting includes a doomsday warning that data will be lost on Ta-da if your session expires. That was true for about half an hour, but has since been resolved.",
+      "url": "http://localhost:4000/2005/3/19/bla-bla-list-cloning-a-rails-app-in-rife",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-03-19T20:13:05+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, March 19, 2005</h5>
+        <h2>Bla-bla List: Cloning a Rails app in RIFE</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Geert Bevin gets an A+ for trying, no doubt about that. In an attempt to hold the fort for Java as the troops are deserting left and right, Geert went away for a few months to <a href="http://rifers.org/blogs/gbevin/2005/3/18/blabla_tada_in_java">contemplate and implement Bla-bla List</a>. A more or less functional clone of <a href="http://www.tadalist.com">Ta-da List</a> done in Laszlo and <span class="caps">RIFE</span> (a Java web framework).</p>
+<p>With the introduction of Bla-bla, Geert was even so kind as to point out a few security and usability issues with Ta-da, which was promptly resolved. Even kinder, he has put up a <a href="https://svn.rifers.org/blablalist/trunk">Subversion repository</a> with the full source.</p>
+<p>I gave it a glance and decided to share a few snippets from Ta-da (which unlike Bla-bla is not open source) to show the difference in how the two implementations deal with the core action: checking off todo items.</p>
+<p><a href="http://www.rubyonrails.com/media/images/blahblah_vs_tada.png"><img src="http://www.rubyonrails.com/media/images/blahblah_vs_tada.png" width="550" border="1" /></a></p>
+<p>While no comparison between two different implementations is going to be perfect, this is as close as it gets. What surprised me the most was the lack of a real domain model. Apparently, the model in Blabla is just a bunch of data containers while the logic is in a service/controller layer. Ouch. I sure don&#8217;t hope that procedural excuse for an object-oriented system is par for course with <span class="caps">RIFE</span>.</p>
+<p>Regardless, this was surely good fun. Geert put a lot of effort into it and a pat on the back for that. Whether this implementation is going to lure any of the deserters back into the camp is more doubtful, though.</p>
+<p><i>P.S.: Geert&#8217;s posting includes a doomsday warning that data will be lost on Ta-da if your session expires. That was true for about half an hour, but has since been resolved.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

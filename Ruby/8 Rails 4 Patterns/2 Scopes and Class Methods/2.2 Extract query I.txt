@@ -1,0 +1,26 @@
+2.2 Extract query I
+
+There's too much code in the ItemsController class. Extract the query used in the index action of the ItemsController to a class method named featured on the Item model.
+
+
+items_controller.rb
+class ItemsController < ApplicationController
+  def index
+    @items = Item.where('rating > ? AND published_on > ?', 5, 2.days.ago)
+  end
+end
+
+
+item.rb
+class Item < ActiveRecord::Base
+
+end
+
+
+Answer:
+item.rb
+class Item < ActiveRecord::Base
+  def self.featured
+    where('rating >  ? AND published_on > ?', 5, 2.days.ago)
+  end
+end

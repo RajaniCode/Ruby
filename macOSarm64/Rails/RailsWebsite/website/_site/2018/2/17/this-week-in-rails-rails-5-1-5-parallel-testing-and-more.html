@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 5.1.5, parallel testing and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone! This is Roque bringing you the latest news from the Rails world." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 5.1.5, parallel testing and more!" />
+  <meta property="og:description" content="Hello everyone! This is Roque bringing you the latest news from the Rails world." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2018/2/17/this-week-in-rails-rails-5-1-5-parallel-testing-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 5.1.5, parallel testing and more!" />
+  <meta name="twitter:description" content="Hello everyone! This is Roque bringing you the latest news from the Rails world." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2018/2/17/this-week-in-rails-rails-5-1-5-parallel-testing-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 5.1.5, parallel testing and more!",
+      "description": "Hello everyone! This is Roque bringing you the latest news from the Rails world.",
+      "url": "http://localhost:4000/2018/2/17/this-week-in-rails-rails-5-1-5-parallel-testing-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "repinel"
+      },
+      "datePublished": "2018-02-17T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, February 17, 2018</h5>
+        <h2>Rails 5.1.5, parallel testing and more!</h2>
+
+        <h6>Posted by repinel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone! This is <a href="https://twitter.com/repinel">Roque</a> bringing you the latest news from the Rails world.</p>
+
+<h3 id="rails-515-released-"><a href="https://rubyonrails.org/2018/2/14/Rails-5-1-5-has-been-released">Rails 5.1.5 released 🎉</a></h3>
+
+<p>Release 5.1.5 is out, but you can still help the community by testing 5.2.0.rc1 to ensure it is solid.</p>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20180210-20180217">This Week’s Contributors</a></h3>
+
+<p>26 people contributed to Rails the past week! If you’d like to join them, why not check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>?</p>
+
+<h3 id="on-writing-software-well-pilot-episode"><a href="https://www.youtube.com/watch?v=H5i1gdwe1Ls">On writing software well: pilot episode</a></h3>
+
+<p>This is first of a serie of episodes recently released by DHH. Check out the full list on <a href="https://www.youtube.com/channel/UCUkM9uMpWatT7gVWShgtKFw">YouTube</a>.</p>
+
+<h3 id="parallel-testing"><a href="https://github.com/rails/rails/pull/31900">Parallel testing</a></h3>
+
+<p>In Rails 6.0.0, new application will run tests in parallel by default. The number of parallel workers is customizable, and which one will have its own temporary database.
+I recommend reading the awesome <a href="https://github.com/rails/rails/pull/31900#issue-167225859">pull request description</a>.
+Good job!</p>
+
+<h3 id="custom-serializers-for-active-job-arguments"><a href="https://github.com/rails/rails/pull/30941">Custom serializers for Active Job arguments</a></h3>
+
+<p>This brings more flexibility on how arguments are passed to jobs.
+Arguments can be serialized using a simple interface described <a href="https://github.com/rails/rails/pull/30941#issue-147799895">here</a>.</p>
+
+<h3 id="add-create_or_find_by"><a href="https://github.com/rails/rails/pull/31989">Add <code class="language-plaintext highlighter-rouge">#create_or_find_by</code></a></h3>
+
+<p>This is similar to <code class="language-plaintext highlighter-rouge">#find_or_create_by</code>, but avoids querying the table first before attempting to insert a row.
+The new approach relies on unique constraints to try inserting a row first, and selecting later. This is very helpful to high throughput application that could have data changes between a <code class="language-plaintext highlighter-rouge">SELECT</code> and a <code class="language-plaintext highlighter-rouge">INSERT</code>.</p>
+
+<h3 id="add-support-for-connection-pooling-on-redis-cache-store"><a href="https://github.com/rails/rails/pull/31866">Add support for connection pooling on Redis cache store</a></h3>
+
+<p>This will keep the number of Redis connections under control.</p>
+
+<p>That’s it for this week. Many more changes were introduced to Rails than were featured here, check out the <a href="https://github.com/rails/rails/compare/master@%7B2018-02-10%7D...@%7B2018-02-17%7D">full week of commit activity</a> to learn more!</p>
+
+<p>Until next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

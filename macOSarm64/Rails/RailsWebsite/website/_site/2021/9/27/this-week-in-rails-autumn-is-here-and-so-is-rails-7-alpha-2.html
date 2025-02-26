@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Autumn is here, and so is Rails 7 Alpha 2! 🍂</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey! Zzak here with a JAM-PACKED edition of This Week In Rails. 🍇" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Autumn is here, and so is Rails 7 Alpha 2! 🍂" />
+  <meta property="og:description" content="Hey! Zzak here with a JAM-PACKED edition of This Week In Rails. 🍇" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2021/9/27/this-week-in-rails-autumn-is-here-and-so-is-rails-7-alpha-2" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Autumn is here, and so is Rails 7 Alpha 2! 🍂" />
+  <meta name="twitter:description" content="Hey! Zzak here with a JAM-PACKED edition of This Week In Rails. 🍇" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2021/9/27/this-week-in-rails-autumn-is-here-and-so-is-rails-7-alpha-2"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Autumn is here, and so is Rails 7 Alpha 2! 🍂",
+      "description": "Hey! Zzak here with a JAM-PACKED edition of This Week In Rails. 🍇",
+      "url": "http://localhost:4000/2021/9/27/this-week-in-rails-autumn-is-here-and-so-is-rails-7-alpha-2",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2021-09-27T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, September 27, 2021</h5>
+        <h2>Autumn is here, and so is Rails 7 Alpha 2! 🍂</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey! <a href="https://github.com/zzak">Zzak</a> here with a JAM-PACKED edition of This Week In Rails. 🍇</p>
+
+<h3 id="server-timing-middleware-for-development"><a href="https://github.com/rails/rails/pull/36289">Server Timing Middleware for Development</a></h3>
+
+<p>This PR started nearly 2 and a half years ago, finally made its way into Rails!</p>
+
+<p>A really neat feature, uses the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing">Server-Timing header</a> to emit durations for all ActiveSupport::Notifications. You can then view these metrics in your browser’s Network Inspector. </p>
+
+<h3 id="allow-link_to-helper-to-infer-link-name-from-modelto_s"><a href="https://github.com/rails/rails/pull/42234">Allow link_to helper to infer link name from Model#to_s</a></h3>
+
+<p>If your model defines #to_s, you can now take advantage of this feature without having to supply a second argument to link_to.</p>
+
+<h3 id="adds-support-for-deferrable-foreign-key-constraints-in-postgresql"><a href="https://github.com/rails/rails/pull/41487">Adds support for deferrable foreign key constraints in PostgreSQL</a></h3>
+
+<p>By default, foreign key constraints in PostgreSQL are checked after each statement. This works for most use cases, but becomes a major limitation when creating related records before the parent record is inserted into the database. Check out the PR for some examples and more detail.</p>
+
+<h3 id="github-codespaces-configuration"><a href="https://github.com/rails/rails/pull/43061">GitHub Codespaces configuration</a></h3>
+
+<p>This PR adds support for <a href="https://github.com/features/codespaces">GitHub Codespaces</a>, which allows contributors to easily boot a fully functional environment to create patches and test changes to Rails.</p>
+
+<h3 id="close-rails-guides-menu-dropdown-by-pressing-escape"><a href="https://github.com/rails/rails/pull/43113">Close Rails Guides menu dropdown by pressing Escape</a></h3>
+
+<p>A welcome UX patch that lets you close the menu dropdown by pressing the Escape key.</p>
+
+<h3 id="improve-margin-styles-for-rails-guides"><a href="https://github.com/rails/rails/pull/43250">Improve margin styles for Rails Guides</a></h3>
+
+<p>We always appreciate when folks help improve our documentation, especially the visual aspect to make reading on multiple devices a pleasure.</p>
+
+<h3 id="fix-the-diff-highlight-background-for-rails-guides-dark-mode"><a href="https://github.com/rails/rails/pull/42989">Fix the diff highlight background for Rails Guides dark mode</a></h3>
+
+<p>Another great UX patch for Rails Guides that is always appreciated.</p>
+
+<h3 id="suggest-a-csp-thats-compatible-with-turbo--import-map"><a href="https://github.com/rails/rails/pull/43227">Suggest a CSP that’s compatible with Turbo + import map</a></h3>
+
+<p>In order for CSP to work with Turbo and an import map, we need nonces to be generated. This PR changes the generated CSP initializer to use per-session nonces instead of per-request nonces which would have negative impact on caching.</p>
+
+<h3 id="add-bootstrap-and-bulma-to-the-css-processors-list"><a href="https://github.com/rails/rails/pull/43254">Add Bootstrap and Bulma to the CSS processors’ list</a></h3>
+
+<p>As support for more CSS processors are added to <a href="https://github.com/rails/cssbundling-rails">cssbundling-rails</a>, we’ve updated the <code class="language-plaintext highlighter-rouge">rails new --help</code> text to include currently available options.</p>
+
+<h3 id="dont-overwrite-default-opts-in-rich_text_area_tag"><a href="https://github.com/rails/rails/pull/43156">Don’t overwrite default opts in rich_text_area_tag</a></h3>
+
+<p>This PR enables passing in a custom <code class="language-plaintext highlighter-rouge">direct_upload_url</code> or <code class="language-plaintext highlighter-rouge">blob_url_template</code> to <code class="language-plaintext highlighter-rouge">rich_text_area_tag</code>. In the case you want to use your own controller to authenticate requests or perform server-side validations.</p>
+
+<h3 id="avoid-comment-statements-in-pgdump"><a href="https://github.com/rails/rails/pull/43216">Avoid comment statements in pg:dump</a></h3>
+
+<p>This PR adds the –no-comment flag to pg_dump to ensure COMMENT statements are omitted from the output when using PostgreSQL &gt;= 11.</p>
+
+<h3 id="require-latest-release-candidate-for-selenium-webdriver-in-rails-new"><a href="https://github.com/rails/rails/pull/43270">Require latest release candidate for selenium-webdriver in Rails new</a></h3>
+
+<p>Since the “rexml” gem was removed from Ruby version &gt;= 3 the selenium-webdriver gem has been waiting for a release that includes their updated dependency on the standard library gem.</p>
+
+<h3 id="support-clearing-acronyms-from-inflector"><a href="https://github.com/rails/rails/pull/42475">Support clearing acronyms from inflector</a></h3>
+
+<p>Previously attempting to clear acronyms in the Inflector breaks would result in a TypeError.</p>
+
+<h3 id="allow-permitting-numeric-params"><a href="https://github.com/rails/rails/pull/42501">Allow permitting numeric params</a></h3>
+
+<p>ActionController::Parameters now lets you specify multiple parameters index by a number. This may be necessary if the parameters belong to a numeric key.</p>
+
+<h3 id="check-basic-auth-credentials-before-authenticate"><a href="https://github.com/rails/rails/pull/43209">Check basic auth credentials before authenticate</a></h3>
+
+<p>This PR fixes a bug when sending invalid basic authorization header data when using <code class="language-plaintext highlighter-rouge">http_basic_authentication_with</code>.</p>
+
+<h3 id="render-host_authorization-debug-view-only-for-local-requests"><a href="https://github.com/rails/rails/pull/42872">Render host_authorization debug view only for local requests</a></h3>
+
+<p>This PR fixes a bug where debugging information was visible in production by restricting access to local requests only.</p>
+
+<h3 id="add-missing-migrate-command-to-getting-started-rails-guide"><a href="https://github.com/rails/rails/pull/43276">Add missing migrate command to Getting Started Rails Guide</a></h3>
+
+<p>This might seem like a minor patch, but contributions from folks learning Ruby on Rails for the first time is a healthy sign. Changes like these help ease the difficulty of learning and welcomes new contributors to the community.</p>
+
+<h3 id="active-storage-deprecate-invalid-default-content-types"><a href="https://github.com/rails/rails/pull/42227">Active Storage: deprecate invalid default content types</a></h3>
+
+<p>Blobs created with content_type <code class="language-plaintext highlighter-rouge">image/jpg</code>, <code class="language-plaintext highlighter-rouge">image/pjpeg</code>, <code class="language-plaintext highlighter-rouge">image/bmp</code>, <code class="language-plaintext highlighter-rouge">text/javascript</code> will now produce a deprecation warning, since these are not valid content types.</p>
+
+<h3 id="allow-configuring-postgresql-connection-password-through-socket-url"><a href="https://github.com/rails/rails/pull/42840">Allow configuring PostgreSQL connection password through socket URL</a></h3>
+
+<p>This PR allows you to specify your password using a socket URL, such as “postgres:///?user=user&amp;password=secret&amp;dbname=app”.</p>
+
+<h3 id="add-autocompleteoff-to-all-generated-hidden-fields"><a href="https://github.com/rails/rails/pull/43280">Add autocomplete=”off” to all generated hidden fields</a></h3>
+
+<p>Due to a <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=520561">longstanding Firefox bug</a>, this PR ensures hidden fields such as CSRF token and HTTP method fields are not modified without the user’s knowledge.</p>
+
+<h3 id="add-beginning_of_week-option-to-weekday_options_for_select"><a href="https://github.com/rails/rails/pull/43037">Add beginning_of_week option to weekday_options_for_select</a></h3>
+
+<p>Now you can specify the beginning of the week to this select field without depending on Date.beginning_of_week.</p>
+
+<h3 id="action-mailer-email_address_with_name-now-returns-the-email-if-name-is-blank"><a href="https://github.com/rails/rails/pull/42970">Action Mailer email_address_with_name now returns the email if name is blank</a></h3>
+
+<p>When sending an email using Action Mailer the object referencing the person you want to send it to may not have a name associated with it. For example, in the case this field is optional for your User record. In this case Action Mailer will now use the target email address.</p>
+
+<h3 id="add-missing-dom-ids-to-railsmailersemailhtml-template"><a href="https://github.com/rails/rails/pull/42470">Add missing DOM ids to rails/mailers/email.html template</a></h3>
+
+<p>This PR will help folks testing their Mailer Preview actions by using unique identifiers to select the mail data from the DOM instantly.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20210917-20210926">35 people</a> contributed (over 120 commits!) to Rails since last time. All the changes can be checked <a href="https://github.com/rails/rails/compare/@%7B2021-09-18%7D...main@%7B2021-09-26%7D">here</a>. Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

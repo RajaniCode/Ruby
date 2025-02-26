@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: 🍫 Your Golden Ticket to the Chocolate Factory 🍫</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jon here welcoming you to This Week in Rails!Today we’ll be touring the wondrous Ruby on Rails chocolate factory to see how its marvelous candy, consumed by web apps and developers everywhere, is made and tested.Golden tickets in hand? Let’s go!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: 🍫 Your Golden Ticket to the Chocolate Factory 🍫" />
+  <meta property="og:description" content="Jon here welcoming you to This Week in Rails!Today we’ll be touring the wondrous Ruby on Rails chocolate factory to see how its marvelous candy, consumed by web apps and developers everywhere, is made and tested.Golden tickets in hand? Let’s go!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/9/18/this-week-in-rails-your-golden-ticket-to-the-chocolate-factory" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: 🍫 Your Golden Ticket to the Chocolate Factory 🍫" />
+  <meta name="twitter:description" content="Jon here welcoming you to This Week in Rails!Today we’ll be touring the wondrous Ruby on Rails chocolate factory to see how its marvelous candy, consumed by web apps and developers everywhere, is made and tested.Golden tickets in hand? Let’s go!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/9/18/this-week-in-rails-your-golden-ticket-to-the-chocolate-factory"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: 🍫 Your Golden Ticket to the Chocolate Factory 🍫",
+      "description": "Jon here welcoming you to This Week in Rails!Today we’ll be touring the wondrous Ruby on Rails chocolate factory to see how its marvelous candy, consumed by web apps and developers everywhere, is made and tested.Golden tickets in hand? Let’s go!",
+      "url": "http://localhost:4000/2016/9/18/this-week-in-rails-your-golden-ticket-to-the-chocolate-factory",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "jonatack"
+      },
+      "datePublished": "2016-09-18T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, September 18, 2016</h5>
+        <h2>This Week in Rails: 🍫 Your Golden Ticket to the Chocolate Factory 🍫</h2>
+
+        <h6>Posted by jonatack</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><a href="https://twitter.com/jonatack">Jon</a> here welcoming you to This Week in Rails!</p>
+
+<p>Today we’ll be touring the wondrous <strong>Ruby on Rails chocolate factory</strong> to see how its marvelous candy, consumed by web apps and developers everywhere, is made and tested.</p>
+
+<p>Golden tickets in hand? Let’s go!</p>
+
+<h2 id="welcome-">Welcome! 🎩</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160910-20160916">This Week’s Rails Contributors</a></h3>
+
+<p>This week, <a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160910-20160916">26 fabulous oompa-loompas</a> concocted improvements to make your favorite candy even more delicious – including one for the first time!</p>
+
+<h3 id="fix-bundler-warnings-about-insecure-github-sources"><a href="https://github.com/rails/rails/commit/12d5c21">Fix Bundler warnings about insecure github sources</a></h3>
+
+<p>If you upgrade to bundler 1.13 and use <strong>github</strong> options to specify gem sources in your Gemfile, you’ll see warnings when running bundle commands.</p>
+
+<p>To fix, you can run <strong>bundle config github.https true</strong> on the command line.</p>
+
+<p>Or if you don’t control the environment the Gemfile will execute in, you can add this to the Gemfile, like Rails now does:</p>
+
+<p><strong>git_source(:github) |repo_name| do<br />
+  “https://github.com/#{​repo_name}​.git”<br />
+end</strong></p>
+
+<p>Backported to 5-0-stable.</p>
+
+<h2 id="improving-the-chocolate-">Improving the chocolate 🍩🍫</h2>
+
+<h3 id="puma-docs-disconnect-connections-before-preloading"><a href="https://github.com/rails/rails/pull/26314">Puma docs: Disconnect connections before preloading</a></h3>
+
+<p>This pull request added documentation for <strong>config/puma.rb</strong> to recommend closing database connections if preloading an application that uses Active Record. See the discussions in the <a href="https://github.com/rails/rails/pull/26314">pull request</a> and in <a href="https://github.com/puma/puma/issues/1001">puma/puma#1001</a> for more.</p>
+
+<h3 id="improve-assert_response-helper"><a href="https://github.com/rails/rails/pull/26477">Improve assert_response helper</a></h3>
+
+<p>To improve productivity when writing tests, if an <strong>assert_response</strong> test fails, Rails nows outputs the actual response body if it’s not too large (less than or equal to 500 chars).</p>
+
+<h2 id="fixing-bugs-in-the-candy-">Fixing bugs in the candy 🍬</h2>
+
+<h3 id="clear-attribute-changes-after-touching"><a href="https://github.com/rails/rails/pull/26497">Clear attribute changes after touching</a></h3>
+
+<p>Following-up on a very good <a href="https://github.com/rails/rails/issues/26496">bug report</a>, this PR fixed a Rails 5 regression so that calling <strong>ActiveRecord#touch</strong> when using optimistic locking once again leaves the model in a non-dirty state with no attribute changes.</p>
+
+<h3 id="prevent-mutation-of-constants"><a href="https://github.com/rails/rails/pull/26442">Prevent mutation of constants</a></h3>
+
+<p>Tests using <strong>ActionDispatch::IntegrationTest</strong> were failing when run after any controller test that modified <strong>request.session_options</strong>. It turned out that  <strong>ActionController::TestSession::DEFAULT_OPTIONS</strong> was being mutated, and as a result, <strong>Rack::Session::Abstract::Persisted::DEFAULT_OPTIONS</strong> also, which made integration tests inherit that value and fail.</p>
+
+<p>This pull request dup’ed the AC default options constant to prevent mutation, and a <a href="https://github.com/rack/rack/pull/1110">pull request to Rack</a> was merged to freeze the Rack default options constant and avoid the issue in the future.</p>
+
+<h3 id="force-correct-namespace-with-transactionmanager"><a href="https://github.com/rails/rails/commit/f62451a">Force correct namespace with TransactionManager</a></h3>
+
+<p>This pull request fixed <a href="https://github.com/rails/rails/issues/26441">issue #26441</a>: “NameError: uninitialized constant AR::ConnectionAdapters::DatabaseStatements::TransactionManager when calling reset_transaction”.</p>
+
+<h2 id="how-to-contribute-some-examples-from-this-week-">How to contribute? Some examples from this week 🍰</h2>
+
+<h3 id="fix-warnings-in-the-test-suite"><a href="https://github.com/rails/rails/pull/26484">Fix warnings in the test suite</a></h3>
+
+<p>Running the Rails test suite can be a great way to uncover minor issues to fix. This pull request addressed 2 warnings in the test suite that arose simply from not wrapping a method argument in parentheses.</p>
+
+<h3 id="add-missing-tests"><a href="https://github.com/rails/rails/pull/26459">Add missing tests</a></h3>
+
+<p>Noticing that there were no tests for when <strong>ActiveRecord::Enum#enum</strong> was called with a specific suffix, this contributor added some.</p>
+
+<h3 id="improve-the-rails-guides"><a href="https://github.com/rails/rails/pull/26478">Improve the Rails Guides</a></h3>
+
+<p>Better documentation is always welcome. After seeing <a href="https://github.com/rails/rails/issues/26286">issue #26286</a>, this contributor helpfully improved the documentation for the <strong>render partial ‘as’</strong> option.</p>
+
+<h3 id="add-a-bug-report-template"><a href="https://github.com/rails/rails/pull/26488">Add a bug report template</a></h3>
+
+<p>The commit message says it all: <em>“I created this for testing migrations in isolation and thought it would be helpful to others in the future to avoid having to dig through the Rails migration tests.”</em></p>
+
+<h3 id="remove-duplicate-code"><a href="https://github.com/rails/rails/pull/26462">Remove duplicate code</a></h3>
+
+<p>This <strong>elsif</strong> branch was a duplicate of the <strong>else</strong> branch just after it. You’ll never believe what happened next 😮.</p>
+
+<h2 id="how-to-inherit-a-world-of-unlimited-imagination-">How to inherit a world of unlimited imagination 🍭</h2>
+
+<p>That’s it for today’s tour, but the true journey has only just begun.</p>
+
+<p>Starting today, choose any file in the <a href="https://github.com/rails/rails">Rails codebase</a> and read it.</p>
+
+<p>Pick an <a href="https://github.com/rails/rails/issues">open issue</a> on the master branch, and try to reproduce the bug using the <a href="https://github.com/rails/rails/tree/master/guides/bug_report_templates">Rails bug report templates</a>.</p>
+
+<p>Go through the <a href="http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html">Contributing to Ruby on Rails Guide</a>. Set up your Rails test environment.</p>
+
+<p>Pick an <a href="https://github.com/rails/rails/pulls">open pull request</a> and test it or review it.</p>
+
+<p>You’ll be surprised what baby steps like these can lead to!</p>
+
+<p>Enjoy the wonderful chocolate – and see you next week.</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

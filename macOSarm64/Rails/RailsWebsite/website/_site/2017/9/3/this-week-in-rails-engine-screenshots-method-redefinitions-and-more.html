@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: engine screenshots, method redefinitions and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Oh, hello there! I’m Tim, and if you’re reading this that means you’ve got Rails fever! It’s time for your weekly dose of This Week in Rails…." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: engine screenshots, method redefinitions and more!" />
+  <meta property="og:description" content="Oh, hello there! I’m Tim, and if you’re reading this that means you’ve got Rails fever! It’s time for your weekly dose of This Week in Rails…." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/9/3/this-week-in-rails-engine-screenshots-method-redefinitions-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: engine screenshots, method redefinitions and more!" />
+  <meta name="twitter:description" content="Oh, hello there! I’m Tim, and if you’re reading this that means you’ve got Rails fever! It’s time for your weekly dose of This Week in Rails…." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/9/3/this-week-in-rails-engine-screenshots-method-redefinitions-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: engine screenshots, method redefinitions and more!",
+      "description": "Oh, hello there! I’m Tim, and if you’re reading this that means you’ve got Rails fever! It’s time for your weekly dose of This Week in Rails….",
+      "url": "http://localhost:4000/2017/9/3/this-week-in-rails-engine-screenshots-method-redefinitions-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "imtayadeway"
+      },
+      "datePublished": "2017-09-03T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, September 3, 2017</h5>
+        <h2>This Week in Rails: engine screenshots, method redefinitions and more!</h2>
+
+        <h6>Posted by imtayadeway</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Oh, hello there! I’m <a href="https://twitter.com/imtayadeway">Tim</a>, and if you’re reading this that means you’ve got Rails fever! It’s time for your weekly dose of This Week in Rails….</p>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20170826-20170902">This Week’s Contributors</a></h3>
+
+<p>This week 21 people contributed to Rails, including 4 for the first time! If you’d like to join them and perhaps get a slot in next week’s edition, why not check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>?</p>
+
+<h3 id="support-multiple-version-arguments-for-gems-in-generators"><a href="https://github.com/rails/rails/pull/30323">Support multiple version arguments for gems in generators</a></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">gem</code> method can now support multiple version constraints, just like in <a href="http://guides.rubygems.org/patterns/#pessimistic-version-constraint">rubygems</a>!</p>
+
+<h3 id="make-take_failed_screenshot-work-within-engine"><a href="https://github.com/rails/rails/pull/30421">Make <code class="language-plaintext highlighter-rouge">take_failed_screenshot</code> work within engine</a></h3>
+
+<p>This method used to get the tmp directory relative to <code class="language-plaintext highlighter-rouge">Rails.root</code>, which in an engine points to the dummy application, where no such directory exists. This was fixed by using the path relative to the current directory instead.</p>
+
+<h3 id="clarify-intentions-around-method-redefinitions"><a href="https://github.com/rails/rails/pull/29233">Clarify intentions around method redefinitions</a></h3>
+
+<p>This fixed a race condition in <code class="language-plaintext highlighter-rouge">class_attribute</code>, which in redefining an attribute had to remove it first and then redefine it. If another thread was trying to access that attribute in the middle of that, it would raise a <code class="language-plaintext highlighter-rouge">NameError</code>. Thankfully no more!</p>
+
+<p>….and that’s a wrap! As always, there is never enough time or space to cover every change this week, but we value each and every one. If you’d like to know more you can check out the <a href="https://github.com/rails/rails/compare/master@%7B2017-08-27%7D...@%7B2017-09-02%7D">full list of changes</a> yourself. See you next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

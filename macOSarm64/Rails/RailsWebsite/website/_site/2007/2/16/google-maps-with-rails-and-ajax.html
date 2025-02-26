@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Writing Google Maps Applications with Rails and Ajax</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Writing Google Maps Applications with Rails and Ajax" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2007/2/16/google-maps-with-rails-and-ajax" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Writing Google Maps Applications with Rails and Ajax" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2007/2/16/google-maps-with-rails-and-ajax"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Writing Google Maps Applications with Rails and Ajax",
+      "description": "",
+      "url": "http://localhost:4000/2007/2/16/google-maps-with-rails-and-ajax",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "josh"
+      },
+      "datePublished": "2007-02-16T22:50:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, February 16, 2007</h5>
+        <h2>Writing Google Maps Applications with Rails and Ajax</h2>
+
+        <h6>Posted by josh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p class="asset-left"><img src="/assets/2007/2/16/google_maps_book.gif" alt="" /></p>
+
+<p><a href="http://earthcode.com">Andre Lewis</a> is rolling out a duo of resources for those of you creating mashups and Google Maps-based applications.</p>
+
+<p>Andre’s book, <a href="http://www.amazon.com/dp/1590597877">Beginning Google Maps Applications with Rails and Ajax: from Novice to Professional</a> will be available Feb 26 from Apress. The book covers the basics (getting a Google map up and running, interacting with the the Google maps API in JavaScript), as well as more advanced topics. For example, later chapters show you how to use RMagick to display hundreds of thousands of points on a map by generating custom map tiles, and how to create your own geocoder from US TIGER/Line census data. The book also touches on screen scaping and bulk data manipulation – for example, processing large text files from the command line using Ruby, and the performance implications of a pure ActiveRecord database import vs MySqlImport.</p>
+
+<p>Also related to mapping, Andre recently released <a href="http://geokit.rubyforge.org">GeoKit</a>. GeoKit provides a bundle of tools to make maps-based applications easier:</p>
+
+<ul>
+  <li>Distance calculations in miles or kilometers: <code class="language-plaintext highlighter-rouge">distance = first_location.distance_to(second_location, :units =&gt; :miles)</code></li>
+  <li>ActiveRecord distance-based finders: <code class="language-plaintext highlighter-rouge">Store.find(:all, :origin=&gt;[37.792,-122.393], :conditions=&gt;'distance &lt; 10')</code></li>
+  <li>. . . and directly from an address: <code class="language-plaintext highlighter-rouge">Store.find_closest(:origin=&gt;'100 Spear St, San Francisco, CA')</code></li>
+  <li>Geocoding from Google, Yahoo, Geocoder.us, and Geocoder.ca geocoding services. It provides a uniform response structure from all the geocoders, and also has a configurable fail-over mechanism in case one geocoder fails.</li>
+  <li>IP-based location lookup. Provide an IP address, and get a city name and latitude/longitude in return.</li>
+</ul>
+
+<p>Andre’s announcement on GeoKit is <a href="http://earthcode.com/blog/2007/02/geokit_map_plugin.html">here</a>. Bill Eisenhauer, the co-author of GeoKit, has also <a href="http://www.billeisenhauer.com/examples/geokit">put up some live demos</a>. GeoKit’s home at RubyForge is <a href="http://geokit.rubyforge.org">http://geokit.rubyforge.org/</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

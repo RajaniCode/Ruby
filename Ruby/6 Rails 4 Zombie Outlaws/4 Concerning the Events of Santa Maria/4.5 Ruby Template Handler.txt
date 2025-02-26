@@ -1,0 +1,43 @@
+4.5 Ruby Template Handler
+
+
+We need to set up a JSON view for Limbs, with the kind of limb and the name of the Zombie it belongs to. Right now the json shows only the zombie name though. Update the limbs_hash to also include the kind of each limb. Also, when the limbs.json path is accessed, have the view render limbs_hashes in JSON format.
+
+
+app/controllers/limbs_controller.rb
+class LimbsController < ApplicationController
+  def index
+    @limbs = Limb.all
+  end
+end
+
+
+Database:
+zombies
+id	name
+1	Ash
+2	Sophia
+limbs 
+id	zombie_id	kind
+1	1	Diseased Leg
+2	2	Mutant Arm
+
+
+app/views/limbs/index.json.ruby
+limbs_hashes = @limbs.map do |limb|
+  { owner_name: limb.zombie.name }
+end
+# TODO: Output JSON version of limbs_hashes.
+
+
+Answer:
+app/views/limbs/index.json.ruby
+limbs_hashes = @limbs.map do |limb|
+  { owner_name: limb.zombie.name, kind: limb.kind }
+end
+# TODO: Output JSON version of limbs_hashes.
+limbs_hashes.to_json
+
+
+Output:
+[{"owner_name":"Ash","kind":"Diseased Leg"},{"owner_name":"Sophia","kind":"Mutant Arm"}]

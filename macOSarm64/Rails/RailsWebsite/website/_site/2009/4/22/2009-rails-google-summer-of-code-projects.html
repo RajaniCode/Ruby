@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; 2009 Rails Google Summer of Code Projects</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Google Summer of Code program has announced this year&#8217;s funding winners, and Rails has four student slots. Here&#8217;s what our students will be working on this summer:Joshua Peek will be refactoring some of the Rails internals, with the goal of finishing the work on Active Model. The idea behind this particular Rails component is to extract some of the commonalities from Active Record and Active Resource, which in turn will make it easier to maintain the higher-level components and make the more consistent.Nelson Crespo is planning on adding some Dtrace probes into a Rack module. These probes should make it possible to see what&#8217;s going on in a Rails application (or any other Rack-based application) with much finer detail than can be easily retrieved now. When the probes are ready, he&#8217;ll be working up some visualizations.Jose Valim is tackling a rewrite of the Rails generator code. Right now, the generators are tightly-coupled to particular architectural choices; the goal is to make it possible to select, for example, a testing library, an ORM, and a Javascript library when you choose to generate a scaffold, and have the generated code use your preferred pieces.Emilio Tagua will be working on Active Relation. This is another refactoring of the ActiveRecord code, covering the query generation capabilities. With Active Relation as a separate component, Rails will be better positioned to move towards ORM agnosticism.We&#8217;d like to thank all of the students and mentors who participated in the Summer of Code selection process &#8211; it was tough to get down to four projects, considering all the great proposals we had. In particular, we had six runners-up whose proposals were excellent: Carlos Kirkconnell, Florian Gross, Hector Gomez, Ian Ownbey, Luciano Panaro, and Daniel Luz. We&#8217;re looking forward to seeing what all of our students bring to Rails this summer, and hope not to lose touch with others who are also excited about the prospects for Rails 3.0." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="2009 Rails Google Summer of Code Projects" />
+  <meta property="og:description" content="The Google Summer of Code program has announced this year&#8217;s funding winners, and Rails has four student slots. Here&#8217;s what our students will be working on this summer:Joshua Peek will be refactoring some of the Rails internals, with the goal of finishing the work on Active Model. The idea behind this particular Rails component is to extract some of the commonalities from Active Record and Active Resource, which in turn will make it easier to maintain the higher-level components and make the more consistent.Nelson Crespo is planning on adding some Dtrace probes into a Rack module. These probes should make it possible to see what&#8217;s going on in a Rails application (or any other Rack-based application) with much finer detail than can be easily retrieved now. When the probes are ready, he&#8217;ll be working up some visualizations.Jose Valim is tackling a rewrite of the Rails generator code. Right now, the generators are tightly-coupled to particular architectural choices; the goal is to make it possible to select, for example, a testing library, an ORM, and a Javascript library when you choose to generate a scaffold, and have the generated code use your preferred pieces.Emilio Tagua will be working on Active Relation. This is another refactoring of the ActiveRecord code, covering the query generation capabilities. With Active Relation as a separate component, Rails will be better positioned to move towards ORM agnosticism.We&#8217;d like to thank all of the students and mentors who participated in the Summer of Code selection process &#8211; it was tough to get down to four projects, considering all the great proposals we had. In particular, we had six runners-up whose proposals were excellent: Carlos Kirkconnell, Florian Gross, Hector Gomez, Ian Ownbey, Luciano Panaro, and Daniel Luz. We&#8217;re looking forward to seeing what all of our students bring to Rails this summer, and hope not to lose touch with others who are also excited about the prospects for Rails 3.0." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/4/22/2009-rails-google-summer-of-code-projects" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="2009 Rails Google Summer of Code Projects" />
+  <meta name="twitter:description" content="The Google Summer of Code program has announced this year&#8217;s funding winners, and Rails has four student slots. Here&#8217;s what our students will be working on this summer:Joshua Peek will be refactoring some of the Rails internals, with the goal of finishing the work on Active Model. The idea behind this particular Rails component is to extract some of the commonalities from Active Record and Active Resource, which in turn will make it easier to maintain the higher-level components and make the more consistent.Nelson Crespo is planning on adding some Dtrace probes into a Rack module. These probes should make it possible to see what&#8217;s going on in a Rails application (or any other Rack-based application) with much finer detail than can be easily retrieved now. When the probes are ready, he&#8217;ll be working up some visualizations.Jose Valim is tackling a rewrite of the Rails generator code. Right now, the generators are tightly-coupled to particular architectural choices; the goal is to make it possible to select, for example, a testing library, an ORM, and a Javascript library when you choose to generate a scaffold, and have the generated code use your preferred pieces.Emilio Tagua will be working on Active Relation. This is another refactoring of the ActiveRecord code, covering the query generation capabilities. With Active Relation as a separate component, Rails will be better positioned to move towards ORM agnosticism.We&#8217;d like to thank all of the students and mentors who participated in the Summer of Code selection process &#8211; it was tough to get down to four projects, considering all the great proposals we had. In particular, we had six runners-up whose proposals were excellent: Carlos Kirkconnell, Florian Gross, Hector Gomez, Ian Ownbey, Luciano Panaro, and Daniel Luz. We&#8217;re looking forward to seeing what all of our students bring to Rails this summer, and hope not to lose touch with others who are also excited about the prospects for Rails 3.0." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/4/22/2009-rails-google-summer-of-code-projects"
+      },
+      "name": "Ruby on Rails",
+      "headline": "2009 Rails Google Summer of Code Projects",
+      "description": "The Google Summer of Code program has announced this year&#8217;s funding winners, and Rails has four student slots. Here&#8217;s what our students will be working on this summer:Joshua Peek will be refactoring some of the Rails internals, with the goal of finishing the work on Active Model. The idea behind this particular Rails component is to extract some of the commonalities from Active Record and Active Resource, which in turn will make it easier to maintain the higher-level components and make the more consistent.Nelson Crespo is planning on adding some Dtrace probes into a Rack module. These probes should make it possible to see what&#8217;s going on in a Rails application (or any other Rack-based application) with much finer detail than can be easily retrieved now. When the probes are ready, he&#8217;ll be working up some visualizations.Jose Valim is tackling a rewrite of the Rails generator code. Right now, the generators are tightly-coupled to particular architectural choices; the goal is to make it possible to select, for example, a testing library, an ORM, and a Javascript library when you choose to generate a scaffold, and have the generated code use your preferred pieces.Emilio Tagua will be working on Active Relation. This is another refactoring of the ActiveRecord code, covering the query generation capabilities. With Active Relation as a separate component, Rails will be better positioned to move towards ORM agnosticism.We&#8217;d like to thank all of the students and mentors who participated in the Summer of Code selection process &#8211; it was tough to get down to four projects, considering all the great proposals we had. In particular, we had six runners-up whose proposals were excellent: Carlos Kirkconnell, Florian Gross, Hector Gomez, Ian Ownbey, Luciano Panaro, and Daniel Luz. We&#8217;re looking forward to seeing what all of our students bring to Rails this summer, and hope not to lose touch with others who are also excited about the prospects for Rails 3.0.",
+      "url": "http://localhost:4000/2009/4/22/2009-rails-google-summer-of-code-projects",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Mike Gunderloy"
+      },
+      "datePublished": "2009-04-22T18:31:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, April 22, 2009</h5>
+        <h2>2009 Rails Google Summer of Code Projects</h2>
+
+        <h6>Posted by Mike Gunderloy</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>The <a href="http://socghop.appspot.com/">Google Summer of Code</a> program has announced this year&#8217;s funding winners, and Rails has four student slots. Here&#8217;s what our students will be working on this summer:</p>
+<p><a href="http://joshpeek.com/">Joshua Peek</a> will be refactoring some of the Rails internals, with the goal of finishing the work on Active Model. The idea behind this particular Rails component is to extract some of the commonalities from Active Record and Active Resource, which in turn will make it easier to maintain the higher-level components and make the more consistent.</p>
+<p><a href="http://copypastel.com/">Nelson Crespo</a> is planning on adding some Dtrace probes into a Rack module. These probes should make it possible to see what&#8217;s going on in a Rails application (or any other Rack-based application) with much finer detail than can be easily retrieved now. When the probes are ready, he&#8217;ll be working up some visualizations.</p>
+<p><a href="http://josevalim.blogspot.com/">Jose Valim</a> is tackling a rewrite of the Rails generator code. Right now, the generators are tightly-coupled to particular architectural choices; the goal is to make it possible to select, for example, a testing library, an <span class="caps">ORM</span>, and a Javascript library when you choose to generate a scaffold, and have the generated code use your preferred pieces.</p>
+<p><a href="http://www.miloops.com/">Emilio Tagua</a> will be working on Active Relation. This is another refactoring of the ActiveRecord code, covering the query generation capabilities. With Active Relation as a separate component, Rails will be better positioned to move towards <span class="caps">ORM</span> agnosticism.</p>
+<p>We&#8217;d like to thank all of the students and mentors who participated in the Summer of Code selection process &#8211; it was tough to get down to four projects, considering all the great proposals we had. In particular, we had six runners-up whose proposals were excellent: Carlos Kirkconnell, Florian Gross, Hector Gomez, Ian Ownbey, Luciano Panaro, and Daniel Luz. We&#8217;re looking forward to seeing what all of our students bring to Rails this summer, and hope not to lose touch with others who are also excited about the prospects for Rails 3.0.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

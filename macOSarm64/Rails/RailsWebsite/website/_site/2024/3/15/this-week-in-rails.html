@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Active Record Basics Guide Refresh, Encrypted Attributes Re-Optimization, and more...</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Active Record Basics Guide Refresh, Encrypted Attributes Re-Optimization, and more..." />
+  <meta property="og:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/3/15/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Active Record Basics Guide Refresh, Encrypted Attributes Re-Optimization, and more..." />
+  <meta name="twitter:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/3/15/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Active Record Basics Guide Refresh, Encrypted Attributes Re-Optimization, and more...",
+      "description": "Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2024/3/15/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2024-03-15T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, March 15, 2024</h5>
+        <h2>Active Record Basics Guide Refresh, Encrypted Attributes Re-Optimization, and more...</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://github.com/zzak">zzak</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p>The <a href="https://sessionize.com/rails-world/">Rails World CFP</a> will close in just one week on March 21.<br />
+Submit your talk in time!</p>
+
+<p><a href="https://github.com/rails/rails/pull/51226">Active Record Basics Guide</a><br />
+This PR refreshes the guide covering the basics of Active Record.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51325">Do not try to alias on key update when raw SQL is supplied</a><br />
+A bug was found when updating duplicates with raw SQL.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51324">Memoize “key_provider” from “key” or deterministic “key_provider” if any</a><br />
+Previously, this memoization was removed which lead to a performance hit for encrypted attributes.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51317">Updating Astana with a Western Kazakhstan timezone</a><br />
+On March 1, 2024, Kazakhstan (all parts) switched to a single time zone UTC+5.<br />
+Using the latest <a href="https://github.com/tzinfo/tzinfo-data/releases/tag/v1.2024.1">tzinfo-data</a> that updated the Kazakhstan timezones, ActiveSupport still showed the incorrect offset because it was pointing to the <code class="language-plaintext highlighter-rouge">Asia/Dhaka</code> Bangladesh timezone, which will not get the same TZ offset change.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51313">Preserve encoding on “truncate_bytes”</a><br />
+This PR addressed an issue where <code class="language-plaintext highlighter-rouge">String#truncate_bytes</code> can return a string with a different encoding than the one being truncated.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51299">Support custom blob key in ActiveStorage::Blob.compose</a><br />
+Since Rails 6.1, Active Storage has allowed to provide a custom <code class="language-plaintext highlighter-rouge">key</code> when attaching a new file.<br />
+This PR adds support when using the <code class="language-plaintext highlighter-rouge">compose</code> class method to customize the name of the underlying service object.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51286">Fix MySQL adapter for inserts with aliases</a><br />
+This pull request addresses errors that occur when using MySQL 8.0.18 or lower version of MySQL 8.0.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51267">Railties configure sanitizer vendor in 7.1 defaults more robustly</a><br />
+In order to avoid an issue where Rails::HTML::Sanitizer is not yet loaded, which resulted in the sanitizer vendor remaining as <code class="language-plaintext highlighter-rouge">Rails::HTML4</code> and not be set to <code class="language-plaintext highlighter-rouge">Rails::HTML5</code> as intended in Rails 7.1.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-03-08%7D...main@%7B2024-03-15%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240308-20240315">20 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

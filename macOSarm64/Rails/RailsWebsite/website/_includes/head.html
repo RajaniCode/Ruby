@@ -1,0 +1,71 @@
+{% if page.title %}
+  {% assign title = page.title %}
+{% else %}
+  {% assign title = site.title %}
+{% endif %}
+
+{% if page.collection == 'posts' %}
+  {% assign description = page.excerpt | strip_html | strip_newlines %}
+{% else %}
+  {% if page.description %}
+    {% assign description = page.description %}
+  {% else %}
+    {% assign description = site.description %}
+  {% endif %}
+{% endif %}
+
+{% if page.og_image %}
+  {% assign image = page.og_image | absolute_url %}
+{% else %}
+  {% assign image = '/assets/images/opengraph.png' | absolute_url %}
+{% endif %}
+
+{% assign url = page.url  | absolute_url %}
+
+<head>
+  <title>{{ site.title }} &mdash; {% if page.title %}{{ page.title }}{% else %}{{ site.description }}{% endif %}</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ description }}" />
+
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:image" content="{{ image }}" />
+  <meta property="og:url" content="{{ url }}" />
+  <meta property="og:type" content="{% if page.collection == 'posts' %}article{% else %}website{% endif %}" />
+
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description }}" />
+  <meta name="twitter:image" content="{{ image }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@{{ site.twitter }}" />
+  <meta name="twitter:image:alt" content="{{ site.title }}" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{% if page.collection == 'posts' %}BlogPosting{% else %}WebPage{% endif %}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ url }}"
+      },
+      "name": "{{ site.title }}",
+      "headline": "{{ title }}",
+      "description": "{{ description }}",
+      "url": "{{ url }}",
+      "image": "{{ image }}"{% if page.collection == 'posts' %},
+      "author": {
+        "@type": "Person",
+        "name": "{{ page.author }}"
+      },
+      "datePublished": "{{ page.date | date_to_xmlschema }}"{% endif %}
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="{{ site.feed_path }}" title="The official {{ site.title }} blog">
+</head>

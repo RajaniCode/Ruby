@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; A new conference, new Action Mailer callbacks and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s Greg, bringing you the latest news about Ruby on Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="A new conference, new Action Mailer callbacks and more!" />
+  <meta property="og:description" content="Hi, it’s Greg, bringing you the latest news about Ruby on Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/4/7/this-week-in-rails-a-new-conference-action-mailer-callbacks-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="A new conference, new Action Mailer callbacks and more!" />
+  <meta name="twitter:description" content="Hi, it’s Greg, bringing you the latest news about Ruby on Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/4/7/this-week-in-rails-a-new-conference-action-mailer-callbacks-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "A new conference, new Action Mailer callbacks and more!",
+      "description": "Hi, it’s Greg, bringing you the latest news about Ruby on Rails.",
+      "url": "http://localhost:4000/2023/4/7/this-week-in-rails-a-new-conference-action-mailer-callbacks-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Greg"
+      },
+      "datePublished": "2023-04-07T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, April 7, 2023</h5>
+        <h2>A new conference, new Action Mailer callbacks and more!</h2>
+
+        <h6>Posted by Greg</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://greg.molnar.io">Greg</a>, bringing you the latest news about Ruby on Rails.</p>
+
+<p>We have exciting news from the Rails Foundation! The first-ever Rails World Conference is coming! Join the community on October 5 &amp; 6 in Amsterdam, Netherlands,  for keynotes, technical sessions, and all things Rails. A website with tickets and a CFP is coming soon!
+You can read the announcement <a href="https://rubyonrails.org/2023/4/6/rails-world-is-coming">here</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47872">Reset composite primary key in <em>#dup</em></a><br />
+This pull request ensures that the composite primary key is reset when <code class="language-plaintext highlighter-rouge">#dup</code> is called on an instance of an <code class="language-plaintext highlighter-rouge">ActiveRecord::Base</code> subclass.</p>
+
+<p>For example:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">TravelRoute</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">primary_key</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:origin</span><span class="p">,</span> <span class="ss">:destination</span><span class="p">]</span>
+<span class="k">end</span>
+
+<span class="n">route</span> <span class="o">=</span> <span class="no">TravelRoute</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">origin: </span><span class="s2">"NYC"</span><span class="p">,</span> <span class="ss">destination: </span><span class="s2">"LAX"</span><span class="p">)</span>
+<span class="n">route</span><span class="p">.</span><span class="nf">dup</span> <span class="c1"># =&gt; #&lt;TravelRoute origin: nil, destination: nil&gt;</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/47863">Ensure pre-7.1 migrations use legacy index names when using create_table</a><br />
+A follow-up to <a href="https://github.com/rails/rails/pull/47753">47753</a> ensures the older versions of Active Record will use the legacy index names rather than the new truncated ones.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47851">Correctly dump check constraints for MySQL 8.0.16+</a><br />
+If you’re using MySQL 8.0.16+ and your database contains a table with a check constraint, the first and last characters of the constraint will be stripped when dumping the schema. This makes it impossible to use check constraints in a MySQL 8.0 database with the :ruby schema format, because once they are dumped, they cannot be re-imported. 
+The change in this pull request fixed the issue.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47836">Only default to select primary key when non-composite</a><br />
+Historically, when a relation is handled in the predicate builder has no selected values, it falls back to selecting the model’s primary key. This tends to work well in single-column primary key cases. In composite key cases, this can lead to attempting to compare a single attribute to a list of attributes, which builds malformed SQL.
+The check this pull request added prevents any code from attempting to do so, by raising in composite primary key cases when defaulting to primary key. For now, users can build these queries themselves.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47630">Add <em>*_deliver</em> callbacks for Action Mailer</a><br />
+This pull request adds deliver callbacks (e.g. <code class="language-plaintext highlighter-rouge">before_deliver</code>, <code class="language-plaintext highlighter-rouge">after_deliver</code>, <code class="language-plaintext highlighter-rouge">around_deliver</code>) to Action Mailer. The benefit is that it allows delivery observer/interceptor-like behaviors within the context of the instance of <code class="language-plaintext highlighter-rouge">ActionMailer::Base</code> rather than operating only on the Mail object.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47839">Active Job verbose logging</a><br />
+A <code class="language-plaintext highlighter-rouge">verbose_enqueue_logs</code> configuration option is added to Active Job to display the caller of background job enqueue in the log to help with debugging.
+It is enabled in development only for new and upgraded applications. Not recommended for use in the production environment since it relies on Ruby’s <code class="language-plaintext highlighter-rouge">Kernel#caller</code> which is fairly slow.</p>
+
+<p><em>There were a lot of documentation-related changes I didn’t cover, you can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-03-31%7D...main@%7B2023-04-07%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230331-20230407">21 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

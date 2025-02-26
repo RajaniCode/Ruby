@@ -1,0 +1,38 @@
+7.4 Set Application Server
+
+Our application has been using Ruby's default WEBrick server, which is not meant for production. Add puma to our Gemfile. Since we'll be using it for all environments, there's no need to group it under a specific environment.
+
+
+Gemfile
+source 'https://rubygems.org'
+
+gem 'rails', '4.0.0'
+gem 'sqlite3'
+gem 'sass-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'jquery-rails'
+gem 'turbolinks'
+
+group :doc do
+  gem 'sdoc', require: false
+end
+
+
+Answer:
+Gemfile
+source 'https://rubygems.org'
+
+gem 'rails', '4.0.0'
+gem 'sqlite3'
+gem 'sass-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'jquery-rails'
+gem 'turbolinks'
+
+group :doc do
+  gem 'sdoc', require: false
+  gem 'puma'
+end
+

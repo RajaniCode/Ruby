@@ -1,0 +1,53 @@
+4.3 Decorators from Views
+
+Change the partial to use @item_decorator instead of @item.
+
+
+item_controller.rb
+class ItemController < ApplicationController
+  def show
+    item = Item.find(params[:id])
+    @item_decorator = ItemDecorator.new(item)
+  end
+end
+
+
+item_decorator.rb
+class ItemDecorator
+  def initialize(item)
+    @item = item
+  end
+
+  def is_featured?
+    @item.ratings > 5
+  end
+
+  def method_missing(method_name, *args, &block)
+    @item.send(method_name, *args, &block)
+  end
+
+  def respond_to_missing?(method_name, include_private = false)
+    @item.respond_to?(method_name, include_private) || super
+  end
+end
+
+
+_item.html.erb
+<h2><%= @item.title %></h2>
+
+<% if @item.is_featured? %>
+  <h3><%= featured_image %></h3>
+<% end %>
+
+<p><%= @item.description %></p>
+
+
+Answer:
+_item.html.erb
+<h2><%= @item_decorator.title %></h2>
+
+<% if @item_decorator.is_featured? %>
+  <h3><%= featured_image %></h3>
+<% end %>
+
+<p><%= @item_decorator.description %></p>

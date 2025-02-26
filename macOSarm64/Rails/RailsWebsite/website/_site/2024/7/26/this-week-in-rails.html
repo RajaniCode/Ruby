@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Model Missing Attributes, SQLite Immediate Transactions, and CVV/CVC Parameter Filtering by default</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s zzak. This is a short week, but let’s jump in." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Model Missing Attributes, SQLite Immediate Transactions, and CVV/CVC Parameter Filtering by default" />
+  <meta property="og:description" content="Hi, it’s zzak. This is a short week, but let’s jump in." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/7/26/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Model Missing Attributes, SQLite Immediate Transactions, and CVV/CVC Parameter Filtering by default" />
+  <meta name="twitter:description" content="Hi, it’s zzak. This is a short week, but let’s jump in." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/7/26/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Model Missing Attributes, SQLite Immediate Transactions, and CVV/CVC Parameter Filtering by default",
+      "description": "Hi, it’s zzak. This is a short week, but let’s jump in.",
+      "url": "http://localhost:4000/2024/7/26/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2024-07-26T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, July 26, 2024</h5>
+        <h2>Model Missing Attributes, SQLite Immediate Transactions, and CVV/CVC Parameter Filtering by default</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://github.com/zzak">zzak</a>. This is a short week, but let’s jump in.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52424">Drop Hash#except core extension</a><br />
+Rails 8.0 will be Ruby 3.1 or greater only <code class="language-plaintext highlighter-rouge">except</code> natively got added in Ruby 3.0 so this is dead code now.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52417">Introduce ActiveModel::AttributeAssignment#attribute_writer_missing</a><br />
+Provide instances with an opportunity to gracefully handle assigning to an unknown attribute:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Rectangle</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">AttributeAssignment</span>
+
+  <span class="nb">attr_accessor</span> <span class="ss">:length</span><span class="p">,</span> <span class="ss">:width</span>
+
+  <span class="k">def</span> <span class="nf">attribute_writer_missing</span><span class="p">(</span><span class="nb">name</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+    <span class="no">Rails</span><span class="p">.</span><span class="nf">logger</span><span class="p">.</span><span class="nf">warn</span> <span class="s2">"Tried to assign to unknown attribute </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">rectangle</span> <span class="o">=</span> <span class="no">Rectangle</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">rectangle</span><span class="p">.</span><span class="nf">assign_attributes</span><span class="p">(</span><span class="ss">height: </span><span class="mi">10</span><span class="p">)</span>
+  <span class="c1"># =&gt; Logs "Tried to assign to unknown attribute 'height'"</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/52413">Add “cvv” and “cvc” as default parameters to filter out in new apps</a><br />
+For new apps, this PR adds <code class="language-plaintext highlighter-rouge">cvv</code> and <code class="language-plaintext highlighter-rouge">cvc</code> to the defaults for <a href="https://api.rubyonrails.org/v7.1.3.4/classes/ActiveSupport/ParameterFilter.html">ActiveSupport::ParameterFilter</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50371">Ensure SQLite transaction default to IMMEDIATE mode</a><br />
+This PR updates the SQLite adapter to use <a href="https://www.sqlite.org/lang_transaction.html#deferred_immediate_and_exclusive_transactions">IMMEDIATE mode</a> whenever possible in order to improve concurrency support and avoid busy exceptions.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-07-20%7D...main@%7B2024-07-27%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240720-20240727">15 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Omit webdrivers gem from new apps Gemfile, support for filtering tests by line range and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi! This is Vipul bringing you the latest from this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Omit webdrivers gem from new apps Gemfile, support for filtering tests by line range and more!" />
+  <meta property="og:description" content="Hi! This is Vipul bringing you the latest from this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/8/4/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Omit webdrivers gem from new apps Gemfile, support for filtering tests by line range and more!" />
+  <meta name="twitter:description" content="Hi! This is Vipul bringing you the latest from this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/8/4/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Omit webdrivers gem from new apps Gemfile, support for filtering tests by line range and more!",
+      "description": "Hi! This is Vipul bringing you the latest from this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2023/8/4/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "vipulnsward"
+      },
+      "datePublished": "2023-08-04T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, August 4, 2023</h5>
+        <h2>Omit webdrivers gem from new apps Gemfile, support for filtering tests by line range and more!</h2>
+
+        <h6>Posted by vipulnsward</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi! This is <a href="https://www.saeloun.com/team/vipul">Vipul</a> bringing you the latest from this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48682">Introduce config.dom_testing_default_html_version and use Rails::Dom::Testing to parse HTML in test helpers</a></p>
+
+<p><a href="https://github.com/rails/rails/pull/48523">Previously</a> support was added to <code class="language-plaintext highlighter-rouge">Rails::Dom::Testing</code> for HTML5. This may cause issues if we still want to rely on HTML4 based testing.
+This change adds a new configuration option <code class="language-plaintext highlighter-rouge">config.dom_testing_default_html_version</code> to allow users to configure the HTML version 4/5 to use when parsing HTML in test helpers.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48807">Support filtering tests by line ranges</a></p>
+
+<p>This change allows new syntax to filter tests by line ranges. For example, the following command runs tests from line 10 to 20.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">rails</span> <span class="nb">test</span> <span class="nb">test</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">user_test</span><span class="p">.</span><span class="nf">rb</span><span class="p">:</span><span class="mi">10</span><span class="o">-</span><span class="mi">20</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48608">Support NULLS NOT DISTINCT in Postgres 15+</a></p>
+
+<p>This change adds full support <code class="language-plaintext highlighter-rouge">NULLS [NOT] DISTINCT</code> for PostgreSQL 15+ indexes.</p>
+
+<p>Previous work was done to allow the index to be created in a migration, but it was not supported in <code class="language-plaintext highlighter-rouge">schema.rb</code>. 
+Additionally, the matching for <code class="language-plaintext highlighter-rouge">NULLS [NOT] DISTINCT</code> was not in the correct order, which could have resulted in inconsistent schema detection.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48669">Improve performance of JSON HTML entity escaping</a></p>
+
+<p><a href="https://github.com/jhawthorn">John</a> has been making various speed improvements to <code class="language-plaintext highlighter-rouge">.to_json</code>. 
+This latest change improves the performance of HTML entity escaping by ~2x.
+Overall these changes put the performance of <code class="language-plaintext highlighter-rouge">.to_json</code> to be around ~4.5 faster than Rails 7.0.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48852">Allow escaping of literal colons in ActionRecord::Sanitization#replace_named_bind_variables</a></p>
+
+<p>This commit adds ability to allow escaping of literal colon characters in <code class="language-plaintext highlighter-rouge">sanitize_sql_*</code> methods when named bind variables are used. For example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">sanitize_sql_array</span><span class="p">([</span><span class="s2">"TO_TIMESTAMP(:date, 'YYYY/MM/DD HH12</span><span class="se">\\</span><span class="s2">:MI</span><span class="se">\\</span><span class="s2">:SS')"</span><span class="p">,</span> <span class="ss">date: </span><span class="s2">"foo"</span><span class="p">])</span>
+<span class="c1">#  =&gt; "TO_TIMESTAMP('foo', 'YYYY/MM/DD HH12:MI:SS')"</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48847">Omit webdrivers gem from Gemfile template</a></p>
+
+<p>As of Selenium 4.6, <a href="https://github.com/titusfortner/webdrivers/tree/43f8ac436cc4121c903c1c611dfe76088ef6cbab#update-selenium-manager">the Selenium Manager is capable of managing Chrome Driver installations and integrations</a>.
+This make the requirement on <code class="language-plaintext highlighter-rouge">webdrivers</code> gem to be obsolete. This commit makes changes to omit <code class="language-plaintext highlighter-rouge">webdrivers</code> gem dependency from <code class="language-plaintext highlighter-rouge">Gemfile</code> template so that newly generated Apps won’t need it.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48873">Adds Arel::FactoryMethods#cast(node, type)</a></p>
+
+<p><code class="language-plaintext highlighter-rouge">CAST(field as type)</code> is a widely supported SQL function. This PR adds native Arel support for this named function with a <code class="language-plaintext highlighter-rouge">cast(field, type)</code> helper.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">product_table</span> <span class="o">=</span> <span class="no">Product</span><span class="p">.</span><span class="nf">arel_table</span>
+<span class="n">product_table</span><span class="p">.</span><span class="nf">cast</span><span class="p">(</span><span class="n">product_table</span><span class="p">[</span><span class="ss">:position</span><span class="p">],</span> <span class="s2">"integer"</span><span class="p">)</span>
+<span class="c1"># =&gt; CAST("products"."position" as integer)</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48863">Save screenshot path on system test failure </a></p>
+
+<p>Lots of CI tools support showing a system spec failure screenshot in their UI. 
+This Pull Request changes <code class="language-plaintext highlighter-rouge">ActionDispatch::SystemTesting::TestHelpers::ScreenshotHelper</code> to save the screenshot path in the test metadata on failure, 
+which can be used by CI tools to show the screenshot.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-07-29%7D...main@%7B2023-08-04%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230729-20230804">27 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

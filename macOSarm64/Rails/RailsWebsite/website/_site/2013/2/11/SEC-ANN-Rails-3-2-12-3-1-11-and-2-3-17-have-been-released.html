@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [SEC][ANN] Rails 3.2.12, 3.1.11, and 2.3.17 have been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everybody." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[SEC][ANN] Rails 3.2.12, 3.1.11, and 2.3.17 have been released!" />
+  <meta property="og:description" content="Hi everybody." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2013/2/11/SEC-ANN-Rails-3-2-12-3-1-11-and-2-3-17-have-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[SEC][ANN] Rails 3.2.12, 3.1.11, and 2.3.17 have been released!" />
+  <meta name="twitter:description" content="Hi everybody." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2013/2/11/SEC-ANN-Rails-3-2-12-3-1-11-and-2-3-17-have-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[SEC][ANN] Rails 3.2.12, 3.1.11, and 2.3.17 have been released!",
+      "description": "Hi everybody.",
+      "url": "http://localhost:4000/2013/2/11/SEC-ANN-Rails-3-2-12-3-1-11-and-2-3-17-have-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "tenderlove"
+      },
+      "datePublished": "2013-02-11T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, February 11, 2013</h5>
+        <h2>[SEC][ANN] Rails 3.2.12, 3.1.11, and 2.3.17 have been released!</h2>
+
+        <h6>Posted by tenderlove</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everybody.</p>
+
+<p>I’d like to announce that Rails 3.2.12, 3.1.11, and 2.3.17 have been released.</p>
+
+<p>3.2.12 and 3.1.11 contain one security fix, and 2.3.17 contains two security fixes.  It is recommended that you update immediately.</p>
+
+<p>You can read about the security fixes by following these links:</p>
+
+<ul>
+  <li><a href="https://groups.google.com/forum/?fromgroups=#!topic/rubyonrails-security/AFBKNY7VSH8">CVE-2013-0276</a></li>
+  <li><a href="https://groups.google.com/forum/?fromgroups=#!topic/rubyonrails-security/KtmwSbEpzrU">CVE-2013-0277</a></li>
+</ul>
+
+<p>Please note that today a new JSON gem was released, and it also contains an important security fix.  You should update the JSON gem as soon as possible.  You can read about the security issue in the JSON gem here:</p>
+
+<ul>
+  <li><a href="https://groups.google.com/forum/?fromgroups=#!topic/rubyonrails-security/4_YvCpLzL58">CVE-2013-0269</a></li>
+</ul>
+
+<p>In order to ease upgrading, the only major changes in each gem is the security fix.  To see the detailed changes for each version, follow the links below:</p>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/compare/v3.2.11...v3.2.12">Changes in 3.2.12</a></li>
+  <li><a href="https://github.com/rails/rails/compare/v3.1.10...v3.1.11">Changes in 3.1.11</a></li>
+  <li><a href="https://github.com/rails/rails/compare/v2.3.16...v2.3.17">Changes in 2.3.17</a></li>
+</ul>
+
+<p>Thanks to the people who responsibly reported these security issues.</p>
+
+<p>Please note that per our <a href="https://groups.google.com/forum/?fromgroups=#!topic/rubyonrails-security/G4TTUDDYbNA">maintenance policy</a> there will be no 3.0.x version released.</p>
+
+<p>Here are the SHA-1 checksums for each gem:</p>
+
+<h2 id="rails-3212">Rails 3.2.12</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[aaron@higgins dist]$ shasum *3.2.*
+5627c6d044cc52876128459d960f8805006b5f97  actionmailer-3.2.12.gem
+336f76c045b6bcbd204831897131182cff82ddf8  actionpack-3.2.12.gem
+89bec5d68861ad5d79ca776ef5d6df7c1cfc2b11  activemodel-3.2.12.gem
+7d4327c54900f45c60947a63350e865843e193ef  activerecord-3.2.12.gem
+4b8ed4190f98a85b800ee7893bae5afd1bee0874  activeresource-3.2.12.gem
+c9e44eed288140f556e6543b93fc45f8dd57a415  activesupport-3.2.12.gem
+24b3b4633d7f131e61e50decc3aa11590941c6e2  rails-3.2.12.gem
+a84262f1968e83141d290c034b20a28d38886d10  railties-3.2.12.gem
+</code></pre></div></div>
+
+<h2 id="rails-3111">Rails 3.1.11</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[aaron@higgins dist]$ shasum *3.1.*
+d80816e69614c1f0d96cb7d0f4a38bfdc8d84ff5  actionmailer-3.1.11.gem
+f65cea0682b6051869d4125f7b441a7c6f59fcbe  actionpack-3.1.11.gem
+549ec2b67d4332b38cef1620b23e00e50e0774e6  activemodel-3.1.11.gem
+3d342764b7ba3bae05190f15bcb35d401cd8121e  activerecord-3.1.11.gem
+19bd70bad6c4e4a555127a7738e71ac4829e6f61  activeresource-3.1.11.gem
+7267b2f87bea5bd285f5d1bfe49bb2ba19df7c94  activesupport-3.1.11.gem
+ca57e1243451385689343dbe2bb42e23058284df  rails-3.1.11.gem
+48cc801bdb7c31c4b6939235a60ef3e5008f5dbb  railties-3.1.11.gem
+</code></pre></div></div>
+
+<h2 id="rails-2317">Rails 2.3.17</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[aaron@higgins dist]$ shasum *2.3.*
+5df1fe13db46ac10dec8bb607ef515881dcf09c5  actionmailer-2.3.17.gem
+d1165517a185ae73ca8a4ac89549e695a23fedfa  actionpack-2.3.17.gem
+b24ff71e46b798d7c38504531cb7622955d9a20c  activerecord-2.3.17.gem
+9cc2a7bd60a959dcba099425954a1b9c53235ce5  activeresource-2.3.17.gem
+4ccc935fdc4d7ede78a1c376453ecb502e48b7ed  activesupport-2.3.17.gem
+9613a97cb726f00de59ad6d0f901f7434f9c4733  rails-2.3.17.gem
+</code></pre></div></div>
+
+<p>&lt;3&lt;3&lt;3</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

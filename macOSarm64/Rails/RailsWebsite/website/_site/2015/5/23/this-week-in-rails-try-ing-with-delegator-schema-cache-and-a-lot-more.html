@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: try'ing with Delegator, schema cache and a lot more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey everyone, this is Prathamesh. Back with latest spells and bindings from magical world of Rails. Keep your wands ready!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: try'ing with Delegator, schema cache and a lot more" />
+  <meta property="og:description" content="Hey everyone, this is Prathamesh. Back with latest spells and bindings from magical world of Rails. Keep your wands ready!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/5/23/this-week-in-rails-try-ing-with-delegator-schema-cache-and-a-lot-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: try'ing with Delegator, schema cache and a lot more" />
+  <meta name="twitter:description" content="Hey everyone, this is Prathamesh. Back with latest spells and bindings from magical world of Rails. Keep your wands ready!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/5/23/this-week-in-rails-try-ing-with-delegator-schema-cache-and-a-lot-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: try'ing with Delegator, schema cache and a lot more",
+      "description": "Hey everyone, this is Prathamesh. Back with latest spells and bindings from magical world of Rails. Keep your wands ready!",
+      "url": "http://localhost:4000/2015/5/23/this-week-in-rails-try-ing-with-delegator-schema-cache-and-a-lot-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "_cha1tanya"
+      },
+      "datePublished": "2015-05-23T01:51:56+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, May 23, 2015</h5>
+        <h2>This week in Rails: try'ing with Delegator, schema cache and a lot more</h2>
+
+        <h6>Posted by _cha1tanya</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey everyone, this is <a href="https://twitter.com/_cha1tanya">Prathamesh</a>. Back with latest spells and bindings from magical world of Rails. Keep your wands ready!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20150515-201505222000">This week’s Rails Contributors</a></h3>
+
+<p>39 people got commits into <code class="language-plaintext highlighter-rouge">rails/rails</code> this week. And 7 of them made their first patch in this week! Checkout the <a href="https://github.com/rails/rails/pulse">pulse</a> page for more details.</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="support-for-try-with-delegator"><a href="https://github.com/rails/rails/commit/af53280a4b5b3323ac87dc60deb2b1b781197b2b">Support for <code class="language-plaintext highlighter-rouge">try</code> with Delegator</a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">Delegator</code> will now respond to <code class="language-plaintext highlighter-rouge">try</code> rather than delegating it to the underlying object. Phew! The surprising behavior when using try with normal objects and delegators is gone finally.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="copy-schema-cache-to-new-connection-pool-after-fork"><a href="https://github.com/rails/rails/pull/20175">Copy schema cache to new connection pool after fork</a></h3>
+
+<p>Active Record does all the heavy lifting of maintaining and creating connection pools. It just got better. Thanks to this patch, it will copy the schema cache of old connections pools to the new ones if one already exists.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="quoted-sequence-names-now-work-with-serial"><a href="https://github.com/rails/rails/pull/20190">Quoted sequence names now work with serial?</a></h3>
+
+<p>Quoted sequence names in PostgreSQL will work properly now with <code class="language-plaintext highlighter-rouge">serial?</code> method. Before this patch, the <code class="language-plaintext highlighter-rouge">serial?</code> method would return false if the sequence name was quoted. Finally it’s fixed.</p>
+
+<h2 id="one-more-thing">One More Thing™</h2>
+
+<h3 id="integerpositive-and-integernegative-in-ruby-core"><a href="https://github.com/rails/rails/commit/6c55cffa5bb804fc0291ec4aa82527ec3c57f2d2">Integer#positive? and Integer#negative? in Ruby core</a></h3>
+
+<p>Last week <code class="language-plaintext highlighter-rouge">Integer#positive?</code> and <code class="language-plaintext highlighter-rouge">Integer#negative?</code> were added to Rails and this week they became part of <a href="https://bugs.ruby-lang.org/issues/11151">Ruby core</a>. Hooray!</p>
+
+<h2 id="thats-a-wrap">That’s a wrap</h2>
+
+<p>That’s all for This week in Rails. As always, there are many more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails">check them out yourself</a>!</p>
+
+<p>P.S. If you enjoyed this newsletter, why not share it with your friends? :) If you wish to be part of this project please don’t hesitate to <a href="mailto:godfrey@brewhouse.io">contact Godfrey</a> – there’re a lot of ways you could help make this newsletter more awesome!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

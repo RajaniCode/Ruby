@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash;  This Week In Rails - June 9, 2023</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi! Emmanuel here writing from a train to Katowice! There have been quite a few developments in the Rails codebase over the last few weeks! Let’s take a look at some of them, shall we?" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content=" This Week In Rails - June 9, 2023" />
+  <meta property="og:description" content="Hi! Emmanuel here writing from a train to Katowice! There have been quite a few developments in the Rails codebase over the last few weeks! Let’s take a look at some of them, shall we?" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/6/9/this-week-in-rails-this-week-in-rails-june-9-2023-2e77d3dc" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content=" This Week In Rails - June 9, 2023" />
+  <meta name="twitter:description" content="Hi! Emmanuel here writing from a train to Katowice! There have been quite a few developments in the Rails codebase over the last few weeks! Let’s take a look at some of them, shall we?" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/6/9/this-week-in-rails-this-week-in-rails-june-9-2023-2e77d3dc"
+      },
+      "name": "Ruby on Rails",
+      "headline": " This Week In Rails - June 9, 2023",
+      "description": "Hi! Emmanuel here writing from a train to Katowice! There have been quite a few developments in the Rails codebase over the last few weeks! Let’s take a look at some of them, shall we?",
+      "url": "http://localhost:4000/2023/6/9/this-week-in-rails-this-week-in-rails-june-9-2023-2e77d3dc",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Emmanuel Hayford"
+      },
+      "datePublished": "2023-06-09T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, June 9, 2023</h5>
+        <h2> This Week In Rails - June 9, 2023</h2>
+
+        <h6>Posted by Emmanuel Hayford</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi! <a href="https://twitter.com/siaw23">Emmanuel</a> here writing from a train to Katowice! There have been quite a few developments in the Rails codebase over the last few weeks! Let’s take a look at some of them, shall we?</p>
+
+<p><a href="https://github.com/rails/rails/pull/48407">Create a class level #with_routing helper</a>
+The <em>with_routing</em> helper can now be called at the class level. When called at this level, the routes will be set up before each test and reset after every test. For example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class RoutingTest &lt; ActionController::TestCase
+      with_routing do |routes|
+        routes.draw do
+          resources :articles
+          resources :authors
+        end
+      end
+      def test_articles_route
+        assert_routing("/articles", controller: "articles", action: "index")
+      end
+       def test_authors_route
+        assert_routing("/authors", controller: "authors", action: "index")
+      end
+    end
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/47633">Allow composite primary key to be derived from schema</a>
+When launching an application with a schema that incorporates composite primary keys, there will no longer be a warning issued, and the <em>ActiveRecord::Base#primary_key</em> value will not be set to <em>nil</em> anymore.</p>
+
+<p>For instance, consider a table named <em>travel_routes</em> and a corresponding <em>TravelRoute</em> model. In this case, the <em>TravelRoute.primary_key</em> value will be automatically derived as <em>[“origin”, “destination”]</em>, as demonstrated in the following example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create_table :travel_routes, primary_key: [:origin, :destination], force: true do |t|
+     t.string :origin
+     t.string :destination
+   end
+   class TravelRoute &lt; ActiveRecord::Base; end
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48295">Store connection_pool in database-related exceptions</a>
+When exceptions are raised from an adapter, it is beneficial to include the <em>connection_pool</em> as it offers additional context. This context includes information about the connection that triggered the exception, as well as details regarding the role and shard involved.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48388">Add engine draw_paths to app</a>
+By adding the engine’s draw paths to the application route set, the application gains the capability to access and utilize route files defined within engine paths.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48397">Improve quoted parameters in mime types</a>
+The <em>Mime::Type</em> now offers support for handling types with parameters, ensuring proper handling of quotes. During the parsing of the accept header, the parameters preceding the ‘q’ parameter are retained, and if a matching mime-type is found, it is utilized accordingly. To maintain the existing functionality, a fallback mechanism has been implemented to search for the media-type without the parameters.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48268">Support batching using composite primary keys and multiple column ordering</a>
+The <em>find_each</em>, <em>find_in_batches</em>, and <em>in_batches</em> methods now offer support for multiple column ordering. When these methods are used on a table with composite primary keys, it is possible to specify ascending or descending order for each individual key. Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Person.find_each(order: [:desc, :asc]) do |person|
+      person.party_all_night!
+    end
+</code></pre></div></div>
+
+<p>That’s it for today. In the past seven days, we had the privilege of witnessing the <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230602-20230609">contributions of 30</a> amazing individuals to the Rails framework!</p>
+
+<p>Talk to you in the next one!</p>
+
+<p>Your weekly inside scoop of interesting commits, pull requests and more from <a href="https://github.com/rails/rails"><strong>Rails</strong></a>.</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

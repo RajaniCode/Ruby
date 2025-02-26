@@ -1,0 +1,53 @@
+4. Valid with Attributes
+
+
+Lets try another validation test. This time, test to make sure a tweet is valid with all its attributes before save. A tweet has a zombie and a status (you'll need to create a zombie for this). 
+
+
+tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+
+  validates :status, presence: true, length: {within: 3..140, allow_blank: true}
+  validates :zombie, presence: true
+  
+  def brains?
+    status =~ /(brains|breins)/i
+  end
+
+  def show_author_summary
+    self.status = self.zombie.zombie_summary
+  end
+
+  def status_image
+    image = ZwitPic.get_status_image(self.id) # This is returning an array
+    {image_name: image[0], image_url: image[1]}
+  end
+end
+
+
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  test "valid with all attributes" do
+    
+  end
+end
+
+
+Answer:
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  test "valid with all attributes" do
+    zombie = Zombie.new
+    tweet = Tweet.new    
+    tweet.status = "Tweet status"
+    tweet.zombie = zombie
+    assert tweet.valid?, "Tweet not valid"
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.017175s, 58.2257 tests/s, 116.4514 assertions/s.

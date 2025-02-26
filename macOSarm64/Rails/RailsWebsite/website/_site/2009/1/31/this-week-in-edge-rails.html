@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Edge Rails</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="January 24, 2009 &#8211; January 30, 2009This week we saw 35 commits in edge Rails &#8211; though many are bug fixes and minor things. Here&#8217;s one more preview of some of the recent and significant changes.Localized ViewsRails can now provide localized views, depending on the locale that you have set. For example, suppose you have a Posts controller with a show action. By default, this will render app/views/posts/show.html.erb. But if you set I18n.locale = :da, it will render app/views/posts/show.da.html.erb. If the localized template isn&#8217;t present, the undecorated version will be used. Rails also includes I18n#available_locales and I18n::SimpleBackend#available_locales, which return an array of the translations that are available in the current Rails project.commitcommitReconnecting MySQL ConnectionsMySQL supports a reconnect flag in its connections &#8211; if set to true, then the client will try reconnecting to the server before giving up in case of a lost connection. You can now set reconnect = true for your MySQL connections in database.yml to get this behavior from a Rails application. The default is false, so the behavior of existing applications doesn&#8217;t change.commitEasier Testing for JDBCTo make life easier for anyone using Rails on JRuby, Active Record now includes test tasks for a bunch of database accessible via JDBC: Derby, H2, hsqldb, MySQL, PostgreSQL, and sqlite3 (the latter three are also available through non-JDBC connections, as you know). You need to have the database, the activerecord-jdbc-adapter gem installed, and the specific activerecord-jdbcdatabase-gem for the database you&#8217;re testing. Then you can run tests like this: jruby -S rake test_jdbcmysql (with similar tests for the other adapters, of course).commitHTTP Digest Authentication SupportThis one first appeared a couple of weeks ago, but was reverted due to some problems with the initial implementation. Fortunately, the problems were resolved, and Rails 2.3 will ship with built-in support for HTTP digest authentication. Ryan Daigle published some sample code.commitgrouped_options_for_select Helper MethodAction View already has a bunch of helpers to aid in generating select controls, but now there&#8217;s one more: grouped_options_for_select. This one accepts an array or hash of strings, and converts them into a string of option tags wrapped with optgroup tags. For example: grouped_options_for_select([["Hats",    ["Baseball Cap","Cowboy Hat"]]],    "Cowboy Hat", "Choose a product...")returns &lt;option value=""&gt;Choose a product...&lt;/option&gt; &lt;optgroup label="Hats"&gt;   &lt;option value="Baseball Cap"&gt;Baseball Cap&lt;/option&gt;   &lt;option selected="selected" value="Cowboy Hat"&gt;     Cowboy Hat   &lt;/option&gt; &lt;/optgroup&gt;commit" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Edge Rails" />
+  <meta property="og:description" content="January 24, 2009 &#8211; January 30, 2009This week we saw 35 commits in edge Rails &#8211; though many are bug fixes and minor things. Here&#8217;s one more preview of some of the recent and significant changes.Localized ViewsRails can now provide localized views, depending on the locale that you have set. For example, suppose you have a Posts controller with a show action. By default, this will render app/views/posts/show.html.erb. But if you set I18n.locale = :da, it will render app/views/posts/show.da.html.erb. If the localized template isn&#8217;t present, the undecorated version will be used. Rails also includes I18n#available_locales and I18n::SimpleBackend#available_locales, which return an array of the translations that are available in the current Rails project.commitcommitReconnecting MySQL ConnectionsMySQL supports a reconnect flag in its connections &#8211; if set to true, then the client will try reconnecting to the server before giving up in case of a lost connection. You can now set reconnect = true for your MySQL connections in database.yml to get this behavior from a Rails application. The default is false, so the behavior of existing applications doesn&#8217;t change.commitEasier Testing for JDBCTo make life easier for anyone using Rails on JRuby, Active Record now includes test tasks for a bunch of database accessible via JDBC: Derby, H2, hsqldb, MySQL, PostgreSQL, and sqlite3 (the latter three are also available through non-JDBC connections, as you know). You need to have the database, the activerecord-jdbc-adapter gem installed, and the specific activerecord-jdbcdatabase-gem for the database you&#8217;re testing. Then you can run tests like this: jruby -S rake test_jdbcmysql (with similar tests for the other adapters, of course).commitHTTP Digest Authentication SupportThis one first appeared a couple of weeks ago, but was reverted due to some problems with the initial implementation. Fortunately, the problems were resolved, and Rails 2.3 will ship with built-in support for HTTP digest authentication. Ryan Daigle published some sample code.commitgrouped_options_for_select Helper MethodAction View already has a bunch of helpers to aid in generating select controls, but now there&#8217;s one more: grouped_options_for_select. This one accepts an array or hash of strings, and converts them into a string of option tags wrapped with optgroup tags. For example: grouped_options_for_select([["Hats",    ["Baseball Cap","Cowboy Hat"]]],    "Cowboy Hat", "Choose a product...")returns &lt;option value=""&gt;Choose a product...&lt;/option&gt; &lt;optgroup label="Hats"&gt;   &lt;option value="Baseball Cap"&gt;Baseball Cap&lt;/option&gt;   &lt;option selected="selected" value="Cowboy Hat"&gt;     Cowboy Hat   &lt;/option&gt; &lt;/optgroup&gt;commit" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/1/31/this-week-in-edge-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Edge Rails" />
+  <meta name="twitter:description" content="January 24, 2009 &#8211; January 30, 2009This week we saw 35 commits in edge Rails &#8211; though many are bug fixes and minor things. Here&#8217;s one more preview of some of the recent and significant changes.Localized ViewsRails can now provide localized views, depending on the locale that you have set. For example, suppose you have a Posts controller with a show action. By default, this will render app/views/posts/show.html.erb. But if you set I18n.locale = :da, it will render app/views/posts/show.da.html.erb. If the localized template isn&#8217;t present, the undecorated version will be used. Rails also includes I18n#available_locales and I18n::SimpleBackend#available_locales, which return an array of the translations that are available in the current Rails project.commitcommitReconnecting MySQL ConnectionsMySQL supports a reconnect flag in its connections &#8211; if set to true, then the client will try reconnecting to the server before giving up in case of a lost connection. You can now set reconnect = true for your MySQL connections in database.yml to get this behavior from a Rails application. The default is false, so the behavior of existing applications doesn&#8217;t change.commitEasier Testing for JDBCTo make life easier for anyone using Rails on JRuby, Active Record now includes test tasks for a bunch of database accessible via JDBC: Derby, H2, hsqldb, MySQL, PostgreSQL, and sqlite3 (the latter three are also available through non-JDBC connections, as you know). You need to have the database, the activerecord-jdbc-adapter gem installed, and the specific activerecord-jdbcdatabase-gem for the database you&#8217;re testing. Then you can run tests like this: jruby -S rake test_jdbcmysql (with similar tests for the other adapters, of course).commitHTTP Digest Authentication SupportThis one first appeared a couple of weeks ago, but was reverted due to some problems with the initial implementation. Fortunately, the problems were resolved, and Rails 2.3 will ship with built-in support for HTTP digest authentication. Ryan Daigle published some sample code.commitgrouped_options_for_select Helper MethodAction View already has a bunch of helpers to aid in generating select controls, but now there&#8217;s one more: grouped_options_for_select. This one accepts an array or hash of strings, and converts them into a string of option tags wrapped with optgroup tags. For example: grouped_options_for_select([["Hats",    ["Baseball Cap","Cowboy Hat"]]],    "Cowboy Hat", "Choose a product...")returns &lt;option value=""&gt;Choose a product...&lt;/option&gt; &lt;optgroup label="Hats"&gt;   &lt;option value="Baseball Cap"&gt;Baseball Cap&lt;/option&gt;   &lt;option selected="selected" value="Cowboy Hat"&gt;     Cowboy Hat   &lt;/option&gt; &lt;/optgroup&gt;commit" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/1/31/this-week-in-edge-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Edge Rails",
+      "description": "January 24, 2009 &#8211; January 30, 2009This week we saw 35 commits in edge Rails &#8211; though many are bug fixes and minor things. Here&#8217;s one more preview of some of the recent and significant changes.Localized ViewsRails can now provide localized views, depending on the locale that you have set. For example, suppose you have a Posts controller with a show action. By default, this will render app/views/posts/show.html.erb. But if you set I18n.locale = :da, it will render app/views/posts/show.da.html.erb. If the localized template isn&#8217;t present, the undecorated version will be used. Rails also includes I18n#available_locales and I18n::SimpleBackend#available_locales, which return an array of the translations that are available in the current Rails project.commitcommitReconnecting MySQL ConnectionsMySQL supports a reconnect flag in its connections &#8211; if set to true, then the client will try reconnecting to the server before giving up in case of a lost connection. You can now set reconnect = true for your MySQL connections in database.yml to get this behavior from a Rails application. The default is false, so the behavior of existing applications doesn&#8217;t change.commitEasier Testing for JDBCTo make life easier for anyone using Rails on JRuby, Active Record now includes test tasks for a bunch of database accessible via JDBC: Derby, H2, hsqldb, MySQL, PostgreSQL, and sqlite3 (the latter three are also available through non-JDBC connections, as you know). You need to have the database, the activerecord-jdbc-adapter gem installed, and the specific activerecord-jdbcdatabase-gem for the database you&#8217;re testing. Then you can run tests like this: jruby -S rake test_jdbcmysql (with similar tests for the other adapters, of course).commitHTTP Digest Authentication SupportThis one first appeared a couple of weeks ago, but was reverted due to some problems with the initial implementation. Fortunately, the problems were resolved, and Rails 2.3 will ship with built-in support for HTTP digest authentication. Ryan Daigle published some sample code.commitgrouped_options_for_select Helper MethodAction View already has a bunch of helpers to aid in generating select controls, but now there&#8217;s one more: grouped_options_for_select. This one accepts an array or hash of strings, and converts them into a string of option tags wrapped with optgroup tags. For example: grouped_options_for_select([["Hats",    ["Baseball Cap","Cowboy Hat"]]],    "Cowboy Hat", "Choose a product...")returns &lt;option value=""&gt;Choose a product...&lt;/option&gt; &lt;optgroup label="Hats"&gt;   &lt;option value="Baseball Cap"&gt;Baseball Cap&lt;/option&gt;   &lt;option selected="selected" value="Cowboy Hat"&gt;     Cowboy Hat   &lt;/option&gt; &lt;/optgroup&gt;commit",
+      "url": "http://localhost:4000/2009/1/31/this-week-in-edge-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Mike Gunderloy"
+      },
+      "datePublished": "2009-01-31T22:18:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, January 31, 2009</h5>
+        <h2>This Week in Edge Rails</h2>
+
+        <h6>Posted by Mike Gunderloy</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <h3>January 24, 2009 &#8211; January 30, 2009</h3>
+<p>This week we saw 35 commits in edge Rails &#8211; though many are bug fixes and minor things. Here&#8217;s one more preview of some of the recent and significant changes.</p>
+<h2>Localized Views</h2>
+<p>Rails can now provide localized views, depending on the locale that you have set. For example, suppose you have a <code>Posts</code> controller with a <code>show</code> action. By default, this will render <code>app/views/posts/show.html.erb</code>. But if you set <code>I18n.locale = :da</code>, it will render <code>app/views/posts/show.da.html.erb</code>. If the localized template isn&#8217;t present, the undecorated version will be used. Rails also includes <code>I18n#available_locales</code> and <code>I18n::SimpleBackend#available_locales</code>, which return an array of the translations that are available in the current Rails project.</p>
+<p><a href="http://github.com/rails/rails/commit/5c062bf1000886d26b3a4c3b08dfb6618a4adcdf">commit</a><br />
+<a href="http://github.com/rails/rails/commit/a98cd7ca9b2f24a4500963e58ba5c37d6bdf9259">commit</a></p>
+<h2>Reconnecting MySQL Connections</h2>
+<p>MySQL supports a reconnect flag in its connections &#8211; if set to true, then the client will try reconnecting to the server before giving up in case of a lost connection. You can now set <code>reconnect = true</code> for your MySQL connections in <code>database.yml</code> to get this behavior from a Rails application. The default is <code>false</code>, so the behavior of existing applications doesn&#8217;t change.</p>
+<p><a href="http://github.com/rails/rails/commit/5fe6635e05a18b312c47fe6bbbaf88fd62e7703d">commit</a></p>
+<h2>Easier Testing for <span class="caps">JDBC</span></h2>
+<p>To make life easier for anyone using Rails on JRuby, Active Record now includes test tasks for a bunch of database accessible via <span class="caps">JDBC</span>: Derby, H2, hsqldb, MySQL, PostgreSQL, and sqlite3 (the latter three are also available through non-<span class="caps">JDBC</span> connections, as you know). You need to have the database, the activerecord-jdbc-adapter gem installed, and the specific activerecord-jdbc<em>database</em>-gem for the database you&#8217;re testing. Then you can run tests like this: <code>jruby -S rake test_jdbcmysql</code> (with similar tests for the other adapters, of course).</p>
+<p><a href="http://github.com/rails/rails/commit/4ef9845aa324679b88e19b8223dd90b774215bc6">commit</a></p>
+<h2><span class="caps">HTTP</span> Digest Authentication Support</h2>
+<p>This one first appeared a couple of weeks ago, but was reverted due to some problems with the initial implementation. Fortunately, the problems were resolved, and Rails 2.3 will ship with built-in support for <span class="caps">HTTP</span> digest authentication. Ryan Daigle published some <a href="http://ryandaigle.com/articles/2009/1/30/what-s-new-in-edge-rails-http-digest-authentication">sample code</a>.</p>
+<p><a href="http://github.com/rails/rails/commit/306cc2b920203cfa51cee82d2fc452484efc72f8">commit</a></p>
+<h2>grouped_options_for_select Helper Method</h2>
+<p>Action View already has a bunch of helpers to aid in generating select controls, but now there&#8217;s one more: <code>grouped_options_for_select</code>. This one accepts an array or hash of strings, and converts them into a string of <code>option</code> tags wrapped with <code>optgroup</code> tags. For example:</p>
+<pre><code>
+ grouped_options_for_select([["Hats", 
+   ["Baseball Cap","Cowboy Hat"]]], 
+   "Cowboy Hat", "Choose a product...")
+</code></pre>
+<p>returns</p>
+<pre><code>
+ &lt;option value=""&gt;Choose a product...&lt;/option&gt;
+ &lt;optgroup label="Hats"&gt;
+   &lt;option value="Baseball Cap"&gt;Baseball Cap&lt;/option&gt;
+   &lt;option selected="selected" value="Cowboy Hat"&gt;
+     Cowboy Hat
+   &lt;/option&gt;
+ &lt;/optgroup&gt;
+</code></pre>
+<p><a href="http://github.com/rails/rails/commit/8761663a68bd7ddd918f78fb3def4697784024f2">commit</a></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: HTTP/2 Early hints, friendly error message and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there! It’s Prathamesh from Pune, enjoying rain 🌧, sipping ☕️ coffee  and bringing you latest news from the Rails world. Let’s get started!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: HTTP/2 Early hints, friendly error message and more!" />
+  <meta property="og:description" content="Hi there! It’s Prathamesh from Pune, enjoying rain 🌧, sipping ☕️ coffee  and bringing you latest news from the Rails world. Let’s get started!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/10/8/this-week-in-rails-http-2-early-hints-friendly-error-message-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: HTTP/2 Early hints, friendly error message and more!" />
+  <meta name="twitter:description" content="Hi there! It’s Prathamesh from Pune, enjoying rain 🌧, sipping ☕️ coffee  and bringing you latest news from the Rails world. Let’s get started!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/10/8/this-week-in-rails-http-2-early-hints-friendly-error-message-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: HTTP/2 Early hints, friendly error message and more!",
+      "description": "Hi there! It’s Prathamesh from Pune, enjoying rain 🌧, sipping ☕️ coffee  and bringing you latest news from the Rails world. Let’s get started!",
+      "url": "http://localhost:4000/2017/10/8/this-week-in-rails-http-2-early-hints-friendly-error-message-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "_cha1tanya"
+      },
+      "datePublished": "2017-10-08T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, October 8, 2017</h5>
+        <h2>This Week in Rails: HTTP/2 Early hints, friendly error message and more!</h2>
+
+        <h6>Posted by _cha1tanya</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there! It’s <a href="https://twitter.com/_cha1tanya">Prathamesh</a> from Pune, enjoying rain 🌧, sipping ☕️ coffee  and bringing you latest news from the Rails world. Let’s get started!</p>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20170930-20171006">This Week’s Contributors</a></h3>
+
+<p>13 people contributed to Rails the past week! If you’d like to join them, why not check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>?</p>
+
+<h3 id="http2-early-hints-support-for-rails"><a href="https://github.com/rails/rails/pull/30744">HTTP2 early hints support for Rails</a></h3>
+
+<p>Early Hints is a new HTTP status code that allows your application to send links to assets that you would like to load early. The <a href="https://tools.ietf.org/html/draft-ietf-httpbis-early-hints-04">spec</a> is still in draft but Rails is ready to support it along with <a href="https://github.com/puma/puma/pull/1403">Puma</a>. Check <a href="http://eileencodes.com/posts/http2-early-hints">this blog post</a> to know more about this feature.</p>
+
+<h3 id="friendly-error-message-when-unsubscribing-from-non-existent-action-cable-subscription"><a href="https://github.com/rails/rails/pull/30702">Friendly error message when unsubscribing from non-existent Action Cable subscription</a></h3>
+
+<p>If for some reason the frontend code tries to unsubscribe from a non existing Action Cable subscription, then a friendly error message will be displayed:</p>
+
+<p><strong><em>Unable to find subscription with identifier: {“channel”:”SomeChannel”}.</em></strong></p>
+
+<p>Earlier, it used to show:</p>
+
+<p><strong><em>NoMethodError - undefined method `unsubscribe_from_channel’ for nil:NilClass</em></strong></p>
+
+<p>Feel free to check out the <a href="https://github.com/rails/rails/compare/master@%7B2017-09-30%7D...@%7B2017-10-06%7D">full list of changes</a>.</p>
+
+<p>Thanks to the 13 people contributed to Rails last week. If you’d like to join them, check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>. Until next week 👋 </p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

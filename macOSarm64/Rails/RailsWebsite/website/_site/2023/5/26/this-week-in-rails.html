@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails - May 26, 2023</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey! zzak here with another edition of This Week in Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails - May 26, 2023" />
+  <meta property="og:description" content="Hey! zzak here with another edition of This Week in Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/5/26/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails - May 26, 2023" />
+  <meta name="twitter:description" content="Hey! zzak here with another edition of This Week in Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/5/26/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails - May 26, 2023",
+      "description": "Hey! zzak here with another edition of This Week in Rails.",
+      "url": "http://localhost:4000/2023/5/26/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2023-05-26T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, May 26, 2023</h5>
+        <h2>This Week in Rails - May 26, 2023</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey! <a href="https://github.com/zzak">zzak</a> here with another edition of This Week in Rails.</p>
+
+<p>Reminder: The <a href="https://www.papercall.io/rails-world-2023">Rails World CFP</a> is open until June 16.<br />
+Whether you’re a seasoned veteran or a newcomer to the Rails ecosystem, we encourage you to submit proposals that showcase forward-thinking ideas and push the boundaries of what’s possible with Rails.</p>
+
+<p><a href="https://rubyonrails.org/2023/5/24/Rails-7-0-5-has-been-released">Rails 7.0.5 has been released</a><br />
+In case you missed it, a bugfix release for the 7.0 series of Rails was cut.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48302">Improve performance of MemoryStore</a><br />
+This PR optimizes the <em>MemoryStore::DupCoder</em> internal API to avoid unnecessary work when writing and reading complex objects.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48299">Refactor error highlight detection</a><br />
+Before this commit, some calls to render were hard-coding error highlight as “not available”.  This was causing some error pages to show the “you should install error highlight” message even though the right version of error highlight was installed.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48288">Use short-form fixed-width RDoc form for namespaces</a><br />
+Some work went into replacing occurrences of “<tt>Some::Namespace::Thing</tt>” with the shorter “+…+” syntax supported by RDoc.<br />
+This is just a reminder to folks writing documentation that this syntax can be used for nearly all fixed-width code that doesn’t contain brackets, spaces, or like raw “strings”. Which is much nicer on the eyes for readers looking directly at the code (and writing).</p>
+
+<p><a href="https://github.com/rails/rails/pull/48287">Automatically add “test/fixtures” in engines to “fixture_paths”</a><br />
+This PR takes advantage of the recently added <em>TestFixtures#fixture_paths</em> feature so that any engines your application uses fixtures will also be automatically loaded.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48274">Fix “change_in_place?” for binary serialized columns</a><br />
+A bug occurred when giving unicode characters to serialized attributes stored in a blob column, that would always show changes had occurred on that attribute.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48269">Run “after_bundle” blocks with “app:template” command</a><br />
+App templates may contain <em>after_bundle</em> blocks which should be run after the template is executed, after running <code class="language-plaintext highlighter-rouge">bundle install</code>.  For example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"devise"</span>
+
+<span class="n">after_bundle</span> <span class="k">do</span>
+  <span class="n">generate</span> <span class="s2">"devise:install"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48265">“ERB::Util.html_escape_once” now always returns an “html_safe” string</a><br />
+This method previously maintained the <code class="language-plaintext highlighter-rouge">html_safe?</code> property of a string on the return value. Because this string has been escaped, however, not marking it as <code class="language-plaintext highlighter-rouge">html_safe</code> causes entities to be double-escaped.
+Before this change, that would be double-escaped and render as:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>this <span class="ni">&amp;amp;</span>amp; that <span class="ni">&amp;amp;</span>amp; the other<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p>After this change, it renders correctly as:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;p&gt;</span>this <span class="ni">&amp;amp;</span> that <span class="ni">&amp;amp;</span> the other<span class="nt">&lt;/p&gt;</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48264">Deprecate “SafeBuffer#clone_empty”</a><br />
+This internal method hasn’t been used within the Rails codebase since the last caller was removed in 2014 (Rails 4.2.0).</p>
+
+<p><a href="https://github.com/rails/rails/pull/48261">Add “Arel::Nodes::Cte” for use in WITH expressions</a><br />
+While Arel is still private API, this PR is still worth noting. This addition gives the <code class="language-plaintext highlighter-rouge">with</code> method the ability to accept a Common Table Expression (CTE) which adds <code class="language-plaintext highlighter-rouge">MATERIALIZED</code> or <code class="language-plaintext highlighter-rouge">NOT MATERIALIZED</code> hints to the generated SQL statement.<br />
+Postgres and SQLite both support a non-standard extension to the CTE syntax to indicate that a CTE subquery should be materialized, i.e., not folded into the main query but evaluated separately. This can be useful in cases where the query planner would otherwise make poor decisions.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48194">Deprecate params via “:args” for “assert_enqueued_email_with”</a><br />
+When testing Action Mailer using <code class="language-plaintext highlighter-rouge">assert_enqueued_email_with</code>, you should be using the <code class="language-plaintext highlighter-rouge">:params</code> kwarg to pass a hash of options to the mailer. For example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assert_enqueued_email_with</span> <span class="no">MyMailer</span><span class="p">,</span> <span class="ss">:my_method</span><span class="p">,</span> <span class="ss">params: </span><span class="p">{</span> <span class="ss">my_param: </span><span class="s2">"value"</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/47910">Fix issue with empty values within delimited authorization header</a><br />
+The bug here occurs when delimited <code class="language-plaintext highlighter-rouge">Authorization</code> header values containing blanks (e.g. <code class="language-plaintext highlighter-rouge">,,,</code>) will produce an <code class="language-plaintext highlighter-rouge">ArgumentError</code> resulting in a 500 error response.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47856">Adds “ActiveRecord.disconnect_all!” to close all connections</a><br />
+This is basically a multi-db aware version of <code class="language-plaintext highlighter-rouge">ActiveRecord::Base.connection.disconnect!</code>. It also avoid connecting to the database if we weren’t already. This can be useful to reset state after <code class="language-plaintext highlighter-rouge">establish_connection</code> has been used.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47689">Improve JS and CSS options of app generator</a><br />
+The UX for generating new Rails applications when using the <code class="language-plaintext highlighter-rouge">--javascript</code> and <code class="language-plaintext highlighter-rouge">--css</code> flags has been improved here. Take a look at the table in the PR that explains the behavior changes in greater detail.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47181">Model Generator Source Paths Should Allow for Customization</a><br />
+This PR resurrects and older PR that had been lost to time, with the addition of tests and silenced warnings. It’s always good to see folks who can scratch their own itch, and recycle code from an older PR. Not everything needs to be reinvented!</p>
+
+<p><a href="https://github.com/rails/rails/pull/46476">Update comments in all three en.yml files relating to booleans</a><br />
+I’m calling this one out because as this was <a href="https://github.com/justinperkins">@justinperkins</a> first PR to Rails! They’ve gone and fixed up the comments for the generated locale files. Congrats!</p>
+
+<p><a href="https://github.com/rails/rails/pull/45867">Make the test environment show rescuable exceptions in responses</a><br />
+The last PR for the week is changing the behavior of the <code class="language-plaintext highlighter-rouge">config.action_dispatch.show_exceptions</code> option to use the new “rescuable” option which will only show exceptions that can be rescued (e.g. <code class="language-plaintext highlighter-rouge">ActiveRecord::RecordNotFound</code>) in the test environment.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-05-19%7D...main@%7B2023-05-26%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230519-20230526">26 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

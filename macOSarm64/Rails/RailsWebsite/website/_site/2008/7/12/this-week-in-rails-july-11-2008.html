@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails (July 11, 2008)</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Welcome to the third edition of This Week in Rails, a weekly report with highlights from the Rails community. My apologies for the delay of this post, the past two weeks have been pretty crazy, so this edition covers the most interesting articles and news from the past two weeks.Let&#8217;s kick off this report with a couple of maintenance releases by Jamis Buck. Both Capistrano 2.4.3 and Net::SSH 2.0.3 were published two weeks ago. If you use them, consider upgrading.Rails 2.1 has been out for a while now, but in case you didn&#8217;t have a chance to catch up yet, this post collects several links to useful resources which will help bring you up-to-date.The Pathfinder Development&#8217;s blog put out three highly interesting posts. The first is More Named Scope Awesomeness by Noel Rappin, while the second and third ones are Pretty blocks in Rails views and DRYing up Rails Controllers: Polymorphic and Super Controllers, both by Josh Symonds. Another good (and quick) recent read about controllers, was &quot;MVC: How to write controllers &quot;:http://andrzejonsoftware.blogspot.com/2008/07/mvc-how-to-write-controllers.html.The same Noel also published the second part of &#8220;Developing iPhone applications using Ruby on Rails and Eclipse&#8221; for DeveloperWorks (part 1 and 2).FiveRuns released a valuable gem called data_fabric which adds support for sharding and replication to Active Record. The same company also has a contest up and they&#8217;re offering two free tickets to RailsConf Europe in Berlin. Speaking of conferences, Fabio Akita announced that there will be a Rails Summit Brazil 2008 this coming October in São Paulo. This will be the first event of its kind for the Rails community in South America.An improved version (i.e. 1.1.1) of the Oracle enhanced adapter was released, as well as version 0.9.5 of the IBM_DB adapter for DB2 and Informix, which adds support for Rails 2.1.In purely chronological order, I found the following articles to be worth pointing out: Speed up slow Rails development in vista &#8211; a handy tip for developers using Vista, Adding Google Maps To Your Rails Applications, Live fulltext search in Ruby on Rails and Useful Flash Messages in Rails.The Railscasts website published two new episodes, one on testing through Selenium, and another on semi-static pages.Finally, let&#8217;s close this edition on a lighter note. The next time you are about to create an acts_as_an_evil_genius plugin or other imaginatively named one, think about this post. ;-)If you&#8217;d like to read more updates from the Ruby side of things, please head over to This Week in Ruby." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails (July 11, 2008)" />
+  <meta property="og:description" content="Welcome to the third edition of This Week in Rails, a weekly report with highlights from the Rails community. My apologies for the delay of this post, the past two weeks have been pretty crazy, so this edition covers the most interesting articles and news from the past two weeks.Let&#8217;s kick off this report with a couple of maintenance releases by Jamis Buck. Both Capistrano 2.4.3 and Net::SSH 2.0.3 were published two weeks ago. If you use them, consider upgrading.Rails 2.1 has been out for a while now, but in case you didn&#8217;t have a chance to catch up yet, this post collects several links to useful resources which will help bring you up-to-date.The Pathfinder Development&#8217;s blog put out three highly interesting posts. The first is More Named Scope Awesomeness by Noel Rappin, while the second and third ones are Pretty blocks in Rails views and DRYing up Rails Controllers: Polymorphic and Super Controllers, both by Josh Symonds. Another good (and quick) recent read about controllers, was &quot;MVC: How to write controllers &quot;:http://andrzejonsoftware.blogspot.com/2008/07/mvc-how-to-write-controllers.html.The same Noel also published the second part of &#8220;Developing iPhone applications using Ruby on Rails and Eclipse&#8221; for DeveloperWorks (part 1 and 2).FiveRuns released a valuable gem called data_fabric which adds support for sharding and replication to Active Record. The same company also has a contest up and they&#8217;re offering two free tickets to RailsConf Europe in Berlin. Speaking of conferences, Fabio Akita announced that there will be a Rails Summit Brazil 2008 this coming October in São Paulo. This will be the first event of its kind for the Rails community in South America.An improved version (i.e. 1.1.1) of the Oracle enhanced adapter was released, as well as version 0.9.5 of the IBM_DB adapter for DB2 and Informix, which adds support for Rails 2.1.In purely chronological order, I found the following articles to be worth pointing out: Speed up slow Rails development in vista &#8211; a handy tip for developers using Vista, Adding Google Maps To Your Rails Applications, Live fulltext search in Ruby on Rails and Useful Flash Messages in Rails.The Railscasts website published two new episodes, one on testing through Selenium, and another on semi-static pages.Finally, let&#8217;s close this edition on a lighter note. The next time you are about to create an acts_as_an_evil_genius plugin or other imaginatively named one, think about this post. ;-)If you&#8217;d like to read more updates from the Ruby side of things, please head over to This Week in Ruby." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2008/7/12/this-week-in-rails-july-11-2008" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails (July 11, 2008)" />
+  <meta name="twitter:description" content="Welcome to the third edition of This Week in Rails, a weekly report with highlights from the Rails community. My apologies for the delay of this post, the past two weeks have been pretty crazy, so this edition covers the most interesting articles and news from the past two weeks.Let&#8217;s kick off this report with a couple of maintenance releases by Jamis Buck. Both Capistrano 2.4.3 and Net::SSH 2.0.3 were published two weeks ago. If you use them, consider upgrading.Rails 2.1 has been out for a while now, but in case you didn&#8217;t have a chance to catch up yet, this post collects several links to useful resources which will help bring you up-to-date.The Pathfinder Development&#8217;s blog put out three highly interesting posts. The first is More Named Scope Awesomeness by Noel Rappin, while the second and third ones are Pretty blocks in Rails views and DRYing up Rails Controllers: Polymorphic and Super Controllers, both by Josh Symonds. Another good (and quick) recent read about controllers, was &quot;MVC: How to write controllers &quot;:http://andrzejonsoftware.blogspot.com/2008/07/mvc-how-to-write-controllers.html.The same Noel also published the second part of &#8220;Developing iPhone applications using Ruby on Rails and Eclipse&#8221; for DeveloperWorks (part 1 and 2).FiveRuns released a valuable gem called data_fabric which adds support for sharding and replication to Active Record. The same company also has a contest up and they&#8217;re offering two free tickets to RailsConf Europe in Berlin. Speaking of conferences, Fabio Akita announced that there will be a Rails Summit Brazil 2008 this coming October in São Paulo. This will be the first event of its kind for the Rails community in South America.An improved version (i.e. 1.1.1) of the Oracle enhanced adapter was released, as well as version 0.9.5 of the IBM_DB adapter for DB2 and Informix, which adds support for Rails 2.1.In purely chronological order, I found the following articles to be worth pointing out: Speed up slow Rails development in vista &#8211; a handy tip for developers using Vista, Adding Google Maps To Your Rails Applications, Live fulltext search in Ruby on Rails and Useful Flash Messages in Rails.The Railscasts website published two new episodes, one on testing through Selenium, and another on semi-static pages.Finally, let&#8217;s close this edition on a lighter note. The next time you are about to create an acts_as_an_evil_genius plugin or other imaginatively named one, think about this post. ;-)If you&#8217;d like to read more updates from the Ruby side of things, please head over to This Week in Ruby." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2008/7/12/this-week-in-rails-july-11-2008"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails (July 11, 2008)",
+      "description": "Welcome to the third edition of This Week in Rails, a weekly report with highlights from the Rails community. My apologies for the delay of this post, the past two weeks have been pretty crazy, so this edition covers the most interesting articles and news from the past two weeks.Let&#8217;s kick off this report with a couple of maintenance releases by Jamis Buck. Both Capistrano 2.4.3 and Net::SSH 2.0.3 were published two weeks ago. If you use them, consider upgrading.Rails 2.1 has been out for a while now, but in case you didn&#8217;t have a chance to catch up yet, this post collects several links to useful resources which will help bring you up-to-date.The Pathfinder Development&#8217;s blog put out three highly interesting posts. The first is More Named Scope Awesomeness by Noel Rappin, while the second and third ones are Pretty blocks in Rails views and DRYing up Rails Controllers: Polymorphic and Super Controllers, both by Josh Symonds. Another good (and quick) recent read about controllers, was &quot;MVC: How to write controllers &quot;:http://andrzejonsoftware.blogspot.com/2008/07/mvc-how-to-write-controllers.html.The same Noel also published the second part of &#8220;Developing iPhone applications using Ruby on Rails and Eclipse&#8221; for DeveloperWorks (part 1 and 2).FiveRuns released a valuable gem called data_fabric which adds support for sharding and replication to Active Record. The same company also has a contest up and they&#8217;re offering two free tickets to RailsConf Europe in Berlin. Speaking of conferences, Fabio Akita announced that there will be a Rails Summit Brazil 2008 this coming October in São Paulo. This will be the first event of its kind for the Rails community in South America.An improved version (i.e. 1.1.1) of the Oracle enhanced adapter was released, as well as version 0.9.5 of the IBM_DB adapter for DB2 and Informix, which adds support for Rails 2.1.In purely chronological order, I found the following articles to be worth pointing out: Speed up slow Rails development in vista &#8211; a handy tip for developers using Vista, Adding Google Maps To Your Rails Applications, Live fulltext search in Ruby on Rails and Useful Flash Messages in Rails.The Railscasts website published two new episodes, one on testing through Selenium, and another on semi-static pages.Finally, let&#8217;s close this edition on a lighter note. The next time you are about to create an acts_as_an_evil_genius plugin or other imaginatively named one, think about this post. ;-)If you&#8217;d like to read more updates from the Ruby side of things, please head over to This Week in Ruby.",
+      "url": "http://localhost:4000/2008/7/12/this-week-in-rails-july-11-2008",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Antonio Cangiano"
+      },
+      "datePublished": "2008-07-12T02:35:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, July 12, 2008</h5>
+        <h2>This Week in Rails (July 11, 2008)</h2>
+
+        <h6>Posted by Antonio Cangiano</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Welcome to the third edition of This Week in Rails, a weekly report with highlights from the Rails community. My apologies for the delay of this post, the past two weeks have been pretty crazy, so this edition covers the most interesting articles and news from the past two weeks.</p>
+<p>Let&#8217;s kick off this report with a couple of maintenance releases by Jamis Buck. Both <a href="http://weblog.jamisbuck.org/2008/6/28/capistrano-2-4-3">Capistrano 2.4.3</a> and <a href="http://weblog.jamisbuck.org/2008/6/28/net-ssh-2-0-3">Net::<span class="caps">SSH</span> 2.0.3</a> were published two weeks ago. If you use them, consider upgrading.</p>
+<p>Rails 2.1 has been out for a while now, but in case you didn&#8217;t have a chance to catch up yet, <a href="http://jasonrudolph.com/blog/2008/07/08/5-resources-for-getting-up-to-speed-on-rails-21/">this post</a> collects several links to useful resources which will help bring you up-to-date.</p>
+<p>The Pathfinder Development&#8217;s blog put out three highly interesting posts. The first is <a href="http://www.pathf.com/blogs/2008/06/more-named-scope-awesomeness">More Named Scope Awesomeness</a> by Noel Rappin, while the second and third ones are <a href="http://www.pathf.com/blogs/2008/07/pretty-blocks-in-rails-views/">Pretty blocks in Rails views</a> and <a href="http://www.pathf.com/blogs/2008/07/drying-up-rails-controllers-polymorphic-and-super-controllers/">DRYing up Rails Controllers: Polymorphic and Super Controllers</a>, both by Josh Symonds. Another good (and quick) recent read about controllers, was &quot;MVC: How to write controllers &quot;:http://andrzejonsoftware.blogspot.com/2008/07/mvc-how-to-write-controllers.html.</p>
+<p>The same Noel also published the second part of &#8220;Developing iPhone applications using Ruby on Rails and Eclipse&#8221; for DeveloperWorks (<a href="http://www.ibm.com/developerworks/opensource/library/os-eclipse-iphoneruby1/">part 1</a><br />
+ and <a href="http://www.ibm.com/developerworks/opensource/library/os-eclipse-iphoneruby2/">2</a>).</p>
+<p>FiveRuns released a valuable gem called <a href="http://blog.fiveruns.com/2008/7/9/introducing-data_fabric">data_fabric</a> which adds support for sharding and replication to Active Record. The same company also <a href="http://blog.fiveruns.com/2008/7/10/run-your-way-to-railsconf-europe">has a contest up</a> and they&#8217;re offering two free tickets to RailsConf Europe in Berlin. Speaking of conferences, Fabio Akita announced that there will be a <a href="http://akitaonrails.com/2008/7/11/rails-summit-brazil-2008">Rails Summit Brazil 2008</a> this coming October in São Paulo. This will be the first event of its kind for the Rails community in South America.</p>
+<p><a href="http://blog.rayapps.com/2008/06/28/activerecord-oracle-enhanced-adapter-version-111-released/">An improved version</a> (i.e. 1.1.1) of the Oracle enhanced adapter was released, as well as <a href="http://rubyforge.org/frs/?group_id=2361&amp;release_id=23307">version 0.9.5</a> of the IBM_DB adapter for DB2 and Informix, which adds support for Rails 2.1.</p>
+<p>In purely chronological order, I found the following articles to be worth pointing out: <a href="http://www.plopcentral.com/articles/2008/07/02/rails-development-environment-slow-in-vista">Speed up slow Rails development in vista</a> &#8211; a handy tip for developers using Vista, <a href="http://www.developer.com/open/article.php/10930_3757576_1">Adding Google Maps To Your Rails Applications</a>, <a href="http://blog.zmok.net/articles/2008/07/10/live-fulltext-search-in-ruby-on-rails">Live fulltext search in Ruby on Rails</a> and <a href="http://rubypond.com/articles/2008/07/11/useful-flash-messages-in-rails/">Useful Flash Messages in Rails</a>.</p>
+<p>The Railscasts website published two new episodes, one on <a href="http://railscasts.com/episodes/116">testing through Selenium</a>, and another on <a href="http://railscasts.com/episodes/117">semi-static pages</a>.</p>
+<p>Finally, let&#8217;s close this edition on a lighter note. The next time you are about to create an acts_as_an_evil_genius plugin or other imaginatively named one, think about <a href="http://www.pluginaweek.org/2008/07/06/acts_as_what/">this post</a>. ;-)</p>
+<p>If you&#8217;d like to read more updates from the Ruby side of things, please head over to <a href="http://antoniocangiano.com/2008/07/11/this-week-in-ruby-july-11-2008">This Week in Ruby</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

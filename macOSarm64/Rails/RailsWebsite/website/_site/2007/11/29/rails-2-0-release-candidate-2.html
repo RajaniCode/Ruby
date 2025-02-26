@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 2.0: Release Candidate 2</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="After another batch of fixes, tweaks, and buckets of polish, we&#8217;ve prepared the hopefully last step before 2.0 can go final: Release Candidate 2. If nothing major pops up, expect the final version to land within the next week or two at the most.As usual, we got the latest gems on the gems.rubyonrails.org server and there&#8217;s a RC2 tag as well. Please put this final test through the ringer so we can get a clean 2.0.0 final release.If you haven&#8217;t kept up to date on what&#8217;s new in 2.0, have a look at the original preview release announcement. The gem version for this release is 1.99.1. Enjoy!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 2.0: Release Candidate 2" />
+  <meta property="og:description" content="After another batch of fixes, tweaks, and buckets of polish, we&#8217;ve prepared the hopefully last step before 2.0 can go final: Release Candidate 2. If nothing major pops up, expect the final version to land within the next week or two at the most.As usual, we got the latest gems on the gems.rubyonrails.org server and there&#8217;s a RC2 tag as well. Please put this final test through the ringer so we can get a clean 2.0.0 final release.If you haven&#8217;t kept up to date on what&#8217;s new in 2.0, have a look at the original preview release announcement. The gem version for this release is 1.99.1. Enjoy!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2007/11/29/rails-2-0-release-candidate-2" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 2.0: Release Candidate 2" />
+  <meta name="twitter:description" content="After another batch of fixes, tweaks, and buckets of polish, we&#8217;ve prepared the hopefully last step before 2.0 can go final: Release Candidate 2. If nothing major pops up, expect the final version to land within the next week or two at the most.As usual, we got the latest gems on the gems.rubyonrails.org server and there&#8217;s a RC2 tag as well. Please put this final test through the ringer so we can get a clean 2.0.0 final release.If you haven&#8217;t kept up to date on what&#8217;s new in 2.0, have a look at the original preview release announcement. The gem version for this release is 1.99.1. Enjoy!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2007/11/29/rails-2-0-release-candidate-2"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 2.0: Release Candidate 2",
+      "description": "After another batch of fixes, tweaks, and buckets of polish, we&#8217;ve prepared the hopefully last step before 2.0 can go final: Release Candidate 2. If nothing major pops up, expect the final version to land within the next week or two at the most.As usual, we got the latest gems on the gems.rubyonrails.org server and there&#8217;s a RC2 tag as well. Please put this final test through the ringer so we can get a clean 2.0.0 final release.If you haven&#8217;t kept up to date on what&#8217;s new in 2.0, have a look at the original preview release announcement. The gem version for this release is 1.99.1. Enjoy!",
+      "url": "http://localhost:4000/2007/11/29/rails-2-0-release-candidate-2",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2007-11-29T10:38:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, November 29, 2007</h5>
+        <h2>Rails 2.0: Release Candidate 2</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>After another batch of fixes, tweaks, and buckets of polish, we&#8217;ve prepared the hopefully last step before 2.0 can go final: Release Candidate 2. If nothing major pops up, expect the final version to land within the next week or two at the most.</p>
+<p>As usual, we got the latest gems on the gems.rubyonrails.org server and there&#8217;s <a href="http://dev.rubyonrails.org/svn/rails/tags/rel_2-0-0_RC2/">a RC2 tag</a> as well. Please put this final test through the ringer so we can get a clean 2.0.0 final release.</p>
+<p>If you haven&#8217;t kept up to date on what&#8217;s new in 2.0, have a look at <a href="https://rubyonrails.org/2007/9/30/rails-2-0-0-preview-release">the original preview release announcement</a>. The gem version for this release is 1.99.1. Enjoy!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

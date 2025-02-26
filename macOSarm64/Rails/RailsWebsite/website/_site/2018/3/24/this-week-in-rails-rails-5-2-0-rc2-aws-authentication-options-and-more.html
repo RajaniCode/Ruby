@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 5.2.0.RC2, AWS authentication options and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello fellow Rubyists, this is Wojtek bringing you the polished set of latest Rails news.We do like to “polish” things here in Poland ;-)" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 5.2.0.RC2, AWS authentication options and more" />
+  <meta property="og:description" content="Hello fellow Rubyists, this is Wojtek bringing you the polished set of latest Rails news.We do like to “polish” things here in Poland ;-)" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2018/3/24/this-week-in-rails-rails-5-2-0-rc2-aws-authentication-options-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 5.2.0.RC2, AWS authentication options and more" />
+  <meta name="twitter:description" content="Hello fellow Rubyists, this is Wojtek bringing you the polished set of latest Rails news.We do like to “polish” things here in Poland ;-)" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2018/3/24/this-week-in-rails-rails-5-2-0-rc2-aws-authentication-options-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 5.2.0.RC2, AWS authentication options and more",
+      "description": "Hello fellow Rubyists, this is Wojtek bringing you the polished set of latest Rails news.We do like to “polish” things here in Poland ;-)",
+      "url": "http://localhost:4000/2018/3/24/this-week-in-rails-rails-5-2-0-rc2-aws-authentication-options-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "morgoth85"
+      },
+      "datePublished": "2018-03-24T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, March 24, 2018</h5>
+        <h2>Rails 5.2.0.RC2, AWS authentication options and more</h2>
+
+        <h6>Posted by morgoth85</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello fellow Rubyists, this is <a href="https://twitter.com/morgoth85">Wojtek</a> bringing you the polished set of latest Rails news.<br />
+We do like to “polish” things here in Poland ;-)</p>
+
+<h3 id="rails-520rc2-released"><a href="https://rubyonrails.org/2018/3/20/Rails-5-2-RC2">Rails 5.2.0.RC2 released</a></h3>
+
+<p>Aiming for 5.2.0 final version to be released before the RailsConf in April. Help us test it, to have a solid and stable release.</p>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20180318-20180324">This Week’s Contributors</a></h3>
+
+<p>Big thanks to 16 people who contributed to Rails this week! If you’d like to join them, check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>.</p>
+
+<h3 id="allow-full-use-of-the-aws-s3-sdk-authentication-options"><a href="https://github.com/rails/rails/commit/c1600009b2bbb3b67db20ddb14fef34d4cfa82bc">Allow full use of the AWS S3 SDK authentication options</a></h3>
+
+<p>It’s now possible to use environment variables and IAM roles to authenticate to AWS in Active Storage.</p>
+
+<h3 id="support-mysql2-gem-version-05"><a href="https://github.com/rails/rails/commit/9f5477af93d18e9644903f89bce4ffde13cc376e">Support mysql2 gem version 0.5</a></h3>
+
+<p>New version of mysql2 gem brings some bugfixes and features but also some backward incompatibilites. Check them out in <a href="https://github.com/brianmario/mysql2/releases/tag/0.5.0">changelog</a>.</p>
+
+<h3 id="memoize-the-result-of-calculating-path-to-translation"><a href="https://github.com/rails/rails/commit/05eaa07627376626902bd7acde35406edf1bb2f2">Memoize the result of calculating path to translation</a></h3>
+
+<p>Speeds up usage of <strong>I18n.translate</strong>. Benchmark included in the comments.</p>
+
+<h3 id="use-ascii-8bit-paths-in-actiondispatchstatic"><a href="https://github.com/rails/rails/commit/2ef145883348e92c9e6393ece9b6967e3a5a80c7">Use ASCII-8BIT paths in ActionDispatch::Static</a></h3>
+
+<p>Fixes encoding incompatibilites between Rack and Rails middlewares.</p>
+
+<h3 id="remove-support-for-qu-gem-from-active-job"><a href="https://github.com/rails/rails/commit/6ef720791d6532a107f4777edfe1d708b6b9c068">Remove support for Qu gem from Active Job</a></h3>
+
+<p>Qu gem wasn’t compatible since Rails 5.1. Development was stopped in 2014 and maintainers have confirmed its demise.</p>
+
+<p>There were many more changes to Rails’ codebase, which you can check out <a href="https://github.com/rails/rails/compare/master@%7B2018-03-18%7D...@%7B2018-03-24%7D">here</a>.<br />
+Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

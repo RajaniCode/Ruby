@@ -1,0 +1,17 @@
+3. Rails Configuration
+
+
+Using rspec --init will setup RSpec within a ruby project, but for the rest of this course we'll be using RSpec within a Rails project. Run the rails generator to install RSpec into the current Rails project.
+
+
+Answer: rails generate rspec:install
+
+
+Console
+
+zombie_tweets $ rails generate rspec:install
+create  .rspec
+create  spec
+create  spec/spec_helper.rb
+Success!
+zombie_tweets $  

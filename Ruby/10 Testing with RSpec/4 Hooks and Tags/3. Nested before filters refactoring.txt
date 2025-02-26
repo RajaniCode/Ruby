@@ -1,0 +1,52 @@
+3. Nested before filters refactoring
+
+
+Refactor our last example so that there is another context called 'with a dummy zombie'. Move the zombie.iq before filter inside this context.
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :name
+  validates :name, presence: true
+ 
+  def dummy?
+    iq < 3
+  end
+ 
+  def genius?
+    iq >= 3
+  end
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  let(:zombie) { Zombie.new }
+  before { zombie.iq = 0 }
+  subject { zombie }
+
+  it { should be_dummy }
+
+  context 'with a smart zombie' do
+    before { zombie.iq = 3 }
+    it { should_not be_dummy }
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Zombie do
+  let(:zombie) { Zombie.new }  
+  before { zombie.iq = 0 }
+  subject { zombie }
+  
+  context 'with a dummy zombie' do
+    it { should be_dummy }
+  end  
+  
+  context 'with a smart zombie' do
+    before { zombie.iq = 3 }
+    it { should_not be_dummy }
+  end
+end

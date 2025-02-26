@@ -1,0 +1,37 @@
+4. Write the Method
+
+
+Now that we have a failing test, let's make it pass by creating the self.multiple_of?(multiple, num) method in the Multiple module. Hint: one way of checking multiples is using the modulo operator, multiple % num == 0 (will be 'true' if multiple can be divided evenly by the num) Modulo on Wikipedia 
+
+
+multiple_test.rb
+class MultipleTest < Test::Unit::TestCase
+  def test_multiple_of
+    assert Multiple.multiple_of?(25, 5), "25 should be a multiple of 5"
+  end
+end
+
+
+multiple.rb
+module Multiple
+  
+end
+
+
+Answer:
+multiple.rb
+module Multiple
+  def self.multiple_of?(multiple, num)
+    if multiple % num == 0
+      true
+    else
+      false
+    end
+  end 
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.000734s, 1363.3191 tests/s, 2726.6382 assertions/s.

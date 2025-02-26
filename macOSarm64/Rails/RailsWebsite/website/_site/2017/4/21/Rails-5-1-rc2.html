@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 5.1.0.rc2: Loving JavaScript, System Tests, Encrypted Secrets, and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We’re happy to announce Rails 5.1.0.rc2 has been released. We are now really close to the final release.We still have a few open issues in the milestone but we arestill expecting to be able to do the final release during the Railsconf 2017." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 5.1.0.rc2: Loving JavaScript, System Tests, Encrypted Secrets, and more" />
+  <meta property="og:description" content="We’re happy to announce Rails 5.1.0.rc2 has been released. We are now really close to the final release.We still have a few open issues in the milestone but we arestill expecting to be able to do the final release during the Railsconf 2017." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/4/21/Rails-5-1-rc2" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 5.1.0.rc2: Loving JavaScript, System Tests, Encrypted Secrets, and more" />
+  <meta name="twitter:description" content="We’re happy to announce Rails 5.1.0.rc2 has been released. We are now really close to the final release.We still have a few open issues in the milestone but we arestill expecting to be able to do the final release during the Railsconf 2017." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/4/21/Rails-5-1-rc2"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 5.1.0.rc2: Loving JavaScript, System Tests, Encrypted Secrets, and more",
+      "description": "We’re happy to announce Rails 5.1.0.rc2 has been released. We are now really close to the final release.We still have a few open issues in the milestone but we arestill expecting to be able to do the final release during the Railsconf 2017.",
+      "url": "http://localhost:4000/2017/4/21/Rails-5-1-rc2",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rafaelfranca"
+      },
+      "datePublished": "2017-04-21T07:20:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, April 21, 2017</h5>
+        <h2>Rails 5.1.0.rc2: Loving JavaScript, System Tests, Encrypted Secrets, and more</h2>
+
+        <h6>Posted by rafaelfranca</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We’re happy to announce Rails 5.1.0.rc2 has been released. We are now really close to the final release.
+We still have a <a href="https://github.com/rails/rails/milestone/49">few open issues in the milestone</a> but we are
+still expecting to be able to do the final release during the Railsconf 2017.</p>
+
+<p>While we are working to close the last issues, you can check <a href="http://edgeguides.rubyonrails.org/5_1_release_notes.html">the Rails 5.1 releases notes</a>,
+or the awesome summary of new features present in <a href="https://rubyonrails.org/2017/2/23/Rails-5-1-beta1">the 5.1.0.beta1 blog post</a>.</p>
+
+<p>To view the changes for each gem, please read the changelogs on GitHub:</p>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/blob/v5.1.0.rc2/actioncable/CHANGELOG.md">Action Cable CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.1.0.rc2/actionmailer/CHANGELOG.md">Action Mailer CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.1.0.rc2/actionpack/CHANGELOG.md">Action Pack CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.1.0.rc2/actionview/CHANGELOG.md">Action View CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.1.0.rc2/activemodel/CHANGELOG.md">Active Model CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.1.0.rc2/activerecord/CHANGELOG.md">Active Record CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.1.0.rc2/activesupport/CHANGELOG.md">Active Support CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.1.0.rc2/activejob/CHANGELOG.md">Active Job CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.1.0.rc2/railties/CHANGELOG.md">Railties CHANGELOG</a></li>
+</ul>
+
+<p>As per our <a href="http://edgeguides.rubyonrails.org/maintenance_policy.html">maintenance policy</a>, the release of Rails 5.1 will mean that bug fixes will only apply
+to 5.1.x, regular security issues to 5.1.x and 5.0.x, and severe security issues to 5.1.x, 5.0.x, and 4.2.x.
+This means 4.x and below will essentially be unsupported!</p>
+
+<p>To try out this new release:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install rails -v 5.1.0.rc2
+</code></pre></div></div>
+
+<p>Make sure you are using RubyGems 2.6.11 or later before trying to install a pre release, with:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem update --system 2.6.11
+</code></pre></div></div>
+
+<p>Please help us test this release candidate version of Rails. It’s always frustrating when we put a lot of work into a
+new release, betas, release candidates, and then get people report all sorts of issues on week one of the final release.
+This is an incremental upgrade to Rails 5.0. Please do your community duty and help us land a solid 5.1 without needing
+an immediate 5.1.1.</p>
+
+<p>Thank you!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

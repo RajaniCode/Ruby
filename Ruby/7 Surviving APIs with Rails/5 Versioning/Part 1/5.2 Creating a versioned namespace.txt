@@ -1,0 +1,47 @@
+5.2 Creating a versioned namespace
+
+Route namespaces help isolate controllers that serve different API versions. Let’s create individual namespaces for the different versions supported by our API server.
+
+
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  resources :zombies
+end
+
+
+1. Create a namespace called v1 and move the zombies resources into that namespace.
+
+Answer:
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  namespace :v1 do
+    resources :zombies
+  end  
+end
+
+
+2. Now create a second namespace called v2. Inside of v2, define another zombies resources.
+
+Answer:
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  namespace :v1 do
+    resources :zombies
+  end  
+  namespace :v2 do
+    resources :zombies
+  end 
+end
+
+3. For the zombies resources under the v2 namespace, prevent the destroy action from being exposed.
+
+Answer:
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  namespace :v1 do
+    resources :zombies
+  end  
+  namespace :v2 do
+    resources :zombies, except: :destroy
+  end 
+end

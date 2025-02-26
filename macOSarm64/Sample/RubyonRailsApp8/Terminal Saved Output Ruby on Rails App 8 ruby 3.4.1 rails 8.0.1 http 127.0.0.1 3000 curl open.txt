@@ -1,0 +1,93 @@
+Last login: Tue Feb  4 00:12:54 on ttys000
+rajaniapple@Rajanis-MacBook-Pro ~ % curl http://127.0.0.1:3000/
+<!-- BEGIN app/views/layouts/application.html.erb --><!DOCTYPE html>
+<html>
+  <head>
+    <title>Ruby on Rails Tutorial Sample App</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="OwmkS1F6C-MeRqnMJRBsQoeG5UU2UO2Yroq4aFZYJpxUm2E9BbKKimPJCojmrQiQJEv3YYNIchowY4Umsh6G-w" />
+    
+
+    <link rel="stylesheet" href="/assets/application-c6572c6fddd5889cf48cd7517418514b4c003072fa05bcf4f815e143e2dd39f4.css" data-turbo-track="reload" />
+    <script type="importmap" data-turbo-track="reload">{
+  "imports": {
+    "application": "/assets/application-c056b280d481368e54e8086b0aad7b3eff510b1cd4ecaed6b96def7478c9c2cd.js",
+    "@hotwired/turbo-rails": "/assets/turbo.min-e5023178542f05fc063cd1dc5865457259cc01f3fba76a28454060d33de6f429.js",
+    "@hotwired/stimulus": "/assets/stimulus.min-900648768bd96f3faeba359cf33c1bd01ca424ca4d2d05f36a5d8345112ae93c.js",
+    "@hotwired/stimulus-loading": "/assets/stimulus-loading-1fc59770fb1654500044afd3f5f6d7d00800e5be36746d55b94a2963a7a228aa.js",
+    "controllers/application": "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js",
+    "controllers/hello_controller": "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js",
+    "controllers": "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js",
+    "custom/image_upload": "/assets/custom/image_upload-10c5f4c8e4ff54eba336cf9b2eb7a4b3ca6876ad21af2446eaa5e12e2a9da993.js",
+    "custom/menu": "/assets/custom/menu-7265b2067ed99b6f4e241019ac7f88139352f5021955afcb5ed76e9b5b70d299.js"
+  }
+}</script>
+<link rel="modulepreload" href="/assets/application-c056b280d481368e54e8086b0aad7b3eff510b1cd4ecaed6b96def7478c9c2cd.js">
+<link rel="modulepreload" href="/assets/turbo.min-e5023178542f05fc063cd1dc5865457259cc01f3fba76a28454060d33de6f429.js">
+<link rel="modulepreload" href="/assets/stimulus.min-900648768bd96f3faeba359cf33c1bd01ca424ca4d2d05f36a5d8345112ae93c.js">
+<link rel="modulepreload" href="/assets/stimulus-loading-1fc59770fb1654500044afd3f5f6d7d00800e5be36746d55b94a2963a7a228aa.js">
+<script src="/assets/es-module-shims.min-606ae9c3279013fe751cee30f719a592f759e705edb66496812f3d9dbce3d850.js" async="async" data-turbo-track="reload"></script>
+<script type="module">import "application"</script>
+    <!-- BEGIN app/views/layouts/_shim.html.erb --><!--[if lt IE 9]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
+  </script>
+<![endif]--><!-- END app/views/layouts/_shim.html.erb -->
+  </head>
+  <body>
+    <!-- BEGIN app/views/layouts/_header.html.erb --><header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <a id="logo" href="/">sample app</a>
+    <nav>
+      <div class="navbar-header">
+        <button id="hamburger" type="button" class="navbar-toggle collapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <ul id="navbar-menu"
+          class="nav navbar-nav navbar-right collapse navbar-collapse">
+        <li><a href="/">Home</a></li>
+        <li><a href="/help">Help</a></li>
+          <li><a href="/login">Log in</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<!-- END app/views/layouts/_header.html.erb -->
+    <div class="container">
+      <!-- BEGIN app/views/static_pages/home.html.erb -->  <div class="center jumbotron">
+    <h1>Welcome to the Sample App</h1>
+
+    <h2>
+      This is the home page for the
+      <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+      sample application.
+    </h2>
+
+    <a class="btn btn-lg btn-primary" href="/signup">Sign up now!</a>
+  </div>
+
+  <a href="https://rubyonrails.org/"><img alt="Rails logo" width="200" src="/assets/rails-27b4717692698a3e7b0be9fd2cd1c151471027fef6eb719d63a0b8e01ae71c15.svg" /></a>
+<!-- END app/views/static_pages/home.html.erb -->
+      <!-- BEGIN app/views/layouts/_footer.html.erb --><footer class="footer">
+  <small>
+    The <a href="https://www.railstutorial.org/">Ruby on Rails Tutorial</a>
+    by <a href="https://www.michaelhartl.com/">Michael Hartl</a>
+  </small>
+  <nav>
+    <ul>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="https://news.railstutorial.org/">News</a></li>
+    </ul>
+  </nav>
+</footer><!-- END app/views/layouts/_footer.html.erb -->
+      <code class="debug_dump">#&lt;ActionController::Parameters {&quot;controller&quot; =&gt; &quot;static_pages&quot;, &quot;action&quot; =&gt; &quot;home&quot;} permitted: false&gt;</code>
+    </div>
+  </body>
+</html><!-- END app/views/layouts/application.html.erb -->%                                                                                 rajaniapple@Rajanis-MacBook-Pro ~ % open http://127.0.0.1:3000/
+rajaniapple@Rajanis-MacBook-Pro ~ % 

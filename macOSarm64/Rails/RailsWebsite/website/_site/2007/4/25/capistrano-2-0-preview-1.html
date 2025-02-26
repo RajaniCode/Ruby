@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Capistrano 2.0 Preview 1</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Capistrano 2.0 Preview 1 is now available for installing and testing:gem install -s http://gems.rubyonrails.com capistrano(It&#8217;ll show up as version 1.99.0; the 1.99.x series will be used as the preview releases for 2.0)For those of you late to the party, Capistrano is a utility for executing remote commands in parallel on multiple remote servers. It is ideal for system administration, and for deploying web applications.Note, though, that this release is not entirely backwards compatible with Capistrano 1.x, so you may need to massage your recipes a little to make them work smoothly under the new version. In order to make the upgrade process as smooth as possible, I&#8217;ve begun compiling a few documents to point out new features, gotchas, and upgrade paths:http://www.capify.org/upgradeLike Capistrano 2.0, the new www.capify.org website is still a bit rough in spots, and will see more documentation appearing over the next few weeks. If you have any feedback for either Capistrano 2.0 or the website, please join us on the Capistrano mailing list and make your voice heard!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Capistrano 2.0 Preview 1" />
+  <meta property="og:description" content="Capistrano 2.0 Preview 1 is now available for installing and testing:gem install -s http://gems.rubyonrails.com capistrano(It&#8217;ll show up as version 1.99.0; the 1.99.x series will be used as the preview releases for 2.0)For those of you late to the party, Capistrano is a utility for executing remote commands in parallel on multiple remote servers. It is ideal for system administration, and for deploying web applications.Note, though, that this release is not entirely backwards compatible with Capistrano 1.x, so you may need to massage your recipes a little to make them work smoothly under the new version. In order to make the upgrade process as smooth as possible, I&#8217;ve begun compiling a few documents to point out new features, gotchas, and upgrade paths:http://www.capify.org/upgradeLike Capistrano 2.0, the new www.capify.org website is still a bit rough in spots, and will see more documentation appearing over the next few weeks. If you have any feedback for either Capistrano 2.0 or the website, please join us on the Capistrano mailing list and make your voice heard!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2007/4/25/capistrano-2-0-preview-1" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Capistrano 2.0 Preview 1" />
+  <meta name="twitter:description" content="Capistrano 2.0 Preview 1 is now available for installing and testing:gem install -s http://gems.rubyonrails.com capistrano(It&#8217;ll show up as version 1.99.0; the 1.99.x series will be used as the preview releases for 2.0)For those of you late to the party, Capistrano is a utility for executing remote commands in parallel on multiple remote servers. It is ideal for system administration, and for deploying web applications.Note, though, that this release is not entirely backwards compatible with Capistrano 1.x, so you may need to massage your recipes a little to make them work smoothly under the new version. In order to make the upgrade process as smooth as possible, I&#8217;ve begun compiling a few documents to point out new features, gotchas, and upgrade paths:http://www.capify.org/upgradeLike Capistrano 2.0, the new www.capify.org website is still a bit rough in spots, and will see more documentation appearing over the next few weeks. If you have any feedback for either Capistrano 2.0 or the website, please join us on the Capistrano mailing list and make your voice heard!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2007/4/25/capistrano-2-0-preview-1"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Capistrano 2.0 Preview 1",
+      "description": "Capistrano 2.0 Preview 1 is now available for installing and testing:gem install -s http://gems.rubyonrails.com capistrano(It&#8217;ll show up as version 1.99.0; the 1.99.x series will be used as the preview releases for 2.0)For those of you late to the party, Capistrano is a utility for executing remote commands in parallel on multiple remote servers. It is ideal for system administration, and for deploying web applications.Note, though, that this release is not entirely backwards compatible with Capistrano 1.x, so you may need to massage your recipes a little to make them work smoothly under the new version. In order to make the upgrade process as smooth as possible, I&#8217;ve begun compiling a few documents to point out new features, gotchas, and upgrade paths:http://www.capify.org/upgradeLike Capistrano 2.0, the new www.capify.org website is still a bit rough in spots, and will see more documentation appearing over the next few weeks. If you have any feedback for either Capistrano 2.0 or the website, please join us on the Capistrano mailing list and make your voice heard!",
+      "url": "http://localhost:4000/2007/4/25/capistrano-2-0-preview-1",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "jamis"
+      },
+      "datePublished": "2007-04-25T09:28:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, April 25, 2007</h5>
+        <h2>Capistrano 2.0 Preview 1</h2>
+
+        <h6>Posted by jamis</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Capistrano 2.0 Preview 1 is now available for installing and testing:</p>
+<pre>gem install -s http://gems.rubyonrails.com capistrano</pre>
+<p>(It&#8217;ll show up as version 1.99.0; the 1.99.x series will be used as the preview releases for 2.0)</p>
+<p>For those of you late to the party, Capistrano is a utility for executing remote commands in parallel on multiple remote servers. It is ideal for system administration, and for deploying web applications.</p>
+<p>Note, though, that this release is not entirely backwards compatible with Capistrano 1.x, so you may need to massage your recipes a little to make them work smoothly under the new version. In order to make the upgrade process as smooth as possible, I&#8217;ve begun compiling a few documents to point out new features, gotchas, and upgrade paths:</p>
+<blockquote>
+<a href="http://www.capify.org/upgrade">http://www.capify.org/upgrade</a>
+</blockquote>
+<p>Like Capistrano 2.0, the new <a href="http://www.capify.org">www.capify.org</a> website is still a bit rough in spots, and will see more documentation appearing over the next few weeks. If you have any feedback for either Capistrano 2.0 or the website, please join us on the <a href="http://groups.google.com/group/capistrano">Capistrano mailing list</a> and make your voice heard!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

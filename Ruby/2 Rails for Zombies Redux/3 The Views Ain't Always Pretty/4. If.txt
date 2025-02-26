@@ -1,0 +1,62 @@
+4. If
+
+
+In the each block, if a zombie has more than one tweet, print out SMART ZOMBIE.
+
+
+Database:
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+tweets
+id	status					zombie_id
+1	Where can I get a good bite to eat?		1
+2	My left arm is missing, but I don't care	2
+3	I just ate some delicious brains		3
+4	OMG, my fingers turned green. #FML		1
+
+
+app/views/zombies/show.html.erb
+<% zombies = Zombie.all %>
+
+<ul>
+  <% zombies.each do |zombie| %>
+    <li>
+      <%= zombie.name %>
+      # add if statement here
+    </li>
+  <% end %>
+</ul>
+
+
+Answer:
+app/views/zombies/show.html.erb
+<% zombies = Zombie.all %>
+
+<ul>
+  <% zombies.each do |zombie| %>
+    <li>
+      <%= zombie.name %>
+      <% if zombie.tweets.count > 1 %> 
+      	SMART ZOMBIE
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+
+Output:
+<ul>
+    <li>
+      Ashley
+      	SMART ZOMBIE
+    </li>
+    <li>
+      Bob
+    </li>
+    <li>
+      Katie
+    </li>
+</ul>

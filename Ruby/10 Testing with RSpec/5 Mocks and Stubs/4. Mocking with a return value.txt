@@ -1,0 +1,69 @@
+4. Mocking with a return value
+
+
+We've changed the code below so we're mocking ZombieMailer.tweet method instead of the entire method. There is still more to do to make this example work. First, finish the let(:mail) statement below by creating a stub with a deliver method that returns true.
+Then update the mock so the call to the tweet method returns the mail stub you created.
+
+
+models
+# tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+  validates :message, presence: true
+  attr_accessible :message
+ 
+  after_create :email_tweeter
+ 
+  def email_tweeter
+    ZombieMailer.tweet(zombie, self).deliver
+  end
+  private :email_tweeter
+end
+ 
+# zombie.rb
+class Zombie < ActiveRecord::Base
+  has_many :tweets
+  validates :email, presence: true
+  attr_accessible :email
+end
+
+
+zombie_mailer.rb
+class ZombieMailer < ActionMailer::Base
+  def tweet(zombie, tweet)
+    mail(:from => 'admin@codeschool.com',
+         :to => zombie.email,
+         :subject => tweet.message)
+  end
+end
+
+
+zombie_spec.rb
+describe Tweet do
+  context 'after create' do
+    let(:zombie) { Zombie.create(email: 'anything@example.org') }
+    let(:tweet) { zombie.tweets.new(message: 'Arrrrgggghhhh') }
+    let(:mail) { }
+
+    it 'calls "tweet" on the ZombieMailer' do
+      ZombieMailer.should_receive(:tweet)
+      tweet.save
+    end
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Tweet do
+  context 'after create' do
+    let(:zombie) { Zombie.create(email: 'anything@example.org') }
+    let(:tweet) { zombie.tweets.new(message: 'Arrrrgggghhhh') }
+    let(:mail) { stub(deliver: true) }
+
+    it 'calls "tweet" on the ZombieMailer' do
+      ZombieMailer.should_receive(:tweet).and_return(mail)
+      tweet.save
+    end
+  end
+end

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Welcome to Google Summer of Code 2015!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Google has announced the list of accepted projects for this year’s Google Summer ofCode(GSoC). Rails has been granted 8 slots, here’s a brief introduction to the projects andthe people behind them." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Welcome to Google Summer of Code 2015!" />
+  <meta property="og:description" content="Google has announced the list of accepted projects for this year’s Google Summer ofCode(GSoC). Rails has been granted 8 slots, here’s a brief introduction to the projects andthe people behind them." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/5/2/welcome-to-gsoc-15" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Welcome to Google Summer of Code 2015!" />
+  <meta name="twitter:description" content="Google has announced the list of accepted projects for this year’s Google Summer ofCode(GSoC). Rails has been granted 8 slots, here’s a brief introduction to the projects andthe people behind them." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/5/2/welcome-to-gsoc-15"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Welcome to Google Summer of Code 2015!",
+      "description": "Google has announced the list of accepted projects for this year’s Google Summer ofCode(GSoC). Rails has been granted 8 slots, here’s a brief introduction to the projects andthe people behind them.",
+      "url": "http://localhost:4000/2015/5/2/welcome-to-gsoc-15",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "febuiles"
+      },
+      "datePublished": "2015-05-02T06:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, May 2, 2015</h5>
+        <h2>Welcome to Google Summer of Code 2015!</h2>
+
+        <h6>Posted by febuiles</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Google has announced the list of <a href="http://www.google-melange.com/gsoc/projects/list/google/gsoc2015">accepted projects</a> for this year’s <a href="https://www.google-melange.com/gsoc/homepage/google/gsoc2015">Google Summer of
+Code</a>(GSoC). Rails has been granted 8 slots, here’s a brief introduction to the projects and
+the people behind them.</p>
+
+<h2 id="performance-enhancements-for-the-asset-pipeline">Performance Enhancements for the Asset Pipeline</h2>
+
+<p><strong>Student:</strong> Martha de Luque<br />
+<strong>Mentors:</strong> <a href="https://github.com/guilleiguaran">Guillermo Iguaran</a> and <a href="https://github.com/josh">Josh Peek</a></p>
+
+<p>Martha will be profiling, benchmarking and updating parts of our asset compilation process to
+improve our asset [re]generation speed. The initial scope of this project covers CoffeeScript, Sass and
+our Uglifier, but benchmarks will be guiding this effort to work where we can get the biggest
+benefits in these four months.</p>
+
+<h2 id="evented-file-system-monitoring">Evented File System Monitoring</h2>
+
+<p><strong>Student:</strong> <a href="https://github.com/puneet24">Puneet Agarwal</a><br />
+<strong>Mentors:</strong> <a href="https://github.com/fxn">Xavier Noria</a> and <a href="https://github.com/matthewd">Matthew Draper</a></p>
+
+<p><a href="http://api.rubyonrails.org/classes/ActiveSupport/FileUpdateChecker.html">ActiveSupport::FileUpdateChecker</a>, the
+system we use for detecting changes in files (mostly for reloading purposes) has served us well over the years, but we’re done with
+polling. Puneet will be replacing our current design with a event-based approach that relies
+on existing third-party monitors (e.g. <code class="language-plaintext highlighter-rouge">inotify</code> or <code class="language-plaintext highlighter-rouge">FSEvent</code>).</p>
+
+<h2 id="asset-pipeline-support-for-source-maps">Asset Pipeline Support for Source Maps</h2>
+
+<p><strong>Student:</strong> <a href="https://github.com/Andreis13">Andrei Istratii</a><br />
+<strong>Mentors:</strong> <a href="https://github.com/rafaelfranca">Rafael França</a> and <a href="https://github.com/arthurnn">Arthur Nogueira Neves</a></p>
+
+<p>The goal of Andrei’s project is to give you good inspecting and debugging capabilities in environments
+where your code goes through various transformations (e.g. your CoffeeScript file being compiled to
+Javascript and then minified in your staging environment). With source maps you can use the existing
+tools your browser provides to do things like reading the CoffeeScript source or setting breakpoints
+on it.</p>
+
+<h2 id="refactoring-action-view-and-active-support">Refactoring Action View and Active Support</h2>
+
+<p><strong>Student:</strong> <a href="https://github.com/wazery">Islam Wazery</a><br />
+<strong>Mentors:</strong> <a href="https://github.com/kirs">Kir Shatrov</a> and <a href="https://github.com/carlosantoniodasilva">Carlos Antonio da Silva</a></p>
+
+<p>Islam is adding some of the things we should already have in Rails, liked adding named arguments
+ for Action View helpers (goodbye counting commas!). He will also be researching how to improve some of our core abstractions like
+ <a href="http://edgeapi.rubyonrails.org/classes/ActionController/Parameters.html">ActionController::Parameters</a>
+ and
+ <a href="http://tenderlovemaking.com/2014/06/04/yagni-methods-slow-us-down.html">ActionView::OutputBuffer</a>
+ to enable better security and performance.</p>
+
+<h2 id="web-console-browser-extensions">Web Console Browser Extensions</h2>
+
+<p><strong>Student:</strong> <a href="https://github.com/sh19910711">Hiroyuki Sano</a><br />
+<strong>Mentor</strong>: <a href="https://github.com/gsamokovarov">Genadi Samokovarov</a></p>
+
+<p>Following up on the work of previous GSoC projects, Hiroyuki will be creating browser extensions for
+the Rails web console. Like the Source Maps project, this one will give you a better live
+debugging experience using standard tools that everyone has available already.</p>
+
+<h2 id="test-failure-prediction">Test Failure Prediction</h2>
+
+<p><strong>Student:</strong> <a href="https://github.com/Genki-S">Genki Sugimoto</a><br />
+<strong>Mentors:</strong> <a href="https://github.com/robin850">Robin Dupret</a> and <a href="https://github.com/joshk">Josh Kalderimis</a></p>
+
+<p><a href="https://github.com/tenderlove">Aaron Patterson</a> has touched upon some interesting ideas on
+<a href="http://tenderlovemaking.com/2015/02/13/predicting-test-failues.html">predicting test
+failures</a> using the
+experimental <a href="http://ruby-doc.org/stdlib-trunk/libdoc/coverage/rdoc/Coverage.html">Coverage</a> feature
+available in recent Ruby versions. Genki will be experimenting with this to see if we can make it a
+part of the Rails testing ecosystem.</p>
+
+<h2 id="refactoring-cookies">Refactoring Cookies</h2>
+
+<p><strong>Student:</strong> <a href="https://github.com/sbhatore">Siddharth Bhatore</a><br />
+<strong>Mentors:</strong> <a href="https://github.com/kaspth">Kasper Timm Hansen</a> and <a href="https://github.com/sikachu">Prem Sichanugrist</a></p>
+
+<p>Rails cookie handling is pretty basic, and although it works in most use cases, we can improve
+it. Siddarth will be adding server-side expiration mechanisms and purpose fields to our existing
+cookie jar, allowing us to have better control and security over our systems.</p>
+
+<h2 id="improving-rubybenchorg">Improving RubyBench.org</h2>
+
+<p><strong>Student:</strong> <a href="https://github.com/klgilbert">Kasif Gilbert</a><br />
+<strong>Mentors:</strong> <a href="https://github.com/SamSaffron">Sam Saffron</a></p>
+
+<p>In case you’re not familiar with it, <a href="http://rubybench.org">RubyBench</a> is an amazing effort to keep
+long running benchmarks for Ruby and related projects (like
+<a href="http://rubybench.org/rails/rails/releases">Rails</a>). As you can see, our own benchmarks could use
+some love, so Kasif will be taking care of this. If everything goes well, JRuby support in
+RubyBench would be the next step for this project.</p>
+
+<hr />
+
+<p><strong>Fun Fact</strong>: 4 of the 14 mentors we have this year participated as GSoC students in previous years. Today they’re all
+  active contributors around the Ruby/Rails ecosystem!</p>
+
+<p>We hope to keep you up on important updates during the summer, but if you’re interested in staying
+up to date (or maybe lending a hand?) please make sure to subscribe to our <a href="ml">mailing list</a>.</p>
+
+<p>Finally, we want to thank <a href="https://github.com/josevalim">José Valim</a>/<a href="https://pragprog.com">The Pragmatic Programmers</a>,
+<a href="http://patshaughnessy.net">Pat Shaughnessy</a>/<a href="http://www.nostarch.com">No Starch Press</a> and
+<a href="http://www.oreilly.com">O’Reilly</a> for donating copies of <a href="https://pragprog.com/book/jvrails/crafting-rails-applications">Crafting Rails
+Applications</a>, <a href="http://patshaughnessy.net/ruby-under-a-microscope">Ruby Under the
+Microscope</a> and offering discounts on
+<a href="http://www.oreilly.com">O’Reilly products</a> to our students.</p>
+
+<p>PS: In case you missed it, Ruby and SciRuby will also be part of this year’s GSoC! You can learn
+more in the <a href="https://groups.google.com/forum/?hl=en#!topic/rubygsoc/u_BabU5Nmvo">Ruby GSoC</a> and <a href="https://groups.google.com/forum/?hl=en#!topic/sciruby-dev/ijd2KOh9WNc">SciRuby
+Development</a> mailing list announcements.</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

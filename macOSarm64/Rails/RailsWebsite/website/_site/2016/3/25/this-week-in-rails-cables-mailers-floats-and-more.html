@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: Cables, Mailers, Floats, and More!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Business Todd here with your weekly briefing of all the goings-on in the Rails organization." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: Cables, Mailers, Floats, and More!" />
+  <meta property="og:description" content="Business Todd here with your weekly briefing of all the goings-on in the Rails organization." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/3/25/this-week-in-rails-cables-mailers-floats-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: Cables, Mailers, Floats, and More!" />
+  <meta name="twitter:description" content="Business Todd here with your weekly briefing of all the goings-on in the Rails organization." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/3/25/this-week-in-rails-cables-mailers-floats-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: Cables, Mailers, Floats, and More!",
+      "description": "Business Todd here with your weekly briefing of all the goings-on in the Rails organization.",
+      "url": "http://localhost:4000/2016/3/25/this-week-in-rails-cables-mailers-floats-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "toddbealmear"
+      },
+      "datePublished": "2016-03-25T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, March 25, 2016</h5>
+        <h2>This week in Rails: Cables, Mailers, Floats, and More!</h2>
+
+        <h6>Posted by toddbealmear</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><a href="https://www.instagram.com/p/BDDjrm2ICFl">Business</a> <a href="https://twitter.com/toddbealmear">Todd</a> here with your weekly briefing of all the goings-on in the Rails organization.</p>
+
+<p>Since our last update, a number of initiatives were undertaken by many of our stakeholders to breed cross-functional synergies between the underlying components of the Rails vertical. Or, if your eyes glazed over at the sight of “cross-functional synergies” or any of the other garbage I just typed out, a bunch of people did some stuff to make Rails better and junk.</p>
+
+<p><em>yawn</em></p>
+
+<p>I’m running this meeting and I’m already boring myself. Let’s just jump into it, shall we?</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160319-20160325">This Week’s Rails Contributors</a></h3>
+
+<p>28 beautiful humans helped make Rails better than it was last week. If you’d like to see your name on this list, check out the open <a href="https://github.com/rails/rails/issues">issues</a>.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="gracefully-handle-action-cable-client-disconnects"><a href="https://github.com/rails/rails/pull/24259">Gracefully Handle Action Cable Client Disconnects</a></h3>
+
+<p>Formerly, Action Cable would raise a connection reset error if a client forcibly disconnected. This change avoids the exception by simply closing the connection if the client disappears.</p>
+
+<h3 id="avoid-installing-new-gems-during-the-upgrade-process"><a href="https://github.com/rails/rails/pull/24243">Avoid Installing New Gems During the Upgrade Process</a></h3>
+
+<p>When running <code class="language-plaintext highlighter-rouge">rails app:update</code>, we should avoid adding dependencies on new gems. A previous change adds an option to dev environment config that would require the <code class="language-plaintext highlighter-rouge">listen</code> gem to be installed. Instead, the generator now adds the line in question as a comment.</p>
+
+<h3 id="honor-default-mysql-modes"><a href="https://github.com/rails/rails/pull/24167">Honor Default MySQL Modes</a></h3>
+
+<p>Active Record’s strict mode has traditionally overridden MySQL’s default modes. However, keeping these modes in place offers better compatibility with other databases. In Rails 5, Active Record will stop overwriting these defaults.</p>
+
+<h3 id="improvements-to-date-inclusion-validator"><a href="https://github.com/rails/rails/pull/24297">Improvements to Date Inclusion Validator</a></h3>
+
+<p>New in Ruby 2.2+, <code class="language-plaintext highlighter-rouge">Range#cover?</code> works with <code class="language-plaintext highlighter-rouge">Date</code> ranges. The date inclusion validator has been updated to allow <code class="language-plaintext highlighter-rouge">Date</code> ranges to use this method.</p>
+
+<h3 id="float-to-decimal-conversion-madness"><a href="https://github.com/rails/rails/commit/c7d3bd48dff0a509f5c21ec8864cb4f774d604e6">Float to Decimal Conversion Madness</a></h3>
+
+<p>To avoid rounding to incorrect values when coercing a <code class="language-plaintext highlighter-rouge">Float</code> to a <code class="language-plaintext highlighter-rouge">Decimal</code>, the scale needs to be applied before precision. Be sure to read the entire commit message for a summary of how the existing behavior may cause unexpected issues.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="fix-reset_session-for-api-controllers"><a href="https://github.com/rails/rails/pull/24229">Fix reset_session for API Controllers</a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">request.reset_session</code> relies on <code class="language-plaintext highlighter-rouge">ActionDispatch::Flash</code>, which is not included in API Controllers. This change moves that requirement to the <code class="language-plaintext highlighter-rouge">Flash</code> middleware itself.</p>
+
+<h3 id="ensure-action-cable-is-loaded-in-application-generator"><a href="https://github.com/rails/rails/pull/24196">Ensure Action Cable is Loaded in Application Generator</a></h3>
+
+<p>This PR fixes an issue where Action Cable would not be loaded properly if the app was generated without Active Record.</p>
+
+<h3 id="generate-applicationmailer-for-engines"><a href="https://github.com/rails/rails/pull/24164">Generate ApplicationMailer for Engines</a></h3>
+
+<p>In a followup to one of the <a href="https://github.com/rails/rails/pull/24161">fixes</a> from last week’s issue, we’re now ensuring that <code class="language-plaintext highlighter-rouge">ApplicationMailer</code> will be correctly generated in Engines.</p>
+
+<h3 id="prevent-key-from-being-created-when-checking-for-error-inclusion"><a href="https://github.com/rails/rails/pull/24299">Prevent Key from Being Created When Checking for Error Inclusion</a></h3>
+
+<p>Calling <code class="language-plaintext highlighter-rouge">ActiveModel::Errors#include?</code> with a key that didn’t exist would pollute the errors hash with they specified key and an empty <code class="language-plaintext highlighter-rouge">Array</code> as its value. This week, that behavior was corrected.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are plenty of things we’re not able to cover here, so take a look at the <a href="https://github.com/rails/rails/compare/master@%7B2016-03-19%7D...@%7B2016-03-25%7D">changes</a> yourself.</p>
+
+<p>Until next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 3.0: Release candidate 2</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The release candidate process is progressing as planned. This second candidate has very few changes over the first, which means that unless any blockers are discovered with this release, we&#8217;re targeting the final release of Rails 3.0 for this week(!!!).So please do help us weed out any blockers. Especially in our two new main dependencies: Bundler and ARel. They&#8217;ve both progressed into release candidacy for their 1.0 releases and will be sharing the same 1.0-final release date as Rails 3.0.You can see a complete list of all the dotted t&#8217;s and crossed i&#8217;s on the new fabulous Github comparo view of RC1 and RC2.As always, you install this latest version with: gem install rails --preAlso note that Rails 3.0 now has it&#8217;s own stable branch. The master branch is now reserved for Rails 3.1 development. (That&#8217;s right, we&#8217;re already going there and it&#8217;s going to be M-A-G-I-C-A-L!)." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 3.0: Release candidate 2" />
+  <meta property="og:description" content="The release candidate process is progressing as planned. This second candidate has very few changes over the first, which means that unless any blockers are discovered with this release, we&#8217;re targeting the final release of Rails 3.0 for this week(!!!).So please do help us weed out any blockers. Especially in our two new main dependencies: Bundler and ARel. They&#8217;ve both progressed into release candidacy for their 1.0 releases and will be sharing the same 1.0-final release date as Rails 3.0.You can see a complete list of all the dotted t&#8217;s and crossed i&#8217;s on the new fabulous Github comparo view of RC1 and RC2.As always, you install this latest version with: gem install rails --preAlso note that Rails 3.0 now has it&#8217;s own stable branch. The master branch is now reserved for Rails 3.1 development. (That&#8217;s right, we&#8217;re already going there and it&#8217;s going to be M-A-G-I-C-A-L!)." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2010/8/24/rails-3-0-release-candidate-2" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 3.0: Release candidate 2" />
+  <meta name="twitter:description" content="The release candidate process is progressing as planned. This second candidate has very few changes over the first, which means that unless any blockers are discovered with this release, we&#8217;re targeting the final release of Rails 3.0 for this week(!!!).So please do help us weed out any blockers. Especially in our two new main dependencies: Bundler and ARel. They&#8217;ve both progressed into release candidacy for their 1.0 releases and will be sharing the same 1.0-final release date as Rails 3.0.You can see a complete list of all the dotted t&#8217;s and crossed i&#8217;s on the new fabulous Github comparo view of RC1 and RC2.As always, you install this latest version with: gem install rails --preAlso note that Rails 3.0 now has it&#8217;s own stable branch. The master branch is now reserved for Rails 3.1 development. (That&#8217;s right, we&#8217;re already going there and it&#8217;s going to be M-A-G-I-C-A-L!)." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2010/8/24/rails-3-0-release-candidate-2"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 3.0: Release candidate 2",
+      "description": "The release candidate process is progressing as planned. This second candidate has very few changes over the first, which means that unless any blockers are discovered with this release, we&#8217;re targeting the final release of Rails 3.0 for this week(!!!).So please do help us weed out any blockers. Especially in our two new main dependencies: Bundler and ARel. They&#8217;ve both progressed into release candidacy for their 1.0 releases and will be sharing the same 1.0-final release date as Rails 3.0.You can see a complete list of all the dotted t&#8217;s and crossed i&#8217;s on the new fabulous Github comparo view of RC1 and RC2.As always, you install this latest version with: gem install rails --preAlso note that Rails 3.0 now has it&#8217;s own stable branch. The master branch is now reserved for Rails 3.1 development. (That&#8217;s right, we&#8217;re already going there and it&#8217;s going to be M-A-G-I-C-A-L!).",
+      "url": "http://localhost:4000/2010/8/24/rails-3-0-release-candidate-2",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2010-08-24T07:37:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, August 24, 2010</h5>
+        <h2>Rails 3.0: Release candidate 2</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>The release candidate process is progressing as planned. This second candidate has very few changes over the first, which means that unless any blockers are discovered with this release, we&#8217;re targeting the final release of Rails 3.0 for this week(!!!).</p>
+<p>So please do help us weed out any blockers. Especially in our two new main dependencies: <a href="http://gembundler.com/v1.0/index.html">Bundler</a> and <a href="http://github.com/rails/arel">ARel</a>. They&#8217;ve both progressed into release candidacy for their 1.0 releases and will be sharing the same 1.0-final release date as Rails 3.0.</p>
+<p>You can see a complete list of all the dotted t&#8217;s and crossed i&#8217;s on the new fabulous Github <a href="http://github.com/rails/rails/compare/v3.0.0_RC...v3.0.0_RC2">comparo view of RC1 and RC2</a>.</p>
+<p>As always, you install this latest version with: <code>gem install rails --pre</code></p>
+<p>Also note that Rails 3.0 now has it&#8217;s own <a href="http://github.com/rails/rails/tree/3-0-stable">stable branch</a>. The <a href="http://github.com/rails/rails">master branch</a> is now reserved for Rails 3.1 development. (That&#8217;s right, we&#8217;re already going there and it&#8217;s going to be M-A-G-I-C-A-L!).</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Preprocessed Active Storage variants and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, Wojtek here. Let’s see what changed in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Preprocessed Active Storage variants and more" />
+  <meta property="og:description" content="Hi, Wojtek here. Let’s see what changed in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/7/7/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Preprocessed Active Storage variants and more" />
+  <meta name="twitter:description" content="Hi, Wojtek here. Let’s see what changed in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/7/7/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Preprocessed Active Storage variants and more",
+      "description": "Hi, Wojtek here. Let’s see what changed in the Rails codebase.",
+      "url": "http://localhost:4000/2023/7/7/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "wojtek"
+      },
+      "datePublished": "2023-07-07T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, July 7, 2023</h5>
+        <h2>Preprocessed Active Storage variants and more</h2>
+
+        <h6>Posted by wojtek</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://twitter.com/morgoth85">Wojtek</a> here. Let’s see what changed in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47473">Add an option to preprocess Active Storage variants in background job</a><br />
+Active Storage variants are processed on the fly when they are needed but sometimes we’re sure that they are accessed and want to process them upfront.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">ApplicationRecord</span>
+  <span class="n">has_one_attached</span> <span class="ss">:avatar</span> <span class="k">do</span> <span class="o">|</span><span class="n">attachable</span><span class="o">|</span>
+    <span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span> <span class="ss">:thumb</span><span class="p">,</span> <span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span> <span class="ss">preprocessed: </span><span class="kp">true</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48644">Introduce sanitizer_vendor config for Action Text</a><br />
+Use <code class="language-plaintext highlighter-rouge">Rails::HTML5::SafeListSanitizer</code> by default in the Rails 7.1 configuration if it is supported.
+Action Text’s sanitizer can be configured by setting <code class="language-plaintext highlighter-rouge">config.action_text.sanitizer_vendor</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48614">Improve performance of ActiveSupport::JSON.encode</a><br />
+This about doubles the performance of <code class="language-plaintext highlighter-rouge">.to_json</code>/<code class="language-plaintext highlighter-rouge">ActiveSupport::JSON.encode</code>. The benchmarks are included in the pull request.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48553">Allow opting in/out of <code class="language-plaintext highlighter-rouge">Link preload</code> headers when calling <code class="language-plaintext highlighter-rouge">stylesheet_link_tag</code> or <code class="language-plaintext highlighter-rouge">javascript_include_tag</code></a></p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># will exclude header, even if setting is enabled:</span>
+<span class="n">javascript_include_tag</span><span class="p">(</span><span class="s2">"http://example.com/all.js"</span><span class="p">,</span> <span class="ss">preload_links_header: </span><span class="kp">false</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48631">Disable database prepared statements when query logs are enabled</a><br />
+Prepared statements and query logs are incompatible features due to query logs making every query unique so Active Record will create a new prepared statement for each, potentially exhausting system resources.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48674">Fix has_one through singular building with inverse</a><br />
+Allows building of records from an association with a <em>has_one</em> through a singular association with inverse. For <em>belongs_to</em> through associations, linking the foreign key to the primary key model isn’t needed.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47436">Don’t double-encode nested <code class="language-plaintext highlighter-rouge">field_id</code> and <code class="language-plaintext highlighter-rouge">field_name</code> index</a><br />
+This fixes the bug with adding an extra index parameter in form builder for deeply nested associations.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-06-30%7D...main@%7B2023-07-07%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230630-20230707">24 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

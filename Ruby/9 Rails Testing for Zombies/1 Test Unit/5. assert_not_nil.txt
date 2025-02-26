@@ -1,0 +1,40 @@
+5. assert_not_nil
+
+
+We are going to create a Zombifier class with a zombify method that upcases and adds 'BRAINS'. Lets begin by writing a test using assert_not_nil to make sure zombify returns something. 
+
+zombifier.rb
+class Zombifier
+  def initialize(str)
+    @str = str
+  end
+
+  def zombify
+    @str
+  end
+end
+
+
+test/unit/zombifier_test.rb
+class ZombifierTest < Test::Unit::TestCase
+  def test_zombify_returns_something
+    z = Zombifier.new('make me a zombie')
+
+  end
+end
+
+
+Answer:
+test/unit/zombifier_test.rb
+class ZombifierTest < Test::Unit::TestCase
+  def test_zombify_returns_something
+    z = Zombifier.new('make me a zombie')    
+    assert_not_nil z.zombify
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.000846s, 1181.5303 tests/s, 4726.1213 assertions/s.

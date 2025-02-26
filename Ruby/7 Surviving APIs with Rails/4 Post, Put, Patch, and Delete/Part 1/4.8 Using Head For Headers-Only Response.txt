@@ -1,0 +1,73 @@
+4.8 Using Head For Headers-Only Response
+
+Responding with an empty body solved our performance issue. Now let’s go back and refactor our response to be a bit more expressive.
+
+
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  protect_from_forgery with: :null_session
+
+  def create
+    human = Human.new(human_params)
+
+    if human.save
+      # code here
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+1. Use the head method to respond with a 204 - No Content status code.
+
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  protect_from_forgery with: :null_session
+
+  def create
+    human = Human.new(human_params)
+
+    if human.save
+      # code here
+      head 204
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+2. Set the Location response header to the newly created human.
+
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  protect_from_forgery with: :null_session
+
+  def create
+    human = Human.new(human_params)
+
+    if human.save
+      # code here
+      head 204, location: human
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end

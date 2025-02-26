@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Immutable Rails Cache Header, Local Assigns in Strict Local Templates, Threaded Active Storage Mirror Service</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Immutable Rails Cache Header, Local Assigns in Strict Local Templates, Threaded Active Storage Mirror Service" />
+  <meta property="og:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/6/28/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Immutable Rails Cache Header, Local Assigns in Strict Local Templates, Threaded Active Storage Mirror Service" />
+  <meta name="twitter:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/6/28/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Immutable Rails Cache Header, Local Assigns in Strict Local Templates, Threaded Active Storage Mirror Service",
+      "description": "Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2024/6/28/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2024-06-28T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, June 28, 2024</h5>
+        <h2>Immutable Rails Cache Header, Local Assigns in Strict Local Templates, Threaded Active Storage Mirror Service</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://github.com/zzak">zzak</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52197">Support “immutable” directive in Cache-Control</a><br />
+This PR adds a new option to the <code class="language-plaintext highlighter-rouge">expires_in</code> method to support the <code class="language-plaintext highlighter-rouge">immutable</code> directive for the “Cache-Control” header.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52205">Also pass “local_assigns” to strict locals templates</a><br />
+When using <a href="https://edgeguides.rubyonrails.org/action_view_overview.html#strict-locals">Strict Locals</a> in a partial, <code class="language-plaintext highlighter-rouge">local_assigns</code> is now passed to the view in order to workaround an issue where trying to access the default values of a name that is also a reserved Ruby keyword.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52199">Fix mailer templates to be RuboCop compliant</a><br />
+An issue was fixed with the mailer generator and <a href="https://github.com/rails/rails/pull/52161">scaffolding</a> to make the generated code RuboCop compliant. This would impact newly generated apps, that create a mailer or a scaffold would immediately fail in the generated CI configuration by default.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52175">Correctly generate Devcontainer setting for applications that using mysql2 gem</a><br />
+This PR ensures that applications using the <code class="language-plaintext highlighter-rouge">mysql2</code> gem for their database adapter still work with the <code class="language-plaintext highlighter-rouge">devcontainer</code> command.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52225">Don’t make rdoc generation take an unreasonable amount of time</a><br />
+Due to a bug in RDoc, which was only discovered recently, the <code class="language-plaintext highlighter-rouge">docs-preview</code> pipeline in Rails CI was taking <em>far too long</em> to finish. I hope you are taking advantage of this pipeline when submitting PRs to update Rails documentation.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52091">Add a config for preserving timezone information when calling “to_time” on TimeWithZone object</a><br />
+When using Active Support’s <code class="language-plaintext highlighter-rouge">to_time</code> method on a TimeWithZone object, you can now configure whether to preserve the timezone or use the UTC offset.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51740">Improve performance of Active Storage Mirror Service</a><br />
+This started as a <code class="language-plaintext highlighter-rouge">FIXME</code> in the original Active Storage implementation for Mirror Service, but now methods being called across all services are done using threads. This should improve the performance for uploads, especially if there are multiple mirrors, however you should be aware that the underlying service must be thread-safe.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50405">Add condensed #inspect for Pool, Adapter, Config</a><br />
+Previously, it was very easy to accidentally leak a database password in production logs if an error ends up calling inspect on a <code class="language-plaintext highlighter-rouge">ConnectionPool</code> or an individual connection (Adapter). This is due to the default <code class="language-plaintext highlighter-rouge">#inspect</code> output for Pools and Adapters being unnecessarily large, and both currently including passwords (through the <code class="language-plaintext highlighter-rouge">DatabaseConfig</code> of a Pool, and the internal configuration of an Adapter).</p>
+
+<p><a href="https://github.com/rails/rails/pull/47713">Use Thor for built-in stats task</a><br />
+Currently, we use both Thor and Rake for <code class="language-plaintext highlighter-rouge">bin/rails</code> commands. We eventually want to get all the built-ins task promoted to Thor Commands. This migrates the <code class="language-plaintext highlighter-rouge">stats</code> task to Thor and deprecates the use of <code class="language-plaintext highlighter-rouge">bin/rake stats</code> directly.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-06-21%7D...main@%7B2024-06-28%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240621-20240628">24 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

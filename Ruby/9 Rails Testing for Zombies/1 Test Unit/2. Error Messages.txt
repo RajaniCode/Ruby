@@ -1,0 +1,30 @@
+2. Error Messages
+
+
+Add the custom error message One is not greater than zero to the failing assertion we just created.
+
+
+test/unit/conditional_test.rb
+class ConditionalTest < Test::Unit::TestCase
+  def test_one_greater_than_zero
+    assert 0 > 1
+  end
+end
+
+
+Answer:
+test/unit/conditional_test.rb
+class ConditionalTest < Test::Unit::TestCase
+  def test_one_greater_than_zero
+    assert 0 > 1, "One is not greater than zero"
+  end
+end
+
+
+Test Output:
+F
+
+Finished tests in 0.000940s, 1063.2654 tests/s, 2126.5307 assertions/s.
+  1) Failure:
+test_one_greater_than_zero(ConditionalTest) [conditional_test.rb:3]:
+One is not greater than zero

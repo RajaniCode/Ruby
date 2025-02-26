@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Active Record Encryption, several performance optimizations, and much MORE!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, zzak here! お久しぶりです! This time I will be recapping the past month or so of Rails. Hang on! There’s a ton of stuff to catch up on!!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Active Record Encryption, several performance optimizations, and much MORE!" />
+  <meta property="og:description" content="Hi, zzak here! お久しぶりです! This time I will be recapping the past month or so of Rails. Hang on! There’s a ton of stuff to catch up on!!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2021/5/28/this-week-in-rails-active-record-encrytion-several-performance-optimizations-and-much-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Active Record Encryption, several performance optimizations, and much MORE!" />
+  <meta name="twitter:description" content="Hi, zzak here! お久しぶりです! This time I will be recapping the past month or so of Rails. Hang on! There’s a ton of stuff to catch up on!!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2021/5/28/this-week-in-rails-active-record-encrytion-several-performance-optimizations-and-much-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Active Record Encryption, several performance optimizations, and much MORE!",
+      "description": "Hi, zzak here! お久しぶりです! This time I will be recapping the past month or so of Rails. Hang on! There’s a ton of stuff to catch up on!!",
+      "url": "http://localhost:4000/2021/5/28/this-week-in-rails-active-record-encrytion-several-performance-optimizations-and-much-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2021-05-28T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, May 28, 2021</h5>
+        <h2>Active Record Encryption, several performance optimizations, and much MORE!</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://github.com/zzak">zzak</a> here! お久しぶりです! This time I will be recapping the past month or so of Rails. Hang on! There’s a ton of stuff to catch up on!!</p>
+
+<h3 id="active-record-encryption"><a href="https://github.com/rails/rails/pull/41659">Active Record Encryption</a></h3>
+
+<p>Originally extracted from HEY, this feature adds encrypted attributes to Active Record models. You can find out more in the <a href="https://edgeguides.rubyonrails.org/active_record_encryption.html">guide</a>.</p>
+
+<h3 id="optimize-cacheentry-coder"><a href="https://github.com/rails/rails/pull/42025">Optimize Cache::Entry coder</a></h3>
+
+<p>Active Support’s cache has received a significant speed bump that was well overdue.</p>
+
+<h3 id="optimize-active-model-generated-attribute-methods"><a href="https://github.com/rails/rails/pull/42095">Optimize Active Model generated attribute methods</a></h3>
+
+<p>This optimization should reduce memory overhead and speed up boot times.</p>
+
+<h3 id="7x-speed-up-for-activerecordbaselogger"><a href="https://github.com/rails/rails/pull/42237">7x speed up for ActiveRecord::Base.logger</a></h3>
+
+<p>By converting AR::Base.logger to a class_attribute we had significant performance gains.</p>
+
+<h3 id="allow-nesting-locales-for-engines"><a href="https://github.com/rails/rails/pull/41872">Allow nesting locales for Engines</a></h3>
+
+<p>This opens up better organization for larger apps using i18n.
+e.g. config/locales/en/models.yml vs. config/locales/models.en.yml</p>
+
+<h3 id="support-range-objects-in-active-job"><a href="https://github.com/rails/rails/pull/42219">Support Range objects in Active Job</a></h3>
+
+<p>This change adds an Active Job serializer for the Range object from Ruby.</p>
+
+<h3 id="add-enumerablesole-to-active-support"><a href="https://github.com/rails/rails/pull/40914">Add Enumerable#sole to Active Support</a></h3>
+
+<p>Based on ActiveRecord::FinderMethods#sole, this method returns the sole item of the enumerable. If there are no items, or more than one item it will raise an exception.</p>
+
+<h3 id="deprecate-enumerablesum-and-arraysum"><a href="https://github.com/rails/rails/pull/42080">Deprecate Enumerable#sum and Array#sum</a></h3>
+
+<p>Since Ruby 2.4 included these methods, Rails can start using the native versions for significant performance increase.</p>
+
+<h3 id="improve-active-record-performance-for-one-and-many"><a href="https://github.com/rails/rails/pull/42143">Improve Active Record performance for #one? and #many?</a></h3>
+
+<p>By limiting the generated count queries, this optimization provides significant performance increase for operations over many rows.</p>
+
+<h3 id="log-a-warning-when-running-sqlite-in-production"><a href="https://github.com/rails/rails/pull/42191">Log a warning when running SQLite in production</a></h3>
+
+<p>A warning is now emitted when trying to use SQLite in production, this can be disabled by setting config.active_record.sqlite3_production_warning to false.</p>
+
+<h3 id="add-disable_joins-option-to-has_one-relation"><a href="https://github.com/rails/rails/pull/42079">Add disable_joins option to has_one relation</a></h3>
+
+<p>This solves a problem with has_one…through relationships whose tables are in separate database clusters.</p>
+
+<h3 id="add-support-for-require-trusted-types-for-and-trusted-types"><a href="https://github.com/rails/rails/pull/42126">Add support for require-trusted-types-for and trusted-types</a></h3>
+
+<p>This feature adds support for these two Content-Security-Policy headers which you can read more about over at <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">MDN</a>.</p>
+
+<h3 id="remove-and-deprecate-rackruntime"><a href="https://github.com/rails/rails/pull/41935">Remove and deprecate Rack::Runtime</a></h3>
+
+<p>Any apps depending on this middleware can still activate it manually, otherwise a deprecation warning will be sent and replaced with a fake.</p>
+
+<h3 id="allow-access-to-nested-secrets-in-railsapplicationcredentials"><a href="https://github.com/rails/rails/pull/42106">Allow access to nested secrets in Rails.application.credentials</a></h3>
+
+<p>Now Rails.application.credentials.aws.access_key_id will return the same thing as Rails.application.credentials.aws[:access_key_id].</p>
+
+<h3 id="add-actioncontrollerlivesend_stream"><a href="https://github.com/rails/rails/pull/41488">Add ActionController::Live#send_stream</a></h3>
+
+<p>Adds the ability to live stream binary data to the browser like send_data does for static files.</p>
+
+<h3 id="extract-activestoragestreaming"><a href="https://github.com/rails/rails/pull/41440">Extract ActiveStorage::Streaming</a></h3>
+
+<p>This allows you to stream blobs from cloud storage in any controller.</p>
+
+<h3 id="add-from-option-to-activesupporttestcaseassert_no_changes"><a href="https://github.com/rails/rails/pull/42277">Add from: option to ActiveSupport::TestCase#assert_no_changes</a></h3>
+
+<p>This feature provides an optional keyword argument to assert_no_changes to specify the expected initial value.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20210501-20210531">61 people</a> contributed to Rails this month. Check out the <a href="https://github.com/rails/rails/issues">open issues</a> to get involved and help out. Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

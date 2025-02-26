@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 3.1 HackFest</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Have you ever wanted to contribute back to Rails? This is the opportunity you’ve been looking for. We’re organizing a Rails 3.1 Hackfest on the weekend of July 23rd and 24th!!!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 3.1 HackFest" />
+  <meta property="og:description" content="Have you ever wanted to contribute back to Rails? This is the opportunity you’ve been looking for. We’re organizing a Rails 3.1 Hackfest on the weekend of July 23rd and 24th!!!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/7/15/rails-3-1-hackfest" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 3.1 HackFest" />
+  <meta name="twitter:description" content="Have you ever wanted to contribute back to Rails? This is the opportunity you’ve been looking for. We’re organizing a Rails 3.1 Hackfest on the weekend of July 23rd and 24th!!!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/7/15/rails-3-1-hackfest"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 3.1 HackFest",
+      "description": "Have you ever wanted to contribute back to Rails? This is the opportunity you’ve been looking for. We’re organizing a Rails 3.1 Hackfest on the weekend of July 23rd and 24th!!!",
+      "url": "http://localhost:4000/2011/7/15/rails-3-1-hackfest",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "spastorino"
+      },
+      "datePublished": "2011-07-15T01:32:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, July 15, 2011</h5>
+        <h2>Rails 3.1 HackFest</h2>
+
+        <h6>Posted by spastorino</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Have you ever wanted to contribute back to Rails? This is the opportunity you’ve been looking for. We’re organizing a Rails 3.1 Hackfest on the weekend of July 23rd and 24th!!!</p>
+
+<h2 id="goal">GOAL</h2>
+<p>The goal of this event is to have Rails 3.1 as the most stable version as possible. So, in this event we will focus on working on <code class="language-plaintext highlighter-rouge">3-1-stable</code> branch of the project.</p>
+
+<h2 id="how">HOW</h2>
+<p>In order to achieve this we encourage you to:</p>
+
+<ul>
+  <li>Upgrade your existing apps to Rails 3.1 and report any existing issue if it doesn’t already exist</li>
+  <li>Test your favorite plugins/gems with Rails 3.1 and report any existing issue if it doesn’t already exist</li>
+  <li>Review all the <a href="https://github.com/rails/rails/issues">open issues</a> and <a href="https://github.com/rails/rails/pulls">pull requests</a>
+    <ul>
+      <li>Check if issues can be reproduced</li>
+      <li>If so provide as many details as possible (for example it’s important for us to know which Rails version/s are affected. They could be 2-3-stable, 3-0-stable, 3-1-stable or master)</li>
+      <li>If it’s not possible to reproduce the issue, add a comment on github issue tracker indicating that</li>
+    </ul>
+  </li>
+  <li>Provide test cases and patches for 3-1-stable blockers only (blockers will be tagged as ‘blocker’)
+    <ul>
+      <li>Follow  the <a href="http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html">contributing to Ruby on Rails guide</a></li>
+      <li>Try to provide a failing test case (if you can’t figure out the whole solution)</li>
+      <li>Try to provide a full patch (tests, code and docs if needed)</li>
+    </ul>
+  </li>
+  <li>Write documentation (guides, API), you can push modifications directly to <a href="http://github.com/lifo/docrails">docrails</a></li>
+  <li>Write blog posts about your experience using 3.1</li>
+</ul>
+
+<p>Please note that since we are on the release candidate already, only patches for blocking issues will be accepted.</p>
+
+<h2 id="who">WHO</h2>
+<p>From the core team: Aaron Patterson (tenderlove), Xavier Noria (fxn) and Santiago Pastorino (spastorino), and the core contributors: Damien Mathieu (dmathieu), Prem Sichanugrist (sikachu) and Josh Kalderimis (joshk) will be around, so don’t hesitate to ask whatever questions you may have.</p>
+
+<h2 id="when">WHEN</h2>
+
+<p>The weekend of July 23rd and 24th, 2011</p>
+
+<h2 id="where">WHERE</h2>
+
+<p><strong>On IRC:</strong></p>
+
+<p>Server: irc.freenode.net 
+Channel: <a href="irc://irc.freenode.net/rails-contrib">#rails-contrib</a></p>
+
+<p><strong>In real life:</strong></p>
+
+<p>What could be better than gathering together in real life and hacking (and drinking?) on the weekend!? It’s the best chance to get together and getting into the depth of Rails core. Contact your friends, your boss, your co-workers, and get them organized!</p>
+
+<p>These are the places that have confirmed the gathering:</p>
+
+<ul>
+  <li>Montevideo, Uruguay: <a href="http://www.wyeworks.com">WyeWorks</a></li>
+  <li>Boston, MA: <a href="http://thoughtbot.com">thoughtbot, inc</a></li>
+  <li>Chicago, IL: <a href="http://hashrocket.com">Hashrocket</a></li>
+  <li>Toronto, ON: <a href="http://www.meetup.com/torontoruby/events/25743841">Toronto Ruby Brigade</a></li>
+  <li>Bangalore, India: <a href="http://bit.ly/crri_bangalore">CastleRock Research</a></li>
+  <li>Boulder, CO: <a href="http://plancast.com/p/5vft">Boulder Ruby user group</a></li>
+  <li>New York, NY: <a href="http://www.meetup.com/ruby-75/events/25578641">NYC on Rails</a></li>
+  <li>New York, NY: <a href="http://pivotallabs.com">Pivotal Labs</a></li>
+  <li>Lehi, UT: <a href="http://utruby.org/2011/07/15/rails-hackfest">Utah Ruby User Group</a></li>
+  <li>San Francisco, CA: <a href="http://blog.mochaleaf.com/?p=198">MochaLeaf, Inc.</a></li>
+  <li>Portland, OR: <a href="http://rails3hackfest.eventbrite.com">SweetSpot Diabetes Care</a></li>
+  <li>Dayton, OH: <a href="http://midohiorailshackfest.eventbrite.com">Littlelines</a></li>
+  <li>Honolulu, HI: <a href="http://www.meetup.com/aloharb/events/25987651">Aloha.rb</a></li>
+  <li>Vineland, NJ: <a href="http://www.meetup.com/South-Jersey-Rails-Developers/events/26142331">South Jersey Rails Group</a></li>
+  <li>San Francisco, CA: <a href="http://blog.heroku.com/archives/2011/7/18/hosting_san_francisco_rails_3_1_hackfest">Heroku</a></li>
+  <li>Los Angeles, CA: <a href="http://www.meetup.com/laruby/events/26196011">Ruby/Rails Meetup Group</a></li>
+  <li>Rio de Janeiro, RJ, Brazil: <a href="http://rubyonrio.org">RubyonRio</a></li>
+  <li>Austin, TX: <a href="http://bit.ly/peVC3B">GameSalad</a></li>
+  <li>Boulder, CO: <a href="http://plancast.com/p/6h5w">Pivotal Labs</a></li>
+  <li>Porto, Portugal: <a href="http://hackathon.afuradavalley.com">Geekslab</a></li>
+  <li>Durham, NC: <a href="http://thinkrelevance.com/blog/2011/07/20/rails-3_1-hackfest-bull-city.html">Relevance, Inc.</a></li>
+  <li>Ottawa, ON: <a href="http://www.shopify.com/technology/3657292-ottawa-rails-3-1-hackfest-this-sunday-july-24th">Shopify</a></li>
+</ul>
+
+<p>Keep watching this list as it continues to grow. See you on 23rd!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

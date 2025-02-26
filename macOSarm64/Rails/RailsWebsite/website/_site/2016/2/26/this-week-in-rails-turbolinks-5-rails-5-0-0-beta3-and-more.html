@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: Turbolinks 5, Rails 5.0.0.beta3 and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="####" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: Turbolinks 5, Rails 5.0.0.beta3 and more!" />
+  <meta property="og:description" content="####" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/2/26/this-week-in-rails-turbolinks-5-rails-5-0-0-beta3-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: Turbolinks 5, Rails 5.0.0.beta3 and more!" />
+  <meta name="twitter:description" content="####" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/2/26/this-week-in-rails-turbolinks-5-rails-5-0-0-beta3-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: Turbolinks 5, Rails 5.0.0.beta3 and more!",
+      "description": "####",
+      "url": "http://localhost:4000/2016/2/26/this-week-in-rails-turbolinks-5-rails-5-0-0-beta3-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2016-02-26T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, February 26, 2016</h5>
+        <h2>This week in Rails: Turbolinks 5, Rails 5.0.0.beta3 and more!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>####</p>
+
+<p>Hello, this is <a href="https://twitter.com/gregmolnar">Greg</a> bringing you the latest news about the <a href="https://github.com/rails/rails">Rails</a> framework!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160219-20160226">This week’s Rails contributors</a></h3>
+
+<p>This week 51 great developer helped to move Rails forward! Want to be one of them? Look at the <a href="https://github.com/rails/rails/issues">issues</a> list and make a contribution!</p>
+
+<h3 id="rails-500beta3-has-been-released"><a href="https://github.com/rails/rails/compare/v5.0.0.beta2...v5.0.0.beta3">Rails 5.0.0.beta3 has been released</a></h3>
+
+<p>Rails 5 is getting closer to the release candidate. The new beta brings many improvements and fixes.</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="turbolinks-5-compatibility-changes"><a href="https://github.com/rails/rails/pull/23836">Turbolinks 5 compatibility changes</a></h3>
+
+<p>This commit made Rails compatible with Turbolinks 5 and master uses the beta release of Turbolinks 5 now.</p>
+
+<h3 id="rake-test-now-respects-testopts"><a href="https://github.com/rails/rails/commit/7a36686c115f1c6c60ac0a51bc4991c3d32b6e5d">rake test now respects TESTOPTS</a></h3>
+
+<p>With this change, we can now pass options to minitest via the TESTOPTS environment variable.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="fixed-primary-key-uniqueness-issue"><a href="https://github.com/rails/rails/pull/23628">Fixed primary key uniqueness issue</a></h3>
+
+<p>This commit reverted some earlier changes which caused an issue with the uniqueness validation of a primary key field, when the primary key field is called something other than <code class="language-plaintext highlighter-rouge">id</code>.</p>
+
+<h3 id="fixed-csrf-issue-with-button_to-tag"><a href="https://github.com/rails/rails/pull/23752">Fixed CSRF issue with button_to tag</a></h3>
+
+<p>There was an issue with the CSRF token generated when <code class="language-plaintext highlighter-rouge">button_to</code> was called with the <code class="language-plaintext highlighter-rouge">delete</code> method, but it is all fixed now!</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="improved-action-cable-reconnection-reliability"><a href="https://github.com/rails/rails/pull/23813">Improved Action Cable reconnection reliability</a></h3>
+
+<p>This pull request improved the Action Cable reconnections by treating <code class="language-plaintext highlighter-rouge">closing</code> state as <code class="language-plaintext highlighter-rouge">closed</code> and by calling <code class="language-plaintext highlighter-rouge">ActionCable.ConnectionMonitor#connected()</code> on the client side upon successful connection. It also introduced client side logging to make debugging easier.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are plenty of things we’re not able to cover here, so take a look at the <a href="https://github.com/rails/rails/compare/master@%7B2016-02-19%7D...@%7B2016-02-26%7D">changes</a> yourself.</p>
+
+<p>Until next time!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

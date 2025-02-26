@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; What's New in Edge Rails: The BugMash Edition</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="What's New in Edge Rails: The BugMash Edition" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/8/13/what-s-new-in-edge-rails-the-bugmash-edition" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="What's New in Edge Rails: The BugMash Edition" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/8/13/what-s-new-in-edge-rails-the-bugmash-edition"
+      },
+      "name": "Ruby on Rails",
+      "headline": "What's New in Edge Rails: The BugMash Edition",
+      "description": "",
+      "url": "http://localhost:4000/2009/8/13/what-s-new-in-edge-rails-the-bugmash-edition",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Nathaniel Bibler"
+      },
+      "datePublished": "2009-08-13T18:14:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, August 13, 2009</h5>
+        <h2>What's New in Edge Rails: The BugMash Edition</h2>
+
+        <h6>Posted by Nathaniel Bibler</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><img src="/assets/2009/8/12/157412508_3feb1518e1_s_1.jpg" height="89" width="500" alt="" /></p>
+
+<p>Another week, another update on Edge Rails.  And man, you aren’t making this easy on me, are ya?  This weekend, in case you hadn’t already heard, was the first <a href="http://wiki.railsbridge.org/projects/railsbridge/wiki/BugMash">Rails and RailsBridge BugMash</a>.  If my count is correct, there were roughly 300 commits to the Rails master over the past six days, with most of them pushing in over the weekend.  Talk about a trial by fire!  There’s a lot of <em>really</em> good stuff in here, so let’s get started:</p>
+
+<h2 id="all-i-ever-wanted-was-a-little-validation">All I ever wanted was a little Validation</h2>
+
+<p>ActiveRecord (or probably more accurately, ActiveModel) received a lot of validation love this weekend.</p>
+
+<ul>
+  <li>Thanks to James Hill you can now have your validations <a href="http://github.com/rails/rails/commit/cfd421daa2b04216e27d666361eb4053020e027d">read from a custom method</a>.  This will allow you to more easily validate non-column - instance variable - data, for example.</li>
+  <li>Adam Keys added support for <a href="http://github.com/rails/rails/commit/5632b36701ad9514d596c558877cd74c14c1d54b">exclusive ranges</a> in <code class="language-plaintext highlighter-rouge">validates_length_of</code>.  So, <code class="language-plaintext highlighter-rouge">validates_length_of :name, :within =&gt; (5...10)</code> will actually restrict the valid length to between 5 and 9.</li>
+  <li>Thanks to Zac Williams, <code class="language-plaintext highlighter-rouge">validates_length_of :name, :maximum =&gt; 10</code> will now <a href="http://github.com/rails/rails/commit/5ab94b2595836fe2de36fd632ba9577c459b1292">allow <code class="language-plaintext highlighter-rouge">nil</code> values</a> to validate, by default.</li>
+  <li>What good is <code class="language-plaintext highlighter-rouge">validates_format_of</code> if you can’t <a href="http://github.com/rails/rails/commit/cccb0e6b9327fb562b72007a012933c9c61a33fa"><code class="language-plaintext highlighter-rouge">validates_format_of :without =&gt; /.../</code></a>?  Well, not much, let me tell you… Elliot Winkler provided a patch do to just that.</li>
+  <li>And last, but certainly not least Jeff Dean committed a great patch, which now brings to us: <a href="http://github.com/rails/rails/commit/22f339825329e2d4463a4130e9fa68baf9d27eb6"><code class="language-plaintext highlighter-rouge">validates_with</code></a>.  This little beauty now allows you place validation code into an external class.  And that, my friends, means better encapsulation of responsibility, I’ll bet on better readability, and even shared validation logic across your application or possibly even gems.  Nice job, Jeff.</li>
+</ul>
+
+<h2 id="were-so-much-more-resourceful">We’re so much more Resourceful</h2>
+
+<p>There were quite a number of updates to ActiveResource over the weekend.  And, I’m sure many of you are going to be quite thankful for some of these:</p>
+
+<ul>
+  <li>ActiveResource now <a href="http://github.com/rails/rails/commit/4d1552810f631898c3d7f758454c92ca35a8cb26">supports HTTP proxies</a> thanks to Marshall Huss.  This should be highly useful in large corporate and other firewalled or isolated environments.</li>
+  <li>ActiveResource gets <a href="http://github.com/rails/rails/commit/3e0951632c52018eefb86d9e0bfe77383f9622fb">SSL options</a> from Roy Nicholson.  This allows you to use X509 certificates, SSL timeouts, peer verification, and more.</li>
+  <li><a href="http://github.com/rails/rails/commit/08ec22054f56442b10f67e41c3b7593da6adcabd"><code class="language-plaintext highlighter-rouge">ActiveResource.exists?</code></a> got some polish from Jatinder Singh.  And, by polish, I really mean that now it works.  Instead of raising Net::HTTP errors.</li>
+  <li>Fabien Jakimowicz added <a href="http://github.com/rails/rails/commit/797588543ed70b4c5dcf51d7f1e4a77082172f0b">JSON error reporting</a> support.  So, now regardless of whether you’re using either XML or JSON, errors will be correctly reported back to you.</li>
+</ul>
+
+<h2 id="theres-strength-in-numbers">There’s strength in numbers</h2>
+
+<p>Thanks to Dan Cheail, we finally get a <a href="http://github.com/rails/rails/commit/8c32248acbd71f7906a037fad499e2f8cae61bed"><code class="language-plaintext highlighter-rouge">grouped_collection_select</code></a> helper.   I mean come on, there’s no way you can tell me that you can’t love this:</p>
+
+<pre><code lang="ruby">class Continent &lt; ActiveRecord::Base
+class Country &lt; ActiveRecord::Base
+class City &lt; ActiveRecord::Base
+
+&lt;%= grouped_collection_select(:city, :country_id, @continents, :countries, :name, :id, :name) %&gt;
+
+&lt;select name="city[country_id]"&gt;
+  &lt;optgroup label="Africa"&gt;
+    &lt;option value="1"&gt;South Africa&lt;/option&gt;
+&lt;option value="3"&gt;Somalia&lt;/option&gt;
+  &lt;/optgroup&gt;
+&lt;optgroup label="Europe"&gt;
+&lt;option value="7" selected="selected"&gt;Denmark&lt;/option&gt;
+    &lt;option value="2"&gt;Ireland&lt;/option&gt;
+&lt;/optgroup&gt;
+&lt;/select&gt;
+</code></pre>
+
+<h2 id="i-have-massive-routes">I have massive Routes</h2>
+
+<p>This weekend brought a small, but incredibly useful patch to <a href="http://github.com/rails/rails/commit/e8dc151396b6b92e243ac48b58abbe66be6f09b4"><code class="language-plaintext highlighter-rouge">rake routes</code></a> by Mike Breen.  Now you can filter the listed results by passing in <code class="language-plaintext highlighter-rouge">CONTROLLER=foo</code>.  That’s. just. awesome.  Personally, it’s gotten to the point that my fingers just assume that they are to append the “<code class="language-plaintext highlighter-rouge">| grep foo</code>” portion whenever I type <code class="language-plaintext highlighter-rouge">rake routes</code>.. apparently I have nerd muscle memory.  *sigh*</p>
+
+<h2 id="short-and-sweet">Short and sweet</h2>
+
+<p>I’ll end the BugMash portion here with just a few more commits worth mentioning.  Certainly this wasn’t the extent of the BugMash and I could probably fill up another post just as long with even more mashed bugs and features, but it’s gotta end somewhere, right?</p>
+
+<ul>
+  <li>Rizwan Reza added support for you to define <a href="http://github.com/rails/rails/commit/7dbb2b6f83c5a1a5f4ef0a97fee5322957977306">custom RedCloth options</a> via the <code class="language-plaintext highlighter-rouge">textilize</code> helper.  So, now, <code class="language-plaintext highlighter-rouge">textilize("Testing &lt;b&gt;HTML&lt;/b&gt;", :filter_html)</code> will actually filter the HTML!</li>
+  <li>You can now <a href="http://github.com/rails/rails/commit/c284412b149e03f46144ef566bcd6a16750961b1"><code class="language-plaintext highlighter-rouge">redirect_to(User)</code></a> - note that <code class="language-plaintext highlighter-rouge">User</code> is a class not an instance here - as a synonym for <code class="language-plaintext highlighter-rouge">redirect_to(users_url)</code>.  Thanks to Niklas Holmgren for that.</li>
+  <li>Delivered mail items now have the ability to <a href="http://github.com/rails/rails/commit/fbe6c3c19553fd05edc904af62fbfc8aee1d907d">save to disk</a> because of Eric Davis.  When using the new <code class="language-plaintext highlighter-rouge">:file</code> delivery method, you can even define your own custom <code class="language-plaintext highlighter-rouge">:location</code> for directory storage.</li>
+  <li>And finally, it’s not necessarily BugMash-related, but José Valim - among dozens of other commits - added <a href="http://github.com/rails/rails/commit/7034272354ad41dd4d1c90138a79e7f14ebc2bed"><code class="language-plaintext highlighter-rouge">model.destroyed?</code></a>.  This nifty method will return <code class="language-plaintext highlighter-rouge">true</code> only if the instance you’re currently looking at has been successfully destroyed.</li>
+</ul>
+
+<p>Now that we’re clear of those, here are a couple of non-BugMash-related topics which were addressed:</p>
+
+<h2 id="a-visit-to-the-oracle">A visit to the Oracle</h2>
+
+<p>There’s a difference between knowing the path and walking the path.  And this week saw some updates to Rails, mostly around testing, adding <a href="http://github.com/rails/rails/commit/06afa48c8c7bb7bf75f9e7ae48e06528f8ff82ed">improved Oracle database support</a>.  A large amount of this effort appears to be coming from one man, Raimonds Simanovskis.  I know when we talk about databases with Rails, it’s always the big four - SQLite, MySQL, PostgreSQL, and that other one which shall not be named - so it’s nice to get a little more focus the 800lb. gorilla in the room.</p>
+
+<p>This update fixed failing test cases due to offset and limits, empty strings storing as null, numeric results from ActiveRecord.sum, Oracle not utilizing an ‘AS’ keyword on joins, and many more.</p>
+
+<h2 id="abstractcontrollerresponder">AbstractController::Responder</h2>
+
+<p>José Valim and Yehuda Katz (and many others, I’m sure) have put in some excellent work in refactoring the Rails renderer.  In fact, the majority of the rendering code has come to find a home in a common object, the <a href="http://github.com/rails/rails/commit/aed135d3e261cbee153a35fcfbeb47e2e02b12e4">AbstractController::Responder</a>.  Certainly, this may not be its final resting place, but it’s interesting to note that once a lot of the render logic was brought together the core team was able to quickly identify and refactor the logic to see some dramatic speed increases.  At one point, Yehuda even mentioned a tested benchmark showing, “10% faster partial rendering,” than Rails 2.3.</p>
+
+<p>I know that in the RailsEnvy podcast I jabbed a few ribs about the amount of time it’s taken to see a Rails 3.0 release, but it’s important to note that these guys are doing some seriously awesome work.  I’m seeing extensive testing and benchmarking and very intelligent refactorings.  We’ve really got some great things yet to come.</p>
+
+<p>I’m sure I’ve left out several important and/or interesting commits this week.  So, I apologize if one of those was yours.  I, and the rest of the community, certainly appreciate the effort you all put in this weekend and Rails is certainly better for it.  So, thank you, thank you, thank you to all of you BugMashers out there.  And, if you missed out on getting your commit in this round, we’re certainly ready to welcome you into the next.</p>
+
+<p>If you prefer to have a shorter audio summary of this content, you should check out a new podcast just launched by Envy Labs, called <a href="http://ruby5.codeschool.com">Ruby5</a>; a 5 minute, twice-weekly podcast covering Ruby and Ruby on Rails news.</p>
+
+<p><small>Photo: <a href="http://www.flickr.com/photos/3336/157412508/">Brooklyn Bridge Virtual Tour</a> by Diego_3336</small></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

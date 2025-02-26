@@ -1,0 +1,19 @@
+5. Running specs from the command line
+
+
+We now have a Rails project all setup and we've created spec/models/zombie_spec.rb for you. Run this spec from the command line with color on, and specify documentation format.
+
+
+Answer: rspec --col­or --format documentation spec/models/zombie_spec.rb
+
+
+Console
+
+zombie_tweets $ rspec --col­or --format documentation spec/models/zombie_spec.rb
+Zombie
+  is invalid without a name
+
+Finished in 0.03294 seconds
+1 example, 0 failures
+Success!
+zombie_tweets $  

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Apache gets serious about FastCGI</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Brian McCallister reports that the Apache team has decided to revive mod_fcgi as mod_proxy_fcgi with intentions of proper support for external FCGIs and a place in the core Apache distribution.This is fantastic news! Paul Querna and Garrett Rooney deserves much praise for embarking on this important quest to restore our faith in Apache as a worthy web server for applications. Not only will this mean that FCGI is no longer a bastard child on Apache 2.x, but also that it&#8217;ll have active maintenance and people to turn to if things are sour.Speaking of sour. Please do forward all your grapes to Brian McCallister or the FastCGI Developers list. Any trouble you&#8217;ve had in the past with FCGI and Apache or things you&#8217;d like to see happen.Viva la Apache!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Apache gets serious about FastCGI" />
+  <meta property="og:description" content="Brian McCallister reports that the Apache team has decided to revive mod_fcgi as mod_proxy_fcgi with intentions of proper support for external FCGIs and a place in the core Apache distribution.This is fantastic news! Paul Querna and Garrett Rooney deserves much praise for embarking on this important quest to restore our faith in Apache as a worthy web server for applications. Not only will this mean that FCGI is no longer a bastard child on Apache 2.x, but also that it&#8217;ll have active maintenance and people to turn to if things are sour.Speaking of sour. Please do forward all your grapes to Brian McCallister or the FastCGI Developers list. Any trouble you&#8217;ve had in the past with FCGI and Apache or things you&#8217;d like to see happen.Viva la Apache!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/12/29/apache-gets-serious-about-fastcgi" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Apache gets serious about FastCGI" />
+  <meta name="twitter:description" content="Brian McCallister reports that the Apache team has decided to revive mod_fcgi as mod_proxy_fcgi with intentions of proper support for external FCGIs and a place in the core Apache distribution.This is fantastic news! Paul Querna and Garrett Rooney deserves much praise for embarking on this important quest to restore our faith in Apache as a worthy web server for applications. Not only will this mean that FCGI is no longer a bastard child on Apache 2.x, but also that it&#8217;ll have active maintenance and people to turn to if things are sour.Speaking of sour. Please do forward all your grapes to Brian McCallister or the FastCGI Developers list. Any trouble you&#8217;ve had in the past with FCGI and Apache or things you&#8217;d like to see happen.Viva la Apache!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/12/29/apache-gets-serious-about-fastcgi"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Apache gets serious about FastCGI",
+      "description": "Brian McCallister reports that the Apache team has decided to revive mod_fcgi as mod_proxy_fcgi with intentions of proper support for external FCGIs and a place in the core Apache distribution.This is fantastic news! Paul Querna and Garrett Rooney deserves much praise for embarking on this important quest to restore our faith in Apache as a worthy web server for applications. Not only will this mean that FCGI is no longer a bastard child on Apache 2.x, but also that it&#8217;ll have active maintenance and people to turn to if things are sour.Speaking of sour. Please do forward all your grapes to Brian McCallister or the FastCGI Developers list. Any trouble you&#8217;ve had in the past with FCGI and Apache or things you&#8217;d like to see happen.Viva la Apache!",
+      "url": "http://localhost:4000/2005/12/29/apache-gets-serious-about-fastcgi",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2005-12-29T11:00:29+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, December 29, 2005</h5>
+        <h2>Apache gets serious about FastCGI</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Brian McCallister <a href="http://kasparov.skife.org/blog/src/apache_22_fcgi.html">reports</a> that the Apache team has decided to revive mod_fcgi as <a href="http://svn.apache.org/repos/asf/httpd/httpd/branches/fcgi-proxy-dev/modules/proxy/mod_proxy_fcgi.c">mod_proxy_fcgi</a> with intentions of proper support for external FCGIs and a place in the core Apache distribution.</p>
+<p>This is fantastic news! Paul Querna and Garrett Rooney deserves much praise for embarking on this important quest to restore our faith in Apache as a worthy web server for applications. Not only will this mean that <span class="caps">FCGI</span> is no longer a bastard child on Apache 2.x, but also that it&#8217;ll have active maintenance and people to turn to if things are sour.</p>
+<p>Speaking of sour. Please do forward all your grapes to <a href="brianm@apache.org">Brian McCallister</a> or the <a href="http://fastcgi.com/archives/fastcgi-developers/">FastCGI Developers list</a>. Any trouble you&#8217;ve had in the past with <span class="caps">FCGI</span> and Apache or things you&#8217;d like to see happen.</p>
+<p>Viva la Apache!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

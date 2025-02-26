@@ -1,0 +1,20 @@
+10. Useful View Helpers
+
+
+Objective
+
+Modify the following code to make it more pretty, using titleize, to_sentence, pluralize, and number_to_currency (in just that order)
+  
+zombies/show.html.erb
+<h2><%= @zombie.name %></h2>
+<p>Weapons: <%= @zombie.weapon_list.join(",") %></p>
+<p><%= @zombie.tweets.size %> Tweets</p>
+<p>Money in Pocket $<%= @zombie.money %>.00</p>
+
+
+Answer:
+zombies/show.html.erb
+<h2><%= @zombie.name.titleize %></h2>
+<p>Weapons: <%= @zombie.weapon_list.to_sentence %></p>
+<p><%=  pluralize(@zombie.tweets.size, "Tweets") %></p>
+<p>Money in Pocket <%= number_to_currency @zombie.money %></p>

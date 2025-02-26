@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Improved assert_redirected_to, improved error messages and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, this is Greg, bringing you the latest changes in the Rails framework." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Improved assert_redirected_to, improved error messages and more!" />
+  <meta property="og:description" content="Hi, this is Greg, bringing you the latest changes in the Rails framework." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2022/9/23/this-week-in-rails-improved-assert_redirected_to-improved-error-messages-and-more-787f42d0" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Improved assert_redirected_to, improved error messages and more!" />
+  <meta name="twitter:description" content="Hi, this is Greg, bringing you the latest changes in the Rails framework." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2022/9/23/this-week-in-rails-improved-assert_redirected_to-improved-error-messages-and-more-787f42d0"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Improved assert_redirected_to, improved error messages and more!",
+      "description": "Hi, this is Greg, bringing you the latest changes in the Rails framework.",
+      "url": "http://localhost:4000/2022/9/23/this-week-in-rails-improved-assert_redirected_to-improved-error-messages-and-more-787f42d0",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2022-09-23T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, September 23, 2022</h5>
+        <h2>Improved assert_redirected_to, improved error messages and more!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, this is <a href="https://twitter.com/gregmolnar">Greg</a>, bringing you the latest changes in the Rails framework.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46057">Allow specifying the HTTP status code in assert_redirected_to</a>
+Before this change, <em>assert_redirect_to</em> asserted any <em>3XX</em> response, but with this change, it is possible to assert a specific response code, like <em>301</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46068">Allow passing classes to dom_id</a>
+Allowing <em>dom_id</em> to receive a Ruby class, instead of an instance of a class, makes it behave like <em>dom_class</em>, and besides saving a few keystrokes, it saves memory too, because Ruby doesn’t need to instantiate an entire object with all its callbacks and such.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46064">Improve error messages on bin/setup
+</a>Changing <em>bin/setup</em> to use <em>system(…, exception: true)</em> gives more information when a command fails, and makes debugging easier.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46086">Allow to pass –force to db:system:change
+</a><em>db:system:change</em> always prompts to confirm the overwriting of <em>database.yml</em>, but now there is a <em>–force</em> option to skip the confirmation prompt.</p>
+
+<p><a href="https://github.com/hotwired/turbo/releases/tag/v7.2.0">Turbo 7.2.0 was released</a>
+There is a new release for Turbo, which is also available via <em>turbo-rails 1.3.0</em>. You can read the list of changes on the link above.</p>
+
+<p>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20220917-20220923">24</a> contributors to Rails this week! If you want to be part of that, checkout the <a href="https://github.com/rails/rails/issues">issues list</a>!
+Until next time! </p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

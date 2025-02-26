@@ -1,0 +1,41 @@
+6. instance_eval Part 2
+
+
+Using instance_eval and block_given?, implement the constructor for the Game class so that it optionally accepts a block and runs the block within its context.
+
+
+example.rb
+game = Game.new { owner('Bob') }
+puts game.owner
+
+
+game.rb
+class Game
+  def initialize
+  end
+
+  def owner(name=nil)
+    if name
+      @owner = name
+    else
+      @owner
+    end
+  end
+end
+
+
+Answer:
+game.rb
+class Game
+  def initialize(&block)
+    instance_eval(&block) if block_given?
+  end
+
+  def owner(name=nil)
+    if name
+      @owner = name
+    else
+      @owner
+    end
+  end
+end

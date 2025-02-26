@@ -1,0 +1,38 @@
+3. Mail Delivery
+
+
+Objective
+
+Finish coding the check_ammo method on the Weapon model so when we have exactly three ammo left, it will send out the low_ammo mailer we just created.
+
+
+weapon_mailer.rb
+class WeaponMailer < ActionMailer::Base
+  default from: "admin@rfz.com"
+        
+  def low_ammo(weapon, zombie)
+    mail to: zombie.email, subject: "#{weapon.name} has low ammo"
+  end 
+end
+
+
+app/models/weapon.rb
+class Weapon < ActiveRecord::Base
+  belongs_to :zombie 
+  before_save :check_ammo
+  def check_ammo
+  end
+end
+ 	
+
+Answer:
+app/models/weapon.rb
+class Weapon < ActiveRecord::Base
+  belongs_to :zombie 
+
+  before_save :check_ammo
+
+  def check_ammo   
+    WeaponMailer.low_ammo(self, self.zombie).deliver if ammo == 3
+  end
+end

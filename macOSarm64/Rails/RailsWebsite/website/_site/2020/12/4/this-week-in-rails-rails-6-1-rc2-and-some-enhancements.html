@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 6.1 RC2 and some enhancements</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, Wojtek from this side with a small set of changes since the last week." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 6.1 RC2 and some enhancements" />
+  <meta property="og:description" content="Hi, Wojtek from this side with a small set of changes since the last week." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2020/12/4/this-week-in-rails-rails-6-1-rc2-and-some-enhancements" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 6.1 RC2 and some enhancements" />
+  <meta name="twitter:description" content="Hi, Wojtek from this side with a small set of changes since the last week." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2020/12/4/this-week-in-rails-rails-6-1-rc2-and-some-enhancements"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 6.1 RC2 and some enhancements",
+      "description": "Hi, Wojtek from this side with a small set of changes since the last week.",
+      "url": "http://localhost:4000/2020/12/4/this-week-in-rails-rails-6-1-rc2-and-some-enhancements",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "morgoth85"
+      },
+      "datePublished": "2020-12-04T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, December 4, 2020</h5>
+        <h2>Rails 6.1 RC2 and some enhancements</h2>
+
+        <h6>Posted by morgoth85</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://twitter.com/morgoth85">Wojtek</a> from this side with a small set of changes since the last week.</p>
+
+<h3 id="rails-61-rc2-released"><a href="https://rubyonrails.org/2020/12/1/Rails-6-1-rc2-release">Rails 6.1 RC2 released</a></h3>
+
+<p>The second release candidate for Rails 6.1 has been released and brings a more robust experience for those already trying this version.</p>
+
+<h3 id="add-option-for-default_scope-to-run-on-all-queries-"><a href="https://github.com/rails/rails/pull/40720">Add option for “default_scope” to run on all queries </a></h3>
+
+<p>This change allows for applications to optionally run a <em>default_scope</em><br />
+on <em>update</em> and <em>delete</em> queries in addition to current behavior on <em>get</em> and <em>insert</em> statements, by adding <em>all_queries: true.</em></p>
+
+<h3 id="add-id-and-field_id-methods-to-formbuilder"><a href="https://github.com/rails/rails/pull/40127">Add “id” and “field_id” methods to FormBuilder</a></h3>
+
+<p>Ease generating consistent DOM ids in given form context.</p>
+
+<h3 id="new-default-for-local-option-on-form_with"><a href="https://github.com/rails/rails/pull/40708">New default for “local” option on “form_with”</a></h3>
+
+<p>With Rails 6.1 version <em>form_with</em> will generate non-remote forms by default.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20201129-20201204">17 people</a> contributed to Rails since last time. Check out <a href="https://github.com/rails/rails/compare/@%7B2020-11-29%7D...master@%7B2020-12-04%7D">the detailed list of all changes</a>. Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: http_cache_forever, AR::Base.suppress and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My Valentine’s Day letter to Ruby on Rails:" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: http_cache_forever, AR::Base.suppress and more!" />
+  <meta property="og:description" content="My Valentine’s Day letter to Ruby on Rails:" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/2/21/this-week-in-rails-http_cache_forever-ar-base-suppress-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: http_cache_forever, AR::Base.suppress and more!" />
+  <meta name="twitter:description" content="My Valentine’s Day letter to Ruby on Rails:" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/2/21/this-week-in-rails-http_cache_forever-ar-base-suppress-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: http_cache_forever, AR::Base.suppress and more!",
+      "description": "My Valentine’s Day letter to Ruby on Rails:",
+      "url": "http://localhost:4000/2015/2/21/this-week-in-rails-http_cache_forever-ar-base-suppress-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "claudiob"
+      },
+      "datePublished": "2015-02-21T05:07:56+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, February 21, 2015</h5>
+        <h2>This week in Rails: http_cache_forever, AR::Base.suppress and more!</h2>
+
+        <h6>Posted by claudiob</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>My Valentine’s Day letter to Ruby on Rails:</p>
+
+<p>“Dear Rails, remember the first time we met?<br />
+You were just 1.2, and I was in an unhealthy relationship with Perl and PHP.</p>
+
+<p>I saw you in the library and I immediately fell in love.<br />
+For seven years, you made my code more readable and my skills stronger.</p>
+
+<p>You are the most beautiful framework and always will be.<br />
+I cannot wait to see you turn 5.0.” – <a href="http://github.com/claudiob">Claudio</a></p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/this-week">This Week’s Contributors</a></h3>
+
+<p>Apparently I’m not the only one in love with Ruby on Rails. 36 programmers contributed to Rails this week, 10 of them for the first time. Keep loving!</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="add-http_cache_forever-to-actioncontroller"><a href="https://github.com/rails/rails/pull/18394">Add http_cache_forever to ActionController</a></h3>
+
+<p>The new method is perfect to cache results that are meant to never expire, such as static pages.</p>
+
+<h3 id="add-activerecordtyperegister"><a href="https://github.com/rails/rails/commit/82d12eb9045cba57172ec7cc0786d0f72a8b711f">Add ActiveRecord::Type.register</a></h3>
+
+<p>You can now reference with a symbol any database type that is specific to your adapter, such as:<br />
+<code class="language-plaintext highlighter-rouge">ActiveRecord::Type.register(:money, MyMoneyType)</code></p>
+
+<h3 id="add-activerecordbasesuppress"><a href="https://github.com/rails/rails/pull/18910">Add ActiveRecord::Base.suppress</a></h3>
+
+<p>Wrapping a block with <code class="language-plaintext highlighter-rouge">suppress</code> will prevent any save operation from hitting the database. Check the PR for a real-world example.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="add-time-option-to-activerecordbasetouch"><a href="https://github.com/rails/rails/pull/18956">Add :time option to ActiveRecord::Base.touch</a></h3>
+
+<p>You can now <em>touch</em> an ActiveRecord instance with a different time than the current time.</p>
+
+<h2 id="removed">Removed</h2>
+
+<h3 id="removed-recordtaghelper"><a href="https://github.com/rails/rails/pull/18411">Removed RecordTagHelper</a></h3>
+
+<p>The helpers <code class="language-plaintext highlighter-rouge">div_for</code> and <code class="language-plaintext highlighter-rouge">content_tag_for</code> will be gone in Rails 5. Grab the <a href="https://github.com/rails/record_tag_helper">record_tag_helper</a> gem if you still need them!</p>
+
+<h3 id="removed-activemodelerrors-getterssetters"><a href="https://github.com/rails/rails/pull/18634">Removed ActiveModel::Errors getters/setters</a></h3>
+
+<p>If you ever used <code class="language-plaintext highlighter-rouge">person.errors.get(:name)</code> <del>or <code class="language-plaintext highlighter-rouge">person.errors[:name]</code></del> to read an error message, you should now <del>switch to <code class="language-plaintext highlighter-rouge">person.errors.messages[:name]</code></del>. <code class="language-plaintext highlighter-rouge">add_on_empty</code> and <code class="language-plaintext highlighter-rouge">add_on_blank</code> are <a href="https://github.com/rails/rails/pull/18996">gone too</a>.</p>
+
+<p><strong>Update</strong>: you <a href="https://github.com/rails/rails/commit/f55bfe726045594c78438841cdccd5843522deab">should be using <code class="language-plaintext highlighter-rouge">person.errors[:name]</code></a> after all! Use <code class="language-plaintext highlighter-rouge">person.errors.add(:name, ...)</code> to append.</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s all for <em>This week in Rails</em>. As always, there are more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails/commits/master">check them out</a> yourself!</p>
+
+<p>P.S. If you enjoyed this newsletter, why not <a href="https://rails-weekly.ongoodbits.com">share it with your friends</a>? :) If you wish to be part of this project please don’t hesitate to contact <a href="mailto:godfrey@brewhouse.io">Godfrey</a> – there’re a lot of ways you could help make this newsletter more awesome!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

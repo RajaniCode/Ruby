@@ -1,0 +1,40 @@
+5. Comparison Matchers
+
+
+Finish the example below to ensure that our tweet.status.length is less than or equal to 140 characters. Use a be matcher in your spec.
+
+
+tweet.rb
+class Tweet
+  attr_accessor :status
+ 
+  def initialize(options={})
+    self.status = options[:status]
+  end
+ 
+  def public?
+    self.status && self.status[0] != "@"                                 
+  end
+ 
+  def status=(status)
+    @status = status ? status[0...140] : status
+  end
+end
+
+
+tweet_spec.rb
+describe Tweet do
+  it 'truncates the status to 140 characters' do
+    tweet = Tweet.new(status: 'Nom nom nom' * 100)
+  end
+end
+
+
+Answer:
+tweet_spec.rb
+describe Tweet do
+  it 'truncates the status to 140 characters' do
+    tweet = Tweet.new(status: 'Nom nom nom' * 100)
+    tweet.status.length.should be <= 140
+  end
+end

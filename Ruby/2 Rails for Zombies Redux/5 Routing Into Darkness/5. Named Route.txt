@@ -1,0 +1,17 @@
+5. Named Route
+
+
+Create a named route. It should generate a path like '/zombies/:name' where :name is a parameter, and points to the index action in ZombiesController. Name the route 'graveyard'
+
+
+config/routes.rb
+TwitterForZombies::Application.routes.draw do
+  get '', to: '', as: ''
+end
+
+
+Answer:
+config/routes.rb
+TwitterForZombies::Application.routes.draw do
+  get '/zombies/:name' => 'zombies#index', :as => 'graveyard'
+end

@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Lazy i18n watcher on boot and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, Wojtek here still feeling the good vibe of the Rails World. Cheers to all the attendees and see you in Amsterdam!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Lazy i18n watcher on boot and more" />
+  <meta property="og:description" content="Hi, Wojtek here still feeling the good vibe of the Rails World. Cheers to all the attendees and see you in Amsterdam!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/10/11/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Lazy i18n watcher on boot and more" />
+  <meta name="twitter:description" content="Hi, Wojtek here still feeling the good vibe of the Rails World. Cheers to all the attendees and see you in Amsterdam!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/10/11/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Lazy i18n watcher on boot and more",
+      "description": "Hi, Wojtek here still feeling the good vibe of the Rails World. Cheers to all the attendees and see you in Amsterdam!",
+      "url": "http://localhost:4000/2024/10/11/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "Wojtek"
+      },
+      "datePublished": "2024-10-11T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, October 11, 2024</h5>
+        <h2>Lazy i18n watcher on boot and more</h2>
+
+        <h6>Posted by Wojtek</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://twitter.com/morgoth85">Wojtek</a> here still feeling the good vibe of the Rails World. Cheers to all the attendees and see you in Amsterdam!</p>
+
+<p><a href="https://www.youtube.com/watch?v=zPBbHu-BKpQ">Fireside Chat with DHH, Matz and Tobi</a><br />
+The video from the Rails World is now ready to watch, followed by the <a href="https://www.youtube.com/watch?v=olxoNDBp6Rg">Eileen keynote</a>.
+All the videos will be available soon!</p>
+
+<p><a href="https://github.com/rails/rails/pull/53259">Don’t execute i18n watcher on boot</a><br />
+It shouldn’t catch any file changes initially which unnecessarily slowed down boot of applications with lots of translations.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53158">Support method names for :block in browser blocking</a><br />
+Prior to this commit, <code class="language-plaintext highlighter-rouge">:block</code> options only supported callables. This commit aims to bring browser blocking closer in parity to callbacks declarations like <code class="language-plaintext highlighter-rouge">before_action</code> and <code class="language-plaintext highlighter-rouge">after_action</code> by supporting instance method names as well.</p>
+
+<p><a href="https://github.com/rails/rails/pull/43495">Add :except_on option for validations</a><br />
+Grants the ability to skip Active Model validations in specified contexts.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52885">Update Rails error reporting guide</a><br />
+Change can be previewed on the edge version of the <a href="https://edgeguides.rubyonrails.org/error_reporting.html">Rails Error Reporting guide</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53244">Fix incorrect SQL query when passing an empty hash to model #insert</a><br />
+Fixes calling code like <code class="language-plaintext highlighter-rouge">Post.insert({})</code> to not raise an error.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53176">Allow to save records with polymorphic join tables that have inverse of specified</a><br />
+See the pull request for explained bug case that was fixed.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51507">Fix incorrect joins for polymorphic “has many through” with association scope</a><br />
+Updates Active Record to not apply the previous reflection’s join scopes if it’s a through reflection, as the scope will eventually be built in the context of the polymorphic reflection.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-10-04%7D...main@%7B2024-10-11%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20241004-20241011">34 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

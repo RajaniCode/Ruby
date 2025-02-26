@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; New Rails version, early new Ruby version fixes, and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello, hello! This is Tim here bringing you all the latest right from the Rails Edge." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="New Rails version, early new Ruby version fixes, and more!" />
+  <meta property="og:description" content="Hello, hello! This is Tim here bringing you all the latest right from the Rails Edge." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2018/12/10/this-week-in-rails-new-rails-version-early-new-ruby-version-fixes-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="New Rails version, early new Ruby version fixes, and more!" />
+  <meta name="twitter:description" content="Hello, hello! This is Tim here bringing you all the latest right from the Rails Edge." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2018/12/10/this-week-in-rails-new-rails-version-early-new-ruby-version-fixes-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "New Rails version, early new Ruby version fixes, and more!",
+      "description": "Hello, hello! This is Tim here bringing you all the latest right from the Rails Edge.",
+      "url": "http://localhost:4000/2018/12/10/this-week-in-rails-new-rails-version-early-new-ruby-version-fixes-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "imtayadeway"
+      },
+      "datePublished": "2018-12-10T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, December 10, 2018</h5>
+        <h2>New Rails version, early new Ruby version fixes, and more!</h2>
+
+        <h6>Posted by imtayadeway</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello, hello! This is <a href="https://twitter.com/imtayadeway">Tim</a> here bringing you all the latest right from the Rails Edge.</p>
+
+<p>In the northern hemisphere, daylight is getting scarce, driving <a href="https://twitter.com/imtayadeway/status/1070362790903218177">certain</a> <a href="https://twitter.com/tenderlove/status/1070827980509786113">folks</a> in the Pacific Northwest to drastic measures. But the holiday season is upon us! We got an early pressie in the form of a new Rails release this week. Ans we can all look forward to Ruby release day!</p>
+
+<p>On with the show….</p>
+
+<h3 id="rails-522-has-been-released"><a href="https://rubyonrails.org/2018/12/4/Rails-5-2-2-has-been-released">Rails 5.2.2 has been released!</a></h3>
+
+<p>This week saw the release of a new patch version of Rails! Too numerous to list here, check out the official blog post for the full changelog.</p>
+
+<h3 id="this-weeks-contributors"><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20181202-20181207">This Week’s Contributors</a></h3>
+
+<p>This week 23 people gave back to Rails. For 7 of these folks it was their first time contributing! If you’d like to see yourself in a future edition of this newsletter, or alternatively just want to give back in a purely altruistic gesture, a great place to start can be checking out the list of <a href="https://github.com/rails/rails/issues">open issues</a>.</p>
+
+<h3 id="ruby-260-fixes"><a href="">Ruby 2.6.0 fixes</a></h3>
+
+<p>As you may know, the release of Ruby 2.6.0 is right around the corner! We are very grateful to <a href="https://github.com/rails/rails/pull/34601">the</a> <a href="https://github.com/rails/rails/pull/34612">folks</a> who are already testing Rails on the release candidates and submitting patches ahead of time.</p>
+
+<h3 id="non-primary-mouse-button-clicks-no-longer-trigger-click-events"><a href="https://github.com/rails/rails/pull/34573">Non-primary mouse button clicks no longer trigger click events</a></h3>
+
+<p>This PR addresses an issue where certain browsers will fire a click event for non-primary mouse button clicks where others will not. They will all now behave uniformly thanks to this fix!</p>
+
+<h3 id="unpermitted-params-log-message-now-colorized"><a href="https://github.com/rails/rails/pull/34617">Unpermitted params log message now colorized</a></h3>
+
+<p>More colorized log messages for improved readability!</p>
+
+<h3 id="delete_all-on-collection-proxy-returns-count"><a href="https://github.com/rails/rails/pull/34609">#delete_all on collection proxy returns count</a></h3>
+
+<p>This makes <code class="language-plaintext highlighter-rouge">#delete_all</code> behave uniformly across relations and collection proxies by returning the count of affected rows.</p>
+
+<h3 id="test-helpers-docs-added-to-guides"><a href="https://github.com/rails/rails/pull/34563">Test helpers docs added to guides</a></h3>
+
+<p>This PR documents some good practices for breaking test helpers out into separate files. Check it out!</p>
+
+<h3 id="activejobbaseenqueue-to-return-false-on-failure"><a href="https://github.com/rails/rails/pull/33992">ActiveJob::Base#enqueue to return false on failure</a></h3>
+
+<p>This makes the enqueue mechanism more consistent with the <code class="language-plaintext highlighter-rouge">ActiveSupport::Callbacks</code> design where if the callback chain is halted, it will return <code class="language-plaintext highlighter-rouge">false</code>. You can now use this feedback to determine if your job was in fact enqueued. Hurrah!</p>
+
+<p>As always, there were way too many things to cover in full this week, but you can read about them all <a href="https://github.com/rails/rails/compare/master@%7B2018-12-02%7D...@%7B2018-12-07%7D">here</a>. That’s all folks!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

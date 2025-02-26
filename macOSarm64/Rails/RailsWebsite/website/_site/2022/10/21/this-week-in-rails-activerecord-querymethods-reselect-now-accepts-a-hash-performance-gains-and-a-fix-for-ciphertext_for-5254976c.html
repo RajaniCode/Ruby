@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; An Active Record improvement, performance gains and a bugfix!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Guten Tag! Emmanuel here again, with some updates from Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="An Active Record improvement, performance gains and a bugfix!" />
+  <meta property="og:description" content="Guten Tag! Emmanuel here again, with some updates from Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2022/10/21/this-week-in-rails-activerecord-querymethods-reselect-now-accepts-a-hash-performance-gains-and-a-fix-for-ciphertext_for-5254976c" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="An Active Record improvement, performance gains and a bugfix!" />
+  <meta name="twitter:description" content="Guten Tag! Emmanuel here again, with some updates from Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2022/10/21/this-week-in-rails-activerecord-querymethods-reselect-now-accepts-a-hash-performance-gains-and-a-fix-for-ciphertext_for-5254976c"
+      },
+      "name": "Ruby on Rails",
+      "headline": "An Active Record improvement, performance gains and a bugfix!",
+      "description": "Guten Tag! Emmanuel here again, with some updates from Rails.",
+      "url": "http://localhost:4000/2022/10/21/this-week-in-rails-activerecord-querymethods-reselect-now-accepts-a-hash-performance-gains-and-a-fix-for-ciphertext_for-5254976c",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Emmanuel Hayford"
+      },
+      "datePublished": "2022-10-21T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, October 21, 2022</h5>
+        <h2>An Active Record improvement, performance gains and a bugfix!</h2>
+
+        <h6>Posted by Emmanuel Hayford</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Guten Tag! <a href="https://twitter.com/siaw23">Emmanuel</a> here again, with some updates from Rails.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46197">Don’t trigger after_commit :destroy callback again on destroy if record previously was destroyed</a>
+The <em>after_commit :destroy</em> callback would always run even if a record was destroyed previously. This PR fixes that. Essentially, we don’t want to call <em>after_commit :destroy</em> on unpersisted records.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46299">Allow ErrorReporter to handle several error classes</a>
+ErrorReporter now allows you to handle several error classes in one go. You can now handle multiple error classes like so:</p>
+
+<p><em>Rails.error.handle(ArgumentError, TypeError) do
+  # Do some work
+end</em> <a href="https://github.com/rails/rails/pull/46284">Fix ciphertext_for for yet-to-be-encrypted values</a>
+<em>ciphertext_for</em> should return the encrypted value of an attribute that’s encrypted even when the record has not been persisted, before this commit, this wasn’t what we were getting, instead, for an unpersisted record, <em>ciphertext_for</em> returned the plain text value of the attribute. This PR fixes that.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46231">Avoid unnecessary serialize calls after save</a>
+We’ve got some performance gains with this one: This commit memoizes <em>value_for_database</em> so that <em>serialize</em> is not called a 2nd time after save. Because <em>value</em> is the single source of truth and can change in place, the memoization carefully checks for when <em>value</em> differs from the memoized <em>@value_for_database</em>. Verbatim from the commit message. 😎</p>
+
+<p><a href="https://github.com/rails/rails/pull/46253">Allow ActiveRecord::QueryMethods#reselect to accept a hash</a>
+This PR allows <em>ActiveRecord::QueryMethods#reselect</em> to receive hash values, similar to <a href="https://github.com/rails/rails/pull/45612">this PR</a> that allowed <em>ActiveRecord::QueryMethods#select</em> to accept hashes.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20221014-20221021">21 contributors improved</a> Rails in the past week. We’ll bring you more updates next week!</p>
+
+<p>Take care.</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

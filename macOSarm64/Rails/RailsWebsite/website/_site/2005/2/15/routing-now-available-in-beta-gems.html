@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Routing now available in beta gems</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Routing is the new name for what was previously known as Directions. The move of responsibility from mod_rewrite and into Rails. This project is now good enough to have moved off the branch it was growing on and into the trunk and beta gems. This also means, however, that the trunk and the beta gems are currently not directly backwards compatible with existing applications.We&#8217;re going to make sure that the migrating documentation is superb for release, but if you&#8217;re too impatient, here are the few steps you need to take on applications that doesn&#8217;t use custom URLs (those will be a bit more cumbersome to port):1. Create config/routes.rb with the following content:ActionController::Routing::Routes.draw do |map|  # Add your own custom routes here.  # The priority is based upon order of creation: first created -&gt; highest priority.    # Here's a sample route:  # map.connect 'products/:id', :controller =&gt; 'catalog', :action =&gt; 'view'  # Keep in mind you can assign values other than :controller and :action    # Install the default route as the lowest priority.  map.connect ':controller/:action/:id'end2. Replace public/.htaccess with:RewriteEngine OnRewriteCond %{REQUEST_FILENAME} !-fRewriteRule ^(.*)$ /dispatch.fcgi?$1 [QSA,L]" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Routing now available in beta gems" />
+  <meta property="og:description" content="Routing is the new name for what was previously known as Directions. The move of responsibility from mod_rewrite and into Rails. This project is now good enough to have moved off the branch it was growing on and into the trunk and beta gems. This also means, however, that the trunk and the beta gems are currently not directly backwards compatible with existing applications.We&#8217;re going to make sure that the migrating documentation is superb for release, but if you&#8217;re too impatient, here are the few steps you need to take on applications that doesn&#8217;t use custom URLs (those will be a bit more cumbersome to port):1. Create config/routes.rb with the following content:ActionController::Routing::Routes.draw do |map|  # Add your own custom routes here.  # The priority is based upon order of creation: first created -&gt; highest priority.    # Here's a sample route:  # map.connect 'products/:id', :controller =&gt; 'catalog', :action =&gt; 'view'  # Keep in mind you can assign values other than :controller and :action    # Install the default route as the lowest priority.  map.connect ':controller/:action/:id'end2. Replace public/.htaccess with:RewriteEngine OnRewriteCond %{REQUEST_FILENAME} !-fRewriteRule ^(.*)$ /dispatch.fcgi?$1 [QSA,L]" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/2/15/routing-now-available-in-beta-gems" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Routing now available in beta gems" />
+  <meta name="twitter:description" content="Routing is the new name for what was previously known as Directions. The move of responsibility from mod_rewrite and into Rails. This project is now good enough to have moved off the branch it was growing on and into the trunk and beta gems. This also means, however, that the trunk and the beta gems are currently not directly backwards compatible with existing applications.We&#8217;re going to make sure that the migrating documentation is superb for release, but if you&#8217;re too impatient, here are the few steps you need to take on applications that doesn&#8217;t use custom URLs (those will be a bit more cumbersome to port):1. Create config/routes.rb with the following content:ActionController::Routing::Routes.draw do |map|  # Add your own custom routes here.  # The priority is based upon order of creation: first created -&gt; highest priority.    # Here's a sample route:  # map.connect 'products/:id', :controller =&gt; 'catalog', :action =&gt; 'view'  # Keep in mind you can assign values other than :controller and :action    # Install the default route as the lowest priority.  map.connect ':controller/:action/:id'end2. Replace public/.htaccess with:RewriteEngine OnRewriteCond %{REQUEST_FILENAME} !-fRewriteRule ^(.*)$ /dispatch.fcgi?$1 [QSA,L]" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/2/15/routing-now-available-in-beta-gems"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Routing now available in beta gems",
+      "description": "Routing is the new name for what was previously known as Directions. The move of responsibility from mod_rewrite and into Rails. This project is now good enough to have moved off the branch it was growing on and into the trunk and beta gems. This also means, however, that the trunk and the beta gems are currently not directly backwards compatible with existing applications.We&#8217;re going to make sure that the migrating documentation is superb for release, but if you&#8217;re too impatient, here are the few steps you need to take on applications that doesn&#8217;t use custom URLs (those will be a bit more cumbersome to port):1. Create config/routes.rb with the following content:ActionController::Routing::Routes.draw do |map|  # Add your own custom routes here.  # The priority is based upon order of creation: first created -&gt; highest priority.    # Here's a sample route:  # map.connect 'products/:id', :controller =&gt; 'catalog', :action =&gt; 'view'  # Keep in mind you can assign values other than :controller and :action    # Install the default route as the lowest priority.  map.connect ':controller/:action/:id'end2. Replace public/.htaccess with:RewriteEngine OnRewriteCond %{REQUEST_FILENAME} !-fRewriteRule ^(.*)$ /dispatch.fcgi?$1 [QSA,L]",
+      "url": "http://localhost:4000/2005/2/15/routing-now-available-in-beta-gems",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-02-15T18:56:59+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, February 15, 2005</h5>
+        <h2>Routing now available in beta gems</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Routing is the new name for what was previously known as Directions. The move of responsibility from mod_rewrite and into Rails. This project is now good enough to have moved off the branch it was growing on and into the trunk and beta gems. This also means, however, that the trunk and the beta gems are currently not directly backwards compatible with existing applications.</p>
+<p>We&#8217;re going to make sure that the migrating documentation is superb for release, but if you&#8217;re too impatient, here are the few steps you need to take on applications that doesn&#8217;t use custom URLs (those will be a bit more cumbersome to port):</p>
+<p>1. Create <code>config/routes.rb</code> with the following content:</p>
+<pre>
+ActionController::Routing::Routes.draw do |map|
+  # Add your own custom routes here.
+  # The priority is based upon order of creation: first created -&gt; highest priority.
+  
+  # Here's a sample route:
+  # map.connect 'products/:id', :controller =&gt; 'catalog', :action =&gt; 'view'
+  # Keep in mind you can assign values other than :controller and :action
+  
+  # Install the default route as the lowest priority.
+  map.connect ':controller/:action/:id'
+end
+</pre>
+<p>2. Replace <code>public/.htaccess</code> with:</p>
+<pre>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /dispatch.fcgi?$1 [QSA,L]
+
+ErrorDocument 500 /500.html
+</pre>
+<p>3. Add the new independent Active Support library to the default loads. For gem installations, it means adding <code>require_gem 'activesupport'</code> right underneath <code>require 'rubygems'</code> in config/environment.rb. It&#8217;ll then look like:</p>
+<pre>
+# Require Rails gems.
+require 'rubygems'
+require_gem 'activesupport'
+require_gem 'activerecord'
+require_gem 'actionpack'
+require_gem 'actionmailer'
+require_gem 'rails'
+</pre>
+<p>For <span class="caps">SVN</span>/tgz installations, it means adding <code>vendor/activesupport/lib</code> to the ADDITIONAL_LOAD_PATHS and add <code>require 'active_support'</code> under # Require Rails libraries. also in config/environment.rb. It&#8217;ll then look like:</p>
+<pre>
+# Followed by the standard includes.
+ADDITIONAL_LOAD_PATHS.concat %w(
+  app
+  app/models
+  app/controllers
+  app/helpers
+  config
+  lib
+  vendor
+  vendor/railties
+  vendor/railties/lib
+  vendor/activesupport/lib
+  vendor/activerecord/lib
+  vendor/actionpack/lib
+  vendor/actionmailer/lib
+).map { |dir| "#{RAILS_ROOT}/#{dir}" }
+
+# Prepend to $LOAD_PATH
+ADDITIONAL_LOAD_PATHS.reverse.each { |dir| $:.unshift(dir) if File.directory?(dir) }
+
+
+# Require Rails libraries.
+require 'active_support'
+require 'active_record'
+require 'action_controller'
+require 'action_mailer'
+</pre>
+<p>4. Add <code>ActionController::Routing::Routes.reload</code> somewhere in your config/environment.rb file.</p>
+<p>That should be it. More detailed information will follow shortly.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

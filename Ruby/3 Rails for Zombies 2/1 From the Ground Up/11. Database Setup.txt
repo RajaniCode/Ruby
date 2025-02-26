@@ -1,0 +1,22 @@
+11. Database Setup
+
+
+Objective
+
+You've decided to install the app on another computer. Please enter the command you should use (instead of rake db:migrate) to create the database, load the schema, and run the seed file.
+
+
+Answer: rake db:setup
+
+
+$ rake db:setup
+-- create_table("tweets", {:force=>true})
+   -> 0.0389s
+-- add_index("tweets", ["zombie_id"], {:name=>"index_tweets_on_zombie_id"})
+   -> 0.0024s
+-- initialize_schema_migrations_table()
+   -> 0.0029s
+-- assume_migrated_upto_version(20150717100920, ["db/migrate"])
+   -> 0.0035s
+Successfully completed Challenge 11
+$  

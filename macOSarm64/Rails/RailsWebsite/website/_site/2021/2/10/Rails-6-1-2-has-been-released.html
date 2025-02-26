@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 6.1.2 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 6.1.2 has been released!" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2021/2/10/Rails-6-1-2-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 6.1.2 has been released!" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2021/2/10/Rails-6-1-2-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 6.1.2 has been released!",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2021/2/10/Rails-6-1-2-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rafaelfranca"
+      },
+      "datePublished": "2021-02-10T04:12:21+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, February 10, 2021</h5>
+        <h2>Rails 6.1.2 has been released!</h2>
+
+        <h6>Posted by rafaelfranca</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>I am happy to announce that Rails 6.1.2 has been released.</p>
+
+<h2 id="changes-since-611">CHANGES since 6.1.1</h2>
+
+<p>To view the changes for each gem, please read the changelogs on GitHub:</p>
+<ul>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/actioncable/CHANGELOG.md">Action Cable CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/actionmailbox/CHANGELOG.md">Action Mailbox CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/actionmailer/CHANGELOG.md">Action Mailer CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/actionpack/CHANGELOG.md">Action Pack CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/actiontext/CHANGELOG.md">Action Text CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/actionview/CHANGELOG.md">Action View CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/activejob/CHANGELOG.md">Active Job CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/activemodel/CHANGELOG.md">Active Model CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/activerecord/CHANGELOG.md">Active Record CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/activestorage/CHANGELOG.md">Active Storage CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/activesupport/CHANGELOG.md">Active Support CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v6.1.2/railties/CHANGELOG.md">Railties CHANGELOG</a></li>
+</ul>
+
+<p>To see a summary of changes, please read the release on GitHub:</p>
+
+<p><a href="https://github.com/rails/rails/releases/tag/v6.1.2">6.1.2 CHANGELOG</a></p>
+
+<p><em>Full listing</em></p>
+
+<p>To see the full list of changes, <a href="https://github.com/rails/rails/compare/v6.1.1...v6.1.2">check out all the commits on
+GitHub</a>.</p>
+
+<h2 id="sha-256">SHA-256</h2>
+
+<p>If you’d like to verify that your gem is the same as the one I’ve uploaded,
+please use these SHA-256 hashes.</p>
+
+<p>Here are the checksums for 6.1.2:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum -a 256 *-6.1.2.gem
+fd12348ec00f26b2f247e23cbe73804755c90236d9aebcbc136fc149ebee0901  actioncable-6.1.2.gem
+3fd0400d1277c711e085162c5a35caa15dd98f84fefc4a0773dc336a1fef65e0  actionmailbox-6.1.2.gem
+98118a814826715a9f88cc0ff07a517a229d21ce08e53ed5024e0af889292689  actionmailer-6.1.2.gem
+16d09ebb77253a30abe7eb4fd554d17706418f639c61da9a14903ddbf72976ae  actionpack-6.1.2.gem
+0b7dc18051a91b995298971e3871a8e20be088a2a2831e484bacfeeebcf6cb77  actiontext-6.1.2.gem
+7c72aeae52d42ce3757a5ae4ef68b0e8ece09ce26baea071ed4fa80cae1a0406  actionview-6.1.2.gem
+f297e27c0c2d5363e7b574806939944e3656a34eb32b5b43a28a059e9c4a6ca3  activejob-6.1.2.gem
+58fd5b3b68ca2a54c6ba7801936e9cb6b1ce50c6154f894dbaf6275cb8778c4b  activemodel-6.1.2.gem
+8e8fdeb864b02a7a360d78bc97f5064a53bcacbc812c8ae4e9ea5cf6d1e28f1e  activerecord-6.1.2.gem
+fd19ac42caf2a8a654027eb510092cdf8d43384e352dc397246aac9bccf62469  activestorage-6.1.2.gem
+098f2cc82f7232364ad9493155d3a34f44baecb5b51ce6646a015396a6d525a8  activesupport-6.1.2.gem
+e62c90c4a62f0d177161e0df05d7ba417010858fa418affdb2d93981e407a04e  rails-6.1.2.gem
+753527d97b2f68db999417a30d274b62317e082a7f96f88e7e1b10c846ad6d21  railties-6.1.2.gem
+</code></pre></div></div>
+
+<p>As always, huge thanks to the many contributors who helped with this release.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

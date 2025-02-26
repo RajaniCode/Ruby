@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Using custom mime types</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="So, you&#8217;ve started using Rails&#8217; new mime type support with responds_to, but you were wondering how to add your own custom types?  Luckily, Geoffrey Grosenbach (aka topfunky) is there to show you the way.  His example involves registering an extension for .png, and generating a custom icon for an order in his shopping cart with some RMagick-fu.  His example looks something like this:Mime::Type.register "image/png", :png" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Using custom mime types" />
+  <meta property="og:description" content="So, you&#8217;ve started using Rails&#8217; new mime type support with responds_to, but you were wondering how to add your own custom types?  Luckily, Geoffrey Grosenbach (aka topfunky) is there to show you the way.  His example involves registering an extension for .png, and generating a custom icon for an order in his shopping cart with some RMagick-fu.  His example looks something like this:Mime::Type.register "image/png", :png" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2006/12/19/using-custom-mime-types" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Using custom mime types" />
+  <meta name="twitter:description" content="So, you&#8217;ve started using Rails&#8217; new mime type support with responds_to, but you were wondering how to add your own custom types?  Luckily, Geoffrey Grosenbach (aka topfunky) is there to show you the way.  His example involves registering an extension for .png, and generating a custom icon for an order in his shopping cart with some RMagick-fu.  His example looks something like this:Mime::Type.register "image/png", :png" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2006/12/19/using-custom-mime-types"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Using custom mime types",
+      "description": "So, you&#8217;ve started using Rails&#8217; new mime type support with responds_to, but you were wondering how to add your own custom types?  Luckily, Geoffrey Grosenbach (aka topfunky) is there to show you the way.  His example involves registering an extension for .png, and generating a custom icon for an order in his shopping cart with some RMagick-fu.  His example looks something like this:Mime::Type.register "image/png", :png",
+      "url": "http://localhost:4000/2006/12/19/using-custom-mime-types",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rick"
+      },
+      "datePublished": "2006-12-19T08:32:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, December 19, 2006</h5>
+        <h2>Using custom mime types</h2>
+
+        <h6>Posted by rick</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>So, you&#8217;ve started using Rails&#8217; new mime type support with responds_to, but you were wondering how to add your own custom types?  Luckily, Geoffrey Grosenbach (aka <a href="http://topfunky.com/">topfunky</a>) is there to <a href="http://nubyonrails.topfunky.com/articles/2006/12/18/dynamic-graphics-with-rails-1-2">show you the way</a>.  His example involves registering an extension for .png, and generating a custom icon for an order in his shopping cart with some RMagick-fu.  His example looks something like this:</p>
+<pre><code>Mime::Type.register "image/png", :png
+
+# then in your controller action
+def show
+  respond_to do |format|
+    format.html { }
+    format.png { }
+  end
+end</code></pre>
+<p><code>Mime::Type.register</code> will add the image/png mime type to the <a href="http://dev.rubyonrails.org/svn/rails/trunk/actionpack/lib/action_controller/mime_types.rb">collection of mime types</a>, bind it to the .png extension.  It also creates a special Mime::Type instance at Mime::<span class="caps">PNG</span>. Check out the great post and the comments for more tips on caching and RMagick.</p>
+<p><strong>Note:</strong>  After some investigation, I&#8217;ve found that using Geoff&#8217;s <a href="http://svn.topfunky.com/podcast/app/controllers/application.rb">:format hack</a> is not required on Rails 1.2 if you make the request with the :format parameter.  Using routes like formatted_post_path(@post, :xml) will give you a path like &#8220;/posts/1.xml&#8221;.  Accessing that will write public/posts/1.xml, regardless of what the page_cache_extension is.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Off the Treadmill, Onto the Rails</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mike Clark, author of Pragmatic Project Automation, caught up with me for a few quick questions about the automation of Rails. A snippet:Mike: Everybody who tries Rails raves about how it makes them super productive. What types of automation does Rails employ to help developers create great apps so quickly?David: The basic philosophy is to encourage good behavior through invitations. So, for example, when you use the generator to create a new model or controller, it also creates unit test stubs that are all hooked up. You just enter a new test case and off you go. The same goes to fixtures, where a YAML file is already created and hooked up, just waiting for you to input the data&#8230;We also talk about Rake and continuos integration with Damage Control. Additionally, it was great to see Mike so excited about Rails:Rails projects are popping up all over. I just started converting a small J2EE project to Rails, and let me just say that Rails is highly addictive stuff." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Off the Treadmill, Onto the Rails" />
+  <meta property="og:description" content="Mike Clark, author of Pragmatic Project Automation, caught up with me for a few quick questions about the automation of Rails. A snippet:Mike: Everybody who tries Rails raves about how it makes them super productive. What types of automation does Rails employ to help developers create great apps so quickly?David: The basic philosophy is to encourage good behavior through invitations. So, for example, when you use the generator to create a new model or controller, it also creates unit test stubs that are all hooked up. You just enter a new test case and off you go. The same goes to fixtures, where a YAML file is already created and hooked up, just waiting for you to input the data&#8230;We also talk about Rake and continuos integration with Damage Control. Additionally, it was great to see Mike so excited about Rails:Rails projects are popping up all over. I just started converting a small J2EE project to Rails, and let me just say that Rails is highly addictive stuff." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/1/28/off-the-treadmill-onto-the-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Off the Treadmill, Onto the Rails" />
+  <meta name="twitter:description" content="Mike Clark, author of Pragmatic Project Automation, caught up with me for a few quick questions about the automation of Rails. A snippet:Mike: Everybody who tries Rails raves about how it makes them super productive. What types of automation does Rails employ to help developers create great apps so quickly?David: The basic philosophy is to encourage good behavior through invitations. So, for example, when you use the generator to create a new model or controller, it also creates unit test stubs that are all hooked up. You just enter a new test case and off you go. The same goes to fixtures, where a YAML file is already created and hooked up, just waiting for you to input the data&#8230;We also talk about Rake and continuos integration with Damage Control. Additionally, it was great to see Mike so excited about Rails:Rails projects are popping up all over. I just started converting a small J2EE project to Rails, and let me just say that Rails is highly addictive stuff." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/1/28/off-the-treadmill-onto-the-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Off the Treadmill, Onto the Rails",
+      "description": "Mike Clark, author of Pragmatic Project Automation, caught up with me for a few quick questions about the automation of Rails. A snippet:Mike: Everybody who tries Rails raves about how it makes them super productive. What types of automation does Rails employ to help developers create great apps so quickly?David: The basic philosophy is to encourage good behavior through invitations. So, for example, when you use the generator to create a new model or controller, it also creates unit test stubs that are all hooked up. You just enter a new test case and off you go. The same goes to fixtures, where a YAML file is already created and hooked up, just waiting for you to input the data&#8230;We also talk about Rake and continuos integration with Damage Control. Additionally, it was great to see Mike so excited about Rails:Rails projects are popping up all over. I just started converting a small J2EE project to Rails, and let me just say that Rails is highly addictive stuff.",
+      "url": "http://localhost:4000/2005/1/28/off-the-treadmill-onto-the-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-01-28T20:41:25+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, January 28, 2005</h5>
+        <h2>Off the Treadmill, Onto the Rails</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Mike Clark, author of <a href="http://www.pragmaticprogrammer.com/sk/auto/">Pragmatic Project Automation</a>, caught up with me for a few quick <a href="http://www.pragmaticautomation.com/cgi-bin/pragauto.cgi/Tools/RailsAutomation.rdoc">questions about the automation</a> of Rails. A snippet:</p>
+<blockquote><b>Mike:</b> Everybody who tries Rails raves about how it makes them super productive. What types of automation does Rails employ to help developers create great apps so quickly?<br />
+<br />
+<b>David:</b> The basic philosophy is to encourage good behavior through invitations. So, for example, when you use the generator to create a new model or controller, it also creates unit test stubs that are all hooked up. You just enter a new test case and off you go. The same goes to fixtures, where a <span class="caps">YAML</span> file is already created and hooked up, just waiting for you to input the data&#8230;</blockquote>
+<p>We also talk about Rake and continuos integration with Damage Control. Additionally, it was great to see Mike so excited about Rails:</p>
+<blockquote>Rails projects are popping up all over. I just started converting a small J2EE project to Rails, and let me just say that Rails is highly addictive stuff.</blockquote>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

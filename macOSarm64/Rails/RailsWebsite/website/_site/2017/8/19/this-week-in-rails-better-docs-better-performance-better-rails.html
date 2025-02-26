@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Better docs, better performance, better Rails!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone! This is Claudio with a recap of the main commits that made it into rails/rails this week. If you too want to contribute to Rails, this outstanding Active Record issue is a great place to start." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Better docs, better performance, better Rails!" />
+  <meta property="og:description" content="Hello everyone! This is Claudio with a recap of the main commits that made it into rails/rails this week. If you too want to contribute to Rails, this outstanding Active Record issue is a great place to start." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/8/19/this-week-in-rails-better-docs-better-performance-better-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Better docs, better performance, better Rails!" />
+  <meta name="twitter:description" content="Hello everyone! This is Claudio with a recap of the main commits that made it into rails/rails this week. If you too want to contribute to Rails, this outstanding Active Record issue is a great place to start." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/8/19/this-week-in-rails-better-docs-better-performance-better-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Better docs, better performance, better Rails!",
+      "description": "Hello everyone! This is Claudio with a recap of the main commits that made it into rails/rails this week. If you too want to contribute to Rails, this outstanding Active Record issue is a great place to start.",
+      "url": "http://localhost:4000/2017/8/19/this-week-in-rails-better-docs-better-performance-better-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "chancancode"
+      },
+      "datePublished": "2017-08-19T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, August 19, 2017</h5>
+        <h2>Better docs, better performance, better Rails!</h2>
+
+        <h6>Posted by chancancode</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone! This is <a href="https://www.youtube.com/watch?v=9CWjFtCbrrM">Claudio</a> with a recap of the main commits that made it into rails/rails this week. If you too want to contribute to Rails, <a href="https://github.com/rails/rails/issues/30296">this outstanding Active Record issue</a> is a great place to start.</p>
+
+<h3 id="temporarily-point-to-a-fork-of-sdoc"><a href="https://github.com/rails/rails/pull/30199">Temporarily point to a fork of SDoc</a></h3>
+
+<p>A work in progress to improve the documentation of Rails with a nicer theme, better SEO and faster generation time. Can you spot the difference between <a href="http://api.rubyonrails.org">the current</a> and <a href="http://edgeapi.rubyonrails.org">the future version</a>?</p>
+
+<h3 id="minor-tweaks-in-active-storage-documentation"><a href="https://github.com/rails/rails/commit/ae87217382a4f1f2bdfcdcb8ca6d486ec96e8d6c">Minor tweaks in Active Storage documentation</a></h3>
+
+<p>Two weeks ago, <a href="https://github.com/rails/rails/pull/30020">Active Storage made it into rails/rails</a>. This week its documentation has been improved to make it ready to ship with Rails 5.2.</p>
+
+<h3 id="faster-and-more-readable-implementation-of-hashdeep_merge"><a href="https://github.com/rails/rails/pull/30275">Faster and more readable implementation of Hash#deep_merge</a></h3>
+
+<p>If you want to learn how to use benchmarks to prove that a commit can improve the performance of Rails, this is a great example.</p>
+
+<h3 id="eager-load-controller-actions-to-reduce-response-time-of-the-first-request"><a href="https://github.com/rails/rails/pull/29559">Eager-load controller actions to reduce response time of the first request</a></h3>
+
+<p>The list of available actions for a controller is now eagerly loaded  to reduce response time of the first request and the memory footprint when running on forking server like Unicorn.</p>
+
+<h3 id="load-parameters-configurations-on-action_controller-only-once"><a href="https://github.com/rails/rails/pull/30045">Load Parameters configurations on :action_controller only once</a></h3>
+
+<p>This PR fixes a <a href="https://github.com/rails/rails/issues/30025">regression</a> introduced in 5.1.3 by which UnpermittedParameters were not raised as expected.</p>
+
+<h3 id="check-scope-input-in-uniqueness-validator"><a href="https://github.com/rails/rails/pull/30214">Check :scope input in Uniqueness validator</a></h3>
+
+<p>Without this patch, calling something like <em>validates_uniqueness_of :code, scope: [archived: false]</em> would cause <em>NoMethodError</em> with a trace into AR internals.</p>
+
+<h3 id="add-binary-helper-method-to-fixtures"><a href="https://github.com/rails/rails/pull/30073">Add <code class="language-plaintext highlighter-rouge">binary</code> helper method to fixtures</a></h3>
+
+<p>You can now more easily use binary data as fixtures.</p>
+
+<h3 id="add---skip-yarn-option-to-the-plugin-generator"><a href="https://github.com/rails/rails/pull/30238">Add <code class="language-plaintext highlighter-rouge">--skip-yarn</code> option to the plugin generator</a></h3>
+
+<p>Don’t include yarn in your engines if you don’t need it.</p>
+
+<h3 id="allow-serialize-with-a-custom-coder-on-json-and-array-columns"><a href="https://github.com/rails/rails/pull/30229">Allow <code class="language-plaintext highlighter-rouge">serialize</code> with a custom coder on <code class="language-plaintext highlighter-rouge">json</code> and <code class="language-plaintext highlighter-rouge">array</code> columns</a></h3>
+
+<p>Better control on how to store your data.</p>
+
+<h3 id="bump-thor-and-blade"><a href="https://github.com/rails/rails/pull/30288">Bump <code class="language-plaintext highlighter-rouge">thor</code> and <code class="language-plaintext highlighter-rouge">blade</code></a></h3>
+
+<p>Thor 0.20 has <a href="https://github.com/erikhuda/thor/blob/master/CHANGELOG.md#0200">new features</a> you might want to look at.</p>
+
+<p>That’s all for this week! Feel free to check the full <a href="https://github.com/rails/rails/compare/master@%7B2017-08-13%7D...@%7B2017-08-19%7D">list of commits</a> if you are interested. Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

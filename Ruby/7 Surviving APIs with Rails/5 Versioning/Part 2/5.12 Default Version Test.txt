@@ -1,0 +1,36 @@
+5.12 Default Version Test
+
+Let’s update our previous RoutesTest file to verify the default version is being used for requests that do not send along a specific API version.
+
+ruby
+
+class RoutesTest < ActionDispatch::IntegrationTest
+  test 'defaults to v2' do
+    assert_generates '', # Task 1
+      { controller: '', action: '' } # Task 2
+  end
+end
+
+
+1. The first argument to the assert_generates method is the URI for the zombies resources.
+
+Answer:
+ruby
+class RoutesTest < ActionDispatch::IntegrationTest
+  test 'defaults to v2' do
+    assert_generates '/zombies', # Task 1
+      { controller: '', action: '' } # Task 2
+  end
+end
+
+
+2. Now complete the second argument to ensure the previous URI generates the route for V2::Zombies#index.
+
+Answer:
+ruby
+class RoutesTest < ActionDispatch::IntegrationTest
+  test 'defaults to v2' do
+    assert_generates '/zombies', # Task 1
+    { controller: 'v2/zombies', action: 'index' } # Task 2
+  end
+end

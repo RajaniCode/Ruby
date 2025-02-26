@@ -1,0 +1,313 @@
+Last login: Tue Feb  4 00:11:53 on ttys000
+rajaniapple@Rajanis-MacBook-Pro ~ % sw_vers
+ProductName:		macOS
+ProductVersion:		15.1
+BuildVersion:		24B83
+rajaniapple@Rajanis-MacBook-Pro ~ % arch
+arm64
+rajaniapple@Rajanis-MacBook-Pro ~ % cd $HOME/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/RubyonRailsApp8
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp8 % cd ruby_on_rails_app_8
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % ls .ruby-version
+.ruby-version
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % cat .ruby-version
+3.3.0
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % rm -rf .ruby-version
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % ls Gemfile.lock
+Gemfile.lock
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % rm -rf Gemfile.lock
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % ruby --version
+ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % gem --version
+3.6.3
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % bundler --version
+Bundler version 2.6.3
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % bundle --version
+Bundler version 2.6.3
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % rake --version
+rake, version 13.2.1
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % rails --version
+Your Ruby version is 3.4.1, but your Gemfile specified 3.3.0
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % cat Gemfile
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby "3.3.0"
+
+gem "rails",                      "8.0.0"
+gem "image_processing",           "1.12.2"
+gem "active_storage_validations", "0.9.8"
+gem "bcrypt",                     "3.1.18"
+gem "faker",                      "2.21.0"
+gem "will_paginate",              "3.3.1"
+gem "bootstrap-will_paginate",    "1.0.0"
+gem "bootstrap-sass",             "3.4.1"
+gem "sassc-rails",                "2.1.2"
+gem "sprockets-rails",            "3.4.2"
+gem "importmap-rails",            "1.1.0"
+gem "turbo-rails",                "1.1.1"
+gem "stimulus-rails",             "1.0.4"
+gem "jbuilder"
+gem "puma"
+gem "bootsnap",                   "1.12.0", require: false
+
+group :development, :test do
+  gem "sqlite3", "2.1.0"
+end
+
+group :development do
+  gem "web-console", "4.2.0"
+end
+
+group :test do
+  gem "capybara",                 "3.37.1"
+  gem "selenium-webdriver",       "4.2.0"
+  gem "webdrivers",               "5.0.0"
+  gem "rails-controller-testing", "1.0.5"
+  gem "minitest",                 "5.15.0"
+  gem "minitest-reporters",       "1.5.0"
+  gem "guard",                    "2.18.0"
+  gem "guard-minitest",           "2.4.6"
+  gem 'simplecov',                "0.21.2"
+end
+
+group :production do
+  gem "pg",         "1.3.5"
+  gem "aws-sdk-s3", "1.114.0", require: false
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem.
+# Uncomment the following line if you're running Rails
+# on a native Windows system:
+# gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % nano Gemfile 
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % cat Gemfile
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby "3.4.1"
+
+gem "rails",                      "8.0.1"
+gem "mutex_m",                    "0.3.0"
+gem "image_processing",           "1.12.2"
+gem "active_storage_validations", "0.9.8"
+gem "bcrypt",                     "3.1.18"
+gem "faker",                      "2.21.0"
+gem "will_paginate",              "3.3.1"
+gem "bootstrap-will_paginate",    "1.0.0"
+gem "bootstrap-sass",             "3.4.1"
+gem "sassc-rails",                "2.1.2"
+gem "sprockets-rails",            "3.4.2"
+gem "importmap-rails",            "1.1.0"
+gem "turbo-rails",                "1.1.1"
+gem "stimulus-rails",             "1.0.4"
+gem "jbuilder"
+gem "puma"
+gem "bootsnap",                   "1.12.0", require: false
+
+group :development, :test do
+  gem "sqlite3", "2.1.0"
+end
+
+group :development do
+  gem "web-console", "4.2.0"
+end
+
+group :test do
+  gem "capybara",                 "3.37.1"
+  gem "selenium-webdriver",       "4.2.0"
+  gem "webdrivers",               "5.0.0"
+  gem "rails-controller-testing", "1.0.5"
+  gem "minitest",                 "5.15.0"
+  gem "minitest-reporters",       "1.5.0"
+  gem "guard",                    "2.18.0"
+  gem "guard-minitest",           "2.4.6"
+  gem 'simplecov',                "0.21.2"
+end
+
+group :production do
+  gem "pg",         "1.3.5"
+  gem "aws-sdk-s3", "1.114.0", require: false
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem.
+# Uncomment the following line if you're running Rails
+# on a native Windows system:
+# gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % rails --version
+Rails 8.0.1
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % bundle update
+Fetching gem metadata from https://rubygems.org/...........
+Resolving dependencies...
+Bundle updated!
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % bundle config set without 'production'
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % bundle install
+Bundle complete! 30 Gemfile dependencies, 126 gems now installed.
+Gems in the group 'production' were not installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % yarn install --check-files
+! Corepack is about to download https://registry.yarnpkg.com/yarn/-/yarn-1.22.22.tgz
+? Do you want to continue? [Y/n] Y
+
+yarn install v1.22.22
+info No lockfile found.
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+
+success Saved lockfile.
+✨  Done in 0.02s.
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % yarn install
+yarn install v1.22.22
+[1/4] 🔍  Resolving packages...
+success Already up-to-date.
+✨  Done in 0.01s.
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % rails db:migrate
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % rails test
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/3.4.0/prism.rb:81: warning: already initialized constant Prism::BACKEND
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/3.4.0/prism.rb:81: warning: previous definition of BACKEND was here
+
+Started with run options --seed 53853
+
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0/gems/will_paginate-3.3.1/lib/will_paginate/view_helpers/link_renderer.rb:106: warning: literal string will be frozen in the future (run with --debug-frozen-string-literal for more information)
+  85/85: [=============================================================================================] 100% Time: 00:00:02, Time: 00:00:02
+
+Finished in 2.27919s
+85 tests, 380 assertions, 0 failures, 0 errors, 0 skips
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % rails db:seed   
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % rails server
+=> Booting Puma
+=> Rails 8.0.1 application starting in development 
+=> Run `bin/rails server --help` for more startup options
+Puma starting in single mode...
+* Puma version: 6.6.0 ("Return to Forever")
+* Ruby version: ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+*  Min threads: 3
+*  Max threads: 3
+*  Environment: development
+*          PID: 18825
+* Listening on http://127.0.0.1:3000
+* Listening on http://[::1]:3000
+Use Ctrl-C to stop
+Started GET "/" for 127.0.0.1 at 2025-02-04 00:20:07 +0530
+  ActiveRecord::SchemaMigration Load (0.0ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='SampleApp'*/
+Processing by StaticPagesController#home as */*
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 412.7ms | GC: 18.1ms)
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 423.5ms | GC: 18.1ms)
+Completed 200 OK in 549ms (Views: 425.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 57.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-04 00:20:13 +0530
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.0ms | GC: 0.0ms)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-c6572c6fddd5889cf48cd7517418514b4c003072fa05bcf4f815e143e2dd39f4.css" for 127.0.0.1 at 2025-02-04 00:20:13 +0530
+Started GET "/assets/es-module-shims.min-606ae9c3279013fe751cee30f719a592f759e705edb66496812f3d9dbce3d850.js" for 127.0.0.1 at 2025-02-04 00:20:13 +0530
+Started GET "/assets/rails-27b4717692698a3e7b0be9fd2cd1c151471027fef6eb719d63a0b8e01ae71c15.svg" for 127.0.0.1 at 2025-02-04 00:20:13 +0530
+Started GET "/assets/application-c056b280d481368e54e8086b0aad7b3eff510b1cd4ecaed6b96def7478c9c2cd.js" for 127.0.0.1 at 2025-02-04 00:20:13 +0530
+Started GET "/assets/turbo.min-e5023178542f05fc063cd1dc5865457259cc01f3fba76a28454060d33de6f429.js" for 127.0.0.1 at 2025-02-04 00:20:13 +0530
+Started GET "/assets/controllers/index-2db729dddcc5b979110e98de4b6720f83f91a123172e87281d5a58410fc43806.js" for 127.0.0.1 at 2025-02-04 00:20:13 +0530
+Started GET "/assets/custom/menu-7265b2067ed99b6f4e241019ac7f88139352f5021955afcb5ed76e9b5b70d299.js" for 127.0.0.1 at 2025-02-04 00:20:13 +0530
+Started GET "/assets/controllers/application-368d98631bccbf2349e0d4f8269afb3fe9625118341966de054759d96ea86c7e.js" for 127.0.0.1 at 2025-02-04 00:20:13 +0530
+Started GET "/assets/stimulus.min-900648768bd96f3faeba359cf33c1bd01ca424ca4d2d05f36a5d8345112ae93c.js" for 127.0.0.1 at 2025-02-04 00:20:14 +0530
+Started GET "/assets/stimulus-loading-1fc59770fb1654500044afd3f5f6d7d00800e5be36746d55b94a2963a7a228aa.js" for 127.0.0.1 at 2025-02-04 00:20:14 +0530
+Started GET "/assets/custom/image_upload-10c5f4c8e4ff54eba336cf9b2eb7a4b3ca6876ad21af2446eaa5e12e2a9da993.js" for 127.0.0.1 at 2025-02-04 00:20:14 +0530
+Started GET "/assets/controllers/hello_controller-549135e8e7c683a538c3d6d517339ba470fcfb79d62f738a0a089ba41851a554.js" for 127.0.0.1 at 2025-02-04 00:20:14 +0530
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2025-02-04 00:21:32 +0530 ===
+- Goodbye!
+Exiting
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_8 % 

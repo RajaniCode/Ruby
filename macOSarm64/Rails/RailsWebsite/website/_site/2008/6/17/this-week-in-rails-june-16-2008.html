@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails (June 16, 2008)</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This is the first edition of This Week in Rails. As announced by Gregg Pollack a few days ago, this weekly column will cover highlights from the Rails community. My aim is to provide you with a status update as if you&#8217;d gone on holidays for a week. I will try to be consistent and publish once a week on Sunday or Monday. Being my first shot, I&#8217;ll rely on your feedback to verify that I&#8217;m on the right track and that this is useful to you; so please feel free to express your opinion in the comment section below.With Rails 2.1 out, most developers are looking forward to upgrading their skills (and projects) to the latest release. If you&#8217;re one of them, I strongly recommend that you check out the second edition of Carlos Brando&#8217;s Ruby on Rails 2.1 &#8211; What’s new free e-book, which is available in both English and Portuguese, with an Italian translation currently in the works as well. You can also read Rob Anderton&#8217;s excellent overview of Rails 2.1&#8217;s improved caching capabilities, as well as its built-in support for memcached.Last week, Phusion announced the first release candidate of Passenger 2.0 (aka mod_rails). This release introduces support for Rack, opening the door to alternative web frameworks as well. In the same announcement, Ruby Enterprise Edition was formally released. Despite the &#8220;Enterprise&#8221; label, this is a fully Open Source version of Ruby whose main claim is a reduced memory footprint on Linux and Mac OS X.Speaking of Enterprise, Dr Nic has released version 1.0.2 of his Composite Primary Keys gem. Starting from version 1.0.0 it finally catches up with Active Record 2.1. Erubis, the fast alternative to ERB, has rolled out support for Rails 2.1 as well, in their 2.6.1 version. A week later, version 2.6.2 was released and it includes support for Ruby 1.9 as well. You can install it by runninggem install erubis or by downloading it from RubyForge.Last week Ryan Bates put out another two Railscasts. The first is about how to contribute to Rails using Git and is, needless to say, highly recommended. The second one is in regards to substituting pagination with the effect of endless scrolling, like DZone does. As pointed out, there are plugins that do this, but Ryan&#8217;s approach builds it from scratch and is definitely worth checking out.Other interesting articles were: a concise guide to using the Thinking Sphinx plugin (along with the pre-requisite Sphinx primer), Easy and Flexible Breadcrumbs for Rails even though they are clearly not everyone&#8217;s cup of tea, and lastly GemPlugins: A Brief Introduction to the Future of Rails Plugins.In conclusion, two announcements were previously reported in this blog, but they are both worth repeating. The first is the release of Capistrano 2.4 and the second is that registration has opened up for RailsConf Europe 2008. The conference will be held in Berlin, Germany from the 2nd to the 4th of September. By registering before July 15th, you can save up to 150 euros.That&#8217;s it for this week. As you can see there is no shortage of material, given that we&#8217;re such an active community. If you&#8217;d like to read more updates from the Ruby side of things, please head over to This Week in Ruby." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails (June 16, 2008)" />
+  <meta property="og:description" content="This is the first edition of This Week in Rails. As announced by Gregg Pollack a few days ago, this weekly column will cover highlights from the Rails community. My aim is to provide you with a status update as if you&#8217;d gone on holidays for a week. I will try to be consistent and publish once a week on Sunday or Monday. Being my first shot, I&#8217;ll rely on your feedback to verify that I&#8217;m on the right track and that this is useful to you; so please feel free to express your opinion in the comment section below.With Rails 2.1 out, most developers are looking forward to upgrading their skills (and projects) to the latest release. If you&#8217;re one of them, I strongly recommend that you check out the second edition of Carlos Brando&#8217;s Ruby on Rails 2.1 &#8211; What’s new free e-book, which is available in both English and Portuguese, with an Italian translation currently in the works as well. You can also read Rob Anderton&#8217;s excellent overview of Rails 2.1&#8217;s improved caching capabilities, as well as its built-in support for memcached.Last week, Phusion announced the first release candidate of Passenger 2.0 (aka mod_rails). This release introduces support for Rack, opening the door to alternative web frameworks as well. In the same announcement, Ruby Enterprise Edition was formally released. Despite the &#8220;Enterprise&#8221; label, this is a fully Open Source version of Ruby whose main claim is a reduced memory footprint on Linux and Mac OS X.Speaking of Enterprise, Dr Nic has released version 1.0.2 of his Composite Primary Keys gem. Starting from version 1.0.0 it finally catches up with Active Record 2.1. Erubis, the fast alternative to ERB, has rolled out support for Rails 2.1 as well, in their 2.6.1 version. A week later, version 2.6.2 was released and it includes support for Ruby 1.9 as well. You can install it by runninggem install erubis or by downloading it from RubyForge.Last week Ryan Bates put out another two Railscasts. The first is about how to contribute to Rails using Git and is, needless to say, highly recommended. The second one is in regards to substituting pagination with the effect of endless scrolling, like DZone does. As pointed out, there are plugins that do this, but Ryan&#8217;s approach builds it from scratch and is definitely worth checking out.Other interesting articles were: a concise guide to using the Thinking Sphinx plugin (along with the pre-requisite Sphinx primer), Easy and Flexible Breadcrumbs for Rails even though they are clearly not everyone&#8217;s cup of tea, and lastly GemPlugins: A Brief Introduction to the Future of Rails Plugins.In conclusion, two announcements were previously reported in this blog, but they are both worth repeating. The first is the release of Capistrano 2.4 and the second is that registration has opened up for RailsConf Europe 2008. The conference will be held in Berlin, Germany from the 2nd to the 4th of September. By registering before July 15th, you can save up to 150 euros.That&#8217;s it for this week. As you can see there is no shortage of material, given that we&#8217;re such an active community. If you&#8217;d like to read more updates from the Ruby side of things, please head over to This Week in Ruby." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2008/6/17/this-week-in-rails-june-16-2008" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails (June 16, 2008)" />
+  <meta name="twitter:description" content="This is the first edition of This Week in Rails. As announced by Gregg Pollack a few days ago, this weekly column will cover highlights from the Rails community. My aim is to provide you with a status update as if you&#8217;d gone on holidays for a week. I will try to be consistent and publish once a week on Sunday or Monday. Being my first shot, I&#8217;ll rely on your feedback to verify that I&#8217;m on the right track and that this is useful to you; so please feel free to express your opinion in the comment section below.With Rails 2.1 out, most developers are looking forward to upgrading their skills (and projects) to the latest release. If you&#8217;re one of them, I strongly recommend that you check out the second edition of Carlos Brando&#8217;s Ruby on Rails 2.1 &#8211; What’s new free e-book, which is available in both English and Portuguese, with an Italian translation currently in the works as well. You can also read Rob Anderton&#8217;s excellent overview of Rails 2.1&#8217;s improved caching capabilities, as well as its built-in support for memcached.Last week, Phusion announced the first release candidate of Passenger 2.0 (aka mod_rails). This release introduces support for Rack, opening the door to alternative web frameworks as well. In the same announcement, Ruby Enterprise Edition was formally released. Despite the &#8220;Enterprise&#8221; label, this is a fully Open Source version of Ruby whose main claim is a reduced memory footprint on Linux and Mac OS X.Speaking of Enterprise, Dr Nic has released version 1.0.2 of his Composite Primary Keys gem. Starting from version 1.0.0 it finally catches up with Active Record 2.1. Erubis, the fast alternative to ERB, has rolled out support for Rails 2.1 as well, in their 2.6.1 version. A week later, version 2.6.2 was released and it includes support for Ruby 1.9 as well. You can install it by runninggem install erubis or by downloading it from RubyForge.Last week Ryan Bates put out another two Railscasts. The first is about how to contribute to Rails using Git and is, needless to say, highly recommended. The second one is in regards to substituting pagination with the effect of endless scrolling, like DZone does. As pointed out, there are plugins that do this, but Ryan&#8217;s approach builds it from scratch and is definitely worth checking out.Other interesting articles were: a concise guide to using the Thinking Sphinx plugin (along with the pre-requisite Sphinx primer), Easy and Flexible Breadcrumbs for Rails even though they are clearly not everyone&#8217;s cup of tea, and lastly GemPlugins: A Brief Introduction to the Future of Rails Plugins.In conclusion, two announcements were previously reported in this blog, but they are both worth repeating. The first is the release of Capistrano 2.4 and the second is that registration has opened up for RailsConf Europe 2008. The conference will be held in Berlin, Germany from the 2nd to the 4th of September. By registering before July 15th, you can save up to 150 euros.That&#8217;s it for this week. As you can see there is no shortage of material, given that we&#8217;re such an active community. If you&#8217;d like to read more updates from the Ruby side of things, please head over to This Week in Ruby." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2008/6/17/this-week-in-rails-june-16-2008"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails (June 16, 2008)",
+      "description": "This is the first edition of This Week in Rails. As announced by Gregg Pollack a few days ago, this weekly column will cover highlights from the Rails community. My aim is to provide you with a status update as if you&#8217;d gone on holidays for a week. I will try to be consistent and publish once a week on Sunday or Monday. Being my first shot, I&#8217;ll rely on your feedback to verify that I&#8217;m on the right track and that this is useful to you; so please feel free to express your opinion in the comment section below.With Rails 2.1 out, most developers are looking forward to upgrading their skills (and projects) to the latest release. If you&#8217;re one of them, I strongly recommend that you check out the second edition of Carlos Brando&#8217;s Ruby on Rails 2.1 &#8211; What’s new free e-book, which is available in both English and Portuguese, with an Italian translation currently in the works as well. You can also read Rob Anderton&#8217;s excellent overview of Rails 2.1&#8217;s improved caching capabilities, as well as its built-in support for memcached.Last week, Phusion announced the first release candidate of Passenger 2.0 (aka mod_rails). This release introduces support for Rack, opening the door to alternative web frameworks as well. In the same announcement, Ruby Enterprise Edition was formally released. Despite the &#8220;Enterprise&#8221; label, this is a fully Open Source version of Ruby whose main claim is a reduced memory footprint on Linux and Mac OS X.Speaking of Enterprise, Dr Nic has released version 1.0.2 of his Composite Primary Keys gem. Starting from version 1.0.0 it finally catches up with Active Record 2.1. Erubis, the fast alternative to ERB, has rolled out support for Rails 2.1 as well, in their 2.6.1 version. A week later, version 2.6.2 was released and it includes support for Ruby 1.9 as well. You can install it by runninggem install erubis or by downloading it from RubyForge.Last week Ryan Bates put out another two Railscasts. The first is about how to contribute to Rails using Git and is, needless to say, highly recommended. The second one is in regards to substituting pagination with the effect of endless scrolling, like DZone does. As pointed out, there are plugins that do this, but Ryan&#8217;s approach builds it from scratch and is definitely worth checking out.Other interesting articles were: a concise guide to using the Thinking Sphinx plugin (along with the pre-requisite Sphinx primer), Easy and Flexible Breadcrumbs for Rails even though they are clearly not everyone&#8217;s cup of tea, and lastly GemPlugins: A Brief Introduction to the Future of Rails Plugins.In conclusion, two announcements were previously reported in this blog, but they are both worth repeating. The first is the release of Capistrano 2.4 and the second is that registration has opened up for RailsConf Europe 2008. The conference will be held in Berlin, Germany from the 2nd to the 4th of September. By registering before July 15th, you can save up to 150 euros.That&#8217;s it for this week. As you can see there is no shortage of material, given that we&#8217;re such an active community. If you&#8217;d like to read more updates from the Ruby side of things, please head over to This Week in Ruby.",
+      "url": "http://localhost:4000/2008/6/17/this-week-in-rails-june-16-2008",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Antonio Cangiano"
+      },
+      "datePublished": "2008-06-17T03:10:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, June 17, 2008</h5>
+        <h2>This Week in Rails (June 16, 2008)</h2>
+
+        <h6>Posted by Antonio Cangiano</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>This is the first edition of This Week in Rails. As announced by Gregg Pollack <a href="https://rubyonrails.org/2008/6/10/two-new-weekly-columns">a few days ago</a>, this weekly column will cover highlights from the Rails community. My aim is to provide you with a status update as if you&#8217;d gone on holidays for a week. I will try to be consistent and publish once a week on Sunday or Monday. Being my first shot, I&#8217;ll rely on your feedback to verify that I&#8217;m on the right track and that this is useful to you; so please feel free to express your opinion in the comment section below.</p>
+<p>With Rails 2.1 out, most developers are looking forward to upgrading their skills (and projects) to the latest release. If you&#8217;re one of them, I strongly recommend that you check out the second edition of Carlos Brando&#8217;s <a href="http://www.nomedojogo.com/2008/06/15/ruby-on-rails-21-whats-new-second-edition/">Ruby on Rails 2.1 &#8211; What’s new</a> free e-book, which is available in both English and Portuguese, with an <a href="http://github.com/carlopecchia/rails21-book/tree/master">Italian translation</a> currently in the works as well. You can also read Rob Anderton&#8217;s <a href="http://www.thewebfellas.com/blog/2008/6/9/rails-2-1-now-with-better-integrated-caching">excellent overview</a> of Rails 2.1&#8217;s improved caching capabilities, as well as its built-in support for memcached.</p>
+<p>Last week, Phusion <a href="http://blog.phusion.nl/2008/06/09/phusion-passenger-20-rc-1-and-ruby-enterprise-edition-released/">announced</a> the first release candidate of Passenger 2.0 (aka mod_rails). This release introduces support for Rack, opening the door to alternative web frameworks as well. In the same announcement, <a href="http://www.rubyenterpriseedition.com/">Ruby Enterprise Edition</a> was formally released. Despite the &#8220;Enterprise&#8221; label, this is a fully Open Source version of Ruby whose main claim is a reduced memory footprint on Linux and Mac OS X.</p>
+<p>Speaking of Enterprise, Dr Nic has released version 1.0.2 of his <a href="http://compositekeys.rubyforge.org/">Composite Primary Keys gem</a>. Starting <a href="http://drnicwilliams.com/2008/06/06/composite-primary-keys-goes-100-for-rails-21/">from version 1.0.0</a> it finally catches up with Active Record 2.1. Erubis, the fast alternative to <span class="caps">ERB</span>, has rolled out support for Rails 2.1 as well, in their 2.6.1 version. A week later, version 2.6.2 was released and it includes support for Ruby 1.9 as well. You can install it by running<br />
+<code>gem install erubis</code> or by <a href="http://rubyforge.org/frs/?group_id=1320&amp;release_id=22856">downloading it</a> from RubyForge.</p>
+<p>Last week Ryan Bates put out another two Railscasts. The first is about <a href="http://railscasts.com/episodes/113">how to contribute to Rails using Git</a> and is, needless to say, highly recommended. The <a href="http://railscasts.com/episodes/114">second one</a> is in regards to substituting pagination with the effect of endless scrolling, like DZone does. As pointed out, there are plugins that do this, but Ryan&#8217;s approach builds it from scratch and is definitely worth checking out.</p>
+<p>Other interesting articles were: a concise guide to <a href="http://freelancing-gods.com/posts/a_concise_guide_to_using_thinking_sphinx">using the Thinking Sphinx</a> plugin (along with the pre-requisite <a href="http://freelancing-gods.com/posts/sphinx_a_primer">Sphinx primer</a>), <a href="http://szeryf.wordpress.com/2008/06/13/easy-and-flexible-breadcrumbs-for-rails/">Easy and Flexible Breadcrumbs for Rails</a> even though they are clearly <a href="http://jakescruggs.blogspot.com/2008/06/breadcrumbs-are-evil.html">not everyone&#8217;s cup of tea</a>, and lastly <a href="http://www.intridea.com/2008/6/11/gemplugins-a-brief-introduction-to-the-future-of-rails-plugins">GemPlugins: A Brief Introduction to the Future of Rails Plugins</a>.</p>
+<p>In conclusion, two announcements were previously reported in this blog, but they are both worth repeating. The first is the release of <a href="http://weblog.jamisbuck.org/2008/6/13/capistrano-2-4-0">Capistrano 2.4</a> and the second is that registration has opened up for <a href="http://en.oreilly.com/railseurope2008/public/content/home">RailsConf Europe 2008</a>. The conference will be held in Berlin, Germany from the 2nd to the 4th of September. By registering before July 15th, you can save up to 150 euros.</p>
+<p>That&#8217;s it for this week. As you can see there is no shortage of material, given that we&#8217;re such an active community. If you&#8217;d like to read more updates from the Ruby side of things, please head over to <a href="http://antoniocangiano.com/2008/06/16/this-week-in-ruby-june-16-2008/">This Week in Ruby</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

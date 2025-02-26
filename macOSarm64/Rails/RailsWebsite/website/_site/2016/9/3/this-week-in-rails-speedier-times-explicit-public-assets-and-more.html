@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: Speedier Times, Explicit Public Assets and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Oh, hello there!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: Speedier Times, Explicit Public Assets and more!" />
+  <meta property="og:description" content="Oh, hello there!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/9/3/this-week-in-rails-speedier-times-explicit-public-assets-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: Speedier Times, Explicit Public Assets and more!" />
+  <meta name="twitter:description" content="Oh, hello there!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/9/3/this-week-in-rails-speedier-times-explicit-public-assets-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: Speedier Times, Explicit Public Assets and more!",
+      "description": "Oh, hello there!",
+      "url": "http://localhost:4000/2016/9/3/this-week-in-rails-speedier-times-explicit-public-assets-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "imtayadeway"
+      },
+      "datePublished": "2016-09-03T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, September 3, 2016</h5>
+        <h2>This Week in Rails: Speedier Times, Explicit Public Assets and more!</h2>
+
+        <h6>Posted by imtayadeway</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Oh, hello there!</p>
+
+<p>This is <a href="https://twitter.com/imtayadeway">Tim</a> here bringing you your latest installment of This Week in Rails. We had another corker this week chock full of great updates - read on for the full details!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160827-20160902">This Week’s Rails Contributors</a></h3>
+
+<p>This week saw 99 commits from 27 fantabulous people contributed to Rails, including an amazing 5 first-timers! If you’d like to see your name up there next week, why not take a gander at the <a href="https://github.com/rails/rails/issues">issues board</a>, or you may even consider the next item for inspiration….</p>
+
+<h3 id="documentation-galore"><a href="https://github.com/rails/rails/pulls?q=is%3Apr+is%3Amerged+base%3Amaster+merged%3A%222016-08-27+..+2016-09-02%22+sort%3Acreated-desc+label%3Adocs">Documentation Galore</a></h3>
+
+<p>This week saw a whopping 11 documentation PRs successfully merged. Improvements to the documentation are not only gratefully received, but are a great way to start getting involved.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="make-public-asset-use-explicit"><a href="https://github.com/rails/rails/pull/26226">Make public asset use explicit</a></h3>
+
+<p>When calling <code class="language-plaintext highlighter-rouge">asset_path</code> with an invalid file name, this method would simply pass the string that you gave it back to you. This revision adds a configurable flag called <code class="language-plaintext highlighter-rouge">unknown_asset_fallback</code> which when set to <code class="language-plaintext highlighter-rouge">false</code> will raise an error if the asset is not found. Setting it to <code class="language-plaintext highlighter-rouge">true</code> will preserve the current behavior, but will indicate that it is being deprecated.</p>
+
+<h3 id="dont-unnecessarily-load-a-belongs_to-when-saving"><a href="https://github.com/rails/rails/pull/23498">Don’t unnecessarily load a belongs_to when saving</a></h3>
+
+<p>This change prevents an already-loaded model from being reloaded if its id gets assigned to another model in a <code class="language-plaintext highlighter-rouge">belongs_to</code> association and then saved.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="fix-performance-regression-in-timewithzoneto_time"><a href="https://github.com/rails/rails/pull/25880">Fix performance regression in TimeWithZone#to_time</a></h3>
+
+<p>Up until Rails 4.0.0.beta1, <code class="language-plaintext highlighter-rouge">TimeWithZone#to_time</code> could return a cached instance attribute. Since that release it has been coercing the value to a <code class="language-plaintext highlighter-rouge">Time</code> on each call. This revision reverts the old behavior, which, according to the author’s benchmarks, is over 5 times faster.</p>
+
+<h3 id="allow-send_file-to-declare-a-charset"><a href="https://github.com/rails/rails/pull/26317">Allow send_file to declare a charset</a></h3>
+
+<p>Previously, calling <code class="language-plaintext highlighter-rouge">send_file</code> with <code class="language-plaintext highlighter-rouge">type: "text/calendar; charset=utf-8"</code> , would result in the charset’s being deleted - a bug that was fixed in this PR.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>Although I enjoyed reviewing all the commits from the last week, there were as usual too many to mention exhaustively. But do check them out yourself <a href="https://github.com/rails/rails/compare/master@%7B2016-08-27%7D...@%7B2016-09-02%7D">here</a>!</p>
+
+<p>Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

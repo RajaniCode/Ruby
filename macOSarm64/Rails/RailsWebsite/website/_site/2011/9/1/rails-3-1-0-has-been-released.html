@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 3.1.0 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everybody!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 3.1.0 has been released!" />
+  <meta property="og:description" content="Hi everybody!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/9/1/rails-3-1-0-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 3.1.0 has been released!" />
+  <meta name="twitter:description" content="Hi everybody!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/9/1/rails-3-1-0-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 3.1.0 has been released!",
+      "description": "Hi everybody!",
+      "url": "http://localhost:4000/2011/9/1/rails-3-1-0-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "aaronp"
+      },
+      "datePublished": "2011-09-01T01:50:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, September 1, 2011</h5>
+        <h2>Rails 3.1.0 has been released!</h2>
+
+        <h6>Posted by aaronp</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everybody!</p>
+
+<p>It’s been 3 Months since RailsConf, so I think it’s time we released Rails 3.1.0.  So, here it is!  I’ve released Rails 3.1.0!</p>
+
+<h2 id="changes">CHANGES</h2>
+
+<p>For a much more attractive and easy to read list of changes, please check out the awesome <a href="http://guides.rubyonrails.org/3_1_release_notes.html">Rails 3.1.0 Release Notes on the Rails Guides site</a>.  For a less attractive list of changes, please continue to read!</p>
+
+<p>Here are some highlights of the major changes in Rails 3.1.0:</p>
+
+<h2 id="actionpack"><a href="https://github.com/rails/rails/blob/3-1-stable/actionpack/CHANGELOG">ActionPack</a></h2>
+
+<ul>
+  <li>
+    <p>ActionPack has been updated to include the new asset pipeline.  Please see the <a href="http://edgeguides.rubyonrails.org/asset_pipeline.html">rails guides on the asset pipeline</a>.</p>
+  </li>
+  <li>
+    <p>Streaming response support has been added.  This feature allows you to stream templates to the user before processing has actually finished.  See the Rails Guides, or documentation in <code class="language-plaintext highlighter-rouge">ActionController::Metal::Streaming</code> for more information.  Middleware have been refactored to support this feature.</p>
+  </li>
+  <li>
+    <p>RJS has been extracted to a gem.</p>
+  </li>
+</ul>
+
+<h2 id="activemodel"><a href="https://github.com/rails/rails/blob/3-1-stable/activemodel/CHANGELOG">ActiveModel</a></h2>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">attr_accessible</code> and friends now accepts :as as option to specify a role</p>
+  </li>
+  <li>
+    <p>Added <code class="language-plaintext highlighter-rouge">ActiveModel::SecurePassword</code> to encapsulate dead-simple password usage with BCrypt encryption and salting.</p>
+  </li>
+</ul>
+
+<h2 id="activerecord"><a href="https://github.com/rails/rails/blob/3-1-stable/activerecord/CHANGELOG">ActiveRecord</a></h2>
+
+<ul>
+  <li>
+    <p>Prepared statement caches have been integrated.  <code class="language-plaintext highlighter-rouge">ActiveRecord::Base#create</code> and simple finders will use a prepared statement and cache for more performant inserts and selects.</p>
+  </li>
+  <li>
+    <p>Associations have been refactored for greater simplicity and maintainability.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">default_scope</code> can take any object that responds to <code class="language-plaintext highlighter-rouge">call</code>.</p>
+  </li>
+  <li>
+    <p>PostgreSQL adapter only supports PostgreSQL version 8.2 and higher.</p>
+  </li>
+  <li>
+    <p>Migrations use instance methods rather than class methods.  Rather than defining a <code class="language-plaintext highlighter-rouge">self.up</code> method, you should define an instance method <code class="language-plaintext highlighter-rouge">up</code>.</p>
+  </li>
+  <li>
+    <p>Migrations are reversible.  When a new migration is generated, the migration will contain one method called <code class="language-plaintext highlighter-rouge">change</code>.  Database changes made in this method will automatically know how to reverse themselves.  For more information, see the documentation for <code class="language-plaintext highlighter-rouge">ActiveRecord::Migration</code> and <code class="language-plaintext highlighter-rouge">ActiveRecord::Migration::CommandRecorder</code>.</p>
+  </li>
+  <li>
+    <p>When a model is generated, <code class="language-plaintext highlighter-rouge">add_index</code> is added by default for <code class="language-plaintext highlighter-rouge">belongs_to</code> or <code class="language-plaintext highlighter-rouge">references</code> columns.</p>
+  </li>
+</ul>
+
+<h2 id="activeresource"><a href="https://github.com/rails/rails/blob/3-1-stable/activeresource/CHANGELOG">ActiveResource</a></h2>
+
+<ul>
+  <li>The default format has been changed to JSON for all requests. If you want to continue to use XML you will need to set <code class="language-plaintext highlighter-rouge">self.format = :xml</code> in the class.</li>
+</ul>
+
+<h2 id="activesupport"><a href="https://github.com/rails/rails/blob/3-1-stable/activesupport/CHANGELOG">ActiveSupport</a></h2>
+
+<ul>
+  <li>
+    <p>ActiveSupport::BufferedLogger set log encoding to BINARY, but still use text mode to output portable newlines.</p>
+  </li>
+  <li>
+    <p>Add Object#in? to test if an object is included in another object.</p>
+  </li>
+  <li>
+    <p>ActiveSupport::Dependencies::ClassCache class has been introduced for holding references to reloadable classes.</p>
+  </li>
+  <li>
+    <p>Added <code class="language-plaintext highlighter-rouge">weeks_ago</code> and <code class="language-plaintext highlighter-rouge">prev_week</code> to Date/DateTime/Time.</p>
+  </li>
+  <li>
+    <p>JSON decoding now uses the <code class="language-plaintext highlighter-rouge">multi_json</code> gem which also vendors a json engine called OkJson. The yaml backend has been removed in favor of OkJson as a default engine for 1.8.x, while the built in 1.9.x json implementation will be used by default.</p>
+  </li>
+</ul>
+
+<h2 id="railties"><a href="https://github.com/rails/rails/blob/3-1-stable/railties/CHANGELOG">Railties</a></h2>
+
+<ul>
+  <li>
+    <p>The default database schema file is written as UTF-8.</p>
+  </li>
+  <li>
+    <p>Rack::Sendfile middleware is used only if <code class="language-plaintext highlighter-rouge">x_sendfile_header</code> is present.</p>
+  </li>
+  <li>
+    <p>Add alias <code class="language-plaintext highlighter-rouge">r</code> for rails runner.</p>
+  </li>
+  <li>
+    <p>jQuery is the new default JavaScript library.</p>
+  </li>
+  <li>
+    <p>Added <code class="language-plaintext highlighter-rouge">config.force_ssl</code> configuration which loads Rack::SSL middleware and force all requests to be under HTTPS protocol</p>
+  </li>
+</ul>
+
+<h2 id="for-more-info">For more info</h2>
+
+<p>For a more detailed list of changes, please see each of the CHANGELOG files checked in to the <a href="http://github.com/rails/rails">Rails repository on github</a>.</p>
+
+<p>For an even more detailed list of changes, please see the <a href="https://github.com/rails/rails/compare/v3.0.10...v3.1.0">commit list between Rails 3.0.10 and 3.1.0</a>.</p>
+
+<h2 id="the-end">The End</h2>
+
+<p>I am personally very proud of this release.  I want to say thank you to the people testing our release candidates, the people submitting patches and sending in bug reports.  I think that Rails 3.1.0 is the best release of Rails to date, and we could not have done it without you.</p>
+
+<p>Please continue to create amazing things with this framework!</p>
+
+<h3 id="sha-1">SHA-1</h3>
+
+<ul>
+  <li>b68f74ced662145a4139409edf3c51db1159ead8  actionmailer-3.1.0.gem</li>
+  <li>136474f270677ae75ad0f9599d26e89cf1d4bc7b  actionpack-3.1.0.gem</li>
+  <li>e6b68453c08bb0da52ed1d422ba2f87a5e3aa794  activemodel-3.1.0.gem</li>
+  <li>dfbae15c0d395304812c22fbf18aa9daadbe20b4  activerecord-3.1.0.gem</li>
+  <li>3f1f547e500d1ffc1f7c3ee4ab9eb1526157a870  activeresource-3.1.0.gem</li>
+  <li>f21627c2f429abfa8685d2147fadab6704c13869  activesupport-3.1.0.gem</li>
+  <li>21c6592189fb358a066846754a8f7ce7a238fca6  rails-3.1.0.gem</li>
+  <li>79cfa1eca232de9a45453829287e4438089b7955  railties-3.1.0.gem</li>
+</ul>
+
+<p>&lt;3 &lt;3 &lt;3</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

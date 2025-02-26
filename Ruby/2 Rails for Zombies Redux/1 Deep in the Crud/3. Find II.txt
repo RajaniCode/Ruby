@@ -1,0 +1,25 @@
+3. Find II
+
+
+Find the last Zombie in the database, but don't use IDs
+
+
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+
+
+Answer: Zombie.last
+
+
+Console
+
+Press Enter to submit, or type 'help' for info
+
+$ Zombie.last
+
+#<Zombie id: 3, name: "Katie", graveyard: "My Father's Basement">
+
+Found the last Zombie!

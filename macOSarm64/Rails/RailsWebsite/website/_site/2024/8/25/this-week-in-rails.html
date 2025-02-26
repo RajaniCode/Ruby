@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; ActionText store_if_blank, SQLite non-GVL-blocking busy handler, and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.In case you missed it, Rails 7.2.1 and 7.1.4 were released this week!Allow use of alternative database interfacesPrior to this PR, rails dbconsole was hardcoded to use the default interface for the given database.This command can now be configured via the config.active_record.database_cli option.Encryption casting with “encrypts” before “serialize”This PR ensures encrypted binary data is properly handled in PostgreSQL.Add “store_if_blank” option to “has_rich_text”A new option was added to ActionText to allow configuring whether or not to store empty rich text fields.This PR introduces a store_if_blank option on has_rich_text. It defaults to true (the current behaviour); if you pass false, ActionText won’t create ActionText::RichText records when saving with a blank value.SQLite non-GVL-blocking, fair retry interval busy handlerThis PR improves SQLite connection handling for timeouts, by avoiding Ruby’s Global Variable Lock (GVL) it can reduce SQLite3::BusyException errors and latency.Support dumping PostgreSQL inheritance &amp; partitioning optionsWith this change, we can support PostgreSQL native partitioning and inheritance options in create_table.Infer default “:inverse_of” option for DelegatedTypeWhen using delegated types, we can now infer the :inverse_of option for the association.You can view the whole list of changes here.We had 36 contributors to the Rails codebase this past week!Until next time!Subscribe to get these updates mailed to you." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="ActionText store_if_blank, SQLite non-GVL-blocking busy handler, and more!" />
+  <meta property="og:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.In case you missed it, Rails 7.2.1 and 7.1.4 were released this week!Allow use of alternative database interfacesPrior to this PR, rails dbconsole was hardcoded to use the default interface for the given database.This command can now be configured via the config.active_record.database_cli option.Encryption casting with “encrypts” before “serialize”This PR ensures encrypted binary data is properly handled in PostgreSQL.Add “store_if_blank” option to “has_rich_text”A new option was added to ActionText to allow configuring whether or not to store empty rich text fields.This PR introduces a store_if_blank option on has_rich_text. It defaults to true (the current behaviour); if you pass false, ActionText won’t create ActionText::RichText records when saving with a blank value.SQLite non-GVL-blocking, fair retry interval busy handlerThis PR improves SQLite connection handling for timeouts, by avoiding Ruby’s Global Variable Lock (GVL) it can reduce SQLite3::BusyException errors and latency.Support dumping PostgreSQL inheritance &amp; partitioning optionsWith this change, we can support PostgreSQL native partitioning and inheritance options in create_table.Infer default “:inverse_of” option for DelegatedTypeWhen using delegated types, we can now infer the :inverse_of option for the association.You can view the whole list of changes here.We had 36 contributors to the Rails codebase this past week!Until next time!Subscribe to get these updates mailed to you." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/8/25/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="ActionText store_if_blank, SQLite non-GVL-blocking busy handler, and more!" />
+  <meta name="twitter:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.In case you missed it, Rails 7.2.1 and 7.1.4 were released this week!Allow use of alternative database interfacesPrior to this PR, rails dbconsole was hardcoded to use the default interface for the given database.This command can now be configured via the config.active_record.database_cli option.Encryption casting with “encrypts” before “serialize”This PR ensures encrypted binary data is properly handled in PostgreSQL.Add “store_if_blank” option to “has_rich_text”A new option was added to ActionText to allow configuring whether or not to store empty rich text fields.This PR introduces a store_if_blank option on has_rich_text. It defaults to true (the current behaviour); if you pass false, ActionText won’t create ActionText::RichText records when saving with a blank value.SQLite non-GVL-blocking, fair retry interval busy handlerThis PR improves SQLite connection handling for timeouts, by avoiding Ruby’s Global Variable Lock (GVL) it can reduce SQLite3::BusyException errors and latency.Support dumping PostgreSQL inheritance &amp; partitioning optionsWith this change, we can support PostgreSQL native partitioning and inheritance options in create_table.Infer default “:inverse_of” option for DelegatedTypeWhen using delegated types, we can now infer the :inverse_of option for the association.You can view the whole list of changes here.We had 36 contributors to the Rails codebase this past week!Until next time!Subscribe to get these updates mailed to you." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/8/25/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "ActionText store_if_blank, SQLite non-GVL-blocking busy handler, and more!",
+      "description": "Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.In case you missed it, Rails 7.2.1 and 7.1.4 were released this week!Allow use of alternative database interfacesPrior to this PR, rails dbconsole was hardcoded to use the default interface for the given database.This command can now be configured via the config.active_record.database_cli option.Encryption casting with “encrypts” before “serialize”This PR ensures encrypted binary data is properly handled in PostgreSQL.Add “store_if_blank” option to “has_rich_text”A new option was added to ActionText to allow configuring whether or not to store empty rich text fields.This PR introduces a store_if_blank option on has_rich_text. It defaults to true (the current behaviour); if you pass false, ActionText won’t create ActionText::RichText records when saving with a blank value.SQLite non-GVL-blocking, fair retry interval busy handlerThis PR improves SQLite connection handling for timeouts, by avoiding Ruby’s Global Variable Lock (GVL) it can reduce SQLite3::BusyException errors and latency.Support dumping PostgreSQL inheritance &amp; partitioning optionsWith this change, we can support PostgreSQL native partitioning and inheritance options in create_table.Infer default “:inverse_of” option for DelegatedTypeWhen using delegated types, we can now infer the :inverse_of option for the association.You can view the whole list of changes here.We had 36 contributors to the Rails codebase this past week!Until next time!Subscribe to get these updates mailed to you.",
+      "url": "http://localhost:4000/2024/8/25/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2024-08-25T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, August 25, 2024</h5>
+        <h2>ActionText store_if_blank, SQLite non-GVL-blocking busy handler, and more!</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://github.com/zzak">zzak</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p>In case you missed it, Rails <a href="https://rubyonrails.org/2024/8/22/Rails-7-2-1-has-been-released">7.2.1</a> and <a href="https://rubyonrails.org/2024/8/22/Rails-7-1-4-has-been-released">7.1.4</a> were released this week!</p>
+
+<p><a href="https://github.com/rails/rails/pull/52656">Allow use of alternative database interfaces</a><br />
+Prior to this PR, <code class="language-plaintext highlighter-rouge">rails dbconsole</code> was hardcoded to use the default interface for the given database.
+This command can now be configured via the <code class="language-plaintext highlighter-rouge">config.active_record.database_cli</code> option.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52650">Encryption casting with “encrypts” before “serialize”</a><br />
+This PR ensures encrypted binary data is properly handled in PostgreSQL.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52573">Add “store_if_blank” option to “has_rich_text”</a><br />
+A new option was added to ActionText to allow configuring whether or not to store empty rich text fields.
+This PR introduces a <code class="language-plaintext highlighter-rouge">store_if_blank</code> option on <code class="language-plaintext highlighter-rouge">has_rich_text</code>. It defaults to <code class="language-plaintext highlighter-rouge">true</code> (the current behaviour); if you pass <code class="language-plaintext highlighter-rouge">false</code>, ActionText won’t create <code class="language-plaintext highlighter-rouge">ActionText::RichText</code> records when saving with a blank value.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51958">SQLite non-GVL-blocking, fair retry interval busy handler</a><br />
+This PR improves SQLite connection handling for timeouts, by avoiding Ruby’s Global Variable Lock (GVL) it can reduce <code class="language-plaintext highlighter-rouge">SQLite3::BusyException</code> errors and latency.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50475">Support dumping PostgreSQL inheritance &amp; partitioning options</a><br />
+With this change, we can support PostgreSQL <a href="https://www.postgresql.org/docs/current/ddl-partitioning.html">native partitioning</a> and inheritance options in <code class="language-plaintext highlighter-rouge">create_table</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50280">Infer default “:inverse_of” option for DelegatedType</a><br />
+When using <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/DelegatedType.html">delegated types</a>, we can now infer the <code class="language-plaintext highlighter-rouge">:inverse_of</code> option for the association.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-08-16%7D...main@%7B2024-08-23%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240816-20240823">36 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

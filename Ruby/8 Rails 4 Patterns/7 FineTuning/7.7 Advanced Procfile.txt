@@ -1,0 +1,35 @@
+7.7 Advanced Procfile
+
+Our app has grown. In addition to the web process, we now have two worker processes and a scheduler process (see lib/tasks/run_app.rake). Add the missing start up commands to the Procfile.
+
+
+lib/tasks/run_app
+desc 'Start worker'
+task worker: :environment do
+  # starts worker...
+end
+
+desc 'Start urgent worker'
+task urgent_worker: :environment do
+  # starts urgent worker...
+end
+
+desc 'Start scheduler'
+task scheduler: :environment do
+  # starts scheduler..
+end
+
+
+Procfile
+web: bundle exec rails s -p $PORT
+worker: ...
+urgent_worker: ...
+scheduler:  ...
+
+
+Answer:
+Procfile
+web: bundle exec rails s -p $PORT
+worker: bundle exec rake worker
+urgent_worker: bundle exec rake urgent_worker
+scheduler:  bundle exec rake scheduler

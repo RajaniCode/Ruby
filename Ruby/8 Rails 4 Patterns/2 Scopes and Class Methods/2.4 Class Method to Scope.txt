@@ -1,0 +1,31 @@
+2.4 Class Method to Scope
+
+The previous code serves a search feature in our application. However, when the user submits a blank keyword, this code raises an error. Let's fix this by changing the two class methods below to scopes, since scopes always return a relation.
+
+
+items_controller.rb
+class ItemsController < ApplicaitonController
+  def index
+    @items = Item.by_name(params[:name]).recent
+  end
+end
+
+
+item.rb
+class Item < ActiveRecord::Base
+  def self.by_name(name)
+    where(name: name) if name.present?
+  end
+
+  def self.recent
+    where('created_on > ?', 2.days.ago)
+  end
+end
+
+
+Answer:
+item.rb
+class Item < ActiveRecord::Base
+  scope :by_name, ->(name) {where(name: name) if name.present?}
+  scope :recent, -> {where('created_on > ?', 2.days.ago)}
+end

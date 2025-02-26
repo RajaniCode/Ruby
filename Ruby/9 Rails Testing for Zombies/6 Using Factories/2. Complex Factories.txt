@@ -1,0 +1,49 @@
+2. Complex Factories
+
+
+Use a nested Factory Girl definition to create zombie factories named :sally and :moe, using the data from the fixtures below.
+
+
+test/fixtures/zombies.yml
+ash:
+  name: 'Ash'
+  graveyard: 'Petrosville'
+
+sally:
+  name: 'Sally'
+  graveyard: 'Valley Dim'
+
+moe:
+  name: 'Moe'
+  graveyard: 'Petrosville'
+
+
+test/factories/zombies.rb
+FactoryGirl.define do
+  factory :zombie do
+    name 'Ash'
+    graveyard 'Petrosville'
+    # Add sally and moe here
+  end
+end
+
+
+Answer:
+test/factories/zombies.rb
+FactoryGirl.define do
+  factory :zombie do
+    name 'Ash'
+    graveyard 'Petrosville'
+
+    # Add sally and moe here
+    factory :sally do
+      name 'Sally'
+      graveyard 'Valley Dim'
+    end 
+    
+    factory :moe do
+      name 'Moe'
+      graveyard 'Petrosville'
+    end
+  end
+end

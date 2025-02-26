@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Living on the Edge (or what's new in Edge Rails) #2 - Performance improvements</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The first Living on the Edge covered some of the API changes since Rails 2.1, and this time round, I&#8217;m going to cover the performance improvements as promised.Jumping right in&#8230;Faster Erb templatesJeremy Kemper has made the Erb processing more efficient, especially the concat and capture helper methods.The &#8220;special&#8221; Erb _erbout has been replaced with an instance variable, which allows for:	better (memory) performance because bindings are no longer being passed around,	fewer evals which are usually expensive,	there&#8217;s no need to slice the _erbout variable when you can swap in a new (string) buffer, and	the buffer is actually available via a output_buffer reader and writer methods (so you can override it if you want).Relevant changesets: 933697a- 0bdb7d3- 4d4c8e2Faster partials and JavaScript helpersPartial template initialization and JavaScript helpers have been refactored and optimized for speed and efficiency by Jeremy Kemper. These are but a few of the optimizations Jeremy has been committing recently. Be sure to check out some of the commits to Rails (or for that matter, any quality Open Source project) &#8211; you could learn something!Relevant changesets: partials &#8211; JavaScript helpersRecordIdentifier methods speedupThe RecordIdentifier has been sped up by some simple use of memo-ization, thus reducing the number of inflections performed, among other things. The RecordIdentifier is used widely in cache keys, partial template paths, and in most places where you identify an ActiveRecord model without caring about its actual id.Relevant changesets by Jeremy Kemper: c1a9820 &#8211; 566d717Lazy load cache and session storesUpdate: Oops my bad, this change was later reverted in 6573f6a.The various cache stores in the ActiveSupport::Cache module are now lazy loaded &#8211; this means that they are only required when you actually start using them.Changeset by Pratik Naik" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Living on the Edge (or what's new in Edge Rails) #2 - Performance improvements" />
+  <meta property="og:description" content="The first Living on the Edge covered some of the API changes since Rails 2.1, and this time round, I&#8217;m going to cover the performance improvements as promised.Jumping right in&#8230;Faster Erb templatesJeremy Kemper has made the Erb processing more efficient, especially the concat and capture helper methods.The &#8220;special&#8221; Erb _erbout has been replaced with an instance variable, which allows for:	better (memory) performance because bindings are no longer being passed around,	fewer evals which are usually expensive,	there&#8217;s no need to slice the _erbout variable when you can swap in a new (string) buffer, and	the buffer is actually available via a output_buffer reader and writer methods (so you can override it if you want).Relevant changesets: 933697a- 0bdb7d3- 4d4c8e2Faster partials and JavaScript helpersPartial template initialization and JavaScript helpers have been refactored and optimized for speed and efficiency by Jeremy Kemper. These are but a few of the optimizations Jeremy has been committing recently. Be sure to check out some of the commits to Rails (or for that matter, any quality Open Source project) &#8211; you could learn something!Relevant changesets: partials &#8211; JavaScript helpersRecordIdentifier methods speedupThe RecordIdentifier has been sped up by some simple use of memo-ization, thus reducing the number of inflections performed, among other things. The RecordIdentifier is used widely in cache keys, partial template paths, and in most places where you identify an ActiveRecord model without caring about its actual id.Relevant changesets by Jeremy Kemper: c1a9820 &#8211; 566d717Lazy load cache and session storesUpdate: Oops my bad, this change was later reverted in 6573f6a.The various cache stores in the ActiveSupport::Cache module are now lazy loaded &#8211; this means that they are only required when you actually start using them.Changeset by Pratik Naik" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2008/6/25/living-on-the-edge-or-what-s-new-in-edge-rails-2-performance-improvements" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Living on the Edge (or what's new in Edge Rails) #2 - Performance improvements" />
+  <meta name="twitter:description" content="The first Living on the Edge covered some of the API changes since Rails 2.1, and this time round, I&#8217;m going to cover the performance improvements as promised.Jumping right in&#8230;Faster Erb templatesJeremy Kemper has made the Erb processing more efficient, especially the concat and capture helper methods.The &#8220;special&#8221; Erb _erbout has been replaced with an instance variable, which allows for:	better (memory) performance because bindings are no longer being passed around,	fewer evals which are usually expensive,	there&#8217;s no need to slice the _erbout variable when you can swap in a new (string) buffer, and	the buffer is actually available via a output_buffer reader and writer methods (so you can override it if you want).Relevant changesets: 933697a- 0bdb7d3- 4d4c8e2Faster partials and JavaScript helpersPartial template initialization and JavaScript helpers have been refactored and optimized for speed and efficiency by Jeremy Kemper. These are but a few of the optimizations Jeremy has been committing recently. Be sure to check out some of the commits to Rails (or for that matter, any quality Open Source project) &#8211; you could learn something!Relevant changesets: partials &#8211; JavaScript helpersRecordIdentifier methods speedupThe RecordIdentifier has been sped up by some simple use of memo-ization, thus reducing the number of inflections performed, among other things. The RecordIdentifier is used widely in cache keys, partial template paths, and in most places where you identify an ActiveRecord model without caring about its actual id.Relevant changesets by Jeremy Kemper: c1a9820 &#8211; 566d717Lazy load cache and session storesUpdate: Oops my bad, this change was later reverted in 6573f6a.The various cache stores in the ActiveSupport::Cache module are now lazy loaded &#8211; this means that they are only required when you actually start using them.Changeset by Pratik Naik" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2008/6/25/living-on-the-edge-or-what-s-new-in-edge-rails-2-performance-improvements"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Living on the Edge (or what's new in Edge Rails) #2 - Performance improvements",
+      "description": "The first Living on the Edge covered some of the API changes since Rails 2.1, and this time round, I&#8217;m going to cover the performance improvements as promised.Jumping right in&#8230;Faster Erb templatesJeremy Kemper has made the Erb processing more efficient, especially the concat and capture helper methods.The &#8220;special&#8221; Erb _erbout has been replaced with an instance variable, which allows for:	better (memory) performance because bindings are no longer being passed around,	fewer evals which are usually expensive,	there&#8217;s no need to slice the _erbout variable when you can swap in a new (string) buffer, and	the buffer is actually available via a output_buffer reader and writer methods (so you can override it if you want).Relevant changesets: 933697a- 0bdb7d3- 4d4c8e2Faster partials and JavaScript helpersPartial template initialization and JavaScript helpers have been refactored and optimized for speed and efficiency by Jeremy Kemper. These are but a few of the optimizations Jeremy has been committing recently. Be sure to check out some of the commits to Rails (or for that matter, any quality Open Source project) &#8211; you could learn something!Relevant changesets: partials &#8211; JavaScript helpersRecordIdentifier methods speedupThe RecordIdentifier has been sped up by some simple use of memo-ization, thus reducing the number of inflections performed, among other things. The RecordIdentifier is used widely in cache keys, partial template paths, and in most places where you identify an ActiveRecord model without caring about its actual id.Relevant changesets by Jeremy Kemper: c1a9820 &#8211; 566d717Lazy load cache and session storesUpdate: Oops my bad, this change was later reverted in 6573f6a.The various cache stores in the ActiveSupport::Cache module are now lazy loaded &#8211; this means that they are only required when you actually start using them.Changeset by Pratik Naik",
+      "url": "http://localhost:4000/2008/6/25/living-on-the-edge-or-what-s-new-in-edge-rails-2-performance-improvements",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Chu Yeow"
+      },
+      "datePublished": "2008-06-25T20:54:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, June 25, 2008</h5>
+        <h2>Living on the Edge (or what's new in Edge Rails) #2 - Performance improvements</h2>
+
+        <h6>Posted by Chu Yeow</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>The <a href="https://rubyonrails.org/2008/6/20/living-on-the-edge-or-what-s-new-in-edge-rails-1-api-changes-and-performancetests">first Living on the Edge</a> covered some of the <span class="caps">API</span> changes since Rails 2.1, and this time round, I&#8217;m going to cover the <strong>performance improvements</strong> as promised.</p>
+<p>Jumping right in&#8230;</p>
+<h4>Faster Erb templates</h4>
+<p>Jeremy Kemper has made the Erb processing more efficient, especially the <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/TextHelper.html#M001724">concat</a> and <a href="http://api.rubyonrails.org/classes/ActionView/Helpers/CaptureHelper.html#M001747">capture</a> helper methods.</p>
+<p>The &#8220;special&#8221; Erb <code>_erbout</code> has been replaced with an instance variable, which allows for:</p>
+<ul>
+	<li>better (memory) performance because <a href="http://www.ruby-doc.org/core/classes/Binding.html">bindings</a> are no longer being passed around,</li>
+	<li>fewer eval<code></code>s which are usually expensive,</li>
+	<li>there&#8217;s no need to slice the <code>_erbout</code> variable when you can swap in a new (string) buffer, and</li>
+	<li>the buffer is actually available via a <code>output_buffer</code> reader and writer methods (so you can override it if you want).</li>
+</ul>
+<p>Relevant changesets: <a href="http://github.com/rails/rails/commit/933697a5fc5f4c56c4fd7fbbd31b8973df9c1054">933697a</a><br />
+- <a href="http://github.com/rails/rails/commit/0bdb7d353b4ac6f5470884360f9a480a16bd709c">0bdb7d3</a><br />
+- <a href="http://github.com/rails/rails/commit/4d4c8e298f5396e6b8ace0a10d7f991594aace2d">4d4c8e2</a></p>
+<h4>Faster partials and JavaScript helpers</h4>
+<p>Partial template initialization and JavaScript helpers have been refactored and optimized for speed and efficiency by Jeremy Kemper. These are but a few of the optimizations Jeremy has been committing recently. Be sure to check out some of the <a href="http://github.com/rails/rails/commits/master">commits to Rails</a> (or for that matter, any quality Open Source project) &#8211; you could learn something!</p>
+<p>Relevant changesets: <a href="http://github.com/rails/rails/commit/d7b3c3395fd7debc05923dba1cbea69d30899827">partials</a> &#8211; <a href="http://github.com/rails/rails/commit/f4ccc179530d5b9436da87d3c221dfa8fa89119a">JavaScript helpers</a></p>
+<h4>RecordIdentifier methods speedup</h4>
+<p>The <a href="http://api.rubyonrails.org/classes/ActionController/RecordIdentifier.html">RecordIdentifier</a> has been sped up by some simple use of memo-ization, thus reducing the number of inflections performed, among other things. The RecordIdentifier is used widely in cache keys, partial template paths, and in most places where you identify an ActiveRecord model without caring about its actual <code>id</code>.</p>
+<p>Relevant changesets by Jeremy Kemper: <a href="http://github.com/rails/rails/commit/c1a98209da7422965f5dd4f475603b8a3cc887e4">c1a9820</a> &#8211; <a href="http://github.com/rails/rails/commit/566d717d783f56563cd602198be2177c972c9a81">566d717</a></p>
+<h4>Lazy load cache and session stores</h4>
+<p><strong>Update</strong>: Oops my bad, this change was later reverted in <a href="http://github.com/rails/rails/commit/6573f6a4bc1c2ebd26e0b4b3ef9fe1cde3219354">6573f6a</a>.</p>
+<p>The various cache stores in the ActiveSupport::Cache module are now lazy loaded &#8211; this means that they are only <code>require</code>d when you actually start using them.</p>
+<p><a href="http://github.com/rails/rails/commit/19895f087c338d8385dff9d272d30fb87cb10330">Changeset by Pratik Naik</a></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; End of April 2023 Edition</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s zzak. ✈️ RailsConf has come to a close, and Golden Week is upon us here in Japan. Lots to catch up on in This Week in Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="End of April 2023 Edition" />
+  <meta property="og:description" content="Hi, it’s zzak. ✈️ RailsConf has come to a close, and Golden Week is upon us here in Japan. Lots to catch up on in This Week in Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/4/28/this-week-in-rails-end-of-april-2023-edition" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="End of April 2023 Edition" />
+  <meta name="twitter:description" content="Hi, it’s zzak. ✈️ RailsConf has come to a close, and Golden Week is upon us here in Japan. Lots to catch up on in This Week in Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/4/28/this-week-in-rails-end-of-april-2023-edition"
+      },
+      "name": "Ruby on Rails",
+      "headline": "End of April 2023 Edition",
+      "description": "Hi, it’s zzak. ✈️ RailsConf has come to a close, and Golden Week is upon us here in Japan. Lots to catch up on in This Week in Rails.",
+      "url": "http://localhost:4000/2023/4/28/this-week-in-rails-end-of-april-2023-edition",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2023-04-28T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, April 28, 2023</h5>
+        <h2>End of April 2023 Edition</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://github.com/zzak">zzak</a>. ✈️ RailsConf has come to a close, and Golden Week is upon us here in Japan. Lots to catch up on in This Week in Rails.</p>
+
+<p><a href="https://github.com/rails/rails/pulls?q=is%3Apr+is%3Aclosed+merged%3A2023-04-21..2023-04-28+author%3Ap8">Many documentation improvements to extend our SEO posture</a><br />
+The venerable <a href="https://github.com/p8">@p8</a> has been very busy trying to improve Rails documentation fortune with search engines.</p>
+
+<p>On the topic of documentation, the <strong>PostgreSQL guide</strong> received new sections on <a href="https://github.com/rails/rails/pull/48027">INCLUDE</a>, <a href="https://github.com/rails/rails/pull/48026">UNIQUE</a>, and <a href="https://github.com/rails/rails/pull/48026">EXCLUDE</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48063">Only flatten first level to preserve nested for Enumerable#in_order_of</a><br />
+This is a great example where a developer was actively testing their application against Rails main branch and discovered this bug, and even sent a patch! Good work!</p>
+
+<p><a href="https://github.com/rails/rails/pull/48048">Fix pg 1.5.0 deprecation warning</a><br />
+This warning occurs when using the recently released <code class="language-plaintext highlighter-rouge">pg</code> gem version 1.5.0. The PR has been backported, so the next point release should quiet things!</p>
+
+<p><a href="https://github.com/rails/rails/pull/48043">Consistently raise an <code class="language-plaintext highlighter-rouge">ArgumentError</code> if the <code class="language-plaintext highlighter-rouge">ActiveSupport::Cache</code> key is blank</a><br />
+For example,</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vi">@cache</span><span class="p">.</span><span class="nf">read</span><span class="p">(</span><span class="kp">nil</span><span class="p">)</span> <span class="c1">#=&gt; ArgumentError</span>
+</code></pre></div></div>
+
+<p>This PR ensures that we consistently raise on a blank key for all store implementations.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48036">Make Rails cookies RFC6265-compliant with domain: :all</a><br />
+Rails has incorrectly been adding leading dots to cookie domain values in <code class="language-plaintext highlighter-rouge">Set-Cookie</code> headers when the <code class="language-plaintext highlighter-rouge">domain: :all</code> option is present.</p>
+
+<p>This leading dot was required in cookies based on <a href="https://www.rfc-editor.org/rfc/rfc2965#section-3.2">RFC 2965</a> (October 2000), but <a href="https://www.rfc-editor.org/rfc/rfc6265#section-4.1.1">RFC 6265</a> (April 2011) changed the behavior, making a leading dot strictly incorrect. Todays browsers aim to conform to RFC6265 with respect to cookies. The <code class="language-plaintext highlighter-rouge">domain: :all</code> functionality in Rails predates RFC6265.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48034">Allow symbols as queue names in Active Job test assertions</a><br />
+This PR allows <code class="language-plaintext highlighter-rouge">assert_enqueued_with</code> and <code class="language-plaintext highlighter-rouge">assert_performed_with</code> to accept both symbol or strings.</p>
+
+<p>The <code class="language-plaintext highlighter-rouge">assert_enqueued_jobs</code> and <code class="language-plaintext highlighter-rouge">assert_performed_jobs</code> variation already accepted both.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48030">Raise if setting a config key that is a method name</a><br />
+For example,</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span><span class="p">.</span><span class="nf">load_defaults</span> <span class="o">=</span> <span class="mf">7.0</span> <span class="c1">#=&gt; NoMethodError</span>
+</code></pre></div></div>
+
+<p>Should be,</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span><span class="p">.</span><span class="nf">load_defaults</span><span class="p">(</span><span class="mf">7.0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Previously the first example would be silently accepted, although take no effect.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48012">Add load hook for <code class="language-plaintext highlighter-rouge">ActiveRecord::ConnectionAdapters::Mysql2Adapter</code></a><br />
+Now you are free to extend the MySQL adapter using the following hook:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span><span class="p">(</span><span class="ss">:active_record_mysql2adapter</span><span class="p">)</span> <span class="k">do</span>
+  <span class="c1"># change some behavior</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>This PR brings the MySQL adapter up to speed with PostgreSQL and SQLite3.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47767">Fix updated_at not updating in before_update callback</a><br />
+As described, this PR makes sure the <code class="language-plaintext highlighter-rouge">updated_at</code> timestamp is updated once all <code class="language-plaintext highlighter-rouge">update</code> callbacks have run, wherever mutations may occur, including <code class="language-plaintext highlighter-rouge">before_update</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47725">Using Rack::Test::UploadedFile.new with StringIO causes an exception</a><br />
+This PR fixes an issue in Active Storage with <code class="language-plaintext highlighter-rouge">Rack::Test::UploadedFile</code> and <code class="language-plaintext highlighter-rouge">Attached::Changes::CreateOne#upload</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47671">PostgreSQL can accept deferrable foreign key option for TableDefinition#references</a><br />
+Rails 7.0 added support for deferrable foreign key constraints via the <code class="language-plaintext highlighter-rouge">add_foreign_key</code> method, this PR adds support to <code class="language-plaintext highlighter-rouge">t.references</code> as well.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47659">Deprecate “deferrable: true” option in favor of “deferrable: :immediate”</a><br />
+Because <code class="language-plaintext highlighter-rouge">deferrable: true</code> and <code class="language-plaintext highlighter-rouge">deferrable: :deferred</code> are hard to understand.</p>
+
+<p>Using <code class="language-plaintext highlighter-rouge">deferrable: true</code> with <code class="language-plaintext highlighter-rouge">add_foreign_key</code> is deprecated in favor of <code class="language-plaintext highlighter-rouge">deferrable: :immediate</code>, and will be removed in Rails 7.2.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47670">Add support for Array#intersects? to ActiveRecord::Relation</a><br />
+Ruby 3.1 added <code class="language-plaintext highlighter-rouge">intersects?</code> which is equivalent to <code class="language-plaintext highlighter-rouge">(a &amp; b).any?</code>.</p>
+
+<p>This PR adds the delegation of <code class="language-plaintext highlighter-rouge">intersects?</code> to <code class="language-plaintext highlighter-rouge">Relation</code> which fixes an issue with Rubocop false positive on <code class="language-plaintext highlighter-rouge">CollectionProxy</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46843">Add CTE support for joins</a><br />
+Last but certainly not least, you can now use <code class="language-plaintext highlighter-rouge">joins</code> and <code class="language-plaintext highlighter-rouge">left_outer_joins</code> when using the <code class="language-plaintext highlighter-rouge">.with</code> query method to create a Common Table Expression (CTE).</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-04-21%7D...main@%7B2023-04-28%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230421-20230428">30 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

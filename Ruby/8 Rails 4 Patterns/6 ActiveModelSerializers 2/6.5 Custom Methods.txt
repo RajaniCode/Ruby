@@ -1,0 +1,26 @@
+6.5 Custom Methods
+
+When side-loading reviews for each item, we shouldn't include those who were not yet approved. Let's override the association method reviews, in order to filter approved reviews by calling object.reviews.approved.
+
+  
+item_serializer.rb
+class ItemSerializer < ActiveModel::Serializer
+  attributes :id, :name
+
+  has_many :reviews
+  embed :ids, include: true
+end
+
+
+Answer:
+item_serializer.rb
+class ItemSerializer < ActiveModel::Serializer
+  attributes :id, :name
+
+  has_many :reviews
+  embed :ids, include: true
+  
+  def reviews
+    object.reviews.approved
+  end
+end

@@ -1,0 +1,39 @@
+3.4 Controller Concerns I
+
+We have two controllers which allow users to download a file from your server. Move the send_file method to a send_image method within the ImageExportable module, which accepts an image_path variable. Don't forget to replace the item/user.image with an image_path variable.
+
+
+items_controller.rb
+class ItemsController < ApplicationController
+
+  def file
+    item = Item.find(params[:id])
+    send_file(item.image, type: 'image/jpeg',  disposition: 'inline')
+  end
+end
+
+
+users_controller.rb
+class UsersController < ApplicationController
+
+  def file
+    user = User.find(params[:id])
+    send_file(user.image, type: 'image/jpeg',  disposition: 'inline')
+  end
+end
+
+
+image_exportable.rb
+module ImageExportable
+end
+
+
+Answer:
+image_exportable.rb
+module ImageExportable
+  extend ActiveSupport::Concern
+  
+  def send_image(image_path)
+    send_file(image_path, type: 'image/jpeg', disposition: 'inline')
+  end
+end

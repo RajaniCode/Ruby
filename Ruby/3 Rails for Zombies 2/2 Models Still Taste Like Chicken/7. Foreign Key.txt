@@ -1,0 +1,45 @@
+7. Foreign Key
+
+
+Objective
+
+OH NO! Our Database Admin turned into a Zombie and decided to rename the belongs_to field in our locations table tweeter_id instead of the intelligent default tweet_id. We're going to slay him and correct this, but in the meantime set the foreign_key on both relationships to tweeter_id. Also set the dependency so when a tweet is destroyed, the location is destroyed as well.
+
+ 
+schema.rb
+ActiveRecord::Schema.define(:version => 20110814152905) do
+ 
+  create_table "locations" do |t| 
+    t.integer "name"
+    t.integer "tweeter_id" # BRAINS!!!
+  end
+      
+  create_table "tweets" do |t|
+    t.string "message"
+    t.boolean "show_location", :default => false
+    t.integer "zombie_id"
+        
+    t.timestamps
+  end
+ 
+end
+
+
+Model
+class Tweet < ActiveRecord::Base
+  has_one :location
+end
+class Location < ActiveRecord::Base
+  belongs_to :tweet
+end
+
+
+Answer:
+Model
+class Tweet < ActiveRecord::Base
+  has_one :location, foreign_key: :tweeter_id, dependent: :destroy
+end
+
+class Location < ActiveRecord::Base
+  belongs_to :tweet, foreign_key: :tweeter_id, dependent: :destroy
+end

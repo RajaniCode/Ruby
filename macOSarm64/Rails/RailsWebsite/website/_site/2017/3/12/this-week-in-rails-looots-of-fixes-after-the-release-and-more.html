@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: looots of fixes after the release and more.</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello!This is Vipul reporting from Delhi today, on this colourful Holi weekend 💥 Lets take a look at what’s the latest news from the world of Ruby on Rails !So many fixes and much more." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: looots of fixes after the release and more." />
+  <meta property="og:description" content="Hello!This is Vipul reporting from Delhi today, on this colourful Holi weekend 💥 Lets take a look at what’s the latest news from the world of Ruby on Rails !So many fixes and much more." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/3/12/this-week-in-rails-looots-of-fixes-after-the-release-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: looots of fixes after the release and more." />
+  <meta name="twitter:description" content="Hello!This is Vipul reporting from Delhi today, on this colourful Holi weekend 💥 Lets take a look at what’s the latest news from the world of Ruby on Rails !So many fixes and much more." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/3/12/this-week-in-rails-looots-of-fixes-after-the-release-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: looots of fixes after the release and more.",
+      "description": "Hello!This is Vipul reporting from Delhi today, on this colourful Holi weekend 💥 Lets take a look at what’s the latest news from the world of Ruby on Rails !So many fixes and much more.",
+      "url": "http://localhost:4000/2017/3/12/this-week-in-rails-looots-of-fixes-after-the-release-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "vipulnsward"
+      },
+      "datePublished": "2017-03-12T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, March 12, 2017</h5>
+        <h2>This Week in Rails: looots of fixes after the release and more.</h2>
+
+        <h6>Posted by vipulnsward</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello!</p>
+
+<p>This is <a href="https://www.bigbinary.com/team/vipul">Vipul</a> reporting from Delhi today, on this colourful <a href="https://en.wikipedia.org/wiki/Holi">Holi</a> weekend 💥<br />
+ <br />
+Lets take a look at what’s the latest news from the world of Ruby on Rails !<br />
+So many fixes and much more.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="google-summer-of-code-2017"><a href="https://rubyonrails.org/2017/3/2/google-summer-of-code-2017">Google Summer of Code 2017</a></h3>
+
+<p>We’re very happy to announce that Ruby on Rails has been accepted as an organization for the Google Summer of Code (GSoC) 2017 edition!</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="make-sure-local-cache-is-cleared-even-if-its-throwing-error"><a href="https://github.com/rails/rails/pull/28373">Make sure local cache is cleared even if it’s throwing error</a></h3>
+
+<p>When an error was thrown from the middleware chain, it was sometimes not getting caught by <code class="language-plaintext highlighter-rouge">LocalCache::Middleware</code>.</p>
+
+<p>This change, makes sure that we safely catch the errors and local cache is successfully cleared.</p>
+
+<h3 id="fix-rake-dbschemaload-with-subdirectories"><a href="https://github.com/rails/rails/pull/28287">Fix <code class="language-plaintext highlighter-rouge">rake db:schema:load</code> with subdirectories</a></h3>
+
+<p>Previously <code class="language-plaintext highlighter-rouge">db:schema:load</code> didn’t work with migrations based out of subdirectories.</p>
+
+<p>This change starts using <code class="language-plaintext highlighter-rouge">Migrator.migration_files</code> in
+<code class="language-plaintext highlighter-rouge">assume_migrated_upto_version</code> to fix the issue.</p>
+
+<h3 id="fix-malformed-asset_url-in-actioncontrollerrenderer"><a href="https://github.com/rails/rails/pull/28250">Fix malformed asset_url in ActionController::Renderer</a></h3>
+
+<p>This change fixes an issue with malformed asset_url when rendering a template with <code class="language-plaintext highlighter-rouge">ActionController::Renderer</code>.</p>
+
+<h3 id="fix-select-with-block-doesnt-return-newly-built-records-in-has_many-association"><a href="https://github.com/rails/rails/pull/28354">Fix select with block doesn’t return newly built records in <code class="language-plaintext highlighter-rouge">has_many</code> association</a></h3>
+
+<p>The select method in <code class="language-plaintext highlighter-rouge">QueryMethods</code> is also an enumerable method. Ideally, enumerable methods with block should delegate to records on
+<code class="language-plaintext highlighter-rouge">CollectionProxy</code> and not the scope.</p>
+
+<p>This change fixes this behaviour that select with block doesn’t return newly built records in <code class="language-plaintext highlighter-rouge">has_many</code> association.</p>
+
+<h3 id="update-titlelize-regex-to-allow-apostrophes"><a href="https://github.com/rails/rails/commit/48b37f127fb44b787ae6c0710982d7949b14454f">Update <code class="language-plaintext highlighter-rouge">titlelize</code> regex to allow apostrophes</a></h3>
+
+<p>In a previous fix the regex in <code class="language-plaintext highlighter-rouge">titlelize</code> was updated to not match apostrophes to better reflect the nature of the transformation.</p>
+
+<p>Unfortunately this had the side effect of breaking capitalization on the first word of a sub-string, eg:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> <span class="s2">"This was 'fake news'"</span><span class="p">.</span><span class="nf">titleize</span>
+<span class="o">=&gt;</span> <span class="s2">"This Was 'fake News'"</span>
+</code></pre></div></div>
+
+<p>This change fixes this behaviour by extending the look-behind to check for word character apart from an apostrophe.</p>
+
+<h3 id="fix-deserialize-with-json-array"><a href="https://github.com/rails/rails/commit/6ec2e8ac220024c6e8159c81dbe76ef8e812ed6f">Fix <code class="language-plaintext highlighter-rouge">deserialize</code> with JSON array</a></h3>
+
+<p>JSON array data was being returned in a stringified form, due to broken deserialization.</p>
+
+<p>This change fixes deserialization behaviour.</p>
+
+<h2 id="deprecated">Deprecated</h2>
+
+<h3 id="deprecate-migratorschema_migrations_table_name"><a href="https://github.com/rails/rails/pull/28351">Deprecate <code class="language-plaintext highlighter-rouge">Migrator.schema_migrations_table_name</code></a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">SchemaMigration</code> model was extracted and <code class="language-plaintext highlighter-rouge">SchemaMigration.table_name</code> was being used instead in places where <code class="language-plaintext highlighter-rouge">Migrator.schema_migrations_table_name</code> was being used previously.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Migrator.schema_migrations_table_name</code> is now deprecated in favour of <code class="language-plaintext highlighter-rouge">SchemaMigration.table_name</code>.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="added-reverse_mergereverse_merge-to-acparameters"><a href="https://github.com/rails/rails/pull/28355">Added <code class="language-plaintext highlighter-rouge">reverse_merge</code>/<code class="language-plaintext highlighter-rouge">reverse_merge!</code> to AC::Parameters</a></h3>
+
+<p>This change adds the <code class="language-plaintext highlighter-rouge">reverse_merge</code> and <code class="language-plaintext highlighter-rouge">reverse_merge!</code> methods to <code class="language-plaintext highlighter-rouge">ActionController::Parameters</code>, similar to their corresponding Hash methods.</p>
+
+<h3 id="do-not-take-screenshot-if-driver-does-not-support-screenshot"><a href="https://github.com/rails/rails/pull/28264">Do not take screenshot if driver does not support screenshot</a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">Capybara::RackTest::Driver</code> does not support taking screenshots. If we call
+<code class="language-plaintext highlighter-rouge">#save_screenshot</code> on <code class="language-plaintext highlighter-rouge">Capybara::RackTest::Driver</code> , it will raise an error.</p>
+
+<p>To prevent errors, if a driver in Systems test does not support screenshot, we do not call it after this change.</p>
+
+<p>There were many other great <a href="https://github.com/rails/rails/compare/master@%7B2017-02-26%7D...@%7B2017-03-04%7D">pull requests</a> this week from <a href="http://contributors.rubyonrails.org/contributors/in-time-window/20170226-20170304">20 contributors</a>, including 4 first-timers. Thank you all!</p>
+
+<p>Outside of code changes, we had many more good news this and the previous week.</p>
+
+<p>Until next week!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

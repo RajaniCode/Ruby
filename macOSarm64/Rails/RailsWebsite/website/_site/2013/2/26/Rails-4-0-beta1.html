@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 4.0: Beta 1 released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hot on the heels of the first production version of Ruby 2.0 comes the first beta version of Rails 4.0. The two form a great pair and are already running in production on a number of applications, including Basecamp Breeze. In fact, Ruby 2.0 is the preferred Ruby to use with Rails 4.0." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 4.0: Beta 1 released!" />
+  <meta property="og:description" content="Hot on the heels of the first production version of Ruby 2.0 comes the first beta version of Rails 4.0. The two form a great pair and are already running in production on a number of applications, including Basecamp Breeze. In fact, Ruby 2.0 is the preferred Ruby to use with Rails 4.0." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2013/2/26/Rails-4-0-beta1" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 4.0: Beta 1 released!" />
+  <meta name="twitter:description" content="Hot on the heels of the first production version of Ruby 2.0 comes the first beta version of Rails 4.0. The two form a great pair and are already running in production on a number of applications, including Basecamp Breeze. In fact, Ruby 2.0 is the preferred Ruby to use with Rails 4.0." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2013/2/26/Rails-4-0-beta1"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 4.0: Beta 1 released!",
+      "description": "Hot on the heels of the first production version of Ruby 2.0 comes the first beta version of Rails 4.0. The two form a great pair and are already running in production on a number of applications, including Basecamp Breeze. In fact, Ruby 2.0 is the preferred Ruby to use with Rails 4.0.",
+      "url": "http://localhost:4000/2013/2/26/Rails-4-0-beta1",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2013-02-26T05:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, February 26, 2013</h5>
+        <h2>Rails 4.0: Beta 1 released!</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hot on the heels of the first production version of Ruby 2.0 comes the first beta version of Rails 4.0. The two form a great pair and are already running in production on a number of applications, including <a href="http://basecamp.com/breeze">Basecamp Breeze</a>. In fact, Ruby 2.0 is the preferred Ruby to use with Rails 4.0.</p>
+
+<p>The purpose of this beta is to get as many people as possible to try to upgrade from Rails 3.2 and earlier and to get an adventurous few to start new applications directly on Rails 4.0. That’s the only way we’re going to suss out all the issues and ensure that we can launch a solid final release. So please help us with that if you can!</p>
+
+<p>Rails 4.0 is packed with new goodies and farewells to old goodies past their expiration date.</p>
+
+<p>A big focus has been on making it dead simple to build modern web applications that are screaming fast without needing to go the client-side JS/JSON server route. Much of this work was <a href="http://37signals.com/svn/posts/3112-how-basecamp-next-got-to-be-so-damn-fast-without-using-much-client-side-ui">pioneered for Rails in the new version of Basecamp</a> and focuses on three aspects:</p>
+
+<ol>
+  <li>Make it super easy to do Russian Doll-caching through <a href="http://37signals.com/svn/posts/3113-how-key-based-cache-expiration-works">key-based expiration</a> with automatic dependency management of nested templates (explored first in the <a href="https://github.com/rails/cache_digests">cache_digests</a> plugin).</li>
+  <li>Speed-up the client-side with <a href="https://github.com/rails/turbolinks/">Turbolinks</a>, which essentially turns your app into a single-page javascript application in terms of speed, but with none of the developmental drawbacks (except, maybe, compatibility issues with some existing JavaScript packages).</li>
+  <li><a href="https://github.com/rails/rails/commit/ed5c938fa36995f06d4917d9543ba78ed506bb8d">Declarative etags</a> makes it even easier to ensure you’re taking advantage of HTTP freshness.</li>
+</ol>
+
+<p>Rails is of course still a great JSON server for people who want to build client-side JS views, but with the progress we’ve made for Rails 4.0, you certainly won’t need to go down that route just to have a super fast application.</p>
+
+<p>We’ve also added <a href="http://tenderlovemaking.com/2012/07/30/is-it-live.html">live streaming for persistent connections</a> and Rails 4.0 is now safe for threaded servers out of the box (no more need for config.threadsafe!).</p>
+
+<p>Active Record has received a ton of love as well to make everything related to scoping and the query structure more consistent.</p>
+
+<p>Given all the fun we’ve had with security issues, we have some great updates there as well:</p>
+
+<ul>
+  <li>Session store is now encrypted by default (formerly just signed).</li>
+  <li><a href="https://github.com/rails/strong_parameters">Strong Parameters</a> take over from attr_protected (now a <a href="https://github.com/rails/protected_attributes">plugin</a>) to guard against foreign parameters.</li>
+  <li>Security headers like X-Frame-Options, X-XSS-Protection, X-Content-Type-Options are on by default with solid values.</li>
+  <li>XML Parameter parsing has been sent to a <a href="https://github.com/rails/actionpack-xml_parser">plugin</a>.</li>
+</ul>
+
+<p>On top of these new features and fixes, we have hundreds more of all sorts. Everything has been combed over, streamlined, simplified, and we’ve extracted out lots of old APIs and things that just don’t fit “most people most of the time”.</p>
+
+<p><a href="https://github.com/rails/activeresource">Active Resource</a>, <a href="https://github.com/rails/rails-observers">Active Record Observers</a>, and Action Pack <a href="https://github.com/rails/actionpack-page_caching">page</a> and <a href="https://github.com/rails/actionpack-action_caching">action caching</a> are all examples of things that are no longer in core, but lives on in plugins.</p>
+
+<p>We encourage you to peruse the CHANGELOGs for all the Rails frameworks and delight over the hundreds of improvements we’ve made to Rails 4.0: <a href="https://github.com/rails/rails/blob/v4.0.0.beta1/actionpack/CHANGELOG.md">Action Pack</a>, <a href="https://github.com/rails/rails/blob/v4.0.0.beta1/activemodel/CHANGELOG.md">Active Model</a>, <a href="https://github.com/rails/rails/blob/v4.0.0.beta1/activerecord/CHANGELOG.md">Active Record</a>, <a href="https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/CHANGELOG.md">Active Support</a>, <a href="https://github.com/rails/rails/blob/v4.0.0.beta1/railties/CHANGELOG.md">Rails</a>.</p>
+
+<p>Now let’s all work together to ensure the release is final and enjoy the bad-ass combination of Ruby on Rails 24! (Or 42?). Please report all the issues you find on the <a href="https://github.com/rails/rails/issues?state=open">Rails issue tracker</a>. We’re still working on the <a href="http://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html#upgrading-from-rails-3-2-to-rails-4-0">upgrade guide from 3.2 to 4.0</a>, but that’s a good place to start for help on how to do it. As always, install betas with <code class="language-plaintext highlighter-rouge">gem install rails --version 4.0.0.beta1 --no-ri --no-rdoc</code> (–pre and ri generation is busted on RubyGems 2.0 at the moment) or depend on the <a href="https://github.com/rails/rails/tree/v4.0.0.beta1">v4.0.0.beta1 tag</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

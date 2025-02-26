@@ -1,0 +1,49 @@
+7. ActiveSupport::Concern - Part II
+
+
+Call the included method from inside the LibraryUtils module and pass in a block that calls the load_game_list class method.
+
+
+#file_name
+module LibraryUtils
+
+  extend ActiveSupport::Concern
+
+  def add_game(game)
+  end
+
+  def remove_game(game)
+  end
+
+  module ClassMethods
+    def search_by_game_name(name)
+    end
+
+    def load_game_list
+    end
+  end
+end
+
+
+#file_name
+Answer:
+module LibraryUtils
+
+  extend ActiveSupport::Concern
+  included do
+	load_game_list
+  end
+  def add_game(game)
+  end
+
+  def remove_game(game)
+  end
+
+  module ClassMethods
+    def search_by_game_name(name)
+    end
+
+    def load_game_list
+    end
+  end
+end

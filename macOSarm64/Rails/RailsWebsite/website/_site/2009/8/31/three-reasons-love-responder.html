@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Three reasons to love ActionController::Responder</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A couple weeks ago, I wrote about the newly added ActionController::Responder which summarizes your application behavior for a specified format in just one place. For example, the default html behavior is written as:" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Three reasons to love ActionController::Responder" />
+  <meta property="og:description" content="A couple weeks ago, I wrote about the newly added ActionController::Responder which summarizes your application behavior for a specified format in just one place. For example, the default html behavior is written as:" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/8/31/three-reasons-love-responder" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Three reasons to love ActionController::Responder" />
+  <meta name="twitter:description" content="A couple weeks ago, I wrote about the newly added ActionController::Responder which summarizes your application behavior for a specified format in just one place. For example, the default html behavior is written as:" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/8/31/three-reasons-love-responder"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Three reasons to love ActionController::Responder",
+      "description": "A couple weeks ago, I wrote about the newly added ActionController::Responder which summarizes your application behavior for a specified format in just one place. For example, the default html behavior is written as:",
+      "url": "http://localhost:4000/2009/8/31/three-reasons-love-responder",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "José Valim"
+      },
+      "datePublished": "2009-08-31T22:32:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, August 31, 2009</h5>
+        <h2>Three reasons to love ActionController::Responder</h2>
+
+        <h6>Posted by José Valim</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>A couple weeks ago, I wrote about the newly added <a href="http://blog.plataformatec.com.br/2009/08/embracing-rest-with-mind-body-and-soul">ActionController::Responder</a> which summarizes your application behavior for a specified format in just one place. For example, the default html behavior is written as:</p>
+
+<pre><code class="ruby">
+class ActionController::Responder
+  def to_html
+    if get?
+      render
+    elsif has_errors?
+      render :action =&gt; (post? ? :new : :edit)
+    else
+      redirect_to resource
+    end
+  end
+end
+</code></pre>
+
+<p>Here are three examples of the flexibility this new layer can provide.</p>
+
+<h4 id="1-http-cache">1) HTTP Cache</h4>
+
+<p>A simple, but quite powerful use for responder is apply HTTP cache to all your resources easily. For simplicity, let’s cache just get requests that are not handling a collection:</p>
+
+<pre><code class="ruby">
+module CachedResponder
+  def to_html
+    if get? &amp;&amp; resource.respond_to?(:updated_at)
+      return if controller.fresh_when(:last_modified =&gt; resource.updated_at.utc)
+    end
+    super
+  end
+end
+</code></pre>
+
+<h4 id="2-i18n-flash-messages">2) I18n flash messages</h4>
+
+<p>Is a common practice that all controllers, when the create, update and destroy actions are handled with success, a flash message is shown to the user. We could easily remove the flash messages from our controllers and let them be handled by the responder with the help of the I18n framework. And it’s quite straightforward to accomplish:</p>
+
+<pre><code class="ruby">
+module FlashResponder
+  # If it's not a get request and the object has no errors, set the flash message
+  # according to the current action. If the controller is users/pictures, the
+  # flash message lookup for create is:
+  #
+  #   flash.users.pictures.create
+  #   flash.actions.create
+  #
+  def to_html
+    unless get? || has_errors?
+      namespace = controller.controller_path.split('/')
+      namespace &lt;&lt; controller.action_name
+      flash[:success] = I18n.t(namespace.join("."), :scope =&gt; :flash,
+       :default =&gt; "actions.#{controller.action_name}", :resource =&gt; resource.class.human_name)
+    end
+    super
+  end
+end
+</code></pre>
+
+<p>The first question then arises: what if I don’t want to add a flash message in an specific situation? This can be solved using options, since all options sent to respond_with are sent to the responder, we could use it in our favor as well:</p>
+
+<pre><code class="ruby">
+class MyResponder &lt; ActionController::Responder
+  def to_html
+    unless get? || has_errors? || options.delete(:flash) == false
+      namespace = controller.controller_path.split('/')
+      namespace &lt;&lt; controller.action_name
+      flash[:success] = I18n.t(namespace.join("."), :scope =&gt; :flash,
+       :default =&gt; "actions.#{controller.action_name}", :resource =&gt; resource.class.human_name)
+    end
+    super
+  end
+end
+</code></pre>
+
+<p>And we can invoke it as:</p>
+
+<pre><code class="ruby">
+class PostsController &lt; ApplicationController
+  def create
+    @post = Post.create(params[:post])
+    respond_with(@post, :flash =&gt; false)
+  end
+end
+</code></pre>
+
+<h4 id="3-instant-pagination">3) Instant pagination</h4>
+
+<p>Some people already start a project with pagination from scratch, others add at some point. Nonetheless, pagination is more like a rule than a exception. Can that be handled by Rails 3? First, let’s check an index action with <code class="language-plaintext highlighter-rouge">respond_with</code>:</p>
+
+<pre><code class="ruby">
+class PostsController &lt; ApplicationController
+  def index
+    @posts = Post.all
+    respond_with(@posts)
+  end
+end
+</code></pre>
+
+<p>Right now, when we call <code class="language-plaintext highlighter-rouge">Post.all</code>, it returns a collection of posts in an array, so the pagination should be done before the collection is retrieved. Thanks to Emilio and <a href="http://github.com/miloops/rails">his work integrating ActiveRelation with ActiveRecord</a>, <code class="language-plaintext highlighter-rouge">Post.all</code> will return an <code class="language-plaintext highlighter-rouge">ActiveRecord::Relation</code> that will be sent to the responder:</p>
+
+<pre><code class="ruby">
+module PaginatedResponder
+  # Receives a relation and sets the pagination scope in the collection
+  # instance variable. For example, in PostsController it would
+  # set the @posts variable with Post.all.paginate(params[:page]).
+  def to_html
+    if get? &amp;&amp; resource.is_a?(ActiveRecord::Relation)
+      paginated = resource.paginate(controller.params[:page])
+      controller.instance_variable_set("@#{controller.controller_name}", paginated)
+    end
+    super
+  end
+end
+</code></pre>
+
+<p>However, the code above is definitely smelling. Set the paginated scope seems more to be a controller responsability. So we can rewrite as:</p>
+
+<pre><code class="ruby">
+module PaginatedResponder
+  def to_html
+    if get? &amp;&amp; resource.is_a?(ActiveRecord::Relation)
+      controller.paginated_scope(resource)
+    end
+    super
+  end
+end
+
+class ApplicationController &lt; ActionController::Base
+  def paginated_scope(relation)
+    instance_variable_set "@#{controller_name}", relation.paginate(params[:page])
+  end
+  hide_action :paginated_scope
+end
+</code></pre>
+
+<p>As previously, you could make use of some options to customize the default pagination behavior.</p>
+
+<h4 id="wrapping-up">Wrapping up</h4>
+
+<p>All the examples above were contained in modules, that means that our actual responder has yet to be created:</p>
+
+<pre><code class="ruby">
+class MyResponder &lt; ActionController::Responder
+  include CachedResponder
+  include FlashResponder
+  include PaginatedResponder
+end
+</code></pre>
+
+<p>To activate it, we just need to overwrite the responder method in our application controller:</p>
+
+<pre><code class="ruby">
+class ApplicationController &lt; ActionController::Base
+  def paginated_scope(relation)
+    instance_variable_set "@#{controller_name}", relation.paginate(params[:page])
+  end
+  hide_action :paginated_scope
+
+  protected
+  def responder
+    MyResponder
+  end
+end
+</code></pre>
+
+<p>While those examples are simple, they show how you can dry up your code easily using Responder. And you? Already thought in an interesting use case for it?</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

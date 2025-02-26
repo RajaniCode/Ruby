@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 5.0.0.beta1: Action Cable, API mode, Rails command</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rails 5.0! Can you believe it? We only just celebrated the tenth anniversary of Rails 1.0 a few days ago. Time flies when you’re having fun with good friends, and we’ve never had more fun or better friends in the Rails community, so no wonder it’s going swoosh! Now this is just the first beta release, but Rails 5.0.0.beta1 is already running Basecamp 3 in production." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 5.0.0.beta1: Action Cable, API mode, Rails command" />
+  <meta property="og:description" content="Rails 5.0! Can you believe it? We only just celebrated the tenth anniversary of Rails 1.0 a few days ago. Time flies when you’re having fun with good friends, and we’ve never had more fun or better friends in the Rails community, so no wonder it’s going swoosh! Now this is just the first beta release, but Rails 5.0.0.beta1 is already running Basecamp 3 in production." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/12/19/Rails-5-0-beta1" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 5.0.0.beta1: Action Cable, API mode, Rails command" />
+  <meta name="twitter:description" content="Rails 5.0! Can you believe it? We only just celebrated the tenth anniversary of Rails 1.0 a few days ago. Time flies when you’re having fun with good friends, and we’ve never had more fun or better friends in the Rails community, so no wonder it’s going swoosh! Now this is just the first beta release, but Rails 5.0.0.beta1 is already running Basecamp 3 in production." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/12/19/Rails-5-0-beta1"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 5.0.0.beta1: Action Cable, API mode, Rails command",
+      "description": "Rails 5.0! Can you believe it? We only just celebrated the tenth anniversary of Rails 1.0 a few days ago. Time flies when you’re having fun with good friends, and we’ve never had more fun or better friends in the Rails community, so no wonder it’s going swoosh! Now this is just the first beta release, but Rails 5.0.0.beta1 is already running Basecamp 3 in production.",
+      "url": "http://localhost:4000/2015/12/19/Rails-5-0-beta1",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2015-12-19T01:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, December 19, 2015</h5>
+        <h2>Rails 5.0.0.beta1: Action Cable, API mode, Rails command</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Rails 5.0! Can you believe it? We only just celebrated <a href="https://rubyonrails.org/2005/12/13/rails-1-0-party-like-its-one-oh-oh/">the tenth anniversary of Rails 1.0</a> a few days ago. Time flies when you’re having fun with good friends, and we’ve never had more fun or better friends in the Rails community, so no wonder it’s going swoosh! Now this is just the first beta release, but Rails 5.0.0.beta1 is already running <a href="https://basecamp.com">Basecamp 3</a> in production.</p>
+
+<h2 id="action-cable">Action Cable</h2>
+<p>The big new thing in Rails 5.0 is a brand-new framework for handling WebSockets called <a href="https://github.com/rails/rails/tree/master/actioncable">Action Cable</a>. It’s a completely integrated solution that includes an EventMachine-powered connection loop, a thread-backed channels layer for server-side processing, and a JavaScript layer for client-side interaction. It’s incredibly easy to use, and makes designing live features like chat, notifications, and presence so much easier. It’s what’s powering all those features of <a href="https://basecamp.com">Basecamp 3</a>, if you want to see it in action.</p>
+
+<p>What’s really lovely about Action Cable is that you get access to your entire Active Record and PORO domain model in your WebSockets work. We even added a brand-new <code class="language-plaintext highlighter-rouge">ActionController::Renderer</code> system that makes it trivial to render your templates outside of controllers, when you want to reuse server-side templates for WebSocket responses.</p>
+
+<p>In development, Action Cable runs in-process with the rest of your app. To do this, we’ve switched the default development server from Webrick to Puma. In production, you may well want to run Action Cable servers in their own processes. That’s how we run it at Basecamp at scale.</p>
+
+<p>Special thanks to <a href="https://github.com/lifo">Pratik Naik</a> and <a href="https://github.com/javan">Javan Makhmali</a> for their formative work.</p>
+
+<h2 id="api-mode">API mode</h2>
+<p>Rails is not only a great choice when you want to build a full-stack application that uses server-side rendering of HTML templates, but also a great companion for the new crop of client-side JavaScript or native applications that just needs the backend to speak JSON. We’ve made this even clearer now with the new –api mode. If you create a new Rails application using <code class="language-plaintext highlighter-rouge">rails new backend --api</code>, you’ll get a slimmed down skeleton and configuration that assumes you’ll be working with JSON, not HTML.</p>
+
+<p>There’s still more work to be done on this feature, but we’re off to a great start. By default, API mode just relies on #to_json calls on model classes. But you can either use <a href="https://github.com/rails/jbuilder">Jbuilder</a>, <a href="https://github.com/rails-api/active_model_serializers">Active Model Serializers</a>, or look at the new <a href="https://github.com/cerebris/jsonapi-resources">JSONAPI::Resources</a> project for a more advanced solution.</p>
+
+<p>Thanks in particular to <a href="https://github.com/spastorino">Santiago Pastorino</a> and <a href="https://github.com/jmbejar">Jorge Bejar</a> for making this happen.</p>
+
+<h2 id="one-rails-command-to-rule-them-all">One Rails command to rule them all</h2>
+<p>Why are some commands living in <code class="language-plaintext highlighter-rouge">bin/rails</code> and some commands living in <code class="language-plaintext highlighter-rouge">bin/rake</code>? That’s a common question, especially for beginners, and we never had a good answer (just lots of technical excuses). So now we’ve committed to making <code class="language-plaintext highlighter-rouge">bin/rails</code> the one master command to rule them all. All your rake commands are available through here as a gateway, but we’ll eventually port many of them over. So your fingers will now have to get used to <code class="language-plaintext highlighter-rouge">bin/rails db:migrate</code> instead of <code class="language-plaintext highlighter-rouge">bin/rake db:migrate</code>. That should only take a few months!</p>
+
+<p><a href="https://github.com/kaspth">Kasper Timm Hansen</a> has been herding this project.</p>
+
+<h2 id="a-few-other-highlights">A few other highlights</h2>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/blob/8c752c7ac739d5a86d4136ab1e9d0142c4041e58/activerecord/lib/active_record/attributes.rb">New Attributes API</a> by <a href="https://github.com/sgrif">Sean Griffin</a>.</li>
+  <li>The test runner now reports failures inline, so you don’t have to complete the suite to see what went wrong.</li>
+  <li>ApplicationRecord has been born as a default parent class of all models created by the generators.</li>
+  <li>ActiveRecord::Relation#in_batches makes it much easier to deal with record work in batches at a time to lessen memory overloads.</li>
+  <li>Post.where(‘id = 1’).or(Post.where(‘id = 2’)) gives you exactly what you’d think!</li>
+  <li>No more accidentally halting Active Record callbacks because the last statement is false. Now you throw(:abort) explicitly!</li>
+</ul>
+
+<p>You should really checkout the CHANGELOGs, though. There’s just so much new and good stuff available in all the frameworks:</p>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/blob/v5.0.0.beta1/actionmailer/CHANGELOG.md">Action Mailer CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.0.0.beta1/actionpack/CHANGELOG.md">Action Pack CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.0.0.beta1/actionview/CHANGELOG.md">Action View CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.0.0.beta1/activemodel/CHANGELOG.md">Active Model CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.0.0.beta1/activerecord/CHANGELOG.md">Active Record CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.0.0.beta1/activesupport/CHANGELOG.md">Active Support CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.0.0.beta1/activejob/CHANGELOG.md">Active Job CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v5.0.0.beta1/railties/CHANGELOG.md">Railties CHANGELOG</a></li>
+</ul>
+
+<p>Claudio did a <a href="https://speakerdeck.com/claudiob/rails-5-awesome-features-and-breaking-changes">nice little slide deck</a> walking through some of his favorite improvements (and removals!).</p>
+
+<p>Note too that we’re cooking Turbolinks 5 – the one with native iOS and Android wrapper implementations! – for concurrent release with Rails 5. You can follow along on <a href="https://github.com/turbolinks/turbolinks/tree/v5.0.0">basecamp/turbolinks/v5</a>.</p>
+
+<h2 id="maintenance-consequences">Maintenance consequences</h2>
+
+<p>As per our <a href="http://guides.rubyonrails.org/maintenance_policy.html">maintenance policy</a>, the release of Rails 5.0 will mean that bug fixes will only apply to 5.0.x, regular security issues to 5.0.x and 4.2.x, and severe security issues also to 5.0.x and 4.2.x (but when 5.1 drops, to 5.1.x, 5.0.x, and 4.2.x). This means 4.1.x and below will essentially be unsupported! Ruby 2.2.2+ is now also the only supported version of Ruby for Rails.</p>
+
+<h2 id="please-help-us-make-rails-50-solid">Please help us make Rails 5.0 solid!</h2>
+<p>We rely on the feedback from everyone in the community to flush out bugs and upgrade issues ahead of a big release like this. So please give Rails 5.0 a try on your app, and if you’re starting a new app today, you should probably use the beta1 for that, if you’re just the least bit savvy with Rails.</p>
+
+<p>Issues can be recorded on the <a href="https://github.com/rails/rails/issues">Github issues tracker</a>.</p>
+
+<p>Already, <a href="http://contributors.rubyonrails.org/edge/contributors">789 people have contributed</a> to this new release of Rails. Please do become one of them!</p>
+
+<p>Your dynamic release manager duo for Rails 5.0 is <a href="https://github.com/eileencodes">Eileen M. Uchitelle</a> and <a href="https://github.com/sgrif">Sean Griffin</a>. And the undisputed PR merge champ is <a href="https://github.com/rafaelfranca">Rafael França</a>!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

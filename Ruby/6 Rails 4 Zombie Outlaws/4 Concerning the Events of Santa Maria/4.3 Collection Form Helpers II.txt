@@ -1,0 +1,51 @@
+4.3 Collection Form Helpers II
+
+
+Now, out of all the Limbs, we need to select one or more that belong to a Zombie. We'll need a set of check boxes labelled with the kind of each Limb in @limbs. When a check box is checked, it should pass the Limb#id attribute back to the controller.
+
+
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def new
+    @zombie = Zombie.new
+      @limbs = Limb.all
+    end
+end
+
+
+Database:
+zombies 
+id	name
+1	Ash
+2	Sophia
+limbs 
+id	zombie_id	kind
+1		1	Diseased Leg
+2		2	Mutant Arm
+
+
+app/views/zombies/_form.html.erb
+<%= form_for(@zombie) do |f| %>
+  <div class="field">
+    <%= f.label :limbs %><br />
+    <%= collection_check_boxes(:object, 
+                               :method, 
+                               :collection, 
+                               :value_method, 
+                               :text_method) %> 
+  </div>
+<% end %>
+
+
+Answer:
+app/views/zombies/_form.html.erb
+<%= form_for(@zombie) do |f| %>
+  <div class="field">
+    <%= f.label :limbs %><br />
+    <%= collection_check_boxes(:limb, 
+                               :id, 
+                               @limbs, 
+                               :id, 
+                               :kind) %> 
+  </div>
+<% end %>

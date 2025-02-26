@@ -1,0 +1,90 @@
+1. Stubbing
+
+
+Notice how the show_author_summary method in tweet is calling the zombie_summary method inside zombie. This isn't good! Stub out the zombie_summary method in the test below.
+
+   
+models/tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+
+  validates :status, presence: true, length: {within: 3..140, allow_blank: true}
+  validates :zombie, presence: true
+  
+  def brains?
+    status =~ /(brains|breins)/i
+  end
+
+  def show_author_summary
+    self.status = self.zombie.zombie_summary
+  end
+
+  def status_image
+    image = ZwitPic.get_status_image(self.id) # This is returning an array
+    {image_name: image[0], image_url: image[1]}
+  end
+end
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  has_many :tweets
+
+  validates :name, presence: true, length: {maximum: 15}, uniqueness: {case_sensitive: false}
+  validates :graveyard, presence: true
+
+  def to_param
+    name
+  end
+  
+  def zombie_summary
+    "#{name} lives in #{graveyard} and has #{self.tweets.size} tweets"
+  end
+  
+  def geolocate
+    loc = Zoogle.graveyard_locator(self.graveyard)
+    "#{loc[:latitude]}, #{loc[:longitude]}"
+  end
+  
+  def geolocate_with_object
+    loc = Zoogle.graveyard_locator(self.graveyard)
+    "#{loc.latitude}, #{loc.longitude}"
+  end
+  
+  def avatar_url
+    "http://zombitar.com/#{id}.jpg"
+  end
+end
+
+
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+  test "show_author_summary should set status to zombie summary" do 
+    @tweet.show_author_summary
+    assert_equal @tweet.zombie.zombie_summary, @tweet.status, 'tweet status does not contain zombie summary'
+  end
+end
+
+
+Answer:
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+
+  test "show_author_summary should set status to zombie summary" do 
+    @tweet.zombie.stubs(:zombie_summary)
+    @tweet.show_author_summary
+    assert_equal @tweet.zombie.zombie_summary, @tweet.status, 'tweet status does not contain zombie summary'
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.021882s, 45.7001 tests/s, 182.8003 assertions/s.

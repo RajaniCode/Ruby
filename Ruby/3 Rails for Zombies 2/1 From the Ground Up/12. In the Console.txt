@@ -1,0 +1,56 @@
+12. In the Console
+
+
+Objective
+
+Enter the command to enter the Rails console
+
+schema
+create_table(:tweets) do |t|
+  t.string :message
+  t.string :category_name
+  t.string :location, :limit => 30
+  t.boolean :show_location, :default => false
+  t.integer :zombie_id
+end
+ 
+create_table :zombies do |z|
+  z.string :name
+end
+ 
+class Tweet < ActiveRecord::Base
+end
+ 
+class Zombie < ActiveRecord::Base
+end
+
+
+Answer: rails console
+
+
+$ rails conso­le
+Loading development environment (Rails 3.1.0)
+Successfully completed the Challenge!
+
+
+You are now running in the Rails console!
+Experiment with creating a new Tweet and saving it to the database. Type next to move on. 
+
+ruby > t = Tweet.new
+#<Tweet id: nil, message: nil, category_name: nil, location: nil, show_location: false, zombie_id: nil>
+ruby > t.save
+true
+ruby > next 
+
+Note:
+t = Tweet.new(message: "", category_name: "", location: "", show_location: false, zombie_id: 1)
+t.save
+
+$ rails conso­le
+Loading development environment (Rails 3.1.0)
+Successfully completed the Challenge!
+ruby > t = Tweet­.new(messa­ge: "", categ­ory_name: "", locat­ion: "", show_­location: false­, zombi­e_id: 1)
+#<Tweet id: nil, message: "", category_name: "", location: "", show_location: false, zombie_id: 1>
+ruby > t.save
+true
+ruby > next

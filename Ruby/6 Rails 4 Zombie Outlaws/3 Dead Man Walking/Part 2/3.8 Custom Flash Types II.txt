@@ -1,0 +1,26 @@
+3.8 Custom Flash Types II
+
+
+Now, display the groan flash type in a paragraph element at the top of the show view for zombies.
+
+
+app/views/zombies/show.html.erb
+<p>
+  <strong>Name:</strong>
+  <%= @zombie.name %>
+</p>
+
+<%= link_to 'Edit', edit_zombie_path(@zombie) %> |
+<%= link_to 'Back', zombies_path %>
+
+
+Answer:
+app/views/zombies/show.html.erb
+<p id='groan'><%= groan %></p>
+<p>
+  <strong>Name:</strong>
+  <%= @zombie.name %>
+</p>
+
+<%= link_to 'Edit', edit_zombie_path(@zombie) %> |
+<%= link_to 'Back', zombies_path %>

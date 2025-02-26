@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails World 2025 dates announced and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s Greg. Let’s explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails World 2025 dates announced and more!" />
+  <meta property="og:description" content="Hi, it’s Greg. Let’s explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/11/29/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails World 2025 dates announced and more!" />
+  <meta name="twitter:description" content="Hi, it’s Greg. Let’s explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/11/29/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails World 2025 dates announced and more!",
+      "description": "Hi, it’s Greg. Let’s explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2024/11/29/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "Greg"
+      },
+      "datePublished": "2024-11-29T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, November 29, 2024</h5>
+        <h2>Rails World 2025 dates announced and more!</h2>
+
+        <h6>Posted by Greg</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://greg.molnar.io">Greg</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://rubyonrails.org/2024/11/27/rails-world-2025-save-the-date">Rails World 2025 -  Save the date</a><br />
+Rails World 2025 will take place September 4 and 5, 2025, again in Amsterdam.
+The same venue, the same city, and good news - more tickets. The CFP is expected
+to open in early spring 2025, and tickets to be released shortly thereafter.
+Sponsorship sales opening soon (email: sponsors@rubyonrails.org).</p>
+
+<p><a href="https://github.com/rails/rails/pull/53770">Raise a more specific error when the job class can’t be instantiated</a><br />
+With this change, Rails will raise a more specific error during deserialization
+when a previously serialized job class is now unknown.
+<code class="language-plaintext highlighter-rouge">ActiveJob::UnknownJobClassError</code> will be raised instead of a more generic
+<code class="language-plaintext highlighter-rouge">NameError</code> to make it easily possible for adapters to tell if the <code class="language-plaintext highlighter-rouge">NameError</code>
+was raised during job execution or deserialization.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53763">Improve error highlighting of multi-line methods in ERB templates</a><br />
+This pull request improves the error highlighting of multi-line methods in ERB
+templates.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53746">Don’t enable YJIT in development and test environments</a><br />
+The development and test environment tend to reload code and redefine methods (e.g.
+mocking), hence YJIT isn’t generally faster in these environments. For this
+reason, YJIT will be disabled by default from Rails 8.1 in these environments.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53535">Change the <em>WEB_CONCURRENCY</em> deploy comment default to <code class="language-plaintext highlighter-rouge">auto</code></a><br />
+Puma introduced a new <code class="language-plaintext highlighter-rouge">WEB_CONCURRENCY=auto</code> setting. The config sets puma’s
+worker count to the count of available cpus. This pull request adds the new
+option to the explaining comments of a new project’s default puma.rb config
+file.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53011">Don’t ask for database password when running <code class="language-plaintext highlighter-rouge">kamal dbc</code></a><br />
+This pull request changes the <code class="language-plaintext highlighter-rouge">kamal dbc</code> to pass the <code class="language-plaintext highlighter-rouge">--include-password</code> flag
+to reuse the database password from database.yml.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-11-22%7D...main@%7B2024-11-29%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20241122-20241129">25 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+2.7 Model.all
+
+
+Change the following code so that it doesn't use the deprecated scoped method.
+
+
+Database:
+zombies 
+id	name	weapon
+1	Ash	Chainsaw
+2	Bob	Bone
+3	Jim	Axe
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  scope :outlaws, -> { where(weapon: 'Chainsaw') }    
+end
+
+
+controllers/most_wanted_controller.rb
+class MostWantedController < ApplicationController
+  def index
+    @zombies = Zombie.scoped
+    if params[:outlaws]
+      @zombies = @zombies.outlaws
+    end
+  end
+end
+
+
+Answer:
+controllers/most_wanted_controller.rb
+class MostWantedController < ApplicationController
+  def index
+    @zombies = Zombie.all
+    if params[:outlaws]
+      @zombies = @zombies.outlaws
+    end
+  end
+end

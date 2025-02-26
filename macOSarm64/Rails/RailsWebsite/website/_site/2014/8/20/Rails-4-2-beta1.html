@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 4.2.0 beta1: Active Job, Deliver Later, Adequate Record, Web Console</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We’re putting the final touches on the first major new release of Rails in its second decade of life. While most software would be in a retirement home after a decade of operation, Rails has never been more fit, and this release is packed with goodies that’ll make your work even easier, your apps even faster, and the whole experience even better." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 4.2.0 beta1: Active Job, Deliver Later, Adequate Record, Web Console" />
+  <meta property="og:description" content="We’re putting the final touches on the first major new release of Rails in its second decade of life. While most software would be in a retirement home after a decade of operation, Rails has never been more fit, and this release is packed with goodies that’ll make your work even easier, your apps even faster, and the whole experience even better." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2014/8/20/Rails-4-2-beta1" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 4.2.0 beta1: Active Job, Deliver Later, Adequate Record, Web Console" />
+  <meta name="twitter:description" content="We’re putting the final touches on the first major new release of Rails in its second decade of life. While most software would be in a retirement home after a decade of operation, Rails has never been more fit, and this release is packed with goodies that’ll make your work even easier, your apps even faster, and the whole experience even better." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2014/8/20/Rails-4-2-beta1"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 4.2.0 beta1: Active Job, Deliver Later, Adequate Record, Web Console",
+      "description": "We’re putting the final touches on the first major new release of Rails in its second decade of life. While most software would be in a retirement home after a decade of operation, Rails has never been more fit, and this release is packed with goodies that’ll make your work even easier, your apps even faster, and the whole experience even better.",
+      "url": "http://localhost:4000/2014/8/20/Rails-4-2-beta1",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2014-08-20T09:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, August 20, 2014</h5>
+        <h2>Rails 4.2.0 beta1: Active Job, Deliver Later, Adequate Record, Web Console</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We’re putting the final touches on the first major new release of Rails in its second decade of life. While most software would be in a retirement home after a decade of operation, Rails has never been more fit, and this release is packed with goodies that’ll make your work even easier, your apps even faster, and the whole experience even better.</p>
+
+<h2 id="active-job-actionmailer-deliver_later">Active Job, ActionMailer #deliver_later</h2>
+<p>The headline feature for Rails 4.2 is the brand new Active Job framework, and its integrations. Active Job is an adapter layer on top of queuing systems like <a href="https://github.com/resque/resque">Resque</a>, <a href="https://github.com/collectiveidea/delayed_job">Delayed Job</a>, <a href="https://github.com/mperham/sidekiq">Sidekiq</a>, and <a href="http://edgeapi.rubyonrails.org/classes/ActiveJob/QueueAdapters.html">more</a>. You can write your jobs to Active Job, and they’ll run on all these queues with no changes.</p>
+
+<p>With an always-configured queue in place (though the default is just an <a href="http://edgeapi.rubyonrails.org/classes/ActiveJob/QueueAdapters/InlineAdapter.html">inline runner</a>), we can build on top of that where it makes sense. And the first place it makes sense is to send Action Mailer emails asynchronously. So we’re introducing the <a href="http://edgeapi.rubyonrails.org/classes/ActionMailer/MessageDelivery.html#method-i-deliver_later">#deliver_later</a> method, which will do just that: Add your email to be sent as a job to a queue, so you don’t bog down the controller or model. Voila!</p>
+
+<p>The cherry on top is our new <a href="https://github.com/rails/globalid">GlobalID</a> library. It makes it easy to pass Active Record objects to jobs by serializing them in a generic form. This means you no longer have to manually pack and unpack your Active Records by passing ids. Just give the job the straight AR object, and it’ll serialize it using GlobalID, and deserialize it at run time. So much easier!</p>
+
+<p>Special thanks go out to <a href="https://github.com/cristianbica">Cristian Bica</a> and <a href="https://github.com/seuros">Abdelkader Boudih</a> for their outstanding work bringing this trinity of improvements to Rails!</p>
+
+<h2 id="adequate-record">Adequate Record</h2>
+<p><a href="https://github.com/tenderlove">Aaron Patterson</a> is always hunting for performance bounties in Rails, and with an improvement project called <a href="http://tenderlovemaking.com/2014/02/19/adequaterecord-pro-like-activerecord.html">Adequate Record</a> for Active Record, he’s come up good. A lot of common queries are now no less than twice as fast in Rails 4.2! This is a great step forward for performance. While computers are constantly getting cheaper and performance is improving, nobody ever said “hey, get that free speed out of my framework”. So there you go: Some free speed, buddy!</p>
+
+<h2 id="web-console">Web Console</h2>
+<p>Out of the wonderful <a href="https://rubyonrails.org/2014/5/23/meet-our-google-summer-of-code-students-and-mentors/">Google Summer of Code</a> for Rails campaign comes <a href="https://github.com/rails/web-console">Web Console</a>. It’s an IRB console available in the browser. In development mode, you can go to <code class="language-plaintext highlighter-rouge">/console</code> and do your work right there.</p>
+
+<p>Now that’s neat, but what’s insanely useful is that this console is automatically available on all exception pages! So when something is bust, you’ll now instantly be able to inspect the state of affairs. It even allows you to jump between the different points in the backtrace, and you’ll be able to inspect things right at that point.</p>
+
+<p>It’s a wonderful improvement to the debugging workflow. Thanks to <a href="https://github.com/gsamokovarov">Genadi Samokovarov</a> and <a href="https://github.com/ryandao">Ryan Dao</a> for their work on this project.</p>
+
+<h2 id="everything-else">Everything else</h2>
+<p>Some quick highlights from the rest of all the wonder that is Rails 4.2:</p>
+
+<ul>
+  <li>Template digests are now automatically included when calculating etags for caching. So caches are bust when the template changes.</li>
+  <li><code class="language-plaintext highlighter-rouge">respond_with</code> has moved out and into its own proper home with the <a href="https://github.com/plataformatec/responders">responders</a> gem.</li>
+  <li>Support for real foreign keys! <code class="language-plaintext highlighter-rouge">add_foreign_key</code>/<code class="language-plaintext highlighter-rouge">remove_foreign_key</code> are now available in migrations.</li>
+  <li>A ton of bug fixes and minor improvements to Active Record.</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">config.x.whatever.you_want = true</code> for custom configuration of your app in <code class="language-plaintext highlighter-rouge">config/environments/*</code>, <code class="language-plaintext highlighter-rouge">config/application.rb</code>, and initializers.</li>
+  <li>Added <code class="language-plaintext highlighter-rouge">Rails::Application.config_for(:some_yaml)</code> to load YAML configurations store in <code class="language-plaintext highlighter-rouge">config/</code> easily.</li>
+</ul>
+
+<p>We’re working on a set of <a href="http://edgeguides.rubyonrails.org/4_2_release_notes.html">preliminary release notes</a> too.</p>
+
+<h2 id="maintenance-consequences-and-rails-5-0">Maintenance consequences and Rails 5.0!</h2>
+
+<p>As per our <a href="http://guides.rubyonrails.org/maintenance_policy.html">maintenance policy</a>, the release of Rails 4.2 will mean that bug fixes will only apply to 4-2-stable, regular security issues to 4.2.x, 4.1.x, and severe security issues to 4.2.x, 4.1.x, and 3.2.x. In addition to these already stated commitments, the honorable <a href="https://github.com/rafaelfranca">Rafael França</a> has agreed to also apply bug fixes to 4-1-stable. So everyone still on 4.1 and unable to move quickly can thank Rafael!</p>
+
+<p>Rails 4.2 will also mark the last big release in the 4.x series. After release, we’re going to work towards the big Rails 5.0! This means rails/master will have that target as soon as the release candidates for 4.2 start, and 4-2-stable is created.</p>
+
+<p>Rails 5.0 is in most likelihood going to target Ruby 2.2. There’s a bunch of optimizations coming in Ruby 2.2 that are going to be very nice, but most importantly for Rails, symbols are going to be garbage collected. This means we can shed a lot of weight related to juggling strings when we accept input from the outside world. It also means that we can convert fully to keyword arguments and all the other good stuff from the latest Ruby.</p>
+
+<p>The release target for Rails 5.0 is currently spring/summer of 2015. So there’s a while yet, but we’re putting this out there for people to know, so gem maintainers and other Ruby implementations can know where we’re going.</p>
+
+<h2 id="please-help-us-make-rails-42-solid">Please help us make Rails 4.2 solid!</h2>
+<p>We rely on the feedback from everyone in the community to flush out bugs and upgrade issues ahead of a big release like this. So please give Rails 4.2 a try on your app, and if you’re starting a new app today, you should probably use the beta1 for that, if you’re just the least bit savvy with Rails.</p>
+
+<p>Issues can be recorded on the <a href="https://github.com/rails/rails/issues">Github issues tracker</a>.</p>
+
+<p>Already, <a href="http://contributors.rubyonrails.org/edge/contributors">476 people have contributed</a> to this new release of Rails. Please do become one of them!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

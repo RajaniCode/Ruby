@@ -1,0 +1,35 @@
+2. Linking
+
+
+Link to the zombie's show page. Use the zombie's name as the anchor text
+
+
+Database:
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+
+
+app/views/zombies/show.html.erb
+<% zombies = Zombie.all %>
+
+<p>
+<%= # insert zombie link here %>
+</p>
+
+Answer:
+app/views/zombies/show.html.erb
+
+<% zombie = Zombie.first %>
+
+<p>
+<%= link_to zombie.name, zombie %>
+</p>
+
+
+Output:
+<p>
+<a href="/zombies/1">Ashley</a>
+</p>

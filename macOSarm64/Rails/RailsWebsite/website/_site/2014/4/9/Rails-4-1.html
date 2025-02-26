@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 4.1.0: Spring, Variants, Enums, Mailer previews, secrets.yml</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rails 4.1.0 might carry a minor version bump, but there’s nothing minor about the bag of goodies it carries. It simply means that upgrading from 4.0.x should be a relatively mild affair as most of the changes are additions or improvements, not backwards-incompatible changes. Let’s go over some of those new goodies." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 4.1.0: Spring, Variants, Enums, Mailer previews, secrets.yml" />
+  <meta property="og:description" content="Rails 4.1.0 might carry a minor version bump, but there’s nothing minor about the bag of goodies it carries. It simply means that upgrading from 4.0.x should be a relatively mild affair as most of the changes are additions or improvements, not backwards-incompatible changes. Let’s go over some of those new goodies." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2014/4/9/Rails-4-1" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 4.1.0: Spring, Variants, Enums, Mailer previews, secrets.yml" />
+  <meta name="twitter:description" content="Rails 4.1.0 might carry a minor version bump, but there’s nothing minor about the bag of goodies it carries. It simply means that upgrading from 4.0.x should be a relatively mild affair as most of the changes are additions or improvements, not backwards-incompatible changes. Let’s go over some of those new goodies." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2014/4/9/Rails-4-1"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 4.1.0: Spring, Variants, Enums, Mailer previews, secrets.yml",
+      "description": "Rails 4.1.0 might carry a minor version bump, but there’s nothing minor about the bag of goodies it carries. It simply means that upgrading from 4.0.x should be a relatively mild affair as most of the changes are additions or improvements, not backwards-incompatible changes. Let’s go over some of those new goodies.",
+      "url": "http://localhost:4000/2014/4/9/Rails-4-1",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2014-04-09T01:45:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, April 9, 2014</h5>
+        <h2>Rails 4.1.0: Spring, Variants, Enums, Mailer previews, secrets.yml</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Rails 4.1.0 might carry a minor version bump, but there’s nothing minor about the bag of goodies it carries. It simply means that upgrading from 4.0.x should be a relatively mild affair as most of the changes are additions or improvements, not backwards-incompatible changes. Let’s go over some of those new goodies.</p>
+
+<p><strong>Spring</strong> is our new application preloader. It makes running tests, rake, and generators much faster on large applications. You could think of what we had before as the CGI-mode of the command-line. Every time you ran rake, your entire application would be loaded from scratch, only to be thrown out as soon as the command finished. With Spring, your application is a persistent process that can be reused across commands, so only the first run is slow. And we automatically detect code changes, and reload just those parts. It makes a big difference!</p>
+
+<p><strong>Variants</strong> allows you to have different templates and action responses for the same mime type (say, HTML). This is a magic bullet for any Rails app that’s serving mobile clients. You can now have individual templates for the desktop, tablet, and phone views while sharing all the same controller logic. This is the secret sauce behind Basecamp’s hybrid native/HTML strategy for mobile apps: One Rails app serving desktop browsers, mobile browsers, native mobile apps. The reuse benefits are immense and the productivity boost staggering. Really.</p>
+
+<p><strong>Enums</strong> wraps the pattern of having a status field constrained to just a few options. It’s just enough syntactic sugar to make tinyint-backed status fields taste delicious while still reaping the optimization benefit of avoiding repeated status strings. Poor man’s state machine? Nah, Just Enough for Most of the Time.</p>
+
+<p><strong>Mailer previews</strong> make it dead simple to visually iterate over your Action Mailer views with test data, so you can get the same work flow as you have for any other view in your app. Make a change, reload to see it. Easy as pie. And certainly a lot better than either starting with static files that then have to be converted to mailer templates, or trying to copy’n’paste the HTML out of the log files to view them in a browser (come on, you’ve been there!).</p>
+
+<p>Finally, we’ve committed to moving production passwords out of your application repository with two changes. The first is <strong>secrets.yml</strong>, which gives you one place and one convenient interface to access secrets that have been set either via ENV variables or deployment scripts. By default it’s used for the secret token guarding cookie integrity, but you can use it for whatever else you need in your app. Second is that we’ve added support for database URLs in database.yml, and that we by default will be referring to ENV-backed URLs in the generated files. Hurray security!</p>
+
+<p>Now that’s just a quick look in the goodie bag. If you want the play-by-play, you can have a look through <a href="https://github.com/rails/rails/compare/4-0-stable...v4.1.0">the 5,200 commits we’ve done between 4-0-stable and v4.1.0</a>. That’s right, five thousand. Witness the firepower of this armed and fully operational community!</p>
+
+<p>You can also digest the changes, and see some real code, by diving into Yves’ and Godfrey’s splendid work on the <a href="http://edgeguides.rubyonrails.org/4_1_release_notes.html">release notes for 4.1 as a guide</a> and the <a href="http://coherence.io/blog/2013/12/17/whats-new-in-rails-4-1.html">feature walk-through</a>.</p>
+
+<p>The gems are now on RubyGems, so <code class="language-plaintext highlighter-rouge">gem install rails</code> will get you the latest. Or you can use the v4.1.0 tag.</p>
+
+<p>Enjoy and we hope to see you at <a href="http://railsconf.com">RailsConf</a> in two weeks!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

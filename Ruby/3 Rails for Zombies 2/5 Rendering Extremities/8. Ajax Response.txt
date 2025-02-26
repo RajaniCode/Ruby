@@ -1,0 +1,93 @@
+8. Ajax Response
+
+
+Objective
+
+Modify the toggle_condition action so that it responds to JavaScript, and complete the toggle_condition.js.erb using jQuery to update the condition span with the @weapon's changed condition and make it highlight.
+
+
+show.html.erb
+<p id="notice"><%= notice %></p>
+<ul>
+  <li>
+    <em>Name:</em>
+    <%= @weapon.name %>
+  </li>
+  <li>
+    <em>Condition:</em>
+    <span id="condition"><%= @weapon.condition %></span> 
+    <%= link_to "Toggle", toggle_condition_user_weapon_path(@user, @weapon), remote: true %>
+  </li>
+</ul>
+
+
+rendered html
+<p id="notice"></p> 
+<ul>
+  <li>
+    <em>Name:</em> Chainsaw
+  </li> 
+  <li>
+    <em>Condition:</em>
+    <span id="condition">New</span>
+    <a href="/weapons/1/toggle_condition" data-remote="true">Toggle</a>
+  </li>
+</ul>
+
+
+weapons_controller.rb
+class WeaponsController < ApplicationController
+  def toggle_condition
+    @weapon = Weapon.find(params[:id]) 
+    @weapon.toggle_condition 
+    respond_to do |format|
+      format.html { redirect_to @weapon, notice: 'Changed condition' }
+    end
+  end
+end
+
+
+toggle_condition.js.erb
+class WeaponsController < ApplicationController
+  def toggle_condition
+    @weapon = Weapon.find(params[:id]) 
+    @weapon.toggle_condition 
+
+    respond_to do |format|
+      format.html { redirect_to @weapon, notice: 'Changed condition' }
+    end
+  end
+end
+
+
+Answer:
+weapons_controller.rb
+class WeaponsController < ApplicationController
+  def toggle_condition
+    @weapon = Weapon.find(params[:id]) 
+    @weapon.toggle_condition 
+
+    respond_to do |format|
+      format.html { redirect_to @weapon, notice: 'Changed condition' }
+      format.js
+    end
+  end
+end
+
+
+toggle_condition.js.erb
+$('#condition').text("<%= @weapon.condition %>").effect("highlight")
+
+
+rendered html
+<p id="notice"></p> 
+<ul>
+  <li>
+    <em>Name:</em> Chainsaw
+  </li> 
+  <li>
+    <em>Condition:</em>
+    <span id="condition">New</span>
+    <a href="/weapons/1/toggle_condition" data-remote="true">Toggle</a>
+  </li>
+</ul>

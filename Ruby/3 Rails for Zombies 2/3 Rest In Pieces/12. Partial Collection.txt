@@ -1,0 +1,69 @@
+12. Partial Collection
+
+
+Objective
+
+Refactor the code below to use the _weapon.html.erb partial to render the list of weapons.
+
+ 
+zombie.rb
+class Zombie < ActiveRecord::Base
+  has_many :weapons
+end
+
+
+weapon.rb
+class Weapon < ActiveRecord::Base
+  belongs_to :zombie
+end
+
+
+weapons_controller.rb
+class WeaponsController < ApplicationController
+ 
+  def index
+    @zombie = Zombie.find(params[:zombie_id])
+    @weapons = @zombie.weapons
+ 
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @weapons }
+    end
+  end
+ 
+end
+
+
+weapons/index.html.erb
+<h1><%= @zombie.name %>'s Weapons</h1>
+<% @weapons.each do |weapon| %> 
+  <%= div_for weapon do %>
+    <h2><%= weapon.name %></h2> 
+    <p>
+      Condition: <%= weapon.condition %>
+      Ammo: <%= weapon.ammo %>
+      Purchased <%= time_ago_in_words weapon.purchased_on %> ago
+    </p> 
+  <% end %>
+<% end %>
+
+
+weapons/_weapon.html.erb
+
+
+Answer:
+weapons/_weapon.html.erb
+<%= div_for weapon do %>
+  <h2><%= weapon.name %></h2> 
+  <p>
+    Condition: <%= weapon.condition %>
+    Ammo: <%= weapon.ammo %>
+    Purchased <%= time_ago_in_words weapon.purchased_on %> ago
+  </p> 
+<% end %>
+
+weapons/index.html.erb
+<h1><%= @zombie.name %>'s Weapons</h1>
+<% @weapons.each do |weapon| %> 
+  <%= render weapon %>
+<% end %>

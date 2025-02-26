@@ -1,0 +1,48 @@
+6. Running filtered specs
+
+
+Run the rspec command that will run only the specs tagged with dumb in the spec/models/zombie_spec.rb file.
+
+
+zombie_spec
+describe Zombie do
+  let(:zombie) { Zombie.new }
+  subject { zombie }
+ 
+  context 'with a dummy zombie', dumb: true do
+    before { zombie.iq = 0 }
+    it { should be_dummy }
+  end
+ 
+  context 'with a smart zombie' do
+    before { zombie.iq = 3 }
+    it { should_not be_dummy }
+  end
+end
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :name
+  validates :name, presence: true
+ 
+  def dummy?
+    iq < 3
+  end
+ 
+  def genius?
+    iq >= 3
+  end
+end
+
+
+Answer: rspec --tag dumb spec/models/zombie_spec.rb
+
+
+Console
+
+$ rspec --tag dumb spec/models/zombie_spec.rb
+..
+Finished in 0.0112 seconds
+2 Examples, 0 failures
+Success!

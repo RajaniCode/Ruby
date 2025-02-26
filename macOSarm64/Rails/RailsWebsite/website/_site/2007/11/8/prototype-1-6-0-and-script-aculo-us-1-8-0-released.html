@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Prototype 1.6.0 and script.aculo.us 1.8.0 released</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="New versions of the JavaScript libraries that ship with Rails, Prototype 1.6.0 and script.aculo.us 1.8.0, have been released.  You can find out about the numerous changes on the Prototype blog and on mir.aculo.us. If you&#8217;re running Edge Rails, just svn up and run rake rails:update:javascripts to install the latest versions into your application automatically.Also of note: Christophe Porteneuve&#8217;s Prototype &amp; script.aculo.us book is now out of beta and available for purchase from the Pragmatic Programmers.  It&#8217;s up-to-date with all of the new features in both libraries, so be sure to check it out if you&#8217;re using Prototype and script.aculo.us in your applications." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Prototype 1.6.0 and script.aculo.us 1.8.0 released" />
+  <meta property="og:description" content="New versions of the JavaScript libraries that ship with Rails, Prototype 1.6.0 and script.aculo.us 1.8.0, have been released.  You can find out about the numerous changes on the Prototype blog and on mir.aculo.us. If you&#8217;re running Edge Rails, just svn up and run rake rails:update:javascripts to install the latest versions into your application automatically.Also of note: Christophe Porteneuve&#8217;s Prototype &amp; script.aculo.us book is now out of beta and available for purchase from the Pragmatic Programmers.  It&#8217;s up-to-date with all of the new features in both libraries, so be sure to check it out if you&#8217;re using Prototype and script.aculo.us in your applications." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2007/11/8/prototype-1-6-0-and-script-aculo-us-1-8-0-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Prototype 1.6.0 and script.aculo.us 1.8.0 released" />
+  <meta name="twitter:description" content="New versions of the JavaScript libraries that ship with Rails, Prototype 1.6.0 and script.aculo.us 1.8.0, have been released.  You can find out about the numerous changes on the Prototype blog and on mir.aculo.us. If you&#8217;re running Edge Rails, just svn up and run rake rails:update:javascripts to install the latest versions into your application automatically.Also of note: Christophe Porteneuve&#8217;s Prototype &amp; script.aculo.us book is now out of beta and available for purchase from the Pragmatic Programmers.  It&#8217;s up-to-date with all of the new features in both libraries, so be sure to check it out if you&#8217;re using Prototype and script.aculo.us in your applications." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2007/11/8/prototype-1-6-0-and-script-aculo-us-1-8-0-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Prototype 1.6.0 and script.aculo.us 1.8.0 released",
+      "description": "New versions of the JavaScript libraries that ship with Rails, Prototype 1.6.0 and script.aculo.us 1.8.0, have been released.  You can find out about the numerous changes on the Prototype blog and on mir.aculo.us. If you&#8217;re running Edge Rails, just svn up and run rake rails:update:javascripts to install the latest versions into your application automatically.Also of note: Christophe Porteneuve&#8217;s Prototype &amp; script.aculo.us book is now out of beta and available for purchase from the Pragmatic Programmers.  It&#8217;s up-to-date with all of the new features in both libraries, so be sure to check it out if you&#8217;re using Prototype and script.aculo.us in your applications.",
+      "url": "http://localhost:4000/2007/11/8/prototype-1-6-0-and-script-aculo-us-1-8-0-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "sam"
+      },
+      "datePublished": "2007-11-08T01:37:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, November 8, 2007</h5>
+        <h2>Prototype 1.6.0 and script.aculo.us 1.8.0 released</h2>
+
+        <h6>Posted by sam</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>New versions of the JavaScript libraries that ship with Rails, Prototype 1.6.0 and script.aculo.us 1.8.0, have been released.  You can find out about the numerous changes on the <a href="http://prototypejs.org/2007/11/7/prototype-1-6-0-script-aculo-us-1-8-0-and-the-bungee-book-now-available">Prototype blog</a> and on <a href="http://mir.aculo.us/2007/11/7/script-aculo-us-1-8-prototype-1-6-and-the-book-released">mir.aculo.us</a>. If you&#8217;re running Edge Rails, just <code>svn up</code> and run <code>rake rails:update:javascripts</code> to install the latest versions into your application automatically.</p>
+<p>Also of note: Christophe Porteneuve&#8217;s <em>Prototype &amp; script.aculo.us</em> book is now out of beta and <a href="http://pragprog.com/titles/cppsu">available for purchase from the Pragmatic Programmers</a>.  It&#8217;s up-to-date with all of the new features in both libraries, so be sure to check it out if you&#8217;re using Prototype and script.aculo.us in your applications.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

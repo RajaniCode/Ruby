@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; An endpoint for uptime monitors, an improved help command, etc</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Halløj. It’s me again, bringing you the usual goodies from Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="An endpoint for uptime monitors, an improved help command, etc" />
+  <meta property="og:description" content="Halløj. It’s me again, bringing you the usual goodies from Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/1/13/this-week-in-rails-an-endpoint-for-uptime-monitors-an-improved-help-command-etc-0dfa7fc0" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="An endpoint for uptime monitors, an improved help command, etc" />
+  <meta name="twitter:description" content="Halløj. It’s me again, bringing you the usual goodies from Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/1/13/this-week-in-rails-an-endpoint-for-uptime-monitors-an-improved-help-command-etc-0dfa7fc0"
+      },
+      "name": "Ruby on Rails",
+      "headline": "An endpoint for uptime monitors, an improved help command, etc",
+      "description": "Halløj. It’s me again, bringing you the usual goodies from Rails.",
+      "url": "http://localhost:4000/2023/1/13/this-week-in-rails-an-endpoint-for-uptime-monitors-an-improved-help-command-etc-0dfa7fc0",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Emmanuel Hayford"
+      },
+      "datePublished": "2023-01-13T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, January 13, 2023</h5>
+        <h2>An endpoint for uptime monitors, an improved help command, etc</h2>
+
+        <h6>Posted by Emmanuel Hayford</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Halløj. It’s <a href="https://hayford.dev/about/">me</a> again, bringing you the usual goodies from Rails.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46164">Show relevant commands when calling help</a>
+This pull request improves the user experience by displaying the appropriate commands for the context in which the user is running <em>rails -h</em> or <em>rails</em>. When outside of a Rails application, the output will be the options for the <em>rails new</em> command. When inside a Rails application, the common Rails commands will be displayed. This eliminates confusion for users who may have expected to see different commands in different contexts.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46846">Let HWIA#transform_keys take a Hash argument like Ruby’s Hash#transform_keys</a>
+The <em>HashWithIndifferentAccess#transform_keys</em> method now mirrors the functionality of Ruby’s <em>Hash#transform_keys</em> method by accepting a Hash argument.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46875">Let delegate define method with proper arity when delegating to a class</a>
+This change improves the <em>delegate</em> method by ensuring that the method being defined has the proper arity when delegating to a class. As a result, the defined method is significantly faster - up to 3.5 times faster when there are no arguments. However, it should be noted that in order to take advantage of this performance improvement, the target method being delegated to must be defined prior to declaring the delegation.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46936">Add a default health controller</a>
+This pull request introduces a new endpoint for load balancers and uptime monitors by adding a <em>Rails::HealthController#show</em> method and mapping it to the “/up” path in newly generated Rails applications. With this new endpoint, Load balancers and uptime monitors can easily track whether or not an app is up. </p>
+
+<p>If, however, you need to monitor database, Redis or internal network connections to microservices that your application relies on, you will need to implement monitoring yourself.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46664">Run test:prepare before bin/rails test commands</a>
+This pull request streamlines the process of running all tests in a CI environment by making <em>bin/rails</em> <em>test</em> equivalent to <em>bin/rake test</em> when it comes to preparing tests. This means that running <em>bin/rails</em> <em>test</em> alone will now run all the tests, eliminating the need for the additional <em>bin/rake test</em> command.</p>
+
+<p>However, it’s important to note that by default, running <em>bin/rails test</em> alone will not include system tests as they are generally slower. To include system tests as well, you can add an additional step to your CI pipeline that runs <em>bin/rails test:system</em>, or you can change your first step to <em>bin/rails test:all</em> which runs all the tests including the system tests.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46794">Change dockerfile from using Node 19 to match dev environment</a>
+This pull request improves the generated Dockerfile by installing the locally installed versions of Node and Yarn, decoupling the installation of libvips from Node, and adding the installation of <em>node_modules</em> by running <em>yarn</em>.</p>
+
+<p>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230107-20230113">33 contributors</a> to Rails this week.</p>
+
+<p>See you in the next issue!</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

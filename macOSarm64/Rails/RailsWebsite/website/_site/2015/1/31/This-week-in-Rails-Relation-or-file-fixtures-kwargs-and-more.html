@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: Relation#or, file fixtures, kwargs and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="It is that time of the week again!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: Relation#or, file fixtures, kwargs and more!" />
+  <meta property="og:description" content="It is that time of the week again!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/1/31/This-week-in-Rails-Relation-or-file-fixtures-kwargs-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: Relation#or, file fixtures, kwargs and more!" />
+  <meta name="twitter:description" content="It is that time of the week again!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/1/31/This-week-in-Rails-Relation-or-file-fixtures-kwargs-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: Relation#or, file fixtures, kwargs and more!",
+      "description": "It is that time of the week again!",
+      "url": "http://localhost:4000/2015/1/31/This-week-in-Rails-Relation-or-file-fixtures-kwargs-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2015-01-31T07:43:16+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, January 31, 2015</h5>
+        <h2>This week in Rails: Relation#or, file fixtures, kwargs and more!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>It is that time of the week again!</p>
+
+<p>This is <a href="https://github.com/gregmolnar">Greg</a>, bringing you this week’s interesting commits and pull requests from <a href="https://github.com/rails/rails">Rails</a>.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/this-week">This week’s Rails contributors</a></h3>
+
+<p>Let’s start with a big thank you for all the people who helped this week to make Rails better!</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="added-or-to-activerecordrelation"><a href="https://github.com/rails/rails/pull/16052">Added #or to ActiveRecord::Relation</a></h3>
+
+<p>A long waited feature is added to Active Record and from now on you can combine two Active Record relations with the <code class="language-plaintext highlighter-rouge">or</code> operator.</p>
+
+<h3 id="activesupporttestingfilefixtures"><a href="https://github.com/rails/rails/pull/18658">ActiveSupport::Testing::FileFixtures</a></h3>
+
+<p>With this addition to <code class="language-plaintext highlighter-rouge">ActiveSupport::Testing</code> there is no need to write custom helpers for testing features requiring a sample file (i.e. file uploads).</p>
+
+<h3 id="use-kwargs-in-the-tests-http-methods"><a href="https://github.com/rails/rails/pull/18323">Use kwargs in the test’s HTTP methods</a></h3>
+
+<p>Support for keyword arguments is added to the HTTP methods of the controller tests. An example of the new syntax:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">post</span> <span class="ss">:create</span><span class="p">,</span> <span class="ss">params: </span><span class="p">{</span> <span class="ss">y: </span><span class="n">x</span> <span class="p">},</span> <span class="ss">format: :json</span>
+</code></pre></div></div>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="improved-performance-of-integration-tests"><a href="https://github.com/rails/rails/commit/1fb9e6eff71eb84b6cb620282c15b7b89d8e70c1">Improved performance of integration tests</a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">delegate</code> turned out to be a bottleneck at the URL generation in the integration tests. With this patch the integration tests of the applications should have a speedup.</p>
+
+<h3 id="allow-hyphenated-names-for-plugins"><a href="https://github.com/rails/rails/pull/13601">Allow hyphenated names for plugins</a></h3>
+
+<p>From now on you can generate a Rails plugin with a hyphenated name (i.e. namespaced engines).</p>
+
+<h2 id="deprecated">Deprecated</h2>
+
+<h3 id="_via_redirect-integration-test-methods-are-deprecated"><a href="https://github.com/rails/rails/pull/18693">*_via_redirect integration test methods are deprecated</a></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">*_via_redirect</code> methods are deprecated but do not fear, you can use <code class="language-plaintext highlighter-rouge">follow_redirect!</code> in your test suite for the same behaviour.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="fixed-http-basic-authentication-nil-issue"><a href="https://github.com/rails/rails/pull/18666">Fixed HTTP basic authentication nil issue</a></h3>
+
+<p>When <code class="language-plaintext highlighter-rouge">request.authorization</code> returned <code class="language-plaintext highlighter-rouge">nil</code>, Rails raised a <code class="language-plaintext highlighter-rouge">NoMethodError</code>, but this is fixed now.</p>
+
+<h3 id="arrelationgroup-accepts-sql-reserved-keywords"><a href="https://github.com/rails/rails/pull/18722">AR::Relation#group accepts SQL reserved keywords</a></h3>
+
+<p>This patch allows you to group by SQL reserved keywords with the <code class="language-plaintext highlighter-rouge">group</code> method of Active Record.</p>
+
+<h2 id="one-more-thing">One More Thing™</h2>
+
+<h3 id="arthur-nogueira-neves-is-a-rails-committer"><a href="https://twitter.com/rails/status/561240742199586816">Arthur Nogueira Neves is a Rails Committer</a></h3>
+
+<p>Please welcome our newest Rails Committer!</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s all for <em>This week in Rails</em>. As always, there are more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails">check them out</a> yourself!</p>
+
+<p>P.S. If you enjoyed this newsletter, why not <a href="https://rails-weekly.ongoodbits.com">share it with your friends</a>? :) If you wish to be part of this project please don’t hesitate to contact <a href="mailto:godfrey@brewhouse.io">Godfrey</a> – there’re a lot of ways you could help make this newsletter more awesome!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

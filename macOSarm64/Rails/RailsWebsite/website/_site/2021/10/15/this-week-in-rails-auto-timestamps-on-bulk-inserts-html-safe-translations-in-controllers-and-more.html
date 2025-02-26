@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Auto timestamps on bulk inserts, HTML safe translations in controllers and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey, Wojtek here with last week updates from the Ruby on Rails world." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Auto timestamps on bulk inserts, HTML safe translations in controllers and more" />
+  <meta property="og:description" content="Hey, Wojtek here with last week updates from the Ruby on Rails world." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2021/10/15/this-week-in-rails-auto-timestamps-on-bulk-inserts-html-safe-translations-in-controllers-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Auto timestamps on bulk inserts, HTML safe translations in controllers and more" />
+  <meta name="twitter:description" content="Hey, Wojtek here with last week updates from the Ruby on Rails world." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2021/10/15/this-week-in-rails-auto-timestamps-on-bulk-inserts-html-safe-translations-in-controllers-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Auto timestamps on bulk inserts, HTML safe translations in controllers and more",
+      "description": "Hey, Wojtek here with last week updates from the Ruby on Rails world.",
+      "url": "http://localhost:4000/2021/10/15/this-week-in-rails-auto-timestamps-on-bulk-inserts-html-safe-translations-in-controllers-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "morgoth85"
+      },
+      "datePublished": "2021-10-15T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, October 15, 2021</h5>
+        <h2>Auto timestamps on bulk inserts, HTML safe translations in controllers and more</h2>
+
+        <h6>Posted by morgoth85</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey, <a href="https://twitter.com/morgoth85">Wojtek</a> here with last week updates from the Ruby on Rails world.</p>
+
+<h3 id="set-timestamps-on-insert_allupsert_all-record-creation"><a href="https://github.com/rails/rails/pull/43003">Set timestamps on insert_all/upsert_all record creation</a></h3>
+<p>The timestamps will be automatically set when using bulk insert/upsert. This behaviour can be disabled by the <em>record_timestamps</em> config on the model class.</p>
+
+<h3 id="treat-html-suffix-in-controller-translation"><a href="https://github.com/rails/rails/pull/43415">Treat html suffix in controller translation</a></h3>
+<p>When translation key ending with _<em>html</em> is used it will be marked as HTML safe in the same way as in the views.</p>
+
+<h3 id="add-support-for-filter-clause-to-arel"><a href="https://github.com/rails/rails/pull/40491">Add support for FILTER clause to Arel</a></h3>
+<p>Can be used with PostgreSQL and SQlite databases to use <a href="https://modern-sql.com/feature/filter">FILTER clause</a>.</p>
+
+<h3 id="better-action-text-plain-text-output-for-nested-lists"><a href="https://github.com/rails/rails/pull/37976">Better Action Text plain text output for nested lists</a></h3>
+<p>Fixed an issue with how nested lists were displayed when converting to plain text.</p>
+
+<h3 id="add-support-for-custom-csrf-strategies"><a href="https://github.com/rails/rails/pull/43444">Add support for custom CSRF strategies.</a></h3>
+<p>Can be used via <em>protect_from_forgery with: CustomStrategy</em> among built in options: <em>exception, reset_session, null_session</em>.</p>
+
+<h3 id="clear-secure-password-cache-if-password-is-set-to-nil"><a href="https://github.com/rails/rails/pull/43378">Clear secure password cache if password is set to nil</a></h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user.password = 'something'
+user.password = nil
+# before:
+user.password # =&gt; 'something'    
+# now:
+user.password # =&gt; nil  
+</code></pre></div></div>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20211010-20211015">29 people</a> contributed to Rails since the last time. All the changes can be checked <a href="https://github.com/rails/rails/compare/@%7B2021-10-11%7D...main@%7B2021-10-15%7D">here</a>. Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

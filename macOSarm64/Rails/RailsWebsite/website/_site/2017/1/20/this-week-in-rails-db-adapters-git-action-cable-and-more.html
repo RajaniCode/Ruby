@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: DB adapters, Git, Action Cable and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone! This is Roque bringing the latest news from the Rails community." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: DB adapters, Git, Action Cable and more!" />
+  <meta property="og:description" content="Hello everyone! This is Roque bringing the latest news from the Rails community." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/1/20/this-week-in-rails-db-adapters-git-action-cable-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: DB adapters, Git, Action Cable and more!" />
+  <meta name="twitter:description" content="Hello everyone! This is Roque bringing the latest news from the Rails community." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/1/20/this-week-in-rails-db-adapters-git-action-cable-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: DB adapters, Git, Action Cable and more!",
+      "description": "Hello everyone! This is Roque bringing the latest news from the Rails community.",
+      "url": "http://localhost:4000/2017/1/20/this-week-in-rails-db-adapters-git-action-cable-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "repinel"
+      },
+      "datePublished": "2017-01-20T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, January 20, 2017</h5>
+        <h2>This Week in Rails: DB adapters, Git, Action Cable and more!</h2>
+
+        <h6>Posted by repinel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone! This is <a href="https://twitter.com/repinel">Roque</a> bringing the latest news from the Rails community.</p>
+
+<p>Remember, today is the last day to submit your RailsConf proposal. You have until 11:59 p.m. MST!</p>
+
+<p>Now, let’s get started!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20170114-20170120">This Week’s Rails Contributors</a></h3>
+
+<p>This week 33 people contributed to Rails. We also got 4 first time contributors. Welcome aboard folks and keep it going!</p>
+
+<h3 id="sql-server-adapter-released-for-rails-5"><a href="https://github.com/rails/rails/pull/27695">SQL Server adapter released for Rails 5</a></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">5.0.x</code> version of the adapter is only for the latest <code class="language-plaintext highlighter-rouge">5.0</code> version of Rails. If you need the adapter for an older version of Rails, just install the latest version of the adapter that matches your Rails version (<code class="language-plaintext highlighter-rouge">3.2.x</code> to <code class="language-plaintext highlighter-rouge">4.1.x</code>).</p>
+
+<h3 id="git-repo-in-new-rails-projects"><a href="https://github.com/rails/rails/pull/27632">Git repo in new Rails projects</a></h3>
+
+<p>New projects will now be generated with a Git repo by default. Please use the option <code class="language-plaintext highlighter-rouge">--skip-git</code> if you choose to skip it.</p>
+
+<h3 id="foreign-key-support-for-sqlite"><a href="https://github.com/rails/rails/pull/24743">Foreign Key Support for SQLite</a></h3>
+
+<p>Adds foreign key support for SQLite <code class="language-plaintext highlighter-rouge">3.6.19</code> (or greater) in create statements.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="improve-the-asnumericwithformatto_s-memory-allocation"><a href="https://github.com/rails/rails/pull/27736">Improve the <code class="language-plaintext highlighter-rouge">AS::NumericWithFormat#to_s</code> memory allocation</a></h3>
+
+<p>Thanks to some good profiling, <code class="language-plaintext highlighter-rouge">ActiveSupport::NumericWithFormat#to_s</code> should behave better and not allocate too many objects. 🔎</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="add-channel-prefix-support-to-action-cable-redis-adapter"><a href="https://github.com/rails/rails/pull/27425">Add channel prefix support to Action Cable Redis adapter</a></h3>
+
+<p>Without channel prefix in Redis, apps using the same Redis server could have their communication compromised. You can now set the option <code class="language-plaintext highlighter-rouge">channel_prefix</code> in your <code class="language-plaintext highlighter-rouge">cable.yml</code> file. Please check the <a href="https://github.com/rails/rails/pull/27425">PR</a> for details.</p>
+
+<h3 id="make-all-rails-commands-work-in-engines"><a href="https://github.com/rails/rails/pull/27601">Make all Rails commands work in engines</a></h3>
+
+<p>The following commands are now working in engines: <code class="language-plaintext highlighter-rouge">server</code>, <code class="language-plaintext highlighter-rouge">console</code>, <code class="language-plaintext highlighter-rouge">dbconsole</code> and <code class="language-plaintext highlighter-rouge">runner</code>.</p>
+
+<h3 id="generate-migrations-at-custom-path"><a href="https://github.com/rails/rails/pull/27674">Generate migrations at custom path</a></h3>
+
+<p>New database migrations will be generated at the path set by <code class="language-plaintext highlighter-rouge">config.paths["db/migrate"]</code> if the option is defined.</p>
+
+<h3 id="fix-moduleparent_name-on-a-frozen-module"><a href="https://github.com/rails/rails/pull/27713">Fix <code class="language-plaintext highlighter-rouge">Module#parent_name</code> on a frozen module</a></h3>
+
+<p>The method would throw a runtime error when called for a frozen module.</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s it from This Week in Rails! There were many other great contributions, too numerous to list here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2017-01-14%7D...@%7B2017-01-20%7D">check them out!</a></p>
+
+<p>Until next week!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

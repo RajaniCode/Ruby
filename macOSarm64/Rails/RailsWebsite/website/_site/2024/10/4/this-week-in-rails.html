@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Make Float distinguish between float4 and float8 in PostgreSQL and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s Greg, bringing to you the latest changes from Rails, while recovering from an amazing Rails World experience.Make ActionController::AllowBrowser::BrowserBlocker privateTo reduce the API surface area of the allow_browser feature, this commit marks the class as private API.Change ActiveSupport::HashWithIndifferentAccess#stringify_keys to stringify all keys not just symbolsThis pull request changes ActiveSupport::HashWithIndifferentAccess#stringify_keysto stringify all keys, not just symbols.Before the change:{ 1 =&gt; 2 }.with_indifferent_access.stringify_keys[1] # =&gt; 2After this change:{ 1 =&gt; 2 }.with_indifferent_access.stringify_keys["1"] # =&gt; 2Make Float distinguish between float4 and float8 in PostgreSQLThis pull request fixes the issue when dumping a PostgreSQL schema that includes a float4 column (defined as float(24)), the column is represented as float in the generated schema dump. However, when loading this schema, the float4 column is converted to float8.Allow ActiveRecord::QueryMethods#pluck to accept hash args with symbol &amp; string valuesThe pluck was recently changed to accept hash values as an argument, and thispull request enables to use symbol and string hash values when using the method.Raise an error when invalid :on or :except options are given to #resource or #resourcesThis pull requests changes these routing helpers to raise an error when anon-existing option is passed to on or except.You can view the whole list of changes here.We had 37 contributors to the Rails codebase this past week!Until next time!Subscribe to get these updates mailed to you." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Make Float distinguish between float4 and float8 in PostgreSQL and more" />
+  <meta property="og:description" content="Hi, it’s Greg, bringing to you the latest changes from Rails, while recovering from an amazing Rails World experience.Make ActionController::AllowBrowser::BrowserBlocker privateTo reduce the API surface area of the allow_browser feature, this commit marks the class as private API.Change ActiveSupport::HashWithIndifferentAccess#stringify_keys to stringify all keys not just symbolsThis pull request changes ActiveSupport::HashWithIndifferentAccess#stringify_keysto stringify all keys, not just symbols.Before the change:{ 1 =&gt; 2 }.with_indifferent_access.stringify_keys[1] # =&gt; 2After this change:{ 1 =&gt; 2 }.with_indifferent_access.stringify_keys["1"] # =&gt; 2Make Float distinguish between float4 and float8 in PostgreSQLThis pull request fixes the issue when dumping a PostgreSQL schema that includes a float4 column (defined as float(24)), the column is represented as float in the generated schema dump. However, when loading this schema, the float4 column is converted to float8.Allow ActiveRecord::QueryMethods#pluck to accept hash args with symbol &amp; string valuesThe pluck was recently changed to accept hash values as an argument, and thispull request enables to use symbol and string hash values when using the method.Raise an error when invalid :on or :except options are given to #resource or #resourcesThis pull requests changes these routing helpers to raise an error when anon-existing option is passed to on or except.You can view the whole list of changes here.We had 37 contributors to the Rails codebase this past week!Until next time!Subscribe to get these updates mailed to you." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/10/4/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Make Float distinguish between float4 and float8 in PostgreSQL and more" />
+  <meta name="twitter:description" content="Hi, it’s Greg, bringing to you the latest changes from Rails, while recovering from an amazing Rails World experience.Make ActionController::AllowBrowser::BrowserBlocker privateTo reduce the API surface area of the allow_browser feature, this commit marks the class as private API.Change ActiveSupport::HashWithIndifferentAccess#stringify_keys to stringify all keys not just symbolsThis pull request changes ActiveSupport::HashWithIndifferentAccess#stringify_keysto stringify all keys, not just symbols.Before the change:{ 1 =&gt; 2 }.with_indifferent_access.stringify_keys[1] # =&gt; 2After this change:{ 1 =&gt; 2 }.with_indifferent_access.stringify_keys["1"] # =&gt; 2Make Float distinguish between float4 and float8 in PostgreSQLThis pull request fixes the issue when dumping a PostgreSQL schema that includes a float4 column (defined as float(24)), the column is represented as float in the generated schema dump. However, when loading this schema, the float4 column is converted to float8.Allow ActiveRecord::QueryMethods#pluck to accept hash args with symbol &amp; string valuesThe pluck was recently changed to accept hash values as an argument, and thispull request enables to use symbol and string hash values when using the method.Raise an error when invalid :on or :except options are given to #resource or #resourcesThis pull requests changes these routing helpers to raise an error when anon-existing option is passed to on or except.You can view the whole list of changes here.We had 37 contributors to the Rails codebase this past week!Until next time!Subscribe to get these updates mailed to you." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/10/4/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Make Float distinguish between float4 and float8 in PostgreSQL and more",
+      "description": "Hi, it’s Greg, bringing to you the latest changes from Rails, while recovering from an amazing Rails World experience.Make ActionController::AllowBrowser::BrowserBlocker privateTo reduce the API surface area of the allow_browser feature, this commit marks the class as private API.Change ActiveSupport::HashWithIndifferentAccess#stringify_keys to stringify all keys not just symbolsThis pull request changes ActiveSupport::HashWithIndifferentAccess#stringify_keysto stringify all keys, not just symbols.Before the change:{ 1 =&gt; 2 }.with_indifferent_access.stringify_keys[1] # =&gt; 2After this change:{ 1 =&gt; 2 }.with_indifferent_access.stringify_keys["1"] # =&gt; 2Make Float distinguish between float4 and float8 in PostgreSQLThis pull request fixes the issue when dumping a PostgreSQL schema that includes a float4 column (defined as float(24)), the column is represented as float in the generated schema dump. However, when loading this schema, the float4 column is converted to float8.Allow ActiveRecord::QueryMethods#pluck to accept hash args with symbol &amp; string valuesThe pluck was recently changed to accept hash values as an argument, and thispull request enables to use symbol and string hash values when using the method.Raise an error when invalid :on or :except options are given to #resource or #resourcesThis pull requests changes these routing helpers to raise an error when anon-existing option is passed to on or except.You can view the whole list of changes here.We had 37 contributors to the Rails codebase this past week!Until next time!Subscribe to get these updates mailed to you.",
+      "url": "http://localhost:4000/2024/10/4/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "Greg"
+      },
+      "datePublished": "2024-10-04T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, October 4, 2024</h5>
+        <h2>Make Float distinguish between float4 and float8 in PostgreSQL and more</h2>
+
+        <h6>Posted by Greg</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://greg.molnar.io">Greg</a>, bringing to you the latest changes from Rails, while recovering from an amazing Rails World experience.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53131">Make <em>ActionController::AllowBrowser::BrowserBlocker</em> private</a><br />
+To reduce the API surface area of the <code class="language-plaintext highlighter-rouge">allow_browser</code> feature, this commit marks the class as private API.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53125">Change <em>ActiveSupport::HashWithIndifferentAccess#stringify_keys</em> to stringify all keys not just symbols</a><br />
+This pull request changes <code class="language-plaintext highlighter-rouge">ActiveSupport::HashWithIndifferentAccess#stringify_keys</code>to stringify all keys, not just symbols.<br />
+Before the change:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="p">}.</span><span class="nf">with_indifferent_access</span><span class="p">.</span><span class="nf">stringify_keys</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># =&gt; 2</span>
+</code></pre></div></div>
+
+<p>After this change:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span> <span class="mi">1</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="p">}.</span><span class="nf">with_indifferent_access</span><span class="p">.</span><span class="nf">stringify_keys</span><span class="p">[</span><span class="s2">"1"</span><span class="p">]</span> <span class="c1"># =&gt; 2</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/53107">Make Float distinguish between <em>float4</em> and <em>float8</em> in PostgreSQL</a><br />
+This pull request fixes the issue when dumping a PostgreSQL schema that includes a <em>float4</em> column (defined as <em>float(24)</em>), the column is represented as <em>float</em> in the generated schema dump. However, when loading this schema, the <em>float4</em> column is converted to float8.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51676">Allow <em>ActiveRecord::QueryMethods#pluck</em> to accept hash args with symbol &amp; string values</a><br />
+The <code class="language-plaintext highlighter-rouge">pluck</code> was recently changed to accept hash values as an argument, and this
+pull request enables to use symbol and string hash values when using the method.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51464">Raise an error when invalid <em>:on</em> or <em>:except</em> options are given to <em>#resource</em> or <em>#resources</em></a><br />
+This pull requests changes these routing helpers to raise an error when a
+non-existing option is passed to <code class="language-plaintext highlighter-rouge">on</code> or <code class="language-plaintext highlighter-rouge">except</code>.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-09-27%7D...main@%7B2024-10-04%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240927-20241004">37 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

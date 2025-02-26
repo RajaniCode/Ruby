@@ -1,0 +1,19 @@
+2. It
+
+
+Now create a pending test called "can set status".
+
+
+tweet.rb
+class Tweet
+end
+
+
+tweet_spec.rb
+
+
+Answer:
+tweet_spec.rb
+describe Tweet do
+  it "can set status"  
+end

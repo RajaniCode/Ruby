@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 5.2.0 RC2: Active Storage, Redis Cache Store, HTTP/2 Early Hints, CSP, Credentials</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="It’s almost time for RailsConf, and we’re determined to get the final version of Rails 5.2 released before then.So here’s the hopefully last release candidate before that can happen. We’ve put a ton of into ironing out all the issues with Active Storagein particular, now that more and more applications are starting to use it in production." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 5.2.0 RC2: Active Storage, Redis Cache Store, HTTP/2 Early Hints, CSP, Credentials" />
+  <meta property="og:description" content="It’s almost time for RailsConf, and we’re determined to get the final version of Rails 5.2 released before then.So here’s the hopefully last release candidate before that can happen. We’ve put a ton of into ironing out all the issues with Active Storagein particular, now that more and more applications are starting to use it in production." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2018/3/21/Rails-5-2-RC2" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 5.2.0 RC2: Active Storage, Redis Cache Store, HTTP/2 Early Hints, CSP, Credentials" />
+  <meta name="twitter:description" content="It’s almost time for RailsConf, and we’re determined to get the final version of Rails 5.2 released before then.So here’s the hopefully last release candidate before that can happen. We’ve put a ton of into ironing out all the issues with Active Storagein particular, now that more and more applications are starting to use it in production." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2018/3/21/Rails-5-2-RC2"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 5.2.0 RC2: Active Storage, Redis Cache Store, HTTP/2 Early Hints, CSP, Credentials",
+      "description": "It’s almost time for RailsConf, and we’re determined to get the final version of Rails 5.2 released before then.So here’s the hopefully last release candidate before that can happen. We’ve put a ton of into ironing out all the issues with Active Storagein particular, now that more and more applications are starting to use it in production.",
+      "url": "http://localhost:4000/2018/3/21/Rails-5-2-RC2",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2018-03-21T02:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, March 21, 2018</h5>
+        <h2>Rails 5.2.0 RC2: Active Storage, Redis Cache Store, HTTP/2 Early Hints, CSP, Credentials</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>It’s almost time for <a href="https://railsconf.com">RailsConf</a>, and we’re determined to get the final version of Rails 5.2 released before then.
+So here’s the hopefully last release candidate before that can happen. We’ve put a ton of into ironing out all the issues with Active Storage
+in particular, now that more and more applications are starting to use it in production.</p>
+
+<p>You can peruse the <a href="https://github.com/rails/rails/compare/v5.2.0.rc1...v5.2.0.rc2">nearly 200 commits</a> since the first release candidate from the beginning of the year to see everything that has been fixed.</p>
+
+<p>If you’re about to start a new application, I feel confident enough in this release to recommend that you should base it off this RC2. 
+If you like to keep up with the latest release, now is also a great time to update your existing application.</p>
+
+<p>You can read in even more detail about everything that’s <a href="http://edgeguides.rubyonrails.org/5_2_release_notes.html">new in Rails 5.2 in the newly finished release notes</a>.</p>
+
+<p>Enjoy Rails 5.2 and hope to see a good portion of everybody at RailsConf in a month or so!</p>
+
+<h2 id="recap-of-the-highlights-of-rails-52-from-the-beta-announcement">Recap of the highlights of Rails 5.2 from the beta announcement</h2>
+
+<p>It’s been too hard to deal with file uploads in Rails for too long. Sure, there’s been a lot of fine plugins available,
+but it was overdue that we incorporated something right into the framework. So now we have!</p>
+
+<p>With the new <a href="https://github.com/rails/rails/blob/d3893ec38ec61282c2598b01a298124356d6b35a/activestorage/README.md">Active Storage</a>
+framework in Rails 5.2, we’ve solved for the modern approach of uploading files straight to the cloud. Out of the box,
+there’s support for Amazon’s S3, Google’s Cloud Storage, and Microsoft Azure Cloud File Storage.</p>
+
+<p>If you’re dealing with images, you can create variants on the fly. If you’re dealing with videos or PDFs, you can create
+previews on the fly. And regardless of the type, you can analyze uploads for metadata extraction asynchronously.</p>
+
+<p>Active Storage was extracted from Basecamp 3 by George Claghorn and yours truly. So not only is the framework already
+used in production, it was born from production. There’s that Extraction Design guarantee stamp alright!</p>
+
+<p>Speaking of extractions, Jeremy Daer has untangled the long jungle twine of hacks we were using at Basecamp to employ
+Redis for general partial, fragment, and other Rails caching jobs. There’s a sparkling new <a href="https://github.com/rails/rails/pull/31134">Redis Cache Store</a>
+that incorporates all those years of veteran hacks into a cohesive unit that anyone can use.</p>
+
+<p>This new Redis Cache Store supports Redis::Distributed, for Memcached-like sharding across Redises. It’s fault tolerant,
+so will treat failures like misses, rather than kill the request with an exception. It even supports distributed MGETs
+for that full partial collection caching goodness.</p>
+
+<p>This comes together with a massive leap forward for cache efficiency with <a href="https://github.com/rails/rails/pull/29092">key recycling</a>
+and <a href="https://github.com/rails/rails/pull/31147">compression</a> both available by default. For Basecamp, it meant improving
+the cache lifetime by two orders of magnitude! We went from having caches trashed in as little as a day to having
+caches last for months. If you’re using partial caching and the nesting doll strategy, your cache lifetime will improve
+dramatically between these two changes.</p>
+
+<p>We’ve also embraced the cherry of HTTP/2 with <a href="https://github.com/rails/rails/pull/30744">early hints</a> through the work
+of Aaron Patterson and Eileen Uchitelle. This means we can automatically instruct the web server to send required style
+sheet and JavaScript assets early. Which means faster full page delivery, as who wouldn’t want that?</p>
+
+<p>On the topic of performance, Rails now ships with <a href="https://github.com/Shopify/bootsnap">Bootsnap</a> in the default <code class="language-plaintext highlighter-rouge">Gemfile</code>, created by our friends at Shopify. It generally reduces application boot times by over 50%.</p>
+
+<p>Rails has always been in the forefront of making your web applications more secure, leading the way with built-in CSRF
+and XSS protection and we’ve enhanced that further in Rails 5.2 with <a href="https://github.com/rails/rails/pull/31162">the addition of a new DSL</a>
+that allows you to configure a <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy">Content Security Policy</a>
+for your application. You can configure a global default policy and then override it on a per-resource basis and even
+use lambdas to inject per-request values into the header such as account subdomains in a multi-tenant application.</p>
+
+<p>But it’s not all just new starry-eyed wonders. In Rails 5.1, we added <a href="https://github.com/rails/rails/pull/28038">encrypted secrets</a>.
+These secrets were like the old secrets but, uhm, more secret, because, you know, ENCRYPTION! Confusing? Yes. Why would
+you want secrets that weren’t really secret? Well, you don’t.</p>
+
+<p>In Rails 5.2, we’ve rectified the mess by deprecating the two different kinds of secrets and introduced a new shared
+concept called <a href="https://github.com/rails/rails/pull/30067">Credentials</a>. Credentials, like AWS access keys and other forms of logins and passwords, were the dominant
+use case for secrets, so why not just call a spade a spade. So spade it is!</p>
+
+<p>Credentials are always encrypted. This means they’re safe to check into revision control, as long as you keep the key
+out of it. That means atomic deploys, no need to mess with a flurry of environment variables, and other benefits of having all
+credentials that the app needs in one place, safe and secure.</p>
+
+<p>In addition, we’ve opened up the API underlying Credentials, so you can easily deal with other encrypted configurations,
+keys, and files.</p>
+
+<p>Since Rails 5.1, we’ve also made great strides with <a href="https://github.com/rails/webpacker">Webpacker</a>. So Rails 5.2 is
+meant to pair beautifully with the new Webpacker 3.0 release. Rails has fully embraced modern JavaScript with a
+pre-configured build pipeline run by Webpack. We keep strengthening that relationship.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+4. Subject with Lets
+
+
+Rather than declaring our zombie directly in the subject block as we're doing here, move it into its own let named zombie and update the subject to reference this new zombie.
+
+
+tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+end
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  validates :name, presence: true
+  has_many :tweets
+	
+  def latest_tweet
+    self.tweets.first
+  end
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  let(:tweet) { Tweet.new }
+  subject { Zombie.new(tweets: [tweet]) }
+
+  its(:tweets) { should include(tweet) }
+  its(:latest_tweet) { should == tweet } 
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  let(:tweet) { Tweet.new }
+  let(:zombie) { Zombie.new(tweets: [tweet]) }
+  subject {zombie}
+  its(:tweets) { should include(tweet) }
+  its(:latest_tweet) { should == tweet } 
+end
+

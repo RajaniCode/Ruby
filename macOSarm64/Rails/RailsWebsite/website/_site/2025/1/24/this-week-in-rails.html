@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Devcontainers without VSCode, a deprecation and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s Greg. Let’s explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Devcontainers without VSCode, a deprecation and more!" />
+  <meta property="og:description" content="Hi, it’s Greg. Let’s explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2025/1/24/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Devcontainers without VSCode, a deprecation and more!" />
+  <meta name="twitter:description" content="Hi, it’s Greg. Let’s explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2025/1/24/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Devcontainers without VSCode, a deprecation and more!",
+      "description": "Hi, it’s Greg. Let’s explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2025/1/24/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "Greg"
+      },
+      "datePublished": "2025-01-24T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, January 24, 2025</h5>
+        <h2>Devcontainers without VSCode, a deprecation and more!</h2>
+
+        <h6>Posted by Greg</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://greg.molnar.io">Greg</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54333">Eliminate queries loading dumped model schema on Postgres</a><br />
+This pull request improves resiliency by avoiding the need to open a database connection to load the type map, while defining attribute methods at boot, when a schema cache file is configured on PostgreSQL databases.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54303">Allow passing in a date or time to ActiveSupport::Testing::TimeHelpers#freeze_time</a><br />
+This change allows the <code class="language-plaintext highlighter-rouge">#freeze_time</code> testing helper to accept a date or time argument.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="no">Time</span><span class="p">.</span><span class="nf">current</span> <span class="c1"># =&gt; Sun, 09 Jul 2024 15:34:49 EST -05:00</span>
+    <span class="n">freeze_time</span> <span class="no">Time</span><span class="p">.</span><span class="nf">current</span> <span class="o">+</span> <span class="mi">1</span><span class="p">.</span><span class="nf">day</span>
+    <span class="nb">sleep</span> <span class="mi">1</span>
+    <span class="no">Time</span><span class="p">.</span><span class="nf">current</span> <span class="c1"># =&gt; Mon, 10 Jul 2024 15:34:49 EST -05:00</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/54298">Make column name optional for <em>index_exists?</em></a><br />
+This pull request makes the column name optional for <code class="language-plaintext highlighter-rouge">index_exists?</code>. It aligns well with <code class="language-plaintext highlighter-rouge">remove_index</code> signature, where the index name doesn’t need to be derived from the column names.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54285">Add a script for using dev containers outside VSCode</a><br />
+I you want to use the devcontainer info, but don’t want to use VSCode, the small script added by this pull request will be handy. It reads the devcontainer JSON file and runs docker commands based on the information in the JSON file.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54257">Add <em>application-name</em> metadata to application layout</a><br />
+To better support Progressive Web Apps(PWAs), this pull request adds an
+<code class="language-plaintext highlighter-rouge">application-name</code> meta tag to application layout.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54172">JSON serialized attributes can return symbolized keys</a><br />
+With this change, options can now be passed to <code class="language-plaintext highlighter-rouge">ActiveRecord::Coder::JSON</code> when instantiating the coder. This allows to pass in the <code class="language-plaintext highlighter-rouge">symbolize_names</code> option for instance:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">serialize</span> <span class="ss">:config</span><span class="p">,</span> <span class="ss">coder: </span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Coder</span><span class="o">::</span><span class="no">JSON</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">symbolize_names: </span><span class="kp">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/53920">Deprecate <em>insert_all</em> with unpersisted associations</a><br />
+This pull request deprecates using <code class="language-plaintext highlighter-rouge">insert_all</code>/<code class="language-plaintext highlighter-rouge">upsert_all</code> with unpersisted records in associations. Using these methods on associations containing unpersisted records will now show a deprecation warning, as the unpersisted records will be lost after the operation. This will become an error in Rails 8.2.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2025-01-17%7D...main@%7B2025-01-24%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20250117-20250124">34 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

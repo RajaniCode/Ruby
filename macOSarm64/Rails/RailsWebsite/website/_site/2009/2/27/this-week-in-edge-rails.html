@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Edge Rails</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="February 14, 2009 &#8211; February 27, 2009The sharp-eyed will notice that This Week covers two weeks this week. As Rails 2.3 approaches release, the core team is getting pickier about what goes into the source code, and is concentrating on fixing bugs. You can expect to see Rails 2.3 RC2 very soon, and that may be the last release candidate. So if you haven&#8217;t tested your own applications on Rails 2.3 yet, it&#8217;s time to do so. The edge code is generally stable right now, so it&#8217;s a great time to take a look.Batch ProcessingYou can now process large numbers of records from an ActiveRecord model with less pressure on memory by using find_in_batches:Customer.find_in_batches(:conditions =&gt; {:active =&gt; true}) do |customer_group|  customer_group.each { |customer| customer.update_account_balance! }endYou can pass most of the find options into find_in_batches. However, you cannot specify the order that records will be returned in (they will always be returned in ascending order of primary key, which must be an integer), or use the :limit option. Instead, use the :batch_size option, which defaults to 1000, to set the number of records that will be returned in each batch.The new each method provides a wrapper around find_in_batches that returns individual records, with the find itself being done in batches (of 1000 by default):Customer.each do |customer|  customer.update_account_balance!endNote that you should only use this method when you have enough records to justify batch processing: for small numbers of records (less than 1000), you should just use the regular find methods with your own loop.commitA Note About Template LoadingAfter some extensive work by several authors (here&#8217;s the Lighthouse ticket), Rails 2.3 includes the ability to enable or disable cached templates for any particular environment. Cached templates give you a speed boost because they don&#8217;t check for a new template file when they&#8217;re rendered &#8211; but they also mean that you can&#8217;t replace a template &#8220;on the fly&#8221; without restarting the server.In most cases, you&#8217;ll want template caching to be turned on in production, which you can do by making a setting in your production.rb file:config.action_view.cache_template_loading = trueThis line will be generated for you by default in a new Rails 2.3 application. But please note: if you&#8217;ve upgraded from an older version of Rails, you won&#8217;t have this setting in your production.rb and template caching will be off by default. Unless you really need the ability to update templates in production without restarting the server, you should be sure to add this setting when you upgrade." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Edge Rails" />
+  <meta property="og:description" content="February 14, 2009 &#8211; February 27, 2009The sharp-eyed will notice that This Week covers two weeks this week. As Rails 2.3 approaches release, the core team is getting pickier about what goes into the source code, and is concentrating on fixing bugs. You can expect to see Rails 2.3 RC2 very soon, and that may be the last release candidate. So if you haven&#8217;t tested your own applications on Rails 2.3 yet, it&#8217;s time to do so. The edge code is generally stable right now, so it&#8217;s a great time to take a look.Batch ProcessingYou can now process large numbers of records from an ActiveRecord model with less pressure on memory by using find_in_batches:Customer.find_in_batches(:conditions =&gt; {:active =&gt; true}) do |customer_group|  customer_group.each { |customer| customer.update_account_balance! }endYou can pass most of the find options into find_in_batches. However, you cannot specify the order that records will be returned in (they will always be returned in ascending order of primary key, which must be an integer), or use the :limit option. Instead, use the :batch_size option, which defaults to 1000, to set the number of records that will be returned in each batch.The new each method provides a wrapper around find_in_batches that returns individual records, with the find itself being done in batches (of 1000 by default):Customer.each do |customer|  customer.update_account_balance!endNote that you should only use this method when you have enough records to justify batch processing: for small numbers of records (less than 1000), you should just use the regular find methods with your own loop.commitA Note About Template LoadingAfter some extensive work by several authors (here&#8217;s the Lighthouse ticket), Rails 2.3 includes the ability to enable or disable cached templates for any particular environment. Cached templates give you a speed boost because they don&#8217;t check for a new template file when they&#8217;re rendered &#8211; but they also mean that you can&#8217;t replace a template &#8220;on the fly&#8221; without restarting the server.In most cases, you&#8217;ll want template caching to be turned on in production, which you can do by making a setting in your production.rb file:config.action_view.cache_template_loading = trueThis line will be generated for you by default in a new Rails 2.3 application. But please note: if you&#8217;ve upgraded from an older version of Rails, you won&#8217;t have this setting in your production.rb and template caching will be off by default. Unless you really need the ability to update templates in production without restarting the server, you should be sure to add this setting when you upgrade." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/2/27/this-week-in-edge-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Edge Rails" />
+  <meta name="twitter:description" content="February 14, 2009 &#8211; February 27, 2009The sharp-eyed will notice that This Week covers two weeks this week. As Rails 2.3 approaches release, the core team is getting pickier about what goes into the source code, and is concentrating on fixing bugs. You can expect to see Rails 2.3 RC2 very soon, and that may be the last release candidate. So if you haven&#8217;t tested your own applications on Rails 2.3 yet, it&#8217;s time to do so. The edge code is generally stable right now, so it&#8217;s a great time to take a look.Batch ProcessingYou can now process large numbers of records from an ActiveRecord model with less pressure on memory by using find_in_batches:Customer.find_in_batches(:conditions =&gt; {:active =&gt; true}) do |customer_group|  customer_group.each { |customer| customer.update_account_balance! }endYou can pass most of the find options into find_in_batches. However, you cannot specify the order that records will be returned in (they will always be returned in ascending order of primary key, which must be an integer), or use the :limit option. Instead, use the :batch_size option, which defaults to 1000, to set the number of records that will be returned in each batch.The new each method provides a wrapper around find_in_batches that returns individual records, with the find itself being done in batches (of 1000 by default):Customer.each do |customer|  customer.update_account_balance!endNote that you should only use this method when you have enough records to justify batch processing: for small numbers of records (less than 1000), you should just use the regular find methods with your own loop.commitA Note About Template LoadingAfter some extensive work by several authors (here&#8217;s the Lighthouse ticket), Rails 2.3 includes the ability to enable or disable cached templates for any particular environment. Cached templates give you a speed boost because they don&#8217;t check for a new template file when they&#8217;re rendered &#8211; but they also mean that you can&#8217;t replace a template &#8220;on the fly&#8221; without restarting the server.In most cases, you&#8217;ll want template caching to be turned on in production, which you can do by making a setting in your production.rb file:config.action_view.cache_template_loading = trueThis line will be generated for you by default in a new Rails 2.3 application. But please note: if you&#8217;ve upgraded from an older version of Rails, you won&#8217;t have this setting in your production.rb and template caching will be off by default. Unless you really need the ability to update templates in production without restarting the server, you should be sure to add this setting when you upgrade." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/2/27/this-week-in-edge-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Edge Rails",
+      "description": "February 14, 2009 &#8211; February 27, 2009The sharp-eyed will notice that This Week covers two weeks this week. As Rails 2.3 approaches release, the core team is getting pickier about what goes into the source code, and is concentrating on fixing bugs. You can expect to see Rails 2.3 RC2 very soon, and that may be the last release candidate. So if you haven&#8217;t tested your own applications on Rails 2.3 yet, it&#8217;s time to do so. The edge code is generally stable right now, so it&#8217;s a great time to take a look.Batch ProcessingYou can now process large numbers of records from an ActiveRecord model with less pressure on memory by using find_in_batches:Customer.find_in_batches(:conditions =&gt; {:active =&gt; true}) do |customer_group|  customer_group.each { |customer| customer.update_account_balance! }endYou can pass most of the find options into find_in_batches. However, you cannot specify the order that records will be returned in (they will always be returned in ascending order of primary key, which must be an integer), or use the :limit option. Instead, use the :batch_size option, which defaults to 1000, to set the number of records that will be returned in each batch.The new each method provides a wrapper around find_in_batches that returns individual records, with the find itself being done in batches (of 1000 by default):Customer.each do |customer|  customer.update_account_balance!endNote that you should only use this method when you have enough records to justify batch processing: for small numbers of records (less than 1000), you should just use the regular find methods with your own loop.commitA Note About Template LoadingAfter some extensive work by several authors (here&#8217;s the Lighthouse ticket), Rails 2.3 includes the ability to enable or disable cached templates for any particular environment. Cached templates give you a speed boost because they don&#8217;t check for a new template file when they&#8217;re rendered &#8211; but they also mean that you can&#8217;t replace a template &#8220;on the fly&#8221; without restarting the server.In most cases, you&#8217;ll want template caching to be turned on in production, which you can do by making a setting in your production.rb file:config.action_view.cache_template_loading = trueThis line will be generated for you by default in a new Rails 2.3 application. But please note: if you&#8217;ve upgraded from an older version of Rails, you won&#8217;t have this setting in your production.rb and template caching will be off by default. Unless you really need the ability to update templates in production without restarting the server, you should be sure to add this setting when you upgrade.",
+      "url": "http://localhost:4000/2009/2/27/this-week-in-edge-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Mike Gunderloy"
+      },
+      "datePublished": "2009-02-27T18:50:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, February 27, 2009</h5>
+        <h2>This Week in Edge Rails</h2>
+
+        <h6>Posted by Mike Gunderloy</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <h3>February 14, 2009 &#8211; February 27, 2009</h3>
+<p>The sharp-eyed will notice that This Week covers two weeks this week. As Rails 2.3 approaches release, the core team is getting pickier about what goes into the source code, and is concentrating on fixing bugs. You can expect to see Rails 2.3 RC2 very soon, and that may be the last release candidate. So if you haven&#8217;t tested your own applications on Rails 2.3 yet, it&#8217;s time to do so. The edge code is generally stable right now, so it&#8217;s a great time to take a look.</p>
+<h2>Batch Processing</h2>
+<p>You can now process large numbers of records from an ActiveRecord model with less pressure on memory by using <code>find_in_batches</code>:</p>
+<pre><code>
+Customer.find_in_batches(:conditions =&gt; {:active =&gt; true}) do |customer_group|
+  customer_group.each { |customer| customer.update_account_balance! }
+end
+</code></pre>
+<p>You can pass most of the <code>find</code> options into <code>find_in_batches</code>. However, you cannot specify the order that records will be returned in (they will always be returned in ascending order of primary key, which must be an integer), or use the <code>:limit</code> option. Instead, use the <code>:batch_size</code> option, which defaults to 1000, to set the number of records that will be returned in each batch.</p>
+<p>The new <code>each</code> method provides a wrapper around <code>find_in_batches</code> that returns individual records, with the find itself being done in batches (of 1000 by default):</p>
+<pre><code>
+Customer.each do |customer|
+  customer.update_account_balance!
+end
+</code></pre>
+<p>Note that you should only use this method when you have enough records to justify batch processing: for small numbers of records (less than 1000), you should just use the regular find methods with your own loop.</p>
+<p><a href="http://github.com/rails/rails/commit/d13623ca46c82120c398f4634e206422fc3ad7ea">commit</a></p>
+<h2>A Note About Template Loading</h2>
+<p>After some extensive work by several authors (here&#8217;s the <a href="http://rails.lighthouseapp.com/projects/8994/tickets/1909">Lighthouse ticket</a>), Rails 2.3 includes the ability to enable or disable cached templates for any particular environment. Cached templates give you a speed boost because they don&#8217;t check for a new template file when they&#8217;re rendered &#8211; but they also mean that you can&#8217;t replace a template &#8220;on the fly&#8221; without restarting the server.</p>
+<p>In most cases, you&#8217;ll want template caching to be turned on in production, which you can do by making a setting in your <code>production.rb</code> file:</p>
+<pre><code>
+config.action_view.cache_template_loading = true
+</code></pre>
+<p>This line will be generated for you by default in a new Rails 2.3 application. But please note: if you&#8217;ve upgraded from an older version of Rails, you won&#8217;t have this setting in your <code>production.rb</code> and template caching will be off by default. Unless you really need the ability to update templates in production without restarting the server, you should be sure to add this setting when you upgrade.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

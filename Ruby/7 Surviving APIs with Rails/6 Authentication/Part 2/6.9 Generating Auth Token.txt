@@ -1,0 +1,60 @@
+6.9 Generating Auth Token
+
+
+The first step to implementing Token Based Auth is to generate a unique authentication token for each user. To do that, we’ll add an ActiveRecord callback to our User model, which runs everytime a new user record is created.
+
+
+app/models/token_generator.rb
+class TokenGenerator
+  def self.create
+    loop do
+      token = SecureRandom.hex
+      break token unless User.exists?(auth_token: token)
+    end
+  end
+end
+
+
+app/models/user.rb
+class User < ActiveRecord::Base
+  before_create :set_auth_token
+
+  private
+
+  def set_auth_token
+    # code here
+  end
+end
+
+
+1. From the set_auth_token method, add a guard clause that immediatelly returns from the method if the auth_token property is already set.
+
+Answer:
+app/models/user.rb
+class User < ActiveRecord::Base
+  before_create :set_auth_token
+
+  private
+
+    def set_auth_token
+      # code here
+      return if auth_token      
+    end
+end
+
+
+2. Now use TokenGenerator.create to set the auth_token property on the User model. If you want to look further at what this method does, you can locate this class on the secondary tab.
+
+Answer:
+app/models/user.rb
+class User < ActiveRecord::Base
+  before_create :set_auth_token
+
+  private
+
+    def set_auth_token
+      # code here
+      return if auth_token 
+      self.auth_token = TokenGenerator.create
+    end
+end

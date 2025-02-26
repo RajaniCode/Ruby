@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Performance improvements, large file uploads to S3 and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello fellow Rubyist!This is Greg, bringing the latest news about the Rails framework!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Performance improvements, large file uploads to S3 and more!" />
+  <meta property="og:description" content="Hello fellow Rubyist!This is Greg, bringing the latest news about the Rails framework!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/5/18/this-week-in-rails-performance-improvements-large-file-uploads-to-s3-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Performance improvements, large file uploads to S3 and more!" />
+  <meta name="twitter:description" content="Hello fellow Rubyist!This is Greg, bringing the latest news about the Rails framework!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2019/5/18/this-week-in-rails-performance-improvements-large-file-uploads-to-s3-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Performance improvements, large file uploads to S3 and more!",
+      "description": "Hello fellow Rubyist!This is Greg, bringing the latest news about the Rails framework!",
+      "url": "http://localhost:4000/2019/5/18/this-week-in-rails-performance-improvements-large-file-uploads-to-s3-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2019-05-18T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, May 18, 2019</h5>
+        <h2>Performance improvements, large file uploads to S3 and more!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello fellow Rubyist!</p>
+
+<p>This is <a href="https://twitter.com/gregmolnar">Greg</a>, bringing the latest news about the Rails framework!</p>
+
+<h3 id="fill-a-trix-editor-easily-in-system-tests"><a href="https://github.com/rails/rails/pull/35885">Fill a Trix editor easily in system tests</a></h3>
+
+<p><em>ActionDispatch::SystemTestCase#fill_in_rich_text_area</em>  can  locate and fill a Trix editor with the given HTML in your system tests.</p>
+
+<h3 id="activerecordrespond_to-performance-improvements"><a href="https://github.com/rails/rails/pull/34197">ActiveRecord#respond_to? performance improvements</a></h3>
+
+<p>The changes introduced by this pull request made <em>ActiveRecord#respond_to?</em>  1.5x faster and it also no longer allocates strings.</p>
+
+<h3 id="permit-uploading-files-larger-than-5-gb-to-s3"><a href="https://github.com/rails/rails/pull/35931">Permit uploading files larger than 5 GB to S3</a></h3>
+
+<p>If you are using S3 with Active Storage, now you can upload large files and the services will transparently switch to streaming.</p>
+
+<h3 id="hashwithindifferentaccessinitialize-performance-improvement"><a href="https://github.com/rails/rails/pull/34642">HashWithIndifferentAccess#initialize performance improvement</a></h3>
+
+<p>With this change, a quite expensive <em>to_hash</em> call is bypassed in the constructor if we are already dealing with a hash.</p>
+
+<h3 id="expose-mailbox_for-method-in-applicationmailbox"><a href="https://github.com/rails/rails/pull/36181">Expose mailbox_for method in ApplicationMailbox</a></h3>
+
+<p>Rails 6 is bringing Action Mailbox and with this change, it will be possible to check which mailbox an email is routed to without processing it.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20190410-20190417">40 people</a> contributed to Rails in the last week. If you want to be part of that, check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>.</p>
+
+<p>Until next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+3. Test Driven Development
+
+
+In a moment we are going to create the multiple_of? in our Multiple module which returns true if a number is a multiple of another number. Finish the test below, asserting that Multiple.multiple_of?(10, 5) returns true. 
+
+
+test/unit/multiple_test.rb
+class MultipleTest < Test::Unit::TestCase
+  def test_multiple_of
+    
+  end
+end
+
+
+Answer:
+test/unit/multiple_test.rb
+class MultipleTest < Test::Unit::TestCase
+  def test_multiple_of
+    assert Multiple.multiple_of?(10, 5)
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.000832s, 1201.7469 tests/s, 2403.4937 assertions/s.

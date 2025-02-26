@@ -1,0 +1,33 @@
+3. Render JSON
+
+
+Objective
+
+Complete the create method below. When @weapon.save is successful it should render the @weapon object in JSON, have status :created, and set the location to the @weapon's show url. When @weapon.save fails it should return the @weapon.errors and have the status :unprocessable_entity.
+
+
+app/controllers/weapons_controller.rb
+class WeaponsController < ApplicationController 
+  def create
+    @weapon = Weapon.new(params[:weapon]) 
+    if @weapon.save
+      render 
+    else
+      render 
+    end
+  end 
+end
+
+
+Answer:
+app/controllers/weapons_controller.rb
+class WeaponsController < ApplicationController 
+  def create
+    @weapon = Weapon.new(params[:weapon]) 
+    if @weapon.save
+      render json: @weapon, status: :created, location: @weapon
+    else
+      render json: @weapon.errors, status: :unprocessable_entity
+    end
+  end 
+end

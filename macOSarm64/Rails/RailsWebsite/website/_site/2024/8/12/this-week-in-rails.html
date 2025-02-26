@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 7.2 released, Thruster by default for Rails 8, new Guides PRs, and much more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey everyone, Happy Monday! Vipul here with the latest updates for This Week in Rails (from last week 😅). Let’s dive in." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 7.2 released, Thruster by default for Rails 8, new Guides PRs, and much more!" />
+  <meta property="og:description" content="Hey everyone, Happy Monday! Vipul here with the latest updates for This Week in Rails (from last week 😅). Let’s dive in." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/8/12/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 7.2 released, Thruster by default for Rails 8, new Guides PRs, and much more!" />
+  <meta name="twitter:description" content="Hey everyone, Happy Monday! Vipul here with the latest updates for This Week in Rails (from last week 😅). Let’s dive in." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/8/12/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 7.2 released, Thruster by default for Rails 8, new Guides PRs, and much more!",
+      "description": "Hey everyone, Happy Monday! Vipul here with the latest updates for This Week in Rails (from last week 😅). Let’s dive in.",
+      "url": "http://localhost:4000/2024/8/12/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "vipulnsward"
+      },
+      "datePublished": "2024-08-12T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, August 12, 2024</h5>
+        <h2>Rails 7.2 released, Thruster by default for Rails 8, new Guides PRs, and much more!</h2>
+
+        <h6>Posted by vipulnsward</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey everyone, Happy Monday! 
+<a href="https://www.saeloun.com/team/vipul">Vipul</a> here with the latest updates for This Week in Rails (from last week 😅). Let’s dive in.</p>
+
+<p><a href="https://rubyonrails.org/2024/8/10/Rails-7-2-0-has-been-released">Rails 7.2 has been released</a><br />
+Rails 7.2 has been released!</p>
+
+<p>Head over to the <a href="https://rubyonrails.org/2024/8/10/Rails-7-2-0-has-been-released">release post</a> for more details, 
+but in short, it ships with better production defaults, Dev containers, new guides design, and much much more!</p>
+
+<p><strong>New Guides Pull Requests for review</strong><br />
+Two new Guides Pull Requests are now open for community review. If you are well versed in Rails Routing, Active Record Associations, please review and submit your feedback here:</p>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/pull/52521">Rails Routing PR</a></li>
+  <li><a href="https://github.com/rails/rails/pull/52523">Active Record Associations PR</a></li>
+</ul>
+
+<p><a href="https://github.com/rails/rails/pull/51793">Use Thruster by default for Rails 8</a><br />
+<a href="https://github.com/basecamp/thruster/">Thruster</a> is an asset compression and caching proxy with X-Sendfile acceleration that speeds up simple production-ready deployments of Rails applications. 
+It runs alongside the Puma and usually behind the Kamal 2 proxy, which offers HTTP/2 and SSL auto-certificates, 
+to help your app run efficiently and safely on the open Internet.</p>
+
+<p>This change configures the use of Thruster in the Dockerfile by default, starting with Rails 8.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52525">Speed up <code class="language-plaintext highlighter-rouge">ActionDispatch::Routing::Mapper::Scope#[]</code> by merging frame hashes</a><br />
+Before this change, <code class="language-plaintext highlighter-rouge">ActionDispatch::Routing::Mapper::Scope#[]</code> lookup was iterating an array, which means access time wasn’t constant, and did not actually behave like a hash.</p>
+
+<p>This Pull Request changes the scope implementation to make the lookup faster by just merging inherited values into the immediate hash.</p>
+
+<p>This helps avoid needless iterations for deeply nested routes leading it to be <strong>~1.2x</strong> faster.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52541">Remove redundant Puma configuration settings</a><br />
+This Pull Request removes the following redundant environment settings in <code class="language-plaintext highlighter-rouge">puma.rb</code>:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Specifies the `environment` that Puma will run in.</span>
+<span class="n">rails_env</span> <span class="o">=</span> <span class="no">ENV</span><span class="p">.</span><span class="nf">fetch</span><span class="p">(</span><span class="s2">"RAILS_ENV"</span><span class="p">,</span> <span class="s2">"development"</span><span class="p">)</span>
+<span class="n">environment</span> <span class="n">rails_env</span>
+
+<span class="k">case</span> <span class="n">rails_env</span>
+<span class="k">when</span> <span class="s2">"production"</span>
+  <span class="n">preload_app!</span>
+<span class="k">when</span> <span class="s2">"development"</span>
+  <span class="c1"># Specifies a very generous `worker_timeout` so that the worker</span>
+  <span class="c1"># isn't killed by Puma when suspended by a debugger.</span>
+  <span class="n">worker_timeout</span> <span class="mi">3600</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>These changes address recent Puma upgrades that-</p>
+
+<ul>
+  <li>Puma now automatically sets its environment from RAILS_ENV.</li>
+  <li><code class="language-plaintext highlighter-rouge">preload_app!</code> is automatically set when in cluster mode.</li>
+  <li><code class="language-plaintext highlighter-rouge">worker_timeout</code> is a cluster mode feature, and we don’t run that in dev.</li>
+</ul>
+
+<p>Another Puma change is that <code class="language-plaintext highlighter-rouge">WEB_CONCURRENCY</code> is automatically used from ENV and is now parsed directly, so it can’t be extended with “auto” in the Puma config.</p>
+
+<p><a href="https://github.com/rails/rails/commit/142e6ab2c1e3cb7df4b82e20e2a1cd676b755714">This related change</a> addresses this issue and removes the redundant dynamic setting for the value from <code class="language-plaintext highlighter-rouge">puma.rb</code></p>
+
+<p><a href="https://github.com/rails/rails/pull/52513">Improve default action mailer configuration</a><br />
+This Pull Request introduces a few improvements to the default Action Mailer configuration setup:</p>
+
+<ul>
+  <li>Suggests a default SMTP server configuration in a comment in <code class="language-plaintext highlighter-rouge">production.rb</code>.</li>
+  <li>Sets a default example.com host for mailer links in production too.</li>
+  <li>Uses the same comment style in all the env settings for mailer host.</li>
+</ul>
+
+<p><a href="https://github.com/rails/rails/pull/52533">Make automatic detection of processor count in default Puma config optional and non-default</a><br />
+Using <code class="language-plaintext highlighter-rouge">Concurrent.available_processor_count</code> helper by default in <code class="language-plaintext highlighter-rouge">puma.rb</code> template might result in incorrect configurations on some cloud hosts with shared CPUs or platforms that inaccurately report CPU counts.</p>
+
+<p>This Pull Request, changes this default configuration to be optional and non-default.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52531">Let allow_browser allow bots</a><br />
+The <code class="language-plaintext highlighter-rouge">allow_browser</code> feature blocks requests with user agents that don’t match a specific set of browser versions. This runs the risk of preventing sites from being crawled by some search engines.</p>
+
+<p>This change fixes this behavior to bypass these version restrictions in the case of certain crawlers and bots.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52452">Allow disable_extension to be called with schema-qualified name for PostgreSQL</a><br />
+This change allows <code class="language-plaintext highlighter-rouge">disable_extension</code> to be called with schema-qualified name for PostgreSQL.</p>
+
+<p>This adds parity with <code class="language-plaintext highlighter-rouge">enable_extension</code>, the <code class="language-plaintext highlighter-rouge">disable_extension</code> method can be called with a schema-qualified
+name (e.g. <code class="language-plaintext highlighter-rouge">disable_extension "myschema.pgcrypto"</code>). Note that PostgreSQL’s <code class="language-plaintext highlighter-rouge">DROP EXTENSION</code> does not
+actually take a schema name (unlike <code class="language-plaintext highlighter-rouge">CREATE EXTENSION</code>), so the resulting SQL statement will only name
+the extension, e.g. <code class="language-plaintext highlighter-rouge">DROP EXTENSION IF EXISTS "pgcrypto"</code>.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-07-13%7D...main@%7B2024-07-19%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240803-20240809">36 contributors</a> to the Rails codebase past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

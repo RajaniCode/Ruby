@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 1.1.3: Security fix and minor fixes</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We&#8217;ve found and fixed a security issue with routing that could cause excess CPU usage in Rails processes when triggered by certain URLs. We strongly encourage anyone running 1.1.x to upgrade to the latest version. It&#8217;s fully backwards compatible and should serve as a small drop-in fix.If you&#8217;re running the latest Edge Rails, though, there&#8217;s no need to update. We&#8217;ve rewritten the routes functionality on edge and the new version doesn&#8217;t have this problem.To upgrade, you as always can just do: gem install rails --include-dependenciesNote: This release doesn&#8217;t include any of the new CRUD/resource-based features. All of the new features we&#8217;ve been working on over the last couple of months will become available in 1.2.0, which is scheduled for &#8220;soonish&#8221;. This 1.1.3 release is purely to address the security issue and another few minor fixes that were available on the STABLE branch as well." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 1.1.3: Security fix and minor fixes" />
+  <meta property="og:description" content="We&#8217;ve found and fixed a security issue with routing that could cause excess CPU usage in Rails processes when triggered by certain URLs. We strongly encourage anyone running 1.1.x to upgrade to the latest version. It&#8217;s fully backwards compatible and should serve as a small drop-in fix.If you&#8217;re running the latest Edge Rails, though, there&#8217;s no need to update. We&#8217;ve rewritten the routes functionality on edge and the new version doesn&#8217;t have this problem.To upgrade, you as always can just do: gem install rails --include-dependenciesNote: This release doesn&#8217;t include any of the new CRUD/resource-based features. All of the new features we&#8217;ve been working on over the last couple of months will become available in 1.2.0, which is scheduled for &#8220;soonish&#8221;. This 1.1.3 release is purely to address the security issue and another few minor fixes that were available on the STABLE branch as well." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2006/6/28/rails-1-1-3-security-fix-and-minor-fixes" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 1.1.3: Security fix and minor fixes" />
+  <meta name="twitter:description" content="We&#8217;ve found and fixed a security issue with routing that could cause excess CPU usage in Rails processes when triggered by certain URLs. We strongly encourage anyone running 1.1.x to upgrade to the latest version. It&#8217;s fully backwards compatible and should serve as a small drop-in fix.If you&#8217;re running the latest Edge Rails, though, there&#8217;s no need to update. We&#8217;ve rewritten the routes functionality on edge and the new version doesn&#8217;t have this problem.To upgrade, you as always can just do: gem install rails --include-dependenciesNote: This release doesn&#8217;t include any of the new CRUD/resource-based features. All of the new features we&#8217;ve been working on over the last couple of months will become available in 1.2.0, which is scheduled for &#8220;soonish&#8221;. This 1.1.3 release is purely to address the security issue and another few minor fixes that were available on the STABLE branch as well." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2006/6/28/rails-1-1-3-security-fix-and-minor-fixes"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 1.1.3: Security fix and minor fixes",
+      "description": "We&#8217;ve found and fixed a security issue with routing that could cause excess CPU usage in Rails processes when triggered by certain URLs. We strongly encourage anyone running 1.1.x to upgrade to the latest version. It&#8217;s fully backwards compatible and should serve as a small drop-in fix.If you&#8217;re running the latest Edge Rails, though, there&#8217;s no need to update. We&#8217;ve rewritten the routes functionality on edge and the new version doesn&#8217;t have this problem.To upgrade, you as always can just do: gem install rails --include-dependenciesNote: This release doesn&#8217;t include any of the new CRUD/resource-based features. All of the new features we&#8217;ve been working on over the last couple of months will become available in 1.2.0, which is scheduled for &#8220;soonish&#8221;. This 1.1.3 release is purely to address the security issue and another few minor fixes that were available on the STABLE branch as well.",
+      "url": "http://localhost:4000/2006/6/28/rails-1-1-3-security-fix-and-minor-fixes",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2006-06-28T00:37:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, June 28, 2006</h5>
+        <h2>Rails 1.1.3: Security fix and minor fixes</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We&#8217;ve found and fixed a security issue with routing that could cause excess <span class="caps">CPU</span> usage in Rails processes when triggered by certain URLs. We strongly encourage anyone running 1.1.x to upgrade to the latest version. It&#8217;s fully backwards compatible and should serve as a small drop-in fix.</p>
+<p>If you&#8217;re running the latest Edge Rails, though, there&#8217;s no need to update. We&#8217;ve rewritten the routes functionality on edge and the new version doesn&#8217;t have this problem.</p>
+<p>To upgrade, you as always can just do: <code>gem install rails --include-dependencies</code></p>
+<p>Note: This release doesn&#8217;t include any of the new <span class="caps">CRUD</span>/resource-based features. All of the new features we&#8217;ve been working on over the last couple of months will become available in 1.2.0, which is scheduled for &#8220;soonish&#8221;. This 1.1.3 release is purely to address the security issue and another few minor fixes that were available on the <span class="caps">STABLE</span> branch as well.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+1.9 Skinny Models II
+
+That looks better. You can take this a step further by extracting out the welcome user functionality into a separate class similar to the UserRegistration class you created a few challenges back. This new class should accept an instance of User as an argument for the constructor. It should also have an attr_accessor for the user and a welcome method which functions the same as the original welcome method.
+
+
+user.rb
+class User < ActiveRecord::Base
+  def welcome
+    send_welcome_email
+    enable_welcome_tour
+    enable_welcome_promotion
+  end
+
+  private
+
+  def send_welcome_email
+    WelcomeMailer.welcome(self).deliver
+  end
+
+  def enable_welcome_tour
+    self.welcome_tour = true
+    self.save
+  end
+
+  def enable_welcome_promotion
+    promo = Promotion.new(name: "Thanks for joining!")
+    promo.set_redeemer(self)
+  end
+end
+
+
+user_welcome.rb
+class UserWelcome
+
+end
+
+
+Answer:
+user_welcome.rb
+class UserWelcome
+  attr_accessor :user
+  
+  def initialize(user)
+    @user = user
+  end
+  
+  def welcome
+    send_welcome_email
+    enable_welcome_tour
+    enable_welcome_promotion
+  end
+  
+  private
+  
+  def send_welcome_email
+    WelcomeMailer.welcome(@user).deliver
+  end
+  
+  def enable_welcome_tour
+    @user.welcome_tour = true
+    @user.save
+  end
+  
+  def enable_welcome_promotion
+    promo = Promotion.new(name: "Thanks for joining!")
+    promo.set_redeemer(@user)
+  end
+end

@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 6.0.0 beta1, and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniel here, writing from chilly NYC to bring you the latest Rails news." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 6.0.0 beta1, and more" />
+  <meta property="og:description" content="Daniel here, writing from chilly NYC to bring you the latest Rails news." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/1/22/this-week-in-rails-rails-6-0-0-beta1-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 6.0.0 beta1, and more" />
+  <meta name="twitter:description" content="Daniel here, writing from chilly NYC to bring you the latest Rails news." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2019/1/22/this-week-in-rails-rails-6-0-0-beta1-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 6.0.0 beta1, and more",
+      "description": "Daniel here, writing from chilly NYC to bring you the latest Rails news.",
+      "url": "http://localhost:4000/2019/1/22/this-week-in-rails-rails-6-0-0-beta1-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dodecadaniel"
+      },
+      "datePublished": "2019-01-22T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, January 22, 2019</h5>
+        <h2>Rails 6.0.0 beta1, and more</h2>
+
+        <h6>Posted by dodecadaniel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><a href="https://twitter.com/dodecadaniel">Daniel</a> here, writing from chilly NYC to bring you the latest Rails news.</p>
+
+<h3 id="rails-600-beta1"><a href="https://rubyonrails.org/2019/1/18/Rails-6-0-Action-Mailbox-Action-Text-Multiple-DBs-Parallel-Testing">Rails 6.0.0 beta1</a></h3>
+
+<p>Many thanks to everyone who helped get this amazing release together. It includes <a href="https://github.com/rails/rails/pull/34873">Action Text</a> and <a href="https://github.com/rails/rails/pull/34786">Action Mailbox</a>, both recently merged into Rails. Try it out today!</p>
+
+<h3 id="new-command-to-change-databases"><a href="https://github.com/rails/rails/pull/34832">New command to change databases</a></h3>
+
+<p>Have you ever created a new Rails app without specifying the database system upfront, then realized you need to switch over from SQLite to PostgreSQL? That change is now as simple as running: <code class="language-plaintext highlighter-rouge">bin/rails db:system:change --to=postgresql</code></p>
+
+<h3 id="improved-multi-db-errors"><a href="https://github.com/rails/rails/pull/34753">Improved multi-db errors</a></h3>
+
+<p>I think we can all appreciate helpful error messages. Many thanks to Eileen for helping us out, and for all of the incredible work to support multiple databases.</p>
+
+<h3 id="action-cable-testing"><a href="https://github.com/rails/rails/pull/34845">Action Cable Testing</a></h3>
+
+<p>The test helpers from the <a href="https://github.com/palkan/action-cable-testing">action-cable-testing</a> gem are now fully merged into Rails. Testing your cables has never been easier.</p>
+
+<h3 id="endless-ranges-in-where-conditions"><a href="https://github.com/rails/rails/pull/34906">Endless ranges in where conditions</a></h3>
+
+<p>Ruby 2.6 introduced endless ranges. In Rails 6 we will be able to use them in where conditions: <code class="language-plaintext highlighter-rouge">features.where(awesomeness: 10..)</code></p>
+
+<h3 id="dont-watch-your-parents"><a href="https://github.com/rails/rails/pull/33822">Don’t watch your parents</a></h3>
+
+<p>Before this change, if a directory to be watched was not present in the project, Rails would watch that directory’s parent directory instead. In some cases this could lead to watching the entire Rails root directory.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20181215-20190121">72 people</a> contributed to Rails over the past month. There are still plenty of <a href="https://github.com/rails/rails/issues">open issues</a> that could use your help. Will we see your name on the list next week?<a href="https://github.com/rails/rails/issues"><br />
+</a></p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

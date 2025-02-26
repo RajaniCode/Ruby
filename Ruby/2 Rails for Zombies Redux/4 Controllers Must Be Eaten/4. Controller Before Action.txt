@@ -1,0 +1,60 @@
+4. Controller Before Action
+
+
+Add a before_action that calls a method to check if a Zombie has tweets. Redirect to zombies_path if the zombie doesn't have tweets, only on show.
+
+
+show.html.erb
+1 	<h1><%= @zombie.name %></h1>
+
+
+Database:
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+4	Gregg	TBA
+tweets
+id	status					zombie_id
+1	Where can I get a good bite to eat?		1
+2	My left arm is missing, but I don't care	2
+3	I just ate some delicious brains		3
+4	OMG, my fingers turned green. #FML		1
+
+
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  before_action :find_zombie
+
+  def show
+    render action: :show
+  end
+
+  def find_zombie
+    @zombie = Zombie.find params[:id]
+  end
+end
+
+
+Answer:
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  before_action :find_zombie
+  before_action :has_tweets, only: :show
+  def show
+    render action: :show
+  end
+
+  def find_zombie
+    @zombie = Zombie.find params[:id]
+  end
+  
+  def has_tweets
+    redirect_to zombies_path(@zombies) if @zombie.tweets.size == 0
+  end
+end
+
+
+Output:
+http://example.org/zombies

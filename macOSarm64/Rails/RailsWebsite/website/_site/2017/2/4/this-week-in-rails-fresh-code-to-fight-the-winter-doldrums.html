@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: Fresh code to fight the Winter doldrums</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello! This is your host Andy, bringing you another edition of This Week in Rails.I’m in a cold Northern climate ❄️️ and we’re in the middle of Winter right now. To me, it’s the best time of the year to stay inside and dive into some new code. Let’s take a look at some of the latest changes made to Ruby on Rails in the past week." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: Fresh code to fight the Winter doldrums" />
+  <meta property="og:description" content="Hello! This is your host Andy, bringing you another edition of This Week in Rails.I’m in a cold Northern climate ❄️️ and we’re in the middle of Winter right now. To me, it’s the best time of the year to stay inside and dive into some new code. Let’s take a look at some of the latest changes made to Ruby on Rails in the past week." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/2/4/this-week-in-rails-fresh-code-to-fight-the-winter-doldrums" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: Fresh code to fight the Winter doldrums" />
+  <meta name="twitter:description" content="Hello! This is your host Andy, bringing you another edition of This Week in Rails.I’m in a cold Northern climate ❄️️ and we’re in the middle of Winter right now. To me, it’s the best time of the year to stay inside and dive into some new code. Let’s take a look at some of the latest changes made to Ruby on Rails in the past week." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/2/4/this-week-in-rails-fresh-code-to-fight-the-winter-doldrums"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: Fresh code to fight the Winter doldrums",
+      "description": "Hello! This is your host Andy, bringing you another edition of This Week in Rails.I’m in a cold Northern climate ❄️️ and we’re in the middle of Winter right now. To me, it’s the best time of the year to stay inside and dive into some new code. Let’s take a look at some of the latest changes made to Ruby on Rails in the past week.",
+      "url": "http://localhost:4000/2017/2/4/this-week-in-rails-fresh-code-to-fight-the-winter-doldrums",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "andatki"
+      },
+      "datePublished": "2017-02-04T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, February 4, 2017</h5>
+        <h2>This Week in Rails: Fresh code to fight the Winter doldrums</h2>
+
+        <h6>Posted by andatki</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello! This is your host <a href="https://twitter.com/andatki">Andy</a>, bringing you another edition of This Week in Rails.</p>
+
+<p>I’m in a cold Northern climate ❄️️ and we’re in the middle of Winter right now. To me, it’s the best time of the year to stay inside and dive into some new code. Let’s take a look at some of the latest changes made to Ruby on Rails in the past week.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20170128-20170203">This Week’s Rails Contributors</a></h3>
+
+<p>We had 31 contributors this week. There are lots of PRs for bug fixes which are nice to see. Many thanks to all of the contributors!</p>
+
+<h2 id="new">New</h2>
+
+<h3 id="add-warnings-option-to-test-runner"><a href="https://github.com/rails/rails/pull/27784">Add warnings option to test runner</a></h3>
+
+<p>This change provides an option to enable Ruby’s warnings in tests.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="refactor-active-record-reflections"><a href="https://github.com/rails/rails/pull/27851">Refactor Active Record reflections</a></h3>
+
+<p>This PR refactors reflections such that we can iterate over each reflection and ask the reflection object what scopes should be applied to the query we are currently building.</p>
+
+<h3 id="report-the-attribute-on-activerecordserializationtypemismatch"><a href="https://github.com/rails/rails/pull/27773">Report the attribute on ActiveRecord::SerializationTypeMismatch</a></h3>
+
+<p>When a <em>ActiveRecord::SerializationTypeMismatch</em> error occurs, we will now know which attribute caused the error.</p>
+
+<h3 id="simplify-query-in-column_definitions-for-postgres"><a href="https://github.com/rails/rails/pull/27743">Simplify query in column_definitions() for Postgres</a></h3>
+
+<p>This patch updates how column_definitions() for Postgres is calculated. The author has a nice usage of the EXPLAIN tool, to show that the new implementation is more efficient.</p>
+
+<h2 id="fixes">Fixes</h2>
+
+<h3 id="reload-through_record-that-has-been-destroyed"><a href="https://github.com/rails/rails/commit/e09da8bf7853f8f4f1ebb5c52f9b688a32b4dfaa">Reload <code class="language-plaintext highlighter-rouge">through_record</code> that has been destroyed</a></h3>
+
+<p>For <em>has_one :through</em> associations, if <em>through_proxy</em> is not reset, setting a new record causes the runtime error <em>Can’t modify frozen hash</em>.</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s it from This Week in Rails. There were many other great contributions, too numerous to list here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2017-01-29%7D...@%7B2017-02-03%7D">check them out</a>!</p>
+
+<p>Catch you next week!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+2.3 Listing Resources
+
+Now that our initial integration tests are in place, it’s time to write some production code. Inside of API::HumansController#index, we’ll need to respond with a json representation of our humans and a 200 - Success status code.
+
+
+app/controllers/api/humans_controller.rb
+module API
+  class HumansController < ApplicationController
+    def index
+      humans = Human.all
+
+      # start your code here
+    end
+  end
+end
+
+
+1. Render a json representation of humans. Don’t worry about the status code right now.
+
+Answer:
+app/controllers/api/humans_controller.rb
+module API
+  class HumansController < ApplicationController
+    def index
+      humans = Human.all
+
+      # start your code here
+      render json: humans
+    end
+  end
+end
+
+
+2. Now let’s make sure the response includes a 200 - success status code.
+
+Answer:
+app/controllers/api/humans_controller.rb
+module API
+  class HumansController < ApplicationController
+    def index
+      humans = Human.all
+
+      # start your code here
+      render json: humans, status: 200
+    end
+  end
+end

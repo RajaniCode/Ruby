@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; A new release, Action Mailer preview empty states, bugfixes and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s Greg, bringing you the latest changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="A new release, Action Mailer preview empty states, bugfixes and more!" />
+  <meta property="og:description" content="Hi, it’s Greg, bringing you the latest changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/8/11/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="A new release, Action Mailer preview empty states, bugfixes and more!" />
+  <meta name="twitter:description" content="Hi, it’s Greg, bringing you the latest changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/8/11/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "A new release, Action Mailer preview empty states, bugfixes and more!",
+      "description": "Hi, it’s Greg, bringing you the latest changes in the Rails codebase.",
+      "url": "http://localhost:4000/2023/8/11/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2023-08-11T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, August 11, 2023</h5>
+        <h2>A new release, Action Mailer preview empty states, bugfixes and more!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://greg.molnar.io">Greg</a>, bringing you the latest changes in the Rails codebase.</p>
+
+<p><a href="https://rubyonrails.org/2023/8/8/introducing-rails-luminaries">Introducing the Rails Luminary Awards: Nominations Now Open</a><br />
+Starting at Rails World in October, the Rails Foundation will establish a new tradition of celebrating Rails Luminaries- people who’ve contributed to the Rails ecosystem and community with exceptional code, documentation, enthusiasm, or assistance, thereby helping others do more, learn more, or be inspired.<br />
+You can submit your 2023 Rails Luminary nomination <a href="https://app.todohelpers.com/forms/f217db04-3b7d-4d20-9df7-75a5ec3acc3c">here</a>.</p>
+
+<p><a href="https://rubyonrails.org/2023/8/10/Rails-7-0-7-has-been-released">Rails 7.0.7 has been released</a><br />
+There is a new minor release for Rails 7 with minor fixes and improvements.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48897">Removes Webpacker from the guides index page</a><br />
+As a follow-up to the deprecation of Webpacker, it is removed from the Rails Guides in this pull request.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48888">Action Mailer Preview empty states</a><br />
+When an application defines mailers without any corresponding previews, requests to <code class="language-plaintext highlighter-rouge">GET /rails/mailers</code> return a page with a blank <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> element.<br />
+Similarly, when an ActionMailer::Preview subclass is defined, but doesn’t declare any actions, the response contains a mostly empty page.<br />
+This pull request renders empty-state messaging for both scenarios, and links to the Action Mailer Basics guides.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48887">Fix NoMethodError when request Content-Type is blank.</a><br />
+This pull request changes the mime type lookup to use the safe navigation operator on the call to <code class="language-plaintext highlighter-rouge">rstrip</code> to handle the case when a client makes a request with a blank Content-Type header.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48873">Adds <em>Arel::FactoryMethods#cast(node, type)</em></a><br />
+<code class="language-plaintext highlighter-rouge">CAST(field as type)</code> is a widely supported SQL function. This pull request adds native Arel support for this named function with a <code class="language-plaintext highlighter-rouge">cast(field, type)</code> helper. Example of usage:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Product.arel_table.cast(product_table[:position], "integer")
+# produces: CAST("products"."position" as integer)
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48857">Rename <em>fixture_file_upload</em> method to <em>file_fixture_upload</em></a><br />
+This pull request renames the <code class="language-plaintext highlighter-rouge">fixture_file_upload</code> method to <code class="language-plaintext highlighter-rouge">file_fixture_upload</code> to match the order of words in <code class="language-plaintext highlighter-rouge">file_fixture</code> and <code class="language-plaintext highlighter-rouge">file_fixture_path</code>.<br />
+To preserve backward compatibility, it declares a <code class="language-plaintext highlighter-rouge">fixture_file_upload</code> alias to be preserved into the future.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48718">Active Storage mirror uploads should be asynchronous</a>  <br />
+When you define a Mirror service in <code class="language-plaintext highlighter-rouge">storage.yml</code> , the upload to the mirror actually happens inline, instead of using <code class="language-plaintext highlighter-rouge">ActiveStorage::MirrorJob</code>.<br />
+This slows down any uploads to the service, because it is performed <code class="language-plaintext highlighter-rouge">n</code> times (<code class="language-plaintext highlighter-rouge">n</code> being the number of mirrors), inline, instead of using the <code class="language-plaintext highlighter-rouge">ActiveStorage::MirrorJob</code>.<br />
+This pull request changes this behavior to only upload the file to the primary service synchronously and then enqueue a job to upload the file to the mirrors asynchronously.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-08-04%7D...main@%7B2023-08-11%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230804-20230811">22 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

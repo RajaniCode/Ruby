@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails premieres on GitHub</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GitHub has now officially launched and Rails is right there at the premiere. The Rails repository now lives at rails/rails and you can check it out with:git clone git://github.com/rails/rails.gitIf you don&#8217;t have git, or don&#8217;t enjoy running it on your platform, you need not fear. We&#8217;ve set up an automated task to produce a zip file of Rails Edge that&#8217;ll be kept up to date all the time: http://dev.rubyonrails.org/archives/rails_edge.zip. This is also what we&#8217;ve made the new rake rails:freeze:edge use.This also means that development on the Subversion repository has stopped and will no longer be kept up to date. We&#8217;ll keep the Subversion repository around for some time for people to transition off svn:externals, though. But if you want the latest edge, you&#8217;ll have to use either git or the new zip files.We&#8217;ll also soon go live with our new ticket management system, which will be running on a new version of Lighthouse. When that happens, the Trac installation will follow the Subversion repository into legacy. We&#8217;ll still keep it around so we can work through all the patches and tickets that are there, but everything new will happen on the Lighthouse setup.We hope you&#8217;ll enjoy this upgrade to the Rails collaboration infrastructure. We&#8217;re really looking forward to the onslaught of marvelous patches that the Git lords have promised us will flow from the mountain now." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails premieres on GitHub" />
+  <meta property="og:description" content="GitHub has now officially launched and Rails is right there at the premiere. The Rails repository now lives at rails/rails and you can check it out with:git clone git://github.com/rails/rails.gitIf you don&#8217;t have git, or don&#8217;t enjoy running it on your platform, you need not fear. We&#8217;ve set up an automated task to produce a zip file of Rails Edge that&#8217;ll be kept up to date all the time: http://dev.rubyonrails.org/archives/rails_edge.zip. This is also what we&#8217;ve made the new rake rails:freeze:edge use.This also means that development on the Subversion repository has stopped and will no longer be kept up to date. We&#8217;ll keep the Subversion repository around for some time for people to transition off svn:externals, though. But if you want the latest edge, you&#8217;ll have to use either git or the new zip files.We&#8217;ll also soon go live with our new ticket management system, which will be running on a new version of Lighthouse. When that happens, the Trac installation will follow the Subversion repository into legacy. We&#8217;ll still keep it around so we can work through all the patches and tickets that are there, but everything new will happen on the Lighthouse setup.We hope you&#8217;ll enjoy this upgrade to the Rails collaboration infrastructure. We&#8217;re really looking forward to the onslaught of marvelous patches that the Git lords have promised us will flow from the mountain now." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2008/4/11/rails-premieres-on-github" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails premieres on GitHub" />
+  <meta name="twitter:description" content="GitHub has now officially launched and Rails is right there at the premiere. The Rails repository now lives at rails/rails and you can check it out with:git clone git://github.com/rails/rails.gitIf you don&#8217;t have git, or don&#8217;t enjoy running it on your platform, you need not fear. We&#8217;ve set up an automated task to produce a zip file of Rails Edge that&#8217;ll be kept up to date all the time: http://dev.rubyonrails.org/archives/rails_edge.zip. This is also what we&#8217;ve made the new rake rails:freeze:edge use.This also means that development on the Subversion repository has stopped and will no longer be kept up to date. We&#8217;ll keep the Subversion repository around for some time for people to transition off svn:externals, though. But if you want the latest edge, you&#8217;ll have to use either git or the new zip files.We&#8217;ll also soon go live with our new ticket management system, which will be running on a new version of Lighthouse. When that happens, the Trac installation will follow the Subversion repository into legacy. We&#8217;ll still keep it around so we can work through all the patches and tickets that are there, but everything new will happen on the Lighthouse setup.We hope you&#8217;ll enjoy this upgrade to the Rails collaboration infrastructure. We&#8217;re really looking forward to the onslaught of marvelous patches that the Git lords have promised us will flow from the mountain now." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2008/4/11/rails-premieres-on-github"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails premieres on GitHub",
+      "description": "GitHub has now officially launched and Rails is right there at the premiere. The Rails repository now lives at rails/rails and you can check it out with:git clone git://github.com/rails/rails.gitIf you don&#8217;t have git, or don&#8217;t enjoy running it on your platform, you need not fear. We&#8217;ve set up an automated task to produce a zip file of Rails Edge that&#8217;ll be kept up to date all the time: http://dev.rubyonrails.org/archives/rails_edge.zip. This is also what we&#8217;ve made the new rake rails:freeze:edge use.This also means that development on the Subversion repository has stopped and will no longer be kept up to date. We&#8217;ll keep the Subversion repository around for some time for people to transition off svn:externals, though. But if you want the latest edge, you&#8217;ll have to use either git or the new zip files.We&#8217;ll also soon go live with our new ticket management system, which will be running on a new version of Lighthouse. When that happens, the Trac installation will follow the Subversion repository into legacy. We&#8217;ll still keep it around so we can work through all the patches and tickets that are there, but everything new will happen on the Lighthouse setup.We hope you&#8217;ll enjoy this upgrade to the Rails collaboration infrastructure. We&#8217;re really looking forward to the onslaught of marvelous patches that the Git lords have promised us will flow from the mountain now.",
+      "url": "http://localhost:4000/2008/4/11/rails-premieres-on-github",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2008-04-11T18:15:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, April 11, 2008</h5>
+        <h2>Rails premieres on GitHub</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><a href="http://github.com">GitHub</a> has now officially launched and Rails is right there at the premiere. The Rails repository now lives at <a href="http://github.com/rails/rails">rails/rails</a> and you can check it out with:</p>
+<p>git clone git://github.com/rails/rails.git</p>
+<p>If you don&#8217;t have git, or don&#8217;t enjoy running it on your platform, you need not fear. We&#8217;ve set up an automated task to produce a zip file of Rails Edge that&#8217;ll be kept up to date all the time: <a href="http://dev.rubyonrails.org/archives/rails_edge.zip">http://dev.rubyonrails.org/archives/rails_edge.zip</a>. This is also what we&#8217;ve made the <a href="http://github.com/rails/rails/commit/4b17082107aced980fc4b511028ee763247bc5ab">new rake rails:freeze:edge</a> use.</p>
+<p>This also means that development on the Subversion repository has stopped and will no longer be kept up to date. We&#8217;ll keep the Subversion repository around for some time for people to transition off svn:externals, though. But if you want the latest edge, you&#8217;ll have to use either git or the new zip files.</p>
+<p>We&#8217;ll also soon go live with our new ticket management system, which will be running on a new version of <a href="http://lighthouseapp.com/">Lighthouse</a>. When that happens, the Trac installation will follow the Subversion repository into legacy. We&#8217;ll still keep it around so we can work through all the patches and tickets that are there, but everything new will happen on the Lighthouse setup.</p>
+<p>We hope you&#8217;ll enjoy this upgrade to the Rails collaboration infrastructure. We&#8217;re really looking forward to the onslaught of marvelous patches that the Git lords have promised us will flow from the mountain now.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

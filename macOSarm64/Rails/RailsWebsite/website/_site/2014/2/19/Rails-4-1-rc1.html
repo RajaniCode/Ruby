@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 4.1.0: Release candidate 1</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We’re getting really close to signing off on Rails 4.1.0, but we need your help to push it the last mile. Today we’re putting out the first (and, with luck, only) release candidate of Rails 4.1.0. It would be swell if you would try it out and tell us where it breaks." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 4.1.0: Release candidate 1" />
+  <meta property="og:description" content="We’re getting really close to signing off on Rails 4.1.0, but we need your help to push it the last mile. Today we’re putting out the first (and, with luck, only) release candidate of Rails 4.1.0. It would be swell if you would try it out and tell us where it breaks." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2014/2/19/Rails-4-1-rc1" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 4.1.0: Release candidate 1" />
+  <meta name="twitter:description" content="We’re getting really close to signing off on Rails 4.1.0, but we need your help to push it the last mile. Today we’re putting out the first (and, with luck, only) release candidate of Rails 4.1.0. It would be swell if you would try it out and tell us where it breaks." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2014/2/19/Rails-4-1-rc1"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 4.1.0: Release candidate 1",
+      "description": "We’re getting really close to signing off on Rails 4.1.0, but we need your help to push it the last mile. Today we’re putting out the first (and, with luck, only) release candidate of Rails 4.1.0. It would be swell if you would try it out and tell us where it breaks.",
+      "url": "http://localhost:4000/2014/2/19/Rails-4-1-rc1",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2014-02-19T02:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, February 19, 2014</h5>
+        <h2>Rails 4.1.0: Release candidate 1</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We’re getting really close to signing off on Rails 4.1.0, but we need your help to push it the last mile. Today we’re putting out the first (and, with luck, only) release candidate of Rails 4.1.0. It would be swell if you would try it out and tell us where it breaks.</p>
+
+<p>It’s already in really good shape (we’ve been running beta1 and forward in production for <a href="http://basecamp.com">Basecamp</a> for months), but still, let’s make it a shiny gemstone for release.</p>
+
+<p>As a reminder, Yves and Godfrey have done such a splendid job putting together the <a href="http://edgeguides.rubyonrails.org/4_1_release_notes.html">release notes for 4.1 as a guide</a> and <a href="http://coherence.io/blog/2013/12/17/whats-new-in-rails-4-1.html">Godfrey’s feature walk-through</a>, so I won’t repeat them here. But you’re definitely in for a treat.</p>
+
+<p>We have also now aimed rails/master at Rails 4.2.0, but there’s a new <a href="https://github.com/rails/rails/tree/4-1-stable">rails/4-1-stable</a> branch to follow for this release series. And of course there’s the <a href="https://github.com/rails/rails/tree/v4.1.0.rc1">v4-1-0-rc1 tag</a> for this particular release.</p>
+
+<p>Enjoy!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

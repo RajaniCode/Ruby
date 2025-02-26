@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [ANN] Rails 3.2.14.rc2 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[ANN] Rails 3.2.14.rc2 has been released!" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2013/7/16/Rails-3-2-14-rc2-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[ANN] Rails 3.2.14.rc2 has been released!" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2013/7/16/Rails-3-2-14-rc2-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[ANN] Rails 3.2.14.rc2 has been released!",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2013/7/16/Rails-3-2-14-rc2-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rafaelfranca"
+      },
+      "datePublished": "2013-07-16T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, July 16, 2013</h5>
+        <h2>[ANN] Rails 3.2.14.rc2 has been released!</h2>
+
+        <h6>Posted by rafaelfranca</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>One regression was found on the 3.2.14.rc1 release. So, following the script
+We are releasing a new release candidate, Rails 3.2.14.rc2.</p>
+
+<p>If no regressions are found we will release 3.2.14 final final this Friday, on July
+19, 2013. If you find one, please <a href="https://github.com/rails/rails/issues/new">open an Issue on
+GitHub</a> and mention me (@rafaelfranca) on it,
+so that we can fix it before the final release.</p>
+
+<h2 id="changes-since-3214rc1">CHANGES since 3.2.14.rc1</h2>
+
+<p><em>Action Mailer</em></p>
+
+<p>No changes.</p>
+
+<p><em>Action Pack</em></p>
+
+<p>No changes.</p>
+
+<p><em>Active Model</em></p>
+
+<p>No changes.</p>
+
+<p><em>Active Record</em></p>
+
+<ul>
+  <li>
+    <p>Do not re-create destroyed association when saving the parent object.</p>
+
+    <p>Fixes #11450.</p>
+
+    <p><em>Paul Nikitochkin</em></p>
+  </li>
+</ul>
+
+<p><em>Active Resource</em></p>
+
+<p>No changes.</p>
+
+<p><em>Active Support</em></p>
+
+<p>No changes.</p>
+
+<p><em>Railties</em></p>
+
+<p>No changes.</p>
+
+<p><em>Full listing</em></p>
+
+<p>To see the full list of changes, <a href="https://github.com/rails/rails/compare/v3.2.14.rc1...v3.2.14.rc2">check out all the commits on
+GitHub</a>.</p>
+
+<h2 id="sha-1">SHA-1</h2>
+
+<p>If you’d like to verify that your gem is the same as the one we’ve uploaded,
+please use these SHA-1 hashes:</p>
+
+<ul>
+  <li>8126e9ca60ca050fd4e809d70f2035deae1e681f  actionmailer-3.2.14.rc2.gem</li>
+  <li>bc0c7594aebc42fe0cdd7213017e3280d6111c40  actionpack-3.2.14.rc2.gem</li>
+  <li>1b3de1ee862ef055b7a300e180ae97140d51534b  activemodel-3.2.14.rc2.gem</li>
+  <li>57a9ede96d56eaac5e484f8becd41ff9513918f3  activerecord-3.2.14.rc2.gem</li>
+  <li>2ad96e7ab80ef8801234774f81d85cc800abfc96  activeresource-3.2.14.rc2.gem</li>
+  <li>02c03d4d8b888b02bf9898ab663126760e3b3678  activesupport-3.2.14.rc2.gem</li>
+  <li>561edde241b39ba54f79b32f93f29db699fbf668  rails-3.2.14.rc2.gem</li>
+  <li>4d16819efc81d3a4c761cad460c094f69a58171c  railties-3.2.14.rc2.gem</li>
+</ul>
+
+<p>Thank you everyone!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

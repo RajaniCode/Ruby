@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: Getting Ready For Ruby 2.4</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: Getting Ready For Ruby 2.4" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/10/8/this-week-in-rails-getting-ready-for-ruby-2-4" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: Getting Ready For Ruby 2.4" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/10/8/this-week-in-rails-getting-ready-for-ruby-2-4"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: Getting Ready For Ruby 2.4",
+      "description": "",
+      "url": "http://localhost:4000/2016/10/8/this-week-in-rails-getting-ready-for-ruby-2-4",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "chancancode"
+      },
+      "datePublished": "2016-10-08T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, October 8, 2016</h5>
+        <h2>This Week in Rails: Getting Ready For Ruby 2.4</h2>
+
+        <h6>Posted by chancancode</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><img src="https://camo.githubusercontent.com/7fba9a5c5bb3ee7cb8d9930206b36e2a79faf9a1/68747470733a2f2f7777772e64726f70626f782e636f6d2f732f6b626b6f67366472336d746f7379332f7261696c732d726574726f2d776176652e6a70673f7261773d31" alt="You are reading This Week In Rails!" /></p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20161001-20161007">This week’s Rails contributors</a></h3>
+
+<p>The content for this week’s newsletter is sponsored by the 19 individuals who authored them!</p>
+
+<h3 id="fixnum-and-bignum-are-deprecated-in-ruby-24"><a href="https://github.com/rails/rails/pull/26732">Fixnum and Bignum are deprecated in Ruby 2.4</a></h3>
+
+<p>One of the notable changes in the <a href="https://www.ruby-lang.org/en/news/2016/09/08/ruby-2-4-0-preview2-released">upcoming Ruby 2.4 release</a> is the unification of <code class="language-plaintext highlighter-rouge">Fixnum</code> and <code class="language-plaintext highlighter-rouge">Bignum</code> into a single <code class="language-plaintext highlighter-rouge">Integer</code> class. Following that change, the legacy classes were <a href="https://bugs.ruby-lang.org/issues/12739">deprecated</a> recently.</p>
+
+<p>This pull request avoids triggering those deprecation warnings with a feature detection. If you maintain code that references those constants, you might want to adopt this pattern in your projects too!</p>
+
+<h3 id="remove-json-gem-dependency"><a href="https://github.com/rails/rails/pull/26729">Remove json gem dependency</a></h3>
+
+<p>Related to the unification of the integer classes: native extensions that references the <code class="language-plaintext highlighter-rouge">rb_cFixum</code> and <code class="language-plaintext highlighter-rouge">rb_cBignum</code> C constants need to be updated as well.</p>
+
+<p>The popular json gem is one of those native extensions. Fortunately, all modern versions of Ruby bundles the json library. If your are targeting Ruby 1.9 and above, you could simply <a href="https://github.com/rdoc/rdoc/pull/412">remove the json gem as a dependency</a>.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="avoid-bumping-the-class-serial"><a href="https://github.com/rails/rails/pull/26684">Avoid bumping the class serial</a></h3>
+
+<p>Back in May, a <a href="https://github.com/rails/rails/issues/25068">regression</a> was reported that Rails 5 invalidated Ruby’s <code class="language-plaintext highlighter-rouge">class_serial</code> on each request. This internal counter is used to invalidate the class-level <a href="https://tenderlovemaking.com/2015/12/23/inline-caching-in-mri.html">method caches</a>.</p>
+
+<p>The issue was tracked down to the use of <code class="language-plaintext highlighter-rouge">instance_exec</code>. While <a href="https://github.com/rspec/rspec-core/issues/2194#issuecomment-200597089">there is hope</a> that this restriction could be relaxed inside Ruby itself, this patch at least temporarily fixes the problem on Rails’ side.</p>
+
+<h3 id="speed-up-timezonenow"><a href="https://github.com/rails/rails/pull/26359">Speed up Time.zone.now</a></h3>
+
+<p>Once upon a time, <code class="language-plaintext highlighter-rouge">Time.zone.now</code> could be quite a bit slower than the stock <code class="language-plaintext highlighter-rouge">Time.now</code> (allegedly up to 25 times slower). This pull request significantly closes the gap.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="avoid-compiling-ruby-keywords-into-template-locals"><a href="https://github.com/rails/rails/pull/26672">Avoid compiling ruby keywords into template locals</a></h3>
+
+<p>Have you tried rendering a partial while injecting local variables called “class” or “module”? It wouldn’t work, and it will give you a pretty bizarre error.</p>
+
+<p>This pull requests avoids the error by skipping over invalid local
+variable names, while still allowing them to be accessed via
+<code class="language-plaintext highlighter-rouge">local_assigns</code>.</p>
+
+<p>You can read more about this issue, as well as the story behind this pull request in <a href="http://www.peterschilling.org/blackhole/babys-first-rails-commit">Peter’s blog post</a>.</p>
+
+<h2 id="gone">Gone</h2>
+
+<h3 id="remove-undocumented-action-cable-faye-mode"><a href="https://github.com/rails/rails/pull/26676">Remove undocumented Action Cable “faye mode”</a></h3>
+
+<p>Did you know that there was an undocumented “faye mode” for Action Cable?</p>
+
+<p>No? Good. Because it’s now gone!</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s it for this week, as usual there were more changes than what we can fit, feel free to check them yourself <a href="https://github.com/rails/rails/compare/master@%7B2016-09-24%7D...@%7B2016-09-30%7D">here</a>!</p>
+
+<p>Until next week!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

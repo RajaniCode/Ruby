@@ -1,0 +1,32 @@
+4. Radio Button
+
+
+Objective
+
+Rather than having a weapon that is broken or not, lets instead have a condition field which is either "New", "Rusty", or "Broken". Add a set of radio buttons where the user can select one of these states. Make "New" be checked by default.
+
+
+schema.rb
+ActiveRecord::Schema.define(:version => 20110814152905) do
+ 
+  create_table "weapons" do |t|
+    t.string "name"
+    t.integer "ammo"
+    t.string "condition"
+  end
+ 
+end
+
+
+app/views/weapons/new.html.erb
+<%= form_for(@weapon) do |f| %>
+<% end %>
+
+
+Answer:
+app/views/weapons/new.html.erb
+<%= form_for(@weapon) do |f| %>
+  <%= f.radio_button :condition, 'New', checked: true %>
+  <%= f.radio_button :condition, 'Rusty' %>
+  <%= f.radio_button :condition, 'Broken' %>
+<% end %>

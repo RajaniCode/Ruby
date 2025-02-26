@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Omakase RuboCop, Brakeman, Ruby 3.1+, allow_browser, rate_limit, and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, zzak here with the first edition of This Week in Rails for 2024.This year started off with a ton of contributions, nearly 170 commits, sorry we couldn’t fit everything in a single newsletter." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Omakase RuboCop, Brakeman, Ruby 3.1+, allow_browser, rate_limit, and more" />
+  <meta property="og:description" content="Hi, zzak here with the first edition of This Week in Rails for 2024.This year started off with a ton of contributions, nearly 170 commits, sorry we couldn’t fit everything in a single newsletter." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/1/5/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Omakase RuboCop, Brakeman, Ruby 3.1+, allow_browser, rate_limit, and more" />
+  <meta name="twitter:description" content="Hi, zzak here with the first edition of This Week in Rails for 2024.This year started off with a ton of contributions, nearly 170 commits, sorry we couldn’t fit everything in a single newsletter." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/1/5/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Omakase RuboCop, Brakeman, Ruby 3.1+, allow_browser, rate_limit, and more",
+      "description": "Hi, zzak here with the first edition of This Week in Rails for 2024.This year started off with a ton of contributions, nearly 170 commits, sorry we couldn’t fit everything in a single newsletter.",
+      "url": "http://localhost:4000/2024/1/5/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2024-01-05T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, January 5, 2024</h5>
+        <h2>Omakase RuboCop, Brakeman, Ruby 3.1+, allow_browser, rate_limit, and more</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://github.com/zzak">zzak</a> here with the first edition of This Week in Rails for 2024.<br />
+This year started off with a ton of contributions, nearly 170 commits, sorry we couldn’t fit everything in a single newsletter.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50535">Rails UJS has been deprecated since Rails 7, time to die</a><br />
+While the official package <code class="language-plaintext highlighter-rouge">@rails/ujs</code> is still published on NPM, and the final compiled targets for the asset pipeline remain, all of the source files, tests, and internal packaging tasks were removed.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50528">Add default PWA manifest and service worker file</a><br />
+Freshly generated Rails apps now include a manifest and service worker file to become full-fledged Progressive Web Applications.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50486">Add rubocop-rails-omakase to new Rails applications</a><br />
+This setups a basic RuboCop config for new Rails apps using the <a href="https://github.com/rails/rubocop-rails-omakase">rubocop-rails-omakase</a> gem.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50507">Add Brakeman by default to new apps</a><br />
+A newly generated Rails app also now includes <a href="https://github.com/presidentbeef/brakeman">Brakeman</a> for enhanced security vulnerability checking.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50508">Default to creating GitHub CI files</a><br />
+With the addition of RuboCop and Brakeman to new applications, we’ve also added default GitHub CI workflow files.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50505">Add allow_browser to set minimum versions for your application</a><br />
+Now you can easily specify which browsers you’ve supported to allow access to your application.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50491">Bump the required Ruby version to 3.1.0</a><br />
+The team is trying to stay ahead of the curve, and with Ruby 3.0 being EOL in March, now seems like a good time to bump that requirement.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50490">Add rate limiting to Action Controller via the Kredis limiter type</a><br />
+Last, but certainly not least, we have a new API for rate limiting built into Action Controller which depends on the <a href="https://github.com/rails/kredis/blob/main/lib/kredis/types/limiter.rb">Kredis limiter type</a>.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">rate_limit</span> <span class="ss">to: </span><span class="mi">10</span><span class="p">,</span> <span class="ss">within: </span><span class="mi">3</span><span class="p">.</span><span class="nf">minutes</span><span class="p">,</span> <span class="ss">only: :create</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">SignupsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">rate_limit</span> <span class="ss">to: </span><span class="mi">1000</span><span class="p">,</span> <span class="ss">within: </span><span class="mi">10</span><span class="p">.</span><span class="nf">seconds</span><span class="p">,</span>
+    <span class="ss">by: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="n">request</span><span class="p">.</span><span class="nf">domain</span> <span class="p">},</span> <span class="ss">with: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="n">redirect_to</span> <span class="n">busy_controller_url</span><span class="p">,</span> <span class="ss">alert: </span><span class="s2">"Too many signups!"</span> <span class="p">},</span> <span class="ss">only: :new</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-12-29%7D...main@%7B2024-01-05%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20231229-20240105">40 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 1.2 RC1: New in Action Pack</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="With all respect to the reporter from the Edge, here are a few tasty bits from ActionPack in Rails 1.2 (CHANGELOG). (compiled by Geoffrey Grosenbach)." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 1.2 RC1: New in Action Pack" />
+  <meta property="og:description" content="With all respect to the reporter from the Edge, here are a few tasty bits from ActionPack in Rails 1.2 (CHANGELOG). (compiled by Geoffrey Grosenbach)." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2006/11/26/1-2-new-in-actionpack" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 1.2 RC1: New in Action Pack" />
+  <meta name="twitter:description" content="With all respect to the reporter from the Edge, here are a few tasty bits from ActionPack in Rails 1.2 (CHANGELOG). (compiled by Geoffrey Grosenbach)." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2006/11/26/1-2-new-in-actionpack"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 1.2 RC1: New in Action Pack",
+      "description": "With all respect to the reporter from the Edge, here are a few tasty bits from ActionPack in Rails 1.2 (CHANGELOG). (compiled by Geoffrey Grosenbach).",
+      "url": "http://localhost:4000/2006/11/26/1-2-new-in-actionpack",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "josh"
+      },
+      "datePublished": "2006-11-26T22:02:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, November 26, 2006</h5>
+        <h2>Rails 1.2 RC1: New in Action Pack</h2>
+
+        <h6>Posted by josh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>With all respect to the <a href="http://ryandaigle.com/">reporter from the Edge</a>, here are a few tasty bits from ActionPack in Rails 1.2 (<a href="http://dev.rubyonrails.org/svn/rails/branches/1-2-pre-release/actionpack/CHANGELOG"><span class="caps">CHANGELOG</span></a>). (compiled by <a href="http://topfunky.com/">Geoffrey Grosenbach</a>).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h1&gt;Views&lt;/h1&gt;
+
+
+&lt;p&gt;You can now access nested attributes in &lt;span class="caps"&gt;RJS&lt;/span&gt;:&lt;/p&gt;
+
+
+&lt;pre&gt;&lt;code&gt;page['foo']['style']['color'] = 'red' # =&amp;gt; $('foo').style.color = 'red';&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Forms now use blocks instead of &lt;code&gt;end_form_tag&lt;/code&gt; (&lt;a href="http://www.loudthinking.com/arc/000601.html"&gt;notes from &lt;span class="caps"&gt;DHH&lt;/span&gt;&lt;/a&gt;):&lt;/p&gt;
+</code></pre></div></div>
+
+<pre><code>
+&lt;% form_tag(products_url) do %&gt;
+  &lt;%= text_field :product, :title %&gt;
+  &lt;%= submit_tag "Save" %&gt;
+&lt;% end -%&gt;
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;And how many blogs have you visited that say &amp;#8220;Last updated 60 days ago&amp;#8221;? Years and months have been added to &lt;code&gt;distance_of_time_in_words&lt;/code&gt;, so you&amp;#8217;ll see &amp;#8220;2 months ago&amp;#8221; or maybe even &amp;#8220;5 years ago&amp;#8221; now.&lt;/p&gt;
+
+
+&lt;h1&gt;Controllers&lt;/h1&gt;
+
+
+&lt;p&gt;Uncaught exceptions raised anywhere in your application will cause &lt;code&gt;RAILS_ROOT/public/500.html&lt;/code&gt; to be read and shown instead of just the static &amp;#8220;Application error (Rails).&amp;#8221; So make it look nice if you aren&amp;#8217;t using it already!&lt;/p&gt;
+
+
+&lt;p&gt;There is a new &lt;code&gt;head(options = {})&lt;/code&gt; method for responses that have no body.&lt;/p&gt;
+
+
+&lt;pre&gt;&lt;code&gt;head :status =&amp;gt; 404 # return an empty response with a 404 status head :location =&amp;gt; person_path(@person), :status =&amp;gt; 201&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;You can declare specific file extensions exempt from layouts. Bring on the &lt;span class="caps"&gt;CSS&lt;/span&gt;, PDF, and graphic generating plugins!&lt;/p&gt;
+
+
+&lt;pre&gt;&lt;code&gt;ActionController::Base.exempt_from_layout 'rpdf'&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;RESTful resources automatically get a &lt;code&gt;params[:format]&lt;/code&gt; option that can force a content type. If :format is specified and matches a declared extension, that mime type will be used in preference to the &amp;#8220;Accept&amp;#8221; header. This means you can link to the same action from different extensions and use that fact to determine output (&lt;a href="http://nubyonrails.com/articles/2006/10/09/peepcode-rest-basics"&gt;cheat sheet&lt;/a&gt;).&lt;/p&gt;
+
+
+&lt;pre&gt;&lt;code&gt;class WeblogController &amp;lt; ActionController::Base   def index
+@posts = Post.find :all
+respond_to do |format|
+  format.html
+  format.xml { render :xml =&amp;gt; @posts.to_xml }
+  format.rss { render :action =&amp;gt; "feed.rxml" }
+end   end&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;You can also register your own custom &lt;span class="caps"&gt;MIME&lt;/span&gt; types. These will be automatically incorporated into controllers so you can use them in &lt;code&gt;respond_to&lt;/code&gt; blocks and as file &lt;code&gt;:format&lt;/code&gt; extensions.&lt;/p&gt;
+
+
+&lt;pre&gt;&lt;code&gt;Mime::Type.register(string, symbol, synonyms = []) Mime::Type.register("image/gif", :gif)&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;Finally, &lt;code&gt;ActionController.filter_parameter_logging&lt;/code&gt; makes it easy to remove passwords, credit card numbers, and other sensitive information from being logged when a request is handled.&lt;/p&gt;
+
+
+&lt;pre&gt;&lt;code&gt;filter_parameter_logging 'password' # Don't log fields that match 'password'&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h1&gt;Routing and URLs&lt;/h1&gt;
+
+
+&lt;p&gt;Routing has been significantly rewritten for speed and consistency. One of the benefits is that you can use named routes and RESTful routes in your mailer templates.&lt;/p&gt;
+</code></pre></div></div>
+
+<pre><code>
+class MyMailer &lt; ActionMailer::Base
+
+  include ActionController::UrlWriter
+  default_url_options[:host] = 'my_site.com'
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h1&gt;Testing&lt;/h1&gt;
+</code></pre></div></div>
+
+<p><code>assert_response</code> now supports additional symbolic status codes.</p>
+
+<pre><code>
+  assert_response :success # You know this one
+  assert_response :ok
+  assert_response :not_found
+  assert_response :forbidden
+</code></pre>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;Added the rulin&amp;#8217; &lt;code&gt;assert_select&lt;/code&gt; for &lt;span class="caps"&gt;CSS&lt;/span&gt; selector-based testing (&lt;a href="http://blog.labnotes.org/2006/09/04/assert_select-cheat-sheet/"&gt;cheat sheet&lt;/a&gt;). Use this instead of &lt;code&gt;assert_tag&lt;/code&gt; from now on. &lt;/p&gt;
+
+
+&lt;pre&gt;&lt;code&gt;assert_select "a[href=http://assert_select_rules.com]", @item.url, "Should have a link"  assert_select "div#products", nil, "Should show a products div on the page"&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;h1&gt;Deprecated&lt;/h1&gt;
+
+
+&lt;p&gt;You&amp;#8217;ll see warnings when you run your test suite. Here are a few that have been replaced with better syntax:&lt;/p&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;assert_tag &amp;rarr; assert_select&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;start_form_tag and end_form_tag &amp;rarr; form_tag do end&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;@cookies, @headers, @request, @response, @params, @session, @flash &amp;rarr; cookies, headers, request, response, params, session, flash&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;.png is no longer automatically appended to extension-less &lt;code&gt;image_tag&lt;/code&gt; calls&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

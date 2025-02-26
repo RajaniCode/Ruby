@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [ANN] Rails 3.0.10.rc1 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[ANN] Rails 3.0.10.rc1 has been released!" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/8/5/ann-rails-3-0-10-rc1-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[ANN] Rails 3.0.10.rc1 has been released!" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/8/5/ann-rails-3-0-10-rc1-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[ANN] Rails 3.0.10.rc1 has been released!",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2011/8/5/ann-rails-3-0-10-rc1-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "aaronp"
+      },
+      "datePublished": "2011-08-05T05:01:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, August 5, 2011</h5>
+        <h2>[ANN] Rails 3.0.10.rc1 has been released!</h2>
+
+        <h6>Posted by aaronp</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>Rails 3.0.10.rc1 has been released.  As usual, please try out this release candidate and report any issues to the <a href="http://groups.google.com/group/rubyonrails-core">ruby on rails core mailing list</a>.  If no issues are found, we’ll release 3.0.10 on August 8th (around 5pm PDT).</p>
+
+<p>If you do find issues, please send them to the rails core mailing list.  If the release candidate is found to not be backwards compatible with the previous release, we’ll do another release candidate and postpone the final release date.</p>
+
+<p>Remember that this is your chance to veto / postpone the rails release.  Please take this opportunity to test!</p>
+
+<h2 id="changes">CHANGES</h2>
+
+<p>You can find an exhaustive list of changes on <a href="https://github.com/rails/rails/compare/v3.0.9...3-0-10">github</a>.  Here are some notable excerpts:</p>
+
+<p>From ActionPack:</p>
+
+<ul>
+  <li>
+    <p>Fixes an issue where cache sweepers with only after filters would have no controller object, it would raise undefined method <code class="language-plaintext highlighter-rouge">controller_name</code> for <code class="language-plaintext highlighter-rouge">nil</code> [jeroenj]</p>
+  </li>
+  <li>
+    <p>Ensure status codes are logged when exceptions are raised.</p>
+  </li>
+  <li>
+    <p>Subclasses of OutputBuffer are respected.</p>
+  </li>
+  <li>
+    <p>Fixed <code class="language-plaintext highlighter-rouge">ActionView::FormOptionsHelper#select</code> with <code class="language-plaintext highlighter-rouge">:multiple =&gt; false</code></p>
+  </li>
+  <li>
+    <p>Avoid extra call to <code class="language-plaintext highlighter-rouge">Cache#read</code> in case of a fragment cache hit</p>
+  </li>
+</ul>
+
+<p>From ActiveRecord:</p>
+
+<ul>
+  <li>
+    <p>Magic encoding comment added to schema.rb files</p>
+  </li>
+  <li>
+    <p>schema.rb is written as UTF-8 by default.</p>
+  </li>
+  <li>
+    <p>Ensuring an established connection when running <code class="language-plaintext highlighter-rouge">rake db:schema:dump</code></p>
+  </li>
+  <li>
+    <p>Association conditions will not clobber join conditions.</p>
+  </li>
+  <li>
+    <p>Destroying a record will destroy the HABTM record before destroying itself.  GH #402.</p>
+  </li>
+  <li>
+    <p>Make <code class="language-plaintext highlighter-rouge">ActiveRecord::Batches#find_each</code> to not return <code class="language-plaintext highlighter-rouge">self</code>.</p>
+  </li>
+  <li>
+    <p>Update <code class="language-plaintext highlighter-rouge">table_exists?</code> in PG to to always use current <code class="language-plaintext highlighter-rouge">search_path</code> or schema if explictly set.</p>
+  </li>
+</ul>
+
+<h2 id="the-end">THE END</h2>
+
+<p>Thanks!</p>
+
+<p>-Aaron &lt;3</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+Last login: Mon Feb  3 18:20:13 on ttys001
+rajaniapple@Rajanis-MacBook-Pro ~ % docker version 
+Client:
+ Version:           27.5.1
+ API version:       1.47
+ Go version:        go1.22.11
+ Git commit:        9f9e405
+ Built:             Wed Jan 22 13:37:19 2025
+ OS/Arch:           darwin/arm64
+ Context:           desktop-linux
+
+Server: Docker Desktop 4.38.0 (181591)
+ Engine:
+  Version:          27.5.1
+  API version:      1.47 (minimum version 1.24)
+  Go version:       go1.22.11
+  Git commit:       4c9b3b0
+  Built:            Wed Jan 22 13:41:25 2025
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          1.7.25
+  GitCommit:        bcc810d6b9066471b0b6fa75f557a15a1cbf31bb
+ runc:
+  Version:          1.1.12
+  GitCommit:        v1.1.12-0-g51d5e946
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+rajaniapple@Rajanis-MacBook-Pro ~ % docker container list --all
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+rajaniapple@Rajanis-MacBook-Pro ~ % docker image list --all
+REPOSITORY          TAG       IMAGE ID       CREATED        SIZE
+ghcr.io/rails/cli   latest    cf4cc382cc40   37 hours ago   987MB
+rajaniapple@Rajanis-MacBook-Pro ~ % docker rm $(docker container list -a -q) --force
+"docker rm" requires at least 1 argument.
+See 'docker rm --help'.
+
+Usage:  docker rm [OPTIONS] CONTAINER [CONTAINER...]
+
+Remove one or more containers
+rajaniapple@Rajanis-MacBook-Pro ~ % docker rmi $(docker image list -a -q) --force 
+Untagged: ghcr.io/rails/cli:latest
+Untagged: ghcr.io/rails/cli@sha256:c567785c2ba508507a7ffdc07765af4455ac1db0c78631109bb8091346670154
+Deleted: sha256:cf4cc382cc40c5b046d265d09f4a4907126d3ca3c7887ba319f736425aebb37f
+Deleted: sha256:fb4d98b3d7b395bbaee37447d867170dff638a880e16d4a40969e5f86297bae8
+Deleted: sha256:ea34ff4344b0e50d97fc7182346595dc88574efc3c40ab1744a6336d64b25a1e
+Deleted: sha256:5c9215930088e21decec8941257c2dcc582b8649d42c914583e80438c5a1cf67
+Deleted: sha256:5b259385b1e845cdecfc44788cebe6fe1d1fa30e83ddd2c5d7994f8ed9d122b5
+Deleted: sha256:a0962d1afd2c979c0d153e84fcbf936d1cd710af655050d073cab25cb7a05d11
+Deleted: sha256:d11e6e8587734ae366b95a3826b2d8577cc6a3ad5de3d4969ceec4b70d1c7f9b
+Deleted: sha256:6a04dfa271b3410d3c00b0093abc46914ad2243b09406b522652d3b83b31e2a8
+Deleted: sha256:a3336d10b7a7eb48f5fac0ce381d813c04e7999f0862cc63898243322a3d73ab
+Deleted: sha256:41b8d56b2d116d7f56f1fd540262f35eaf5c5537dc27815eebded0f630e4c29a
+Deleted: sha256:0b36a68bbdb29f402ad40613e17174b38422bd28f6f62a491ab6a78f263d2bb2
+Deleted: sha256:6e5a1bc9659a34c2721239cd7ba5c8a14200f98c6e2c49531ba6559aa1c43f67
+rajaniapple@Rajanis-MacBook-Pro ~ % docker image list --all                       
+REPOSITORY   TAG       IMAGE ID   CREATED   SIZE
+rajaniapple@Rajanis-MacBook-Pro ~ % docker volume list
+DRIVER    VOLUME NAME
+local     ruby-bundle-cache
+rajaniapple@Rajanis-MacBook-Pro ~ % docker volume rm $(docker volume list --quiet) --force
+ruby-bundle-cache
+rajaniapple@Rajanis-MacBook-Pro ~ % docker volume list                                    
+DRIVER    VOLUME NAME
+rajaniapple@Rajanis-MacBook-Pro ~ % docker system prune --all --volumes
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all anonymous volumes not used by at least one container
+  - all images without at least one container associated to them
+  - all build cache
+
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B
+rajaniapple@Rajanis-MacBook-Pro ~ % 

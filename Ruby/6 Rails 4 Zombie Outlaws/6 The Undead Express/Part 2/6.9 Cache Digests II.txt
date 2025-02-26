@@ -1,0 +1,69 @@
+6.9 Cache Digests II
+
+
+Since we've changed our view template to list only the most recent weapons, cache_digests stopped working properly. In order to fix this, change the code below to use the explicit partial syntax (i.e., render partial: '...', collection: '...')
+
+
+Database:
+zombies 
+id	name	weapon_id	status	killed_on
+1	Ash	1	outlaw	null
+2	Bob	2	dead	2015-07-18
+3	Jim	3	dead	2015-07-17
+weapons 
+id	name
+1	Chainsaw
+2	Bone
+3	Axe
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  belongs_to :weapon
+  def self.recent
+    order(id: :asc).last
+  end
+end
+
+
+views/zombies/_zombie.html.erb
+<% cache zombie do %>
+  <li><%= zombie %></li>
+<% end %>
+
+
+models/weapon.rb
+class Weapon < ActiveRecord::Base
+  has_many :zombies
+end
+ 
+    
+views/weapons/index.html.erb
+<% cache @weapon do %>
+  <section>
+    <h3><%= @weapon.name %></h3>
+    <ul>
+      <%= render @weapon.zombies.recent %>
+    </ul>
+    <%= link_to 'Details', @weapon %>
+  </section>
+<% end %>
+
+
+Answer:
+views/weapons/index.html.erb
+<% cache @weapon do %>
+  <section>
+    <h3><%= @weapon.name %></h3>
+    <ul>
+      <%= render partial: "zombies/zombie",
+        collection: @weapon.zombies.recent %>
+    </ul>
+    <%= link_to 'Details', @weapon %>
+  </section>
+<% end %>
+
+
+
+
+

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: strong ETag validators, Action Cable enhancements and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone! This is Roque bringing the latest news from Rails. Hope you enjoy, and see y’all at the RailsConf in a month!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: strong ETag validators, Action Cable enhancements and more!" />
+  <meta property="og:description" content="Hello everyone! This is Roque bringing the latest news from Rails. Hope you enjoy, and see y’all at the RailsConf in a month!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/4/8/this-week-in-rails-strong-etag-validators-action-cable-enhancements-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: strong ETag validators, Action Cable enhancements and more!" />
+  <meta name="twitter:description" content="Hello everyone! This is Roque bringing the latest news from Rails. Hope you enjoy, and see y’all at the RailsConf in a month!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/4/8/this-week-in-rails-strong-etag-validators-action-cable-enhancements-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: strong ETag validators, Action Cable enhancements and more!",
+      "description": "Hello everyone! This is Roque bringing the latest news from Rails. Hope you enjoy, and see y’all at the RailsConf in a month!",
+      "url": "http://localhost:4000/2016/4/8/this-week-in-rails-strong-etag-validators-action-cable-enhancements-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "repinel"
+      },
+      "datePublished": "2016-04-08T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, April 8, 2016</h5>
+        <h2>This week in Rails: strong ETag validators, Action Cable enhancements and more!</h2>
+
+        <h6>Posted by repinel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone! This is <a href="https://twitter.com/repinel">Roque</a> bringing the latest news from Rails. Hope you enjoy, and see y’all at the RailsConf in a month!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160401-20160408">This Week’s Rails Contributors</a></h3>
+
+<p>This week 39 people contributed to Rails. We also got 11 first time contributors. Welcome aboard folks and keep it going!</p>
+
+<h3 id="strong-etag-validators"><a href="https://github.com/rails/rails/pull/24387">Strong ETag validators</a></h3>
+
+<p>Strong ETag is now available in addition to weak ETag. It implies that the response should be exactly the same and byte by byte identical. Useful when doing things like Range requests within a large video or PDF file.</p>
+
+<h3 id="action-cable-protocol-negotiation"><a href="https://github.com/rails/rails/pull/24224">Action Cable protocol negotiation</a></h3>
+
+<p>Action Cable will gracefully disconnect clients and disable the monitor if the protocol has changed. This allows clients to gradually move to the newest version.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="allow-passing-record-being-validated-to-error-message-generator"><a href="https://github.com/rails/rails/pull/24119">Allow passing record being validated to error message generator</a></h3>
+
+<p>The record being validated is now accessible from the message proc to generate custom error messages like:
+<code class="language-plaintext highlighter-rouge">proc { |record, data| "#{data[:attribute]} failed with value #{record.name}." }</code></p>
+
+<h3 id="add-non-us-format-support-to-number_to_phone"><a href="https://github.com/rails/rails/pull/24401">Add non-US format support to number_to_phone</a></h3>
+
+<p>Need to format a non-US phone number? You can now use <code class="language-plaintext highlighter-rouge">number_to_phone</code> with the <code class="language-plaintext highlighter-rouge">:pattern</code> option as a Regexp.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="fixed-duplicated-emails-issue-with-sendmail"><a href="https://github.com/rails/rails/pull/24436">Fixed duplicated emails issue with Sendmail</a></h3>
+
+<p>There was an issue with Action Mailer when calling Sendmail with the <code class="language-plaintext highlighter-rouge">-t</code> argument. Sendmail would scan messages for recipients, and it could result in duplicated emails.</p>
+
+<h3 id="fixed-the-stringto_time-behaviour-to-match-rubys"><a href="https://github.com/rails/rails/commit/9c2c677d903bcdea3feb1cad6c6d4c8c07cc8034">Fixed the String#to_time behaviour to match Ruby’s</a></h3>
+
+<p>Previously, the method returned today’s midnight time when there was no relevant information in the string. Now it returns <code class="language-plaintext highlighter-rouge">nil</code>.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are plenty of things we’re not able to cover here, so take a look at the <a href="https://github.com/rails/rails/compare/master@%7B2016-04-02%7D...@%7B2016-04-08%7D">changes</a> yourself.</p>
+
+<p>Until next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

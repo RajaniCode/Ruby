@@ -1,0 +1,81 @@
+4.4 Responding to a Successful POST Request
+
+Let’s make our previous tests pass by implementing the create action and creating a new human record.
+
+
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def create
+    # your code here
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+
+1. Use human_params to build a new Human and save it to the database.
+
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def create
+    # your code here
+    human = Human.create(human_params)    
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+2. Using the JSON format, render back the new human with a 201 - Created status code.
+
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def create
+    # your code here
+    human = Human.create(human_params) 
+    if human.save
+      render json: human, status: 201     
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+3. Set the Location response header to the newly created human resource.
+
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  def create
+    # your code here
+    human = Human.create(human_params) 
+    if human.save
+      render json: human, status: 201, location: human    
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end

@@ -1,0 +1,64 @@
+5.5 Testing Setting The REMOTE_ADDR Header
+
+As our application continues to grow, we are starting to create some unnecessary code duplication. But before we can refactor our code into something cleaner, we need to write some tests. These tests will ensure things are currently working and will also help make sure we don’t break anything as we move forward with the changes.
+
+
+test/integration/zombies_with_ip_test.rb
+class ZombiesWithIpTest < ActionDispatch::IntegrationTest
+  setup { @ip = '192.168.1.12' }
+
+  test '/v1 returns ip and v1' do
+    get '/v1/zombies', {}, { '' => ... }
+    assert_equal 200, response.status
+    assert_equal "#{@ip} and version one", response.body
+  end
+
+  test '/v2 returns ip and v2' do
+    get '/v2/zombies', {}, { '' => ... }
+    assert_equal 200, response.status
+    assert_equal "#{@ip} and version two", response.body
+  end
+end
+
+
+1. On the test block for v1, set the REMOTE_ADDR request header with the value from @ip.
+
+Answer:
+test/integration/zombies_with_ip_test.rb
+class ZombiesWithIpTest < ActionDispatch::IntegrationTest
+  setup { @ip = '192.168.1.12' }
+
+  test '/v1 returns ip and v1' do
+    get '/v1/zombies', {}, { 'REMOTE_ADDR' => @ip }
+    assert_equal 200, response.status
+    assert_equal "#{@ip} and version one", response.body
+  end
+
+  test '/v2 returns ip and v2' do
+    #get '/v2/zombies', {}, { '' => ... }
+    assert_equal 200, response.status
+    assert_equal "#{@ip} and version two", response.body
+  end
+end
+
+
+2. On the test block for v2, set the REMOTE_ADDR request header with the value from @ip.
+
+
+Answer:
+test/integration/zombies_with_ip_test.rb
+class ZombiesWithIpTest < ActionDispatch::IntegrationTest
+  setup { @ip = '192.168.1.12' }
+
+  test '/v1 returns ip and v1' do
+    get '/v1/zombies', {}, { 'REMOTE_ADDR' => @ip }
+    assert_equal 200, response.status
+    assert_equal "#{@ip} and version one", response.body
+  end
+
+  test '/v2 returns ip and v2' do
+    get '/v2/zombies', {}, { 'REMOTE_ADDR' => @ip }
+    assert_equal 200, response.status
+    assert_equal "#{@ip} and version two", response.body
+  end
+end

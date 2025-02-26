@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 7.0.2, schema versioning based on the Rails version, and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, this is Petrik, bringing you the latest news from the Rails world.Rails 7.0.2 has been released While this looks like a regular patch release there are a few notable changes.First, one feature that was introduced in 7.0.0 was removed: the ability to pass a service_name param to DirectUploadsController. This feature was causing significant issues when upgrading from Rails 6.1, so the Rails team decided to remove it while they work on a backward compatible change. They don’t take this decision lightly, and usually don’t remove features after they are released without a proper deprecation cycle, but at this time they decided to prioritize making it easier for people to upgrade." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 7.0.2, schema versioning based on the Rails version, and more" />
+  <meta property="og:description" content="Hi, this is Petrik, bringing you the latest news from the Rails world.Rails 7.0.2 has been released While this looks like a regular patch release there are a few notable changes.First, one feature that was introduced in 7.0.0 was removed: the ability to pass a service_name param to DirectUploadsController. This feature was causing significant issues when upgrading from Rails 6.1, so the Rails team decided to remove it while they work on a backward compatible change. They don’t take this decision lightly, and usually don’t remove features after they are released without a proper deprecation cycle, but at this time they decided to prioritize making it easier for people to upgrade." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2022/2/11/this-week-in-rails-rails-7-0-2-schema-versioning-based-on-the-rails-version-and-more-cbcb0592" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 7.0.2, schema versioning based on the Rails version, and more" />
+  <meta name="twitter:description" content="Hi, this is Petrik, bringing you the latest news from the Rails world.Rails 7.0.2 has been released While this looks like a regular patch release there are a few notable changes.First, one feature that was introduced in 7.0.0 was removed: the ability to pass a service_name param to DirectUploadsController. This feature was causing significant issues when upgrading from Rails 6.1, so the Rails team decided to remove it while they work on a backward compatible change. They don’t take this decision lightly, and usually don’t remove features after they are released without a proper deprecation cycle, but at this time they decided to prioritize making it easier for people to upgrade." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2022/2/11/this-week-in-rails-rails-7-0-2-schema-versioning-based-on-the-rails-version-and-more-cbcb0592"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 7.0.2, schema versioning based on the Rails version, and more",
+      "description": "Hi, this is Petrik, bringing you the latest news from the Rails world.Rails 7.0.2 has been released While this looks like a regular patch release there are a few notable changes.First, one feature that was introduced in 7.0.0 was removed: the ability to pass a service_name param to DirectUploadsController. This feature was causing significant issues when upgrading from Rails 6.1, so the Rails team decided to remove it while they work on a backward compatible change. They don’t take this decision lightly, and usually don’t remove features after they are released without a proper deprecation cycle, but at this time they decided to prioritize making it easier for people to upgrade.",
+      "url": "http://localhost:4000/2022/2/11/this-week-in-rails-rails-7-0-2-schema-versioning-based-on-the-rails-version-and-more-cbcb0592",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "p8"
+      },
+      "datePublished": "2022-02-11T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, February 11, 2022</h5>
+        <h2>Rails 7.0.2, schema versioning based on the Rails version, and more</h2>
+
+        <h6>Posted by p8</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, this is Petrik, bringing you the latest news from the Rails world.</p>
+
+<p><a href="https://rubyonrails.org/2022/2/8/Rails-7-0-2-has-been-released"><strong>Rails 7.0.2 has been released</strong></a> <br />
+While this looks like a regular patch release there are a few notable changes.<br />
+First, one feature that was introduced in 7.0.0 was removed: the ability to pass a <em>service_name</em> param to <em>DirectUploadsController</em>. This feature was causing significant issues when upgrading from Rails 6.1, so the Rails team decided to remove it while they work on a backward compatible change. They don’t take this decision lightly, and usually don’t remove features after they are released without a proper deprecation cycle, but at this time they decided to prioritize making it easier for people to upgrade.</p>
+
+<p>Finally, with the same goal in mind, Rails 7.0.2 introduced a new feature, <a href="https://github.com/rails/rails/pull/44286">the ability to version the database schema based on the Rails version</a>. This new feature will allow existing applications to still load their database schemas generated in Rails 6.1, with the same behavior as before, keeping it matching the production database schema.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44219"><strong>Fiber-save ConnectionPool</strong></a><br />
+ When <em>ActiveSupport::IsolatedExecutionState.isolation_level</em> is set to <em>:fiber</em>, the connection pool now supports multiple Fibers from the same Thread checking out connections from the pool.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44354"><strong>Make #to_fs the default replacement for #to_s(:format)</strong></a><br />
+<em>#to_s(:format)</em> was recently <a href="https://github.com/rails/rails/pull/43772">deprecated</a> in favor of <em>#to_formatted_s</em>, as Ruby 3.1. has optimized interpolation. <em>#to_formatted_s</em> is a pretty long name for a frequently used method. This change makes <em>#to_fs</em> the default in Rails internals and the documentation. <em>#to_formatted_s</em> is still an alias to <em>#to_fs</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/42846"><strong>Default the ActiveSupport::MessageEncryptor serializer to JSON</strong></a> <br />
+Using JSON offers a more secure alternative to the current Marshal serializer.<br />
+Existing apps are provided with an upgrade path to migrate to <em>JSON</em> as described in the <a href="https://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html#new-activesupport-messageencryptor-default-serializer">upgrading guides</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44358"><strong>Dump the precision for datetime columns following the new defaults</strong></a><br />
+Since Rails 7.0 the datetime column precision is 6 by default. That means that <em>t.datetime</em> calls without setting the <em>:precision</em> option would have its precision set to 6. This affected PostgreSQL and SQLite3. Now the dumper will generate the precision as 0 for columns without precision and omit it when the precision is 6.</p>
+
+<p><a href="https://github.com/rails/rails/pull/42990"><strong>Add job_id and exception message to ActiveJob retry/discard logging</strong></a><br />
+In log messages for performed jobs, the Job ID and exception message were already included. But log messages related to retry/discard behavior from <em>ActiveJob::Exceptions</em> did not include the Job ID or exception message. We now include them, in a consistent format with other existing messages.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44363"><strong>Reverse the order of INSERT statements in structure.sql dumps</strong></a><br />
+This should decrease the likelihood of merge conflicts. New migrations will now be added at the top of the list.<br />
+For existing apps, there will be a large diff the next time <em>structure.sql</em> is generated.</p>
+
+<p>Since last time, <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20220205-20220212">25 people</a> contributed to Rails. As usual, there’s too much changes to cover them but you can check out all of these <a href="https://github.com/rails/rails/compare/main@%7B2022-02-05%7D...main@%7B2022-02-11%7D">here</a>. Until next time!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

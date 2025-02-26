@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Maintenance policy for Ruby on Rails</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Since the most recent patch releases there has been some confusion about whatversions of Ruby on Rails are currently supported, and when people can expectnew versions.  Our maintenance policy is as follows." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Maintenance policy for Ruby on Rails" />
+  <meta property="og:description" content="Since the most recent patch releases there has been some confusion about whatversions of Ruby on Rails are currently supported, and when people can expectnew versions.  Our maintenance policy is as follows." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2013/2/24/maintenance-policy-for-ruby-on-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Maintenance policy for Ruby on Rails" />
+  <meta name="twitter:description" content="Since the most recent patch releases there has been some confusion about whatversions of Ruby on Rails are currently supported, and when people can expectnew versions.  Our maintenance policy is as follows." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2013/2/24/maintenance-policy-for-ruby-on-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Maintenance policy for Ruby on Rails",
+      "description": "Since the most recent patch releases there has been some confusion about whatversions of Ruby on Rails are currently supported, and when people can expectnew versions.  Our maintenance policy is as follows.",
+      "url": "http://localhost:4000/2013/2/24/maintenance-policy-for-ruby-on-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "steveklabnik"
+      },
+      "datePublished": "2013-02-24T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, February 24, 2013</h5>
+        <h2>Maintenance policy for Ruby on Rails</h2>
+
+        <h6>Posted by steveklabnik</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Since the most recent patch releases there has been some confusion about what
+versions of Ruby on Rails are currently supported, and when people can expect
+new versions.  Our maintenance policy is as follows.</p>
+
+<p>Support of the Rails framework is divided into four groups: New features, bug
+fixes, security issues, and severe security issues.  They are handled as
+follows, all versions in x.y.z format:</p>
+
+<h2 id="new-features">New Features</h2>
+
+<p>New Features are only added to the master branch and will not be made available
+in point releases.</p>
+
+<h2 id="bug-fixes">Bug fixes</h2>
+
+<p>Only the latest release series will receive bug fixes. When enough bugs are
+fixed and its deemed worthy to release a new gem, this is the branch it happens
+from.</p>
+
+<p>Currently included series: 3.2.z</p>
+
+<p>After the Rails 4 release: 4.0.z</p>
+
+<h2 id="security-issues">Security issues:</h2>
+
+<p>The current release series and the next most recent one will receive patches
+and new versions in case of a security issue.</p>
+
+<p>These releases are created by taking the last released version, applying the
+security patches, and releasing. Those patches are then applied to the end of
+the x-y-stable branch. For example, a theoretical 1.2.3 security release would
+be built from 1.2.2, and then added to the end of 1-2-stable. This means that
+security releases are easy to upgrade to if you’re running the latest version
+of Rails.</p>
+
+<p>Currently included series: 3.2.z, 3.1.z</p>
+
+<p>After the Rails 4 release: 4.0.z, 3.2.z</p>
+
+<h2 id="severe-security-issues">Severe security issues:</h2>
+
+<p>For severe security issues we will provide new versions as above, and also the
+last major release series will receive patches and new versions. The
+classification of the security issue is judged by the core team.</p>
+
+<p>Currently included series: 3.2.z, 3.1.z, 2.3.z</p>
+
+<p>After the Rails 4 release: 4.0.z, 3.2.z</p>
+
+<h2 id="unsupported-release-series">Unsupported Release Series</h2>
+
+<p>When a release series is no longer supported, it’s your own responsibility to
+deal with bugs and security issues.  We may provide back-ports of the fixes and
+publish them to git, however there will be no new versions released.  If you
+are not comfortable maintaining your own versions, you should upgrade to a
+supported version.</p>
+
+<p>You should also be aware that Ruby 1.8 will reach End of Life in June 2013, no
+further Ruby security releases will be provided after that point.  If your
+application is only compatible Ruby 1.8 you should upgrade accordingly.</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

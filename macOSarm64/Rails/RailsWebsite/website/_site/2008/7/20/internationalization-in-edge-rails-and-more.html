@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Internationalization in edge Rails and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="There won&#8217;t be a Living on the Edge this week, but you won&#8217;t be starved for info because the Rails community is keeping up.Ryan Daigle has been keeping up with some of the changes on edge Rails and has done a few awesome explanatory posts on them:	Easy memoization with ActiveSupport::Memoizable	Nested model mass assignments	Metaclass accessor (aka the eigenclass)Perhaps even more noteworthy is the introduction of I18n (internationalization) support to Rails core. Sven Fuchs explains the technical details and API as well as the history of Rails and I18n. I18n support is scheduled to be fully stable in the Rails 2.2 release. Have an interest in internationalization in Rails? Lend a hand with your ideas, feedback, and patches at the Google Group." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Internationalization in edge Rails and more" />
+  <meta property="og:description" content="There won&#8217;t be a Living on the Edge this week, but you won&#8217;t be starved for info because the Rails community is keeping up.Ryan Daigle has been keeping up with some of the changes on edge Rails and has done a few awesome explanatory posts on them:	Easy memoization with ActiveSupport::Memoizable	Nested model mass assignments	Metaclass accessor (aka the eigenclass)Perhaps even more noteworthy is the introduction of I18n (internationalization) support to Rails core. Sven Fuchs explains the technical details and API as well as the history of Rails and I18n. I18n support is scheduled to be fully stable in the Rails 2.2 release. Have an interest in internationalization in Rails? Lend a hand with your ideas, feedback, and patches at the Google Group." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2008/7/20/internationalization-in-edge-rails-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Internationalization in edge Rails and more" />
+  <meta name="twitter:description" content="There won&#8217;t be a Living on the Edge this week, but you won&#8217;t be starved for info because the Rails community is keeping up.Ryan Daigle has been keeping up with some of the changes on edge Rails and has done a few awesome explanatory posts on them:	Easy memoization with ActiveSupport::Memoizable	Nested model mass assignments	Metaclass accessor (aka the eigenclass)Perhaps even more noteworthy is the introduction of I18n (internationalization) support to Rails core. Sven Fuchs explains the technical details and API as well as the history of Rails and I18n. I18n support is scheduled to be fully stable in the Rails 2.2 release. Have an interest in internationalization in Rails? Lend a hand with your ideas, feedback, and patches at the Google Group." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2008/7/20/internationalization-in-edge-rails-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Internationalization in edge Rails and more",
+      "description": "There won&#8217;t be a Living on the Edge this week, but you won&#8217;t be starved for info because the Rails community is keeping up.Ryan Daigle has been keeping up with some of the changes on edge Rails and has done a few awesome explanatory posts on them:	Easy memoization with ActiveSupport::Memoizable	Nested model mass assignments	Metaclass accessor (aka the eigenclass)Perhaps even more noteworthy is the introduction of I18n (internationalization) support to Rails core. Sven Fuchs explains the technical details and API as well as the history of Rails and I18n. I18n support is scheduled to be fully stable in the Rails 2.2 release. Have an interest in internationalization in Rails? Lend a hand with your ideas, feedback, and patches at the Google Group.",
+      "url": "http://localhost:4000/2008/7/20/internationalization-in-edge-rails-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Chu Yeow"
+      },
+      "datePublished": "2008-07-20T16:08:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, July 20, 2008</h5>
+        <h2>Internationalization in edge Rails and more</h2>
+
+        <h6>Posted by Chu Yeow</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>There won&#8217;t be a Living on the Edge this week, but you won&#8217;t be starved for info because the Rails community is keeping up.</p>
+<p><a href="http://ryandaigle.com/">Ryan Daigle</a> has been keeping up with some of the changes on edge Rails and has done a few awesome explanatory posts on them:</p>
+<ul>
+	<li><a href="http://ryandaigle.com/articles/2008/7/16/what-s-new-in-edge-rails-memoization">Easy memoization with ActiveSupport::Memoizable</a></li>
+	<li><a href="http://ryandaigle.com/articles/2008/7/19/what-s-new-in-edge-rails-nested-models">Nested model mass assignments</a></li>
+	<li><a href="http://ryandaigle.com/articles/2008/7/19/what-s-new-in-edge-rails-get-ur-metaclass">Metaclass accessor</a> (aka the eigenclass)</li>
+</ul>
+<p>Perhaps even more noteworthy is the introduction of I18n (internationalization) support to Rails core. Sven Fuchs explains the <a href="http://www.artweb-design.de/2008/7/18/the-ruby-on-rails-i18n-core-api">technical details and <span class="caps">API</span></a> as well as the <a href="http://www.artweb-design.de/2008/7/18/finally-ruby-on-rails-gets-internationalized">history of Rails and I18n</a>. I18n support is scheduled to be fully stable in the Rails 2.2 release. Have an interest in internationalization in Rails? Lend a hand with your ideas, feedback, and patches at the <a href="http://groups.google.com/group/rails-i18n">Google Group</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

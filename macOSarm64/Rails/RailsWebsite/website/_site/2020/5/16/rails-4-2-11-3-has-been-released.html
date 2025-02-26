@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 4.2.11.3 has been released</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Due to an unfortunate oversight, Rails 4.2.11.2 has a missing constant error. To address this Rails 4.2.11.3 has been released." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 4.2.11.3 has been released" />
+  <meta property="og:description" content="Due to an unfortunate oversight, Rails 4.2.11.2 has a missing constant error. To address this Rails 4.2.11.3 has been released." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2020/5/16/rails-4-2-11-3-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 4.2.11.3 has been released" />
+  <meta name="twitter:description" content="Due to an unfortunate oversight, Rails 4.2.11.2 has a missing constant error. To address this Rails 4.2.11.3 has been released." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2020/5/16/rails-4-2-11-3-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 4.2.11.3 has been released",
+      "description": "Due to an unfortunate oversight, Rails 4.2.11.2 has a missing constant error. To address this Rails 4.2.11.3 has been released.",
+      "url": "http://localhost:4000/2020/5/16/rails-4-2-11-3-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "pixeltrix"
+      },
+      "datePublished": "2020-05-16T15:24:19+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, May 16, 2020</h5>
+        <h2>Rails 4.2.11.3 has been released</h2>
+
+        <h6>Posted by pixeltrix</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Due to an unfortunate oversight, Rails 4.2.11.2 has a <a href="https://github.com/rails/rails/issues/39301">missing constant error</a>. To address this Rails 4.2.11.3 has been released.</p>
+
+<p>The original announcement for <a href="https://groups.google.com/forum/#!topic/rubyonrails-security/hWuKcHyoKh0">CVE-2020-8163</a> has a follow-up message with an updated patch if you’re unable to use the gems.</p>
+
+<p>Here are the shas:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sha256sum *-4.2.11.3.gem
+229cd7da59bd26faf3e9d67a8285150e6eba6f63e077392b68d93b02a06cfd34  actionmailer-4.2.11.3.gem
+67e84b5fcde0b2d885987a444646fb4d741926fd565565a336e73c5153e7a5a4  actionpack-4.2.11.3.gem
+3be3f1ab60f518415da2fab994eac7d4ad869ea6b89762b7c1a9922e0756963e  actionview-4.2.11.3.gem
+cab80c01aa01e0856c506c9a1fc7e492ca5e93c45ac917f9ea3671f8c77016ae  activejob-4.2.11.3.gem
+97b94190b4a2c1ccfaa9727a445d2b157dac8378959c37df3b51a0aafb3967fc  activemodel-4.2.11.3.gem
+cd6c8445c0b4ee3c89ec382149c0e7d44148d179092f69d8ec333be1fc4efcba  activerecord-4.2.11.3.gem
+515015c5b8c7b35af33f5911c14248b06438c25fda60905965ba8d3c2237e372  activesupport-4.2.11.3.gem
+7502ee83259abce924803052e34f3a9d072b01050e41e2ae94a22ddfd16d9686  rails-4.2.11.3.gem
+f33ac1fc4e3dff3f35369caaf7ca21ace876637fabba9d05e512bfc06379c789  railties-4.2.11.3.gem
+</code></pre></div></div>
+
+<p>Apologies to anyone affected by this error.</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

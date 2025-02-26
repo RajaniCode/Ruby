@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; YJIT enabled by default, Active Model improvements and much more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s Wojtek. This week, the documentary movie about the origins of Ruby on Rails premiered. You can see it on the Honeypot YouTube channel. Now, let’s explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="YJIT enabled by default, Active Model improvements and much more" />
+  <meta property="og:description" content="Hi, it’s Wojtek. This week, the documentary movie about the origins of Ruby on Rails premiered. You can see it on the Honeypot YouTube channel. Now, let’s explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/11/10/this-week-in-rails-TODO" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="YJIT enabled by default, Active Model improvements and much more" />
+  <meta name="twitter:description" content="Hi, it’s Wojtek. This week, the documentary movie about the origins of Ruby on Rails premiered. You can see it on the Honeypot YouTube channel. Now, let’s explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/11/10/this-week-in-rails-TODO"
+      },
+      "name": "Ruby on Rails",
+      "headline": "YJIT enabled by default, Active Model improvements and much more",
+      "description": "Hi, it’s Wojtek. This week, the documentary movie about the origins of Ruby on Rails premiered. You can see it on the Honeypot YouTube channel. Now, let’s explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2023/11/10/this-week-in-rails-TODO",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Wojtek"
+      },
+      "datePublished": "2023-11-10T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, November 10, 2023</h5>
+        <h2>YJIT enabled by default, Active Model improvements and much more</h2>
+
+        <h6>Posted by Wojtek</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://twitter.com/morgoth85">Wojtek</a>. This week, the documentary movie about the origins of Ruby on Rails premiered. You can see it on the <a href="https://www.youtube.com/watch?v=HDKUEXBF3B4">Honeypot YouTube channel</a>. Now, let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49947">Enable YJIT by default if running Ruby 3.3+</a><br />
+There was many public reports of 15-25% latency improvements for Rails apps that did enable Ruby 3.2 YJIT, and in 3.3 it’s even better.
+Following the <a href="https://github.com/ruby/ruby/pull/8705">change</a>, in Ruby 3.3 YJIT is paused instead of disabled by default, allowing us to enable it from an initializer.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49765">Make the output of Active Records inspect configurable.</a><br />
+One can use <em>attributes_for_inspect</em> method:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Post</span><span class="p">.</span><span class="nf">attributes_for_inspect</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:id</span><span class="p">,</span> <span class="ss">:title</span><span class="p">]</span>
+<span class="no">Post</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">inspect</span> <span class="c1">#=&gt; "#&lt;Post id: 1, title: "Hello, World!"&gt;"</span>
+</code></pre></div></div>
+<p>With the <em>attributes_for_inspect</em> set to <em>:all</em>, all record’s attributes will be listed (default for development and test environment).
+One can also call <em>full_inspect</em> to get an inspection with all the attributes.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49910">Port type_for_attribute to Active Model</a><br />
+Port the <em>type_for_attribute</em> method to Active Model. Classes that include <em>ActiveModel::Attributes</em> will now provide this method, which behaves the same as it does for Active Record.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44534">Port BeforeTypeCast module to Active Model</a><br />
+Classes that include <em>ActiveModel::Attributes</em> will now automatically define methods such as <em>*_before_type_cast</em>, <em>*_for_database</em>, etc, which behave the same as they do for Active Record.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49828">In Action Mailer previews, list inline attachments separately from normal attachments</a><br />
+Attachments that were previously listed like “Attachments: logo.png file.pdf” will now be listed like “Attachments: file.pdf (Inline: logo.png)”.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49790">In Action Mailer previews, show date from Date header if present</a><br />
+Falls back to current time when the header is not present (as it was before).</p>
+
+<p><a href="https://github.com/rails/rails/pull/48782">In Action Mailer previews, only show SMTP envelope recipient when relevant</a><br />
+Show <em>SMTP-To</em> if it differs from the union of <em>To</em>, <em>Cc</em> and <em>Bcc</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49952">Fix using Action Text Javascript in Sprockets</a><br />
+Compile ESM package that can be used directly in the browser as <em>actiontext.esm.js</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49908">Preload Selenium driver_path before parallelizing system tests</a><br />
+Fixes a race condition that could cause a “Text file busy - chromedriver” error with parallel system tests.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49904">Fix detecting changes on Active Model for infinity</a><br />
+Attribute with <em>Float::INFINITY</em> value from now is not marked as changed when reassigning it to the same value.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49050">Fix Active Record queries for serialized values</a><br />
+Fixes queries like <code class="language-plaintext highlighter-rouge">where(field: values)</code> when <em>field</em> is a serialized attribute or a JSON column).</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-11-03%7D...main@%7B2023-11-10%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20231103-20231110">32 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

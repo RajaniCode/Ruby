@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Today is Leopard day!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OS X 10.5 is shipping today under the Leopard moniker. Besides being a great upgrade to a wonderful operating system, it's also the first version of OS X that ships with Rails in the package. Apple has done a phenomenal job including all the good stuff from the Ruby and Rails world into the developer tools that come with the OS." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Today is Leopard day!" />
+  <meta property="og:description" content="OS X 10.5 is shipping today under the Leopard moniker. Besides being a great upgrade to a wonderful operating system, it's also the first version of OS X that ships with Rails in the package. Apple has done a phenomenal job including all the good stuff from the Ruby and Rails world into the developer tools that come with the OS." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2007/10/27/today-is-leopard-day" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Today is Leopard day!" />
+  <meta name="twitter:description" content="OS X 10.5 is shipping today under the Leopard moniker. Besides being a great upgrade to a wonderful operating system, it's also the first version of OS X that ships with Rails in the package. Apple has done a phenomenal job including all the good stuff from the Ruby and Rails world into the developer tools that come with the OS." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2007/10/27/today-is-leopard-day"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Today is Leopard day!",
+      "description": "OS X 10.5 is shipping today under the Leopard moniker. Besides being a great upgrade to a wonderful operating system, it's also the first version of OS X that ships with Rails in the package. Apple has done a phenomenal job including all the good stuff from the Ruby and Rails world into the developer tools that come with the OS.",
+      "url": "http://localhost:4000/2007/10/27/today-is-leopard-day",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2007-10-27T01:16:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, October 27, 2007</h5>
+        <h2>Today is Leopard day!</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>OS X 10.5 is shipping today under the Leopard moniker. Besides being a great upgrade to a wonderful operating system, it's also the first version of OS X that ships with Rails in the package. Apple has done a phenomenal job including all the good stuff from the Ruby and Rails world into the developer tools that come with the OS.</p>
+
+<p>So out of the box you get Ruby 1.8.6, Rails 1.2.3 (which is just a "gem update rails" call away from being 1.2.5), Capistrano, SQLite-bindings, and so much more. No more need for compiling your own Ruby. It's great. See all the changes in <a href="http://trac.macosforge.org/projects/ruby/wiki/WhatsNewInLeopard">What's New in Leopard</a>.</p>
+
+<p>The only minor snag is that in order to install the MySQL C bindings for Ruby, you have to be quite particular on the command line. Here's the cheat line you need to install (<a href="http://trac.macosforge.org/projects/ruby/wiki/Troubleshooting#IcannotbuildrubymysqlonLeopardwithmysql.combinaries">read more at macosforge</a>):</p>
+
+<blockquote>sudo env ARCHFLAGS="-arch i386" gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config</blockquote>
+
+<p>So happy <a href="http://www.amazon.com/gp/product/B000FK88JK?ie=UTF8&amp;tag=rubonrai-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B000FK88JK">Leopard</a> day, folks!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

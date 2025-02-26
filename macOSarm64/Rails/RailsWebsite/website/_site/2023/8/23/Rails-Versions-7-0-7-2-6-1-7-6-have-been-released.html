@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails Versions 7.0.7.2, 6.1.7.6 have been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone!  While I was testing the workaround for the most recent security release, I set my umask to 0077 and forgot to set it back before packaging the release.This caused some of the files in the gem file to be readable only by the current user rather than world readable.I’ve shipped new versions 7.0.7.2, and 6.1.7.6, which are identical to 7.0.7.1 and 6.1.7.5, but with corrected file permissions.I’m really sorry about the mixup." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails Versions 7.0.7.2, 6.1.7.6 have been released!" />
+  <meta property="og:description" content="Hi everyone!  While I was testing the workaround for the most recent security release, I set my umask to 0077 and forgot to set it back before packaging the release.This caused some of the files in the gem file to be readable only by the current user rather than world readable.I’ve shipped new versions 7.0.7.2, and 6.1.7.6, which are identical to 7.0.7.1 and 6.1.7.5, but with corrected file permissions.I’m really sorry about the mixup." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/8/23/Rails-Versions-7-0-7-2-6-1-7-6-have-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails Versions 7.0.7.2, 6.1.7.6 have been released!" />
+  <meta name="twitter:description" content="Hi everyone!  While I was testing the workaround for the most recent security release, I set my umask to 0077 and forgot to set it back before packaging the release.This caused some of the files in the gem file to be readable only by the current user rather than world readable.I’ve shipped new versions 7.0.7.2, and 6.1.7.6, which are identical to 7.0.7.1 and 6.1.7.5, but with corrected file permissions.I’m really sorry about the mixup." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/8/23/Rails-Versions-7-0-7-2-6-1-7-6-have-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails Versions 7.0.7.2, 6.1.7.6 have been released!",
+      "description": "Hi everyone!  While I was testing the workaround for the most recent security release, I set my umask to 0077 and forgot to set it back before packaging the release.This caused some of the files in the gem file to be readable only by the current user rather than world readable.I’ve shipped new versions 7.0.7.2, and 6.1.7.6, which are identical to 7.0.7.1 and 6.1.7.5, but with corrected file permissions.I’m really sorry about the mixup.",
+      "url": "http://localhost:4000/2023/8/23/Rails-Versions-7-0-7-2-6-1-7-6-have-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "tenderlove"
+      },
+      "datePublished": "2023-08-23T01:48:20+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, August 23, 2023</h5>
+        <h2>Rails Versions 7.0.7.2, 6.1.7.6 have been released!</h2>
+
+        <h6>Posted by tenderlove</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone!  While I was testing the workaround for the most recent <a href="https://rubyonrails.org/2023/8/22/Rails-Versions-7-0-7-1-6-1-7-5-have-been-released">security release</a>, I set my <code class="language-plaintext highlighter-rouge">umask</code> to 0077 and forgot to set it back before packaging the release.
+This caused some of the files in the gem file to be readable only by the current user rather than world readable.
+I’ve shipped new versions 7.0.7.2, and 6.1.7.6, which are identical to 7.0.7.1 and 6.1.7.5, but with corrected file permissions.
+I’m really sorry about the mixup.</p>
+
+<p>🤦🏻‍♀️🙇🏻‍♀️</p>
+
+<p>Here are the shasums for this corrected release!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum *6.1.7.6*
+9035697b11c3550b52943aac608f8fa2a38f0f67  actioncable-6.1.7.6.gem
+2a47970f6f2f45df4e59e8926b665565258775bb  actionmailbox-6.1.7.6.gem
+4264ffa98c938ed0ba2ab2daa69e5eadb2b4458d  actionmailer-6.1.7.6.gem
+d08f8f51c937cd6de17e1dbf094e15c89cd19184  actionpack-6.1.7.6.gem
+a149ec0691aae8efc5ac3de4911e15e3e1d3544f  actiontext-6.1.7.6.gem
+2c4a199734f07d8adbf561ecda19228a7c834c64  actionview-6.1.7.6.gem
+11f4b4d23137c0aed9f941f6d92623b7ad10fc87  activejob-6.1.7.6.gem
+5cd71398e2ac3c142a12823e5fcb295b376bbcb2  activemodel-6.1.7.6.gem
+eead0975733b1d7c3c70cf56054733777f2aa798  activerecord-6.1.7.6.gem
+2ebe8d60530d945f7931173ef162abc17d53cceb  activestorage-6.1.7.6.gem
+b3e73981d447f11473b8ef29cc6e819432f44bf2  activesupport-6.1.7.6.gem
+fcd2ee754e0f3511aef8d4aedbfd200bea5ac631  rails-6.1.7.6.gem
+4e55d9b2255df5b3ce7d20519c0ec657f829143d  railties-6.1.7.6.gem
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum *7.0.7.2*
+50dd1b7b9ab335605fe18f55fcc6349a34a5ddca  actioncable-7.0.7.2.gem
+ba8bb10260bf6d3e661726f515efc95d55c6ec6d  actionmailbox-7.0.7.2.gem
+df32d5b9c89bd9a895f126d4cbb8942685109b99  actionmailer-7.0.7.2.gem
+faa3b09d8383965b510c2858e2da777e1b8fd02d  actionpack-7.0.7.2.gem
+f721ec31ed1122a88698c0cf43daa5f1e1e75edf  actiontext-7.0.7.2.gem
+36be4d9032ca78f09ccbd592ae48013a4fb9ee47  actionview-7.0.7.2.gem
+bcec850a6487fde22abfe8d5b4fea370884c075e  activejob-7.0.7.2.gem
+a0529f1145f47ce38129d95d061670febadb6d41  activemodel-7.0.7.2.gem
+637859d1c2e9d6e069c682cb3dcb619f46e6ce0f  activerecord-7.0.7.2.gem
+991ab857802174b7dfbd63a75a2a5f7b0d8e6f4a  activestorage-7.0.7.2.gem
+0a0bf5b6b7e9a210829164bdd8924c91ea778210  activesupport-7.0.7.2.gem
+fa4ac4c5bd0f7d0b50b96c5518c6c4aae9e560db  rails-7.0.7.2.gem
+c4a8234b4e25a576eca9fda5bb05bfcf0ea7cd01  railties-7.0.7.2.gem
+</code></pre></div></div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 1.1.2: Tiny fix for gems dependencies</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The new gem version dependency system from Rails 1.1.1 needed a few tweaks to work properly and to stop throwing meaningless warnings. This tiny release makes up for that. To install:gem install railsrake rails:update:configs (to get the latest config/boot.rb)This release also signals our new commitment to do more tiny releases from the stable branch, which only gets bug fixes. So it will not be uncommon to see bi-weekly tiny releases in the 1.1.x series while we continue to add features to the forthcoming 1.2.0." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 1.1.2: Tiny fix for gems dependencies" />
+  <meta property="og:description" content="The new gem version dependency system from Rails 1.1.1 needed a few tweaks to work properly and to stop throwing meaningless warnings. This tiny release makes up for that. To install:gem install railsrake rails:update:configs (to get the latest config/boot.rb)This release also signals our new commitment to do more tiny releases from the stable branch, which only gets bug fixes. So it will not be uncommon to see bi-weekly tiny releases in the 1.1.x series while we continue to add features to the forthcoming 1.2.0." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2006/4/10/rails-1-1-2-tiny-fix-for-gems-dependencies" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 1.1.2: Tiny fix for gems dependencies" />
+  <meta name="twitter:description" content="The new gem version dependency system from Rails 1.1.1 needed a few tweaks to work properly and to stop throwing meaningless warnings. This tiny release makes up for that. To install:gem install railsrake rails:update:configs (to get the latest config/boot.rb)This release also signals our new commitment to do more tiny releases from the stable branch, which only gets bug fixes. So it will not be uncommon to see bi-weekly tiny releases in the 1.1.x series while we continue to add features to the forthcoming 1.2.0." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2006/4/10/rails-1-1-2-tiny-fix-for-gems-dependencies"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 1.1.2: Tiny fix for gems dependencies",
+      "description": "The new gem version dependency system from Rails 1.1.1 needed a few tweaks to work properly and to stop throwing meaningless warnings. This tiny release makes up for that. To install:gem install railsrake rails:update:configs (to get the latest config/boot.rb)This release also signals our new commitment to do more tiny releases from the stable branch, which only gets bug fixes. So it will not be uncommon to see bi-weekly tiny releases in the 1.1.x series while we continue to add features to the forthcoming 1.2.0.",
+      "url": "http://localhost:4000/2006/4/10/rails-1-1-2-tiny-fix-for-gems-dependencies",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2006-04-10T02:42:11+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, April 10, 2006</h5>
+        <h2>Rails 1.1.2: Tiny fix for gems dependencies</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>The new gem version dependency system from Rails 1.1.1 needed a few tweaks to work properly and to stop throwing meaningless warnings. This tiny release makes up for that. To install:</p>
+<ul><li><code>gem install rails</code></li>
+<li><code>rake rails:update:configs</code> (to get the latest config/boot.rb)</li></ul>
+<p>This release also signals our new commitment to do more tiny releases from the stable branch, which only gets bug fixes. So it will not be uncommon to see bi-weekly tiny releases in the 1.1.x series while we continue to add features to the forthcoming 1.2.0.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

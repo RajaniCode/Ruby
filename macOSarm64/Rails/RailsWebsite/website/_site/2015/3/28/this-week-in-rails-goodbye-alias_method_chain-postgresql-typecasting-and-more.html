@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: Goodbye alias_method_chain, PostgreSQL typecasting and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey all!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: Goodbye alias_method_chain, PostgreSQL typecasting and more" />
+  <meta property="og:description" content="Hey all!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/3/28/this-week-in-rails-goodbye-alias_method_chain-postgresql-typecasting-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: Goodbye alias_method_chain, PostgreSQL typecasting and more" />
+  <meta name="twitter:description" content="Hey all!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/3/28/this-week-in-rails-goodbye-alias_method_chain-postgresql-typecasting-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: Goodbye alias_method_chain, PostgreSQL typecasting and more",
+      "description": "Hey all!",
+      "url": "http://localhost:4000/2015/3/28/this-week-in-rails-goodbye-alias_method_chain-postgresql-typecasting-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "_cha1tanya"
+      },
+      "datePublished": "2015-03-28T03:43:15+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, March 28, 2015</h5>
+        <h2>This week in Rails: Goodbye alias_method_chain, PostgreSQL typecasting and more</h2>
+
+        <h6>Posted by _cha1tanya</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey all!</p>
+
+<p>This is <a href="https://twitter.com/_cha1tanya">Prathamesh</a> with this week’s recap from <a href="https://github.com/rails/rails">Rails</a>. Lets see which issues got fixed, which features got added. Ready, steady, go!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20150321-20150327">This week’s Rails contributors</a></h3>
+
+<p>This week 40 people contributed to Rails, 7 out of them are new. Do you also want to help? Check out the <a href="https://github.com/rails/rails/issues">issue tracker</a> and start making Rails better.</p>
+
+<p>By the way, <a href="https://github.com/fxn">Xavier</a> and <a href="https://github.com/kaspth">Kasper</a> added the <a href="https://github.com/fxn/rails-contributors/pull/61">permalink feature</a> to the link of weekly contributors. So each weekly contributors link is forever to stay!</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="warning-if-the-query-fetches-more-than-fixed-number-of-records"><a href="https://github.com/rails/rails/pull/18846">Warning if the query fetches more than fixed number of records</a></h3>
+
+<p>Faced problem with queries fetching thousands of records and slowing everything? Now you will get a nice warning if the query fetches more number of records than configured value by using <code class="language-plaintext highlighter-rouge">active_record.warn_on_records_fetched_greater_than</code> config option.</p>
+
+<h2 id="deprecated">Deprecated</h2>
+
+<h3 id="deprecate-alias_method_chain-in-favor-of-moduleprepend"><a href="https://github.com/rails/rails/pull/19434">Deprecate alias_method_chain in favor of Module#prepend</a></h3>
+
+<p>Do you remember the old friend <code class="language-plaintext highlighter-rouge">alias_method_chain</code>? It had a good run. But now it will be deprecated in Rails 5 in favor of <code class="language-plaintext highlighter-rouge">Module#prepend</code> which was introduced in Ruby 2.0.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="moving-type-casting-for-postgresql-out-of-active-record"><a href="https://github.com/rails/rails/pull/17650">Moving type casting for PostgreSQL out of Active Record</a></h3>
+
+<p>We just got <a href="https://github.com/rails/rails/commit/cd09261846053bb40f8c859b8644b28208b6d7b9">two</a> <a href="https://github.com/rails/rails/commit/3b50a7a3e18e1ae5ea1d76927e37021f50389abc">steps</a> closer to moving type casting of various data types for PostgreSQL from Active Record to PostgreSQL adapter.</p>
+
+<h3 id="friendlier-access-to-request-variants"><a href="https://github.com/rails/rails/pull/18939">Friendlier access to request variants</a></h3>
+
+<p>With this patch, you can now check the current request’s variant using <code class="language-plaintext highlighter-rouge">request.variant.phone?</code>, <code class="language-plaintext highlighter-rouge">request.variant.tablet?</code> and so on.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="pass-name-of-the-wrapped-job-class-to-sidekiq-for-logging"><a href="https://github.com/rails/rails/pull/19482">Pass name of the wrapped job class to Sidekiq for logging</a></h3>
+
+<p>If you were missing your job class in the Sidekiq logs and instead seeing some weird <code class="language-plaintext highlighter-rouge">ActiveJob::JobWrapper</code>, don’t worry. Now you will get your job class back in the logs because ActiveJob will pass the wrapped class name back to Sidekiq.</p>
+
+<h3 id="use-actual-table-name-while-joining-tables-with-has_many-through"><a href="https://github.com/rails/rails/pull/19452">Use actual table name while joining tables with has_many :through</a></h3>
+
+<p>Previously, while joining tables having <code class="language-plaintext highlighter-rouge">has_many :through</code> association, Active Record was not using the actual table name. It was generating wrong SQL and resulting into <code class="language-plaintext highlighter-rouge">ActiveRecord::InvalidStatement</code> error when used with calculation methods like <code class="language-plaintext highlighter-rouge">#count</code>. No need to worry, its fixed now!</p>
+
+<h3 id="generate-fixture-file-with-singular-name-for-singular-tables"><a href="https://github.com/rails/rails/pull/19540">Generate fixture file with singular name for singular tables</a></h3>
+
+<p>Previously if the table name was made singular using <code class="language-plaintext highlighter-rouge">ActiveRecord::Base.pluaralize_table_names = false</code>, name of the fixture file getting generated was still pluralized. No longer true! Get singular fixture file for singular table name now onwards.</p>
+
+<h2 id="summer-opportunity">Summer Opportunity</h2>
+
+<h3 id="rails-girls-summer-of-code"><a href="http://railsgirlssummerofcode.org">Rails Girls Summer of Code</a></h3>
+
+<p>Checkout <a href="http://railsgirlssummerofcode.org">Rails Girls summer of code</a>. You can submit your <a href="http://railsgirlssummerofcode.org/guide/projects">open source project</a> to be included. Also you can help <a href="http://railsgirlssummerofcode.org/campaign">fund</a> the campaign.</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s all for <em>This week in Rails</em>. As always, there are more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails/commits/master">check them out</a> yourself!</p>
+
+<p>P.S. If you enjoyed this newsletter, why not <a href="https://rails-weekly.ongoodbits.com">share it with your friends</a>? :) If you wish to be part of this project please don’t hesitate to contact <a href="mailto:godfrey@brewhouse.io">Godfrey</a> – there’re a lot of ways you could help make this newsletter more awesome!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

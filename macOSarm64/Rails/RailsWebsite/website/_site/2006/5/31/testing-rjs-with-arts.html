@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Testing RJS with ARTS</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An Achilles&#8217; heal of Rails is no good way to test your RJS. As the presentation behavior gets more and more sophisticated, the inability to test it becomes a real problem. Not anymore.Kevin Clark has released ARTS, a mechanism to test RJS. His API is simple yet flexible. A single point of entry let&#8217;s you test a considerable amount of the RJS you can generate. Here&#8217;s an idea of what you can do:  assert_rjs :alert, 'Hi!'                                                       assert_rjs :assign, 'a', '2'                                                   assert_rjs :call, 'foo', 'bar', 'baz'                                          assert_rjs :draggable, 'draggable_item'                                        assert_rjs :drop_receiving, 'receiving_item'                                   assert_rjs :hide, "post_1", "post_2", "post_3"                                 assert_rjs :insert_html, :bottom, 'posts'                                      assert_rjs :redirect_to, :action =&gt; 'list'                                     assert_rjs :remove, "post_1", "post_2", "post_3"                               assert_rjs :replace, 'completely_replaced_div', '&lt;p&gt;This replaced the        div&lt;/p&gt;'                                                                         assert_rjs :replace_html, 'replaceable_div', "This goes inside the           div"                                                                             assert_rjs :show, "post_1", "post_2", "post_3"                                 assert_rjs :sortable, 'sortable_item'                                          assert_rjs :toggle, "post_1", "post_2", "post_3"                               assert_rjs :visual_effect, :highlight, "posts", :duration =&gt; '1.0'           He&#8217;s written up an extensive tutorial to get you up and running." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Testing RJS with ARTS" />
+  <meta property="og:description" content="An Achilles&#8217; heal of Rails is no good way to test your RJS. As the presentation behavior gets more and more sophisticated, the inability to test it becomes a real problem. Not anymore.Kevin Clark has released ARTS, a mechanism to test RJS. His API is simple yet flexible. A single point of entry let&#8217;s you test a considerable amount of the RJS you can generate. Here&#8217;s an idea of what you can do:  assert_rjs :alert, 'Hi!'                                                       assert_rjs :assign, 'a', '2'                                                   assert_rjs :call, 'foo', 'bar', 'baz'                                          assert_rjs :draggable, 'draggable_item'                                        assert_rjs :drop_receiving, 'receiving_item'                                   assert_rjs :hide, "post_1", "post_2", "post_3"                                 assert_rjs :insert_html, :bottom, 'posts'                                      assert_rjs :redirect_to, :action =&gt; 'list'                                     assert_rjs :remove, "post_1", "post_2", "post_3"                               assert_rjs :replace, 'completely_replaced_div', '&lt;p&gt;This replaced the        div&lt;/p&gt;'                                                                         assert_rjs :replace_html, 'replaceable_div', "This goes inside the           div"                                                                             assert_rjs :show, "post_1", "post_2", "post_3"                                 assert_rjs :sortable, 'sortable_item'                                          assert_rjs :toggle, "post_1", "post_2", "post_3"                               assert_rjs :visual_effect, :highlight, "posts", :duration =&gt; '1.0'           He&#8217;s written up an extensive tutorial to get you up and running." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2006/5/31/testing-rjs-with-arts" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Testing RJS with ARTS" />
+  <meta name="twitter:description" content="An Achilles&#8217; heal of Rails is no good way to test your RJS. As the presentation behavior gets more and more sophisticated, the inability to test it becomes a real problem. Not anymore.Kevin Clark has released ARTS, a mechanism to test RJS. His API is simple yet flexible. A single point of entry let&#8217;s you test a considerable amount of the RJS you can generate. Here&#8217;s an idea of what you can do:  assert_rjs :alert, 'Hi!'                                                       assert_rjs :assign, 'a', '2'                                                   assert_rjs :call, 'foo', 'bar', 'baz'                                          assert_rjs :draggable, 'draggable_item'                                        assert_rjs :drop_receiving, 'receiving_item'                                   assert_rjs :hide, "post_1", "post_2", "post_3"                                 assert_rjs :insert_html, :bottom, 'posts'                                      assert_rjs :redirect_to, :action =&gt; 'list'                                     assert_rjs :remove, "post_1", "post_2", "post_3"                               assert_rjs :replace, 'completely_replaced_div', '&lt;p&gt;This replaced the        div&lt;/p&gt;'                                                                         assert_rjs :replace_html, 'replaceable_div', "This goes inside the           div"                                                                             assert_rjs :show, "post_1", "post_2", "post_3"                                 assert_rjs :sortable, 'sortable_item'                                          assert_rjs :toggle, "post_1", "post_2", "post_3"                               assert_rjs :visual_effect, :highlight, "posts", :duration =&gt; '1.0'           He&#8217;s written up an extensive tutorial to get you up and running." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2006/5/31/testing-rjs-with-arts"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Testing RJS with ARTS",
+      "description": "An Achilles&#8217; heal of Rails is no good way to test your RJS. As the presentation behavior gets more and more sophisticated, the inability to test it becomes a real problem. Not anymore.Kevin Clark has released ARTS, a mechanism to test RJS. His API is simple yet flexible. A single point of entry let&#8217;s you test a considerable amount of the RJS you can generate. Here&#8217;s an idea of what you can do:  assert_rjs :alert, 'Hi!'                                                       assert_rjs :assign, 'a', '2'                                                   assert_rjs :call, 'foo', 'bar', 'baz'                                          assert_rjs :draggable, 'draggable_item'                                        assert_rjs :drop_receiving, 'receiving_item'                                   assert_rjs :hide, "post_1", "post_2", "post_3"                                 assert_rjs :insert_html, :bottom, 'posts'                                      assert_rjs :redirect_to, :action =&gt; 'list'                                     assert_rjs :remove, "post_1", "post_2", "post_3"                               assert_rjs :replace, 'completely_replaced_div', '&lt;p&gt;This replaced the        div&lt;/p&gt;'                                                                         assert_rjs :replace_html, 'replaceable_div', "This goes inside the           div"                                                                             assert_rjs :show, "post_1", "post_2", "post_3"                                 assert_rjs :sortable, 'sortable_item'                                          assert_rjs :toggle, "post_1", "post_2", "post_3"                               assert_rjs :visual_effect, :highlight, "posts", :duration =&gt; '1.0'           He&#8217;s written up an extensive tutorial to get you up and running.",
+      "url": "http://localhost:4000/2006/5/31/testing-rjs-with-arts",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "marcel"
+      },
+      "datePublished": "2006-05-31T19:21:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, May 31, 2006</h5>
+        <h2>Testing RJS with ARTS</h2>
+
+        <h6>Posted by marcel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>An Achilles&#8217; heal of Rails is no good way to test your <span class="caps">RJS</span>. As the presentation behavior gets more and more sophisticated, the inability to test it becomes a real problem. Not anymore.</p>
+<p><a href="http://glu.ttono.us/">Kevin Clark</a> has released <a href="http://thar.be/svn/projects/plugins/arts/"><span class="caps">ARTS</span></a>, a mechanism to test <span class="caps">RJS</span>. His <span class="caps">API</span> is simple yet flexible. A single point of entry let&#8217;s you test a considerable amount of the <span class="caps">RJS</span> you can generate. Here&#8217;s an idea of what you can do:<br />
+<pre><code>
+  assert_rjs :alert, 'Hi!'                                                     
+  assert_rjs :assign, 'a', '2'                                                 
+  assert_rjs :call, 'foo', 'bar', 'baz'                                        
+  assert_rjs :draggable, 'draggable_item'                                      
+  assert_rjs :drop_receiving, 'receiving_item'                                 
+  assert_rjs :hide, "post_1", "post_2", "post_3"                               
+  assert_rjs :insert_html, :bottom, 'posts'                                    
+  assert_rjs :redirect_to, :action =&gt; 'list'                                   
+  assert_rjs :remove, "post_1", "post_2", "post_3"                             
+  assert_rjs :replace, 'completely_replaced_div', '&lt;p&gt;This replaced the        
+div&lt;/p&gt;'                                                                       
+  assert_rjs :replace_html, 'replaceable_div', "This goes inside the           
+div"                                                                           
+  assert_rjs :show, "post_1", "post_2", "post_3"                               
+  assert_rjs :sortable, 'sortable_item'                                        
+  assert_rjs :toggle, "post_1", "post_2", "post_3"                             
+  assert_rjs :visual_effect, :highlight, "posts", :duration =&gt; '1.0'           
+</code></pre></p>
+<p>He&#8217;s written up an <a href="http://glu.ttono.us/articles/2006/05/29/guide-test-driven-rjs-with-arts">extensive tutorial</a> to get you up and running.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+6. Destroy
+
+
+Destroy the Zombie with an ID of 3.
+
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+
+
+Answer: Zombie.find(3).destroy
+
+
+Console
+
+Press Enter to submit, or type 'help' for info
+
+$ Zombie.find(3).destroy
+
+#<Zombie id: 3, name: "Katie", graveyard: "My Father's Basement">
+
+Destroyed Zombie 3.

@@ -1,0 +1,21 @@
+2. method_missing Part 2
+
+
+Update method_missing so that it also prints the arguments that were passed to the nonexistent method.
+
+
+library.rb
+class Library
+  def method_missing(name)
+    puts name
+  end
+end
+
+
+Answer:
+library.rb
+class Library
+  def method_missing(name, *args)
+    puts name, args
+  end
+end

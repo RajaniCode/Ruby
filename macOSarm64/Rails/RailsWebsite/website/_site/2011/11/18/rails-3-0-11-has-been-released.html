@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 3.0.11 has been released</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rails 3.0.11 has been released. This is a patch-level release containing bug fixes and an important security fix." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 3.0.11 has been released" />
+  <meta property="og:description" content="Rails 3.0.11 has been released. This is a patch-level release containing bug fixes and an important security fix." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/11/18/rails-3-0-11-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 3.0.11 has been released" />
+  <meta name="twitter:description" content="Rails 3.0.11 has been released. This is a patch-level release containing bug fixes and an important security fix." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/11/18/rails-3-0-11-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 3.0.11 has been released",
+      "description": "Rails 3.0.11 has been released. This is a patch-level release containing bug fixes and an important security fix.",
+      "url": "http://localhost:4000/2011/11/18/rails-3-0-11-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "jonleighton"
+      },
+      "datePublished": "2011-11-18T06:57:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, November 18, 2011</h5>
+        <h2>Rails 3.0.11 has been released</h2>
+
+        <h6>Posted by jonleighton</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Rails 3.0.11 has been released. This is a patch-level release containing bug fixes and an important security fix.</p>
+
+<h2 id="possible-xss-vulnerability-in-the-translate-helper-method-in-ruby-on-rails">Possible XSS vulnerability in the translate helper method in Ruby on Rails</h2>
+
+<p>There is a vulnerability in the translate helper method which may allow an attacker to insert arbitrary code into a page.</p>
+
+<ul>
+  <li><strong>Versions Affected</strong>: 3.0.0 and later, 2.3.X in combination with the rails_xss plugin</li>
+  <li><strong>Not Affected</strong>:      Pre-3.0.0 releases, without the rails_xss plugin, did no automatic XSS escaping, so are not considered vulnerable</li>
+  <li><strong>Fixed Versions</strong>:    3.0.11, 3.1.2</li>
+</ul>
+
+<p>Please see <a href="http://groups.google.com/group/rubyonrails-security/browse_thread/thread/2b61d70fb73c7cc5">the rubyonrails-security posting</a> and the changelog item below, for more details.</p>
+
+<h2 id="changes">Changes</h2>
+
+<p>Action Mailer:</p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p>Action Pack:</p>
+
+<ul>
+  <li>
+    <p>Fix XSS security vulnerability in the <code class="language-plaintext highlighter-rouge">translate</code> helper method. When using interpolation
+in combination with HTML-safe translations, the interpolated input would not get HTML
+escaped. <em>GH 3664</em></p>
+
+    <p>Before:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>translate('foo_html', :something =&amp;gt; '&amp;lt;script&amp;gt;') # =&amp;gt; "...&amp;lt;script&amp;gt;..."
+</code></pre></div>    </div>
+
+    <p>After:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> translate('foo_html', :something =&amp;gt; '&amp;lt;script&amp;gt;') # =&amp;gt; "...&amp;amp;lt;script&amp;amp;gt;..."
+</code></pre></div>    </div>
+
+    <p><em>Sergey Nartimov</em></p>
+  </li>
+  <li>
+    <p>Implement a workaround for a bug in ruby-1.9.3p0 where an error would be
+raised while attempting to convert a template from one encoding to another.</p>
+
+    <p>Please see <a href="http://redmine.ruby-lang.org/issues/5564">http://redmine.ruby-lang.org/issues/5564</a> for details of the bug.</p>
+
+    <p>The workaround is to load all conversions into memory ahead of time, and will
+only happen if the ruby version is exactly 1.9.3p0. The hope is obviously
+that the underlying problem will be resolved in the next patchlevel release
+of 1.9.3.</p>
+  </li>
+  <li>
+    <p>Fix assert_select_email to work on multipart and non-multipart emails as the method stopped working correctly in Rails 3.x due to changes in the new mail gem.</p>
+  </li>
+  <li>
+    <p>Fix url_for when passed a hash to prevent additional options (eg. :host, :protocol) from being added to the hash after calling it.</p>
+  </li>
+</ul>
+
+<p>Active Model:</p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p>Active Record:</p>
+
+<ul>
+  <li>
+    <p>Exceptions from database adapters should not lose their backtrace.</p>
+  </li>
+  <li>
+    <p>Backport “ActiveRecord::Persistence#touch should not use default_scope” (GH #1519)</p>
+  </li>
+  <li>
+    <p>Psych errors with poor yaml formatting are proxied. Fixes GH #2645 and
+GH #2731</p>
+  </li>
+  <li>
+    <p>Fix ActiveRecord#exists? when passsed a nil value</p>
+  </li>
+</ul>
+
+<p>Active Resource:</p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p>Active Support:</p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p>Railties:</p>
+
+<ul>
+  <li>Updated Prototype UJS to lastest version fixing multiples errors in IE [Guillermo Iguaran]</li>
+</ul>
+
+<p>As ever, you can <a href="https://github.com/rails/rails/compare/v3.0.10...v3.0.11">see a full list of commits between the versions</a> on Github.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

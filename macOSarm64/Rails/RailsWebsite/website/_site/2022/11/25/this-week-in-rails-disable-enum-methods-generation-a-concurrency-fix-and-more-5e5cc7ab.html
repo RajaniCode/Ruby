@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Disable enum methods generation, a concurrency fix and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there,This is Greg, bringing you the latest changes in Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Disable enum methods generation, a concurrency fix and more!" />
+  <meta property="og:description" content="Hi there,This is Greg, bringing you the latest changes in Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2022/11/25/this-week-in-rails-disable-enum-methods-generation-a-concurrency-fix-and-more-5e5cc7ab" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Disable enum methods generation, a concurrency fix and more!" />
+  <meta name="twitter:description" content="Hi there,This is Greg, bringing you the latest changes in Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2022/11/25/this-week-in-rails-disable-enum-methods-generation-a-concurrency-fix-and-more-5e5cc7ab"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Disable enum methods generation, a concurrency fix and more!",
+      "description": "Hi there,This is Greg, bringing you the latest changes in Rails.",
+      "url": "http://localhost:4000/2022/11/25/this-week-in-rails-disable-enum-methods-generation-a-concurrency-fix-and-more-5e5cc7ab",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2022-11-25T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, November 25, 2022</h5>
+        <h2>Disable enum methods generation, a concurrency fix and more!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there,
+This is <a href="https://twitter.com/gregmolnar">Greg</a>, bringing you the latest changes in Rails.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46536">Make sure that concurrent map usage is thread-safe
+</a>This pull request changes the way a cache miss is handled. It makes it thread-safe and ensures that it’s not overwritten in the middle of execution.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46545">Autoload ActiveModel::ValidationError</a>
+This pull request adds the missing autoload call for the <em>ValidationError</em> in Active Model.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46525">Execute the before_committed! callbacks on the most recent copy of the record</a>
+Before this change, only the early copy of the same record (different object ids, but pointing to the same record in the database) was used to execute the callback, but it didn’t have the <em>touch_later</em> information.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46533">Ensure file_fixture_path is set even when Active Record is not present</a>
+When generating an app with <em>–skip-active-record</em>, the <em>file_fixture</em> helper was failing, because <em>file_fixture_path</em> is only defined if <em>ActiveRecord::Base</em>. This pull request loads the test helper even when Active Record is not present.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46552">Add X-Forwarded-To addresses to recipients</a>
+This pull request enhances <em>Mail::Message#recipients</em> to include the address that an email was forwarded to.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46554">Allow hash-like model in FormBuilder#fields and FormBuilder#fields_for</a>
+This pull request changes the way <em>ActionView::Helpers::FormBuilder#fields_for</em> interprets parameters. Before deciding that the <em>record_object</em> parameter is in fact the <em>fields_options</em> parameter, Rails now checks if this <em>fields_options</em> has not been explicitly provided.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45696">Add a build persistence method</a>
+This pull request adds a build method to <em>ActiveRecord::Persistence</em>,  which builds an object (or objects) and returns either the built object or objects. Here are a few examples of usage:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Build a single new object
+User.build(first_name: 'Jamie')
+
+# Build an Array of new objects
+User.build([{ first_name: 'Jamie' }, { first_name: 'Jeremy' }])
+
+# Build a single object and pass it into a block to set other attributes.
+User.build(first_name: 'Jamie') do |u|
+  u.is_admin = false
+end
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/45660">Allow setting YAML serialization options on a per-attribute basis</a>
+This pull request adds functionality to allow setting YAML serialization options on a per-attribute basis - along with the current application-wide setting.</p>
+
+<p><a href="https://github.com/rails/rails/pull/43019">Add support for HTML attributes of optgroups to select helper</a>
+With this change, choices of <em>select</em> can optionally contain HTML attributes as the last element of the child arrays when using grouped/nested collections:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;%= form.select :foo, [["North America", [["United States","US"],["Canada","CA"]], { disabled: "disabled" }]] %&gt;
+# =&gt; &lt;select&gt;&lt;optgroup label="North America" disabled="disabled"&gt;&lt;option value="US"&gt;United States&lt;/option&gt;&lt;option value="CA"&gt;Canada&lt;/option&gt;&lt;/optgroup&gt;&lt;/select&gt;
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/46165">Allow resetting singular associations</a>
+<em>has_one</em> and <em>belongs_to</em> associations now define a <em>reset_association</em> method on the owner model (where “<em>association”</em> is the name of the association). This method unloads the cached associate record, if any, and causes the next access to query it from the database. There is an example of usage in the pull request description.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46522">Avoid validating belongs_to association if it has not changed</a>
+With this change, Rails avoids validating <em>belongs_to</em> association if it has not changed. Previously, when updating a record, Active Record performed an extra query to check for the presence of <em>belongs_to</em> associations (if the presence is configured to be mandatory), even if that attribute hasn’t changed.
+ Currently, only <em>belongs_to</em>-related columns are checked for presence. It is possible to have orphaned records with this approach. To avoid this problem, you need to use a foreign key.
+ This behavior can be controlled by configuration:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>config.active_record.belongs_to_required_validates_foreign_key = false
+</code></pre></div></div>
+
+<p>and will be disabled by default with <code class="language-plaintext highlighter-rouge">load_defaults 7.1</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46562">Restore Action Cable Redis pub/sub listener on connection failure</a>
+The Redis pub/sub adapter now automatically reconnects when Redis connection is lost.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46490">Add option to disable all methods that ActiveRecord.enum generates
+</a>This pull request adds the <em>instance_methods</em>, option to the <em>enum</em> definition. When it is set to <em>false</em>, Active Record will not generate the instance methods it does by default.</p>
+
+<p>This is a long issue and even being this long, it doesn’t cover everything from past week. You can see the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2022-11-18%7D...main@%7B2022-11-24%7D">here</a>.
+We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20221118-20221125">24 contributors</a> to Rails this past week!</p>
+
+<p>Happy Thanksgiving if you celebrate it and see you next week!</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

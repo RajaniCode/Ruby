@@ -1,0 +1,14 @@
+2. Prepare the DB
+
+
+Execute the rake command which prepares the test database for tests.
+
+
+Answer: rake db:test:prepare
+
+
+Console
+
+$ rake db:test:prepare
+  Success!
+$

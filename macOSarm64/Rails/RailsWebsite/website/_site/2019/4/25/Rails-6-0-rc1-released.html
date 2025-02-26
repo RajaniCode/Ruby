@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 6.0.0 rc1 released</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Okay, so we didn’t quite make our aspirational release schedule, but Rails 6 is now almost ready, so here’s the first release candidate! There isn’t anything remarkably new compared to the beta releases, but everything has been polished (in about 1000 commits!), and we believe this candidate could become the final release, lest we find any egregious bugs." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 6.0.0 rc1 released" />
+  <meta property="og:description" content="Okay, so we didn’t quite make our aspirational release schedule, but Rails 6 is now almost ready, so here’s the first release candidate! There isn’t anything remarkably new compared to the beta releases, but everything has been polished (in about 1000 commits!), and we believe this candidate could become the final release, lest we find any egregious bugs." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/4/25/Rails-6-0-rc1-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 6.0.0 rc1 released" />
+  <meta name="twitter:description" content="Okay, so we didn’t quite make our aspirational release schedule, but Rails 6 is now almost ready, so here’s the first release candidate! There isn’t anything remarkably new compared to the beta releases, but everything has been polished (in about 1000 commits!), and we believe this candidate could become the final release, lest we find any egregious bugs." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2019/4/25/Rails-6-0-rc1-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 6.0.0 rc1 released",
+      "description": "Okay, so we didn’t quite make our aspirational release schedule, but Rails 6 is now almost ready, so here’s the first release candidate! There isn’t anything remarkably new compared to the beta releases, but everything has been polished (in about 1000 commits!), and we believe this candidate could become the final release, lest we find any egregious bugs.",
+      "url": "http://localhost:4000/2019/4/25/Rails-6-0-rc1-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2019-04-25T01:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, April 25, 2019</h5>
+        <h2>Rails 6.0.0 rc1 released</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Okay, so we didn’t quite make our <a href="https://rubyonrails.org/2018/12/20/timeline-for-the-release-of-Rails-6-0">aspirational release schedule</a>, but Rails 6 is now almost ready, so here’s the first release candidate! There isn’t anything remarkably new compared to the beta releases, but everything has been polished (in <a href="https://github.com/rails/rails/compare/v6.0.0.beta2...v6.0.0.rc1">about 1000 commits!</a>), and we believe this candidate could become the final release, lest we find any egregious bugs.</p>
+
+<p>This may well also be the best exercised release candidate in the history of Rails! The team at <a href="https://basecamp.com">Basecamp</a>, <a href="https://shopify.com">Shopify</a>, and <a href="https://github.com">GitHub</a> are all running either rc1 or just-about in production. It’s been a real pleasure to see the Shopify and GitHub teams leap to the front of the line running the latest in production.</p>
+
+<p>If it’s good enough for Basecamp, Shopify, and GitHub, it’s probably good enough for you too! (But please do test, file bugs, and help us certify that it actually is).</p>
+
+<p>If you’re starting a new application today, you should definitely be starting it on 6.0.0.rc1. And if you’re running an existing application under active development, you should probably also upgrade. Doing so will help us flush out the last issues before the final release.</p>
+
+<p>You can read all about what’s new in Rails 6.0.0 in the <a href="https://rubyonrails.org/2019/1/18/Rails-6-0-Action-Mailbox-Action-Text-Multiple-DBs-Parallel-Testing">first beta announcement</a>. From Action Mailbox to Action Text, multiple database support, parallel testing, and Webpacker handling JavaScript by default. This is a massive step forward for Rails.</p>
+
+<p>Also, kudos to Sam Ruby, David Bryant Copeland, and the crew at The Pragmatic Programmers for having a <a href="https://pragprog.com/book/rails6/agile-web-development-with-rails-6">beta of Agile Web Development with Rails 6</a> ready to coincide with rc1.</p>
+
+<p>Finally, we can’t wait to see everyone at a sold-out <a href="https://railsconf.com">RailsConf in Minneapolis</a> next week. It’s never been a better time to be programming with Rails.</p>
+
+<p>This release, and all releases leading up to Rails 6.0 final, was shepherded by release manager Rafael França with support by Kasper Timm Hansen.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

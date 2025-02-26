@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Capistrano 2.2.0</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Capistrano is a utility for managing remote servers and automating remote tasks. It is popularly used to deploy Rails applications (but can do oh, so much more!). Version 2.2.0 is now available (well, it&#8217;s released, anyway, you might need to wait for the file to propagate to the gem mirrors).gem install capistranoVersion 2.2.0 sports the following changes:FEATURE: Dynamic role definition. The role() method now accepts a block, which should return either a host name, a Capistrano::ServerDefinition object, an array of host names, or an array of Capistrano::ServerDefinition objects. This can be used to describe the servers in a role at runtime.role :app do  hosts = some_method_that_looks_up_the_current_hosts  hosts[0,3]endFEATURE: Alternative server-centric role definitions, using the server() method:role :app, "server"role :web, "server"" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Capistrano 2.2.0" />
+  <meta property="og:description" content="Capistrano is a utility for managing remote servers and automating remote tasks. It is popularly used to deploy Rails applications (but can do oh, so much more!). Version 2.2.0 is now available (well, it&#8217;s released, anyway, you might need to wait for the file to propagate to the gem mirrors).gem install capistranoVersion 2.2.0 sports the following changes:FEATURE: Dynamic role definition. The role() method now accepts a block, which should return either a host name, a Capistrano::ServerDefinition object, an array of host names, or an array of Capistrano::ServerDefinition objects. This can be used to describe the servers in a role at runtime.role :app do  hosts = some_method_that_looks_up_the_current_hosts  hosts[0,3]endFEATURE: Alternative server-centric role definitions, using the server() method:role :app, "server"role :web, "server"" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2008/2/28/capistrano-2-2-0" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Capistrano 2.2.0" />
+  <meta name="twitter:description" content="Capistrano is a utility for managing remote servers and automating remote tasks. It is popularly used to deploy Rails applications (but can do oh, so much more!). Version 2.2.0 is now available (well, it&#8217;s released, anyway, you might need to wait for the file to propagate to the gem mirrors).gem install capistranoVersion 2.2.0 sports the following changes:FEATURE: Dynamic role definition. The role() method now accepts a block, which should return either a host name, a Capistrano::ServerDefinition object, an array of host names, or an array of Capistrano::ServerDefinition objects. This can be used to describe the servers in a role at runtime.role :app do  hosts = some_method_that_looks_up_the_current_hosts  hosts[0,3]endFEATURE: Alternative server-centric role definitions, using the server() method:role :app, "server"role :web, "server"" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2008/2/28/capistrano-2-2-0"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Capistrano 2.2.0",
+      "description": "Capistrano is a utility for managing remote servers and automating remote tasks. It is popularly used to deploy Rails applications (but can do oh, so much more!). Version 2.2.0 is now available (well, it&#8217;s released, anyway, you might need to wait for the file to propagate to the gem mirrors).gem install capistranoVersion 2.2.0 sports the following changes:FEATURE: Dynamic role definition. The role() method now accepts a block, which should return either a host name, a Capistrano::ServerDefinition object, an array of host names, or an array of Capistrano::ServerDefinition objects. This can be used to describe the servers in a role at runtime.role :app do  hosts = some_method_that_looks_up_the_current_hosts  hosts[0,3]endFEATURE: Alternative server-centric role definitions, using the server() method:role :app, "server"role :web, "server"",
+      "url": "http://localhost:4000/2008/2/28/capistrano-2-2-0",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "jamis"
+      },
+      "datePublished": "2008-02-28T09:45:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, February 28, 2008</h5>
+        <h2>Capistrano 2.2.0</h2>
+
+        <h6>Posted by jamis</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><a href="http://www.capify.org">Capistrano</a> is a utility for managing remote servers and automating remote tasks. It is popularly used to deploy Rails applications (but can do oh, so much more!). Version 2.2.0 is now available (well, it&#8217;s released, anyway, you might need to wait for the file to propagate to the gem mirrors).</p>
+<p>gem install capistrano</p>
+<p>Version 2.2.0 sports the following changes:</p>
+<p><strong><span class="caps">FEATURE</span></strong>: Dynamic role definition. The role() method now accepts a block, which should return either a host name, a Capistrano::ServerDefinition object, an array of host names, or an array of Capistrano::ServerDefinition objects. This can be used to describe the servers in a role at runtime.</p>
+<pre>role :app do
+  hosts = some_method_that_looks_up_the_current_hosts
+  hosts[0,3]
+end
+</pre>
+<p><strong><span class="caps">FEATURE</span></strong>: Alternative server-centric role definitions, using the server() method:</p>
+<pre>role :app, "server"
+role :web, "server"
+
+# the above is the same as this:
+server "server", :app, :web
+</pre>
+<p><strong><span class="caps">FEATURE</span></strong>: Support for a :max_hosts option in tasks, that restricts the task so that it is only executed in <max_hosts> hosts at a time, in chunks. This helps people who use Capistrano with very large numbers of servers, and prevents them running into connection caps and from running out of memory.&lt;/p&gt;
+<pre>task :ping, :max_hosts =&gt; 100 do
+  # anything here will only run against 100 hosts at a time
+end
+
+# alternatively, you can pass :max_hosts to the run command itself for
+# finer granularity
+task :pong do
+  # this will run on ALL hosts at once
+  run "something"
+
+  # this will run on no more than 100 hosts at a time
+  run "something-else", :max_hosts =&gt; 100
+end
+</pre>
+<p><strong><span class="caps">ENHANCEMENT</span></strong>: Improved Git support!</p>
+<p><strong><span class="caps">ENHANCEMENT</span></strong>: Password prompt support in the Mercurial <span class="caps">SCM</span>.</p>
+<p><strong><span class="caps">ENHANCEMENT</span></strong>: Implement Bzr#next_revision so that pending changes can be reported correctly, and use checkout &#8212;lightweight instead of branch.</p>
+<p><strong><span class="caps">ENHANCEMENT</span></strong>: Bring back the :p4sync_flags and :p4client_root variables for perforce <span class="caps">SCM</span>.</p>
+<p>Additionally, there are several minor bugs and typos that have been fixed. You can see the <a href="http://svn.rubyonrails.org/rails/tags/capistrano_2-2-0/CHANGELOG"><span class="caps">CHANGELOG</span></a> for all the gory details.</p>
+<p>As ever, please report bugs via the Rails trac, at <a href="http://dev.rubyonrails.org">http://dev.rubyonrails.org</a>. And if you aren&#8217;t yet subscribed to the <a href="http://groups.google.com/group/capistrano">Capistrano mailing list</a>, it&#8217;s where all the cool cappists hang out.</p>
+</max_hosts></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

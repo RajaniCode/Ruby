@@ -1,0 +1,23 @@
+5. Fixtures
+
+
+Create a tweets fixture in the tweets.yml file. The Tweet model has a zombie_id that's an Integer and a status that's a String.
+
+
+zombies.yml
+ash:
+  id: 1
+  name: 'Ash'
+  graveyard: 'Oak Park Cemetary'
+test/models/tweet_test.rb
+
+
+test/fixtures/tweets.yml
+hello_world:
+
+
+Answer:
+test/fixtures/tweets.yml
+hello_world:
+  zombie_id: 1
+  status: "Tweet status"

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails - security releases, new mailing list, new features, and refactoring</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Daniel here, holed up in my apartment in New York City trying to stay healthy.Overwhelmed by all the latest pandemic news? Why not take a break with someexciting Rails news?" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails - security releases, new mailing list, new features, and refactoring" />
+  <meta property="og:description" content="Daniel here, holed up in my apartment in New York City trying to stay healthy.Overwhelmed by all the latest pandemic news? Why not take a break with someexciting Rails news?" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2020/4/27/this-week-in-rails-security-releases-new-mailing-list-new-features-and-refactoring" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails - security releases, new mailing list, new features, and refactoring" />
+  <meta name="twitter:description" content="Daniel here, holed up in my apartment in New York City trying to stay healthy.Overwhelmed by all the latest pandemic news? Why not take a break with someexciting Rails news?" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2020/4/27/this-week-in-rails-security-releases-new-mailing-list-new-features-and-refactoring"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails - security releases, new mailing list, new features, and refactoring",
+      "description": "Daniel here, holed up in my apartment in New York City trying to stay healthy.Overwhelmed by all the latest pandemic news? Why not take a break with someexciting Rails news?",
+      "url": "http://localhost:4000/2020/4/27/this-week-in-rails-security-releases-new-mailing-list-new-features-and-refactoring",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dodecadaniel"
+      },
+      "datePublished": "2020-04-27T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, April 27, 2020</h5>
+        <h2>This week in Rails - security releases, new mailing list, new features, and refactoring</h2>
+
+        <h6>Posted by dodecadaniel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><a href="https://twitter.com/dodecadaniel">Daniel</a> here, holed up in my apartment in New York City trying to stay healthy.
+Overwhelmed by all the latest pandemic news? Why not take a break with some
+exciting Rails news?</p>
+
+<h3 id="security-fixes"><a href="https://rubyonrails.org/2020/3/19/Rails-6-0-2-2-and-5-2-4-2-has-been-released">Security Fixes</a></h3>
+
+<p>Rails 6.0.2.2 and 5.2.4.2 were recently released to fix a XSS vulnerability in
+Action View. If you are not running one of these versions, it is time to
+upgrade. While you are at it, it is also time to <a href="https://www.ruby-lang.org/en/downloads/releases/">upgrade to Ruby 2.5.8, 2.6.6,
+or 2.7.1</a>.</p>
+
+<h3 id="ruby-on-rails-on-discourse"><a href="https://discuss.rubyonrails.org">Ruby on Rails on Discourse</a></h3>
+
+<p>The Ruby on Rails mailing list has migrated to https://discuss.rubyonrails.org/.
+If you would like to suggest changes or new features, discuss documentation, or
+ask questions about Rails, this is the place to be.</p>
+
+<h3 id="annotate-html-output-with-template-names"><a href="https://github.com/rails/rails/pull/38848">Annotate HTML output with template names</a></h3>
+
+<p>If you have ever opened your HTML source in the browser and wondered which
+templates were rendering which part of the page, this feature is for you.
+<code class="language-plaintext highlighter-rouge">config.action_view.annotate_template_file_names</code> adds HTML comments to the
+rendered output indicating where each template begins and ends. I am a fan of
+this feature, and I also like the clear problem statement in the commit message
+and PR description.</p>
+
+<h3 id="quickly-generate-a-rails-app-pointing-to-master"><a href="https://github.com/rails/rails/pull/38631">Quickly generate a Rails app pointing to master</a></h3>
+
+<p>If you are anything like me, you want to try out new Rails features the moment
+they are merged. Why wait? Now generating a new Rails app pointing to master is
+as simple as <code class="language-plaintext highlighter-rouge">rails new &lt;app_name&gt; --master</code>.</p>
+
+<h3 id="just-simply-improve-the-documentation"><a href="https://github.com/rails/rails/pull/37946">Just simply improve the documentation</a></h3>
+
+<p>Removing words like “just” and “simple” from the documentation might seem like a
+small change, but removing these superfluous words can make for a significantly
+more welcoming experience to folks who are struggling. 😍</p>
+
+<h3 id="use-index_by-and-index_with-wherever-possible"><a href="https://github.com/rails/rails/pull/38646">Use index_by and index_with wherever possible</a></h3>
+
+<p>I haven’t used <code class="language-plaintext highlighter-rouge">index_by</code> and <code class="language-plaintext highlighter-rouge">index_with</code> before, but seeing this PR makes me
+want to try them out. It certainly looks nicer than <code class="language-plaintext highlighter-rouge">map { ... }.to_h</code>. And if
+you really like these methods you can enforce that with a new rubocop-rails cop.</p>
+
+<h3 id="and-plenty-of-refactoring"><a href="https://github.com/rails/rails/search?q=Refactor+committer-date%3A%3E2020-03-01+merge%3Afalse&amp;unscoped_q=Refactor+committer-date%3A%3E2020-03-01+merge%3Afalse&amp;type=Commits">And plenty of refactoring</a></h3>
+
+<p>Eileen refactored <a href="https://github.com/rails/rails/pull/38636">invert_predicate</a> and <a href="https://github.com/rails/rails/pull/38719">fetch_attribute</a> to get rid of some
+case statements in favor of a more object oriented approach. Aaron refactored
+the <a href="https://github.com/rails/rails/pull/38594">PartialRenderer</a>, splitting out classes for rendering single objects and
+collections. John improved some things by making <a href="https://github.com/rails/rails/pull/38857">ActionView rendering
+instrumentation</a> less DRY (sometimes WET code is better!).</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20200301-20200426">106 people contributed</a> since our last issue. Check out the <a href="https://github.com/rails/rails/compare/master@%7B2020-03-01%7D...@%7B2020-04-26%7D">full list of
+changes</a> and Stay healthy out there!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

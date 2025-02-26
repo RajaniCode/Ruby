@@ -1,0 +1,56 @@
+3. Stub + Assert
+
+
+Notice how the status_image method in Tweet calls ZwitPic.get_status_image, potentially a remote server call. Create a test which mocks this method and ensures the correct params get sent.
+ 
+   
+models/tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+
+  validates :status, presence: true, length: {within: 3..140, allow_blank: true}
+  validates :zombie, presence: true
+  
+  def brains?
+    status =~ /(brains|breins)/i
+  end
+
+  def show_author_summary
+    self.status = self.zombie.zombie_summary
+  end
+
+  def status_image
+    image = ZwitPic.get_status_image(self.id)
+  end
+end
+
+
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+  test "status_image calls the ZwitPic get_status_image api" do 
+  end
+end
+
+
+Answer:
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+
+  test "status_image calls the ZwitPic get_status_image api" do 
+    ZwitPic.expects(:get_status_image).with(@tweet.id)
+    @tweet.status_image
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.008610s, 116.1443 tests/s, 0.0000 assertions/s.
+

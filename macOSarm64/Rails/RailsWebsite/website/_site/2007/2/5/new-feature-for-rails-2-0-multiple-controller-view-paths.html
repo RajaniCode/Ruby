@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; New Feature for Rails 2.0: Multiple Controller View Paths</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Thanks to John Long, Rails now supports multiple view paths for each controller.  For 90% of the apps, this probably won&#8217;t make a huge difference.  But, for those of you wanting to productize various open source apps, you can now do this:/beast/trunk$ mkdir vendor/plugins/test_view_paths/beast/trunk$ cd vendor/plugins/test_view_paths/beast/trunk/vendor/plugins/test_view_paths$ mkdir views/beast/trunk/vendor/plugins/test_view_paths$ echo &#8220;ActionController::Base.view_paths.unshift File.join(directory, &#8216;views&#8217;)&#8221; &gt; init.rbWhat you&#8217;ve done is created a minimal rails plugin that inserts a &#8216;views&#8217; directory in the plugin to the beginning of the #view_paths array.  Now, copy a view from the rails app into the plugin&#8217;s &#8216;views&#8217; directory, make a noticeable change, and start your app.  You&#8217;ll notice that it picked your plugin&#8217;s view over the application&#8217;s view." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="New Feature for Rails 2.0: Multiple Controller View Paths" />
+  <meta property="og:description" content="Thanks to John Long, Rails now supports multiple view paths for each controller.  For 90% of the apps, this probably won&#8217;t make a huge difference.  But, for those of you wanting to productize various open source apps, you can now do this:/beast/trunk$ mkdir vendor/plugins/test_view_paths/beast/trunk$ cd vendor/plugins/test_view_paths/beast/trunk/vendor/plugins/test_view_paths$ mkdir views/beast/trunk/vendor/plugins/test_view_paths$ echo &#8220;ActionController::Base.view_paths.unshift File.join(directory, &#8216;views&#8217;)&#8221; &gt; init.rbWhat you&#8217;ve done is created a minimal rails plugin that inserts a &#8216;views&#8217; directory in the plugin to the beginning of the #view_paths array.  Now, copy a view from the rails app into the plugin&#8217;s &#8216;views&#8217; directory, make a noticeable change, and start your app.  You&#8217;ll notice that it picked your plugin&#8217;s view over the application&#8217;s view." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2007/2/5/new-feature-for-rails-2-0-multiple-controller-view-paths" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="New Feature for Rails 2.0: Multiple Controller View Paths" />
+  <meta name="twitter:description" content="Thanks to John Long, Rails now supports multiple view paths for each controller.  For 90% of the apps, this probably won&#8217;t make a huge difference.  But, for those of you wanting to productize various open source apps, you can now do this:/beast/trunk$ mkdir vendor/plugins/test_view_paths/beast/trunk$ cd vendor/plugins/test_view_paths/beast/trunk/vendor/plugins/test_view_paths$ mkdir views/beast/trunk/vendor/plugins/test_view_paths$ echo &#8220;ActionController::Base.view_paths.unshift File.join(directory, &#8216;views&#8217;)&#8221; &gt; init.rbWhat you&#8217;ve done is created a minimal rails plugin that inserts a &#8216;views&#8217; directory in the plugin to the beginning of the #view_paths array.  Now, copy a view from the rails app into the plugin&#8217;s &#8216;views&#8217; directory, make a noticeable change, and start your app.  You&#8217;ll notice that it picked your plugin&#8217;s view over the application&#8217;s view." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2007/2/5/new-feature-for-rails-2-0-multiple-controller-view-paths"
+      },
+      "name": "Ruby on Rails",
+      "headline": "New Feature for Rails 2.0: Multiple Controller View Paths",
+      "description": "Thanks to John Long, Rails now supports multiple view paths for each controller.  For 90% of the apps, this probably won&#8217;t make a huge difference.  But, for those of you wanting to productize various open source apps, you can now do this:/beast/trunk$ mkdir vendor/plugins/test_view_paths/beast/trunk$ cd vendor/plugins/test_view_paths/beast/trunk/vendor/plugins/test_view_paths$ mkdir views/beast/trunk/vendor/plugins/test_view_paths$ echo &#8220;ActionController::Base.view_paths.unshift File.join(directory, &#8216;views&#8217;)&#8221; &gt; init.rbWhat you&#8217;ve done is created a minimal rails plugin that inserts a &#8216;views&#8217; directory in the plugin to the beginning of the #view_paths array.  Now, copy a view from the rails app into the plugin&#8217;s &#8216;views&#8217; directory, make a noticeable change, and start your app.  You&#8217;ll notice that it picked your plugin&#8217;s view over the application&#8217;s view.",
+      "url": "http://localhost:4000/2007/2/5/new-feature-for-rails-2-0-multiple-controller-view-paths",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rick"
+      },
+      "datePublished": "2007-02-05T04:42:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, February 5, 2007</h5>
+        <h2>New Feature for Rails 2.0: Multiple Controller View Paths</h2>
+
+        <h6>Posted by rick</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Thanks to <a href="http://radiantcms.com">John Long</a>, Rails now supports <a href="http://dev.rubyonrails.org/ticket/2754">multiple view paths for each controller</a>.  For 90% of the apps, this probably won&#8217;t make a huge difference.  But, for those of you wanting to productize various open source apps, you can now do this:</p>
+<macro:code>
+<p>/beast/trunk$ mkdir vendor/plugins/test_view_paths<br />
+/beast/trunk$ cd vendor/plugins/test_view_paths<br />
+/beast/trunk/vendor/plugins/test_view_paths$ mkdir views<br />
+/beast/trunk/vendor/plugins/test_view_paths$ echo &#8220;ActionController::Base.view_paths.unshift File.join(directory, &#8216;views&#8217;)&#8221; &gt; init.rb</p>
+</macro:code>
+<p>What you&#8217;ve done is created a minimal rails plugin that inserts a &#8216;views&#8217; directory in the plugin to the beginning of the #view_paths array.  Now, copy a view from the rails app into the plugin&#8217;s &#8216;views&#8217; directory, make a noticeable change, and start your app.  You&#8217;ll notice that it picked your plugin&#8217;s view over the application&#8217;s view.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

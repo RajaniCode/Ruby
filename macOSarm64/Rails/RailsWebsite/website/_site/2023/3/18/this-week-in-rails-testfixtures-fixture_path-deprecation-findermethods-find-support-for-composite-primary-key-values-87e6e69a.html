@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; TestFixtures#fixture_path deprecation, FinderMethods#find support for composite primary key values, etc.</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kaixo! Long time no see. Emmanuel Hayford here. This week, a lot happened in Rails, so much so that to keep this edition short, I’ve had to cut some equally good pull requests out. Here’s what I have for you today:" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="TestFixtures#fixture_path deprecation, FinderMethods#find support for composite primary key values, etc." />
+  <meta property="og:description" content="Kaixo! Long time no see. Emmanuel Hayford here. This week, a lot happened in Rails, so much so that to keep this edition short, I’ve had to cut some equally good pull requests out. Here’s what I have for you today:" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/3/18/this-week-in-rails-testfixtures-fixture_path-deprecation-findermethods-find-support-for-composite-primary-key-values-87e6e69a" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="TestFixtures#fixture_path deprecation, FinderMethods#find support for composite primary key values, etc." />
+  <meta name="twitter:description" content="Kaixo! Long time no see. Emmanuel Hayford here. This week, a lot happened in Rails, so much so that to keep this edition short, I’ve had to cut some equally good pull requests out. Here’s what I have for you today:" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/3/18/this-week-in-rails-testfixtures-fixture_path-deprecation-findermethods-find-support-for-composite-primary-key-values-87e6e69a"
+      },
+      "name": "Ruby on Rails",
+      "headline": "TestFixtures#fixture_path deprecation, FinderMethods#find support for composite primary key values, etc.",
+      "description": "Kaixo! Long time no see. Emmanuel Hayford here. This week, a lot happened in Rails, so much so that to keep this edition short, I’ve had to cut some equally good pull requests out. Here’s what I have for you today:",
+      "url": "http://localhost:4000/2023/3/18/this-week-in-rails-testfixtures-fixture_path-deprecation-findermethods-find-support-for-composite-primary-key-values-87e6e69a",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Emmanuel Hayford"
+      },
+      "datePublished": "2023-03-18T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, March 18, 2023</h5>
+        <h2>TestFixtures#fixture_path deprecation, FinderMethods#find support for composite primary key values, etc.</h2>
+
+        <h6>Posted by Emmanuel Hayford</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Kaixo! Long time no see. <a href="https://twitter.com/siaw23">Emmanuel Hayford</a> here. This week, a lot happened in Rails, so much so that to keep this edition short, I’ve had to cut some <a href="https://github.com/rails/rails/pull/45041">equally good</a> <a href="https://github.com/rails/rails/pull/47655">pull requests</a> out. Here’s what I have for you today:</p>
+
+<p><a href="https://github.com/rails/rails/pull/47692">Allow querying by the whole record for composite query constraints
+</a>Suppose you have defined an association between two models, <em>BlogPost</em> and <em>Comment</em>, with composite query constraints using the <em>has_many</em> method:</p>
+
+<p><em>class BlogPost
+  has_many :comments, query_constraints: [:blog_id, :blog_post_id]
+end</em></p>
+
+<p>You can now query blog posts that are associated with a specific set of comments by passing the <em>comments</em> objects as a parameter to the <em>where</em> method:</p>
+
+<p><em>comments = Comment.first(2)
+BlogPost.where(comments: comments).to_a</em> For the time being, however, association types like <em>belongs_to</em>, <em>has_one</em>, <em>has_many_through</em> and polymorphic associations are not covered. You can take a dig at this if you fancy!</p>
+
+<p><a href="https://github.com/rails/rails/pull/47664">ActiveRecord::FinderMethods#find support for composite pk values</a>
+<em>ActiveRecord::FinderMethods#find</em> now supports passing sets of composite primary key values like:</p>
+
+<p><em>Cpk::Book.find([[1, 1], [1, 2]])</em></p>
+
+<p>and treats values as values of the composite primary key columns but only for models with the primary_key being an Array.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47619">Use Thor for built-in restart task</a>
+This is part of an effort to migrate <em>bin/rails</em> from Rake to Thor, but a nice side-effect of this change is that you can now call <em>bin/rails restart</em> outside of the app directory, like so:</p>
+
+<p><em>my_app/bin/rails restart</em></p>
+
+<p><a href="https://github.com/rails/rails/pull/47438">Adds documentation for Arel::Nodes::Node</a>
+Arel is a private API, meaning there haven’t been any meaningful efforts to document it in the past. This hasn’t stopped gem authors and application programmers from using it – we might as well document it, and that is what this pull request does with a significant portion of some documentation for Arel for anyone who needs it.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47675">Introduce TestFixtures#fixture_paths</a>
+In this one, we deprecate <em>TestFixtures#fixture_path</em> in favour of <em>TestFixtures#fixture_paths.</em></p>
+
+<p>With this update, it is now possible to specify multiple fixture paths in your Rails application by using the <em>fixture_paths</em> accessor. By default, the <em>test/fixtures</em> directory will continue to serve as the primary fixture path for your app. However, if you need to include fixtures from other directories, you can specify additional fixture paths using the <em>fixture_paths</em> method.</p>
+
+<p>This allows for something like:</p>
+
+<p><em>ActiveSupport::TestCase.fixture_paths &lt;&lt; “component1/test/fixtures”
+ActiveSupport::TestCase.fixture_paths &lt;&lt; “component2/test/fixtures”</em></p>
+
+<p><a href="https://github.com/rails/rails/pull/45041">Delegated Type supports customisable foreign_type column</a>
+The <em>{role}_class</em> method now respects the <em>foreign_type</em> option when used with the <em>delegated_type</em> method. This means that you can use <em>delegated_type</em> with non-conventional <em>{role}_type</em> column names by specifying the <em>foreign_type</em> option. This option is forwarded to the underlying <em>belongs_to</em> association that <em>delegated_type</em> wraps, allowing you to specify the name of the foreign key type column.</p>
+
+<p>I’d like to share some conference news: <a href="https://railsconf.org/">RailsConf Atlanta</a> is coming up on April 24th - April 26th 2023, you can still buy your tickets now if you plan on attending. <a href="https://rubykaigi.org/2023/">RubyKaigi</a> is also not far off on May 11th - 13th, 2023.</p>
+
+<p>We saw <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230310-20230317">32 contributors</a> this past week! See you next week.</p>
+
+<p>Your weekly inside scoop of interesting commits, pull requests and more from <a href="https://github.com/rails/rails"><strong>Rails</strong></a>.</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+10. Remove Column
+
+
+Objective
+
+On second thought, that category_name string column was a bad idea. Write a migration to remove the category_name column.
+
+
+remove_category_name_from_tweets.rb
+class RemoveCategoryNameFromTweets < ActiveRecord::Migration
+  def up
+  end
+  def down
+  end
+end
+
+
+Answer:
+remove_category_name_from_tweets.rb
+class RemoveCategoryNameFromTweets < ActiveRecord::Migration
+  def up
+    remove_column :tweets, :category_name
+  end
+
+  def down
+    add_column :tweets, :category_name, :string
+  end
+end

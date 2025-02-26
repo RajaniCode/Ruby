@@ -1,0 +1,643 @@
+Last login: Mon Feb  3 17:57:08 on ttys000
+rajaniapple@Rajanis-MacBook-Pro ~ % curl http://localhost:9292/
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Ruby on Rails edge API documentation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <base href="./" data-current-path="">
+<link rel="preload" href="fonts/Bitter-Roman.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="fonts/Bitter-Italic.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="fonts/Jost-Roman.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="fonts/Jost-Italic.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="fonts/RobotoMono-Roman.woff2" as="font" type="font/woff2" crossorigin="">
+
+<link rel="modulepreload" href="js/search-index.js">
+<link rel="modulepreload" href="js/search.js">
+
+<link rel="stylesheet" href="css/main.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/highlight.css" type="text/css" media="screen">
+
+<script src="js/main.js" type="module"></script>
+<script src="js/@hotwired--turbo.js" type="module"></script>
+
+<link rel="canonical" href="https://edgeapi.rubyonrails.org/">
+<meta property="og:url" content="https://edgeapi.rubyonrails.org/">
+<meta property="og:image" content="https://edgeapi.rubyonrails.org/i/logo.svg">
+<meta property="og:type" content="article">
+<meta property="article:modified_time" content="2025-02-03T09:54:06+01:00">
+<meta name="description" property="og:description" content="Rails is a web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC...">
+
+</head>
+
+<body>
+    <a class="sr-only sr-only-focusable" href="#context" data-turbo="false">Skip to Content</a>
+    <a class="sr-only sr-only-focusable" href="#search" data-turbo="false">Skip to Search</a>
+
+    <nav id="panel" class="panel">
+  <div class="banner">
+    <div class="banner__segment">
+      <label class="banner__menu-button" for="panel__state"></label>
+    </div>
+    <div class="banner__segment">
+      <a class="banner__logo" href=""><img src="i/logo.svg" alt="Ruby on Rails"></a>
+      <span class="banner__version" title="main@8c39c74b185f">edge</span>
+    </div>
+  </div>
+
+  <input id="panel__state" type="checkbox">
+
+  <div class="panel__tray">
+    <input id="search" class="panel__search" type="search" tabindex="-1" autocomplete="off" autosave="searchdoc" placeholder="Search (/) for a class, method, ..." data-turbo-permanent="">
+
+    <div id="results" class="panel__results" data-turbo-permanent=""></div>
+
+    <div class="panel__nav content">
+      <div class="nav__heading">Outline</div>
+<div class="nav__outline">
+  <ul><li><a href="#label-What-27s+Rails-3F">What’s Rails?</a></li><li><a href="#label-Model+layer">Model layer</a></li><li><a href="#label-View+layer">View layer</a></li><li><a href="#label-Controller+layer">Controller layer</a></li><li><a href="#label-Frameworks+and+libraries">Frameworks and libraries</a></li><li><a href="#label-Getting+Started">Getting Started</a></li><li><a href="#label-Contributing">Contributing</a></li><li><a href="#label-License">License</a></li></ul>
+</div>
+
+  <div class="nav__heading">Modules</div>
+  <ul class="nav__list">
+    
+      <li><a href="classes/AbstractController.html" class="ref-link"><code>AbstractController</code></a></li>
+    
+      <li><a href="classes/ActionCable.html" class="ref-link"><code>ActionCable</code></a></li>
+    
+      <li><a href="classes/ActionController.html" class="ref-link"><code>ActionController</code></a></li>
+    
+      <li><a href="classes/ActionDispatch.html" class="ref-link"><code>ActionDispatch</code></a></li>
+    
+      <li><a href="classes/ActionMailbox.html" class="ref-link"><code>ActionMailbox</code></a></li>
+    
+      <li><a href="classes/ActionMailer.html" class="ref-link"><code>ActionMailer</code></a></li>
+    
+      <li><a href="classes/ActionText.html" class="ref-link"><code>ActionText</code></a></li>
+    
+      <li><a href="classes/ActionView.html" class="ref-link"><code>ActionView</code></a></li>
+    
+      <li><a href="classes/ActiveJob.html" class="ref-link"><code>ActiveJob</code></a></li>
+    
+      <li><a href="classes/ActiveModel.html" class="ref-link"><code>ActiveModel</code></a></li>
+    
+      <li><a href="classes/ActiveRecord.html" class="ref-link"><code>ActiveRecord</code></a></li>
+    
+      <li><a href="classes/ActiveStorage.html" class="ref-link"><code>ActiveStorage</code></a></li>
+    
+      <li><a href="classes/ActiveSupport.html" class="ref-link"><code>ActiveSupport</code></a></li>
+    
+      <li><a href="classes/Arel.html" class="ref-link"><code>Arel</code></a></li>
+    
+      <li><a href="classes/Mail.html" class="ref-link"><code>Mail</code></a></li>
+    
+      <li><a href="classes/Mime.html" class="ref-link"><code>Mime</code></a></li>
+    
+      <li><a href="classes/Minitest.html" class="ref-link"><code>Minitest</code></a></li>
+    
+      <li><a href="classes/Rails.html" class="ref-link"><code>Rails</code></a></li>
+    
+  </ul>
+
+  <div class="nav__heading">Core Extensions</div>
+  <ul class="nav__list">
+    
+      <li><a href="classes/Array.html" class="ref-link"><code>Array</code></a></li>
+    
+      <li><a href="classes/Benchmark.html" class="ref-link"><code>Benchmark</code></a></li>
+    
+      <li><a href="classes/BigDecimal.html" class="ref-link"><code>BigDecimal</code></a></li>
+    
+      <li><a href="classes/Class.html" class="ref-link"><code>Class</code></a></li>
+    
+      <li><a href="classes/Date.html" class="ref-link"><code>Date</code></a></li>
+    
+      <li><a href="classes/DateAndTime.html" class="ref-link"><code>DateAndTime</code></a></li>
+    
+      <li><a href="classes/DateTime.html" class="ref-link"><code>DateTime</code></a></li>
+    
+      <li><a href="classes/Delegator.html" class="ref-link"><code>Delegator</code></a></li>
+    
+      <li><a href="classes/Digest.html" class="ref-link"><code>Digest</code></a></li>
+    
+      <li><a href="classes/ERB.html" class="ref-link"><code>ERB</code></a></li>
+    
+      <li><a href="classes/Enumerable.html" class="ref-link"><code>Enumerable</code></a></li>
+    
+      <li><a href="classes/Exception.html" class="ref-link"><code>Exception</code></a></li>
+    
+      <li><a href="classes/FalseClass.html" class="ref-link"><code>FalseClass</code></a></li>
+    
+      <li><a href="classes/File.html" class="ref-link"><code>File</code></a></li>
+    
+      <li><a href="classes/Float.html" class="ref-link"><code>Float</code></a></li>
+    
+      <li><a href="classes/Hash.html" class="ref-link"><code>Hash</code></a></li>
+    
+      <li><a href="classes/IO.html" class="ref-link"><code>IO</code></a></li>
+    
+      <li><a href="classes/Integer.html" class="ref-link"><code>Integer</code></a></li>
+    
+      <li><a href="classes/Kernel.html" class="ref-link"><code>Kernel</code></a></li>
+    
+      <li><a href="classes/LoadError.html" class="ref-link"><code>LoadError</code></a></li>
+    
+      <li><a href="classes/Method.html" class="ref-link"><code>Method</code></a></li>
+    
+      <li><a href="classes/Module.html" class="ref-link"><code>Module</code></a></li>
+    
+      <li><a href="classes/NameError.html" class="ref-link"><code>NameError</code></a></li>
+    
+      <li><a href="classes/NilClass.html" class="ref-link"><code>NilClass</code></a></li>
+    
+      <li><a href="classes/Numeric.html" class="ref-link"><code>Numeric</code></a></li>
+    
+      <li><a href="classes/Object.html" class="ref-link"><code>Object</code></a></li>
+    
+      <li><a href="classes/Pathname.html" class="ref-link"><code>Pathname</code></a></li>
+    
+      <li><a href="classes/Process.html" class="ref-link"><code>Process</code></a></li>
+    
+      <li><a href="classes/Range.html" class="ref-link"><code>Range</code></a></li>
+    
+      <li><a href="classes/Regexp.html" class="ref-link"><code>Regexp</code></a></li>
+    
+      <li><a href="classes/SecureRandom.html" class="ref-link"><code>SecureRandom</code></a></li>
+    
+      <li><a href="classes/Singleton.html" class="ref-link"><code>Singleton</code></a></li>
+    
+      <li><a href="classes/String.html" class="ref-link"><code>String</code></a></li>
+    
+      <li><a href="classes/Symbol.html" class="ref-link"><code>Symbol</code></a></li>
+    
+      <li><a href="classes/Thread.html" class="ref-link"><code>Thread</code></a></li>
+    
+      <li><a href="classes/Time.html" class="ref-link"><code>Time</code></a></li>
+    
+      <li><a href="classes/TrueClass.html" class="ref-link"><code>TrueClass</code></a></li>
+    
+      <li><a href="classes/URI.html" class="ref-link"><code>URI</code></a></li>
+    
+      <li><a href="classes/UnboundMethod.html" class="ref-link"><code>UnboundMethod</code></a></li>
+    
+  </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+    <main id="content" class="content">
+        <div id="context">
+  
+    <div class="description">
+      
+<h1 id="label-Welcome+to+Rails">Welcome to Rails</h1>
+
+<h2 id="label-What-27s+Rails-3F">What’s Rails?</h2>
+
+<p>Rails is a web-application framework that includes everything needed to create database-backed web applications according to the <a href="https://en.wikipedia.org/wiki/Model-view-controller">Model-View-Controller (MVC)</a> pattern.</p>
+
+<p>Understanding the MVC pattern is key to understanding Rails. MVC divides your application into three layers: Model, View, and Controller, each with a specific responsibility.</p>
+
+<h2 id="label-Model+layer">Model layer</h2>
+
+<p>The <strong><em>Model layer</em></strong> represents the domain model (such as Account, Product, Person, Post, etc.) and encapsulates the business logic specific to your application. In Rails, database-backed model classes are derived from <a href="classes/ActiveRecord/Base.html" class="ref-link"><code>ActiveRecord::Base</code></a>. <a href="files/activerecord/README_rdoc.html">Active Record</a> allows you to present the data from database rows as objects and embellish these data objects with business logic methods. Although most Rails models are backed by a database, models can also be ordinary Ruby classes, or Ruby classes that implement a set of interfaces as provided by the <a href="files/activemodel/README_rdoc.html">Active Model</a> module.</p>
+
+<h2 id="label-View+layer">View layer</h2>
+
+<p>The <strong><em>View layer</em></strong> is composed of “templates” that are responsible for providing appropriate representations of your application’s resources. Templates can come in a variety of formats, but most view templates are HTML with embedded Ruby code (ERB files). Views are typically rendered to generate a controller response or to generate the body of an email. In Rails, View generation is handled by <a href="files/actionview/README_rdoc.html">Action View</a>.</p>
+
+<h2 id="label-Controller+layer">Controller layer</h2>
+
+<p>The <strong><em>Controller layer</em></strong> is responsible for handling incoming HTTP requests and providing a suitable response. Usually, this means returning HTML, but Rails controllers can also generate XML, JSON, PDFs, mobile-specific views, and more. Controllers load and manipulate models, and render view templates in order to generate the appropriate HTTP response. In Rails, incoming requests are routed by Action Dispatch to an appropriate controller, and controller classes are derived from <a href="classes/ActionController/Base.html" class="ref-link"><code>ActionController::Base</code></a>. Action Dispatch and Action Controller are bundled together in <a href="files/actionpack/README_rdoc.html">Action Pack</a>.</p>
+
+<h2 id="label-Frameworks+and+libraries">Frameworks and libraries</h2>
+
+<p><a href="files/activerecord/README_rdoc.html">Active Record</a>, <a href="files/activemodel/README_rdoc.html">Active Model</a>, <a href="files/actionpack/README_rdoc.html">Action Pack</a>, and <a href="files/actionview/README_rdoc.html">Action View</a> can each be used independently outside Rails.</p>
+
+<p>In addition to that, Rails also comes with:</p>
+<ul><li>
+<p><a href="files/actionmailer/README_rdoc.html">Action Mailer</a>, a library to generate and send emails</p>
+</li><li>
+<p><a href="files/actionmailbox/README_md.html">Action Mailbox</a>, a library to receive emails within a Rails application</p>
+</li><li>
+<p><a href="files/activejob/README_md.html">Active Job</a>, a framework for declaring jobs and making them run on a variety of queuing backends</p>
+</li><li>
+<p><a href="files/actioncable/README_md.html">Action Cable</a>, a framework to integrate WebSockets with a Rails application</p>
+</li><li>
+<p><a href="files/activestorage/README_md.html">Active Storage</a>, a library to attach cloud and local files to Rails applications</p>
+</li><li>
+<p><a href="files/actiontext/README_md.html">Action Text</a>, a library to handle rich text content</p>
+</li><li>
+<p><a href="files/activesupport/README_rdoc.html">Active Support</a>, a collection of utility classes and standard library extensions that are useful for Rails, and may also be used independently outside Rails</p>
+</li></ul>
+
+<h2 id="label-Getting+Started">Getting Started</h2>
+<ol><li>
+<p>Install Rails at the command prompt if you haven't yet:</p>
+
+<pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>gem <span class="nb">install </span>rails
+</code></pre>
+</li><li>
+<p>At the command prompt, create a new Rails application:</p>
+
+<pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>rails new myapp
+</code></pre>
+
+<p>where "myapp" is the application name.</p>
+</li><li>
+<p>Change directory to <code>myapp</code> and start the web server:</p>
+
+<pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>myapp
+<span class="gp">$</span><span class="w"> </span>bin/rails server
+</code></pre>
+
+<p>Run with <code>--help</code> or <code>-h</code> for options.</p>
+</li><li>
+<p>Go to <code>http://localhost:3000</code> and you'll see the Rails bootscreen with your Rails and Ruby versions.</p>
+</li><li>
+<p>Follow the guidelines to start developing your application. You may find the following resources handy:</p>
+<ul><li>
+<p><a href="https://edgeguides.rubyonrails.org/getting_started.html">Getting Started with Rails</a></p>
+</li><li>
+<p><a href="https://guides.rubyonrails.org">Ruby on Rails Guides</a></p>
+</li><li>
+<p><a href="https://api.rubyonrails.org">The API Documentation</a></p>
+</li></ul>
+</li></ol>
+
+<h2 id="label-Contributing">Contributing</h2>
+
+<p>We encourage you to contribute to Ruby on Rails! Please check out the <a href="https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html">Contributing to Ruby on Rails guide</a> for guidelines about how to proceed. <a href="https://contributors.rubyonrails.org">Join us!</a></p>
+
+<p>Trying to report a possible security vulnerability in Rails? Please check out our <a href="https://rubyonrails.org/security">security policy</a> for guidelines about how to proceed.</p>
+
+<p>Everyone interacting in Rails and its sub-projects’ codebases, issue trackers, chat rooms, and mailing lists is expected to follow the Rails <a href="https://rubyonrails.org/conduct">code of conduct</a>.</p>
+
+<h2 id="label-License">License</h2>
+
+<p>Ruby on Rails is released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+
+    </div>
+  
+
+
+  
+  
+
+
+  
+  
+
+
+  
+  
+
+
+
+  
+
+    
+
+    
+
+    <!-- Constants -->
+    
+
+    
+
+    <!-- Methods -->
+    
+    
+    
+  
+
+  
+</div>
+
+    </main>
+  
+
+</body></html>%                                                                                                                             rajaniapple@Rajanis-MacBook-Pro ~ % open http://localhost:9292/
+rajaniapple@Rajanis-MacBook-Pro ~ % curl http://localhost:9292/
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>Ruby on Rails edge API documentation</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <base href="./" data-current-path="">
+<link rel="preload" href="fonts/Bitter-Roman.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="fonts/Bitter-Italic.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="fonts/Jost-Roman.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="fonts/Jost-Italic.woff2" as="font" type="font/woff2" crossorigin="">
+<link rel="preload" href="fonts/RobotoMono-Roman.woff2" as="font" type="font/woff2" crossorigin="">
+
+<link rel="modulepreload" href="js/search-index.js">
+<link rel="modulepreload" href="js/search.js">
+
+<link rel="stylesheet" href="css/main.css" type="text/css" media="screen">
+<link rel="stylesheet" href="css/highlight.css" type="text/css" media="screen">
+
+<script src="js/main.js" type="module"></script>
+<script src="js/@hotwired--turbo.js" type="module"></script>
+
+<link rel="canonical" href="https://edgeapi.rubyonrails.org/">
+<meta property="og:url" content="https://edgeapi.rubyonrails.org/">
+<meta property="og:image" content="https://edgeapi.rubyonrails.org/i/logo.svg">
+<meta property="og:type" content="article">
+<meta property="article:modified_time" content="2025-02-03T09:54:06+01:00">
+<meta name="description" property="og:description" content="Rails is a web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC...">
+
+</head>
+
+<body>
+    <a class="sr-only sr-only-focusable" href="#context" data-turbo="false">Skip to Content</a>
+    <a class="sr-only sr-only-focusable" href="#search" data-turbo="false">Skip to Search</a>
+
+    <nav id="panel" class="panel">
+  <div class="banner">
+    <div class="banner__segment">
+      <label class="banner__menu-button" for="panel__state"></label>
+    </div>
+    <div class="banner__segment">
+      <a class="banner__logo" href=""><img src="i/logo.svg" alt="Ruby on Rails"></a>
+      <span class="banner__version" title="main@8c39c74b185f">edge</span>
+    </div>
+  </div>
+
+  <input id="panel__state" type="checkbox">
+
+  <div class="panel__tray">
+    <input id="search" class="panel__search" type="search" tabindex="-1" autocomplete="off" autosave="searchdoc" placeholder="Search (/) for a class, method, ..." data-turbo-permanent="">
+
+    <div id="results" class="panel__results" data-turbo-permanent=""></div>
+
+    <div class="panel__nav content">
+      <div class="nav__heading">Outline</div>
+<div class="nav__outline">
+  <ul><li><a href="#label-What-27s+Rails-3F">What’s Rails?</a></li><li><a href="#label-Model+layer">Model layer</a></li><li><a href="#label-View+layer">View layer</a></li><li><a href="#label-Controller+layer">Controller layer</a></li><li><a href="#label-Frameworks+and+libraries">Frameworks and libraries</a></li><li><a href="#label-Getting+Started">Getting Started</a></li><li><a href="#label-Contributing">Contributing</a></li><li><a href="#label-License">License</a></li></ul>
+</div>
+
+  <div class="nav__heading">Modules</div>
+  <ul class="nav__list">
+    
+      <li><a href="classes/AbstractController.html" class="ref-link"><code>AbstractController</code></a></li>
+    
+      <li><a href="classes/ActionCable.html" class="ref-link"><code>ActionCable</code></a></li>
+    
+      <li><a href="classes/ActionController.html" class="ref-link"><code>ActionController</code></a></li>
+    
+      <li><a href="classes/ActionDispatch.html" class="ref-link"><code>ActionDispatch</code></a></li>
+    
+      <li><a href="classes/ActionMailbox.html" class="ref-link"><code>ActionMailbox</code></a></li>
+    
+      <li><a href="classes/ActionMailer.html" class="ref-link"><code>ActionMailer</code></a></li>
+    
+      <li><a href="classes/ActionText.html" class="ref-link"><code>ActionText</code></a></li>
+    
+      <li><a href="classes/ActionView.html" class="ref-link"><code>ActionView</code></a></li>
+    
+      <li><a href="classes/ActiveJob.html" class="ref-link"><code>ActiveJob</code></a></li>
+    
+      <li><a href="classes/ActiveModel.html" class="ref-link"><code>ActiveModel</code></a></li>
+    
+      <li><a href="classes/ActiveRecord.html" class="ref-link"><code>ActiveRecord</code></a></li>
+    
+      <li><a href="classes/ActiveStorage.html" class="ref-link"><code>ActiveStorage</code></a></li>
+    
+      <li><a href="classes/ActiveSupport.html" class="ref-link"><code>ActiveSupport</code></a></li>
+    
+      <li><a href="classes/Arel.html" class="ref-link"><code>Arel</code></a></li>
+    
+      <li><a href="classes/Mail.html" class="ref-link"><code>Mail</code></a></li>
+    
+      <li><a href="classes/Mime.html" class="ref-link"><code>Mime</code></a></li>
+    
+      <li><a href="classes/Minitest.html" class="ref-link"><code>Minitest</code></a></li>
+    
+      <li><a href="classes/Rails.html" class="ref-link"><code>Rails</code></a></li>
+    
+  </ul>
+
+  <div class="nav__heading">Core Extensions</div>
+  <ul class="nav__list">
+    
+      <li><a href="classes/Array.html" class="ref-link"><code>Array</code></a></li>
+    
+      <li><a href="classes/Benchmark.html" class="ref-link"><code>Benchmark</code></a></li>
+    
+      <li><a href="classes/BigDecimal.html" class="ref-link"><code>BigDecimal</code></a></li>
+    
+      <li><a href="classes/Class.html" class="ref-link"><code>Class</code></a></li>
+    
+      <li><a href="classes/Date.html" class="ref-link"><code>Date</code></a></li>
+    
+      <li><a href="classes/DateAndTime.html" class="ref-link"><code>DateAndTime</code></a></li>
+    
+      <li><a href="classes/DateTime.html" class="ref-link"><code>DateTime</code></a></li>
+    
+      <li><a href="classes/Delegator.html" class="ref-link"><code>Delegator</code></a></li>
+    
+      <li><a href="classes/Digest.html" class="ref-link"><code>Digest</code></a></li>
+    
+      <li><a href="classes/ERB.html" class="ref-link"><code>ERB</code></a></li>
+    
+      <li><a href="classes/Enumerable.html" class="ref-link"><code>Enumerable</code></a></li>
+    
+      <li><a href="classes/Exception.html" class="ref-link"><code>Exception</code></a></li>
+    
+      <li><a href="classes/FalseClass.html" class="ref-link"><code>FalseClass</code></a></li>
+    
+      <li><a href="classes/File.html" class="ref-link"><code>File</code></a></li>
+    
+      <li><a href="classes/Float.html" class="ref-link"><code>Float</code></a></li>
+    
+      <li><a href="classes/Hash.html" class="ref-link"><code>Hash</code></a></li>
+    
+      <li><a href="classes/IO.html" class="ref-link"><code>IO</code></a></li>
+    
+      <li><a href="classes/Integer.html" class="ref-link"><code>Integer</code></a></li>
+    
+      <li><a href="classes/Kernel.html" class="ref-link"><code>Kernel</code></a></li>
+    
+      <li><a href="classes/LoadError.html" class="ref-link"><code>LoadError</code></a></li>
+    
+      <li><a href="classes/Method.html" class="ref-link"><code>Method</code></a></li>
+    
+      <li><a href="classes/Module.html" class="ref-link"><code>Module</code></a></li>
+    
+      <li><a href="classes/NameError.html" class="ref-link"><code>NameError</code></a></li>
+    
+      <li><a href="classes/NilClass.html" class="ref-link"><code>NilClass</code></a></li>
+    
+      <li><a href="classes/Numeric.html" class="ref-link"><code>Numeric</code></a></li>
+    
+      <li><a href="classes/Object.html" class="ref-link"><code>Object</code></a></li>
+    
+      <li><a href="classes/Pathname.html" class="ref-link"><code>Pathname</code></a></li>
+    
+      <li><a href="classes/Process.html" class="ref-link"><code>Process</code></a></li>
+    
+      <li><a href="classes/Range.html" class="ref-link"><code>Range</code></a></li>
+    
+      <li><a href="classes/Regexp.html" class="ref-link"><code>Regexp</code></a></li>
+    
+      <li><a href="classes/SecureRandom.html" class="ref-link"><code>SecureRandom</code></a></li>
+    
+      <li><a href="classes/Singleton.html" class="ref-link"><code>Singleton</code></a></li>
+    
+      <li><a href="classes/String.html" class="ref-link"><code>String</code></a></li>
+    
+      <li><a href="classes/Symbol.html" class="ref-link"><code>Symbol</code></a></li>
+    
+      <li><a href="classes/Thread.html" class="ref-link"><code>Thread</code></a></li>
+    
+      <li><a href="classes/Time.html" class="ref-link"><code>Time</code></a></li>
+    
+      <li><a href="classes/TrueClass.html" class="ref-link"><code>TrueClass</code></a></li>
+    
+      <li><a href="classes/URI.html" class="ref-link"><code>URI</code></a></li>
+    
+      <li><a href="classes/UnboundMethod.html" class="ref-link"><code>UnboundMethod</code></a></li>
+    
+  </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+    <main id="content" class="content">
+        <div id="context">
+  
+    <div class="description">
+      
+<h1 id="label-Welcome+to+Rails">Welcome to Rails</h1>
+
+<h2 id="label-What-27s+Rails-3F">What’s Rails?</h2>
+
+<p>Rails is a web-application framework that includes everything needed to create database-backed web applications according to the <a href="https://en.wikipedia.org/wiki/Model-view-controller">Model-View-Controller (MVC)</a> pattern.</p>
+
+<p>Understanding the MVC pattern is key to understanding Rails. MVC divides your application into three layers: Model, View, and Controller, each with a specific responsibility.</p>
+
+<h2 id="label-Model+layer">Model layer</h2>
+
+<p>The <strong><em>Model layer</em></strong> represents the domain model (such as Account, Product, Person, Post, etc.) and encapsulates the business logic specific to your application. In Rails, database-backed model classes are derived from <a href="classes/ActiveRecord/Base.html" class="ref-link"><code>ActiveRecord::Base</code></a>. <a href="files/activerecord/README_rdoc.html">Active Record</a> allows you to present the data from database rows as objects and embellish these data objects with business logic methods. Although most Rails models are backed by a database, models can also be ordinary Ruby classes, or Ruby classes that implement a set of interfaces as provided by the <a href="files/activemodel/README_rdoc.html">Active Model</a> module.</p>
+
+<h2 id="label-View+layer">View layer</h2>
+
+<p>The <strong><em>View layer</em></strong> is composed of “templates” that are responsible for providing appropriate representations of your application’s resources. Templates can come in a variety of formats, but most view templates are HTML with embedded Ruby code (ERB files). Views are typically rendered to generate a controller response or to generate the body of an email. In Rails, View generation is handled by <a href="files/actionview/README_rdoc.html">Action View</a>.</p>
+
+<h2 id="label-Controller+layer">Controller layer</h2>
+
+<p>The <strong><em>Controller layer</em></strong> is responsible for handling incoming HTTP requests and providing a suitable response. Usually, this means returning HTML, but Rails controllers can also generate XML, JSON, PDFs, mobile-specific views, and more. Controllers load and manipulate models, and render view templates in order to generate the appropriate HTTP response. In Rails, incoming requests are routed by Action Dispatch to an appropriate controller, and controller classes are derived from <a href="classes/ActionController/Base.html" class="ref-link"><code>ActionController::Base</code></a>. Action Dispatch and Action Controller are bundled together in <a href="files/actionpack/README_rdoc.html">Action Pack</a>.</p>
+
+<h2 id="label-Frameworks+and+libraries">Frameworks and libraries</h2>
+
+<p><a href="files/activerecord/README_rdoc.html">Active Record</a>, <a href="files/activemodel/README_rdoc.html">Active Model</a>, <a href="files/actionpack/README_rdoc.html">Action Pack</a>, and <a href="files/actionview/README_rdoc.html">Action View</a> can each be used independently outside Rails.</p>
+
+<p>In addition to that, Rails also comes with:</p>
+<ul><li>
+<p><a href="files/actionmailer/README_rdoc.html">Action Mailer</a>, a library to generate and send emails</p>
+</li><li>
+<p><a href="files/actionmailbox/README_md.html">Action Mailbox</a>, a library to receive emails within a Rails application</p>
+</li><li>
+<p><a href="files/activejob/README_md.html">Active Job</a>, a framework for declaring jobs and making them run on a variety of queuing backends</p>
+</li><li>
+<p><a href="files/actioncable/README_md.html">Action Cable</a>, a framework to integrate WebSockets with a Rails application</p>
+</li><li>
+<p><a href="files/activestorage/README_md.html">Active Storage</a>, a library to attach cloud and local files to Rails applications</p>
+</li><li>
+<p><a href="files/actiontext/README_md.html">Action Text</a>, a library to handle rich text content</p>
+</li><li>
+<p><a href="files/activesupport/README_rdoc.html">Active Support</a>, a collection of utility classes and standard library extensions that are useful for Rails, and may also be used independently outside Rails</p>
+</li></ul>
+
+<h2 id="label-Getting+Started">Getting Started</h2>
+<ol><li>
+<p>Install Rails at the command prompt if you haven't yet:</p>
+
+<pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>gem <span class="nb">install </span>rails
+</code></pre>
+</li><li>
+<p>At the command prompt, create a new Rails application:</p>
+
+<pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span>rails new myapp
+</code></pre>
+
+<p>where "myapp" is the application name.</p>
+</li><li>
+<p>Change directory to <code>myapp</code> and start the web server:</p>
+
+<pre><code class="highlight console"><span class="gp">$</span><span class="w"> </span><span class="nb">cd </span>myapp
+<span class="gp">$</span><span class="w"> </span>bin/rails server
+</code></pre>
+
+<p>Run with <code>--help</code> or <code>-h</code> for options.</p>
+</li><li>
+<p>Go to <code>http://localhost:3000</code> and you'll see the Rails bootscreen with your Rails and Ruby versions.</p>
+</li><li>
+<p>Follow the guidelines to start developing your application. You may find the following resources handy:</p>
+<ul><li>
+<p><a href="https://edgeguides.rubyonrails.org/getting_started.html">Getting Started with Rails</a></p>
+</li><li>
+<p><a href="https://guides.rubyonrails.org">Ruby on Rails Guides</a></p>
+</li><li>
+<p><a href="https://api.rubyonrails.org">The API Documentation</a></p>
+</li></ul>
+</li></ol>
+
+<h2 id="label-Contributing">Contributing</h2>
+
+<p>We encourage you to contribute to Ruby on Rails! Please check out the <a href="https://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html">Contributing to Ruby on Rails guide</a> for guidelines about how to proceed. <a href="https://contributors.rubyonrails.org">Join us!</a></p>
+
+<p>Trying to report a possible security vulnerability in Rails? Please check out our <a href="https://rubyonrails.org/security">security policy</a> for guidelines about how to proceed.</p>
+
+<p>Everyone interacting in Rails and its sub-projects’ codebases, issue trackers, chat rooms, and mailing lists is expected to follow the Rails <a href="https://rubyonrails.org/conduct">code of conduct</a>.</p>
+
+<h2 id="label-License">License</h2>
+
+<p>Ruby on Rails is released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>.</p>
+
+    </div>
+  
+
+
+  
+  
+
+
+  
+  
+
+
+  
+  
+
+
+
+  
+
+    
+
+    
+
+    <!-- Constants -->
+    
+
+    
+
+    <!-- Methods -->
+    
+    
+    
+  
+
+  
+</div>
+
+    </main>
+  
+
+rajaniapple@Rajanis-MacBook-Pro ~ % open http://localhost:9292/
+rajaniapple@Rajanis-MacBook-Pro ~ % 
+

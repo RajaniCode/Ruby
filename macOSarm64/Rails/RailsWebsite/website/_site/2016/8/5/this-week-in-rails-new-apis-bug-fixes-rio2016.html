@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: New APIs, bug fixes, #Rio2016 🇧🇷</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello! This is Andy bringing you another week’s worth of highlights from Rails. Today also marks the official start of the #Rio2016 Olympic Games 🇧🇷 . New events this time around include golf, sevens rugby and kitesurfing, so check those out!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: New APIs, bug fixes, #Rio2016 🇧🇷" />
+  <meta property="og:description" content="Hello! This is Andy bringing you another week’s worth of highlights from Rails. Today also marks the official start of the #Rio2016 Olympic Games 🇧🇷 . New events this time around include golf, sevens rugby and kitesurfing, so check those out!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/8/5/this-week-in-rails-new-apis-bug-fixes-rio2016" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: New APIs, bug fixes, #Rio2016 🇧🇷" />
+  <meta name="twitter:description" content="Hello! This is Andy bringing you another week’s worth of highlights from Rails. Today also marks the official start of the #Rio2016 Olympic Games 🇧🇷 . New events this time around include golf, sevens rugby and kitesurfing, so check those out!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/8/5/this-week-in-rails-new-apis-bug-fixes-rio2016"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: New APIs, bug fixes, #Rio2016 🇧🇷",
+      "description": "Hello! This is Andy bringing you another week’s worth of highlights from Rails. Today also marks the official start of the #Rio2016 Olympic Games 🇧🇷 . New events this time around include golf, sevens rugby and kitesurfing, so check those out!",
+      "url": "http://localhost:4000/2016/8/5/this-week-in-rails-new-apis-bug-fixes-rio2016",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "chancancode"
+      },
+      "datePublished": "2016-08-05T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, August 5, 2016</h5>
+        <h2>This Week in Rails: New APIs, bug fixes, #Rio2016 🇧🇷</h2>
+
+        <h6>Posted by chancancode</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello! This is <a href="https://twitter.com/andatki">Andy</a> bringing you another week’s worth of highlights from Rails. Today also marks the official start of the #Rio2016 Olympic Games 🇧🇷 . <a href="http://bleacherreport.com/articles/1294490-2016-olympics-golf-rugby-and-kitesurfing-events-debuting-in-rio">New events</a> this time around include golf, sevens rugby and kitesurfing, so check those out!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160729-20160805">Rails Contributors</a></h3>
+
+<p>This week we’d like to thank 18 contributors to Rails and extend a welcome to this week’s only <a href="http://contributors.rubyonrails.org/contributors/kyatul/commits">first-time contributor</a>!</p>
+
+<h3 id="new-exception-handling-apis-for-activejob"><a href="https://github.com/rails/rails/pull/25991">New exception handling APIs for ActiveJob</a></h3>
+
+<p>New APIs <em>retry_on</em> and <em>discard_on</em> have been added to ActiveJob. These provide hooks for a job class to perform some additional functionality when exceptions occur. The PR for this feature has some nice discussion, check it out!</p>
+
+<h3 id="new-activerecord-transaction-error-classes"><a href="https://github.com/rails/rails/pull/25107">New ActiveRecord transaction error classes</a></h3>
+
+<p>ActiveRecord can now distinguish between serialization failures and deadlocks. A more specific error in the case of deadlocks is now returned where supported (currently only PostgreSQL). Check the PR for an analysis of other database adapters and the latest code as the class names may have changed.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="activesupportduration-inconsistencies-around-daylight-saving-time"><a href="https://github.com/rails/rails/commit/0e762ecdc3026d0c2191e42fbca8021da9ec34cc">Activesupport::Duration inconsistencies around daylight saving time</a></h3>
+
+<p>Since <a href="https://github.com/rails/rails/commit/434df0016e228a7d51f1ad0c3d1f89faeffbed9a">this commit from December</a>, “week” durations are no longer converted to days. This means we need to add <em>:weeks</em> to the parts that ActiveSupport::TimeWithZone will consider being of variable duration to take account of DST transitions.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="yaml-parameters-backwards-compatibility"><a href="https://github.com/rails/rails/commit/31448f2b7fa6f3920485229e5710d9fcf87f190d">YAML Parameters backwards compatibility</a></h3>
+
+<p>This change provides backwards compatibility for Rails 4.2 based on YAML serialization changes made in Rails 5.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s it from This Week in Rails! There were many other great contributions and investigations too numerous to list here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2016-07-29%7D...@%7B2016-08-05%7D">check them out</a>!</p>
+
+<p>Until next week!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

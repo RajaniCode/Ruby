@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; ActiveRecord::Base#pluck accepts hash values, devcontainers improvements and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey everyone, Happy Friday! I hope you get some time to unwind and relax going into the weekend 😎" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="ActiveRecord::Base#pluck accepts hash values, devcontainers improvements and more!" />
+  <meta property="og:description" content="Hey everyone, Happy Friday! I hope you get some time to unwind and relax going into the weekend 😎" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/4/19/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="ActiveRecord::Base#pluck accepts hash values, devcontainers improvements and more!" />
+  <meta name="twitter:description" content="Hey everyone, Happy Friday! I hope you get some time to unwind and relax going into the weekend 😎" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/4/19/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "ActiveRecord::Base#pluck accepts hash values, devcontainers improvements and more!",
+      "description": "Hey everyone, Happy Friday! I hope you get some time to unwind and relax going into the weekend 😎",
+      "url": "http://localhost:4000/2024/4/19/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "vipulnsward"
+      },
+      "datePublished": "2024-04-19T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, April 19, 2024</h5>
+        <h2>ActiveRecord::Base#pluck accepts hash values, devcontainers improvements and more!</h2>
+
+        <h6>Posted by vipulnsward</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey everyone, Happy Friday! I hope you get some time to unwind and relax going into the weekend 😎</p>
+
+<p><a href="https://www.saeloun.com/team/vipul">Vipul</a> here with the latest updates for This Week in Rails. Let’s dive in.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51565">Allow ActiveRecord::Base#pluck to accept hash values</a><br />
+This change adds support for  <code class="language-plaintext highlighter-rouge">ActiveRecord::Base#pluck</code> to accept hash values.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Before</span>
+<span class="no">Post</span><span class="p">.</span><span class="nf">joins</span><span class="p">(</span><span class="ss">:comments</span><span class="p">).</span><span class="nf">pluck</span><span class="p">(</span><span class="s2">"posts.id"</span><span class="p">,</span> <span class="s2">"comments.id"</span><span class="p">,</span> <span class="s2">"comments.body"</span><span class="p">)</span>
+
+<span class="c1"># After</span>
+<span class="no">Post</span><span class="p">.</span><span class="nf">joins</span><span class="p">(</span><span class="ss">:comments</span><span class="p">).</span><span class="nf">pluck</span><span class="p">(</span><span class="ss">posts: </span><span class="p">[</span><span class="ss">:id</span><span class="p">],</span> <span class="ss">comments: </span><span class="p">[</span><span class="ss">:id</span><span class="p">,</span> <span class="ss">:body</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>The same applies to <code class="language-plaintext highlighter-rouge">.pick</code>, which is implemented using <code class="language-plaintext highlighter-rouge">.pluck</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48785">Fix child association loading in :n_plus_one_only mode</a>   <br />
+Strict loading in <code class="language-plaintext highlighter-rouge">:n_plus_one_only</code> mode is designed to prevent performance issues when deeply traversing associations. 
+It allows <code class="language-plaintext highlighter-rouge">Person.find(1).posts</code>, but not <code class="language-plaintext highlighter-rouge">Person.find(1).posts.map(&amp;:category)</code>. 
+This fix avoids the surprise that occurs when <code class="language-plaintext highlighter-rouge">person.posts.first</code> eagerly loads the whole association rather than allowing the user to manage the child association.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">person</span><span class="p">.</span><span class="nf">strict_loading!</span><span class="p">(</span><span class="ss">mode: :n_plus_one_only</span><span class="p">)</span>
+
+<span class="c1"># Before</span>
+<span class="n">person</span><span class="p">.</span><span class="nf">posts</span><span class="p">.</span><span class="nf">first</span>
+<span class="c1"># SELECT * FROM posts WHERE person_id = 1; -- non-deterministic order</span>
+
+<span class="c1"># After</span>
+<span class="n">person</span><span class="p">.</span><span class="nf">posts</span><span class="p">.</span><span class="nf">first</span> <span class="c1"># this is 1+1, not N+1</span>
+<span class="c1"># SELECT * FROM posts WHERE person_id = 1 ORDER BY id LIMIT 1;</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/49267">Add save_and_open_page helper to IntegrationTest</a>  <br />
+<code class="language-plaintext highlighter-rouge">save_and_open_page</code> is a capybara helper that lets developers inspect the status of the page at any given point in their tests.
+This change adds <code class="language-plaintext highlighter-rouge">save_and_open_page</code> helper support to allow using them from within system tests.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51588">Change devcontainer.json to forward used ports for the project</a><br />
+Currently the generated <code class="language-plaintext highlighter-rouge">devcontainer.json</code> file does not forward the ports required for the project, so we might need to manually change it in order to access the project when running via <code class="language-plaintext highlighter-rouge">devcontainer</code>.
+This PR adds the required forwarding for the project by default.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51520">Add node and yarn to devcontainer when creating a project with Javascript</a><br />
+Currently when creating a rails project with javascript (–javascript=esbuild for example) neither node or yarn are added to the devcontainer. 
+This change adds both when needed.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51563">Fix typo in Feature Policy for idle-detection</a><br />
+This change fixes a small typo in feature policy <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy/idle-detection"><code class="language-plaintext highlighter-rouge">idle-detection</code></a> and not <code class="language-plaintext highlighter-rouge">idle_detection</code> which was leading to this policy not being applied before.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-04-13%7D...main@%7B2024-04-19%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240413-20240419">17 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

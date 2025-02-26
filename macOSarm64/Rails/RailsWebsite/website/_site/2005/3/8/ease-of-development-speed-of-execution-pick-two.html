@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Ease of development, speed of execution, pick two</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Justin Gehtland has been working on an application using the Java/Spring/Hibernate/JSTL stack for about 5 months. He started redoing it in Rails as an experiment and found something surprising:I&rsquo;ve been able to re-implement 80% of the functionality in just under four nights of work. Some of that most assuredly has to do with the fact that I understand the domain pretty thoroughly by this point. But a lot of it has to do with the sheer productivity of the framework.He attributes this to convention over configuration, and how the &#8220;&#8230;configure, compile, deploy, reset cycle for running tests is time consuming on my original stack, and non-existent with Rails&#8221;. But all that is just the familiar tune on &#8220;ease of development&#8221;. Here&#8217;s the real kicker:Rails is actually faster.At runtime, the Rails implementation is at least as fast as the original stack in almost every case, and for a not-insignificant portion of actions, actually performs better. I haven&rsquo;t run benchmarks yet, but I will as this effort progresses, but I was shocked (shocked, I say) to discover this.Justin is the co-author of Better, Faster, Lighter Java and Spring: A Developer&#8217;s Notebook.Welcome on over, Justin! I can&#8217;t wait to read more about your adventures with Rails. And best of luck convincing your customer to dump the 5-month effort in favor of your 4-night rewrite. I&#8217;ll be cheering for you." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Ease of development, speed of execution, pick two" />
+  <meta property="og:description" content="Justin Gehtland has been working on an application using the Java/Spring/Hibernate/JSTL stack for about 5 months. He started redoing it in Rails as an experiment and found something surprising:I&rsquo;ve been able to re-implement 80% of the functionality in just under four nights of work. Some of that most assuredly has to do with the fact that I understand the domain pretty thoroughly by this point. But a lot of it has to do with the sheer productivity of the framework.He attributes this to convention over configuration, and how the &#8220;&#8230;configure, compile, deploy, reset cycle for running tests is time consuming on my original stack, and non-existent with Rails&#8221;. But all that is just the familiar tune on &#8220;ease of development&#8221;. Here&#8217;s the real kicker:Rails is actually faster.At runtime, the Rails implementation is at least as fast as the original stack in almost every case, and for a not-insignificant portion of actions, actually performs better. I haven&rsquo;t run benchmarks yet, but I will as this effort progresses, but I was shocked (shocked, I say) to discover this.Justin is the co-author of Better, Faster, Lighter Java and Spring: A Developer&#8217;s Notebook.Welcome on over, Justin! I can&#8217;t wait to read more about your adventures with Rails. And best of luck convincing your customer to dump the 5-month effort in favor of your 4-night rewrite. I&#8217;ll be cheering for you." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/3/8/ease-of-development-speed-of-execution-pick-two" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Ease of development, speed of execution, pick two" />
+  <meta name="twitter:description" content="Justin Gehtland has been working on an application using the Java/Spring/Hibernate/JSTL stack for about 5 months. He started redoing it in Rails as an experiment and found something surprising:I&rsquo;ve been able to re-implement 80% of the functionality in just under four nights of work. Some of that most assuredly has to do with the fact that I understand the domain pretty thoroughly by this point. But a lot of it has to do with the sheer productivity of the framework.He attributes this to convention over configuration, and how the &#8220;&#8230;configure, compile, deploy, reset cycle for running tests is time consuming on my original stack, and non-existent with Rails&#8221;. But all that is just the familiar tune on &#8220;ease of development&#8221;. Here&#8217;s the real kicker:Rails is actually faster.At runtime, the Rails implementation is at least as fast as the original stack in almost every case, and for a not-insignificant portion of actions, actually performs better. I haven&rsquo;t run benchmarks yet, but I will as this effort progresses, but I was shocked (shocked, I say) to discover this.Justin is the co-author of Better, Faster, Lighter Java and Spring: A Developer&#8217;s Notebook.Welcome on over, Justin! I can&#8217;t wait to read more about your adventures with Rails. And best of luck convincing your customer to dump the 5-month effort in favor of your 4-night rewrite. I&#8217;ll be cheering for you." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/3/8/ease-of-development-speed-of-execution-pick-two"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Ease of development, speed of execution, pick two",
+      "description": "Justin Gehtland has been working on an application using the Java/Spring/Hibernate/JSTL stack for about 5 months. He started redoing it in Rails as an experiment and found something surprising:I&rsquo;ve been able to re-implement 80% of the functionality in just under four nights of work. Some of that most assuredly has to do with the fact that I understand the domain pretty thoroughly by this point. But a lot of it has to do with the sheer productivity of the framework.He attributes this to convention over configuration, and how the &#8220;&#8230;configure, compile, deploy, reset cycle for running tests is time consuming on my original stack, and non-existent with Rails&#8221;. But all that is just the familiar tune on &#8220;ease of development&#8221;. Here&#8217;s the real kicker:Rails is actually faster.At runtime, the Rails implementation is at least as fast as the original stack in almost every case, and for a not-insignificant portion of actions, actually performs better. I haven&rsquo;t run benchmarks yet, but I will as this effort progresses, but I was shocked (shocked, I say) to discover this.Justin is the co-author of Better, Faster, Lighter Java and Spring: A Developer&#8217;s Notebook.Welcome on over, Justin! I can&#8217;t wait to read more about your adventures with Rails. And best of luck convincing your customer to dump the 5-month effort in favor of your 4-night rewrite. I&#8217;ll be cheering for you.",
+      "url": "http://localhost:4000/2005/3/8/ease-of-development-speed-of-execution-pick-two",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-03-08T04:59:18+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, March 8, 2005</h5>
+        <h2>Ease of development, speed of execution, pick two</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Justin Gehtland has been working on an application using the Java/Spring/Hibernate/<span class="caps">JSTL</span> stack for about 5 months. He started redoing it in Rails as an experiment and <a href="http://www.relevancellc.com/blogs/?p=29">found something surprising</a>:</p>
+<blockquote>I&rsquo;ve been able to re-implement 80% of the functionality in just under four nights of work. Some of that most assuredly has to do with the fact that I understand the domain pretty thoroughly by this point. But a lot of it has to do with the sheer productivity of the framework.</blockquote>
+<p>He attributes this to convention over configuration, and how the &#8220;&#8230;configure, compile, deploy, reset cycle for running tests is time consuming on my original stack, and non-existent with Rails&#8221;. But all that is just the familiar tune on &#8220;ease of development&#8221;. Here&#8217;s the real kicker:</p>
+<blockquote>Rails is actually faster.<br />
+<br />
+At runtime, the Rails implementation is at least as fast as the original stack in almost every case, and for a not-insignificant portion of actions, actually performs better. I haven&rsquo;t run benchmarks yet, but I will as this effort progresses, but I was shocked (shocked, I say) to discover this.</blockquote>
+<p>Justin is the co-author of <a href="http://www.oreilly.com/catalog/bfljava/">Better, Faster, Lighter Java</a> and <a href="http://www.oreilly.com/catalog/springadn/">Spring: A Developer&#8217;s Notebook</a>.</p>
+<p>Welcome on over, Justin! I can&#8217;t wait to read more about your adventures with Rails. And best of luck convincing your customer to dump the 5-month effort in favor of your 4-night rewrite. I&#8217;ll be cheering for you.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

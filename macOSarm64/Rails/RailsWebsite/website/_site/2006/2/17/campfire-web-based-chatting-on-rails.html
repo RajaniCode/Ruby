@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Campfire: Web-based chatting on Rails</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Campfire by 37signals has launched. It&#8217;s web-based group chat for business where file transfers work reliably and where you have shared access to the logs.It&#8217;s also dripping with delicious Ajax, courtesy of Prototype maestro Sam Stephenson, who joined 37signals in December along with Marcel Molina. So go check it out. More details about the launch on Loud Thinking and 37signals." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Campfire: Web-based chatting on Rails" />
+  <meta property="og:description" content="Campfire by 37signals has launched. It&#8217;s web-based group chat for business where file transfers work reliably and where you have shared access to the logs.It&#8217;s also dripping with delicious Ajax, courtesy of Prototype maestro Sam Stephenson, who joined 37signals in December along with Marcel Molina. So go check it out. More details about the launch on Loud Thinking and 37signals." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2006/2/17/campfire-web-based-chatting-on-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Campfire: Web-based chatting on Rails" />
+  <meta name="twitter:description" content="Campfire by 37signals has launched. It&#8217;s web-based group chat for business where file transfers work reliably and where you have shared access to the logs.It&#8217;s also dripping with delicious Ajax, courtesy of Prototype maestro Sam Stephenson, who joined 37signals in December along with Marcel Molina. So go check it out. More details about the launch on Loud Thinking and 37signals." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2006/2/17/campfire-web-based-chatting-on-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Campfire: Web-based chatting on Rails",
+      "description": "Campfire by 37signals has launched. It&#8217;s web-based group chat for business where file transfers work reliably and where you have shared access to the logs.It&#8217;s also dripping with delicious Ajax, courtesy of Prototype maestro Sam Stephenson, who joined 37signals in December along with Marcel Molina. So go check it out. More details about the launch on Loud Thinking and 37signals.",
+      "url": "http://localhost:4000/2006/2/17/campfire-web-based-chatting-on-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2006-02-17T21:28:27+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, February 17, 2006</h5>
+        <h2>Campfire: Web-based chatting on Rails</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><img width="100" height="84" src="http://campfirenow.com/images/cfmark-big.gif" align="right" style="margin-lleft: 10px" border="0" /><a href="http://www.campfirenow.com">Campfire</a> by 37signals has launched. It&#8217;s web-based group chat for business where file transfers work reliably and where you have shared access to the logs.</p>
+<p>It&#8217;s also dripping with delicious Ajax, courtesy of Prototype maestro Sam Stephenson, who joined 37signals in December along with Marcel Molina. So go check it out. More details about the launch on <a href="http://www.loudthinking.com/arc/000563.html">Loud Thinking</a> and <a href="http://37signals.com/svn/archives2/launch_campfire_easy_group_chat_for_business.php?194#comments">37signals</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

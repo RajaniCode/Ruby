@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Security fixes, bulk insert and upsert, seeds replanting</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello. This is Wojtek here bringing you the exciting updates from Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Security fixes, bulk insert and upsert, seeds replanting" />
+  <meta property="og:description" content="Hello. This is Wojtek here bringing you the exciting updates from Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/3/15/this-week-in-rails-security-fixes-bulk-insert-and-upsert-seeds-replanting" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Security fixes, bulk insert and upsert, seeds replanting" />
+  <meta name="twitter:description" content="Hello. This is Wojtek here bringing you the exciting updates from Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2019/3/15/this-week-in-rails-security-fixes-bulk-insert-and-upsert-seeds-replanting"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Security fixes, bulk insert and upsert, seeds replanting",
+      "description": "Hello. This is Wojtek here bringing you the exciting updates from Rails.",
+      "url": "http://localhost:4000/2019/3/15/this-week-in-rails-security-fixes-bulk-insert-and-upsert-seeds-replanting",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "morgoth85"
+      },
+      "datePublished": "2019-03-15T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, March 15, 2019</h5>
+        <h2>Security fixes, bulk insert and upsert, seeds replanting</h2>
+
+        <h6>Posted by morgoth85</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello. This is <a href="https://twitter.com/morgoth85">Wojtek</a> here bringing you the exciting updates from Rails.</p>
+
+<h3 id="security-fix-releases-of-rails"><a href="https://rubyonrails.org/2019/3/13/Rails-4-2-5-1-5-1-6-2-have-been-released">Security fix releases of Rails</a></h3>
+
+<p>Rails 4.2.11.1, 5.0.7.2, 5.1.6.2, 5.2.2.1, and 6.0.0.beta3 have been released containing important security fixes. Note that with 6.0 release only Rails 6.x.y and Rails 5.2.x are guaranteed to receive both major and minor security fixes by Rails core.</p>
+
+<h3 id="active-record-adds-insert_all-and-upsert_all-methods"><a href="https://github.com/rails/rails/pull/35077">Active Record adds “insert_all” and “upsert_all” methods</a></h3>
+
+<p>It’s now possible to insert many records at once within one SQL statement. You can check summary of this feature in Josef’s <a href="https://medium.com/@retrorubies/upcoming-rails-6-bulk-insert-upsert-feature-2d642419557d">blog post</a>.</p>
+
+<h3 id="rails-command-dbseedreplant-added"><a href="https://github.com/rails/rails/pull/34779">Rails command “db:seed:replant” added</a></h3>
+
+<p>Bring back clean state of database seeds with this simple command without redoing the database structure.</p>
+
+<h3 id="active-support-adds-enumerable-including-method"><a href="https://github.com/rails/rails/commit/bfaa3091c3c32b5980a614ef0f7b39cbf83f6db3">Active Support adds Enumerable “including” method</a></h3>
+
+<p>Self-explained by an example:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ 1, 2, 3 ].including(4, 5) =&gt; [ 1, 2, 3, 4, 5 ]
+</code></pre></div></div>
+<p>For parity, method <code class="language-plaintext highlighter-rouge">without</code> was renamed to <code class="language-plaintext highlighter-rouge">excluding</code>.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20190303-20190315">54 people</a> contributed to Rails in the last 2 weeks. You can see the <a href="https://github.com/rails/rails/compare/master@%7B2019-03-03%7D...@%7B2019-03-15%7D">full list of changes here</a>.</p>
+
+<p>Until next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

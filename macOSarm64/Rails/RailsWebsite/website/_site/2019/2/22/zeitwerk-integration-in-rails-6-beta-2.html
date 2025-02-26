@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Zeitwerk integration in Rails 6 (Beta 2)</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The second beta of Rails 6 is about to ship, and includes Zeitwerk integration." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Zeitwerk integration in Rails 6 (Beta 2)" />
+  <meta property="og:description" content="The second beta of Rails 6 is about to ship, and includes Zeitwerk integration." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/2/22/zeitwerk-integration-in-rails-6-beta-2" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Zeitwerk integration in Rails 6 (Beta 2)" />
+  <meta name="twitter:description" content="The second beta of Rails 6 is about to ship, and includes Zeitwerk integration." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2019/2/22/zeitwerk-integration-in-rails-6-beta-2"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Zeitwerk integration in Rails 6 (Beta 2)",
+      "description": "The second beta of Rails 6 is about to ship, and includes Zeitwerk integration.",
+      "url": "http://localhost:4000/2019/2/22/zeitwerk-integration-in-rails-6-beta-2",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "fxn"
+      },
+      "datePublished": "2019-02-22T14:29:45+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, February 22, 2019</h5>
+        <h2>Zeitwerk integration in Rails 6 (Beta 2)</h2>
+
+        <h6>Posted by fxn</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>The second beta of Rails 6 is about to ship, and includes <a href="https://github.com/fxn/zeitwerk">Zeitwerk</a> integration.</p>
+
+<p>While Rails 6 final is going to have proper documentation about it, this post will help understanding this feature meanwhile.</p>
+
+<h2 id="highlights">Highlights</h2>
+
+<ul>
+  <li>
+    <p>You can now robustly use constant paths in class and module definitions:</p>
+
+    <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Autoloading in this class' body matches Ruby semantics now.</span>
+<span class="k">class</span> <span class="nc">Admin::UsersController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="c1"># ...</span>
+<span class="k">end</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>All known use cases of <code class="language-plaintext highlighter-rouge">require_dependency</code> have been eliminated.</p>
+  </li>
+  <li>
+    <p>Edge cases in which the autoloaded constant depended on execution order are gone.</p>
+  </li>
+  <li>
+    <p>Autoloading is thread-safe in general, not just for the currently supported use cases with explicit locks like web requests. For example, you can now write multi-threaded scripts to be run by <code class="language-plaintext highlighter-rouge">bin/rails runner</code> and they will autoload just fine.</p>
+  </li>
+</ul>
+
+<p>Also, applications get some performance benefits for the same price:</p>
+
+<ul>
+  <li>
+    <p>Autoloading a constant no longer involves walking autoload paths looking for a relative match in the file system. Zeitwerk does one single pass and autoloads everything using absolute file names. In addition, that single pass descends into subdirectories lazily, only when the namespaces are used.</p>
+  </li>
+  <li>
+    <p>When an application is reloaded due to changes in the file system, code in the autoload paths of engines that were loaded as gems won’t be reloaded anymore.</p>
+  </li>
+  <li>
+    <p>Eager loading eager loads not only the application, but also the code of any gem that is managed by Zeitwerk.</p>
+  </li>
+</ul>
+
+<h2 id="autoloading-modes">Autoloading modes</h2>
+
+<p>Rails 6 ships with two autoloading modes: <code class="language-plaintext highlighter-rouge">:zeitwerk</code> and <code class="language-plaintext highlighter-rouge">:classic</code>. They are set using the new configuration point <code class="language-plaintext highlighter-rouge">config.autoloader</code>.</p>
+
+<p>Zeitwerk mode is the default in Rails 6 for CRuby, automatically enabled by</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">load_defaults</span> <span class="s2">"6.0"</span>
+</code></pre></div></div>
+
+<p>in <code class="language-plaintext highlighter-rouge">config/application.rb</code>.</p>
+
+<p>Applications can opt-out putting</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span><span class="p">.</span><span class="nf">autoloader</span> <span class="o">=</span> <span class="ss">:classic</span>
+</code></pre></div></div>
+
+<p>after the line that loads the defaults.</p>
+
+<h2 id="state-of-the-api">State of the API</h2>
+
+<p>While a first API for Zeitwerk mode is converging, this is still a bit exploratory right now. Please, check the current documentation if your version of Rails is newer than <code class="language-plaintext highlighter-rouge">6.0.0.beta2</code>.</p>
+
+<h2 id="autoload-paths">Autoload paths</h2>
+
+<p>The configuration point for autoload paths remains <code class="language-plaintext highlighter-rouge">config.autoload_paths</code>, and if you push by hand to <code class="language-plaintext highlighter-rouge">ActiveSupport::Dependencies.autoload_paths</code> during application initialization, that will also work.</p>
+
+<h2 id="require_dependency">require_dependency</h2>
+
+<p>All known use cases of <code class="language-plaintext highlighter-rouge">require_dependency</code> have been eliminated. In principle, you should just delete all these calls in the code base. See also the next section about STIs.</p>
+
+<h2 id="stis">STIs</h2>
+
+<p>Active Record needs to have STI hierarchies fully loaded in order to generate correct SQL. Preloading in Zeitwerk was designed for this use case:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># config/initializers/preload_vehicle_sti.rb</span>
+
+<span class="n">autoloader</span> <span class="o">=</span> <span class="no">Rails</span><span class="p">.</span><span class="nf">autoloaders</span><span class="p">.</span><span class="nf">main</span>
+<span class="n">sti_leaves</span> <span class="o">=</span> <span class="sx">%w(car motorbike truck)</span>
+
+<span class="n">sti_leaves</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">leaf</span><span class="o">|</span>
+  <span class="n">autoloader</span><span class="p">.</span><span class="nf">preload</span><span class="p">(</span><span class="s2">"</span><span class="si">#{</span><span class="no">Rails</span><span class="p">.</span><span class="nf">root</span><span class="si">}</span><span class="s2">/app/models/</span><span class="si">#{</span><span class="n">leaf</span><span class="si">}</span><span class="s2">.rb"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>By preloading the leaves of the tree, autoloading will take care of the entire hierarchy upwards following superclasses.</p>
+
+<p>These files are going to be preloaded on boot, and on each reload.</p>
+
+<h2 id="railsautoloaders">Rails.autoloaders</h2>
+
+<p>In Zeitwerk mode, <code class="language-plaintext highlighter-rouge">Rails.autoloaders</code> is an enumerable that has two Zeitwerk instances called <code class="language-plaintext highlighter-rouge">main</code>, and <code class="language-plaintext highlighter-rouge">once</code>. The former is the one managing your application, and the latter manages engines loaded as gems, as well as anything in the somewhat unknown <code class="language-plaintext highlighter-rouge">config.autoload_once_paths</code> (whose future is not bright). Rails reloads with <code class="language-plaintext highlighter-rouge">main</code>, and <code class="language-plaintext highlighter-rouge">once</code> is there just for autoloading and eager loading, but does not reload.</p>
+
+<p>Those instances are accessible respectively as</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Rails</span><span class="p">.</span><span class="nf">autoloaders</span><span class="p">.</span><span class="nf">main</span>
+<span class="no">Rails</span><span class="p">.</span><span class="nf">autoloaders</span><span class="p">.</span><span class="nf">once</span>
+</code></pre></div></div>
+
+<p>but since <code class="language-plaintext highlighter-rouge">Rails.autoloaders</code> is an enumerable, there won’t be too many use cases for direct access, probably.</p>
+
+<h2 id="inspecting-autoloaders-activity">Inspecting autoloaders activity</h2>
+
+<p>If you want to see the autoloaders working, you can throw</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Rails</span><span class="p">.</span><span class="nf">autoloaders</span><span class="p">.</span><span class="nf">logger</span> <span class="o">=</span> <span class="nb">method</span><span class="p">(</span><span class="ss">:puts</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>to <code class="language-plaintext highlighter-rouge">config/application.rb</code> after the framework defaults have been set. In addition to a callable, <code class="language-plaintext highlighter-rouge">Rails.autoloaders.logger=</code> accepts also anything that responds to <code class="language-plaintext highlighter-rouge">debug</code> with arity 1, like regular loggers do.</p>
+
+<p>If you want to see the activity of Zeitwerk for all instances in memory (both Rails’ and others that might be managing gems), you can set</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Zeitwerk</span><span class="o">::</span><span class="no">Loader</span><span class="p">.</span><span class="nf">default_logger</span> <span class="o">=</span> <span class="nb">method</span><span class="p">(</span><span class="ss">:puts</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>at the top of <code class="language-plaintext highlighter-rouge">config/application.rb</code>, before <code class="language-plaintext highlighter-rouge">Bundle.require</code>.</p>
+
+<h2 id="backwards-incompatibility">Backwards incompatibility</h2>
+
+<ul>
+  <li>
+    <p>For files below the standard <code class="language-plaintext highlighter-rouge">concerns</code> directories (like <code class="language-plaintext highlighter-rouge">app/models/concerns</code>), <code class="language-plaintext highlighter-rouge">Concerns</code> cannot be a namespace. That is, <code class="language-plaintext highlighter-rouge">app/models/concerns/geolocatable.rb</code> is expected to define <code class="language-plaintext highlighter-rouge">Geolocatable</code>, not <code class="language-plaintext highlighter-rouge">Concerns::Geolocatable</code>.</p>
+  </li>
+  <li>
+    <p>Once the application has booted, autoload paths are frozen.</p>
+  </li>
+  <li>
+    <p>Directories in <code class="language-plaintext highlighter-rouge">ActiveSupport::Dependencies.autoload_paths</code> that do not exist on boot are ignored. We are referring here to the actual elements of the array only, not to their subdirectories. New subdirectories of autoload paths that existed at boot are picked up just fine as always. (This may change for final.)</p>
+  </li>
+  <li>
+    <p>A file that defines a class or module that acts as a namespace, needs to define the class or module using the <code class="language-plaintext highlighter-rouge">class</code> and <code class="language-plaintext highlighter-rouge">module</code> keywords. For example, if you have <code class="language-plaintext highlighter-rouge">app/models/hotel.rb</code> defining the <code class="language-plaintext highlighter-rouge">Hotel</code> class, and <code class="language-plaintext highlighter-rouge">app/models/hotel/pricing.rb</code> defining a mixin for hotels, the <code class="language-plaintext highlighter-rouge">Hotel</code> class must be defined with <code class="language-plaintext highlighter-rouge">class</code>, you cannot do <code class="language-plaintext highlighter-rouge">Hotel = Class.new { ... }</code> or <code class="language-plaintext highlighter-rouge">Hotel = Struct.new { ... }</code> or anything like that. Those idioms are fine in classes and modules that do not act as namespaces.</p>
+  </li>
+  <li>
+    <p>A file should define only one constant in its namespace (but can define inner ones). So, if <code class="language-plaintext highlighter-rouge">app/models/foo.rb</code> defines <code class="language-plaintext highlighter-rouge">Foo</code> and also <code class="language-plaintext highlighter-rouge">Bar</code>, <code class="language-plaintext highlighter-rouge">Bar</code> won’t be reloaded, but reopened when <code class="language-plaintext highlighter-rouge">Foo</code> is reloaded. This is strongly discouraged in classic mode anyway though, the convention is to have one single main constant matching the file name. You can have inner constants, so <code class="language-plaintext highlighter-rouge">Foo</code> may define an auxiliary internal class <code class="language-plaintext highlighter-rouge">Foo::Woo</code>.</p>
+  </li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

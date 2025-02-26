@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 3.0.7 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone!  I’ve released Rails version 3.0.7!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 3.0.7 has been released!" />
+  <meta property="og:description" content="Hello everyone!  I’ve released Rails version 3.0.7!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/4/19/rails-3-0-7-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 3.0.7 has been released!" />
+  <meta name="twitter:description" content="Hello everyone!  I’ve released Rails version 3.0.7!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/4/19/rails-3-0-7-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 3.0.7 has been released!",
+      "description": "Hello everyone!  I’ve released Rails version 3.0.7!",
+      "url": "http://localhost:4000/2011/4/19/rails-3-0-7-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "aaronp"
+      },
+      "datePublished": "2011-04-19T02:11:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, April 19, 2011</h5>
+        <h2>Rails 3.0.7 has been released!</h2>
+
+        <h6>Posted by aaronp</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone!  I’ve released Rails version 3.0.7!</p>
+
+<p>I want to say thanks to Santiago for handling the release candidate gems.  He’s
+on vacation, so I get to do the real thing.</p>
+
+<p>The main change in this release is to fix a performance regression in
+ActiveRecord that was introduced in version 3.0.6.</p>
+
+<h1 id="changes">Changes</h1>
+
+<p>For a web friendly view, check out the compare view
+<a href="https://github.com/rails/rails/compare/v3.0.6...v3.0.7">on github</a>.</p>
+
+<p>For those that want the TL;DR of the commits, here are the pertinant CHANGELOG
+entries for each project:</p>
+
+<h2 id="activesupport">activesupport</h2>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Hash.from_xml</code> no longer loses attributes on tags containing only whitespace
+[André Arko]</li>
+</ul>
+
+<h2 id="activerecord">activerecord</h2>
+<ul>
+  <li>Destroying records via nested attributes works independent of <code class="language-plaintext highlighter-rouge">reject_if</code>
+LH #6006 [Durran Jordan]</li>
+  <li>Delegate any? and many? to Model.scoped for consistency [Andrew White]</li>
+  <li>Quote the ORDER BY clause in batched finds - fixes #6620 [Andrew White]</li>
+  <li>Change exists? so records are not instantiated - fixes #6127. This prevents
+<code class="language-plaintext highlighter-rouge">after_find</code> and <code class="language-plaintext highlighter-rouge">after_initialize</code> callbacks being triggered when checking
+for record existence.
+[Andrew White]</li>
+  <li>Fix performance bug with attribute accessors which only occurred on
+Ruby 1.8.7, and ensure we cache type-casted values when the column returned
+from the db contains non-standard chars.
+[Jon Leighton]</li>
+  <li>Fix a performance regression introduced here
+86acbf1cc050c8fa8c74a10c735e467fb6fd7df8
+related to <code class="language-plaintext highlighter-rouge">read_attribute</code> method [Stian Grytøyr]</li>
+</ul>
+
+<h2 id="actionmailer">actionmailer</h2>
+<ul>
+  <li>remove AM delegating <code class="language-plaintext highlighter-rouge">register_observer</code> and <code class="language-plaintext highlighter-rouge">register_interceptor</code> to Mail
+[Josh Kalderimis]</li>
+</ul>
+
+<h1 id="checksums">Checksums</h1>
+
+<p>Just in case!</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum *
+6b96ed6cf0717e7e40b7ef9b39a70814d3928250  actionmailer-3.0.7.gem
+c28009b6ce47c60553027c1ddd9c9bd2aacb2c82  actionpack-3.0.7.gem
+6ee5ca84b460fff55e7dd825fc966cfbc4b36070  activemodel-3.0.7.gem
+25ff07f49129ccd405c95047b41e6717e95f9471  activerecord-3.0.7.gem
+a4adde3ad82017d8925e99733d1cd288b1474c39  activeresource-3.0.7.gem
+d1a0192fd9da869caee79be66a5915633eda291f  activesupport-3.0.7.gem
+04aa110f50d2ea9b8434526faff57ab2e249495e  rails-3.0.7.gem
+9430747274afa4fac2c37ae05a39f9cb79680e16  railties-3.0.7.gem
+</code></pre></div></div>
+
+<p>Have a great week everyone!</p>
+
+<p>&lt;3 &lt;3 &lt;3 &lt;3 &lt;3</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

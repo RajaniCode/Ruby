@@ -1,0 +1,90 @@
+2. Initializing the matcher
+
+
+In our spec, we're calling the validate_numericality_of method that is defined in our matcher. Update this method to return a new ValidateNumericalityOf::Matcher and update the initialize method to store the attribute.
+
+
+zombie_spec
+describe Zombie do
+  subject { Zombie.new }
+  it { should validate_numericality_of(:iq) }
+end
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :iq
+  validates :iq, presence: true, 
+                 numericality: {
+                   greater_than_or_equal_to: 0,
+                   only_integer: true
+                 }
+end
+
+
+validate_numericality_of.rb
+module ValidateNumericalityOf
+  class Matcher
+    def initialize(attribute)
+    end
+
+    def matches?(model)
+      false
+    end
+
+    def failure_message
+      "Not implemented"
+    end
+
+    def negative_failure_message
+      "Not implemented"
+    end
+
+    def description
+      "Not implemented"
+    end
+  end
+
+  def validate_numericality_of(attribute)
+    pending
+  end
+end
+
+RSpec.configure do |config|
+  config.include ValidateNumericalityOf, type: :model
+end
+
+
+Answer:
+validate_numericality_of.rb
+module ValidateNumericalityOf
+  class Matcher
+    def initialize(attribute)
+      @attribute = attribute
+    end
+
+    def matches?(model)
+      false
+    end
+
+    def failure_message
+      "Not implemented"
+    end
+
+    def negative_failure_message
+      "Not implemented"
+    end
+
+    def description
+      "Not implemented"
+    end
+  end
+
+  def validate_numericality_of(attribute)
+    Matcher.new(attribute)
+  end
+end
+
+RSpec.configure do |config|
+  config.include ValidateNumericalityOf, type: :model
+end

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; SQLite3 adapter now handles default functions with concatenation and supports supports_insert_returning?</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Default retry strategy uses polynomial backoff instead of exponential backoffThis modifies the wait option’s name to provide a more explicit indication that jobs will undergo retry attempts using polynomial backoff. It also ensures that the previous, legacy name remains functional to maintain backward compatibility." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="SQLite3 adapter now handles default functions with concatenation and supports supports_insert_returning?" />
+  <meta property="og:description" content="Default retry strategy uses polynomial backoff instead of exponential backoffThis modifies the wait option’s name to provide a more explicit indication that jobs will undergo retry attempts using polynomial backoff. It also ensures that the previous, legacy name remains functional to maintain backward compatibility." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/9/22/this-week-in-rails-sqlite3-adapter-now-handles-default-functions-with-concatenation-and-and-supports-2f1f0ef3" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="SQLite3 adapter now handles default functions with concatenation and supports supports_insert_returning?" />
+  <meta name="twitter:description" content="Default retry strategy uses polynomial backoff instead of exponential backoffThis modifies the wait option’s name to provide a more explicit indication that jobs will undergo retry attempts using polynomial backoff. It also ensures that the previous, legacy name remains functional to maintain backward compatibility." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/9/22/this-week-in-rails-sqlite3-adapter-now-handles-default-functions-with-concatenation-and-and-supports-2f1f0ef3"
+      },
+      "name": "Ruby on Rails",
+      "headline": "SQLite3 adapter now handles default functions with concatenation and supports supports_insert_returning?",
+      "description": "Default retry strategy uses polynomial backoff instead of exponential backoffThis modifies the wait option’s name to provide a more explicit indication that jobs will undergo retry attempts using polynomial backoff. It also ensures that the previous, legacy name remains functional to maintain backward compatibility.",
+      "url": "http://localhost:4000/2023/9/22/this-week-in-rails-sqlite3-adapter-now-handles-default-functions-with-concatenation-and-and-supports-2f1f0ef3",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Emmanuel Hayford"
+      },
+      "datePublished": "2023-09-22T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, September 22, 2023</h5>
+        <h2>SQLite3 adapter now handles default functions with concatenation and supports supports_insert_returning?</h2>
+
+        <h6>Posted by Emmanuel Hayford</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><a href="https://github.com/rails/rails/pull/49292">Default retry strategy uses polynomial backoff instead of exponential backoff</a>
+This modifies the <em>wait</em> option’s name to provide a more explicit indication that jobs will undergo retry attempts using polynomial backoff. It also ensures that the previous, legacy name remains functional to maintain backward compatibility.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49287">SQLite3 adapter handles default functions with concatenation</a>
+This PR verifies that the SQLite3 adapter effectively manages default functions involving the <em>||</em> concatenation operator.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49290">Add SQLite3 support for supports_insert_returning?</a>
+The SQLite3 adapter has been updated to include support for <em>supports_insert_returning?</em>. By fully implementing this contract, the SQLite3 adapter now provides compatibility for auto-populated columns and custom primary keys.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49294">Add documentation for locals: and local_assigns</a>
+This adds extensive documentation for <em>locals:</em> and <em>local_assigns</em>. Worth the read.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49329">Improve strict_loading documentation</a>
+Still on documentation, <em>strict_loading</em>  now has examples to clarify its usage with singular associations.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230915-20230922">34 contributors</a> graced Rails with contributions this past week.</p>
+
+<p>That’d be it for today, take care.
+<a href="https://twitter.com/siaw23">Emmanuel</a></p>
+
+<p>Your weekly inside scoop of interesting commits, pull requests and more from <a href="https://github.com/rails/rails"><strong>Rails</strong></a>.</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

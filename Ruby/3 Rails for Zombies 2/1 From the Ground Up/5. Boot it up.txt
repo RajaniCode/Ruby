@@ -1,0 +1,18 @@
+5. Boot it up
+
+
+Objective
+
+Enter the command to start a rails server
+
+Answer: rails server
+
+$ rails server
+=> Booting WEBrick
+=> Rails 3.1.0 application starting in development on http://0.0.0.0:3000
+=> Call with -d to detach
+=> Ctrl-C to shutdown server
+[2015-07-17 09-06-48] INFO  WEBrick 1.3.1
+[2015-07-17 09-06-48] INFO  ruby 1.9.2 (2011-02-18) [x86_64-darwin10.7.0]
+[2015-07-17 09-06-48] INFO  WEBrick::HTTPServer#start: pid=35740 port=3000
+Successfully completed the Challenge!

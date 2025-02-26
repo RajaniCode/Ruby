@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: hooks, fixtures, fetch_values, database connections and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there! This is Andy with another edition of This Week in Rails. This week we’re covering two weeks worth of changes, so let’s dive right in." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: hooks, fixtures, fetch_values, database connections and more!" />
+  <meta property="og:description" content="Hi there! This is Andy with another edition of This Week in Rails. This week we’re covering two weeks worth of changes, so let’s dive right in." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/4/15/this-week-in-rails-hooks-fixtures-fetch_values-database-connections-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: hooks, fixtures, fetch_values, database connections and more!" />
+  <meta name="twitter:description" content="Hi there! This is Andy with another edition of This Week in Rails. This week we’re covering two weeks worth of changes, so let’s dive right in." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/4/15/this-week-in-rails-hooks-fixtures-fetch_values-database-connections-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: hooks, fixtures, fetch_values, database connections and more!",
+      "description": "Hi there! This is Andy with another edition of This Week in Rails. This week we’re covering two weeks worth of changes, so let’s dive right in.",
+      "url": "http://localhost:4000/2017/4/15/this-week-in-rails-hooks-fixtures-fetch_values-database-connections-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "andatki"
+      },
+      "datePublished": "2017-04-15T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, April 15, 2017</h5>
+        <h2>This Week in Rails: hooks, fixtures, fetch_values, database connections and more!</h2>
+
+        <h6>Posted by andatki</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there! This is <a href="https://twitter.com/andatki">Andy</a> with another edition of This Week in Rails. This week we’re covering two weeks worth of changes, so let’s dive right in.</p>
+
+<h2 id="new">New</h2>
+
+<h3 id="hooks-for-action_controller_base-and-action_controller_api-"><a href="https://github.com/rails/rails/pull/28402">Hooks for <code class="language-plaintext highlighter-rouge">action_controller_base</code> and <code class="language-plaintext highlighter-rouge">action_controller_api</code> </a></h3>
+
+<p>This change breaks out two Action Controller hooks, where there was one before. <code class="language-plaintext highlighter-rouge">action_controller_base</code> and <code class="language-plaintext highlighter-rouge">action_controller_api</code>. These can be used to load less code at boot time.</p>
+
+<h3 id="fixture-accessor-with-no-arguments"><a href="https://github.com/rails/rails/pull/28692">Fixture accessor with no arguments</a></h3>
+
+<p>Do you need to load all the fixtures of a particular type? Calling a fixture accessor method with no arguments returns all fixtures.</p>
+
+<h3 id="-implement-fetch_values-for-hashwithindifferentaccess"><a href="https://github.com/rails/rails/pull/28316"> Implement <code class="language-plaintext highlighter-rouge">fetch_values</code> for <code class="language-plaintext highlighter-rouge">HashWithIndifferentAccess</code></a></h3>
+
+<p>Add <code class="language-plaintext highlighter-rouge">fetch_values</code> for <code class="language-plaintext highlighter-rouge">HashWithIndifferentAccess</code> in Rails, added to Ruby in 2.3.0. Support was added conditionally by using <code class="language-plaintext highlighter-rouge">method_defined?</code>.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="clear-active-connections-after-initialization"><a href="https://github.com/rails/rails/pull/28057">Clear active connections after initialization</a></h3>
+
+<p>If your app uses a lot of database connections, this one is worth a look. The author said that after deploying this change, they reduced their peak open database connection count by 13%.</p>
+
+<h3 id="fix-mistake-in-js-response-parser"><a href="https://github.com/rails/rails/pull/28748">Fix mistake in JS response parser</a></h3>
+
+<p>This change restores the ability to accept ecmascript for parsing. The author also declares that the JS response should not modify the DOM. Take a look!</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="doc-improvement-for-before_destroy"><a href="https://github.com/rails/rails/pull/28680">Doc improvement for <code class="language-plaintext highlighter-rouge">before_destroy</code></a></h3>
+
+<p>Did you know that <code class="language-plaintext highlighter-rouge">before_destroy</code> hooks should be set *before* <code class="language-plaintext highlighter-rouge">dependent: destroy</code> for it to work correctly? This documents that.</p>
+
+<h3 id="dont-freeze-input-strings"><a href="https://github.com/rails/rails/pull/28729">Don’t freeze input strings</a></h3>
+
+<p>Check this out if you’re curious about changes around frozen strings and usages of Immutable String (Matz said “All String literals are immutable (frozen) on Ruby 3”).</p>
+
+<p>Whew! That covers just some of the changes in the first couple of weeks of April. Many other great <a href="https://github.com/rails/rails/compare/master@%7B2017-04-01%7D...@%7B2017-04-14%7D">pull requests</a> are available to browse, from <a href="http://contributors.rubyonrails.org/contributors/in-time-window/20170401-20170414">27 contributors</a> including 5 first-timers. Nice work!</p>
+
+<p>Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

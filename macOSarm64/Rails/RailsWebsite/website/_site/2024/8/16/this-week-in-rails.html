@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Deferred routes drawing, connect route helper and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, Wojtek from this side. Let’s explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Deferred routes drawing, connect route helper and more" />
+  <meta property="og:description" content="Hi, Wojtek from this side. Let’s explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/8/16/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Deferred routes drawing, connect route helper and more" />
+  <meta name="twitter:description" content="Hi, Wojtek from this side. Let’s explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/8/16/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Deferred routes drawing, connect route helper and more",
+      "description": "Hi, Wojtek from this side. Let’s explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2024/8/16/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "Wojtek"
+      },
+      "datePublished": "2024-08-16T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, August 16, 2024</h5>
+        <h2>Deferred routes drawing, connect route helper and more</h2>
+
+        <h6>Posted by Wojtek</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://x.com/morgoth85">Wojtek</a> from this side. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52353">Defer route drawing</a><br />
+This change triggers the initial reload of routes either through middleware or when a <em>url_helpers</em> method is used.
+Previously, this was executed unconditionally on boot, which could slow down boot time unnecessarily for larger apps with lots of routes.
+Environments like production that have <code class="language-plaintext highlighter-rouge">config.eager_load = true</code> will continue to eagerly load routes on boot.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52169">Add connect route helper</a><br />
+Defines a route that recognizes HTTP CONNECT (and GET) requests.
+More specifically this recognizes HTTP/1 protocol upgrade requests and HTTP/2 CONNECT requests with the protocol pseudo header.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52562">Bulk insert fixtures on SQLite</a><br />
+Previously one insert command was executed for each fixture, now they are aggregated in a single bulk insert command.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52313">Update PostgreSQL adapter extensions to include schema name</a><br />
+The schema dumper will now include the schema name in generated <code class="language-plaintext highlighter-rouge">enable_extension</code> statements if they differ from the current schema.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51272">Add escape_html_entities option to JSON encoder</a><br />
+This allows for overriding the global configuration found at <code class="language-plaintext highlighter-rouge">ActiveSupport.escape_html_entities_in_json</code> for specific calls to <code class="language-plaintext highlighter-rouge">to_json</code>.
+This can be used from controllers in the following manner:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="k">def</span> <span class="nf">index</span>
+    <span class="n">render</span> <span class="ss">json: </span><span class="p">{</span> <span class="ss">hello: </span><span class="s2">"world"</span> <span class="p">},</span> <span class="ss">escape_html_entities: </span><span class="kp">false</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/52610">Remove racc gem dependency</a><br />
+<code class="language-plaintext highlighter-rouge">ActionDispatch::Journey::Parser</code> does not need to be generated by <em>racc</em>. This will open the possibility to optimize it in the future.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52609">Support minitest 5.25+</a><br />
+Minitest 5.25 changed the signature of one of the internal methods that was used by Rails.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51342">Enable query log tags by default on development env</a><br />
+This can be used to trace troublesome SQL statements back to the application code that generated these statements.
+It is also useful when using multiple databases because the query logs can identify which database is being used.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52247">Fix returning type from encrypted attribute</a><br />
+Previously it always returned <em>:text</em> type.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51950">Raise when using key which can’t respond to #to_sym in encrypted configuration</a><br />
+As is the case when trying to use an Integer or Float as a key, which is unsupported.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-08-09%7D...main@%7B2024-08-16%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240809-20240816">31 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

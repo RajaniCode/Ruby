@@ -1,0 +1,53 @@
+7.3 EventSource
+
+
+We've added this Javascript handler for new messages, to populate the #alerts div on the alerts index page. The Javascript event handler isn't firing. The problem is somewhere in the SightingsController; can you find it?
+
+
+app/views/alerts/index.html.erb
+<div id="alerts">
+</div>
+
+
+app/assets/javascripts/sightings.js
+function initialize() {
+  var source = new EventSource('/sightings/alerts');
+  source.addEventListener('message', function update(event) {
+  var div = $('<div>').text(event.data);
+    $('#alerts').append(div);
+  });
+};
+
+$(document).ready(initialize);
+
+
+app/controllers/sightings_controller.rb
+class SightingsController < ApplicationController
+
+  include ActionController::Live
+
+  def alerts
+    response.stream.write "data: Half-eaten brains found near saloon.\n\n"
+    response.stream.write "data: Chickens disappear from farm.\n\n"
+    response.stream.write "data: Zombie seen by Walker Ranch!\n\n"
+    response.stream.close
+  end
+
+end
+
+
+Answer:
+app/controllers/sightings_controller.rb
+class SightingsController < ApplicationController
+
+  include ActionController::Live
+  
+  def alerts
+    response.headers["Content-Type"] = "text/event-stream"
+    response.stream.write "data: Half-eaten brains found near saloon.\n\n"
+    response.stream.write "data: Chickens disappear from farm.\n\n"
+    response.stream.write "data: Zombie seen by Walker Ranch!\n\n"
+    response.stream.close
+  end
+
+end

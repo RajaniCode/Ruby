@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Custom year names, plus improvements and bug fixes</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello, this is Claudio with a quick recap of what changed this week in the source code of Ruby on Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Custom year names, plus improvements and bug fixes" />
+  <meta property="og:description" content="Hello, this is Claudio with a quick recap of what changed this week in the source code of Ruby on Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2018/6/23/this-week-in-rails-custom-year-names-plus-improvements-and-bug-fixes" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Custom year names, plus improvements and bug fixes" />
+  <meta name="twitter:description" content="Hello, this is Claudio with a quick recap of what changed this week in the source code of Ruby on Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2018/6/23/this-week-in-rails-custom-year-names-plus-improvements-and-bug-fixes"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Custom year names, plus improvements and bug fixes",
+      "description": "Hello, this is Claudio with a quick recap of what changed this week in the source code of Ruby on Rails.",
+      "url": "http://localhost:4000/2018/6/23/this-week-in-rails-custom-year-names-plus-improvements-and-bug-fixes",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "claudiob"
+      },
+      "datePublished": "2018-06-23T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, June 23, 2018</h5>
+        <h2>Custom year names, plus improvements and bug fixes</h2>
+
+        <h6>Posted by claudiob</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello, this is Claudio with a quick recap of what changed this week in the <a href="https://github.com/rails/rails">source code of Ruby on Rails</a>.</p>
+
+<h3 id="add-year_format-option-to-date_select-tag"><a href="https://github.com/rails/rails/pull/32190">Add <code class="language-plaintext highlighter-rouge">year_format</code> option to date_select tag</a></h3>
+
+<p>In Japan, 2000 A.D. is Heisei 12 in Wareki. Other countries like Israel and Thailand also have their own calendars.</p>
+
+<p><em>date_select</em> now takes a lambda option <em>year_format</em> that can be used to customize year names, e.g.: <em>year_format: -&gt;year { “Heisei #{year - 1988}”</em>.</p>
+
+<h3 id="support-more-http-cache-controls"><a href="https://github.com/rails/rails/pull/33134">Support more HTTP cache controls</a></h3>
+
+<p>Add support for the <em>stale-while-revalidate</em> and <em>stale-if-error</em> extensions to the <em>Cache-Control</em> response header. Supporting them will make it easier to utilize reverse proxies and CDNs from Rails without resorting to hacks.</p>
+
+<h3 id="reduce-memory-allocation-when-using-pluck"><a href="https://github.com/rails/rails/pull/33074">Reduce Memory Allocation when using <code class="language-plaintext highlighter-rouge">pluck</code></a></h3>
+
+<p>This PR optimises <em>ActiveRecord::Result#cast_values</em> to avoid creating temporary arrays, reducing the number of objects allocated to 1 per row retrieved. <br />
+Benchmark show that the new version is up to 1.5x faster.</p>
+
+<h3 id="permit-configuring-the-default-service-url-expiry"><a href="https://github.com/rails/rails/commit/b21f50d8ae36d9b50b673579e17bccbe55363b34">Permit configuring the default service URL expiry</a></h3>
+
+<p>You can now specify the default expiry of URLs generated by Active Storage by setting <em>config.active_storage.service_urls_expire_in</em>. The default is 5 minutes.</p>
+
+<h3 id="fix-touch-to-behave-consistently"><a href="https://github.com/rails/rails/pull/33107">Fix <code class="language-plaintext highlighter-rouge">touch</code> to behave consistently</a></h3>
+
+<p>The <em>touch</em> option recently added to <em>increment!</em> in Active Record was not updating update_at/on attributes when passed attribute names. The behavior has now been fixed.</p>
+
+<h3 id="fix-result-of-transform_values-in-acparameters"><a href="https://github.com/rails/rails/pull/33076">Fix result of transform_values in AC::Parameters</a></h3>
+
+<p>This method (and <em>transform_values!</em>) was not consistently returning an instance of ActionController::Parameters. This PR (from a first-time contributor!) fixes it.</p>
+
+<p>18 people contributed to Rails this past week, including 2 first-time contributors. Check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>!</p>
+
+<p>Among other news, a <a href="https://blog.heroku.com/rails-asset-pipeline-vulnerability">security vulnerability</a> was disclosed this week so update Sprockets to the latest version if you haven’t yet.</p>
+
+<p>Oh, and my <a href="https://www.youtube.com/watch?v=-_w4uqoVSpw">talk about Active Storage</a> at RailsConf 2018 is finally on YouTube. 🤗 Have a great weekend!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

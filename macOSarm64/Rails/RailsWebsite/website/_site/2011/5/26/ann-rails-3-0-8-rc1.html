@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [ANN] Rails 3.0.8.rc1</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ZOMG HI EVERYBODY!!!!  HAPPY WEDNESDAY (UTC-7)." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[ANN] Rails 3.0.8.rc1" />
+  <meta property="og:description" content="ZOMG HI EVERYBODY!!!!  HAPPY WEDNESDAY (UTC-7)." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/5/26/ann-rails-3-0-8-rc1" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[ANN] Rails 3.0.8.rc1" />
+  <meta name="twitter:description" content="ZOMG HI EVERYBODY!!!!  HAPPY WEDNESDAY (UTC-7)." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/5/26/ann-rails-3-0-8-rc1"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[ANN] Rails 3.0.8.rc1",
+      "description": "ZOMG HI EVERYBODY!!!!  HAPPY WEDNESDAY (UTC-7).",
+      "url": "http://localhost:4000/2011/5/26/ann-rails-3-0-8-rc1",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "aaronp"
+      },
+      "datePublished": "2011-05-26T04:49:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, May 26, 2011</h5>
+        <h2>[ANN] Rails 3.0.8.rc1</h2>
+
+        <h6>Posted by aaronp</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>ZOMG HI EVERYBODY!!!!  HAPPY WEDNESDAY (UTC-7).</p>
+
+<p>I am EXCITED, PLEASED, and even MORE EXCITED to announce the release of the
+Rails 3.0.8 released candidate NUMBER ONE!</p>
+
+<h2 id="omg-release-candidate--what-does-it-mean">OMG RELEASE CANDIDATE.  WHAT DOES IT MEAN?</h2>
+
+<p>This is a release candidate!  It means that we (the rails core team) are asking
+<em>you</em> (our lovely users) to test out the code that we’d like to release!</p>
+
+<p>This is your chance to VETO our release of Rails 3.0.8 final!</p>
+
+<h2 id="veto--why-would-i-do-that">VETO??  WHY WOULD I DO THAT?</h2>
+
+<p>Well you see, dear public, let me explain.  In order to bring you this latest
+and greatest released of rails, we’ve made bug fixes and changed codes.
+Unfortunately, that means that we may have inadvertently broken your
+application.  We don’t want to break your application, we want to fix bugs!</p>
+
+<p>This is your chance to try our the release candidate and let us know if we’ve
+broken your application!</p>
+
+<h2 id="how-do-i-test-your-wonderful-and-amazing-release-candidate">HOW DO I TEST YOUR WONDERFUL AND AMAZING RELEASE CANDIDATE?</h2>
+
+<p>Very simple!  If you’re using bundler, just update your Gemfile to point at
+rails version ‘3.0.8.rc1’.  Then do a <code class="language-plaintext highlighter-rouge">bundle update</code>, and you’re off to the
+races!  Make sure your application behaves normally, all your tests pass, etc.</p>
+
+<h2 id="i-think-ive-found-a-boog--how-do-i-veto">I think I’ve found a boog!  How do I veto???</h2>
+
+<p>It’s easy, breezy, beautiful, to veto!  Just reply to this on the <a href="http://groups.google.com/group/rubyonrails-core?pli=1">rails-core
+mailing list</a>, and let us
+know what went wrong!  We’ll fix the problem and cut another release candidate.</p>
+
+<p>Make sure to check that your failure does not occur on Rails 3.0.7, but <em>does</em>
+occur on the release candidate.  If the failure is also on 3.0.7, we still want
+to know!  It just won’t block our release.</p>
+
+<h2 id="tellme-the-changes-youve-made">TELLME THE CHANGES YOU’VE MADE!</h2>
+
+<p>Ok, just calm down.  For now, go check out this <a href="https://github.com/rails/rails/compare/v3.0.7...v3.0.8.rc1">link on github</a>.</p>
+
+<p>Or go check out the CHANGELOG files in each project.  When we release the final,
+I’ll add the changelog to the announce email.</p>
+
+<h2 id="when-will-the-final-release-be--tell-me-now">WHEN WILL THE FINAL RELEASE BE???  TELL ME NOW!!!</h2>
+
+<p>Typically we release the final version 72 hours after the release candidate.
+But this weekend is a holiday, so I don’t feel like doing a release this
+weekend.  Instead, I will target the final to be released on May 31st.</p>
+
+<p>If we find show stopping bugs, we’ll release another RC and the 72hour counter
+will reset!</p>
+
+<h2 id="why-arent-you-releasing-on-the-weekend--common-bro">WHY AREN’T YOU RELEASING ON THE WEEKEND?  COMMON, BRO.</h2>
+
+<p>What?!?!  Why aren’t <em>you</em> releasing on the weekend???  I’m going to be making
+sausage.  :-P</p>
+
+<p>Thanks everybody!!!!</p>
+
+<p>&lt;3 &lt;3 &lt;3 &lt;3 &lt;3 &lt;3</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

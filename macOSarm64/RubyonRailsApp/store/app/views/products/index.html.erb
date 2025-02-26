@@ -1,0 +1,11 @@
+<h1>Ruby on Rails App</h1>
+
+<h2>Products</h2>
+
+<div id="products">
+  <% @products.each do |product| %>
+      <ul><li><h3><%= link_to product.name, product %></h3></li></ul>
+  <% end %>
+</div>
+
+<%= link_to "Add", new_product_path %>

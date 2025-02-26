@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Attaching files on save, Rails notes and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello Ruby fans. This is Wojtek bringing you latest news from World Cup fields.I mean Ruby on Rails codebase…" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Attaching files on save, Rails notes and more" />
+  <meta property="og:description" content="Hello Ruby fans. This is Wojtek bringing you latest news from World Cup fields.I mean Ruby on Rails codebase…" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2018/7/13/this-week-in-rails-attaching-files-on-save-rails-notes-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Attaching files on save, Rails notes and more" />
+  <meta name="twitter:description" content="Hello Ruby fans. This is Wojtek bringing you latest news from World Cup fields.I mean Ruby on Rails codebase…" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2018/7/13/this-week-in-rails-attaching-files-on-save-rails-notes-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Attaching files on save, Rails notes and more",
+      "description": "Hello Ruby fans. This is Wojtek bringing you latest news from World Cup fields.I mean Ruby on Rails codebase…",
+      "url": "http://localhost:4000/2018/7/13/this-week-in-rails-attaching-files-on-save-rails-notes-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "morgoth85"
+      },
+      "datePublished": "2018-07-13T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, July 13, 2018</h5>
+        <h2>Attaching files on save, Rails notes and more</h2>
+
+        <h6>Posted by morgoth85</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello Ruby fans. This is <a href="https://twitter.com/morgoth85">Wojtek</a> bringing you latest news from World Cup fields.<br />
+I mean Ruby on Rails codebase…</p>
+
+<h3 id="support-readonly-option-in-sqlite3"><a href="https://github.com/rails/rails/pull/33242">Support readonly option in SQLite3</a></h3>
+
+<p>To ensure no modifications are allowed on SQLite3 database you can now pass “readonly” option.</p>
+
+<h3 id="support-_html-suffix-for-array-in-translations"><a href="https://github.com/rails/rails/pull/32361">Support “_html” suffix for array in translations</a></h3>
+
+<p>Now in HTML safe translation key, you can use array of values that will not be escaped in the view.</p>
+
+<h3 id="change-rails-notes-to-use-rails-command"><a href="https://github.com/rails/rails/pull/33220">Change “rails notes” to use Rails command</a></h3>
+
+<p>Previously it was using Rake task under the hood. Now it’s a pure command. Old “rails notes ANNOTATION=custom” becomes “rails notes –annotations custom”. Old syntax will continue to work outputting a deprecation message.</p>
+
+<h3 id="store-newly-uploaded-files-on-save-rather-than-assignment"><a href="https://github.com/rails/rails/pull/33303">Store newly-uploaded files on save rather than assignment</a></h3>
+
+<p>Active Storage will now store attachables assigned to a record after the record is saved rather than immediately. This will help in supporting validations before persisting the file.</p>
+
+<h3 id="allow-to-explicitly-specify-whether-to-output-railss-log-to-stdout-"><a href="https://github.com/rails/rails/pull/28266">Allow to explicitly specify whether to output Rails’s log to stdout </a></h3>
+
+<p>New option “–log-to-stdout” was added to “rails server” command. Enabled by default in development when not daemonized (as it was before).</p>
+
+<p><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20180701-20180713">25 people</a> contributed to Rails this past 2 weeks when not watching World Cup. You can see all the changes <a href="https://github.com/rails/rails/compare/master@%7B2018-07-01%7D...@%7B2018-07-15%7D">here</a>.</p>
+
+<p>Let’s wish ourselves a great final game on Sunday. Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

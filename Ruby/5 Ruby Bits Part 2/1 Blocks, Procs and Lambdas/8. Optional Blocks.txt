@@ -1,0 +1,51 @@
+8. Optional Blocks
+
+
+Implement this list method that takes an optional block. If a block is passed, yield each game to the block and print the result. If there is no block, print each game's name.
+
+
+game.rb
+class Game 
+  attr_accessor :name
+
+  def initialize(name, options)
+    @name = name
+    @year = options[:year]
+    @system = options[:system]
+  end
+end
+
+
+library.rb
+class Library
+  attr_accessor :games
+
+  def initialize(games)
+    @games = games
+  end
+
+  def list
+    games.each do |game|
+
+    end
+  end
+end
+
+
+Answer:
+library.rb
+class Library
+  attr_accessor :games
+
+  def initialize(games)
+    @games = games
+  end
+
+  def list
+    if block_given?
+      games.each{|game| puts yield game}
+  	else
+      games.each{|game| puts game.name}
+    end
+  end
+end

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: jQuery no longer part of Rails and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone!Prathamesh and Greg here, bringing you all the latest from This Week in Rails…..Which is actually “Past 2 weeks in Rails” because we missed to send last week’s issue due to illness. But we are back now, so let’s see what happened in the Rails world since the last issue." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: jQuery no longer part of Rails and more!" />
+  <meta property="og:description" content="Hello everyone!Prathamesh and Greg here, bringing you all the latest from This Week in Rails…..Which is actually “Past 2 weeks in Rails” because we missed to send last week’s issue due to illness. But we are back now, so let’s see what happened in the Rails world since the last issue." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/12/3/this-week-in-rails-jquery-no-longer-part-of-rails-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: jQuery no longer part of Rails and more!" />
+  <meta name="twitter:description" content="Hello everyone!Prathamesh and Greg here, bringing you all the latest from This Week in Rails…..Which is actually “Past 2 weeks in Rails” because we missed to send last week’s issue due to illness. But we are back now, so let’s see what happened in the Rails world since the last issue." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/12/3/this-week-in-rails-jquery-no-longer-part-of-rails-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: jQuery no longer part of Rails and more!",
+      "description": "Hello everyone!Prathamesh and Greg here, bringing you all the latest from This Week in Rails…..Which is actually “Past 2 weeks in Rails” because we missed to send last week’s issue due to illness. But we are back now, so let’s see what happened in the Rails world since the last issue.",
+      "url": "http://localhost:4000/2016/12/3/this-week-in-rails-jquery-no-longer-part-of-rails-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "chancancode"
+      },
+      "datePublished": "2016-12-03T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, December 3, 2016</h5>
+        <h2>This Week in Rails: jQuery no longer part of Rails and more!</h2>
+
+        <h6>Posted by chancancode</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone!</p>
+
+<p><a href="https://twitter.com/_cha1tanya">Prathamesh</a> and <a href="https://twitter.com/gregmolnar">Greg</a> here, bringing you all the latest from This Week in Rails…..<br />
+Which is actually “Past 2 weeks in Rails” because we missed to send last week’s issue due to illness. But we are back now, so let’s see what happened in the Rails world since the last issue.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20161119-20161202">This week’s Rails contributors</a></h3>
+
+<p>The past 2 weeks 38 awesome people contributed to Rails. Want to be part of the show? Head to the <a href="https://github.com/rails/rails/issues">issues</a> list and make a contribution!</p>
+
+<h3 id="jquery-is-no-longer-a-dependency-of-rails"><a href="https://github.com/rails/rails/pull/27113">jQuery is no longer a dependency of Rails</a></h3>
+
+<p>The Rails javascript helpers has been rewritten in a new gem called <em>rails-ujs</em> and they use vanilla javascript, so jQuery is not a dependency of Rails anymore.</p>
+
+<h3 id="rails-501rc1-has-been-released"><a href="https://rubyonrails.org/2016/11/30/Rails-5-0-1-rc1-has-been-released">Rails 5.0.1.rc1 has been released!</a></h3>
+
+<p>The first release candidate for 5.0.1 has been released and if no issues found, the final will be release on the 6th of December.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="form_with-helper-to-unify-form_tag-and-form_for"><a href="https://github.com/rails/rails/pull/26976">form_with helper to unify form_tag and form_for</a></h3>
+
+<p>The <em>form_for</em> and <em>form_tag</em> helpers serve a very similar use-case so they been unified with the new <em>form_with</em> helper.</p>
+
+<h3 id="make-the-second-argument-to-attribute-optional"><a href="https://github.com/rails/rails/commit/1bdc395d956f789b6612796ac6f130cde90d3066">Make the second argument to attribute optional</a></h3>
+
+<p>A default for the <em>cast_type</em> option of the attribute method has been added to enable calling this method with just the attribute name.</p>
+
+<h3 id="active-record-connections-improvement"><a href="https://github.com/rails/rails/pull/27108">Active Record connections improvement</a></h3>
+
+<p>Active Record distributed the connection to previously blocked threads on when it cleared the reloadable connections, but with this change the same happens on disconnect too.</p>
+
+<h3 id="use-gen_random_uuid-for-postgresql--94"><a href="https://github.com/rails/rails/pull/25395">Use gen_random_uuid() for PostgreSQL &gt;= 9.4</a></h3>
+
+<p>With this change, Active Record uses the recommended UUID function depending on the underlying PostgreSQL server’s version, while maintaining uuid_generate_v4() in older migrations.</p>
+
+<h2 id="new">New</h2>
+
+<h3 id="add-yarn-support-in-new-apps-using-yarn-option-by-liceth--pull-request-26836--railsrails--github"><a href="https://github.com/rails/rails/pull/26836">Add Yarn support in new apps using –yarn option by Liceth · Pull Request #26836 · rails/rails · GitHub</a></h3>
+
+<p>yarn, the javascript package manager is supported in Rails now! You can pass the –yarn option when you generate a new rails app and Rails will create the necessary config files and run yarn install after bundle install automatically.</p>
+
+<h3 id="introduce-reload_-reader-for-singular-associations"><a href="https://github.com/rails/rails/pull/27133">Introduce <code class="language-plaintext highlighter-rouge">reload\_</code> reader for singular associations</a></h3>
+
+<p>This patch introduced _Model#reload_<association>_ to bring back force reloading of the association reader.</association></p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="update_all-and-delete_all-is-fixed-when-chained-with-left_joins"><a href="https://github.com/rails/rails/pull/27193">update_all and delete_all is fixed when chained with left_joins</a></h3>
+
+<p>These batch methods didn’t use the left outer joins before, but with this fix they behave properly now.</p>
+
+<h3 id="fix-a-force-ssl-redirection-bug"><a href="https://github.com/rails/rails/pull/27140">Fix a force ssl redirection bug</a></h3>
+
+<p>This PR fixes a bug with the force ssl redirection when the session_store is disabled.</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s it from This Week in Rails! There were many other great contributions, too numerous to list here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2016-11-19%7D...@%7B2016-11-25%7D">check them out</a>!</p>
+
+<p>Until next week!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

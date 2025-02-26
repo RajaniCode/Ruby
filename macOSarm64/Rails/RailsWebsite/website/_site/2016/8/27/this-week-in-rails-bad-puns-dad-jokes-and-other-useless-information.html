@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: Bad Puns, Dad Jokes And Other Useless Information! </title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello there!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: Bad Puns, Dad Jokes And Other Useless Information! " />
+  <meta property="og:description" content="Hello there!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/8/27/this-week-in-rails-bad-puns-dad-jokes-and-other-useless-information" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: Bad Puns, Dad Jokes And Other Useless Information! " />
+  <meta name="twitter:description" content="Hello there!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/8/27/this-week-in-rails-bad-puns-dad-jokes-and-other-useless-information"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: Bad Puns, Dad Jokes And Other Useless Information! ",
+      "description": "Hello there!",
+      "url": "http://localhost:4000/2016/8/27/this-week-in-rails-bad-puns-dad-jokes-and-other-useless-information",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "chancancode"
+      },
+      "datePublished": "2016-08-27T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, August 27, 2016</h5>
+        <h2>This Week in Rails: Bad Puns, Dad Jokes And Other Useless Information! </h2>
+
+        <h6>Posted by chancancode</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello there!</p>
+
+<p>Yes, this is <a href="https://twitter.com/chancancode">Godfrey</a> again. I am glad a lot of you found last week’s <a href="https://rails-weekly.ongoodbits.com/2016/08/20/read-me-to-learn-a-cool-trick">Cool Trick™</a> useful. However, wouldn’t life be pretty boring if you just keep getting useful information? So I figured I would change things up a bit by delivering you an issue full of bad puns, dad jokes and other useless information. Let’s get to it!</p>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160820-20160826">This Week’s Rails Contributors</a></h3>
+
+<p>This week, 11 new contributors along with 19 other returning contributors took some time to keep Rails chugging along.</p>
+
+<h3 id="include-the-content-of-the-flash-in-etags"><a href="https://github.com/rails/rails/pull/26250">Include The Content of “The Flash” In ETags</a></h3>
+
+<p>When confronted about <a href="https://github.com/rails/rails/commit/22af62cf486721ee2e45bb720c42ac2f4121faf4#commitcomment-8110">code bloat</a>, DHH <a href="https://github.com/rails/rails/commit/e50530ca3ab5db53ebc74314c54b62b91b932389">does not take it lightly</a>. This week, he pulled another one of those moves by committing the content of <a href="http://www.imdb.com/title/tt0439572"><em>The Flash</em></a> into the Rails codebase.</p>
+
+<h3 id="redirect-post-requests-with-307-status-code"><a href="https://github.com/rails/rails/pull/23941">Redirect POST Requests With 307 Status Code</a></h3>
+
+<p>Chirag Singhal decided to stir up some drama here by sending browsers a <strong>HTTP 307 “YOU JUST DON’T GET IT”</strong> status code when upgrading POST/PUT/DELETE requests to HTTPS connections.</p>
+
+<h3 id="remove-over-meta-programming-in-arrelation"><a href="https://github.com/rails/rails/pull/26182">Remove over meta programming in AR::Relation</a></h3>
+
+<p>When Bogdan Gusiev dived into the AR::Relation code base, he was not pleased with what he saw. After making some tweaks in this PR, he seemed happy with the result. Why?</p>
+
+<p><em>Well.</em></p>
+
+<p>( •_•)&gt;⌐■-■</p>
+
+<p>(⌐■_■)</p>
+
+<p><em>It doesn’t meta anymore.</em></p>
+
+<p><a href="https://www.youtube.com/watch?v=6YMPAH67f4o">YEEEEAAAAAAAAHH</a></p>
+
+<h3 id="improve-tag_option-performance"><a href="https://github.com/rails/rails/pull/26254">Improve <code class="language-plaintext highlighter-rouge">tag_option</code> performance</a></h3>
+
+<p>Amadeus Folego identified  <strong>tag_options</strong>  as a hotspot in his application and decided to help improve its performance by throwing in some frozen strings. Cool!</p>
+
+<h3 id="update-docs-with-action-cable-redis-dependency"><a href="https://github.com/rails/rails/pull/26249">Update docs with Action Cable Redis dependency</a></h3>
+
+<p>Coming back from his vacation, Rafael Reggiani Manzo redis™covered a new dependency for developing Rails. To ease the shock for the next person, he added the setup instructions to the guides.</p>
+
+<h3 id="missing-key-should-throw-keyerror"><a href="https://github.com/rails/rails/commit/1ec85cf9d8a6ad36c3c40cc08a0c7d8407e4b080">Missing key should throw KeyError</a></h3>
+
+<p>Last but not least, Eileen M. Uchitelle committed a key error this week.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all from me this week, I hope you find this information useless! For a more informative view, check out (no pun intended) the commits <a href="https://github.com/rails/rails/compare/master@%7B2016-08-06%7D...@%7B2016-08-12%7D">here</a>.</p>
+
+<p>Okay, please don’t unsubscribe! 😭 Your favorite rotation of editors will be back starting next week to replace me, so I’m sure things will get better from here!</p>
+
+<p>Promise!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

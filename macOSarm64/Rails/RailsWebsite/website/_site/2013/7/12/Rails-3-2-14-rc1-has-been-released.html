@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [ANN] Rails 3.2.14.rc1 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[ANN] Rails 3.2.14.rc1 has been released!" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2013/7/12/Rails-3-2-14-rc1-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[ANN] Rails 3.2.14.rc1 has been released!" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2013/7/12/Rails-3-2-14-rc1-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[ANN] Rails 3.2.14.rc1 has been released!",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2013/7/12/Rails-3-2-14-rc1-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rafaelfranca"
+      },
+      "datePublished": "2013-07-12T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, July 12, 2013</h5>
+        <h2>[ANN] Rails 3.2.14.rc1 has been released!</h2>
+
+        <h6>Posted by rafaelfranca</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>I am happy to announce that Rails 3.2.14.rc1 has been released. If no regressions
+are found I will release 3.2.14 final final this Monday, on July
+15, 2013. If you find one, please <a href="https://github.com/rails/rails/issues/new">open an Issue on
+GitHub</a> and mention me on it,
+so that I can fix it before the final release.</p>
+
+<h2 id="changes-since-3213">CHANGES since 3.2.13</h2>
+
+<p><em>Action Mailer</em></p>
+
+<p>No changes.</p>
+
+<p><em>Action Pack</em></p>
+
+<ul>
+  <li>
+    <p>Merge <code class="language-plaintext highlighter-rouge">:action</code> from routing scope and assign endpoint if both <code class="language-plaintext highlighter-rouge">:controller</code>
+and <code class="language-plaintext highlighter-rouge">:action</code> are present. The endpoint assignment only occurs if there is
+no <code class="language-plaintext highlighter-rouge">:to</code> present in the options hash so should only affect routes using the
+shorthand syntax (i.e. endpoint is inferred from the the path).</p>
+
+    <p>Fixes #9856</p>
+
+    <p><em>Yves Senn</em>, <em>Andrew White</em></p>
+  </li>
+  <li>
+    <p>Always escape the result of <code class="language-plaintext highlighter-rouge">link_to_unless</code> method.</p>
+
+    <p>Before:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>link_to_unless(true, '&lt;b&gt;Showing&lt;/b&gt;', 'github.com')
+# =&gt; "&lt;b&gt;Showing&lt;/b&gt;"
+</code></pre></div>    </div>
+
+    <p>After:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>link_to_unless(true, '&lt;b&gt;Showing&lt;/b&gt;', 'github.com')
+# =&gt; "&amp;lt;b&amp;gt;Showing&amp;lt;/b&amp;gt;"
+</code></pre></div>    </div>
+
+    <p><em>dtaniwaki</em></p>
+  </li>
+  <li>
+    <p>Use a case insensitive URI Regexp for #asset_path.</p>
+
+    <p>This fix a problem where the same asset path using different case are generating
+different URIs.</p>
+
+    <p>Before:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image_tag("HTTP://google.com")
+# =&gt; "&lt;img alt=\"Google\" src=\"/assets/HTTP://google.com\" /&gt;"
+image_tag("http://google.com")
+# =&gt; "&lt;img alt=\"Google\" src=\"http://google.com\" /&gt;"
+</code></pre></div>    </div>
+
+    <p>After:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image_tag("HTTP://google.com")
+# =&gt; "&lt;img alt=\"Google\" src=\"HTTP://google.com\" /&gt;"
+image_tag("http://google.com")
+# =&gt; "&lt;img alt=\"Google\" src=\"http://google.com\" /&gt;"
+</code></pre></div>    </div>
+
+    <p><em>David Celis + Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Fix explicit names on multiple file fields. If a file field tag has
+the multiple option, it is turned into an array field (appending <code class="language-plaintext highlighter-rouge">[]</code>),
+but if an explicit name is passed to <code class="language-plaintext highlighter-rouge">file_field</code> the <code class="language-plaintext highlighter-rouge">[]</code> is not
+appended.
+Fixes #9830.</p>
+
+    <p><em>Ryan McGeary</em></p>
+  </li>
+  <li>
+    <p>Fix assets loading performance in 3.2.13.</p>
+
+    <p>Issue #8756 uses Sprockets for resolving files that already exist on disk,
+for those files their extensions don’t need to be rewritten.</p>
+
+    <p>Fixes #9803.</p>
+
+    <p><em>Fred Wu</em></p>
+  </li>
+  <li>
+    <p>Fix <code class="language-plaintext highlighter-rouge">ActionController#action_missing</code> not being called.
+Fixes #9799.</p>
+
+    <p><em>Janko Luin</em></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ActionView::Helpers::NumberHelper#number_to_human</code> returns the number unaltered when
+the units hash does not contain the needed key, e.g. when the number provided is less
+than the largest key provided.</p>
+
+    <p>Examples:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>number_to_human(123, units: {})                # =&gt; 123
+number_to_human(123, units: { thousand: 'k' }) # =&gt; 123
+</code></pre></div>    </div>
+
+    <p>Fixes #9269.
+Backport #9347.</p>
+
+    <p><em>Michael Hoffman</em></p>
+  </li>
+  <li>
+    <p>Include I18n locale fallbacks in view lookup.
+Fixes GH#3512.</p>
+
+    <p><em>Juan Barreneche</em></p>
+  </li>
+  <li>
+    <p>Fix <code class="language-plaintext highlighter-rouge">ActionDispatch::Request#formats</code> when the Accept request-header is an
+empty string. Fix #7774 [Backport #8977, #9541]</p>
+
+    <p><em>Soylent + Maxime Réty</em></p>
+  </li>
+</ul>
+
+<p><em>Active Model</em></p>
+
+<p>No changes.</p>
+
+<p><em>Active Record</em></p>
+
+<ul>
+  <li>
+    <p>Do not shallow the original exception in <code class="language-plaintext highlighter-rouge">exec_cache</code> on PostgreSQL adapter.</p>
+
+    <p>Fixes #11260.</p>
+
+    <p><em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Fix <code class="language-plaintext highlighter-rouge">ActiveRecord::Store</code> incorrectly tracking changes of its attributes.
+Fixes #10373.</p>
+
+    <p><em>Janko Marohnić</em></p>
+  </li>
+  <li>
+    <p>Fix a bug that prevented the use of the default STI inheritance column
+(ActiveRecord::Base.inheritance_column = ‘some_column’.)</p>
+
+    <p><em>chapmajs + Takehiro Adachi</em></p>
+  </li>
+  <li>
+    <p>Fix mysql2 adapter raises the correct exception when executing a query on a
+closed connection.</p>
+
+    <p><em>Yves Senn</em></p>
+  </li>
+  <li>
+    <p>Fixes bug where <code class="language-plaintext highlighter-rouge">Company.new.contract_ids</code> would incorrectly load
+all non-associated contracts.</p>
+
+    <p>Example:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>company = Company.new # Company has many :contracts
+
+# before
+company.contract_ids # =&gt; SELECT ... WHERE `contracts`.`company_id` IS NULL
+
+# after
+company.contract_ids # =&gt; []
+</code></pre></div>    </div>
+
+    <p><em>Jared Armstrong</em></p>
+  </li>
+  <li>
+    <p>Fix the <code class="language-plaintext highlighter-rouge">:primary_key</code> option for <code class="language-plaintext highlighter-rouge">has_many</code> associations.
+Fixes #10693.</p>
+
+    <p><em>Yves Senn</em></p>
+  </li>
+  <li>
+    <p>fixes bug introduced by #3329.  Now, when autosaving associations,
+deletions happen before inserts and saves.  This prevents a ‘duplicate
+unique value’ database error that would occur if a record being created had
+the same value on a unique indexed field as that of a record being destroyed.</p>
+
+    <p>Backport of #10417</p>
+
+    <p><em>Johnny Holton</em></p>
+  </li>
+  <li>
+    <p>Fix that under some conditions, Active Record could produce invalid SQL of the sort:
+“SELECT DISTINCT DISTINCT”.</p>
+
+    <p>Backport of #6792.</p>
+
+    <p><em>Ben Woosley</em></p>
+  </li>
+  <li>
+    <p>Require <code class="language-plaintext highlighter-rouge">ActiveRecord::Base</code> in railtie hooks for rake_tasks, console and runner to
+avoid circular constant loading issues.</p>
+
+    <p>Backport #7695.</p>
+
+    <p>Fixes #7683 and #882</p>
+
+    <p><em>Ben Holley</em></p>
+  </li>
+  <li>
+    <p>Maintain context for joins within ActiveRecord::Relation merges.
+Backport #10164.</p>
+
+    <p><em>Neeraj Singh + Andrew Horner</em></p>
+  </li>
+  <li>
+    <p>Make sure the <code class="language-plaintext highlighter-rouge">EXPLAIN</code> command is never triggered by a <code class="language-plaintext highlighter-rouge">select_db</code> call.</p>
+
+    <p><em>Daniel Schierbeck</em></p>
+  </li>
+  <li>
+    <p>Revert changes on <code class="language-plaintext highlighter-rouge">pluck</code> that was ignoring the select clause when the relation already
+has one. This caused a regression since it changed the behavior in a stable release.</p>
+
+    <p>Fixes #9777.</p>
+
+    <p><em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Confirm a record has not already been destroyed before decrementing counter cache.</p>
+
+    <p><em>Ben Tucker</em></p>
+  </li>
+  <li>
+    <p>Default values for PostgreSQL bigint types now get parsed and dumped to the
+schema correctly.
+Backport #10098.</p>
+
+    <p><em>Erik Peterson</em></p>
+  </li>
+  <li>
+    <p>Removed warning when <code class="language-plaintext highlighter-rouge">auto_explain_threshold_in_seconds</code> is set and the
+connection adapter doesn’t support explain.
+This is causing a regression since the Active Record Railtie is trying to
+connect to the development database in the application boot.</p>
+
+    <p><em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Do not reset <code class="language-plaintext highlighter-rouge">inheritance_column</code> when it’s set explicitly.
+Backport of #5327.</p>
+
+    <p><em>kennyj + Fred Wu</em></p>
+  </li>
+  <li>
+    <p>Fix a problem wrong exception is occured
+when raising no translatable exception in PostgreSQL.</p>
+
+    <p><em>kennyj</em></p>
+  </li>
+  <li>
+    <p>Resets the postgres search path in the structure.sql after the structure
+is dumped in order to find schema_migrations table when multiples schemas
+are used.
+Fixes #9796.</p>
+
+    <p><em>Juan M. Cuello + Dembskiy Alexander</em></p>
+  </li>
+  <li>
+    <p>Reload the association target if it’s stale. <code class="language-plaintext highlighter-rouge">@stale_state</code> should be nil
+when a model isn’t saved.
+Fixes #7526.</p>
+
+    <p><em>Larry Lv</em></p>
+  </li>
+  <li>
+    <p>Don’t read CSV files during execution of <code class="language-plaintext highlighter-rouge">db:fixtures:load</code>. CSV support for
+fixtures was removed some time ago but the task was still loading them, even
+though later the code was looking for the related yaml file instead.</p>
+
+    <p><em>kennyj</em></p>
+  </li>
+</ul>
+
+<p><em>Active Resource</em></p>
+
+<ul>
+  <li>
+    <p>Fixes an issue that ActiveResource models ignores ActiveResource::Base.include_root_in_json.
+Backported from the now separate repo rails/activeresouce.</p>
+
+    <p><em>Xinjiang Lu</em></p>
+  </li>
+</ul>
+
+<p><em>Active Support</em></p>
+
+<ul>
+  <li>
+    <p>Make <code class="language-plaintext highlighter-rouge">Time.at_with_coercion</code> retain the second fraction and return local time.</p>
+
+    <p>Fixes #11350</p>
+
+    <p><em>Neer Friedman</em>, <em>Andrew White</em></p>
+  </li>
+  <li>
+    <p>Fix <code class="language-plaintext highlighter-rouge">ActiveSupport::TaggedLogging</code> incorrectly providing program name the same as log message
+even when block is not provided.</p>
+
+    <p><em>Carson Reinke</em></p>
+  </li>
+  <li>
+    <p>Override <code class="language-plaintext highlighter-rouge">Time.at</code> to support the passing of Time-like values when called with a single argument.</p>
+
+    <p><em>Andrew White</em></p>
+  </li>
+  <li>
+    <p>Revert the changes on unicode character encoding from <code class="language-plaintext highlighter-rouge">ActiveSupport::JSON.encode</code>.
+This was causing a regression where the resulting string is always returning UTF-8.
+Also it changes the behavior of this method on a stable release.
+Fixes #9498.</p>
+
+    <p><em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Fix <code class="language-plaintext highlighter-rouge">ActiveSupport::TimeZone.parse</code> when time is at a local DST jump.
+Fixes #9678.</p>
+
+    <p><em>Andrew White</em></p>
+  </li>
+</ul>
+
+<p><em>Railties</em></p>
+
+<ul>
+  <li>
+    <p>Fix bugs that crashed <code class="language-plaintext highlighter-rouge">rake test:benchmark</code>, <code class="language-plaintext highlighter-rouge">rails profiler</code> and
+<code class="language-plaintext highlighter-rouge">rails benchmarker</code>.
+Fixes #4938.
+Backport rails/rails-perftest#2.</p>
+
+    <p><em>Dmitry Vorotilin + Yves Senn</em></p>
+  </li>
+  <li>
+    <p>Add support for runner hook.</p>
+
+    <p>Backport #7695.</p>
+
+    <p><em>Ben Holley</em></p>
+  </li>
+  <li>
+    <p>Fixes bug with scaffold generator with <code class="language-plaintext highlighter-rouge">--assets=false --resource-route=false</code>.
+Fixes #9525.</p>
+
+    <p><em>Arun Agrawal</em></p>
+  </li>
+</ul>
+
+<p><em>Full listing</em></p>
+
+<p>To see the full list of changes, <a href="https://github.com/rails/rails/compare/v3.2.13...v3.2.14.rc1">check out all the commits on
+GitHub</a>.</p>
+
+<h2 id="sha-1">SHA-1</h2>
+
+<p>If you’d like to verify that your gem is the same as the one I’ve uploaded,
+please use these SHA-1 hashes:</p>
+
+<ul>
+  <li>1b8d20d39c9c5bb2fa56c835fe564bfcf6f55c66  actionmailer-3.2.14.rc1.gem</li>
+  <li>ccf1df0c3daa92e5e72ec11f3399167e16d2a48f  actionpack-3.2.14.rc1.gem</li>
+  <li>263cbf1ce202095f92648171c6be92eca85837e0  activemodel-3.2.14.rc1.gem</li>
+  <li>51de13da5e9c9c9ccdd7f7bd4c2bfb3e1dd3dbb1  activerecord-3.2.14.rc1.gem</li>
+  <li>da709adcc9f56364e0d697ea10e4acc9af48068a  activeresource-3.2.14.rc1.gem</li>
+  <li>e45cd0115705514d00b1be917f06092af389fe5d  activesupport-3.2.14.rc1.gem</li>
+  <li>9fd0569cdee1ca0ab7b170f1c40c6c48304ec29e  rails-3.2.14.rc1.gem</li>
+  <li>a2d485229708af4cdbbdaef72ef6f756fb1b1341  railties-3.2.14.rc1.gem</li>
+</ul>
+
+<p>Thank you everyone!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

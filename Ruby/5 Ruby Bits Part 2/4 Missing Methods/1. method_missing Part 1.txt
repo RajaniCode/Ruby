@@ -1,0 +1,20 @@
+1. method_missing Part 1
+
+
+Implement method_missing on the Library class so that it prints the name of any nonexistent method that is called.
+
+
+library.rb
+class Library
+
+end
+
+
+Answer:
+library.rb
+class Library
+  def method_missing(method)
+    puts "#{method} nonexistent"
+  end    
+end
+

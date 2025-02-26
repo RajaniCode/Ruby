@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 6.0.1, database connection improvements, and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey there! This is Daniel bringing you the latest news in Rails. I am writingfrom RubyConf in Nashville, so come find me and say hello if you are heretoo!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 6.0.1, database connection improvements, and more" />
+  <meta property="og:description" content="Hey there! This is Daniel bringing you the latest news in Rails. I am writingfrom RubyConf in Nashville, so come find me and say hello if you are heretoo!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/11/17/this-week-in-rails-rails-6-0-1-database-connection-improvements-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 6.0.1, database connection improvements, and more" />
+  <meta name="twitter:description" content="Hey there! This is Daniel bringing you the latest news in Rails. I am writingfrom RubyConf in Nashville, so come find me and say hello if you are heretoo!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2019/11/17/this-week-in-rails-rails-6-0-1-database-connection-improvements-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 6.0.1, database connection improvements, and more",
+      "description": "Hey there! This is Daniel bringing you the latest news in Rails. I am writingfrom RubyConf in Nashville, so come find me and say hello if you are heretoo!",
+      "url": "http://localhost:4000/2019/11/17/this-week-in-rails-rails-6-0-1-database-connection-improvements-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dodecadaniel"
+      },
+      "datePublished": "2019-11-17T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, November 17, 2019</h5>
+        <h2>Rails 6.0.1, database connection improvements, and more</h2>
+
+        <h6>Posted by dodecadaniel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey there! This is <a href="https://twitter.com/dodecadaniel">Daniel</a> bringing you the latest news in Rails. I am writing
+from <a href="https://www.rubyconf.org/">RubyConf</a> in Nashville, so come find me and say hello if you are here
+too!</p>
+
+<h3 id="rails-601-released"><a href="https://rubyonrails.org/2019/11/5/Rails-6-0-1-released/">Rails 6.0.1 released</a></h3>
+
+<p>As always, this release is loaded with fixes and improvements. Today seems like
+a good day to upgrade, don’t you think?</p>
+
+<h3 id="introduce-role-manager-to-manage-connections"><a href="https://github.com/rails/rails/pull/37622">Introduce role manager to manage connections</a></h3>
+
+<p>I am a big fan of detailed commit messages, and this commit has an impressive
+one. This change will help to eventually support sharding in Rails.</p>
+
+<h3 id="disable-logging-for-jobs-with-sensitive-arguments"><a href="https://github.com/rails/rails/pull/37660">Disable logging for jobs with sensitive arguments</a></h3>
+
+<p>Do you have any jobs that include sensitive arguments like passwords? You
+probably don’t want to see those arguments showing up in your logs. Now you can
+disable argument logging for any job by setting the <code class="language-plaintext highlighter-rouge">log_arguments</code>
+configuration option.</p>
+
+<h3 id="use-both-implicit-order-column-and-primary-key-for-ordering"><a href="https://github.com/rails/rails/pull/37626">Use both implicit order column and primary key for ordering</a></h3>
+
+<p>To ensure deterministic results, records are now ordered by both
+<code class="language-plaintext highlighter-rouge">implicit_order_column</code> and the primary key, when available. This commit is from
+a first-time contributor. Nice work!</p>
+
+<h3 id="remove-duplicated-database-configuration-logic"><a href="https://github.com/rails/rails/pull/37695">Remove duplicated database configuration logic</a></h3>
+
+<p>The Rails codebase is fairly complex. It is always nice to see a commit that
+simplifies it, reduces duplication, and improves behavior while removing lines.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20191103-20191116">36 people contributed</a> since last time, including several first-time
+contributors. Check out the <a href="https://github.com/rails/rails/compare/master@%7B2019-11-03%7D...@%7B2019-11-16%7D">full list of changes</a>.</p>
+
+<p>Bye for now! 👋🏻</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

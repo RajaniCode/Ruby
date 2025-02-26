@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 6.0.4, Lots of Active Storage goodies, and many Quality-of-Life improvements!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello, zzak here with the latest changes from the last week to Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 6.0.4, Lots of Active Storage goodies, and many Quality-of-Life improvements!" />
+  <meta property="og:description" content="Hello, zzak here with the latest changes from the last week to Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2021/6/18/this-week-in-rails-rails-6-0-4-lots-of-active-storage-goodies-and-many-quality-of-life-improvements" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 6.0.4, Lots of Active Storage goodies, and many Quality-of-Life improvements!" />
+  <meta name="twitter:description" content="Hello, zzak here with the latest changes from the last week to Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2021/6/18/this-week-in-rails-rails-6-0-4-lots-of-active-storage-goodies-and-many-quality-of-life-improvements"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 6.0.4, Lots of Active Storage goodies, and many Quality-of-Life improvements!",
+      "description": "Hello, zzak here with the latest changes from the last week to Rails.",
+      "url": "http://localhost:4000/2021/6/18/this-week-in-rails-rails-6-0-4-lots-of-active-storage-goodies-and-many-quality-of-life-improvements",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2021-06-18T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, June 18, 2021</h5>
+        <h2>Rails 6.0.4, Lots of Active Storage goodies, and many Quality-of-Life improvements!</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello, <a href="https://github.com/zzak">zzak</a> here with the latest changes from the last week to Rails.</p>
+
+<h3 id="rails-604-was-released"><a href="https://rubyonrails.org/2021/6/15/Rails-6-0-4-has-been-released">Rails 6.0.4 was released</a></h3>
+
+<p>This release includes many bug fixes so be sure to upgrade! You can read the full summary of changes <a href="https://github.com/rails/rails/releases/tag/v6.0.4">here</a>.</p>
+
+<h3 id="improve-security-of-untyped-bound-values-in-mysql"><a href="https://github.com/rails/rails/pull/42440">Improve security of untyped bound values in MySQL</a></h3>
+
+<p>This solves a potential query manipulation vulnerability with MySQL.</p>
+
+<h3 id="improve-usability-of-multi-db-when-config-is-invalid"><a href="https://github.com/rails/rails/pull/42537">Improve usability of multi-db when config is invalid</a></h3>
+
+<p>A helpful exception is now raised if pool_config is nil when using config.active_record.writing_role(:all).</p>
+
+<h3 id="enhancements-to-active-record-encryption"><a href="https://github.com/rails/rails/pull/42491">Enhancements to Active Record Encryption</a></h3>
+
+<p>After introducing encryption into Active Record, a couple new features and a bug fix were followed!</p>
+
+<h3 id="add-support-for-eager-loading-active-storage-variants"><a href="https://github.com/rails/rails/pull/40842">Add support for eager loading Active Storage variants</a></h3>
+
+<p>This PR removes N+1 queries from Active Storage when using with_all_variant_records and with_attached_* scope.</p>
+
+<h3 id="fix-strict-loading-through-associations"><a href="https://github.com/rails/rails/pull/42494">Fix strict loading through associations</a></h3>
+
+<p>Previously there was a bug when using strict_loading where eager loading wouldn’t propagate through associations.</p>
+
+<h3 id="use-the-current-rails-version-inside-packagejson"><a href="https://github.com/rails/rails/pull/42263">Use the current Rails version inside package.json</a></h3>
+
+<p>Previously when generating a new Rails app, the package.json would hard-code the string “6.0.0” for all npm dependencies. This now uses the Rails version that generated the app.</p>
+
+<h3 id="add-support-for-active-storage-expiring-urls"><a href="https://github.com/rails/rails/pull/42410">Add support for Active Storage expiring URLs</a></h3>
+
+<p>This allows expiring URLs for signed blob ids in Active Storage via the “expires_in” parameter or by setting a default with “config.active_storage.urls_expire_in”.</p>
+
+<h3 id="support-default-cache_control-in-active-storage-for-gcs"><a href="https://github.com/rails/rails/pull/42509">Support default “cache_control” in Active Storage for GCS</a></h3>
+
+<p>This PR adds support for setting the default “cache_control” headers for uploads using Google Cloud Storage service.</p>
+
+<h3 id="use-ffmpeg-scene-detection-for-generating-video-previews"><a href="https://github.com/rails/rails/pull/39096">Use FFmpeg scene detection for generating video previews</a></h3>
+
+<p>By using the built-in features of FFmpeg, Active Storage now generates much better thumbnails for videos. These parameters were also made configurable in a <a href="https://github.com/rails/rails/pull/42471">follow-up PR</a>!</p>
+
+<h3 id="deprecate-purge-and-purge_later-on-active-storage-attachments-association-model"><a href="https://github.com/rails/rails/pull/42506">Deprecate “purge” and “purge_later” on Active Storage attachments association model</a></h3>
+
+<p>You should be calling these methods directly on the attachment and not on the association.</p>
+
+<h3 id="add-modelupdate-that-is-similar-to-modelupdate-but-raises-exceptions"><a href="https://github.com/rails/rails/pull/42423">Add Model.update! that is similar to Model.update but raises exceptions</a></h3>
+
+<p>You may be familiar with the instance method Model#update!, but now you can do that on the class!</p>
+
+<h3 id="performance-regression-in-collectionassocationbuild"><a href="https://github.com/rails/rails/pull/42524">Performance regression in CollectionAssocation#build</a></h3>
+
+<p>This fixes a huge performance bug for inversing associations with a lot of records.</p>
+
+<h3 id="reduce-stat2-calls"><a href="https://github.com/rails/rails/pull/37265">Reduce stat(2) calls</a></h3>
+
+<p>Classic <a href="https://github.com/nobu">nobu</a>. This patch was later optimized in a <a href="https://github.com/rails/rails/pull/42446">follow-up PR</a>.</p>
+
+<h3 id="dont-attach-ujs-form-submission-handlers-to-turbo-forms"><a href="https://github.com/rails/rails/pull/42476">Don’t attach UJS form submission handlers to Turbo forms</a></h3>
+
+<p>This quality-of-life improvement is for apps migrating from RailsUJS to Turbo with both living inside the codebase to easily distinguish which should handle forms.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20210612-20210618">28 people</a> contributed to Rails since last time. All the changes can be checked <a href="https://github.com/rails/rails/compare/@%7B2021-06-12%7D...main@%7B2021-06-19%7D">here</a>. Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

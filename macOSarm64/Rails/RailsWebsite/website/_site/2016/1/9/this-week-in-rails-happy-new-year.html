@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: Happy New Year!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Happy New Year! Welcome to the first 2016 issue of This week in Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: Happy New Year!" />
+  <meta property="og:description" content="Happy New Year! Welcome to the first 2016 issue of This week in Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/1/9/this-week-in-rails-happy-new-year" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: Happy New Year!" />
+  <meta name="twitter:description" content="Happy New Year! Welcome to the first 2016 issue of This week in Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/1/9/this-week-in-rails-happy-new-year"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: Happy New Year!",
+      "description": "Happy New Year! Welcome to the first 2016 issue of This week in Rails.",
+      "url": "http://localhost:4000/2016/1/9/this-week-in-rails-happy-new-year",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "andatki"
+      },
+      "datePublished": "2016-01-09T06:32:12+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, January 9, 2016</h5>
+        <h2>This week in Rails: Happy New Year!</h2>
+
+        <h6>Posted by andatki</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Happy New Year! Welcome to the first 2016 issue of This week in Rails.</p>
+
+<p>I’m <a href="https://twitter.com/andatki">Andy</a>, and before diving in to contributions from this week, let’s briefly recap some stats from 2015. Our 12 editors released 50 issues summarizing <a href="https://github.com/rails/rails/compare/master@%7B2015-01-01%7D...@%7B2015-12-18%7D">over 6500 commits</a> to Rails! Each issue is now being sent to over 4300 subscribers.</p>
+
+<p>What a great year! To celebrate, sweep up some confetti laying around from last weekend, toss it in the air, and sing some bars of <a href="https://en.wikipedia.org/wiki/File:Auld_Lang_Syne.ogg">Auld Lang Syne</a>.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20151219-20160108">This Week’s Rails Contributors</a></h3>
+
+<p>79 people contributed to Rails since the last issue on December 18, 2015! Check out the list of <a href="https://github.com/rails/rails/issues">issues</a> if you’d like to help out as well.</p>
+
+<h3 id="railsconf-2016-cfp-deadline"><a href="http://rubycentral-cfp.herokuapp.com/events/railsconf2016">RailsConf 2016 CFP deadline</a></h3>
+
+<p>Interested in speaking at RailsConf 2016 in Kansas City? Call for proposals closes January 15th, 2016, 11:59pm CST! You’ve got 1 week!</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="security-per-form-csrf-tokens"><a href="https://github.com/rails/rails/pull/22275">Security: Per-form CSRF tokens</a></h3>
+
+<p>Changes brought upstream from GitHub, related to Content Security Policy (CSP) and securing forms. Check out the links in the PR to learn more.</p>
+
+<h3 id="default-new-apps-to-tag-logs-with-request_id"><a href="https://github.com/rails/rails/pull/22949">Default new apps to tag logs with <code class="language-plaintext highlighter-rouge">request_id</code></a></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">:request_id</code> log tag ensures that each request is tagged with a unique identifier.</p>
+
+<h3 id="short-hand-methods-for-types-in-mysql"><a href="https://github.com/rails/rails/pull/21688">Short-hand methods for types in MySQL</a></h3>
+
+<p>This change adds short-hand methods like <code class="language-plaintext highlighter-rouge">tinyblob</code> and <code class="language-plaintext highlighter-rouge">mediumblob</code> for text and blob types when using MySQL.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="dont-output-to-stdout-twice"><a href="https://github.com/rails/rails/pull/22933">Don’t output to <code class="language-plaintext highlighter-rouge">STDOUT</code> twice</a></h3>
+
+<p>Stops printing messages twice with rails console or rails server and a logger set to output to STDOUT.</p>
+
+<h2 id="faster">Faster</h2>
+
+<h3 id="replace-xtimesmap-with-arraynewx"><a href="https://github.com/rails/rails/pull/22890">Replace <code class="language-plaintext highlighter-rouge">x.times.map{}</code> with <code class="language-plaintext highlighter-rouge">Array.new(x){}</code></a></h3>
+
+<p>Small performance improvement supported with a benchmark. Check out the results.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are many more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2016-01-01%7D...@%7B2016-01-08%7D">check them out yourself</a>.</p>
+
+<p>Until next time!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

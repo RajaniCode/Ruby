@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [SEC][ANN] Rails 3.2.11, 3.1.10, 3.0.19, and 2.3.15 have been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everybody." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[SEC][ANN] Rails 3.2.11, 3.1.10, 3.0.19, and 2.3.15 have been released!" />
+  <meta property="og:description" content="Hi everybody." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2013/1/8/Rails-3-2-11-3-1-10-3-0-19-and-2-3-15-have-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[SEC][ANN] Rails 3.2.11, 3.1.10, 3.0.19, and 2.3.15 have been released!" />
+  <meta name="twitter:description" content="Hi everybody." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2013/1/8/Rails-3-2-11-3-1-10-3-0-19-and-2-3-15-have-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[SEC][ANN] Rails 3.2.11, 3.1.10, 3.0.19, and 2.3.15 have been released!",
+      "description": "Hi everybody.",
+      "url": "http://localhost:4000/2013/1/8/Rails-3-2-11-3-1-10-3-0-19-and-2-3-15-have-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "tenderlove"
+      },
+      "datePublished": "2013-01-08T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, January 8, 2013</h5>
+        <h2>[SEC][ANN] Rails 3.2.11, 3.1.10, 3.0.19, and 2.3.15 have been released!</h2>
+
+        <h6>Posted by tenderlove</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everybody.</p>
+
+<p>I’d like to announce that 3.2.11, 3.1.10, 3.0.19, and 2.3.15 have been released.  These releases contain two <strong>extremely critical security fixes</strong> so please update <strong>IMMEDIATELY</strong>.</p>
+
+<p>You can read about the security fixes by following these links:</p>
+
+<ul>
+  <li><a href="https://groups.google.com/group/rubyonrails-security/browse_thread/thread/b75585bae4326af2">CVE-2013-0155</a></li>
+  <li><a href="https://groups.google.com/group/rubyonrails-security/browse_thread/thread/eb56e482f9d21934">CVE-2013-0156</a></li>
+</ul>
+
+<p>In order to ease upgrading, the only major changes in each gem are the security fixes.  To see the detailed changes for each version, follow the links below:</p>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/compare/v3.2.10...v3.2.11">Changes in 3.2.11</a></li>
+  <li><a href="https://github.com/rails/rails/compare/v3.1.9...v3.1.10">Changes in 3.1.10</a></li>
+  <li><a href="https://github.com/rails/rails/compare/v3.0.18...v3.0.19">Changes in 3.0.19</a></li>
+  <li><a href="https://github.com/rails/rails/compare/v2.3.14...v2.3.15">Changes in 2.3.15</a></li>
+</ul>
+
+<p>Thanks to the people who responsibly reported these security issues.</p>
+
+<p>Here are the SHA-1 checksums for each gem:</p>
+
+<h3 id="3211">3.2.11</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[aaron@higgins dist]$ shasum *3.2.11*
+933cd2821b30cdff4a2e0b5cc63f4d2c6b29affe  actionmailer-3.2.11.gem
+54731c51b55bf0215392971b982139775c0bfa2b  actionpack-3.2.11.gem
+5ccde66568d8051405c01063f1afaed13bd01082  activemodel-3.2.11.gem
+f360c17968486479b0a4207e7eccbe379186a9d2  activerecord-3.2.11.gem
+c61ff513be8a8aef898d2e5c4c9508d60727c556  activeresource-3.2.11.gem
+41a4e8c382594283026d977554c1e18233198ca8  activesupport-3.2.11.gem
+8fa6d19a0daea910e39a0911b2240c2a7b630fb1  rails-3.2.11.gem
+ffaec7c3e5211283108cf5afab8e79be76090a0d  railties-3.2.11.gem
+</code></pre></div></div>
+
+<h3 id="3110">3.1.10</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[aaron@higgins dist]$ shasum *3.1.10*
+e3dce983ebd0ee8970c5ddab46b05ac432c8b029  actionmailer-3.1.10.gem
+84e536e732255e5dfd3d8053c10ed98dcb45ac80  actionpack-3.1.10.gem
+db1a3ac836d988dc1fc7c64d29ded7a277047419  activemodel-3.1.10.gem
+ea3ad8514265516033009d97efc1fe7b3d2b09ed  activerecord-3.1.10.gem
+0843646278b42d9ca796e157295851fd9938fe96  activeresource-3.1.10.gem
+b55ef7f66de0bb79fcfa480e8df3696bffbff7f8  activesupport-3.1.10.gem
+4ed7d159191faa1a469cd9efdf9e6a4cdc907195  rails-3.1.10.gem
+f288986df0fabd2035569199ea3d5f1f46a56db7  railties-3.1.10.gem
+</code></pre></div></div>
+
+<h3 id="3019">3.0.19</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[aaron@higgins dist]$ shasum *3.0.19*
+f8376f907b2230ac75882e1a3cfa8d5cdd6df800  actionmailer-3.0.19.gem
+68b319d86530a5d4291e13d6ab5f357a1e52c05b  actionpack-3.0.19.gem
+f0fb577ea7446ff229752bc799ca86dd53aa9cda  activemodel-3.0.19.gem
+c12324d78b22697d426148010901f79b366c0502  activerecord-3.0.19.gem
+8dbc7c8c80f5baeec823966aa225b23f4c2a799c  activeresource-3.0.19.gem
+b525b778f82f844a56ff993211825b9811bf82bd  activesupport-3.0.19.gem
+c2beb0711d28a07cb2747c83962c7d453951e2d6  rails-3.0.19.gem
+de286ada16b3fc76129767dc612926e0b4f71dda  railties-3.0.19.gem
+</code></pre></div></div>
+
+<h3 id="2315">2.3.15</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[aaron@higgins dist]$ shasum *2.3.15*
+5ce45c70851dd534a72814620a6e57b42d360b88  actionmailer-2.3.15.gem
+fa174c40f17fa5db952ba3a7c95a4ab0b5467594  actionpack-2.3.15.gem
+e7391c92c82f974be7e65765819824e87bdb3cfd  activerecord-2.3.15.gem
+4644b7a27993f7860d9e176f51dfa52d8f029ec9  activeresource-2.3.15.gem
+64843e3676c20a49060605546dfcdddaef2ea1a8  activesupport-2.3.15.gem
+c8c0c49c63ca0f9acc3e0967b38d92b1c0b115af  rails-2.3.15.gem
+</code></pre></div></div>
+
+<p>&lt;3&lt;3&lt;3</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

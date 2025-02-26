@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails (September 10, 2008)</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Welcome to the fifth edition of This Week in Rails, a weekly report with highlights from the Rails community.  Antonio Cangiano (the original author) has been pretty busy, so I figured I&#8217;d step in this week.As you probably already know, Rails 2.0.4 and Rails 2.1.1 were released this week.  Both are mostly bug fixes, but checkout the changelog if you want all the details.If your Rails app has alot of heavy duty SQL Queries you may want to take a look at a plugin by Fernando Blat called Query memcached.   This plugin overwrites Rails default query cache functionality, storing all database queries in memcached for use by sequential requests.Have you ever implemented an advanced search page for a Rails application? If yes, you may have ended up with bloated controller code.  One solution to the problem is Searchgasm by Binary Logic which helps you do object based searching, and keep your search code clean and simple.Ryan Daigle told us about some great new features in Rails Edge, including Connection Pooling, Shallow Routes, and Mailer Layouts.  We should be getting a Rails 2.2 beta any day now, so stay tuned for that.If you have any Java friends who use Apache Derby who are looking to try out JRuby, Michael Galpin wrote up an introduction to Rails using JRuby and Derby.Last week Mark Imbriaco from 37 Signals put together a great blog entry and screencast which shows how they use HAProxy in their server setup.  If you&#8217;re not familiar with the benefits of using HAProxy over the apache round robin load balancer, you need to watch his screencast.Perhaps you&#8217;ve started using jQuery instead of Prototype for Rails.  You might have used a plugin for this (ex. jQuery on Rails), but if you started from scratch you might have run into that problem with sending authenticity tokens with your AJAX requests.  Lawrence Pit posted the jQuery code you&#8217;ll need to take care of this.Neverblock is a library that allows you to use Ruby Fibers to write non-blocking concurrent code.  This project recently released a non-blocking PostgreSQL adapter, a non-blocking MySQL adapter, and most recently got their Fiber library running on Ruby 1.8 with Rails with some amazing benchmarks!  It&#8217;s still a very young project, but it&#8217;s one more step towards a safely multi-threaded Rails stack.Lastly, I&#8217;ve got some events to tell you about.  Ruby DCamp is taking place October 11th-12th in Arlington, VA, the Rails Summit Latin America is taking place October 15th and 16 in Sao Paulo, Brazil, and the South Carolina Ruby Conference is on October 18th in Columbia, SC.Thanks for reading! If you would have rather listened to this information (with slightly more detail), you should check out the Rails Envy Podcast #46 which came out today.  It&#8217;s no mistake that it&#8217;s covering the same material (I help with the podcast)." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails (September 10, 2008)" />
+  <meta property="og:description" content="Welcome to the fifth edition of This Week in Rails, a weekly report with highlights from the Rails community.  Antonio Cangiano (the original author) has been pretty busy, so I figured I&#8217;d step in this week.As you probably already know, Rails 2.0.4 and Rails 2.1.1 were released this week.  Both are mostly bug fixes, but checkout the changelog if you want all the details.If your Rails app has alot of heavy duty SQL Queries you may want to take a look at a plugin by Fernando Blat called Query memcached.   This plugin overwrites Rails default query cache functionality, storing all database queries in memcached for use by sequential requests.Have you ever implemented an advanced search page for a Rails application? If yes, you may have ended up with bloated controller code.  One solution to the problem is Searchgasm by Binary Logic which helps you do object based searching, and keep your search code clean and simple.Ryan Daigle told us about some great new features in Rails Edge, including Connection Pooling, Shallow Routes, and Mailer Layouts.  We should be getting a Rails 2.2 beta any day now, so stay tuned for that.If you have any Java friends who use Apache Derby who are looking to try out JRuby, Michael Galpin wrote up an introduction to Rails using JRuby and Derby.Last week Mark Imbriaco from 37 Signals put together a great blog entry and screencast which shows how they use HAProxy in their server setup.  If you&#8217;re not familiar with the benefits of using HAProxy over the apache round robin load balancer, you need to watch his screencast.Perhaps you&#8217;ve started using jQuery instead of Prototype for Rails.  You might have used a plugin for this (ex. jQuery on Rails), but if you started from scratch you might have run into that problem with sending authenticity tokens with your AJAX requests.  Lawrence Pit posted the jQuery code you&#8217;ll need to take care of this.Neverblock is a library that allows you to use Ruby Fibers to write non-blocking concurrent code.  This project recently released a non-blocking PostgreSQL adapter, a non-blocking MySQL adapter, and most recently got their Fiber library running on Ruby 1.8 with Rails with some amazing benchmarks!  It&#8217;s still a very young project, but it&#8217;s one more step towards a safely multi-threaded Rails stack.Lastly, I&#8217;ve got some events to tell you about.  Ruby DCamp is taking place October 11th-12th in Arlington, VA, the Rails Summit Latin America is taking place October 15th and 16 in Sao Paulo, Brazil, and the South Carolina Ruby Conference is on October 18th in Columbia, SC.Thanks for reading! If you would have rather listened to this information (with slightly more detail), you should check out the Rails Envy Podcast #46 which came out today.  It&#8217;s no mistake that it&#8217;s covering the same material (I help with the podcast)." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2008/9/10/this-week-in-rails-september-10-2008" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails (September 10, 2008)" />
+  <meta name="twitter:description" content="Welcome to the fifth edition of This Week in Rails, a weekly report with highlights from the Rails community.  Antonio Cangiano (the original author) has been pretty busy, so I figured I&#8217;d step in this week.As you probably already know, Rails 2.0.4 and Rails 2.1.1 were released this week.  Both are mostly bug fixes, but checkout the changelog if you want all the details.If your Rails app has alot of heavy duty SQL Queries you may want to take a look at a plugin by Fernando Blat called Query memcached.   This plugin overwrites Rails default query cache functionality, storing all database queries in memcached for use by sequential requests.Have you ever implemented an advanced search page for a Rails application? If yes, you may have ended up with bloated controller code.  One solution to the problem is Searchgasm by Binary Logic which helps you do object based searching, and keep your search code clean and simple.Ryan Daigle told us about some great new features in Rails Edge, including Connection Pooling, Shallow Routes, and Mailer Layouts.  We should be getting a Rails 2.2 beta any day now, so stay tuned for that.If you have any Java friends who use Apache Derby who are looking to try out JRuby, Michael Galpin wrote up an introduction to Rails using JRuby and Derby.Last week Mark Imbriaco from 37 Signals put together a great blog entry and screencast which shows how they use HAProxy in their server setup.  If you&#8217;re not familiar with the benefits of using HAProxy over the apache round robin load balancer, you need to watch his screencast.Perhaps you&#8217;ve started using jQuery instead of Prototype for Rails.  You might have used a plugin for this (ex. jQuery on Rails), but if you started from scratch you might have run into that problem with sending authenticity tokens with your AJAX requests.  Lawrence Pit posted the jQuery code you&#8217;ll need to take care of this.Neverblock is a library that allows you to use Ruby Fibers to write non-blocking concurrent code.  This project recently released a non-blocking PostgreSQL adapter, a non-blocking MySQL adapter, and most recently got their Fiber library running on Ruby 1.8 with Rails with some amazing benchmarks!  It&#8217;s still a very young project, but it&#8217;s one more step towards a safely multi-threaded Rails stack.Lastly, I&#8217;ve got some events to tell you about.  Ruby DCamp is taking place October 11th-12th in Arlington, VA, the Rails Summit Latin America is taking place October 15th and 16 in Sao Paulo, Brazil, and the South Carolina Ruby Conference is on October 18th in Columbia, SC.Thanks for reading! If you would have rather listened to this information (with slightly more detail), you should check out the Rails Envy Podcast #46 which came out today.  It&#8217;s no mistake that it&#8217;s covering the same material (I help with the podcast)." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2008/9/10/this-week-in-rails-september-10-2008"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails (September 10, 2008)",
+      "description": "Welcome to the fifth edition of This Week in Rails, a weekly report with highlights from the Rails community.  Antonio Cangiano (the original author) has been pretty busy, so I figured I&#8217;d step in this week.As you probably already know, Rails 2.0.4 and Rails 2.1.1 were released this week.  Both are mostly bug fixes, but checkout the changelog if you want all the details.If your Rails app has alot of heavy duty SQL Queries you may want to take a look at a plugin by Fernando Blat called Query memcached.   This plugin overwrites Rails default query cache functionality, storing all database queries in memcached for use by sequential requests.Have you ever implemented an advanced search page for a Rails application? If yes, you may have ended up with bloated controller code.  One solution to the problem is Searchgasm by Binary Logic which helps you do object based searching, and keep your search code clean and simple.Ryan Daigle told us about some great new features in Rails Edge, including Connection Pooling, Shallow Routes, and Mailer Layouts.  We should be getting a Rails 2.2 beta any day now, so stay tuned for that.If you have any Java friends who use Apache Derby who are looking to try out JRuby, Michael Galpin wrote up an introduction to Rails using JRuby and Derby.Last week Mark Imbriaco from 37 Signals put together a great blog entry and screencast which shows how they use HAProxy in their server setup.  If you&#8217;re not familiar with the benefits of using HAProxy over the apache round robin load balancer, you need to watch his screencast.Perhaps you&#8217;ve started using jQuery instead of Prototype for Rails.  You might have used a plugin for this (ex. jQuery on Rails), but if you started from scratch you might have run into that problem with sending authenticity tokens with your AJAX requests.  Lawrence Pit posted the jQuery code you&#8217;ll need to take care of this.Neverblock is a library that allows you to use Ruby Fibers to write non-blocking concurrent code.  This project recently released a non-blocking PostgreSQL adapter, a non-blocking MySQL adapter, and most recently got their Fiber library running on Ruby 1.8 with Rails with some amazing benchmarks!  It&#8217;s still a very young project, but it&#8217;s one more step towards a safely multi-threaded Rails stack.Lastly, I&#8217;ve got some events to tell you about.  Ruby DCamp is taking place October 11th-12th in Arlington, VA, the Rails Summit Latin America is taking place October 15th and 16 in Sao Paulo, Brazil, and the South Carolina Ruby Conference is on October 18th in Columbia, SC.Thanks for reading! If you would have rather listened to this information (with slightly more detail), you should check out the Rails Envy Podcast #46 which came out today.  It&#8217;s no mistake that it&#8217;s covering the same material (I help with the podcast).",
+      "url": "http://localhost:4000/2008/9/10/this-week-in-rails-september-10-2008",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Gregg Pollack"
+      },
+      "datePublished": "2008-09-10T19:02:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, September 10, 2008</h5>
+        <h2>This Week in Rails (September 10, 2008)</h2>
+
+        <h6>Posted by Gregg Pollack</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Welcome to the fifth edition of This Week in Rails, a weekly report with highlights from the Rails community.  Antonio Cangiano (the original author) has been <a href="http://antoniocangiano.com/2008/09/09/a-status-update/">pretty busy</a>, so I figured I&#8217;d step in this week.</p>
+<p>As you probably already know, <a href="https://rubyonrails.org/2008/9/3/rails-2-0-4-maintenance-release">Rails 2.0.4</a> and <a href="https://rubyonrails.org/2008/9/5/rails-2-1-1-lots-of-bug-fixes">Rails 2.1.1</a> were released this week.  Both are mostly bug fixes, but checkout the changelog if you want all the details.</p>
+<p>If your Rails app has alot of heavy duty <span class="caps">SQL</span> Queries you may want to take a look at a plugin by Fernando Blat called <a href="http://www.inwebwetrust.net/post/2008/09/08/query-memcached">Query memcached</a>.   This plugin overwrites Rails default query cache functionality, storing all database queries in memcached for use by sequential requests.</p>
+<p>Have you ever implemented an advanced search page for a Rails application? If yes, you may have ended up with bloated controller code.  One solution to the problem is <a href="http://www.binarylogic.com/2008/9/1/searchgasm-released">Searchgasm</a> by Binary Logic which helps you do object based searching, and keep your search code clean and simple.</p>
+<p>Ryan Daigle told us about some great new features in Rails Edge, including <a href="http://ryandaigle.com/articles/2008/9/7/what-s-new-in-edge-rails-connection-pools">Connection Pooling</a>, <a href="http://ryandaigle.com/articles/2008/9/7/what-s-new-in-edge-rails-shallow-routes">Shallow Routes</a>, and <a href="http://ryandaigle.com/articles/2008/9/7/what-s-new-in-edge-rails-mailer-layouts">Mailer Layouts</a>.  We should be getting a Rails 2.2 beta any day now, so stay tuned for that.</p>
+<p>If you have any Java friends who use <a href="http://db.apache.org/derby/">Apache Derby</a> who are looking to try out JRuby, Michael Galpin wrote up an <a href="http://www.ibm.com/developerworks/opensource/library/os-ad-prototype-jruby/index.html?ca=dgr-btw01os-ad-prototype-jruby&amp;S_TACT=105AGX59&amp;S_CMP=GRsitebtw01">introduction to Rails using JRuby and Derby</a>.</p>
+<p>Last week Mark Imbriaco from 37 Signals put together a great blog entry and screencast which shows how they use <a href="http://www.37signals.com/svn/posts/1073-nuts-bolts-haproxy">HAProxy in their server setup</a>.  If you&#8217;re not familiar with the benefits of using HAProxy over the apache round robin load balancer, you need to watch his screencast.</p>
+<p>Perhaps you&#8217;ve started using jQuery instead of Prototype for Rails.  You might have used a plugin for this (ex. <a href="http://ennerchi.com/projects/jrails">jQuery on Rails</a>), but if you started from scratch you might have run into that problem with sending authenticity tokens with your <span class="caps">AJAX</span> requests.  Lawrence Pit posted <a href="http://blog.lawrencepit.com/2008/09/04/unobtrusive-jquery-rails/">the jQuery code you&#8217;ll need</a> to take care of this.</p>
+<p><a href="http://www.espace.com.eg/neverblock/">Neverblock</a> is a library that allows you to use Ruby Fibers to write non-blocking concurrent code.  This project recently released a <a href="http://www.espace.com.eg/neverblock/blog/2008/08/24/neverblock-and-activerecord-concurrent-db-access-without-threads/">non-blocking PostgreSQL adapter</a>, a <a href="http://www.espace.com.eg/neverblock/blog/2008/08/28/neverblock-mysql-support/">non-blocking MySQL adapter</a>, and most recently got their Fiber library <a href="http://www.espace.com.eg/neverblock/blog/2008/09/04/neverblock-instant-scaling-for-your-rails-apps/">running on Ruby 1.8 with Rails</a> with some amazing benchmarks!  It&#8217;s still a very young project, but it&#8217;s one more step towards a safely multi-threaded Rails stack.</p>
+<p>Lastly, I&#8217;ve got some events to tell you about.  <a href="http://rubydcamp.org/">Ruby DCamp</a> is taking place October 11th-12th in Arlington, VA, the <a href="http://site.locaweb.com.br/railssummit/?language=7">Rails Summit Latin America</a> is taking place October 15th and 16 in Sao Paulo, Brazil, and the <a href="http://scrubyconf.colaruby.org/">South Carolina Ruby Conference</a> is on October 18th in Columbia, SC.</p>
+<p>Thanks for reading! If you would have rather listened to this information (with slightly more detail), you should check out the <a href="http://www.railsenvy.com/2008/9/10/rails-envy-podcast-episode-046-09-10-2008">Rails Envy Podcast #46</a> which came out today.  It&#8217;s no mistake that it&#8217;s covering the same material (I help with the podcast).</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

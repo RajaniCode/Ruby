@@ -1,0 +1,65 @@
+5.9 Testing Routes For Header Versioning
+
+New requirements have come in and we need to change our API to support versioning through a custom Mime Type. This new Mime Type is going to be called zombies and will read from a specific request header. Let’s start by writing some integration tests.
+
+
+test/test_helper.rb
+ENV['RAILS_ENV'] = 'test'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails/test_help'
+class ActiveSupport::TestCase
+  ActiveRecord::Migration.check_pending!
+  fixtures :all
+
+  def json(body)
+    JSON.parse(body, symbolize_names: true)
+  end
+end
+
+
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  test 'show zombie from API version 1' do
+    get '/zombies/1', {}, { '' => '' }
+    assert_equal 200, response.status
+  end
+end
+
+
+1. Set the proper request header used for versioning, with the value for our new custom media type of application/vnd.zombies.v1+json.
+
+Answer:
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  test 'show zombie from API version 1' do
+    get '/zombies/1', {}, { 'Accept' => 'application/vnd.zombies.v1+json' }
+    assert_equal 200, response.status
+  end
+end
+
+
+2. Assert the Content-Type on the response is set to JSON.
+
+Answer:
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  test 'show zombie from API version 1' do
+    get '/zombies/1', {}, { 'Accept' => 'application/vnd.zombies.v1+json' }
+    assert_equal 200, response.status
+    assert_equal Mime::JSON, response.content_type
+  end
+end
+
+
+3. Now parse the response body and assert that there is a message property set to "This is version one". Check the test/test_helper.rb file on the secondary tab for a helper method that can help save some time.
+
+Answer:
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  test 'show zombie from API version 1' do
+    get '/zombies/1', {}, { 'Accept' => 'application/vnd.zombies.v1+json' }
+    assert_equal 200, response.status
+    assert_equal Mime::JSON, response.content_type
+    json_response = json(response.body)
+    assert_equal "This is version one", json_response[:message]
+  end
+end

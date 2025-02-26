@@ -1,0 +1,178 @@
+core:
+  - name: David
+    since: 2003
+    location: USA
+    url: https://dhh.dk
+    handle: dhh
+    image: david.jpg
+
+  - name: Jeremy
+    since: 2005
+    location: USA
+    url: https://twitter.com/bitsweat
+    handle: bitsweat
+    image: jeremy.jpg
+
+  - name: Aaron
+    since: 2011
+    location: USA
+    url: https://twitter.com/tenderlove
+    handle: tenderlove
+    image: aaron.jpg
+
+  - name: Xavier
+    since: 2011
+    location: Catalonia
+    url: https://hashref.com
+    handle: fxn
+    image: xavier.jpg
+
+  - name: Rafael
+    since: 2012
+    location: Canada
+    url: https://twitter.com/rafaelfranca
+    handle: rafaelfranca
+    image: rafael.jpg
+
+  - name: Guillermo
+    since: 2012
+    location: Canada
+    url: https://twitter.com/guilleiguaran
+    handle: guilleiguaran
+    image: guillermo.jpg
+
+  - name: Carlos
+    since: 2012
+    location: Brazil
+    url: https://twitter.com/cantoniodasilva
+    handle: cantoniodasilva
+    image: carlos.jpg
+
+  - name: Matthew
+    since: 2015
+    location: Australia
+    url: https://twitter.com/_matthewd
+    handle: _matthewd
+    image: matthew.jpg
+
+  - name: Eileen
+    since: 2017
+    location: USA
+    url: https://twitter.com/eileencodes
+    handle: eileencodes
+    image: eileen.jpg
+
+  - name: Ryuta
+    since: 2022
+    location: Japan
+    url: https://blog.kamipo.net
+    handle: kamipo
+    image: kamipo.jpg
+
+  - name: Jean
+    since: 2022
+    location: France
+    url: https://github.com/byroot
+    handle: byroot
+    image: byroot.jpg
+
+  - name: John
+    since: 2022
+    location: Canada
+    url: https://github.com/jhawthorn
+    handle: jhawthorn
+    image: jhawthorn.jpg
+
+committers:
+  - name: Akira
+    url: https://twitter.com/a_matsuda
+    location: Japan
+    image: amatsuda.jpg
+
+  - name: Eugene
+    url: https://twitter.com/eugeneius
+    location: Ireland
+    image: eugeneius.jpg
+
+  - name: Dima
+    url: https://github.com/fatkodima
+    location: Ukraine
+    image: fatkodima.jpg
+
+  - name: Gannon
+    url: https://github.com/gmcgibbon
+    location: Canada
+    image: gmcgibbon.jpg
+
+  - name: Jonathan
+    url: https://jonathan.hefner.pro
+    location: USA
+    image: jonathanhefner.jpg
+
+  - name: Yasuo
+    url: https://github.com/yahonda
+    location: Japan
+    image: yahonda.jpg
+
+issues:
+  - name: Adam Hess
+    github: HParker
+  - name: Andrew Novoselac
+    github: andrewn617
+  - name: Adrianna Chang
+    github: adrianna-chang-shopify
+  - name: Akhil G Krishnan
+    github: akhilgkrishnan
+  - name: Alex Ghiculescu
+    github: ghiculescu
+  - name: Edouard Chin
+    github: Edouard-chin
+  - name: Haroon Ahmed
+    github: hahmed
+  - name: Hartley McGuire
+    github: SkipKayhil
+  - name: Jorge Manrubia
+    github: jorgemanrubia
+  - name: Luan Vieira
+    github: luanzeba
+  - name: Matheus Richard
+    github: MatheusRich
+  - name: Mike Dalessio
+    github: flavorjones
+  - name: Nikita Vasilevsky
+    github: nvasilevski
+  - name: Paul Reece
+    github: paulreece
+  - name: Petrik de Heus
+    github: p8
+  - name: Prem Sichanugrist
+    github: sikachu
+  - name: Robin Dupret
+    github: robin850
+  - name: Sean Doyle
+    github: seanpdoyle
+  - name: Vipul A M
+    github: vipulnsward
+  - name: Zak Scott
+    github: zzak
+
+alumni:
+  - name: George Claghorn
+  - name: Santiago Pastorino
+  - name: Yves Senn
+  - name: Godfrey Chan
+  - name: Michael Koziarski
+  - name: José Valim
+  - name: Yehuda Katz
+  - name: Jon Leighton
+  - name: Josh Peek
+  - name: Carl Lerche
+  - name: Pratik Naik
+  - name: Jamis Buck
+  - name: Marcel Molina
+  - name: Nicholas Seckar
+  - name: Sam Stephenson
+  - name: Florian Weber
+  - name: Scott Barron
+  - name: Tobias Lütke
+  - name: Rick Olson

@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: preloading associations with composite keys and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, this is Greg, bringing you this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: preloading associations with composite keys and more!" />
+  <meta property="og:description" content="Hi, this is Greg, bringing you this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/2/17/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: preloading associations with composite keys and more!" />
+  <meta name="twitter:description" content="Hi, this is Greg, bringing you this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/2/17/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: preloading associations with composite keys and more!",
+      "description": "Hi, this is Greg, bringing you this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2023/2/17/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2023-02-17T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, February 17, 2023</h5>
+        <h2>This Week in Rails: preloading associations with composite keys and more!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, this is <a href="https://greg.molnar.io">Greg</a>, bringing you this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47410">Support preloading associations with composite keys</a><br />
+This pull request adds support for <code class="language-plaintext highlighter-rouge">Associations::Preloader</code> to be able to preload associations associated by a composite foreign key (<code class="language-plaintext highlighter-rouge">query_constraints</code>) and by implication adds support for <code class="language-plaintext highlighter-rouge">includes()</code> relations.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47395">SchemaCache#init_with skip deduplicate if specified</a><br />
+This is a very advanced API for people who use a custom Schema Cache serializer, and since the custom serializer might already deduplicate data, in which case going through deduplication again would be very wasteful.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47385">Rename Dockerfile user to “rails”</a><br />
+While a tiny detail, this change lets anyone know who is using this container that they are in a “rails” image, as opposed to a generic “appuser” which may conflict with other images.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47374">Add rake task to vendor guide javascript</a><br />
+The Rails guides were migrated from Turbolinks to Turbo, and this commit adds a rake task to automate the process of grabbing the turbo js file using <code class="language-plaintext highlighter-rouge">Importmap::Packager</code>, which is what importmap-rails uses for <code class="language-plaintext highlighter-rouge">bin/importmap pin --download</code>.</p>
+
+<p>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-02-10%7D...main@%7B2023-02-17%7D">here</a>.<br />
+We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230210-20230217">30 contributors</a> to the Rails codebase this past week!</p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

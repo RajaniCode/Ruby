@@ -1,0 +1,37 @@
+---
+title: News
+description:
+---
+
+<div class="heading common-padding--bottom-small common-padding--top-small">
+  <div class="container">
+    <div class="heading__body">
+      <div class="heading__headline common-headline">
+        <div class="heading__buttons">
+          <ul>
+            <li><a href="/blog"><span>Everything</span></a></li>
+            <li><a href="/category/releases"><span>Releases</span></a></li>
+            <li><a href="/category/news"><span>News</span></a></li>
+            <li><a href="/category/foundation"><span>Foundation</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="blog common-padding--bottom">
+  <div class="container">
+    <div class="blog__posts">
+      {% for post in paginator.posts %}
+        {% include post.html %}
+      {% endfor %}
+    </div>
+
+    {% if paginator.next_page %}
+      <div class="blog__pagination">
+        <a href="{{ paginator.next_page_path }}" class="common-button common-button--color-red"><span>See more posts&hellip;</span></a>
+      </div>
+    {% endif %}
+  </div>
+</div>

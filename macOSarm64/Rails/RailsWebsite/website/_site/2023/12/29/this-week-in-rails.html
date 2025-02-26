@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This year in Rails, a summary of 2023</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This is Emmanuel, Greg, Vipul, Wojciech, and Zzak, bringing you the summary of what happened with Rails in the past year. It was a busy year with over 4300 commits from 520 contributors and 23 releases, including Rails 7.1!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This year in Rails, a summary of 2023" />
+  <meta property="og:description" content="This is Emmanuel, Greg, Vipul, Wojciech, and Zzak, bringing you the summary of what happened with Rails in the past year. It was a busy year with over 4300 commits from 520 contributors and 23 releases, including Rails 7.1!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/12/29/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This year in Rails, a summary of 2023" />
+  <meta name="twitter:description" content="This is Emmanuel, Greg, Vipul, Wojciech, and Zzak, bringing you the summary of what happened with Rails in the past year. It was a busy year with over 4300 commits from 520 contributors and 23 releases, including Rails 7.1!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/12/29/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This year in Rails, a summary of 2023",
+      "description": "This is Emmanuel, Greg, Vipul, Wojciech, and Zzak, bringing you the summary of what happened with Rails in the past year. It was a busy year with over 4300 commits from 520 contributors and 23 releases, including Rails 7.1!",
+      "url": "http://localhost:4000/2023/12/29/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "Greg"
+      },
+      "datePublished": "2023-12-29T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, December 29, 2023</h5>
+        <h2>This year in Rails, a summary of 2023</h2>
+
+        <h6>Posted by Greg</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>This is Emmanuel, Greg, Vipul, Wojciech, and Zzak, bringing you the summary of what happened with Rails in the past year. It was a busy year with over <a href="https://github.com/rails/rails/compare/@%7B2023-01-01%7D...main@%7B2023-12-31%7D">4300 commits</a> from <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230101-20231231">520 contributors</a> and 23 releases, including Rails 7.1!</p>
+
+<p>For this year end issue, as a team we each hand-picked some of our favorite pull requests from the last year.</p>
+
+<p><a href="https://rubyonrails.org/2023/12/27/reflecting-on-2023">Reflecting on 2023: Rails Foundation’s Inaugural Year</a><br />
+Amanda wrote a summary of what the Rails Foundation has been up to this year and what she is plannning for next year.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47139">Allow use of SSL-terminating reserve proxy that doesn’t set headers</a><br />
+Add <em>ActionDispatch::AssumeSSL</em> middleware that can be turned on via <em>config.assume_ssl</em>. It makes the application believe that all requests are arriving over <em>SSL</em>. This is useful when proxying through a load balancer that terminates <em>SSL</em>, the forwarded request will appear as though it’s <em>HTTP</em> instead of <em>HTTPS</em> to the application. This makes redirects and cookie security target <em>HTTP</em> instead of <em>HTTPS</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46603">Add ActiveJob.perform_all_later to enqueue multiple jobs at once</a><br />
+This adds the ability to bulk enqueue jobs, without running callbacks.
+This can greatly reduce the number of round-trips to the queue datastore. For queue adapters that do not implement the new <code class="language-plaintext highlighter-rouge">enqueue_all</code> method, we fall back to enqueuing jobs individually.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46681">Implement Object#with</a><br />
+This pull request adds <code class="language-plaintext highlighter-rouge">Object#with</code> to set and restore public attributes around a block:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">client</span><span class="p">.</span><span class="nf">timeout</span> <span class="c1"># =&gt; 5</span>
+<span class="n">client</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="ss">timeout: </span><span class="mi">1</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">client</span><span class="p">.</span><span class="nf">timeout</span> <span class="c1"># =&gt; 1</span>
+<span class="k">end</span>
+<span class="n">client</span><span class="p">.</span><span class="nf">timeout</span> <span class="c1"># =&gt; 5</span>
+</code></pre></div></div>
+<p>More examples and details about this change can be found on the pull request.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47880">Introduce adapter for Trilogy</a><br />
+Trilogy is a client library for MySQL-compatible database servers, designed for performance, flexibility, and ease of embedding.
+The <a href="https://github.com/github/trilogy">Trilogy database client</a> and corresponding <a href="https://github.com/github/activerecord-trilogy-adapter">Active Record adapter</a> were both open sourced by GitHub last year.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47770">Add ActiveSupport::MessagePack</a><br />
+<code class="language-plaintext highlighter-rouge">ActiveSupport::MessagePack</code> is a serializer that integrates with the <a href="https://github.com/msgpack/msgpack-ruby"><code class="language-plaintext highlighter-rouge">msgpack</code> gem</a> to serialize a variety of Ruby objects.
+Compared to <code class="language-plaintext highlighter-rouge">JSON</code> and <code class="language-plaintext highlighter-rouge">Marshal</code>, <code class="language-plaintext highlighter-rouge">ActiveSupport::MessagePack</code> can provide a performance improvement and message size reduction.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48572">Introduce config.autoload_lib</a><br />
+The new method <code class="language-plaintext highlighter-rouge">config.autoload_lib(ignore:)</code> provides a simple way to autoload from <code class="language-plaintext highlighter-rouge">lib</code> folder:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="c1"># config/application.rb</span>
+ <span class="n">config</span><span class="p">.</span><span class="nf">autoload_lib</span><span class="p">(</span><span class="ss">ignore: </span><span class="sx">%w(assets tasks)</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Normally, the <code class="language-plaintext highlighter-rouge">lib</code> directory has subdirectories that should not be autoloaded or eager loaded. 
+This new method allows you to specify which subdirectories to be autoloaded as needed.</p>
+
+<p>Read more about this new feature in the  <a href="https://guides.rubyonrails.org/v7.1/autoloading_and_reloading_constants.html">autoloading guide</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47839">Active Job verbose logging</a><br />
+A <code class="language-plaintext highlighter-rouge">verbose_enqueue_logs</code> configuration option is added to Active Job to display the caller of background job enqueue in the log to help with debugging.
+It is enabled in development only for new and upgraded applications. Not recommended for use in the production environment since it relies on Ruby’s <code class="language-plaintext highlighter-rouge">Kernel#caller</code> which is fairly slow.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49241">Add Bun support</a><br />
+Bun is a new and viable alternative to the node.js runtime, yarn package manager, and esbuild bundler. Bun’s primary differentiating characteristic is speed. It’s often multiple times faster than node.js and friends.<br />
+Since most vanilla Rails projects are looking to simply sprinkle a little JavaScript here and there (but sometimes want a bit better more of the JavaScript ecosystem than the import-maps provide) Bun is a really good fit and can be easily adopted by new Rails projects.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48807">Support filtering tests by line ranges</a>
+This change allows new syntax to filter tests by line ranges. For example, the following command runs tests from line 10 to 20.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">rails</span> <span class="nb">test</span> <span class="nb">test</span><span class="o">/</span><span class="n">models</span><span class="o">/</span><span class="n">user_test</span><span class="p">.</span><span class="nf">rb</span><span class="p">:</span><span class="mi">10</span><span class="o">-</span><span class="mi">20</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/49349">Performance tune the SQLite3 adapter connection configuration</a><br />
+For Rails applications, the Write-Ahead-Log in normal syncing mode with a capped journal size, a healthy shared memory buffer and a shared cache will perform, on average, 2× better.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49947">Enable YJIT by default if running Ruby 3.3+</a><br />
+There was many public reports of 15-25% latency improvements for Rails apps that did enable Ruby 3.2 YJIT, and in 3.3 it’s even better.
+Following the <a href="https://github.com/ruby/ruby/pull/8705">change</a>, in Ruby 3.3 YJIT is paused instead of disabled by default, allowing us to enable it from an initializer.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49765">Make the output of Active Records inspect configurable.</a><br />
+One can use <em>attributes_for_inspect</em> method:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Post</span><span class="p">.</span><span class="nf">attributes_for_inspect</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:id</span><span class="p">,</span> <span class="ss">:title</span><span class="p">]</span>
+<span class="no">Post</span><span class="p">.</span><span class="nf">first</span><span class="p">.</span><span class="nf">inspect</span> <span class="c1">#=&gt; "#&lt;Post id: 1, title: "Hello, World!"&gt;"</span>
+</code></pre></div></div>
+<p>With the <em>attributes_for_inspect</em> set to <em>:all</em>, all record’s attributes will be listed (default for development and test environment).
+One can also call <em>full_inspect</em> to get an inspection with all the attributes.</p>
+
+<p><a href="https://github.com/rails/rails/milestone/87">Rails 8 milestone</a><br />
+This one is about what’s ahead. DHH created a milestone for Rails 8 with very interesting issues. In my humble opinion, Rails 8 will be amazing.</p>
+
+<p>That’s a wrap! Have a great New Year’s Eve and see you next year!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

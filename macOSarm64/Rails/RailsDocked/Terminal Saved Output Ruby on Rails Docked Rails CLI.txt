@@ -1,0 +1,663 @@
+Last login: Mon Feb  3 17:59:19 on ttys001
+rajaniapple@Rajanis-MacBook-Pro ~ % sw_vers
+ProductName:		macOS
+ProductVersion:		15.1
+BuildVersion:		24B83
+rajaniapple@Rajanis-MacBook-Pro ~ % arch
+arm64
+rajaniapple@Rajanis-MacBook-Pro ~ % cd $HOME/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/Rails/RailsDocked
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % ruby --version
+ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % gem --version
+3.6.3
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % bundler --version
+Bundler version 2.6.3
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % bundle --version
+Bundler version 2.6.3
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % rails --version
+Rails 8.0.1
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % export PATH="/Applications/Docker.app/Contents/Resources/bin/:/Applications/Docker.app/Contents/Resources/cli-plugins/":$PATH
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % docker --version
+Docker version 27.5.1, build 9f9e405
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % docker version
+Client:
+ Version:           27.5.1
+ API version:       1.47
+ Go version:        go1.22.11
+ Git commit:        9f9e405
+ Built:             Wed Jan 22 13:37:19 2025
+ OS/Arch:           darwin/arm64
+ Context:           desktop-linux
+
+Server: Docker Desktop 4.38.0 (181591)
+ Engine:
+  Version:          27.5.1
+  API version:      1.47 (minimum version 1.24)
+  Go version:       go1.22.11
+  Git commit:       4c9b3b0
+  Built:            Wed Jan 22 13:41:25 2025
+  OS/Arch:          linux/arm64
+  Experimental:     false
+ containerd:
+  Version:          1.7.25
+  GitCommit:        bcc810d6b9066471b0b6fa75f557a15a1cbf31bb
+ runc:
+  Version:          1.1.12
+  GitCommit:        v1.1.12-0-g51d5e946
+ docker-init:
+  Version:          0.19.0
+  GitCommit:        de40ad0
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % docker volume create ruby-bundle-cache
+ruby-bundle-cache
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % alias docked='docker run --rm -it -v ${PWD}:/rails -u $(id -u):$(id -g) -v ruby-bundle-cache:/bundle -p 3000:3000 ghcr.io/rails/cli'
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % docked rails new weblog
+Unable to find image 'ghcr.io/rails/cli:latest' locally
+latest: Pulling from rails/cli
+26070551e657: Pull complete 
+00cde5a80d4c: Pull complete 
+56e9ca3ccf8a: Pull complete 
+1267409c026d: Pull complete 
+81a845117334: Pull complete 
+0327e3158578: Pull complete 
+8700f547dd7d: Pull complete 
+dfd9dfb93f43: Pull complete 
+6ac604c5f8e4: Pull complete 
+aea234ea6de5: Pull complete 
+4b9a16342ae5: Pull complete 
+Digest: sha256:c567785c2ba508507a7ffdc07765af4455ac1db0c78631109bb8091346670154
+Status: Downloaded newer image for ghcr.io/rails/cli:latest
+      create  
+      create  README.md
+      create  Rakefile
+      create  .ruby-version
+      create  config.ru
+      create  .gitignore
+      create  .gitattributes
+      create  Gemfile
+         run  git init -b main from "."
+Initialized empty Git repository in /rails/weblog/.git/
+      create  app
+      create  app/assets/stylesheets/application.css
+      create  app/controllers/application_controller.rb
+      create  app/helpers/application_helper.rb
+      create  app/jobs/application_job.rb
+      create  app/mailers/application_mailer.rb
+      create  app/models/application_record.rb
+      create  app/views/layouts/application.html.erb
+      create  app/views/layouts/mailer.html.erb
+      create  app/views/layouts/mailer.text.erb
+      create  app/views/pwa/manifest.json.erb
+      create  app/views/pwa/service-worker.js
+      create  app/assets/images
+      create  app/assets/images/.keep
+      create  app/controllers/concerns/.keep
+      create  app/models/concerns/.keep
+      create  bin
+      create  bin/brakeman
+      create  bin/dev
+      create  bin/rails
+      create  bin/rake
+      create  bin/rubocop
+      create  bin/setup
+      create  bin/thrust
+      create  Dockerfile
+      create  .dockerignore
+      create  bin/docker-entrypoint
+      create  .rubocop.yml
+      create  .github/workflows
+      create  .github/workflows/ci.yml
+      create  .github/dependabot.yml
+      create  config
+      create  config/routes.rb
+      create  config/application.rb
+      create  config/environment.rb
+      create  config/cable.yml
+      create  config/puma.rb
+      create  config/storage.yml
+      create  config/environments
+      create  config/environments/development.rb
+      create  config/environments/production.rb
+      create  config/environments/test.rb
+      create  config/initializers
+      create  config/initializers/assets.rb
+      create  config/initializers/content_security_policy.rb
+      create  config/initializers/cors.rb
+      create  config/initializers/filter_parameter_logging.rb
+      create  config/initializers/inflections.rb
+      create  config/initializers/new_framework_defaults_8_0.rb
+      create  config/locales
+      create  config/locales/en.yml
+      create  config/master.key
+      append  .gitignore
+      create  config/boot.rb
+      create  config/database.yml
+      create  db
+      create  db/seeds.rb
+      create  lib
+      create  lib/tasks
+      create  lib/tasks/.keep
+      create  log
+      create  log/.keep
+      create  public
+      create  public/400.html
+      create  public/404.html
+      create  public/406-unsupported-browser.html
+      create  public/422.html
+      create  public/500.html
+      create  public/icon.png
+      create  public/icon.svg
+      create  public/robots.txt
+      create  script
+      create  script/.keep
+      create  tmp
+      create  tmp/.keep
+      create  tmp/pids
+      create  tmp/pids/.keep
+      create  vendor
+      create  vendor/.keep
+      create  test/fixtures/files
+      create  test/fixtures/files/.keep
+      create  test/controllers
+      create  test/controllers/.keep
+      create  test/mailers
+      create  test/mailers/.keep
+      create  test/models
+      create  test/models/.keep
+      create  test/helpers
+      create  test/helpers/.keep
+      create  test/integration
+      create  test/integration/.keep
+      create  test/test_helper.rb
+      create  test/system
+      create  test/system/.keep
+      create  test/application_system_test_case.rb
+      create  storage
+      create  storage/.keep
+      create  tmp/storage
+      create  tmp/storage/.keep
+      remove  config/initializers/cors.rb
+      remove  config/initializers/new_framework_defaults_8_0.rb
+         run  bundle install --quiet
+`/` is not writable.
+Bundler will use `/tmp/bundler20250203-12-fv7l0u12' as your home directory temporarily.
+         run  bundle lock --add-platform=x86_64-linux
+Writing lockfile to /rails/weblog/Gemfile.lock
+         run  bundle binstubs bundler
+       rails  importmap:install
+       apply  /bundle/ruby/3.3.0/gems/importmap-rails-2.1.0/lib/install/install.rb
+  Add Importmap include tags in application layout
+      insert    app/views/layouts/application.html.erb
+  Create application.js module as entrypoint
+      create    app/javascript/application.js
+  Use vendor/javascript for downloaded pins
+      create    vendor/javascript
+      create    vendor/javascript/.keep
+  Configure importmap paths in config/importmap.rb
+      create    config/importmap.rb
+  Copying binstub
+      create    bin/importmap
+         run  bundle install --quiet
+`/` is not writable.
+Bundler will use `/tmp/bundler20250203-1108-nc3p6m1108' as your home directory temporarily.
+       rails  turbo:install stimulus:install
+       apply  /bundle/ruby/3.3.0/gems/turbo-rails-2.0.11/lib/install/turbo_with_importmap.rb
+  Import Turbo
+      append    app/javascript/application.js
+  Pin Turbo
+      append    config/importmap.rb
+         run  bundle install --quiet
+`/` is not writable.
+Bundler will use `/tmp/bundler20250203-1115-tvzqdj1115' as your home directory temporarily.
+       apply  /bundle/ruby/3.3.0/gems/stimulus-rails-1.3.4/lib/install/stimulus_with_importmap.rb
+  Create controllers directory
+      create    app/javascript/controllers
+      create    app/javascript/controllers/index.js
+      create    app/javascript/controllers/application.js
+      create    app/javascript/controllers/hello_controller.js
+  Import Stimulus controllers
+      append    app/javascript/application.js
+  Pin Stimulus
+  Appending: pin "@hotwired/stimulus", to: "stimulus.min.js"
+      append    config/importmap.rb
+  Appending: pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
+      append    config/importmap.rb
+  Pin all controllers
+  Appending: pin_all_from "app/javascript/controllers", under: "controllers"
+      append    config/importmap.rb
+         run  bundle install --quiet
+`/` is not writable.
+Bundler will use `/tmp/bundler20250203-1120-rdhqsu1120' as your home directory temporarily.
+         run  bundle binstubs kamal
+         run  bundle exec kamal init
+Created configuration file in config/deploy.yml
+Created .kamal/secrets file
+Created sample hooks in .kamal/hooks
+       force  .kamal/secrets
+       force  config/deploy.yml
+       rails  solid_cache:install solid_queue:install solid_cable:install
+      create  config/cache.yml
+      create  db/cache_schema.rb
+        gsub  config/environments/production.rb
+      create  config/queue.yml
+      create  config/recurring.yml
+      create  db/queue_schema.rb
+      create  bin/jobs
+        gsub  config/environments/production.rb
+      create  db/cable_schema.rb
+       force  config/cable.yml
+rajaniapple@Rajanis-MacBook-Pro RailsDocked % cd weblog
+rajaniapple@Rajanis-MacBook-Pro weblog % docked rails generate scaffold post title:string body:text
+      invoke  active_record
+      create    db/migrate/20250203124645_create_posts.rb
+      create    app/models/post.rb
+      invoke    test_unit
+      create      test/models/post_test.rb
+      create      test/fixtures/posts.yml
+      invoke  resource_route
+       route    resources :posts
+      invoke  scaffold_controller
+      create    app/controllers/posts_controller.rb
+      invoke    erb
+      create      app/views/posts
+      create      app/views/posts/index.html.erb
+      create      app/views/posts/edit.html.erb
+      create      app/views/posts/show.html.erb
+      create      app/views/posts/new.html.erb
+      create      app/views/posts/_form.html.erb
+      create      app/views/posts/_post.html.erb
+      invoke    resource_route
+      invoke    test_unit
+      create      test/controllers/posts_controller_test.rb
+      create      test/system/posts_test.rb
+      invoke    helper
+      create      app/helpers/posts_helper.rb
+      invoke      test_unit
+      invoke    jbuilder
+      create      app/views/posts/index.json.jbuilder
+      create      app/views/posts/show.json.jbuilder
+      create      app/views/posts/_post.json.jbuilder
+rajaniapple@Rajanis-MacBook-Pro weblog % docked rails db:migrate
+== 20250203124645 CreatePosts: migrating ======================================
+-- create_table(:posts)
+   -> 0.0028s
+== 20250203124645 CreatePosts: migrated (0.0028s) =============================
+
+rajaniapple@Rajanis-MacBook-Pro weblog % docked rails server
+=> Booting Puma
+=> Rails 8.0.1 application starting in development 
+=> Run `bin/rails server --help` for more startup options
+Puma starting in single mode...
+* Puma version: 6.6.0 ("Return to Forever")
+* Ruby version: ruby 3.3.0 (2023-12-25 revision 5124f9ac75) +YJIT [aarch64-linux]
+*  Min threads: 3
+*  Max threads: 3
+*  Environment: development
+*          PID: 1
+* Listening on http://0.0.0.0:3000
+Use Ctrl-C to stop
+Started GET "/" for 192.168.65.1 at 2025-02-03 12:47:19 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  ActiveRecord::SchemaMigration Load (0.4ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Weblog'*/
+Processing by Rails::WelcomeController#index as */*
+  Rendering /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb
+  Rendered /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 99ms (Views: 7.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/posts" for 192.168.65.1 at 2025-02-03 12:47:36 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Post Load (1.5ms)  SELECT "posts".* FROM "posts" /*action='index',application='Weblog',controller='posts'*/
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | GC: 0.0ms)
+Completed 200 OK in 112ms (Views: 17.9ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/posts" for 192.168.65.1 at 2025-02-03 12:47:41 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Post Load (0.2ms)  SELECT "posts".* FROM "posts" /*action='index',application='Weblog',controller='posts'*/
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | GC: 0.0ms)
+Completed 200 OK in 62ms (Views: 4.6ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-8b441ae0.css" for 192.168.65.1 at 2025-02-03 12:47:42 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/application-bfcdf840.js" for 192.168.65.1 at 2025-02-03 12:47:42 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/turbo.min-fae85750.js" for 192.168.65.1 at 2025-02-03 12:47:42 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/stimulus.min-4b1e420e.js" for 192.168.65.1 at 2025-02-03 12:47:42 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/controllers/index-ee64e1f1.js" for 192.168.65.1 at 2025-02-03 12:47:42 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for 192.168.65.1 at 2025-02-03 12:47:42 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/controllers/application-3affb389.js" for 192.168.65.1 at 2025-02-03 12:47:42 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/controllers/hello_controller-708796bd.js" for 192.168.65.1 at 2025-02-03 12:47:42 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/posts/new" for 192.168.65.1 at 2025-02-03 12:47:43 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 18.7ms | GC: 0.3ms)
+  Rendered posts/new.html.erb within layouts/application (Duration: 21.3ms | GC: 0.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | GC: 0.3ms)
+Completed 200 OK in 89ms (Views: 24.5ms | ActiveRecord: 3.0ms (0 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/posts" for 192.168.65.1 at 2025-02-03 12:48:22 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Post Load (0.6ms)  SELECT "posts".* FROM "posts" /*action='index',application='Weblog',controller='posts'*/
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 4.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | GC: 0.0ms)
+Completed 200 OK in 55ms (Views: 6.3ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/posts" for 192.168.65.1 at 2025-02-03 12:48:23 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"Ruby on Rails on Docker", "body"=>"# Ruby on Rails # Docked Rails CLI"}, "commit"=>"Create Post"}
+  TRANSACTION (0.2ms)  BEGIN immediate TRANSACTION /*action='create',application='Weblog',controller='posts'*/
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  Post Create (1.4ms)  INSERT INTO "posts" ("title", "body", "created_at", "updated_at") VALUES ('Ruby on Rails on Docker', '# Ruby on Rails # Docked Rails CLI', '2025-02-03 12:48:23.627813', '2025-02-03 12:48:23.627813') RETURNING "id" /*action='create',application='Weblog',controller='posts'*/
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+  TRANSACTION (1.1ms)  COMMIT TRANSACTION /*action='create',application='Weblog',controller='posts'*/
+  ↳ app/controllers/posts_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 65ms (ActiveRecord: 2.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for 192.168.65.1 at 2025-02-03 12:48:23 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  Post Load (0.5ms)  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='Weblog',controller='posts'*/
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered posts/show.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 200 OK in 54ms (Views: 7.0ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for 192.168.65.1 at 2025-02-03 12:48:28 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Post Load (0.5ms)  SELECT "posts".* FROM "posts" /*action='index',application='Weblog',controller='posts'*/
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/_post.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered posts/index.html.erb within layouts/application (Duration: 5.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 200 OK in 56ms (Views: 6.5ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for 192.168.65.1 at 2025-02-03 12:48:29 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Post Load (0.1ms)  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='Weblog',controller='posts'*/
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered posts/show.html.erb within layouts/application (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | GC: 0.0ms)
+Completed 200 OK in 54ms (Views: 8.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for 192.168.65.1 at 2025-02-03 12:48:32 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Post Load (0.1ms)  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='Weblog',controller='posts'*/
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered posts/show.html.erb within layouts/application (Duration: 4.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | GC: 0.3ms)
+Completed 200 OK in 58ms (Views: 6.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/" for 192.168.65.1 at 2025-02-03 12:50:01 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as */*
+  Rendering /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb
+  Rendered /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 50ms (Views: 1.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 192.168.65.1 at 2025-02-03 12:50:47 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as */*
+  Rendering /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb
+  Rendered /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 50ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 192.168.65.1 at 2025-02-03 12:53:16 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb
+  Rendered /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 93ms (Views: 2.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 192.168.65.1 at 2025-02-03 12:55:02 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as */*
+  Rendering /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb
+  Rendered /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 50ms (Views: 0.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 192.168.65.1 at 2025-02-03 12:55:07 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb
+  Rendered /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 58ms (Views: 2.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/" for 192.168.65.1 at 2025-02-03 12:55:43 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Post Load (2.4ms)  SELECT "posts".* FROM "posts" /*action='index',application='Weblog',controller='posts'*/
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/_post.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | GC: 0.0ms)
+Completed 200 OK in 63ms (Views: 9.8ms | ActiveRecord: 2.4ms (1 query, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/posts/" for 192.168.65.1 at 2025-02-03 12:55:48 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Post Load (0.2ms)  SELECT "posts".* FROM "posts" /*action='index',application='Weblog',controller='posts'*/
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/_post.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | GC: 0.0ms)
+Completed 200 OK in 53ms (Views: 9.0ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-8b441ae0.css" for 192.168.65.1 at 2025-02-03 12:55:48 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/application-bfcdf840.js" for 192.168.65.1 at 2025-02-03 12:55:48 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/turbo.min-fae85750.js" for 192.168.65.1 at 2025-02-03 12:55:48 +0000
+Started GET "/assets/stimulus.min-4b1e420e.js" for 192.168.65.1 at 2025-02-03 12:55:48 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/controllers/index-ee64e1f1.js" for 192.168.65.1 at 2025-02-03 12:55:48 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/stimulus-loading-1fc53fe7.js" for 192.168.65.1 at 2025-02-03 12:55:48 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/controllers/application-3affb389.js" for 192.168.65.1 at 2025-02-03 12:55:48 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/assets/controllers/hello_controller-708796bd.js" for 192.168.65.1 at 2025-02-03 12:55:48 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Started GET "/posts/1" for 192.168.65.1 at 2025-02-03 12:55:50 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Post Load (0.1ms)  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='Weblog',controller='posts'*/
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered posts/show.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 59ms (Views: 3.0ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/posts/1/edit" for 192.168.65.1 at 2025-02-03 12:56:14 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Post Load (0.1ms)  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='edit',application='Weblog',controller='posts'*/
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 8.0ms | GC: 0.2ms)
+  Rendered posts/edit.html.erb within layouts/application (Duration: 10.0ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | GC: 0.2ms)
+Completed 200 OK in 65ms (Views: 11.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/posts" for 192.168.65.1 at 2025-02-03 12:56:16 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Post Load (0.1ms)  SELECT "posts".* FROM "posts" /*action='index',application='Weblog',controller='posts'*/
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/_post.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | GC: 0.0ms)
+Completed 200 OK in 52ms (Views: 3.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/posts" for 192.168.65.1 at 2025-02-03 12:56:18 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Post Load (0.1ms)  SELECT "posts".* FROM "posts" /*action='index',application='Weblog',controller='posts'*/
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/_post.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered posts/index.html.erb within layouts/application (Duration: 9.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | GC: 0.0ms)
+Completed 200 OK in 63ms (Views: 11.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/new" for 192.168.65.1 at 2025-02-03 12:56:20 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 6.0ms | GC: 0.0ms)
+  Rendered posts/new.html.erb within layouts/application (Duration: 6.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | GC: 0.0ms)
+Completed 200 OK in 61ms (Views: 9.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for 192.168.65.1 at 2025-02-03 12:56:21 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Post Load (0.1ms)  SELECT "posts".* FROM "posts" /*action='index',application='Weblog',controller='posts'*/
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/_post.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered posts/index.html.erb within layouts/application (Duration: 10.0ms | GC: 5.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | GC: 5.2ms)
+Completed 200 OK in 66ms (Views: 13.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 5.2ms)
+
+
+Started GET "/posts/1" for 192.168.65.1 at 2025-02-03 12:56:23 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Post Load (0.1ms)  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='Weblog',controller='posts'*/
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered posts/show.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 57ms (Views: 4.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts" for 192.168.65.1 at 2025-02-03 12:56:25 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Post Load (0.1ms)  SELECT "posts".* FROM "posts" /*action='index',application='Weblog',controller='posts'*/
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/_post.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered posts/index.html.erb within layouts/application (Duration: 6.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | GC: 0.0ms)
+Completed 200 OK in 60ms (Views: 8.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/new" for 192.168.65.1 at 2025-02-03 12:56:39 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | GC: 0.0ms)
+Completed 200 OK in 51ms (Views: 3.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/posts/1" for 192.168.65.1 at 2025-02-03 12:56:40 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  Post Load (0.8ms)  SELECT "posts".* FROM "posts" WHERE "posts"."id" = 1 LIMIT 1 /*action='show',application='Weblog',controller='posts'*/
+  ↳ app/controllers/posts_controller.rb:63:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/show.html.erb within layouts/application
+  Rendered posts/_post.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered posts/show.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | GC: 0.0ms)
+Completed 200 OK in 59ms (Views: 3.9ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/" for 192.168.65.1 at 2025-02-03 12:56:55 +0000
+Cannot render console from 192.168.65.1! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb
+  Rendered /bundle/ruby/3.3.0/gems/railties-8.0.1/libtemplates/rails/welcome/index.html.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 51ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2025-02-03 12:57:23 +0000 ===
+- Goodbye!
+Exiting
+rajaniapple@Rajanis-MacBook-Pro weblog % 

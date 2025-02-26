@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; ☀️🏖🏄‍♀️ and schema cache deduplication plus getutc begone</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ahoy all! 🚢 Step aboard as we cruise through the Rails news this week. Summer has really hit its simmering point for many a Rails contributor: we’re seeing fewer contributions. Take heed! Your trusty captain Kasper is here to reassure you that nothing has gone wrong on this ship and that it’s merely summer time seasoning. But also, the engine is on fire? Oh well, it’ll probably burn out soon enough and another wrong has been righted! This is fine. 🔥" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="☀️🏖🏄‍♀️ and schema cache deduplication plus getutc begone" />
+  <meta property="og:description" content="Ahoy all! 🚢 Step aboard as we cruise through the Rails news this week. Summer has really hit its simmering point for many a Rails contributor: we’re seeing fewer contributions. Take heed! Your trusty captain Kasper is here to reassure you that nothing has gone wrong on this ship and that it’s merely summer time seasoning. But also, the engine is on fire? Oh well, it’ll probably burn out soon enough and another wrong has been righted! This is fine. 🔥" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/6/30/this-week-in-rails-and-schema-cache-deduplication-plus-getutc-begone" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="☀️🏖🏄‍♀️ and schema cache deduplication plus getutc begone" />
+  <meta name="twitter:description" content="Ahoy all! 🚢 Step aboard as we cruise through the Rails news this week. Summer has really hit its simmering point for many a Rails contributor: we’re seeing fewer contributions. Take heed! Your trusty captain Kasper is here to reassure you that nothing has gone wrong on this ship and that it’s merely summer time seasoning. But also, the engine is on fire? Oh well, it’ll probably burn out soon enough and another wrong has been righted! This is fine. 🔥" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2019/6/30/this-week-in-rails-and-schema-cache-deduplication-plus-getutc-begone"
+      },
+      "name": "Ruby on Rails",
+      "headline": "☀️🏖🏄‍♀️ and schema cache deduplication plus getutc begone",
+      "description": "Ahoy all! 🚢 Step aboard as we cruise through the Rails news this week. Summer has really hit its simmering point for many a Rails contributor: we’re seeing fewer contributions. Take heed! Your trusty captain Kasper is here to reassure you that nothing has gone wrong on this ship and that it’s merely summer time seasoning. But also, the engine is on fire? Oh well, it’ll probably burn out soon enough and another wrong has been righted! This is fine. 🔥",
+      "url": "http://localhost:4000/2019/6/30/this-week-in-rails-and-schema-cache-deduplication-plus-getutc-begone",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "kaspth"
+      },
+      "datePublished": "2019-06-30T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, June 30, 2019</h5>
+        <h2>☀️🏖🏄‍♀️ and schema cache deduplication plus getutc begone</h2>
+
+        <h6>Posted by kaspth</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Ahoy all! 🚢 Step aboard as we cruise through the Rails news this week. Summer has really hit its simmering point for many a Rails contributor: we’re seeing fewer contributions. Take heed! Your trusty captain <a href="https://twitter.com/kaspth">Kasper</a> is here to reassure you that nothing has gone wrong on this ship and that it’s merely summer time seasoning. But also, the engine is on fire? Oh well, it’ll probably burn out soon enough and another wrong has been righted! This is fine. 🔥</p>
+
+<h3 id="schema-cache-deduplicate-structures"><a href="https://github.com/rails/rails/pull/35891">Schema Cache: deduplicate structures</a></h3>
+
+<p>This week has primarily been a strong one for Active Record’s schema cache with no less than 3 improvements. It’s a little known feature but it avoids querying your database for its schema every time a new server starts up (handy if you’re booting up many app servers). You invoke it with…</p>
+
+<h3 id="schema-cache-stop-serializing-and-parsing-columns_hash"><a href="https://github.com/rails/rails/pull/36518">Schema Cache: stop serializing and parsing columns_hash</a></h3>
+
+<p><em>rails schema:cache:dump</em>, check its documentation for more. These 3 changes are around deduplication the memory that the schema cache holds in a running app by doing deduplication. Basically running a <em>uniq</em> on objects and reusing already initialized ones. This technique is uncommon, but effective here, because so many tables share the same columns, e.g. <em>id</em>, <em>created_at</em>, <em>updated_at</em> etc. So the first change…</p>
+
+<h3 id="schema-cache-deduplicate-when-using-init_with"><a href="https://github.com/rails/rails/pull/36529">Schema Cache: deduplicate when using init_with</a></h3>
+
+<p>…ran deduplication for most things in the schema cache. The second change skipped storing the <em>columns_hash</em> in the YML, because it could be derived with <em>columns.index_by(&amp;:name)</em>. Thus saving storing every column object again, but just nested under the name. Neat! Rounding out the features: the deduplication should also be run when parsing YML and the parser invoking <em>init_with</em>. Remedied that, phew! I suggest you do check all three changes out because they show to really re-sculpt a feature over multiple PRs.</p>
+
+<h3 id="active-record-avoid-redundant-timegetutc-when-serializing"><a href="https://github.com/rails/rails/pull/36508">Active Record: avoid redundant time.getutc when serializing</a></h3>
+
+<p>Lastly, rounding out the news: some more speed ups! Currently serializing a <em>Time</em> attribute will run <em>time.getutc</em> in multiple places regardless of whether the time is already UTC, which is fairly expensive. This change checks if the time is already UTC and won’t bother with any needless conversion. ⏱</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20190616-20190701">21 people</a> contributed to Rails in the last two weeks. You can see the <a href="https://github.com/rails/rails/compare/master@%7B2019-06-16%7D...@%7B2019-07-01%7D">full list of changes here</a>.</p>
+
+<p>Until next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

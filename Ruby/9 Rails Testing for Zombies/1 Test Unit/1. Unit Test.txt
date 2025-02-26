@@ -1,0 +1,31 @@
+1. Unit Test
+
+
+Write a basic conditional test using assert which checks if 1 > 0. Name your test class ConditionalTest.
+
+
+test/unit/conditional_test.rb
+require 'test/unit'
+
+
+Answer:
+test/unit/conditional_test.rb
+require 'test/unit'
+class ConditionalTest < Test::Unit::TestCase
+  def test_one_greater_than_zero
+    assert 1 > 0
+  end
+end
+
+#OR
+
+class ConditionalTest < Test::Unit::TestCase
+  def test_one_greater_than_zero
+    assert 1 > 0
+  end
+end
+
+Test Output:
+.
+
+Finished tests in 0.000706s, 1416.6995 tests/s, 2833.3990 assertions/s.

@@ -1,0 +1,26 @@
+2.11 Relation#not
+
+
+The following code uses an ugly SQL snippet to build a query that gets zombies who are not outlaws. It also has a bug when the status is 'nil', generating the wrong SQL. Fix the code so that it not only works properly, but also reads better.
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+end
+
+
+Database:
+zombies 
+id	name	weapon	status	killed_on
+1	Ash	Chainsaw	outlaw	null
+2	Bob	Bone	dead	2015-07-18
+3	Jim	Axe	dead	2015-07-17
+
+
+zombie.rb
+Zombie.where('status != ?', 'outlaw')
+
+
+Answer:
+zombie.rb
+Zombie.where.not(status: 'outlaw')

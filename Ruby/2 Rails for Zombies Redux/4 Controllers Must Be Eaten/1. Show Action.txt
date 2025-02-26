@@ -1,0 +1,38 @@
+1. Show Action
+
+
+Create the show action for the ZombiesController which finds a Zombie based on params[:id]. Store the Zombie object to an instance variable named @zombie.
+
+Database:
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+
+
+show.html.erb
+1 	<h1><%= @zombie.name %></h1>
+
+
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def show
+    # put the show code here
+  end
+end
+
+
+Answer:
+app/controllers/zombies_controller.rb
+
+class ZombiesController < ApplicationController
+  def show
+    # put the show code here
+    @zombie = Zombie.find(params[:id]) 
+  end
+end
+
+
+Output:
+<h1>Ashley</h1>

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; 👻 🎃 This Week in Rails: Scary Monsters and Nice CSS Sprites!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Boo! Hey ghouls and goblins, Andy here. This is going to be loaded with groan-inducing Halloween-themed puns. If you weren’t turned off already by the Skrillex reference, please keep reading!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="👻 🎃 This Week in Rails: Scary Monsters and Nice CSS Sprites!" />
+  <meta property="og:description" content="Boo! Hey ghouls and goblins, Andy here. This is going to be loaded with groan-inducing Halloween-themed puns. If you weren’t turned off already by the Skrillex reference, please keep reading!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/10/28/this-week-in-rails-scary-monsters-and-nice-css-sprites" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="👻 🎃 This Week in Rails: Scary Monsters and Nice CSS Sprites!" />
+  <meta name="twitter:description" content="Boo! Hey ghouls and goblins, Andy here. This is going to be loaded with groan-inducing Halloween-themed puns. If you weren’t turned off already by the Skrillex reference, please keep reading!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/10/28/this-week-in-rails-scary-monsters-and-nice-css-sprites"
+      },
+      "name": "Ruby on Rails",
+      "headline": "👻 🎃 This Week in Rails: Scary Monsters and Nice CSS Sprites!",
+      "description": "Boo! Hey ghouls and goblins, Andy here. This is going to be loaded with groan-inducing Halloween-themed puns. If you weren’t turned off already by the Skrillex reference, please keep reading!",
+      "url": "http://localhost:4000/2016/10/28/this-week-in-rails-scary-monsters-and-nice-css-sprites",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "chancancode"
+      },
+      "datePublished": "2016-10-28T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, October 28, 2016</h5>
+        <h2>👻 🎃 This Week in Rails: Scary Monsters and Nice CSS Sprites!</h2>
+
+        <h6>Posted by chancancode</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Boo! Hey ghouls and goblins, <a href="https://twitter.com/andatki">Andy</a> here. This is going to be loaded with groan-inducing Halloween-themed puns. If you weren’t turned off already by the Skrillex reference, please keep reading!</p>
+
+<p>Let’s take a look at 👻 Frankenstein fixes, 💀 dead code, and 👿  devilishly-detailed documentation changes…carved out this week! 🎃</p>
+
+<p><img src="https://camo.githubusercontent.com/d780c2320a942b6a37d784fc46df6ee60517bc47/68747470733a2f2f636c2e6c792f31483432335a334e307032342f707265766965772d636861742d494d475f303030392e6a7067" alt="" />
+<em>Ruby on Rails Pumpkin, carved by <a href="https://github.com/JackTLi">Jack</a>, <a href="https://github.com/Thadeaus">Graham</a>, <a href="https://github.com/zacharyreynochiasson">Zachary</a> and <a href="http://github.com/mblagden">Matt</a> at Shopify.</em></p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/this-week">Rails Contributors</a></h3>
+
+<p>We had 22 Ruby on Rails contributors this week, including a first-time contributor. Thanks!</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="permit-loads-while-queries-are-running"><a href="https://github.com/rails/rails/commit/007e50d8e5a900547471b6c4ec79d9d217682c5d">Permit loads while queries are running</a></h3>
+
+<p>A query may wait on a database-level lock, which could lead to a deadlock between threads. No one likes deadlocks. They are the stuff of developers’ nightmares! 💀</p>
+
+<h3 id="remove-unnecessary-respond_toindexes-checks"><a href="https://github.com/rails/rails/pull/26688">Remove unnecessary <code class="language-plaintext highlighter-rouge">respond_to?(:indexes)</code> checks</a></h3>
+
+<p>All database adapters have implemented the <code class="language-plaintext highlighter-rouge">indexes</code> method and support was removed. Some concerns were raised (from the dead? 💀), but the contributor demonstrated the requirement for database adapters to support <code class="language-plaintext highlighter-rouge">indexes</code> in early versions.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="clear-the-correct-query-cache"><a href="https://github.com/rails/rails/commit/fa7efca553e325b2aabb087a4eddf4560c356094">Clear the correct query cache</a></h3>
+
+<p>The correct query cache was not being cleared. The author mentioned that this bug was happening in Sidekiq as well. Check out the details!</p>
+
+<h3 id="fix-habtm-associations"><a href="https://github.com/rails/rails/commit/94821b4bd10464d52b471380c49f85fac43a8ab7">Fix HABTM associations</a></h3>
+
+<p>Use constants, strings, and symbols to express your HABTM associations. Check out the commit for more details.</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s it for this week. Check out all the changes <a href="https://github.com/rails/rails/compare/master@%7B2016-10-14%7D...@%7B2016-10-21%7D">here</a>. May your bucket (or the buckets of your children) be filled with sweet Halloween treats! 🍬</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

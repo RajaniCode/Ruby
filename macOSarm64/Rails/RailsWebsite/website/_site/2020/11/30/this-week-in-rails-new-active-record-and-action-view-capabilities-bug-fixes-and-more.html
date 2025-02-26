@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; New Active Record and Action View capabilities, bug fixes and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello! Andy here, highlighting some of the contributions to Ruby on Rails over the last week. Let’s dive in!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="New Active Record and Action View capabilities, bug fixes and more!" />
+  <meta property="og:description" content="Hello! Andy here, highlighting some of the contributions to Ruby on Rails over the last week. Let’s dive in!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2020/11/30/this-week-in-rails-new-active-record-and-action-view-capabilities-bug-fixes-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="New Active Record and Action View capabilities, bug fixes and more!" />
+  <meta name="twitter:description" content="Hello! Andy here, highlighting some of the contributions to Ruby on Rails over the last week. Let’s dive in!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2020/11/30/this-week-in-rails-new-active-record-and-action-view-capabilities-bug-fixes-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "New Active Record and Action View capabilities, bug fixes and more!",
+      "description": "Hello! Andy here, highlighting some of the contributions to Ruby on Rails over the last week. Let’s dive in!",
+      "url": "http://localhost:4000/2020/11/30/this-week-in-rails-new-active-record-and-action-view-capabilities-bug-fixes-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "andyatkinson"
+      },
+      "datePublished": "2020-11-30T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, November 30, 2020</h5>
+        <h2>New Active Record and Action View capabilities, bug fixes and more!</h2>
+
+        <h6>Posted by andyatkinson</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello! <a href="https://github.com/andyatkinson">Andy</a> here, highlighting some of the contributions to Ruby on Rails over the last week. Let’s dive in!</p>
+
+<h3 id="add-whereassociated-to-check-association-presence"><a href="https://github.com/rails/rails/pull/40696">Add where.associated to check association presence</a></h3>
+
+<p>The Changelog covers how to use <em>where.associated</em> to check for the presence of an association. This also mirrors <em>where.missing</em>.</p>
+
+<h3 id="include-stylesheets-js-and-erb-in-stats"><a href="https://github.com/rails/rails/pull/40597">Include stylesheets, JS and ERB in stats</a></h3>
+
+<p>With this change, stats from the <em>app/views</em> and <em>app/assets/stylesheets</em> directories are now included with <em>rails stats</em>.</p>
+
+<h3 id="add-support-for-eager-loading-all-rich-text-associations"><a href="https://github.com/rails/rails/pull/39397">Add support for eager loading all rich text associations</a></h3>
+
+<p>Add the <em>with_all_rich_text</em> method to eager load all rich text associations on a model at once.</p>
+
+<h3 id="bugfix-preserve-application-time-zone-with-travel_to"><a href="https://github.com/rails/rails/pull/40694">Bugfix: Preserve application time zone with travel_to</a></h3>
+
+<p>When parsing a time value as a string with <em>travel_to</em>, preserve the application’s time zone.</p>
+
+<h3 id="transform-hash-into-html-attributes-for-erb"><a href="https://github.com/rails/rails/pull/40657">Transform Hash into HTML attributes for ERB</a></h3>
+
+<p>This change adds a new method to create HTML attributes from a Ruby Hash. Check the Changelog for an example.</p>
+
+<p>We’re thankful for the contributions from <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20201121-20201128">21 people</a> to Rails over the last week. Have a look at the <a href="https://github.com/rails/rails/issues">open issues</a> and become a contributor. Until next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

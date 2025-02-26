@@ -1,0 +1,56 @@
+2.6 Test Retrieving Data For One Human
+
+We will now add the ability to retrieve one specific human by its id. Let’s start with a test.
+
+
+test/integration/listing_humans_test.rb
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  setup { host! 'api.example.com' }
+
+  test 'returns human by id' do
+  end
+end
+
+
+test/test_helper.rb
+ENV['RAILS_ENV'] = 'test'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails/test_help'  
+class ActiveSupport::TestCase
+  ActiveRecord::Migration.check_pending!
+  fixtures :all
+  def json(body)
+    JSON.parse(body, symbolize_names: true)
+  end
+end
+
+
+1. Create a Human named Ash. Issue a GET request to the humans’ show endpoint using Ash’s id, and assert that the response status is 200 - Success.
+
+Answer:
+test/integration/listing_humans_test.rb
+require 'test_helper'
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  setup { host! 'api.example.com' }  
+  test 'returns human by id' do
+    human = Human.create!(name: 'Ash')
+    get "/humans/#{human.id}"
+    assert_equal 200, response.status
+  end   
+end
+
+
+2.Parse the response.body and assert the name returned matches our recently created human. Check the test/test_helper.rb tab for a helper method that might be useful.
+
+Answer:
+test/integration/listing_humans_test.rb
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  setup { host! 'api.example.com' }  
+  test 'returns human by id' do
+    human = Human.create!(name: 'Ash')
+    get "/humans/#{human.id}"
+    assert_equal 200, response.status
+    json_response = json(response.body)
+    assert_equal human.name, json_response[:name]       
+  end   
+end

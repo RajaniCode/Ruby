@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Ruby on Rails 2.3.4: Security Fixes</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We&#8217;ve released Ruby on Rails 2.3.4, this release fixes bugs and introduces a few minor features.  Due to the inclusion of two security fixes, all users of the 2.3 series are recommended to upgrade as soon as possible.Security Fixes2.3.4 contains fixes for two security issues which were reported to us.   For more details see the security announcements:	CVE-2009-3009 &#8211; XSS vulnerability	Timing Weakness in MessageVerifier and the Cookie StoreBug FixesThanks to the success of the BugMash we have around 100  bug fixes as part of this release.  Of particular not is the fix to reloading problems related to rack middleware and rails metals when running in development mode.New Features	Support for bundling I18n translations in plugins, Rails will now automatically add locale files found in any engine&#8217;s locale directory to the I18n.load_path.  commit	Added db/seeds.rb as a default file for storing seed data for the database. Can be loaded with rake db:seed commit" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Ruby on Rails 2.3.4: Security Fixes" />
+  <meta property="og:description" content="We&#8217;ve released Ruby on Rails 2.3.4, this release fixes bugs and introduces a few minor features.  Due to the inclusion of two security fixes, all users of the 2.3 series are recommended to upgrade as soon as possible.Security Fixes2.3.4 contains fixes for two security issues which were reported to us.   For more details see the security announcements:	CVE-2009-3009 &#8211; XSS vulnerability	Timing Weakness in MessageVerifier and the Cookie StoreBug FixesThanks to the success of the BugMash we have around 100  bug fixes as part of this release.  Of particular not is the fix to reloading problems related to rack middleware and rails metals when running in development mode.New Features	Support for bundling I18n translations in plugins, Rails will now automatically add locale files found in any engine&#8217;s locale directory to the I18n.load_path.  commit	Added db/seeds.rb as a default file for storing seed data for the database. Can be loaded with rake db:seed commit" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/9/4/ruby-on-rails-2-3-4" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Ruby on Rails 2.3.4: Security Fixes" />
+  <meta name="twitter:description" content="We&#8217;ve released Ruby on Rails 2.3.4, this release fixes bugs and introduces a few minor features.  Due to the inclusion of two security fixes, all users of the 2.3 series are recommended to upgrade as soon as possible.Security Fixes2.3.4 contains fixes for two security issues which were reported to us.   For more details see the security announcements:	CVE-2009-3009 &#8211; XSS vulnerability	Timing Weakness in MessageVerifier and the Cookie StoreBug FixesThanks to the success of the BugMash we have around 100  bug fixes as part of this release.  Of particular not is the fix to reloading problems related to rack middleware and rails metals when running in development mode.New Features	Support for bundling I18n translations in plugins, Rails will now automatically add locale files found in any engine&#8217;s locale directory to the I18n.load_path.  commit	Added db/seeds.rb as a default file for storing seed data for the database. Can be loaded with rake db:seed commit" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/9/4/ruby-on-rails-2-3-4"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Ruby on Rails 2.3.4: Security Fixes",
+      "description": "We&#8217;ve released Ruby on Rails 2.3.4, this release fixes bugs and introduces a few minor features.  Due to the inclusion of two security fixes, all users of the 2.3 series are recommended to upgrade as soon as possible.Security Fixes2.3.4 contains fixes for two security issues which were reported to us.   For more details see the security announcements:	CVE-2009-3009 &#8211; XSS vulnerability	Timing Weakness in MessageVerifier and the Cookie StoreBug FixesThanks to the success of the BugMash we have around 100  bug fixes as part of this release.  Of particular not is the fix to reloading problems related to rack middleware and rails metals when running in development mode.New Features	Support for bundling I18n translations in plugins, Rails will now automatically add locale files found in any engine&#8217;s locale directory to the I18n.load_path.  commit	Added db/seeds.rb as a default file for storing seed data for the database. Can be loaded with rake db:seed commit",
+      "url": "http://localhost:4000/2009/9/4/ruby-on-rails-2-3-4",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "michael"
+      },
+      "datePublished": "2009-09-04T10:34:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, September 4, 2009</h5>
+        <h2>Ruby on Rails 2.3.4: Security Fixes</h2>
+
+        <h6>Posted by michael</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We&#8217;ve released Ruby on Rails 2.3.4, this release fixes bugs and introduces a few minor features.  Due to the inclusion of two security fixes, all users of the 2.3 series are recommended to upgrade as soon as possible.</p>
+<h4>Security Fixes</h4>
+<p>2.3.4 contains fixes for two security issues which were reported to us.   For more details see the security announcements:</p>
+<ul>
+	<li><a href="https://rubyonrails.org/2009/9/4/xss-vulnerability-in-ruby-on-rails"><span class="caps">CVE</span>-2009-3009 &#8211; <span class="caps">XSS</span> vulnerability</a></li>
+	<li><a href="https://rubyonrails.org/2009/9/4/timing-weakness-in-ruby-on-rails">Timing Weakness in MessageVerifier and the Cookie Store</a></li>
+</ul>
+<h4>Bug Fixes</h4>
+<p>Thanks to the success of the <a href="https://rubyonrails.org/2009/7/28/rails-bugmash">BugMash</a> we have around 100  bug fixes as part of this release.  Of particular not is the fix to reloading problems related to rack middleware and rails metals when running in development mode.</p>
+<h4>New Features</h4>
+<ul>
+	<li>Support for bundling I18n translations in plugins, Rails will now automatically add locale files found in any engine&#8217;s locale directory to the I18n.load_path.  <a href="http://github.com/rails/rails/commit/49342d1745dd0e6c4ebebe9e535e374783ac2c10">commit</a></li>
+	<li>Added db/seeds.rb as a default file for storing seed data for the database. Can be loaded with rake db:seed <a href="http://github.com/rails/rails/commit/f3c7bbeedd81d2f379c5e6a9e8739d3b3784ca5f">commit</a></li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

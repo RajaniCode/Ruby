@@ -1,0 +1,19 @@
+4.5 Forgery Protection
+
+Our API is stateless. This means we don’t need to worry about managing sessions between requests, or exceptions caused by invalid authenticity tokens.
+
+
+app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+end
+
+
+1. Change the protect_from_forgery method to null out the session, in case of invalid authenticity tokens.
+
+
+Answer:
+app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :null_session
+end

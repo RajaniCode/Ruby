@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: Enumerable#pluck, SQLite Collation and lots more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="####" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: Enumerable#pluck, SQLite Collation and lots more" />
+  <meta property="og:description" content="####" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/5/30/this-week-in-rails-enumerable-pluck-sqlite-collation-and-lots-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: Enumerable#pluck, SQLite Collation and lots more" />
+  <meta name="twitter:description" content="####" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/5/30/this-week-in-rails-enumerable-pluck-sqlite-collation-and-lots-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: Enumerable#pluck, SQLite Collation and lots more",
+      "description": "####",
+      "url": "http://localhost:4000/2015/5/30/this-week-in-rails-enumerable-pluck-sqlite-collation-and-lots-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "vipulnsward"
+      },
+      "datePublished": "2015-05-30T12:32:36+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, May 30, 2015</h5>
+        <h2>This week in Rails: Enumerable#pluck, SQLite Collation and lots more</h2>
+
+        <h6>Posted by vipulnsward</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>####</p>
+
+<p>Hello everyone!</p>
+
+<p>This is <a href="https://twitter.com/vipulnsward">Vipul</a> , happily reporting from a Simmering Summer 😎. Pour yourself a drink 🍹, sit back, relax and enjoy, as we go through these <a href="https://github.com/rails/rails">hot off the press</a> changes.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20150522-20150528">This week’s Rails Contributors</a></h3>
+
+<p>43 people helped make Rails even awesome this week. Checkout the pulse <a href="https://github.com/rails/rails/pulse">page</a> for more details.</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="enumerablepluck"><a href="https://github.com/rails/rails/pull/20350"><code class="language-plaintext highlighter-rouge">Enumerable#pluck</code></a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">Enumerable#pluck</code> has just landed on master, providing similar functionality as Active Record’s <code class="language-plaintext highlighter-rouge">#pluck</code>.</p>
+
+<p>This allows for something like
+<code class="language-plaintext highlighter-rouge">[{ name: "David" }, { name: "Rafael" }, { name: "Aaron" }].pluck(:name)</code> to get everyone’s names. Pretty handy!</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="collation-support-in-sqlite"><a href="https://github.com/rails/rails/pull/20041">Collation support in SQLite</a></h3>
+
+<p>Active Record now supports specifying a <a href="https://www.sqlite.org/datatype3.html#collation">collation function</a> for SQLite string columns.</p>
+
+<h3 id="default-procs-in-attributes-api"><a href="https://github.com/rails/rails/pull/19914">Default procs in Attributes API</a></h3>
+
+<p>With the new <a href="http://confreaks.tv/videos/railsconf2015-designing-a-great-ruby-api-how-we-re-simplifying-rails-5">Attributes API</a>, it is now possible to specify a proc as the default values for an attribute, which allows for runtime-generated default values such as <code class="language-plaintext highlighter-rouge">attribute :year, :integer, default: -&gt; { Time.now.year }</code>. See also these <a href="https://github.com/rails/rails/commit/a6e3cdae0ce1d05a6b9f7dff4499f6be3fbf63c2">related changes</a>.</p>
+
+<h3 id="preserve-mysqls-sql_mode-with-strict-default"><a href="https://github.com/rails/rails/pull/17654">Preserve MySQL’s <code class="language-plaintext highlighter-rouge">sql\_mode</code> with <code class="language-plaintext highlighter-rouge">strict: :default</code></a></h3>
+
+<p>By default, Rails overrides MySQL’s <code class="language-plaintext highlighter-rouge">sql_mode</code> setting with <code class="language-plaintext highlighter-rouge">sql_mode=STRICT_ALL_TABLES</code> to prevent silent data loss. While this is helpful, it has the unfortunate side-effect of overriding any user customizations.</p>
+
+<p>If you prefer to manage this yourself, you can now specify <code class="language-plaintext highlighter-rouge">strict: :default</code> <a href="https://github.com/rails/rails/issues/17370#issuecomment-106159323">in your connection’s config</a> and Rails will leave your <code class="language-plaintext highlighter-rouge">sql_mode</code> alone. (<code class="language-plaintext highlighter-rouge">STRICT_ALL_TABLES</code> is still highly recommended though!)</p>
+
+<h2 id="deprecated">Deprecated</h2>
+
+<h3 id="deprecate-render-nothing-true"><a href="https://github.com/rails/rails/pull/20336">Deprecate <code class="language-plaintext highlighter-rouge">render nothing: true</code></a></h3>
+
+<p>If you are using <code class="language-plaintext highlighter-rouge">render nothing: true</code>, you should start replacing it with <code class="language-plaintext highlighter-rouge">head :ok</code>, which does the same thing and is more semantic. This option will go away permanently in Rails 5.1.</p>
+
+<h3 id="deprecate-relationuniq"><a href="https://github.com/rails/rails/commit/adfab2dcf4003ca564d78d4425566dd2d9cd8b4f">Deprecate <code class="language-plaintext highlighter-rouge">Relation#uniq</code></a></h3>
+
+<p>The superficial similarity between <code class="language-plaintext highlighter-rouge">Relation#uniq</code> and <code class="language-plaintext highlighter-rouge">Array#uniq</code> has been a source of confusion, which led to the addition of <a href="https://github.com/rails/rails/pull/9683"><code class="language-plaintext highlighter-rouge">Relation#distinct</code></a> which better communicates what is happening under the hood.</p>
+
+<p>The recent discussion on <a href="https://github.com/rails/rails/pull/20198">#20198</a> put the final nail in the coffin for <code class="language-plaintext highlighter-rouge">Relation#uniq</code> and its friends, <code class="language-plaintext highlighter-rouge">#uniq!</code> and <code class="language-plaintext highlighter-rouge">#uniq_value</code>. These methods are deprecated and scheduled for removal in Rails 5.1, so you might want to start using <code class="language-plaintext highlighter-rouge">#distinct</code>, <code class="language-plaintext highlighter-rouge">#distinct!</code> and <code class="language-plaintext highlighter-rouge">#distinct_value</code> soon.</p>
+
+<h2 id="thats-a-wrap">That’s a wrap</h2>
+
+<p>That’s all for This week in Rails. As always, there are many more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2015-05-22%7D...@%7B2015-05-29%7D">check them out yourself</a>!</p>
+
+<p>P.S. If you enjoyed this newsletter, why not share it with your friends? :) If you wish to be part of this project please don’t hesitate to <a href="mailto:godfrey@brewhouse.io">contact Godfrey</a> – there’re a lot of ways you could help make this newsletter more awesome!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

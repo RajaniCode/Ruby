@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Bugfixes, performance improvements and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, this is Greg, bringing you the latest news from the Rails world." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Bugfixes, performance improvements and more!" />
+  <meta property="og:description" content="Hi, this is Greg, bringing you the latest news from the Rails world." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2022/7/22/this-week-in-rails-bugfixes-performance-improvements-and-more-424e272d" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Bugfixes, performance improvements and more!" />
+  <meta name="twitter:description" content="Hi, this is Greg, bringing you the latest news from the Rails world." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2022/7/22/this-week-in-rails-bugfixes-performance-improvements-and-more-424e272d"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Bugfixes, performance improvements and more!",
+      "description": "Hi, this is Greg, bringing you the latest news from the Rails world.",
+      "url": "http://localhost:4000/2022/7/22/this-week-in-rails-bugfixes-performance-improvements-and-more-424e272d",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2022-07-22T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, July 22, 2022</h5>
+        <h2>Bugfixes, performance improvements and more!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, this is <a href="https://twitter.com/gregmolnar">Greg</a>, bringing you the latest news from the Rails world.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45572">Fix caching of missed translations</a>
+Using <em>Object.new</em> for the default value of a missing translation caused the cache store to return a different object when being fetched from the cache. This PR changes the default to an integer, which resolves the problem.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45617">Add endless range example to the Active Record Querying guide</a>
+Beginless/endless ranges can be used to create less than/greater than conditions with Active Record, but that was an undocumented feature before this PR added it to the Rails Guides.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45615">Prevent ActionDispatch::ServerTiming from overwriting existing header value</a>
+This change fixes the issue of <em>ActionDispatch::ServerTiming</em> overwriting instead of appending to the Server-Timing header.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45098">Allow to use pre-defined variants for previews</a>
+This PR adds the ability to use pre-defined variants when calling <em>preview</em> or <em>representation</em> on an attachment. For instance:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class User \&lt; ActiveRecord::Base has\_one\_attached :file do |attachable| attachable.variant :thumb, resize\_to\_limit: [100, 100] end end \&lt;%= image\_tag user.file.representation(:thumb) %\&gt;
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/45614">Speedup ActionView::OutputBuffer</a>
+Ruby 3.2 noticeably improved the performance of String#&lt;&lt; so by using a String instance instead of a String subclass there are performance gains.</p>
+
+<p>Since last week, <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20220715-20220721">17 people</a> contributed to Rails. As usual, there are too many changes to cover them all, but you can check out all of them <a href="https://github.com/rails/rails/compare/main@%7B2022-07-15%7D...main@%7B2022-07-22%7D">here</a>. Until next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

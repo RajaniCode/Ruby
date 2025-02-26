@@ -1,0 +1,71 @@
+4.7 Post Method
+
+Benchmarks have pointed out that our API response to creating new humans is too big. One way we can make the response smaller (and faster), is by returning an empty response body.
+
+
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  protect_from_forgery with: :null_session
+
+  def create
+    human = Human.new(human_params)
+
+    if human.save
+      render json: human, status: 201
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+1. Still using render, change our action to respond with an empty body and a 204 - No Content status code.
+
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  protect_from_forgery with: :null_session
+
+  def create
+    human = Human.new(human_params)
+
+    if human.save
+      render nothing: true, status: 204
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end
+
+
+2. Set the Location response header to the newly created human.
+
+
+Answer:
+app/controllers/humans_controller.rb
+class HumansController < ApplicationController
+  protect_from_forgery with: :null_session
+
+  def create
+    human = Human.new(human_params)
+
+    if human.save
+      render nothing: true, status: 204, location: human
+    end
+  end
+
+  private
+
+  def human_params
+    params.require(:human).permit(:name, :brain_type)
+  end
+end

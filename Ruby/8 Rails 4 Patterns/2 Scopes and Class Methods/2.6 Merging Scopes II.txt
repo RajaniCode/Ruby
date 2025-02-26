@@ -1,0 +1,21 @@
+2.6 Merging Scopes II
+
+When upgrading to Rails 4, you run into this bug because Rails no longer automatically removes duplications from SQL conditions. Please fix the code below.
+
+
+review.rb
+class Review < ActiveRecord::Base
+  belongs_to :item
+
+  scope :relevant, -> { where(is_relevant: true, is_approved: true) }
+  scope :pending_approval, -> { where(is_approved: false) }
+end
+
+
+item.rb
+Review.relevant.pending_approval
+
+
+Answer:
+item.rb
+Review.relevant.merge(Review.pending_approval)

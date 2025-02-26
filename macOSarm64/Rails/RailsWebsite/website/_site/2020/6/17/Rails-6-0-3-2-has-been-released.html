@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 6.0.3.2 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 6.0.3.2 has been released!" />
+  <meta property="og:description" content="Hi everyone!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2020/6/17/Rails-6-0-3-2-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 6.0.3.2 has been released!" />
+  <meta name="twitter:description" content="Hi everyone!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2020/6/17/Rails-6-0-3-2-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 6.0.3.2 has been released!",
+      "description": "Hi everyone!",
+      "url": "http://localhost:4000/2020/6/17/Rails-6-0-3-2-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "tenderlove"
+      },
+      "datePublished": "2020-06-17T20:41:04+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, June 17, 2020</h5>
+        <h2>Rails 6.0.3.2 has been released!</h2>
+
+        <h6>Posted by tenderlove</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone!</p>
+
+<p>Rails 6.0.3.2 has been released!  This version of Rails contains an important
+security patch, and you should upgrade!  The release contains only one patch
+that addresses CVE-2020-8185.  You can read about CVE-2020-8185 <a href="https://groups.google.com/d/topic/rubyonrails-security/pAe9EV8gbM0">here</a>.</p>
+
+<p>Here are the checksums for the released gems:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum *6.0.3.2*
+49c72c7d45ea6de626313d6142f2c307628d4f7e  actioncable-6.0.3.2.gem
+dac7b0bab305f2666525369dc55b33c7cce03b96  actionmailbox-6.0.3.2.gem
+a39e5f6e1cb4988ce17e7778a4c6d01b4b24bcdd  actionmailer-6.0.3.2.gem
+82f70a87edf540897449d21dde0503213bd62bb2  actionpack-6.0.3.2.gem
+fcb1d3e4e67e4a1036d11826f80a9dcbeb849e6c  actiontext-6.0.3.2.gem
+0516d18bb37a0a23092b19c4a0473229b706c810  actionview-6.0.3.2.gem
+93e32defe3bc17bd2a1a8cdb4d4d81564e8921b3  activejob-6.0.3.2.gem
+1606d88b3a86125f89a331a33552cae09401c30d  activemodel-6.0.3.2.gem
+a933167ad597b0f5679ffa400309bf697d53de72  activerecord-6.0.3.2.gem
+187424658db284753a331a1a3cefa1261016365f  activestorage-6.0.3.2.gem
+b92c473960b1ef01ee562d318604e1c8d1e6b175  activesupport-6.0.3.2.gem
+7a7235a0d5233338896ca26cbe368c93812231e5  rails-6.0.3.2.gem
+151e00dcecc52bf59c6ec52838eeb729e527ae2f  railties-6.0.3.2.gem
+</code></pre></div></div>
+
+<p>Have a great day!</p>
+
+<p>&lt;3</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

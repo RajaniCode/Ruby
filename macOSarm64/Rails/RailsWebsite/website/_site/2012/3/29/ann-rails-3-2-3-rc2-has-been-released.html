@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [ANN] Rails 3.2.3.rc2 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rails 3.2.3.rc2 has been released." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[ANN] Rails 3.2.3.rc2 has been released!" />
+  <meta property="og:description" content="Rails 3.2.3.rc2 has been released." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2012/3/29/ann-rails-3-2-3-rc2-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[ANN] Rails 3.2.3.rc2 has been released!" />
+  <meta name="twitter:description" content="Rails 3.2.3.rc2 has been released." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2012/3/29/ann-rails-3-2-3-rc2-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[ANN] Rails 3.2.3.rc2 has been released!",
+      "description": "Rails 3.2.3.rc2 has been released.",
+      "url": "http://localhost:4000/2012/3/29/ann-rails-3-2-3-rc2-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "spastorino"
+      },
+      "datePublished": "2012-03-29T20:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, March 29, 2012</h5>
+        <h2>[ANN] Rails 3.2.3.rc2 has been released!</h2>
+
+        <h6>Posted by spastorino</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Rails 3.2.3.rc2 has been released.</p>
+
+<h3 id="important">IMPORTANT</h3>
+
+<p>Rails 3.2.3 introduced a new option that allows you to control the behavior of remote forms when it comes to <code class="language-plaintext highlighter-rouge">authenticity_token</code> generation. If you want to fragment cache your forms, authenticity token will also get cached, which isn’t acceptable. However, if you only use such forms with ajax, you can disable token generation, because it will be fetched from <code class="language-plaintext highlighter-rouge">meta</code> tag. Starting with 3.2.3, you have an option to stop generating <code class="language-plaintext highlighter-rouge">authenticity_token</code> in remote forms (ie. <code class="language-plaintext highlighter-rouge">:remote =&gt; true</code> is passed as an option), by setting <code class="language-plaintext highlighter-rouge">config.action_view.embed_authenticity_token_in_remote_forms = false</code>. Please note that this will break sending those forms with javascript disabled. If you choose to not generate the token in remote forms by default, you can still explicitly pass <code class="language-plaintext highlighter-rouge">:authenticity_token =&gt; true</code> when generating the form to bypass this setting.</p>
+
+<p>The option defaults to <code class="language-plaintext highlighter-rouge">true</code>, which means that existing apps are <em>NOT</em> affected.</p>
+
+<p>This RC includes this authenticity_token change and 2 bug fixes described below.
+If there are no more release blockers, I will be releasing the final version on March 30th (tomorrow).
+If you find something please open an issue on github and let me know through email (santiago <em>at</em> wyeworks.com), tweet (<a href="http://twitter.com/spastorino">spastorino</a>) or cc me on the github issue.</p>
+
+<h3 id="changes-since-323rc1">CHANGES since 3.2.3.rc1</h3>
+
+<p><em>Action Mailer</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Action Pack</em></p>
+
+<ul>
+  <li>Fix #5632, render :inline set the proper rendered format. <em>Santiago Pastorino</em></li>
+  <li>Fix textarea rendering when using plugins like HAML. Such plugins encode the first newline character in the content. This issue was introduced in https://github.com/rails/rails/pull/5191 <em>James Coleman</em></li>
+</ul>
+
+<p><em>Active Model</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Record</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Resource</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Support</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Railties</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<h3 id="sha-1">SHA-1</h3>
+
+<ul>
+  <li>SHA-1 (actionmailer-3.2.3.rc2.gem) =</li>
+  <li>SHA-1 (actionpack-3.2.3.rc2.gem) =</li>
+  <li>SHA-1 (activemodel-3.2.3.rc2.gem) =</li>
+  <li>SHA-1 (activerecord-3.2.3.rc2.gem) =</li>
+  <li>SHA-1 (activeresource-3.2.3.rc2.gem) =</li>
+  <li>SHA-1 (activesupport-3.2.3.rc2.gem) =</li>
+  <li>SHA-1 (rails-3.2.3.rc2.gem) =</li>
+  <li>SHA-1 (railties-3.2.3.rc2.gem) =</li>
+</ul>
+
+<p>You can find the list of all changes made between 3.2.3.rc1 and
+3.2.3.rc2 <a href="https://github.com/rails/rails/compare/v3.2.3.rc1...v3.2.3.rc2">here</a> and an exhaustive list of changes between 3.2.2 and 3.2.3.rc2 <a href="https://github.com/rails/rails/compare/v3.2.2...v3.2.3.rc2">here</a>.</p>
+
+<p>Thanks to everyone, this is your last chance to hold the release if something goes wrong. So please, give this release a try :).</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

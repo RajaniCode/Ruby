@@ -1,0 +1,35 @@
+3. Extend
+
+
+Good job! Now expose the methods from the GameUtils module as class methods of the Game class.
+
+
+game.rb
+class Game
+  def initialize(name)
+    @name = name
+  end
+end
+
+
+Game_Utils.rb
+module GameUtils
+  def find_all_from_user(username)
+  end
+end
+
+
+game.rb
+class Game
+end
+
+Game.find_all_from_user("Gregg")
+
+
+Answer:
+game.rb
+class Game
+   extend GameUtils 
+end
+
+Game.find_all_from_user("Gregg")

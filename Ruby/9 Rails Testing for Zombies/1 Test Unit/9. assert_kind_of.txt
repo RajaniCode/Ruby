@@ -1,0 +1,35 @@
+9. assert_kind_of
+
+
+Since zombify is supposed to modify an existing string, it should also return a string. Create a test using assert_kind_of to make sure a String is being returned.
+
+
+zombifier.rb
+class Zombifier
+  def initialize(str)
+    @str = str
+  end
+
+  def zombify
+    raise RuntimeError if @str =~ /BRAINS/
+    "#{@str.upcase} BRAINS"
+  end
+end
+
+
+test/unit/zombifier_test.rb
+class ZombifierTest < Test::Unit::TestCase
+  def test_zombify_returns_a_string
+    z = Zombifier.new('I like knees')
+  end
+end
+
+
+Answer:
+test/unit/zombifier_test.rb
+class ZombifierTest < Test::Unit::TestCase
+  def test_zombify_returns_a_string
+    z = Zombifier.new('I like knees')
+    assert_kind_of String, z.zombify.to_s
+  end
+end

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [ANN] Rails 4.2.3 and 4.1.12 have been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[ANN] Rails 4.2.3 and 4.1.12 have been released!" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/6/26/Rails-4-2-3-and-4-1-12-have-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[ANN] Rails 4.2.3 and 4.1.12 have been released!" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/6/26/Rails-4-2-3-and-4-1-12-have-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[ANN] Rails 4.2.3 and 4.1.12 have been released!",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2015/6/26/Rails-4-2-3-and-4-1-12-have-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rafaelfranca"
+      },
+      "datePublished": "2015-06-26T19:34:06+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, June 26, 2015</h5>
+        <h2>[ANN] Rails 4.2.3 and 4.1.12 have been released!</h2>
+
+        <h6>Posted by rafaelfranca</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>I am happy to announce that Rails 4.2.3 and 4.1.12 have been released.</p>
+
+<p>No regressions were found so these releases include the same changes that the release candidates.</p>
+
+<h2 id="changes-since-4111">CHANGES since 4.1.11</h2>
+
+<p>To view the changes for each gem, please read the changelogs on GitHub:</p>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/blob/v4.1.12/actionmailer/CHANGELOG.md">Action Mailer CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.1.12/actionpack/CHANGELOG.md">Action Pack CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.1.12/actionview/CHANGELOG.md">Action View CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.1.12/activemodel/CHANGELOG.md">Active Model CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.1.12/activerecord/CHANGELOG.md">Active Record CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.1.12/activesupport/CHANGELOG.md">Active Support CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.1.12/railties/CHANGELOG.md">Railties CHANGELOG</a></li>
+</ul>
+
+<p><em>Full listing</em></p>
+
+<p>To see the full list of changes, <a href="https://github.com/rails/rails/compare/v4.1.11...v4.1.12">check out all the commits on
+GitHub</a>.</p>
+
+<h2 id="changes-since-422">CHANGES since 4.2.2</h2>
+
+<p>To view the changes for each gem, please read the changelogs on GitHub:</p>
+
+<ul>
+  <li><a href="https://github.com/rails/rails/blob/v4.2.3/actionmailer/CHANGELOG.md">Action Mailer CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.2.3/actionpack/CHANGELOG.md">Action Pack CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.2.3/actionview/CHANGELOG.md">Action View CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.2.3/activemodel/CHANGELOG.md">Active Model CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.2.3/activerecord/CHANGELOG.md">Active Record CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.2.3/activesupport/CHANGELOG.md">Active Support CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.2.3/activejob/CHANGELOG.md">Active Job CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v4.2.3/railties/CHANGELOG.md">Railties CHANGELOG</a></li>
+</ul>
+
+<p><em>Full listing</em></p>
+
+<p>To see the full list of changes, <a href="https://github.com/rails/rails/compare/v4.2.2...v4.2.3">check out all the commits on
+GitHub</a>.</p>
+
+<h2 id="sha-1">SHA-1</h2>
+
+<p>If you’d like to verify that your gem is the same as the one I’ve uploaded,
+please use these SHA-1 hashes.</p>
+
+<p>Here are the checksums for 4.1.12:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum *4.1.12*
+c4f8aebcd59011e47d373a99413dad210e3d4bbd  actionmailer-4.1.12.gem
+ce8868972769ad56b93b7b98585d64804d6d8174  actionpack-4.1.12.gem
+2d6e6c6212bff10993394c63b56ce434342c9a47  actionview-4.1.12.gem
+9a462b3ad2cfaf5f7914869efd5e8c62e54064b0  activemodel-4.1.12.gem
+c0d65ed4f79115f7a9901d60201e720a7f556335  activerecord-4.1.12.gem
+97fd3230896d900923dc650e788ccaaf3b06d692  activesupport-4.1.12.gem
+9f6db196328b302c4c3a7ff3a1c7cd1a191221cc  rails-4.1.12.gem
+8c7c04045df2eebc69e54c8426def69eca0f8bf6  railties-4.1.12.gem
+</code></pre></div></div>
+
+<p>Here are the checksums for 4.2.3:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum *4.2.3*
+f02da8c3896d4c8cd208b7c555c2c2235e44ce0e  actionmailer-4.2.3.gem
+d824941013ba3616aa643d4c5016d00bf2dc028f  actionpack-4.2.3.gem
+53982ad7579069c2a5de4939bb8c689550bdd2ab  actionview-4.2.3.gem
+280e774caf7335aba1b50441b4890803d18a666c  activejob-4.2.3.gem
+0d2160b37223703d167cfd5a8cb358029ccbacd9  activemodel-4.2.3.gem
+8799d638cc5cdbd59296392f0f1014a051378517  activerecord-4.2.3.gem
+1dc5e9cba144dc9794bc4ebed19a8528b7287a76  activesupport-4.2.3.gem
+0ef8f13382996c3480d09900e34988aae85f0886  rails-4.2.3.gem
+0fa6b51c3e9f70f0ce9fb1d1977169537d19ae86  railties-4.2.3.gem
+</code></pre></div></div>
+
+<p>I’d like to thank you all, every contributor who helped with this release.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

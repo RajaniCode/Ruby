@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 0.12.0: Eager associations, new Base.find API, assertions revisited, more Ajax!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The time had come to butcher the piggy-back query and introduce real association loading through outer joins. Behold, the glorious eager loading of associations that makes it silly easy to fetch not 1, 2, but unlimited associations alongside any record in a single query. Turning 50 database queries into 1 never felt this good.# Turning N+1 queries into 1for post in Post.find(:all, :include =&gt; [ :author, :comments ])  puts "Post:            " + post.title  puts "Written by:      " + post.author.name  puts "Last comment on: " + post.comments.first.created_onendAnd to match the eager loading, we&#8217;re introducing a brand new unified API for Base.find, which works the same whether you&#8217;re searching for a specific id, the first record, or all the records. By using named options we alleviate your poor brain for remembering whether the ordering option was argument number 3 or 4.Person.find(1, :conditions =&gt;"administrator = 1", :order =&gt;"created_on DESC")Person.find(1, 5, 6, :conditions =&gt;"administrator = 1", :order =&gt;"created_on DESC")Person.find(:first, :order =&gt;"created_on DESC", :offset =&gt; 5)Person.find(:all, :conditions =&gt; [ "category IN (?)", categories], :limit =&gt; 50)Person.find(:all, :offset =&gt; 10, :limit =&gt; 10)Better testingWe&#8217;ve also slashed the huge number of assertions for testing controllers. In one fell swoop, we&#8217;ve gone from around thirty to a shap seven. The remaining assertions are more flexible than before, not nearly as hard to remember, and are followed on by the fantastic new assert_tag, which makes examining the HTML output of an action so much easier than the XHTML/REXML fumblings of yesterday.More AjaxingOf course, we couldn&#8217;t make a new release without asserting the undisputed position as the number one framework for doing Ajaxed applications. This release contains a bunch of new smooth effects for visualizing your non-refreshing actions. It&#8217;s now much easier to make Ajaxed applications that treat the unfortunate without Javascript nicely with request.xml_http_request? and alternative targets for ajax links and forms. We&#8217;ve also added periodically_call_remote that can be used to Ajax-update a given block every so seconds.In the next release, which will be not very far off, we&#8217;re also adding awesome support for both Google Suggest-like search boxes and for upload progress indicators. There&#8217;s a powerful team behind pushing the envelope on this. We have so not seen the end of it.A total of 96 changes, tweaks, and fixesAll these goodies are just the tip of the iceberg, though. There&#8217;s a total of 96 new features, changes, tweaks, and fixes packed into this monster of a release. And we didn&#8217;t even have time to push in all of the pending patches. How&#8217;s that for an action-packed three weeks since the last release?Fully backwards compatible!Despite the true onslaught of new features, fixes, and goodies, we&#8217;ve managed to keep this release fully backwards compatible with 0.11.1. So you just do a &#8220;gem update rails&#8221; and all the new stuff is available for use in your current application (to take advantage of the new JS effects you&#8217;ll want to copy that one over, though &#8212; use rails . in your app dir to get that for free).See the changelogs for the full story:	Rails	Active Record	Action Pack	Action Web Service	Action Mailer	Active Support" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 0.12.0: Eager associations, new Base.find API, assertions revisited, more Ajax!" />
+  <meta property="og:description" content="The time had come to butcher the piggy-back query and introduce real association loading through outer joins. Behold, the glorious eager loading of associations that makes it silly easy to fetch not 1, 2, but unlimited associations alongside any record in a single query. Turning 50 database queries into 1 never felt this good.# Turning N+1 queries into 1for post in Post.find(:all, :include =&gt; [ :author, :comments ])  puts "Post:            " + post.title  puts "Written by:      " + post.author.name  puts "Last comment on: " + post.comments.first.created_onendAnd to match the eager loading, we&#8217;re introducing a brand new unified API for Base.find, which works the same whether you&#8217;re searching for a specific id, the first record, or all the records. By using named options we alleviate your poor brain for remembering whether the ordering option was argument number 3 or 4.Person.find(1, :conditions =&gt;"administrator = 1", :order =&gt;"created_on DESC")Person.find(1, 5, 6, :conditions =&gt;"administrator = 1", :order =&gt;"created_on DESC")Person.find(:first, :order =&gt;"created_on DESC", :offset =&gt; 5)Person.find(:all, :conditions =&gt; [ "category IN (?)", categories], :limit =&gt; 50)Person.find(:all, :offset =&gt; 10, :limit =&gt; 10)Better testingWe&#8217;ve also slashed the huge number of assertions for testing controllers. In one fell swoop, we&#8217;ve gone from around thirty to a shap seven. The remaining assertions are more flexible than before, not nearly as hard to remember, and are followed on by the fantastic new assert_tag, which makes examining the HTML output of an action so much easier than the XHTML/REXML fumblings of yesterday.More AjaxingOf course, we couldn&#8217;t make a new release without asserting the undisputed position as the number one framework for doing Ajaxed applications. This release contains a bunch of new smooth effects for visualizing your non-refreshing actions. It&#8217;s now much easier to make Ajaxed applications that treat the unfortunate without Javascript nicely with request.xml_http_request? and alternative targets for ajax links and forms. We&#8217;ve also added periodically_call_remote that can be used to Ajax-update a given block every so seconds.In the next release, which will be not very far off, we&#8217;re also adding awesome support for both Google Suggest-like search boxes and for upload progress indicators. There&#8217;s a powerful team behind pushing the envelope on this. We have so not seen the end of it.A total of 96 changes, tweaks, and fixesAll these goodies are just the tip of the iceberg, though. There&#8217;s a total of 96 new features, changes, tweaks, and fixes packed into this monster of a release. And we didn&#8217;t even have time to push in all of the pending patches. How&#8217;s that for an action-packed three weeks since the last release?Fully backwards compatible!Despite the true onslaught of new features, fixes, and goodies, we&#8217;ve managed to keep this release fully backwards compatible with 0.11.1. So you just do a &#8220;gem update rails&#8221; and all the new stuff is available for use in your current application (to take advantage of the new JS effects you&#8217;ll want to copy that one over, though &#8212; use rails . in your app dir to get that for free).See the changelogs for the full story:	Rails	Active Record	Action Pack	Action Web Service	Action Mailer	Active Support" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/4/19/rails-0-12-0-eager-associations-new-base-find-api-assertions-revisited-more-ajax" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 0.12.0: Eager associations, new Base.find API, assertions revisited, more Ajax!" />
+  <meta name="twitter:description" content="The time had come to butcher the piggy-back query and introduce real association loading through outer joins. Behold, the glorious eager loading of associations that makes it silly easy to fetch not 1, 2, but unlimited associations alongside any record in a single query. Turning 50 database queries into 1 never felt this good.# Turning N+1 queries into 1for post in Post.find(:all, :include =&gt; [ :author, :comments ])  puts "Post:            " + post.title  puts "Written by:      " + post.author.name  puts "Last comment on: " + post.comments.first.created_onendAnd to match the eager loading, we&#8217;re introducing a brand new unified API for Base.find, which works the same whether you&#8217;re searching for a specific id, the first record, or all the records. By using named options we alleviate your poor brain for remembering whether the ordering option was argument number 3 or 4.Person.find(1, :conditions =&gt;"administrator = 1", :order =&gt;"created_on DESC")Person.find(1, 5, 6, :conditions =&gt;"administrator = 1", :order =&gt;"created_on DESC")Person.find(:first, :order =&gt;"created_on DESC", :offset =&gt; 5)Person.find(:all, :conditions =&gt; [ "category IN (?)", categories], :limit =&gt; 50)Person.find(:all, :offset =&gt; 10, :limit =&gt; 10)Better testingWe&#8217;ve also slashed the huge number of assertions for testing controllers. In one fell swoop, we&#8217;ve gone from around thirty to a shap seven. The remaining assertions are more flexible than before, not nearly as hard to remember, and are followed on by the fantastic new assert_tag, which makes examining the HTML output of an action so much easier than the XHTML/REXML fumblings of yesterday.More AjaxingOf course, we couldn&#8217;t make a new release without asserting the undisputed position as the number one framework for doing Ajaxed applications. This release contains a bunch of new smooth effects for visualizing your non-refreshing actions. It&#8217;s now much easier to make Ajaxed applications that treat the unfortunate without Javascript nicely with request.xml_http_request? and alternative targets for ajax links and forms. We&#8217;ve also added periodically_call_remote that can be used to Ajax-update a given block every so seconds.In the next release, which will be not very far off, we&#8217;re also adding awesome support for both Google Suggest-like search boxes and for upload progress indicators. There&#8217;s a powerful team behind pushing the envelope on this. We have so not seen the end of it.A total of 96 changes, tweaks, and fixesAll these goodies are just the tip of the iceberg, though. There&#8217;s a total of 96 new features, changes, tweaks, and fixes packed into this monster of a release. And we didn&#8217;t even have time to push in all of the pending patches. How&#8217;s that for an action-packed three weeks since the last release?Fully backwards compatible!Despite the true onslaught of new features, fixes, and goodies, we&#8217;ve managed to keep this release fully backwards compatible with 0.11.1. So you just do a &#8220;gem update rails&#8221; and all the new stuff is available for use in your current application (to take advantage of the new JS effects you&#8217;ll want to copy that one over, though &#8212; use rails . in your app dir to get that for free).See the changelogs for the full story:	Rails	Active Record	Action Pack	Action Web Service	Action Mailer	Active Support" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/4/19/rails-0-12-0-eager-associations-new-base-find-api-assertions-revisited-more-ajax"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 0.12.0: Eager associations, new Base.find API, assertions revisited, more Ajax!",
+      "description": "The time had come to butcher the piggy-back query and introduce real association loading through outer joins. Behold, the glorious eager loading of associations that makes it silly easy to fetch not 1, 2, but unlimited associations alongside any record in a single query. Turning 50 database queries into 1 never felt this good.# Turning N+1 queries into 1for post in Post.find(:all, :include =&gt; [ :author, :comments ])  puts "Post:            " + post.title  puts "Written by:      " + post.author.name  puts "Last comment on: " + post.comments.first.created_onendAnd to match the eager loading, we&#8217;re introducing a brand new unified API for Base.find, which works the same whether you&#8217;re searching for a specific id, the first record, or all the records. By using named options we alleviate your poor brain for remembering whether the ordering option was argument number 3 or 4.Person.find(1, :conditions =&gt;"administrator = 1", :order =&gt;"created_on DESC")Person.find(1, 5, 6, :conditions =&gt;"administrator = 1", :order =&gt;"created_on DESC")Person.find(:first, :order =&gt;"created_on DESC", :offset =&gt; 5)Person.find(:all, :conditions =&gt; [ "category IN (?)", categories], :limit =&gt; 50)Person.find(:all, :offset =&gt; 10, :limit =&gt; 10)Better testingWe&#8217;ve also slashed the huge number of assertions for testing controllers. In one fell swoop, we&#8217;ve gone from around thirty to a shap seven. The remaining assertions are more flexible than before, not nearly as hard to remember, and are followed on by the fantastic new assert_tag, which makes examining the HTML output of an action so much easier than the XHTML/REXML fumblings of yesterday.More AjaxingOf course, we couldn&#8217;t make a new release without asserting the undisputed position as the number one framework for doing Ajaxed applications. This release contains a bunch of new smooth effects for visualizing your non-refreshing actions. It&#8217;s now much easier to make Ajaxed applications that treat the unfortunate without Javascript nicely with request.xml_http_request? and alternative targets for ajax links and forms. We&#8217;ve also added periodically_call_remote that can be used to Ajax-update a given block every so seconds.In the next release, which will be not very far off, we&#8217;re also adding awesome support for both Google Suggest-like search boxes and for upload progress indicators. There&#8217;s a powerful team behind pushing the envelope on this. We have so not seen the end of it.A total of 96 changes, tweaks, and fixesAll these goodies are just the tip of the iceberg, though. There&#8217;s a total of 96 new features, changes, tweaks, and fixes packed into this monster of a release. And we didn&#8217;t even have time to push in all of the pending patches. How&#8217;s that for an action-packed three weeks since the last release?Fully backwards compatible!Despite the true onslaught of new features, fixes, and goodies, we&#8217;ve managed to keep this release fully backwards compatible with 0.11.1. So you just do a &#8220;gem update rails&#8221; and all the new stuff is available for use in your current application (to take advantage of the new JS effects you&#8217;ll want to copy that one over, though &#8212; use rails . in your app dir to get that for free).See the changelogs for the full story:	Rails	Active Record	Action Pack	Action Web Service	Action Mailer	Active Support",
+      "url": "http://localhost:4000/2005/4/19/rails-0-12-0-eager-associations-new-base-find-api-assertions-revisited-more-ajax",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-04-19T01:49:50+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, April 19, 2005</h5>
+        <h2>Rails 0.12.0: Eager associations, new Base.find API, assertions revisited, more Ajax!</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>The time had come to butcher the piggy-back query and introduce <a href="http://ar.rubyonrails.com/classes/ActiveRecord/Associations/ClassMethods.html" title="Scroll down to Eager loading of associations">real association loading</a> through outer joins. Behold, the glorious eager loading of associations that makes it silly easy to fetch not 1, 2, but unlimited associations alongside any record in a single query. Turning 50 database queries into 1 never felt this good.</p>
+<pre>
+# Turning N+1 queries into 1
+for post in Post.find(:all, :include =&gt; [ :author, :comments ])
+  puts "Post:            " + post.title
+  puts "Written by:      " + post.author.name
+  puts "Last comment on: " + post.comments.first.created_on
+end
+</pre>
+<p>And to match the eager loading, we&#8217;re introducing a brand <a href="http://ar.rubyonrails.com/classes/ActiveRecord/Base.html#M000226">new unified <span class="caps">API</span> for Base.find</a>, which works the same whether you&#8217;re searching for a specific id, the first record, or all the records. By using named options we alleviate your poor brain for remembering whether the ordering option was argument number 3 or 4.</p>
+<pre>
+Person.find(1, :conditions =&gt;"administrator = 1", :order =&gt;"created_on DESC")
+Person.find(1, 5, 6, :conditions =&gt;"administrator = 1", :order =&gt;"created_on DESC")
+Person.find(:first, :order =&gt;"created_on DESC", :offset =&gt; 5)
+Person.find(:all, :conditions =&gt; [ "category IN (?)", categories], :limit =&gt; 50)
+Person.find(:all, :offset =&gt; 10, :limit =&gt; 10)
+</pre>
+<p><b>Better testing</b><br />
+We&#8217;ve also slashed the huge number of assertions for testing controllers. In one fell swoop, we&#8217;ve gone from around thirty to <a href="http://ap.rubyonrails.com/classes/Test/Unit/Assertions.html">a shap seven</a>. The remaining assertions are more flexible than before, not nearly as hard to remember, and are followed on by the fantastic new assert_tag, which makes examining the <span class="caps">HTML</span> output of an action so much easier than the <span class="caps">XHTML</span>/<span class="caps">REXML</span> fumblings of yesterday.</p>
+<p><b>More Ajaxing</b><br />
+Of course, we couldn&#8217;t make a new release without asserting the undisputed position as the number one framework for doing Ajaxed applications. This release contains a bunch of <a href="http://mir.aculo.us/demos/effects/demo1.html">new smooth effects</a> for visualizing your non-refreshing actions. It&#8217;s now much easier to make Ajaxed applications that treat the unfortunate without Javascript nicely with request.xml_http_request? and alternative targets for ajax links and forms. We&#8217;ve also added periodically_call_remote that can be used to Ajax-update a given block every so seconds.</p>
+<p>In the next release, which will be not very far off, we&#8217;re also adding awesome support for both Google Suggest-like search boxes and for <a href="http://sean.treadway.info/demo/upload">upload progress indicators</a>. There&#8217;s a powerful team behind pushing the envelope on this. We have so not seen the end of it.</p>
+<p><b>A total of 96 changes, tweaks, and fixes</b><br />
+All these goodies are just the tip of the iceberg, though. There&#8217;s a total of 96 new features, changes, tweaks, and fixes packed into this monster of a release. And we didn&#8217;t even have time to push in all of the <a href="http://dev.rubyonrails.com/report/3">pending patches</a>. How&#8217;s that for an action-packed three weeks since the last release?</p>
+<p><b>Fully backwards compatible!</b><br />
+Despite the true onslaught of new features, fixes, and goodies, we&#8217;ve managed to keep this release fully backwards compatible with 0.11.1. So you just do a &#8220;gem update rails&#8221; and all the new stuff is available for use in your current application (to take advantage of the new JS effects you&#8217;ll want to copy that one over, though &#8212; use <code>rails .</code> in your app dir to get that for free).</p>
+<p>See the changelogs for the full story:</p>
+<ul>
+	<li><a href="http://api.rubyonrails.com/files/CHANGELOG.html">Rails</a></li>
+	<li><a href="http://api.rubyonrails.com/files/vendor/rails/activerecord/CHANGELOG.html">Active Record</a></li>
+	<li><a href="http://api.rubyonrails.com/files/vendor/rails/actionpack/CHANGELOG.html">Action Pack</a></li>
+	<li><a href="http://api.rubyonrails.com/files/vendor/rails/aws/CHANGELOG.html">Action Web Service</a></li>
+	<li><a href="http://api.rubyonrails.com/files/vendor/rails/actionmailer/CHANGELOG.html">Action Mailer</a></li>
+	<li><a href="http://api.rubyonrails.com/files/vendor/rails/activesupport/CHANGELOG.html">Active Support</a></li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

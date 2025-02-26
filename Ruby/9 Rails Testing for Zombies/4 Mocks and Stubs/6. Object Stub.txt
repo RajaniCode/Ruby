@@ -1,0 +1,59 @@
+6. Object Stub
+
+
+Notice how the get_status_image is now returning an object. Using an object stub, refactor the previously created test.
+
+    
+models/tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+
+  validates :status, presence: true, length: {within: 3..140, allow_blank: true}
+  validates :zombie, presence: true
+  
+  def brains?
+    status =~ /(brains|breins)/i
+  end
+
+  def show_author_summary
+    self.status = self.zombie.zombie_summary
+  end
+
+  def status_image
+    image = ZwitPic.get_status_image(self.id)
+    "<img src='#{image.url}' alt='#{image.name}' />".html_safe
+  end
+end  
+
+
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+  test "status_image returns a properly formated HTML image element with alt and src" doz
+    ZwitPic.stubs(:get_status_image).with(@tweet.id).returns({name: 'Yummy brain I ate last night', url: 'http://zwitpic.com/2.jpg'})
+    assert_equal "<img src='http://zwitpic.com/2.jpg' alt='Yummy brain I ate last night' />", @tweet.status_image
+  end
+end
+
+
+Answer:
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+
+  test "status_image returns a properly formated HTML image element with alt and src" do
+    image = stub({name: 'Yummy brain I ate last night', url: 'http://zwitpic.com/2.jpg'})
+    ZwitPic.stubs(:get_status_image).with(@tweet.id).returns(image)
+    assert_equal "<img src='http://zwitpic.com/2.jpg' alt='Yummy brain I ate last night' />".html_safe, @tweet.status_image
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.010370s, 96.4329 tests/s, 385.7314 assertions/s.

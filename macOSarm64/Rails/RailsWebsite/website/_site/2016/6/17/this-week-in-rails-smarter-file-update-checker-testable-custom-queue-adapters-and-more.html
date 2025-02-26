@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week In Rails: smarter file update checker, testable custom queue adapters and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone! This is Roque bringing latest news from the Rails community." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week In Rails: smarter file update checker, testable custom queue adapters and more!" />
+  <meta property="og:description" content="Hello everyone! This is Roque bringing latest news from the Rails community." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/6/17/this-week-in-rails-smarter-file-update-checker-testable-custom-queue-adapters-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week In Rails: smarter file update checker, testable custom queue adapters and more!" />
+  <meta name="twitter:description" content="Hello everyone! This is Roque bringing latest news from the Rails community." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/6/17/this-week-in-rails-smarter-file-update-checker-testable-custom-queue-adapters-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week In Rails: smarter file update checker, testable custom queue adapters and more!",
+      "description": "Hello everyone! This is Roque bringing latest news from the Rails community.",
+      "url": "http://localhost:4000/2016/6/17/this-week-in-rails-smarter-file-update-checker-testable-custom-queue-adapters-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "repinel"
+      },
+      "datePublished": "2016-06-17T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, June 17, 2016</h5>
+        <h2>This Week In Rails: smarter file update checker, testable custom queue adapters and more!</h2>
+
+        <h6>Posted by repinel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone! This is <a href="https://twitter.com/repinel">Roque</a> bringing latest news from the Rails community.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160611-20160617">This Week’s Rails Contributors</a></h3>
+
+<p>This week 23 people contributed to Rails. We also got 4 first time contributors. Welcome aboard folks and keep it going!</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="fix-digesting-non-html-templates-when-name-conflicts"><a href="https://github.com/rails/rails/pull/25411">Fix digesting non-HTML templates when name conflicts</a></h3>
+
+<p>This fixes a scenario that caused incorrect template digests for <code class="language-plaintext highlighter-rouge">*/*</code> requests that render non-HTML (<em>e.g.</em> JSON) templates. The HTML template was being used to compute the cache instead of the requested type.</p>
+
+<h3 id="prevent-the-findermethodsexists-from-raising-rangeerror"><a href="https://github.com/rails/rails/pull/25271">Prevent the <code class="language-plaintext highlighter-rouge">FinderMethods#exists?</code> from raising <code class="language-plaintext highlighter-rouge">RangeError</code></a></h3>
+
+<p>It will return a boolean value instead of going 💥 when value is out range.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="the-file-update-checker-will-boot-once-per-process"><a href="https://github.com/rails/rails/pull/25302">The file update checker will boot once per process</a></h3>
+
+<p>The checker will now play nice with multi-threaded web servers like Puma. Please read the <a href="https://github.com/rails/rails/pull/25302">pull request</a> for more details.</p>
+
+<h3 id="custom-queue-adapters-will-now-work-with-active-job-tests"><a href="https://github.com/rails/rails/pull/25367">Custom queue adapters will now work with Active Job tests</a></h3>
+
+<p>If you have a custom queue adapter for Active Job, you can override the method <code class="language-plaintext highlighter-rouge">queue_adapter_for_test</code> in your tests to take advantage of the test helpers provided.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s it from This Week in Rails! There were many other great contributions, too numerous to list here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2016-06-11%7D...@%7B2016-06-17%7D">check them out</a>!</p>
+
+<p>Until next week!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

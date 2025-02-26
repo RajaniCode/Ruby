@@ -1,0 +1,50 @@
+4.3 Better Assertions
+
+We need our test to be a little bit more precise. Checking for a 201 - Created status code is a good start, but it’s not sufficient. Let’s improve our assertions.
+
+
+test/integration/creating_humans_test.rb
+class CreatingHumansTest < ActionDispatch::IntegrationTest
+  test 'creates human' do
+    post '/humans', { human: { name: 'John', brain_type: 'small' } }.to_json,
+      { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+
+    assert_equal 201, response.status
+    # your code here
+  end
+end
+
+
+1. Assert the Content-Type response header is Mime::JSON.
+
+Answer:
+test/integration/creating_humans_test.rb
+class CreatingHumansTest < ActionDispatch::IntegrationTest
+  test 'creates human' do
+    post '/humans', { human: { name: 'John', brain_type: 'small' } }.to_json,
+      { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+
+    assert_equal 201, response.status
+    # your code here
+    assert_equal Mime::JSON, response.content_type
+  end
+end
+
+
+2. Now, assert the Location response header is a URL that points to the newly created human resource. You will need to parse the response body, so check the test/test_helper.rb file on the secondary tab for a helper method that can help you save some time.
+
+Answer:
+test/integration/creating_humans_test.rb
+class CreatingHumansTest < ActionDispatch::IntegrationTest
+  test 'creates human' do
+    post '/humans', { human: { name: 'John', brain_type: 'small' } }.to_json,
+      { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+
+    assert_equal 201, response.status
+    # your code here
+    assert_equal Mime::JSON, response.content_type
+    
+    human =  json(response.body)
+    assert_equal human_url(human[:id]), response.location
+  end
+end

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: benchmark anywhere, bugfixes and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there, it is Greg, bringing you the latest news about Rails!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: benchmark anywhere, bugfixes and more!" />
+  <meta property="og:description" content="Hi there, it is Greg, bringing you the latest news about Rails!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2020/12/20/this-week-in-rails-rails-6-1-benchmark-anywhere-bugfixes-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: benchmark anywhere, bugfixes and more!" />
+  <meta name="twitter:description" content="Hi there, it is Greg, bringing you the latest news about Rails!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2020/12/20/this-week-in-rails-rails-6-1-benchmark-anywhere-bugfixes-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: benchmark anywhere, bugfixes and more!",
+      "description": "Hi there, it is Greg, bringing you the latest news about Rails!",
+      "url": "http://localhost:4000/2020/12/20/this-week-in-rails-rails-6-1-benchmark-anywhere-bugfixes-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2020-12-20T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, December 20, 2020</h5>
+        <h2>This week in Rails: benchmark anywhere, bugfixes and more!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there, it is <a href="https://twitter.com/gregmolnar">Greg</a>, bringing you the latest news about Rails!</p>
+
+<h3 id="rails-61-released-horizontal-sharding-multi-db-improvements-strict-loading-destroy-associations-in-background-error-objects-and-more"><a href="https://rubyonrails.org/2020/12/9/Rails-6-1-0-release">Rails 6.1 released! Horizontal Sharding, Multi-DB Improvements, Strict Loading, Destroy Associations in Background, Error Objects, and more!</a></h3>
+
+<p>Rails 6.1 has been released and wow does it have a lot of great stuff! The changes include improvements to multiple databases, adding support for destroying associations in jobs instead of in-memory, turning errors into objects, and so much more.</p>
+
+<h3 id="add-benchmark-method-that-can-be-called-from-anywhere"><a href="https://github.com/rails/rails/pull/40734">Add benchmark method that can be called from anywhere</a></h3>
+
+<p>This PR includes the existing <em>ActiveSupport::Benchmarkable</em> into the <em>Rails</em> module, to make it accessible from anywhere (background jobs etc).</p>
+
+<h3 id="add-configaction_viewimage_loading"><a href="https://github.com/rails/rails/pull/38452">Add config.action_view.image_loading</a></h3>
+
+<p>Browser native support for lazy loading images is now a part of the official HTML standard and this PR adds <em>Rails.application.config.action_view.image_loading</em> to configure sitewide default for the <em>loading</em> html attribute to enable lazy loading sitewide without changing code.</p>
+
+<h3 id="add-configaction_viewimage_decoding"><a href="https://github.com/rails/rails/pull/40839">Add config.action_view.image_decoding</a></h3>
+
+<p>Another <em>image_tag</em> change, which introduces <em>Rails.application.config.action_view.image_decoding</em> to configure the default value of the image_tag :decoding option.</p>
+
+<h3 id="better-handling-of-negative-elements-in-enum"><a href="https://github.com/rails/rails/pull/40679">Better handling of negative elements in enum</a></h3>
+
+<p>Rails gives a warning if an enum method uses the <em>not_</em> prefix as it might conflict with negative scopes. The initial implementation warned even when there was no actual conflict and this change improves that and only warns about negative enums if a positive form that would cause conflicts exists.</p>
+
+<h3 id="do-not-use-submit_tag-auto-disabling-when-disable_with-is-set-to-false"><a href="https://github.com/rails/rails/pull/40168">Do not use submit_tag auto-disabling when disable_with is set to false</a></h3>
+
+<p>If we have <em>data: { disable_with: false }</em> then auto-disabling is turned off, but if we set <em>automatically_disable_submit_tag</em> to false it changes the behaviour of <em>disable_with</em> in an unexpected way,  so explicit usage of <em>disable_with: false</em> starts to enable auto-disabling with false as the value of a disabled button.<br />
+With this change auto-disabling is turned off if we have explicit <em>disable_with: false</em> no matter what is set in <em>automatically_disable_submit_tag</em>.</p>
+
+<h3 id="ignore-strict-loading-violations-on-instances-loaded-through-fixtures"><a href="https://github.com/rails/rails/pull/40792">Ignore strict loading violations on instances loaded through fixtures</a></h3>
+
+<p>Rails 6.1 added _strict_loading_by_default _but that causes issues with the fixtures as they are lazy loaded. To get around it, this change ignores the strict loading flag when the fixtures are loaded.</p>
+
+<h3 id="fix-s3-multipart-uploads-when-threshold-is-larger-than-the-file-uploaded"><a href="https://github.com/rails/rails/pull/40793">Fix S3 multipart uploads when threshold is larger than the file uploaded</a></h3>
+
+<p>A bug happened when the file being uploaded to S3 is smaller than the configured multipart threshold, but this PR fixed it.</p>
+
+<h3 id="allow-reload-to-be-default_scoped"><a href="https://github.com/rails/rails/pull/40805">Allow reload to be default_scoped</a></h3>
+
+<p><em>reload</em> was not default_scoped by default because you could be creating a record that does not match your default scope and therefore reload wouldn’t find the record. However, in the case of sharding an application you may want reload to<br />
+support default_scope because you’ll always have the correct scope<br />
+set. </p>
+
+<h3 id="change-default-queue-name-of-all-the-internal-jobs-to-be-the-job-adapters"><a href="https://github.com/rails/rails/pull/40766">Change default queue name of all the internal jobs to be the job adapter’s</a></h3>
+
+<p>Before this change you needed to configure your job processor to handle all of Rails’ internal job queues, but not anymore!</p>
+
+<h3 id="handle-nil-translation-key"><a href="https://github.com/rails/rails/pull/40788">Handle nil translation key</a></h3>
+
+<p>In Rails 6.0, the translate helper always returned <em>nil</em> when given a <em>nil</em> key, but in Rails 6.1, the translate helper always raised an <em>I18n::ArgumentError</em> when given a <em>nil</em> key. This PR fixes the translate helper to mirror the <em>I18n.translate</em> behaviour when given a <em>nil</em> key, with and without a default.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20201204-20201218">45 people</a> contributed to Rails in the past 2 weeks. Check out the <a href="https://github.com/rails/rails/issues">open issues</a> if you want to be one if them next time!. Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

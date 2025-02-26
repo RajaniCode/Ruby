@@ -1,0 +1,51 @@
+4.2 Collection Form Helpers I
+
+
+We need the user to select a Zombie that a Limb belongs to. Complete the form to provide a collection of radio buttons for all @zombies, labelled with the Zombie's name. We've provided the place for this method call, but you'll need to add the call with the appropriate arguments.
+
+
+Database:
+zombies 
+id	name
+1	Ash
+2	Sophia
+limbs 
+id	zombie_id	kind
+1	1	Diseased Leg
+2	2	Mutant Arm
+
+
+app/controllers/limbs_controller.rb
+class LimbsController < ApplicationController
+  def new
+    @limb = Limb.new
+    @zombies = Zombie.all
+  end
+end
+
+app/views/limbs/_form.html.erb
+<%= form_for(@limb) do |f| %>
+  <div class="field">
+    <%= f.label :zombie %><br />
+    <%= collection_radio_buttons(:object, 
+                                 :method, 
+                                 :collection, 
+                                 :value_method, 
+                                 :text_method) %>
+  </div>
+<% end %>
+
+
+Answer:
+app/views/limbs/_form.html.erb
+<%= form_for(@limb) do |f| %>
+  <div class="field">
+    <%= f.label :zombie %><br />
+    <%= collection_radio_buttons(:limb, 
+                                 :zombie_id, 
+                                 @zombies, 
+                                 :id, 
+                                 :name) %>
+  </div>
+<% end %>
+

@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 3.2.9.rc1 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 3.2.9.rc1 has been released!" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2012/10/29/ann-rails-3-2-9-rc1-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 3.2.9.rc1 has been released!" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2012/10/29/ann-rails-3-2-9-rc1-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 3.2.9.rc1 has been released!",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2012/10/29/ann-rails-3-2-9-rc1-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "spastorino"
+      },
+      "datePublished": "2012-10-29T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, October 29, 2012</h5>
+        <h2>Rails 3.2.9.rc1 has been released!</h2>
+
+        <h6>Posted by spastorino</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>Rails 3.2.9.rc1 has been released. If no regressions are found I will
+release 3.2.9 final this Thursday 1st. If you find a regression open an
+issue on github and mention me on it, mail me or tweet me, whatever but
+let me know :).</p>
+
+<h2 id="changes-since-328">CHANGES since 3.2.8</h2>
+
+<p><em>Action Mailer</em></p>
+
+<ul>
+  <li>
+    <p>Do not render views when mail() isn’t called.
+Fix #7761</p>
+
+    <p><em>Yves Senn</em></p>
+  </li>
+</ul>
+
+<p><em>Action Pack</em></p>
+
+<ul>
+  <li>
+    <p>Accept :remote as symbolic option for <code class="language-plaintext highlighter-rouge">link_to</code> helper. <em>Riley Lynch</em></p>
+  </li>
+  <li>
+    <p>Warn when the <code class="language-plaintext highlighter-rouge">:locals</code> option is passed to <code class="language-plaintext highlighter-rouge">assert_template</code> outside of a view test case
+Fix #3415</p>
+
+    <p><em>Yves Senn</em></p>
+  </li>
+  <li>
+    <p>Rename internal variables on ActionController::TemplateAssertions to prevent
+naming collisions. @partials, @templates and @layouts are now prefixed with an underscore.
+Fix #7459</p>
+
+    <p><em>Yves Senn</em></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">resource</code> and <code class="language-plaintext highlighter-rouge">resources</code> don’t modify the passed options hash
+Fix #7777</p>
+
+    <p><em>Yves Senn</em></p>
+  </li>
+  <li>
+    <p>Precompiled assets include aliases from foo.js to foo/index.js and vice versa.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Precompiles phone-&lt;digest&gt;.css and aliases phone/index.css to phone.css.
+config.assets.precompile = [ 'phone.css' ]
+
+# Precompiles phone/index-&lt;digest&gt;.css and aliases phone.css to phone/index.css.
+config.assets.precompile = [ 'phone/index.css' ]
+
+# Both of these work with either precompile thanks to their aliases.
+&lt;%= stylesheet_link_tag 'phone', media: 'all' %&gt;
+&lt;%= stylesheet_link_tag 'phone/index', media: 'all' %&gt;
+</code></pre></div>    </div>
+
+    <p><em>Jeremy Kemper</em></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">assert_template</code> is no more passing with what ever string that matches
+with the template name.</p>
+
+    <p>Before when we have a template <code class="language-plaintext highlighter-rouge">/layout/hello.html.erb</code>, <code class="language-plaintext highlighter-rouge">assert_template</code>
+was passing with any string that matches. This behavior allowed false
+positive like:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>assert_template "layout"
+assert_template "out/hello"
+</code></pre></div>    </div>
+
+    <p>Now it only passes with:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>assert_template "layout/hello"
+assert_template "hello"
+</code></pre></div>    </div>
+
+    <p>Fixes #3849.</p>
+
+    <p><em>Hugolnx</em></p>
+  </li>
+  <li>
+    <p>Handle <code class="language-plaintext highlighter-rouge">ActionDispatch::Http::UploadedFile</code> like <code class="language-plaintext highlighter-rouge">Rack::Test::UploadedFile</code>, don’t call to_param on it. Since
+<code class="language-plaintext highlighter-rouge">Rack::Test::UploadedFile</code> isn’t API compatible this is needed to test file uploads that rely on <code class="language-plaintext highlighter-rouge">tempfile</code>
+being available.</p>
+
+    <p><em>Tim Vandecasteele</em></p>
+  </li>
+  <li>
+    <p>Fixed a bug with shorthand routes scoped with the <code class="language-plaintext highlighter-rouge">:module</code> option not
+adding the module to the controller as described in issue #6497.
+This should now work properly:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scope :module =&gt; "engine" do
+  get "api/version" # routes to engine/api#version
+end
+</code></pre></div>    </div>
+
+    <p><em>Luiz Felipe Garcia Pereira</em></p>
+  </li>
+  <li>
+    <p>Respect <code class="language-plaintext highlighter-rouge">config.digest = false</code> for <code class="language-plaintext highlighter-rouge">asset_path</code></p>
+
+    <p>Previously, the <code class="language-plaintext highlighter-rouge">asset_path</code> internals only respected the <code class="language-plaintext highlighter-rouge">:digest</code>
+option, but ignored the global config setting. This meant that
+<code class="language-plaintext highlighter-rouge">config.digest = false</code> could not be used in conjunction with
+<code class="language-plaintext highlighter-rouge">config.compile = false</code> this corrects the behavior.</p>
+
+    <p><em>Peter Wagenet</em></p>
+  </li>
+  <li>
+    <p>Fix #7646, the log now displays the correct status code when an exception is raised.</p>
+
+    <p><em>Yves Senn</em></p>
+  </li>
+  <li>
+    <p>Fix handling of date selects when using both disabled and discard options.
+Fixes #7431.</p>
+
+    <p><em>Vasiliy Ermolovich</em></p>
+  </li>
+  <li>
+    <p>Fix select_tag when option_tags is nil.
+Fixes #7404.</p>
+
+    <p><em>Sandeep Ravichandran</em></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">javascript_include_tag :all</code> will now not include <code class="language-plaintext highlighter-rouge">application.js</code> if the file does not exists. <em>Prem Sichanugrist</em></p>
+  </li>
+  <li>
+    <p>Support cookie jar options (e.g., domain :all) for all session stores.
+Fixes GH#3047, GH#2483.</p>
+
+    <p><em>Ravil Bayramgalin</em></p>
+  </li>
+  <li>
+    <p>Performance Improvement to send_file: Avoid having to pass an open file handle as the response body. Rack::Sendfile
+will usually intercept the response and just uses the path directly, so no reason to open the file. This performance
+improvement also resolves an issue with jRuby encodings, and is the reason for the backport, see issue #6844.</p>
+
+    <p><em>Jeremy Kemper &amp; Erich Menge</em></p>
+  </li>
+</ul>
+
+<p><em>Active Model</em></p>
+
+<ul>
+  <li>
+    <p>Due to a change in builder, nil values and empty strings now generates
+closed tags, so instead of this:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;pseudonyms nil=\"true\"&gt;&lt;/pseudonyms&gt;
+</code></pre></div>    </div>
+
+    <p>It generates this:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;pseudonyms nil=\"true\"/&gt;
+</code></pre></div>    </div>
+
+    <p><em>Carlos Antonio da Silva</em></p>
+  </li>
+</ul>
+
+<p><em>Active Record</em></p>
+
+<ul>
+  <li>
+    <p>Fix bug where <code class="language-plaintext highlighter-rouge">update_columns</code> and <code class="language-plaintext highlighter-rouge">update_column</code> would not let you update the primary key column.</p>
+
+    <p><em>Henrik Nyh</em></p>
+  </li>
+  <li>
+    <p>Decode URI encoded attributes on database connection URLs.</p>
+
+    <p><em>Shawn Veader</em></p>
+  </li>
+  <li>
+    <p>Fix AR#dup to nullify the validation errors in the dup’ed object. Previously the original
+and the dup’ed object shared the same errors.</p>
+
+    <ul>
+      <li>Christian Seiler*</li>
+    </ul>
+  </li>
+  <li>
+    <p>Synchronize around deleting from the reserved connections hash.
+Fixes #7955</p>
+  </li>
+  <li>
+    <p>PostgreSQL adapter correctly fetches default values when using
+multiple schemas and domains in a db. Fixes #7914</p>
+
+    <p><em>Arturo Pie</em></p>
+  </li>
+  <li>
+    <p>Fix deprecation notice when loading a collection association that
+selects columns from other tables, if a new record was previously
+built using that association.</p>
+
+    <p><em>Ernie Miller</em></p>
+  </li>
+  <li>
+    <p>The postgres adapter now supports tables with capital letters.
+Fix #5920</p>
+
+    <p><em>Yves Senn</em></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">CollectionAssociation#count</code> returns <code class="language-plaintext highlighter-rouge">0</code> without querying if the
+parent record is not persisted.</p>
+
+    <p>Before:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>person.pets.count
+# SELECT COUNT(*) FROM "pets" WHERE "pets"."person_id" IS NULL
+# =&gt; 0
+</code></pre></div>    </div>
+
+    <p>After:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>person.pets.count
+# fires without sql query
+# =&gt; 0
+</code></pre></div>    </div>
+
+    <p><em>Francesco Rodriguez</em></p>
+  </li>
+  <li>
+    <p>Fix <code class="language-plaintext highlighter-rouge">reset_counters</code> crashing on <code class="language-plaintext highlighter-rouge">has_many :through</code> associations.
+Fix #7822.</p>
+
+    <p><em>lulalala</em></p>
+  </li>
+  <li>
+    <p>ConnectionPool recognizes checkout_timeout spec key as taking
+precedence over legacy wait_timeout spec key, can be used to avoid
+conflict with mysql2 use of wait_timeout.  Closes #7684.</p>
+
+    <p><em>jrochkind</em></p>
+  </li>
+  <li>
+    <p>Rename field_changed? to _field_changed? so that users can create a field named field</p>
+
+    <p><em>Akira Matsuda</em>, backported by <em>Steve Klabnik</em></p>
+  </li>
+  <li>
+    <p>Fix creation of through association models when using <code class="language-plaintext highlighter-rouge">collection=[]</code>
+on a <code class="language-plaintext highlighter-rouge">has_many :through</code> association from an unsaved model.
+Fix #7661.</p>
+
+    <p><em>Ernie Miller</em></p>
+  </li>
+  <li>
+    <p>Explain only normal CRUD sql (select / update / insert / delete).
+Fix problem that explains unexplainable sql. Closes #7544 #6458.</p>
+
+    <p><em>kennyj</em></p>
+  </li>
+  <li>
+    <p>Backport test coverage to ensure that PostgreSQL auto-reconnect functionality
+remains healthy.</p>
+
+    <p><em>Steve Jorgensen</em></p>
+  </li>
+  <li>
+    <p>Use config[‘encoding’] instead of config[‘charset’] when executing
+databases.rake in the mysql/mysql2. A correct option for a database.yml
+is ‘encoding’.</p>
+
+    <p><em>kennyj</em></p>
+  </li>
+  <li>
+    <p>Fix ConnectionAdapters::Column.type_cast_code integer conversion,
+to always convert values to integer calling #to_i. Fixes #7509.</p>
+
+    <p><em>Thiago Pradi</em></p>
+  </li>
+  <li>
+    <p>Fix time column type casting for invalid time string values to correctly return nil.</p>
+
+    <p><em>Adam Meehan</em></p>
+  </li>
+  <li>
+    <p>Fix <code class="language-plaintext highlighter-rouge">becomes</code> when using a configured <code class="language-plaintext highlighter-rouge">inheritance_column</code>.</p>
+
+    <p><em>Yves Senn</em></p>
+  </li>
+  <li>
+    <p>Fix <code class="language-plaintext highlighter-rouge">reset_counters</code> when there are multiple <code class="language-plaintext highlighter-rouge">belongs_to</code> association with the
+same foreign key and one of them have a counter cache.
+Fixes #5200.</p>
+
+    <p><em>Dave Desrochers</em></p>
+  </li>
+  <li>
+    <p>Round usec when comparing timestamp attributes in the dirty tracking.
+Fixes #6975.</p>
+
+    <p><em>kennyj</em></p>
+  </li>
+  <li>
+    <p>Use inversed parent for first and last child of has_many association.</p>
+
+    <p><em>Ravil Bayramgalin</em></p>
+  </li>
+  <li>
+    <p>Fix Column.microseconds and Column.fast_string_to_date to avoid converting
+timestamp seconds to a float, since it occasionally results in inaccuracies
+with microsecond-precision times. Fixes #7352.</p>
+
+    <p><em>Ari Pollak</em></p>
+  </li>
+  <li>
+    <p>Fix <code class="language-plaintext highlighter-rouge">increment!</code>, <code class="language-plaintext highlighter-rouge">decrement!</code>, <code class="language-plaintext highlighter-rouge">toggle!</code> that was skipping callbacks.
+Fixes #7306.</p>
+
+    <p><em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Fix AR#create to return an unsaved record when AR::RecordInvalid is
+raised. Fixes #3217.</p>
+
+    <p><em>Dave Yeu</em></p>
+  </li>
+  <li>
+    <p>Remove unnecessary transaction when assigning has_one associations with a nil or equal value.
+Fix #7191.</p>
+
+    <p><em>kennyj</em></p>
+  </li>
+  <li>
+    <p>Allow store to work with an empty column.
+Fix #4840.</p>
+
+    <p><em>Jeremy Walker</em></p>
+  </li>
+  <li>
+    <p>Remove prepared statement from system query in postgresql adapter.
+Fix #5872.</p>
+
+    <p><em>Ivan Evtuhovich</em></p>
+  </li>
+  <li>
+    <p>Make sure <code class="language-plaintext highlighter-rouge">:environment</code> task is executed before <code class="language-plaintext highlighter-rouge">db:schema:load</code> or <code class="language-plaintext highlighter-rouge">db:structure:load</code>
+Fixes #4772.</p>
+
+    <p><em>Seamus Abshere</em></p>
+  </li>
+</ul>
+
+<p><em>Active Resource</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Support</em></p>
+
+<ul>
+  <li>
+    <p>Add logger.push_tags and .pop_tags to complement logger.tagged:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Job
+  def before
+    Rails.logger.push_tags :jobs, self.class.name
+  end
+
+  def after
+    Rails.logger.pop_tags 2
+  end
+end
+</code></pre></div>    </div>
+
+    <p><em>Jeremy Kemper</em></p>
+  </li>
+  <li>
+    <p>Add %:z and %::z format string support to ActiveSupport::TimeWithZone#strftime. [fixes #6962] <em>kennyj</em></p>
+  </li>
+</ul>
+
+<p><em>Railties</em></p>
+
+<ul>
+  <li>
+    <p>Don’t eager-load app/assets and app/views <em>Elia Schito</em></p>
+  </li>
+  <li>
+    <p>Update supported ruby versions error message in ruby_version_check.rb <em>Lihan Li</em></p>
+  </li>
+</ul>
+
+<h2 id="sha-1">SHA-1</h2>
+
+<ul>
+  <li>24af6eff6b7c647d04eee9585184ba89f0746d40  actionmailer-3.2.9.rc1.gem</li>
+  <li>c34ea8f12308c9f6fc4d6b31ce8caa2a562b210a  actionpack-3.2.9.rc1.gem</li>
+  <li>8b3171fdde905c76a541286192e6cef211d83a70  activemodel-3.2.9.rc1.gem</li>
+  <li>0752e47880da4bb9be2b0309bce5a444a9271420  activerecord-3.2.9.rc1.gem</li>
+  <li>d8c1eeedbf3bc33d1560700cc70cb1752cdc811a  activeresource-3.2.9.rc1.gem</li>
+  <li>8ad917f70cc3b0a04864c8aa705a0e4997736872  activesupport-3.2.9.rc1.gem</li>
+  <li>6fdc627a032f1f3ded7830e044298e20fd3fc6ce  rails-3.2.9.rc1.gem</li>
+  <li>444da0c3f2a1e3200d2a613973062c2d3e4ad7d0  railties-3.2.9.rc1.gem</li>
+</ul>
+
+<p>You can find a list of changes between v3.2.8 and v3.2.9.rc1 <a href="https://github.com/rails/rails/compare/v3.2.8...v3.2.9.rc1">here</a></p>
+
+<p>Thanks to everyone!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

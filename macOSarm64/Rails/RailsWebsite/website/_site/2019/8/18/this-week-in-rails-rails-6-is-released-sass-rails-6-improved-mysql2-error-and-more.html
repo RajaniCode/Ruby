@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 6 is released, sass-rails 6, improved mysql2 error and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello! This is Prathamesh bringing the latest news from the Rails community. This week we have some big news. Get ready." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 6 is released, sass-rails 6, improved mysql2 error and more" />
+  <meta property="og:description" content="Hello! This is Prathamesh bringing the latest news from the Rails community. This week we have some big news. Get ready." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/8/18/this-week-in-rails-rails-6-is-released-sass-rails-6-improved-mysql2-error-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 6 is released, sass-rails 6, improved mysql2 error and more" />
+  <meta name="twitter:description" content="Hello! This is Prathamesh bringing the latest news from the Rails community. This week we have some big news. Get ready." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2019/8/18/this-week-in-rails-rails-6-is-released-sass-rails-6-improved-mysql2-error-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 6 is released, sass-rails 6, improved mysql2 error and more",
+      "description": "Hello! This is Prathamesh bringing the latest news from the Rails community. This week we have some big news. Get ready.",
+      "url": "http://localhost:4000/2019/8/18/this-week-in-rails-rails-6-is-released-sass-rails-6-improved-mysql2-error-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "_cha1tanya"
+      },
+      "datePublished": "2019-08-18T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, August 18, 2019</h5>
+        <h2>Rails 6 is released, sass-rails 6, improved mysql2 error and more</h2>
+
+        <h6>Posted by _cha1tanya</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello! This is <a href="https://twitter.com/_cha1tanya">Prathamesh</a> bringing the latest news from the Rails community. This week we have some big news. Get ready.</p>
+
+<h3 id="rails-6-is-out"><a href="https://rubyonrails.org/2019/8/15/Rails-6-0-final-release">Rails 6 is out!</a></h3>
+
+<p>After two and half years of development from more than 800 people having staggering <a href="https://contributors.rubyonrails.org/releases/6-0-0/commits">7275 commits</a>, Rails 6 is released. Time to upgrade 😁<br />
+Check out the <a href="https://guides.rubyonrails.org/6_0_release_notes.html">release notes</a> and <a href="https://guides.rubyonrails.org/upgrading_ruby_on_rails.html">upgrading guide</a> to know more.</p>
+
+<h3 id="support-for-sass-rails-6-"><a href="https://github.com/rails/rails/commit/1953e0e1ace0a1790e8fe5ee0bca159637d67f61">Support for sass-rails 6 </a></h3>
+
+<p>Rails now works with sass-rails 6.0. sass-rails 6 wraps <a href="https://github.com/rails/sass-rails/pull/424">sassc-rails gem</a> under the hood. This new version stops usage of outdated and unsupported ruby-sass gem.</p>
+
+<h3 id="make-prepared-statement-status-thread-and-instance-specific"><a href="https://github.com/rails/rails/pull/36949">Make prepared statement status thread and instance-specific</a></h3>
+
+<p>This fixes a race condition in system tests where prepared<br />
+statements can be incorrectly parameterized when multiple<br />
+threads observe the mutation of the <strong><em>@prepared_statements</em></strong><br />
+instance variable on the connection.</p>
+
+<h3 id="improve-mysql-error-detection"><a href="https://github.com/rails/rails/pull/36932">Improve MySQL error detection</a></h3>
+
+<p>Improve detection of <strong><em>ActiveRecord::StatementTimeout</em></strong> error with mysql2 adapter in the edge case when the query is terminated during file sort.</p>
+
+<h3 id="log-potential-matches-when-asserting-active-job-test-helpers"><a href="https://github.com/rails/rails/pull/36920">Log potential matches when asserting active job test helpers</a></h3>
+
+<p>Adds logging of potential matches when calling <strong><em>assert_enqueued_with</em></strong> and <strong><em>assert_performed_with</em></strong>  to provide more information about test failures.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20190810-20190817">25 people</a> contributed to Rails in the last week. Want to see your name on that list? Check out the list of <a href="https://github.com/rails/rails/issues">issues</a> here.</p>
+
+<p>See you next week.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Capistrano 1.4.0</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Capistrano is a utility for executing commands in parallel on multiple machines, such as for automating the deployment of applications. Version 1.4.0 is now available.To install:gem install capistranoVersion 1.4.0 fixes a few bugs, and adds a few features. The new features:	A &#8220;capture&#8221; helper has been added, to make it easy to capture the stdout of a remote command and return it as a string:result = capture(“uptime”)	A &#8220;get&#8221; helper has been added, to mirror the &#8220;put&#8221; command, letting you easily download files from a remote server to the local host. It will only download from the first server that matches the criteria for the current task. You must have Net::SFTP installed (gem install net-sftp) in order to use the &#8220;get&#8221; helper.get “#{current_path}/log/production.log”, “logs/production.log”	Support for a system-wide config file has been added. If a file exists in &#8220;/etc/capistrano.conf&#8221;, it will be loaded immediately after the standard recipe file is loaded, and immediately before any user-specific configuration.The fixed bugs:	There used to be issues with cap hanging when running multiple capistrano instances at the same time when using gateways. This has been fixed.	The permissions tweaking in the standard recipe has been refactored into a separate task (set_permissions), which you can override if you are on a host that won&#8217;t let you set group-writable permissions.	The setup task now uses umask so that intermediate directories are created with the proper permissions.	Make sure the standard recipe loads first, so that .caprc and friends can oerride what it defines.	cold_deploy now calls update instead of deploy, to avoid invoking the restart task.	The &#8216;touch&#8217; command in update_code now sets TZ to UTC for the duration of that command, so that asset timestamps are set correctly.	An off-by-one bug in the width computation for show_tasks has been fixed.Minor deprecations:	The c/-caprc switch has been removed, since the new load order (standard, system, user, application) makes it meaningless.Thanks to Mark Imbriaco, Neil Wilson, Bojan Mihelac, Joshua Wehner, and Mike Bailey for their contributions to this release." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Capistrano 1.4.0" />
+  <meta property="og:description" content="Capistrano is a utility for executing commands in parallel on multiple machines, such as for automating the deployment of applications. Version 1.4.0 is now available.To install:gem install capistranoVersion 1.4.0 fixes a few bugs, and adds a few features. The new features:	A &#8220;capture&#8221; helper has been added, to make it easy to capture the stdout of a remote command and return it as a string:result = capture(“uptime”)	A &#8220;get&#8221; helper has been added, to mirror the &#8220;put&#8221; command, letting you easily download files from a remote server to the local host. It will only download from the first server that matches the criteria for the current task. You must have Net::SFTP installed (gem install net-sftp) in order to use the &#8220;get&#8221; helper.get “#{current_path}/log/production.log”, “logs/production.log”	Support for a system-wide config file has been added. If a file exists in &#8220;/etc/capistrano.conf&#8221;, it will be loaded immediately after the standard recipe file is loaded, and immediately before any user-specific configuration.The fixed bugs:	There used to be issues with cap hanging when running multiple capistrano instances at the same time when using gateways. This has been fixed.	The permissions tweaking in the standard recipe has been refactored into a separate task (set_permissions), which you can override if you are on a host that won&#8217;t let you set group-writable permissions.	The setup task now uses umask so that intermediate directories are created with the proper permissions.	Make sure the standard recipe loads first, so that .caprc and friends can oerride what it defines.	cold_deploy now calls update instead of deploy, to avoid invoking the restart task.	The &#8216;touch&#8217; command in update_code now sets TZ to UTC for the duration of that command, so that asset timestamps are set correctly.	An off-by-one bug in the width computation for show_tasks has been fixed.Minor deprecations:	The c/-caprc switch has been removed, since the new load order (standard, system, user, application) makes it meaningless.Thanks to Mark Imbriaco, Neil Wilson, Bojan Mihelac, Joshua Wehner, and Mike Bailey for their contributions to this release." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2007/2/5/capistrano-1-4-0" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Capistrano 1.4.0" />
+  <meta name="twitter:description" content="Capistrano is a utility for executing commands in parallel on multiple machines, such as for automating the deployment of applications. Version 1.4.0 is now available.To install:gem install capistranoVersion 1.4.0 fixes a few bugs, and adds a few features. The new features:	A &#8220;capture&#8221; helper has been added, to make it easy to capture the stdout of a remote command and return it as a string:result = capture(“uptime”)	A &#8220;get&#8221; helper has been added, to mirror the &#8220;put&#8221; command, letting you easily download files from a remote server to the local host. It will only download from the first server that matches the criteria for the current task. You must have Net::SFTP installed (gem install net-sftp) in order to use the &#8220;get&#8221; helper.get “#{current_path}/log/production.log”, “logs/production.log”	Support for a system-wide config file has been added. If a file exists in &#8220;/etc/capistrano.conf&#8221;, it will be loaded immediately after the standard recipe file is loaded, and immediately before any user-specific configuration.The fixed bugs:	There used to be issues with cap hanging when running multiple capistrano instances at the same time when using gateways. This has been fixed.	The permissions tweaking in the standard recipe has been refactored into a separate task (set_permissions), which you can override if you are on a host that won&#8217;t let you set group-writable permissions.	The setup task now uses umask so that intermediate directories are created with the proper permissions.	Make sure the standard recipe loads first, so that .caprc and friends can oerride what it defines.	cold_deploy now calls update instead of deploy, to avoid invoking the restart task.	The &#8216;touch&#8217; command in update_code now sets TZ to UTC for the duration of that command, so that asset timestamps are set correctly.	An off-by-one bug in the width computation for show_tasks has been fixed.Minor deprecations:	The c/-caprc switch has been removed, since the new load order (standard, system, user, application) makes it meaningless.Thanks to Mark Imbriaco, Neil Wilson, Bojan Mihelac, Joshua Wehner, and Mike Bailey for their contributions to this release." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2007/2/5/capistrano-1-4-0"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Capistrano 1.4.0",
+      "description": "Capistrano is a utility for executing commands in parallel on multiple machines, such as for automating the deployment of applications. Version 1.4.0 is now available.To install:gem install capistranoVersion 1.4.0 fixes a few bugs, and adds a few features. The new features:	A &#8220;capture&#8221; helper has been added, to make it easy to capture the stdout of a remote command and return it as a string:result = capture(“uptime”)	A &#8220;get&#8221; helper has been added, to mirror the &#8220;put&#8221; command, letting you easily download files from a remote server to the local host. It will only download from the first server that matches the criteria for the current task. You must have Net::SFTP installed (gem install net-sftp) in order to use the &#8220;get&#8221; helper.get “#{current_path}/log/production.log”, “logs/production.log”	Support for a system-wide config file has been added. If a file exists in &#8220;/etc/capistrano.conf&#8221;, it will be loaded immediately after the standard recipe file is loaded, and immediately before any user-specific configuration.The fixed bugs:	There used to be issues with cap hanging when running multiple capistrano instances at the same time when using gateways. This has been fixed.	The permissions tweaking in the standard recipe has been refactored into a separate task (set_permissions), which you can override if you are on a host that won&#8217;t let you set group-writable permissions.	The setup task now uses umask so that intermediate directories are created with the proper permissions.	Make sure the standard recipe loads first, so that .caprc and friends can oerride what it defines.	cold_deploy now calls update instead of deploy, to avoid invoking the restart task.	The &#8216;touch&#8217; command in update_code now sets TZ to UTC for the duration of that command, so that asset timestamps are set correctly.	An off-by-one bug in the width computation for show_tasks has been fixed.Minor deprecations:	The c/-caprc switch has been removed, since the new load order (standard, system, user, application) makes it meaningless.Thanks to Mark Imbriaco, Neil Wilson, Bojan Mihelac, Joshua Wehner, and Mike Bailey for their contributions to this release.",
+      "url": "http://localhost:4000/2007/2/5/capistrano-1-4-0",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "jamis"
+      },
+      "datePublished": "2007-02-05T02:40:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, February 5, 2007</h5>
+        <h2>Capistrano 1.4.0</h2>
+
+        <h6>Posted by jamis</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Capistrano is a utility for executing commands in parallel on multiple machines, such as for automating the deployment of applications. Version 1.4.0 is now available.</p>
+<p>To install:</p>
+<p>gem install capistrano</p>
+<p>Version 1.4.0 fixes a few bugs, and adds a few features. The new features:</p>
+<ul>
+	<li>A &#8220;capture&#8221; helper has been added, to make it easy to capture the stdout of a remote command and return it as a string:</li>
+</ul>
+<p>result = capture(“uptime”)</p>
+<ul>
+	<li>A &#8220;get&#8221; helper has been added, to mirror the &#8220;put&#8221; command, letting you easily download files from a remote server to the local host. It will only download from the <em>first</em> server that matches the criteria for the current task. You must have Net::<span class="caps">SFTP</span> installed (gem install net-sftp) in order to use the &#8220;get&#8221; helper.</li>
+</ul>
+<p>get “#{current_path}/log/production.log”, “logs/production.log”</p>
+<ul>
+	<li>Support for a system-wide config file has been added. If a file exists in &#8220;/etc/capistrano.conf&#8221;, it will be loaded immediately after the standard recipe file is loaded, and immediately before any user-specific configuration.</li>
+</ul>
+<p>The fixed bugs:</p>
+<ul>
+	<li>There used to be issues with cap hanging when running multiple capistrano instances at the same time when using gateways. This has been fixed.</li>
+	<li>The permissions tweaking in the standard recipe has been refactored into a separate task (set_permissions), which you can override if you are on a host that won&#8217;t let you set group-writable permissions.</li>
+	<li>The setup task now uses umask so that intermediate directories are created with the proper permissions.</li>
+	<li>Make sure the standard recipe loads first, so that .caprc and friends can oerride what it defines.</li>
+	<li>cold_deploy now calls update instead of deploy, to avoid invoking the restart task.</li>
+	<li>The &#8216;touch&#8217; command in update_code now sets TZ to <span class="caps">UTC</span> for the duration of that command, so that asset timestamps are set correctly.</li>
+	<li>An off-by-one bug in the width computation for show_tasks has been fixed.</li>
+</ul>
+<p>Minor deprecations:</p>
+<ul>
+	<li>The <del>c/</del>-caprc switch has been removed, since the new load order (standard, system, user, application) makes it meaningless.</li>
+</ul>
+<p>Thanks to Mark Imbriaco, Neil Wilson, Bojan Mihelac, Joshua Wehner, and Mike Bailey for their contributions to this release.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 6.0.0 beta2 released</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We’re marching one step closer to the final release of Rails 6 with this second beta. We’ve fixed a bunch of issues and added a few minor features, but the big change is switching to Xavier’s new Zeitwerk library for handling autoloading. It’s a big, structural change to how we require dependencies at runtime, and it should remove a bunch of the legacy warts, and the weird gotchas. Xavier wrote up a long piece on it you should check out." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 6.0.0 beta2 released" />
+  <meta property="og:description" content="We’re marching one step closer to the final release of Rails 6 with this second beta. We’ve fixed a bunch of issues and added a few minor features, but the big change is switching to Xavier’s new Zeitwerk library for handling autoloading. It’s a big, structural change to how we require dependencies at runtime, and it should remove a bunch of the legacy warts, and the weird gotchas. Xavier wrote up a long piece on it you should check out." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/2/26/Rails-6-0-beta2-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 6.0.0 beta2 released" />
+  <meta name="twitter:description" content="We’re marching one step closer to the final release of Rails 6 with this second beta. We’ve fixed a bunch of issues and added a few minor features, but the big change is switching to Xavier’s new Zeitwerk library for handling autoloading. It’s a big, structural change to how we require dependencies at runtime, and it should remove a bunch of the legacy warts, and the weird gotchas. Xavier wrote up a long piece on it you should check out." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2019/2/26/Rails-6-0-beta2-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 6.0.0 beta2 released",
+      "description": "We’re marching one step closer to the final release of Rails 6 with this second beta. We’ve fixed a bunch of issues and added a few minor features, but the big change is switching to Xavier’s new Zeitwerk library for handling autoloading. It’s a big, structural change to how we require dependencies at runtime, and it should remove a bunch of the legacy warts, and the weird gotchas. Xavier wrote up a long piece on it you should check out.",
+      "url": "http://localhost:4000/2019/2/26/Rails-6-0-beta2-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2019-02-26T04:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, February 26, 2019</h5>
+        <h2>Rails 6.0.0 beta2 released</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We’re marching one step closer to the final release of Rails 6 with this second beta. We’ve fixed a bunch of issues and added a few minor features, but the big change is switching to Xavier’s new Zeitwerk library for handling autoloading. It’s a big, structural change to how we require dependencies at runtime, and it should remove a bunch of the legacy warts, and the weird gotchas. Xavier wrote up <a href="https://rubyonrails.org/2019/2/22/zeitwerk-integration-in-rails-6-beta-2">a long piece</a> on it you should check out.</p>
+
+<p>Otherwise things are much the same as they were with the first beta. I encourage you to read the <a href="https://rubyonrails.org/2019/1/18/Rails-6-0-Action-Mailbox-Action-Text-Multiple-DBs-Parallel-Testing">release notes</a> for that to understand the big picture of 6.0.</p>
+
+<p>You can peruse all <a href="https://github.com/rails/rails/compare/v6.0.0.beta1...v6.0.0.beta2">the 532 commits</a> we’ve made since the first beta.</p>
+
+<p>We are still kinda on track with <a href="https://rubyonrails.org/2018/12/20/timeline-for-the-release-of-Rails-6-0">our published timeline for the final Rails 6.0 release</a>, so consult that plan for your migration planning, but please do help us already by testing your application on beta2! I’d also encourage anyone with a moderate level of Rails experience to start any new app using beta2, rather than the Rails 5.2.x series. Basecamp and Shopify are both already running Rails 6.0.0.beta2 in production. This isn’t some rickety-shack release.</p>
+
+<p>This release, and all releases leading up to Rails 6.0 final, was shepherded by release manager Rafael França with support by Kasper Timm Hansen.</p>
+
+<p>Thanks again to everyone who keeps working on making Rails better!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

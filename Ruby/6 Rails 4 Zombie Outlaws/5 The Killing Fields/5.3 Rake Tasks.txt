@@ -1,0 +1,43 @@
+5.3 Rake Tasks
+
+
+OK, we've implemented the needed functionality. From the command line, run the model tests.
+    
+
+test/models/zombie_test.rb
+require 'test_helper'         
+class ZombieTest < ActiveSupport::TestCase
+    test "should match number of Items" do
+    zombie = Zombie.new
+    zombie.items.new(name: 'revolver')
+    zombie.items.new(name: 'noose')
+    assert_equal 2, zombie.item_count
+  end
+end
+
+
+app/models/zombie.rb
+class Zombie < ActiveRecord::Base
+has_many :items
+  def item_count
+    items.length
+  end
+end
+
+
+Answer: rake test:models 
+
+
+Console
+Press Enter to submit, or type 'help' and press Enter for info on using the console
+$ rake test:models 
+Run options: --seed 35207
+
+# Running tests:
+
+.
+
+Finished tests in 0.060277s, 16.5901 tests/s, 16.5901 assertions/s.
+
+1 tests, 1 assertions, 0 failures, 0 errors, 0 skips
+Success! To move on, use <ctrl + j>, type 'next' or click continue.

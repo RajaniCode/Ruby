@@ -1,0 +1,57 @@
+7. Model Methods
+
+
+Create a test that ensures the brains? method returns true if a status contains 'brains'. 
+
+
+tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+
+  validates :status, presence: true, length: {within: 3..140, allow_blank: true}
+  validates :zombie, presence: true
+  
+  def brains?
+    status =~ /(brains|breins)/i
+  end
+
+  def show_author_summary
+    self.status = self.zombie.zombie_summary
+  end
+
+  def status_image
+    image = ZwitPic.get_status_image(self.id) # This is returning an array
+    {image_name: image[0], image_url: image[1]}
+  end
+end
+
+
+tweets.yml
+hello_world:
+  zombie_id: 1
+  status: "Hello World"
+
+
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  test "can detect brains" do
+    tweet = tweets(:hello_world)
+  end
+end
+
+
+Answer:
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  test "can detect brains" do
+    tweet = tweets(:hello_world)
+    tweet.status = "Hello brains"
+    assert tweet.brains?, "Got brains"
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.027567s, 36.2758 tests/s, 72.5517 assertions/s.

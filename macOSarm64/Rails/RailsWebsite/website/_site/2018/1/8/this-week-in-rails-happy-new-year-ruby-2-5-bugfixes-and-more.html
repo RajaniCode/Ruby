@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Happy New Year! Ruby 2.5, bugfixes, and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Happy New Year, Rubyists on Rails! This is Tim here bringing you all the latest in Rails from the Holiday and New Year period. We hope you got to unwind during this time of year (if that is your thing) and are well rested for all that 2018 has to bring. Rails, on the other hand, saw a flurry of activity including many, many bug fixes. So, without further ado….." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Happy New Year! Ruby 2.5, bugfixes, and more!" />
+  <meta property="og:description" content="Happy New Year, Rubyists on Rails! This is Tim here bringing you all the latest in Rails from the Holiday and New Year period. We hope you got to unwind during this time of year (if that is your thing) and are well rested for all that 2018 has to bring. Rails, on the other hand, saw a flurry of activity including many, many bug fixes. So, without further ado….." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2018/1/8/this-week-in-rails-happy-new-year-ruby-2-5-bugfixes-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Happy New Year! Ruby 2.5, bugfixes, and more!" />
+  <meta name="twitter:description" content="Happy New Year, Rubyists on Rails! This is Tim here bringing you all the latest in Rails from the Holiday and New Year period. We hope you got to unwind during this time of year (if that is your thing) and are well rested for all that 2018 has to bring. Rails, on the other hand, saw a flurry of activity including many, many bug fixes. So, without further ado….." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2018/1/8/this-week-in-rails-happy-new-year-ruby-2-5-bugfixes-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Happy New Year! Ruby 2.5, bugfixes, and more!",
+      "description": "Happy New Year, Rubyists on Rails! This is Tim here bringing you all the latest in Rails from the Holiday and New Year period. We hope you got to unwind during this time of year (if that is your thing) and are well rested for all that 2018 has to bring. Rails, on the other hand, saw a flurry of activity including many, many bug fixes. So, without further ado…..",
+      "url": "http://localhost:4000/2018/1/8/this-week-in-rails-happy-new-year-ruby-2-5-bugfixes-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "imtayadeway"
+      },
+      "datePublished": "2018-01-08T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, January 8, 2018</h5>
+        <h2>Happy New Year! Ruby 2.5, bugfixes, and more!</h2>
+
+        <h6>Posted by imtayadeway</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Happy New Year, Rubyists on Rails! This is <a href="https://twitter.com/imtayadeway">Tim</a> here bringing you all the latest in Rails from the Holiday and New Year period. We hope you got to unwind during this time of year (if that is your thing) and are well rested for all that 2018 has to bring. Rails, on the other hand, saw a flurry of activity including many, many bug fixes. So, without further ado…..</p>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20171217-20180106">This Week’s Contributors</a></h3>
+
+<p>Since our last issue, 36 people gave the gift of Pull Request 🎁 to Rails. 6 of those contributed for the very first time! A big thank you to everyone who contributed during a time that is typically reserved for performing upgrades and fixes to extended family members’ devices.</p>
+
+<h3 id="ruby-250-added-to-rails-ci-matrix"><a href="https://github.com/rails/rails/pull/31570">Ruby 2.5.0 added to Rails CI matrix</a></h3>
+
+<p>Ruby 2.5.0 was released on December 25 2017, bringing many exciting changes. Rails has been confirmed to work with this new Ruby as it has been officially added to its testing matrix.</p>
+
+<h3 id="railsconf-2018-cfp-is-now-open"><a href="https://cfp.rubycentral.org/events/railsconf2018">RailsConf 2018 CFP is now open</a></h3>
+
+<p>RailsConf is calling for proposals for its 2018 conference which will be held in Pittsburgh. The deadline is January 19th, so now’s the time to get that proposal in!</p>
+
+<h3 id="add-bulk-alter-support-for-postgresql"><a href="https://github.com/rails/rails/pull/31331">Add bulk ALTER support for PostgreSQL</a></h3>
+
+<p>Bulk ALTER support has existed for MySQL’s adapter for many years. This change adds support for the PostgreSQL adapter, meaning that multiple column changes can now be aggregated into a single statement.</p>
+
+<h3 id="add-support-for-combined-minimagick-transformations"><a href="https://github.com/rails/rails/pull/31544">Add support for combined MiniMagick transformations</a></h3>
+
+<p>This change added support for MiniMagick’s <a href="http://www.rubydoc.info/github/minimagick/minimagick#Combine_options">combine_options</a>, allowing Active Storage to apply changes like center-weighted cropping that combine multiple options into a single step.</p>
+
+<h3 id="fix-infinity-value-in-postgresql-range-type"><a href="https://github.com/rails/rails/pull/31617">Fix infinity value in PostgreSQL range type</a></h3>
+
+<p>This fixed an issue whereby an infinity value would not be serialized correctly in a PostgreSQL range type column.</p>
+
+<h3 id="fix-foreign-key-replacement-in-inverse-association"><a href="https://github.com/rails/rails/pull/31575">Fix foreign key replacement in inverse association</a></h3>
+
+<p>This fixes an issue where foreign keys would not get updated correctly when an object changed the target of its <code class="language-plaintext highlighter-rouge">belongs_to</code> relationship.</p>
+
+<h3 id="force-attachment-as-content-disposition-for-some-content-types"><a href="https://github.com/rails/rails/pull/31639">Force :attachment as content disposition for some content types</a></h3>
+
+<p>The default behavior for <code class="language-plaintext highlighter-rouge">ActiveStorage::Blob#service_url</code> is to use an <code class="language-plaintext highlighter-rouge">:inline</code> value for <code class="language-plaintext highlighter-rouge">disposition</code>. There are certain distinct content types, however, for which this does not make sense. This change identifies those cases and prevents them from inheriting this default behavior.</p>
+
+<h3 id="fix-validation-callbacks-on-multiple-contexts"><a href="https://github.com/rails/rails/pull/31483">Fix validation callbacks on multiple contexts</a></h3>
+
+<p>This fixed an issue where callbacks would not fire correctly when multiple contexts were passed to <code class="language-plaintext highlighter-rouge">valid?</code> , <code class="language-plaintext highlighter-rouge">save</code> , etc..</p>
+
+<h3 id="support-added-for-multiple-encodings-in-stringblank"><a href="https://github.com/rails/rails/pull/31049">Support added for multiple encodings in String#blank?</a></h3>
+
+<p>Previously, if you called <code class="language-plaintext highlighter-rouge">String#blank?</code> on, for example, an UTF-16LE-encoded string, it would raise an <code class="language-plaintext highlighter-rouge">Encoding::CompatibilityError</code> exception. It will now return the right thing!</p>
+
+<h3 id="fix-assert_changes-to-always-assert-on-change"><a href="https://github.com/rails/rails/pull/31011">Fix assert_changes to always assert on change</a></h3>
+
+<p>If you had called <code class="language-plaintext highlighter-rouge">assert_changes</code> with a <code class="language-plaintext highlighter-rouge">to</code> argument, you may have been surprised to find that it was sufficient to match only the resultant value for it to pass, even if nothing changed. This revision fixes that by failing in the event that nothing changed, as would be expected.</p>
+
+<h3 id="consistently-raise-missingattributeerror-for-missing-attributes"><a href="https://github.com/rails/rails/pull/29018">Consistently raise MissingAttributeError for missing attributes</a></h3>
+
+<p>Normally if you <code class="language-plaintext highlighter-rouge">select</code> a subset of a record’s attributes and then try to reference an unselected attribute, you will get a <code class="language-plaintext highlighter-rouge">MissingAttributeError</code>. However, if you then <code class="language-plaintext highlighter-rouge">save</code>‘d the record and called that same attribute, you may be surprised to get <code class="language-plaintext highlighter-rouge">nil</code> instead. This revision fixes that by always raising an error.</p>
+
+<p>That’s it for this week! Even though this was a bumper issue, there were as always many, many more changes I wanted to talk about that I could not list. But you can check them all out <a href="https://github.com/rails/rails/compare/master@%7B2017-12-17%7D...@%7B2018-01-06%7D">here</a>! Until next time….</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

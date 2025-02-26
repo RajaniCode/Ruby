@@ -1,0 +1,59 @@
+6.8 Cache Digests I
+
+Because the way nested fragment caching worked in previous versions of Rails, we are using a manual expiration key. However, cache-digests in Rails 4 no longer requires us to use this expiration key. Let's go ahead and remove that key from the cache method.
+
+
+Database:
+ zombies 
+id	name	weapon_id	status	killed_on
+1	Ash	1		outlaw	null
+2	Bob	2		dead	2015-07-18
+3	Jim	3		dead	2015-07-17
+weapons 
+id	name
+1	Chainsaw
+2	Bone
+3	Axe
+
+
+models/weapon.rb
+class Weapon < ActiveRecord::Base
+ has_many :zombies
+end
+
+
+views/zombies/_zombie.html.erb
+<% cache zombie do %>
+   <li><%= zombie %></li>
+<% end %>
+
+
+models/zombie.rb
+class Zombie < ActiveRecord::Base
+  belongs_to :weapon
+end
+
+
+views/weapons/index.html.erb
+<% cache ['v2', @weapon] do %>
+  <section>
+    <h3><%= @weapon.name %></h3>
+    <ul>
+      <%= render @weapon.zombies %>
+    </ul>
+    <%= link_to 'Details', @weapon %>
+  </section>
+<% end %>
+
+
+Answer:
+views/weapons/index.html.erb
+<% cache @weapon do %>
+  <section>
+    <h3><%= @weapon.name %></h3>
+    <ul>
+      <%= render @weapon.zombies %>
+    </ul>
+    <%= link_to 'Details', @weapon %>
+  </section>
+<% end %>

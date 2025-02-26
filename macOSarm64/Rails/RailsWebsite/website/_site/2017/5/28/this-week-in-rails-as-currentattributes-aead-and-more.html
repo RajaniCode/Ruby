@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: ActiveSupport::CurrentAttributes, AEAD and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there!This is Vipul bringing you all the latest news about Rails from the hopefully ending summer here in Pune🔥" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: ActiveSupport::CurrentAttributes, AEAD and more!" />
+  <meta property="og:description" content="Hi there!This is Vipul bringing you all the latest news about Rails from the hopefully ending summer here in Pune🔥" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/5/28/this-week-in-rails-as-currentattributes-aead-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: ActiveSupport::CurrentAttributes, AEAD and more!" />
+  <meta name="twitter:description" content="Hi there!This is Vipul bringing you all the latest news about Rails from the hopefully ending summer here in Pune🔥" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/5/28/this-week-in-rails-as-currentattributes-aead-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: ActiveSupport::CurrentAttributes, AEAD and more!",
+      "description": "Hi there!This is Vipul bringing you all the latest news about Rails from the hopefully ending summer here in Pune🔥",
+      "url": "http://localhost:4000/2017/5/28/this-week-in-rails-as-currentattributes-aead-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "vipulnsward"
+      },
+      "datePublished": "2017-05-28T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, May 28, 2017</h5>
+        <h2>This Week in Rails: ActiveSupport::CurrentAttributes, AEAD and more!</h2>
+
+        <h6>Posted by vipulnsward</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there!</p>
+
+<p>This is <a href="https://www.bigbinary.com/team/vipul">Vipul</a> bringing you all the latest news about Rails from the hopefully ending <a href="https://weather.com/weather/today/l/Pune+India+INXX0102:1:IN">summer</a> here in <a href="https://www.wikiwand.com/en/Pune">Pune</a>🔥</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20170520-20170527">This Week’s Rails contributors!</a></h3>
+
+<p>We had 36 people who helped make Rails better this week. <br />
+Six of them contributed for the first time ever! <br />
+If you would like to help out, check the <a href="https://github.com/rails/rails/issues">issues list</a>.</p>
+
+<h2 id="new">New</h2>
+
+<h3 id="activesupportcurrentattributes-provides-a-thread-isolated-attributes-singleton"><a href="https://github.com/rails/rails/commit/24a864437e845febe91e3646ca008e8dc7f76b56">ActiveSupport::CurrentAttributes provides a thread-isolated attributes singleton</a></h3>
+
+<p>If you’ve used <em>current_user</em> from <em>Devise,</em> you’ve already come across what <em>CurrentAttributes</em> partly provides, but wait there’s more!</p>
+
+<p>Using <em>CurrentAttributes</em> you can start using per request variables that are accessible across the whole system like Models, Controllers, Views, during a Rails request cycle.</p>
+
+<p>For example you can start using attributes like current_user, account, etc, and much more that your system might need without passing them all around to different methods.</p>
+
+<h3 id="aead-encrypted-cookies-and-sessions-"><a href="https://github.com/rails/rails/pull/28132">AEAD encrypted cookies and sessions </a></h3>
+
+<p>Encrypted cookies <a href="https://tools.ietf.org/html/rfc5288">now use</a> <a href="https://crypto.stanford.edu/RealWorldCrypto/slides/gueron.pdf">AES-GCM</a> which couples authentication and encryption in one faster step and produces shorter ciphertexts.</p>
+
+<p>Older cookies encrypted using AES in CBC HMAC mode will be seamlessly upgraded when this new mode is enabled via the <em>action_dispatch.use_authenticated_cookie_encryption</em> configuration value.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="make-secretsedit-run-secretssetup-if-it-hasnt-already"><a href="https://github.com/rails/rails/pull/29195">Make <code class="language-plaintext highlighter-rouge">secrets:edit</code> run <code class="language-plaintext highlighter-rouge">secrets:setup</code> if it hasn’t already.</a></h3>
+
+<p>On a new app, if you did <em>rails secrets:edit</em> before you’ve called <em>rails secrets:setup</em>, Rails would throw an error.</p>
+
+<p>With this addition, Rails takes care of doing that for you if not already done.</p>
+
+<h3 id="fix-regression-in-numericality-validator"><a href="https://github.com/rails/rails/commit/d83b8e65102d625c9024cd9a2727a10b0ef83b79">Fix regression in Numericality validator</a></h3>
+
+<p>This change fixes a regression in <em>Numericality</em> validator where extra decimal places on a user input for a decimal column were ignored by numerically validations, for example when comparing <em>9.18</em> vs <em>9.179. </em></p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="active-record-initialization-optimizations"><a href="https://github.com/rails/rails/pull/29215">Active Record initialization optimizations</a></h3>
+
+<p>Rails had a performance regression from 4.2x to 5.0 where initialization of records slowed down by factor of 2x in some cases.</p>
+
+<p>This change optimizes initializations to improve by a factor of <strong>2x for STI models</strong> and <strong>1.3x for non-STI models</strong></p>
+
+<p>That’s it for this week, as always, we couldn’t cover all of the changes, but feel free to check the <a href="https://github.com/rails/rails/compare/master@%7B2017-05-12%7D...@%7B2017-05-19%7D">commits</a> if you are interested.<br />
+Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+5. Method as a subject
+
+
+Make the two small changes which will allow these two tests to pass.
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :iq
+  validates :name, presence: true
+ 
+  def genius?
+    iq >= 3
+  end
+ 
+  def self.genius
+    where("iq >= ?", 3)
+  end
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  context "with high iq" do
+     let(:zombie) { Zombie.new(iq: 3, name: 'Anna') }
+     subject { zombie }
+
+     it "should be returned with genius" do
+       Zombie.genius.should include(zombie)
+     end
+
+     it "should have a genius count of 1" do     
+       Zombie.genius.count.should == 1
+     end
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Zombie do
+  context "with high iq" do
+    let!(:zombie) { Zombie.create(iq: 3, name: 'Anna') }
+     subject { zombie }
+
+     it "should be returned with genius" do
+       Zombie.genius.should include(zombie)
+     end
+
+     it "should have a genius count of 1" do     
+       Zombie.genius.count.should == 1
+     end
+  end
+end

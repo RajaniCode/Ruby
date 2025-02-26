@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 5.2.4.4 and 6.0.3.3 have been released</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone!  Rails 5.2.4.4 and 6.0.3.3 have been released!  These releasescontain an important security fix, so please upgrade when you can." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 5.2.4.4 and 6.0.3.3 have been released" />
+  <meta property="og:description" content="Hi everyone!  Rails 5.2.4.4 and 6.0.3.3 have been released!  These releasescontain an important security fix, so please upgrade when you can." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2020/9/10/Rails-5-2-4-4-and-6-0-3-3-have-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 5.2.4.4 and 6.0.3.3 have been released" />
+  <meta name="twitter:description" content="Hi everyone!  Rails 5.2.4.4 and 6.0.3.3 have been released!  These releasescontain an important security fix, so please upgrade when you can." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2020/9/10/Rails-5-2-4-4-and-6-0-3-3-have-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 5.2.4.4 and 6.0.3.3 have been released",
+      "description": "Hi everyone!  Rails 5.2.4.4 and 6.0.3.3 have been released!  These releasescontain an important security fix, so please upgrade when you can.",
+      "url": "http://localhost:4000/2020/9/10/Rails-5-2-4-4-and-6-0-3-3-have-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "pixeltrix"
+      },
+      "datePublished": "2020-09-10T11:24:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, September 10, 2020</h5>
+        <h2>Rails 5.2.4.4 and 6.0.3.3 have been released</h2>
+
+        <h6>Posted by pixeltrix</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone!  Rails 5.2.4.4 and 6.0.3.3 have been released!  These releases
+contain an important security fix, so please upgrade when you can.</p>
+
+<p>Both releases contain the following fix:</p>
+
+<ul>
+  <li><a href="https://groups.google.com/forum/#!topic/rubyonrails-security/b-C9kSGXYrc">[CVE-2020-15169] Potential XSS vulnerability in Action View</a></li>
+</ul>
+
+<p>Here are the checksums for 5.2.4.4:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ddc79ec6c5122c1eda8121b3c75ca53635235427  actioncable-5.2.4.4.gem
+caaa2b50e93b71d25e2181a2bf9d7e885fbbb1f6  actionmailer-5.2.4.4.gem
+228ea8910bad233edfe78c323c2789f3c6c811bc  actionpack-5.2.4.4.gem
+686b82b79ad7a356a19f23738a79f65ee9dcc2a7  actionview-5.2.4.4.gem
+cfa1e6f429162076914fce6897389f10541d6316  activejob-5.2.4.4.gem
+1d6f19c918b991aca06d1c32de824ec5ed15bbfb  activemodel-5.2.4.4.gem
+12c025ef4137ad8a1570d918a7ad44af3abcfc73  activerecord-5.2.4.4.gem
+0e5853ed36a588b017c7e72fcbcc90cff80b8d2d  activestorage-5.2.4.4.gem
+7b4459dcfc5f95c9663d8032a9cbf25a6039e8a1  activesupport-5.2.4.4.gem
+c755abb919f6be479a50c85c5852fb584cf2e1d4  rails-5.2.4.4.gem
+9ed4e14fa0e70ee66f840322e04873faa97f4475  railties-5.2.4.4.gem
+</code></pre></div></div>
+
+<p>Here are the checksums for 6.0.3.3:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e7aad7426b67e420c50f929d6927c82b82ba7299  actioncable-6.0.3.3.gem
+fa84ead6387625f4bbb273a0f21c477a66cb85ec  actionmailbox-6.0.3.3.gem
+5ec626522e33b09577b60606c9ce38366a55fcf3  actionmailer-6.0.3.3.gem
+5fbeef52d963e9e86e81f1897b663702faabc14e  actionpack-6.0.3.3.gem
+eaa20ebf94fd7a2954da2c5d2159ba160c2dbb0d  actiontext-6.0.3.3.gem
+fe8a07f6adfa212b51d27650db05cf20a5c80a3c  actionview-6.0.3.3.gem
+09d536656bce51729710a063ac1d8cd3f0a70607  activejob-6.0.3.3.gem
+42037b04104f997b014b0e2754b0fd540337a996  activemodel-6.0.3.3.gem
+ffb2443a7a961876a06c59c9ccabda1dd9d40763  activerecord-6.0.3.3.gem
+4f151eaf3145ffcf247072b59fdd4e53eca5f3d0  activestorage-6.0.3.3.gem
+673e08bfcce6de903d0dfc4c0bb80f67b46c76d4  activesupport-6.0.3.3.gem
+a6ba4ef9858e7778d379d9fd6944819d926d31a2  rails-6.0.3.3.gem
+504ab700f86737a5747f1557fbef1fac39217ed8  railties-6.0.3.3.gem
+</code></pre></div></div>
+
+<p>Stay safe, and have a great day everyone!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

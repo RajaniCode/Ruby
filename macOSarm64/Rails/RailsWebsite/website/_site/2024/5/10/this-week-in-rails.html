@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails community survey, improved association validation errors and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, Wojtek here. Let’s explore this week’s changes in the Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails community survey, improved association validation errors and more" />
+  <meta property="og:description" content="Hi, Wojtek here. Let’s explore this week’s changes in the Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/5/10/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails community survey, improved association validation errors and more" />
+  <meta name="twitter:description" content="Hi, Wojtek here. Let’s explore this week’s changes in the Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/5/10/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails community survey, improved association validation errors and more",
+      "description": "Hi, Wojtek here. Let’s explore this week’s changes in the Rails.",
+      "url": "http://localhost:4000/2024/5/10/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "Wojtek"
+      },
+      "datePublished": "2024-05-10T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, May 10, 2024</h5>
+        <h2>Rails community survey, improved association validation errors and more</h2>
+
+        <h6>Posted by Wojtek</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://twitter.com/morgoth85">Wojtek</a> here. Let’s explore this week’s changes in the Rails.</p>
+
+<p><a href="https://railsdeveloper.com/survey/">The bi-annual Rails community survey is live!</a><br />
+Your input is invaluable and will help the team at Planet Argon gather insight on the current state of the Rails community. <a href="https://railsdeveloper.com/survey/">Fill in the survey here</a>. (And feel free to share with your teams).
+The survey will remain open until August 2nd, 2024, and the findings released shortly thereafter.</p>
+
+<p><a href="https://rubycentral.org/news/anewearforrubycentralevents/">A New Era for Ruby Central Events</a><br />
+Ruby Central announced that 2025 will be the last year of <em>RailsConf</em> and they are inviting the community to vote on where the last edition should be held. <a href="https://rubycentral.org/news/anewearforrubycentralevents/">Read the full announcement here</a>, and cast your vote.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48727">Fix index_errors and provide :nested_attributes_order mode</a><br />
+This indexes the association validation errors based on the order received by nested attributes setter, and respects the <em>reject_if</em> configuration.
+This enables API to provide enough information to the frontend to map the validation errors back to their respective form fields.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51686">Add flag to speed up multi-process test runs</a><br />
+Add <em>ENV[“SKIP_TEST_DATABASE_TRUNCATE”]</em> flag to speed up multi-process test runs on large databases, when all tests run within default transaction.
+This cuts ~10 seconds from the test run of HEY when run by 24 processes against the 178 tables, since ~4,000 table truncates can then be skipped.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51770">Replace allocations count by GC time in request logs</a><br />
+Allocations count is often an interesting proxy for performance, but not necessarily the most relevant thing to include in request logs, given they aren’t a per thread metric, so the reporting is widely inaccurate in multi-threaded environments.</p>
+
+<p>Since Ruby 3.1 there is now <em>GC.total_time</em> which is a monotonically increasing counter of time spent in GC. It still isn’t really a per thread metric, but it is more interesting because it uses the same unit as the response time, allowing to better see when you have a GC pause performance issue.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51751">Explain that the default Dockerfile is intended for production</a><br />
+If people want to use Docker in development, they’d need a radically different setup, and are likely much better served by dev containers.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51718">Don’t mess with Minitest unless RAILS_ENV is set</a><br />
+Minitest will automatically scan all installed gems and load plugins from those gems.  We should detect whether or not we’re being run within the context of a Rails app and only change MT behavior in that case.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51571">Warn about changing “query_constraints” behavior</a><br />
+Add a deprecation warning for the <em>query_constraints:</em> association option. This option will change behavior in the future versions of Rails and applications are encouraged to switch to <em>foreign_key:</em> to preserve the current behavior.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48585">Consistently use desired test adapter in Active Job</a><br />
+All tests now respect the <em>active_job.queue_adapter</em> config, which previously was not always the case.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-05-03%7D...main@%7B2024-05-10%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240503-20240510">20 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

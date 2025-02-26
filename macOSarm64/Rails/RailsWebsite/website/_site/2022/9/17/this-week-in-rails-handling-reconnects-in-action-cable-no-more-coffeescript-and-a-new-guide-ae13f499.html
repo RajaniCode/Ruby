@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Handling reconnects in Action Cable, no more Coffeescript and a new guide.</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, this is Petrik with this week’s Rails updates and some Hotwire news." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Handling reconnects in Action Cable, no more Coffeescript and a new guide." />
+  <meta property="og:description" content="Hi, this is Petrik with this week’s Rails updates and some Hotwire news." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2022/9/17/this-week-in-rails-handling-reconnects-in-action-cable-no-more-coffeescript-and-a-new-guide-ae13f499" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Handling reconnects in Action Cable, no more Coffeescript and a new guide." />
+  <meta name="twitter:description" content="Hi, this is Petrik with this week’s Rails updates and some Hotwire news." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2022/9/17/this-week-in-rails-handling-reconnects-in-action-cable-no-more-coffeescript-and-a-new-guide-ae13f499"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Handling reconnects in Action Cable, no more Coffeescript and a new guide.",
+      "description": "Hi, this is Petrik with this week’s Rails updates and some Hotwire news.",
+      "url": "http://localhost:4000/2022/9/17/this-week-in-rails-handling-reconnects-in-action-cable-no-more-coffeescript-and-a-new-guide-ae13f499",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "petrik"
+      },
+      "datePublished": "2022-09-17T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, September 17, 2022</h5>
+        <h2>Handling reconnects in Action Cable, no more Coffeescript and a new guide.</h2>
+
+        <h6>Posted by petrik</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, this is <a href="https://twitter.com/four54">Petrik</a> with this week’s Rails updates and some Hotwire news.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45887">Add exclude? method to ActionController::Parameters</a></p>
+
+<p><em>exclude?</em> returns <em>true</em> if the given key is not present in the parameters. It is the inverse of <em>include?.</em>
+Adding this method keeps things a little more consistent with a Hash.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>params = ActionController::Parameters.new(id: 1)
+params.exclude?(:name) # =&gt; true
+params.exclude?(:id) # =&gt; false
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/45738">Add ability to handle reconnects with the connected callback</a></p>
+
+<p>If a subscriber misses some messages when the connection is lost, this allows them to handle reconnects with the <em>connected()</em> callback.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>consumer.subscriptions.create("ExampleChannel", {
+  connected({reconnected}) {
+    if (reconnected) {
+      ...
+    }
+    else {
+      ...
+    }
+  }
+});
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/45950">Add Puma to an engine’s Gemfile</a></p>
+
+<p>With the <a href="https://github.com/ruby/ruby/pull/3729">removal</a>of WEBrick from the Ruby standard library, the dummy application in an engine would not start. Adding Puma to the Gemfile makes sure it works out-of-the-box.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46008">Add ssl-mode option to dbconsole command and MySQLDatabaseTasks</a></p>
+
+<p>For MySQL, verifying the identity of the database server requires setting the ssl-mode option to VERIFY_CA or VERIFY_IDENTITY. This option was previously ignored for the dbconsole command and database tasks like creating a database.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45546">Convert rails-ujs to ES2015 modules</a></p>
+
+<p>The rails-ujs code base was the only Coffeescript left in the Rails code base. It has now been migrated to use ES2015 modules and Rollup instead.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45946">Add the Error Reporter Guide</a>
+In Rails 7.0 an <a href="https://github.com/rails/rails/pull/43625">error reporter</a> interface was introduced. It provides a generic interface to report errors, with an adapter API to allow using the service of your choice.
+It now has its own guide!</p>
+
+<p>Rails had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20220910-20220917">23 contributors</a> since last week.</p>
+
+<p>In the Hotwire world there was a new release for Turbo this week:  <a href="https://github.com/hotwired/turbo/releases/tag/v7.2.0-rc.2">v7.2.0-rc.2</a>.</p>
+
+<p>That’s it for this week!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

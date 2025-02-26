@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails (and family) on Lighthouse</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Lighthouse &#8220;version 2&#8221; deployed yesterday, so I&#8217;m officially opening the Rails Lighthouse tracker up for business.  Other spinoff projects such as Prototype and Capistrano have already made the switch. As David has mentioned, this means the current trac instance is deprecated.  It will continue to stay in use for now until everyone has transitioned to Lighthouse.We&#8217;re still figuring out the new workflow with git, Github, and Lighthouse.  I&#8217;ll be working with the Logical Awesome folks to improve the Lighthouse/Github relationship.  I&#8217;m also working with Tim Pope (author of the awesome git-trac tool) and others in #rails-contrib on bringing the same development tools to the new git infrastructure.  Tim also wrote some best practices for contributing to Rails from git." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails (and family) on Lighthouse" />
+  <meta property="og:description" content="Lighthouse &#8220;version 2&#8221; deployed yesterday, so I&#8217;m officially opening the Rails Lighthouse tracker up for business.  Other spinoff projects such as Prototype and Capistrano have already made the switch. As David has mentioned, this means the current trac instance is deprecated.  It will continue to stay in use for now until everyone has transitioned to Lighthouse.We&#8217;re still figuring out the new workflow with git, Github, and Lighthouse.  I&#8217;ll be working with the Logical Awesome folks to improve the Lighthouse/Github relationship.  I&#8217;m also working with Tim Pope (author of the awesome git-trac tool) and others in #rails-contrib on bringing the same development tools to the new git infrastructure.  Tim also wrote some best practices for contributing to Rails from git." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2008/4/15/rails-and-family-on-lighthouse" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails (and family) on Lighthouse" />
+  <meta name="twitter:description" content="Lighthouse &#8220;version 2&#8221; deployed yesterday, so I&#8217;m officially opening the Rails Lighthouse tracker up for business.  Other spinoff projects such as Prototype and Capistrano have already made the switch. As David has mentioned, this means the current trac instance is deprecated.  It will continue to stay in use for now until everyone has transitioned to Lighthouse.We&#8217;re still figuring out the new workflow with git, Github, and Lighthouse.  I&#8217;ll be working with the Logical Awesome folks to improve the Lighthouse/Github relationship.  I&#8217;m also working with Tim Pope (author of the awesome git-trac tool) and others in #rails-contrib on bringing the same development tools to the new git infrastructure.  Tim also wrote some best practices for contributing to Rails from git." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2008/4/15/rails-and-family-on-lighthouse"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails (and family) on Lighthouse",
+      "description": "Lighthouse &#8220;version 2&#8221; deployed yesterday, so I&#8217;m officially opening the Rails Lighthouse tracker up for business.  Other spinoff projects such as Prototype and Capistrano have already made the switch. As David has mentioned, this means the current trac instance is deprecated.  It will continue to stay in use for now until everyone has transitioned to Lighthouse.We&#8217;re still figuring out the new workflow with git, Github, and Lighthouse.  I&#8217;ll be working with the Logical Awesome folks to improve the Lighthouse/Github relationship.  I&#8217;m also working with Tim Pope (author of the awesome git-trac tool) and others in #rails-contrib on bringing the same development tools to the new git infrastructure.  Tim also wrote some best practices for contributing to Rails from git.",
+      "url": "http://localhost:4000/2008/4/15/rails-and-family-on-lighthouse",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rick"
+      },
+      "datePublished": "2008-04-15T23:51:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, April 15, 2008</h5>
+        <h2>Rails (and family) on Lighthouse</h2>
+
+        <h6>Posted by rick</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Lighthouse &#8220;version 2&#8221; deployed yesterday, so I&#8217;m officially opening the <a href="http://rails.lighthouseapp.com">Rails Lighthouse tracker</a> up for business.  Other spinoff projects such as <a href="http://prototype.lighthouseapp.com">Prototype</a> and <a href="http://capistrano.lighthouseapp.com">Capistrano</a> have already made the switch. As David has mentioned, this means the current <a href="http://dev.rubyonrails.org">trac instance</a> is deprecated.  It will continue to stay in use for now until everyone has transitioned to Lighthouse.</p>
+<p>We&#8217;re still figuring out the new workflow with git, Github, and Lighthouse.  I&#8217;ll be working with the <a href="http://logicalawesome.com">Logical Awesome</a> folks to improve the <a href="http://github.com/blog/41-service-integration">Lighthouse/Github relationship</a>.  I&#8217;m also working with Tim Pope (author of the awesome <a href="http://git.tpope.net/?p=git-trac.git;a=summary">git-trac tool</a>) and others in #rails-contrib on bringing the same development tools to the new git infrastructure.  Tim also wrote some <a href="http://www.tpope.net/rails-git-best-practices">best practices for contributing to Rails from git</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

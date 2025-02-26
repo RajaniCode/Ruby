@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails Versions 7.1.5 and 7.2.2 have been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi friends!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails Versions 7.1.5 and 7.2.2 have been released!" />
+  <meta property="og:description" content="Hi friends!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/10/31/Rails-Versions-7-2-2-and-7-1-5-have-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails Versions 7.1.5 and 7.2.2 have been released!" />
+  <meta name="twitter:description" content="Hi friends!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/10/31/Rails-Versions-7-2-2-and-7-1-5-have-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails Versions 7.1.5 and 7.2.2 have been released!",
+      "description": "Hi friends!",
+      "url": "http://localhost:4000/2024/10/31/Rails-Versions-7-2-2-and-7-1-5-have-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "jhawthorn"
+      },
+      "datePublished": "2024-10-31T07:10:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, October 31, 2024</h5>
+        <h2>Rails Versions 7.1.5 and 7.2.2 have been released!</h2>
+
+        <h6>Posted by jhawthorn</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi friends!</p>
+
+<p>I’m happy to announce that Rails 7.1.5 and 7.2.2 have been released. These are regular bugfix releases.</p>
+
+<p>This is likely to be the last set of bug fixes for the 7.1 series, which will continue receiving security patches <a href="https://rubyonrails.org/maintenance#security">until October 1, 2025</a>. 7.2 will continue to receive bug fix releases like this <a href="https://rubyonrails.org/maintenance#bug-fixes">until August 9, 2025</a> followed by another year of security patches.</p>
+
+<p>For those excited for Rails 8.0, we also published a second release candidate yesterday: 8.0.0.rc2. Thanks to everyone who helped us with testing the beta and first release candidate ❤️.</p>
+
+<h2 id="changes-since-714">CHANGES since 7.1.4</h2>
+
+<p>To see a summary of changes, please read the release on GitHub:</p>
+
+<p><a href="https://github.com/rails/rails/releases/tag/v7.1.5">7.1.5 CHANGELOG</a>
+To view the changes for each gem, please read the changelogs on GitHub:</p>
+<ul>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/actioncable/CHANGELOG.md">Action Cable CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/actionmailbox/CHANGELOG.md">Action Mailbox CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/actionmailer/CHANGELOG.md">Action Mailer CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/actionpack/CHANGELOG.md">Action Pack CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/actiontext/CHANGELOG.md">Action Text CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/actionview/CHANGELOG.md">Action View CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/activejob/CHANGELOG.md">Active Job CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/activemodel/CHANGELOG.md">Active Model CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/activerecord/CHANGELOG.md">Active Record CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/activestorage/CHANGELOG.md">Active Storage CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/activesupport/CHANGELOG.md">Active Support CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.5/railties/CHANGELOG.md">Railties CHANGELOG</a></li>
+</ul>
+
+<p><em>Full listing</em></p>
+
+<p>To see the full list of changes, <a href="https://github.com/rails/rails/compare/v7.1.4...v7.1.5">check out all the commits on
+GitHub</a>.</p>
+
+<h2 id="changes-since-721">CHANGES since 7.2.1</h2>
+
+<p>To see a summary of changes, please read the release on GitHub:</p>
+
+<p><a href="https://github.com/rails/rails/releases/tag/v7.2.2">7.2.2 CHANGELOG</a>
+To view the changes for each gem, please read the changelogs on GitHub:</p>
+<ul>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/actioncable/CHANGELOG.md">Action Cable CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/actionmailbox/CHANGELOG.md">Action Mailbox CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/actionmailer/CHANGELOG.md">Action Mailer CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/actionpack/CHANGELOG.md">Action Pack CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/actiontext/CHANGELOG.md">Action Text CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/actionview/CHANGELOG.md">Action View CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/activejob/CHANGELOG.md">Active Job CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/activemodel/CHANGELOG.md">Active Model CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/activerecord/CHANGELOG.md">Active Record CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/activestorage/CHANGELOG.md">Active Storage CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/activesupport/CHANGELOG.md">Active Support CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.2.2/railties/CHANGELOG.md">Railties CHANGELOG</a></li>
+</ul>
+
+<p><em>Full listing</em></p>
+
+<p>To see the full list of changes, <a href="https://github.com/rails/rails/compare/v7.2.1...v7.2.2">check out all the commits on
+GitHub</a>.</p>
+
+<h2 id="sha-256">SHA-256</h2>
+
+<p>If you’d like to verify that your gem is the same as the one I’ve uploaded,
+please use these SHA-256 hashes.</p>
+
+<p>Here are the checksums for 7.1.5:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2a67502824e4ce0cd3f30671dc7ebdb2200707b69b36d07d803cbbb968332b4b  pkg/activesupport-7.1.5.gem
+dd95c77495a9e63e9c32f03a79085145504b799a7a1645bdf7faf61f10e09814  pkg/activemodel-7.1.5.gem
+a319c632365fb966b21c55db91d91c71db24da3891f96cab68eb7ab0080e2669  pkg/activerecord-7.1.5.gem
+c1c84e7a431acdacc2dc321cf926a5f9606e42e21fb042a40dc43d4896bf2658  pkg/actionview-7.1.5.gem
+e352ddf88d334dc02178a476905cff675b0fb05fd316904589c8083a9fb58e40  pkg/actionpack-7.1.5.gem
+7ed4f43577c6ed840d662936f82fdd6b9e26011a9a62b9e2f2324691b925b2d8  pkg/activejob-7.1.5.gem
+91b5d7bc03c14c940a5a85df9d48246fb3e9eae77b04eadb83f890be4ae602ad  pkg/actionmailer-7.1.5.gem
+3d818fd712595d55e28d94b0067a32a64aaad36a55b64e282a97fa67fa3824f2  pkg/actioncable-7.1.5.gem
+cf561be5bc3f2d8683dd2c24c3ceba51bd58da424a54a77f59bdd1dcbc338ef5  pkg/activestorage-7.1.5.gem
+593b36f6e597f0053b11a7c2e86d9e69b2ee1d007f81394fccb5bbc4c815b31a  pkg/actionmailbox-7.1.5.gem
+be560b01b8e11dd622bbc2992de3c6e8aacbaf31fb28b91544895a6b39281a9a  pkg/actiontext-7.1.5.gem
+4a0c436a1d5a6c7b22e823dd0abf87bda57ccf9af6051cc56f5204fd77615902  pkg/railties-7.1.5.gem
+9105d8c40f00afb3bc2ce64ee9d8cc2d9ccddd7dc8d5ca4260b763fd34b57138  pkg/rails-7.1.5.gem
+</code></pre></div></div>
+
+<p>Here are the checksums for 7.2.2:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>436360924cf758dfa9d60ab22a8afe6da8babf6f1286d4087f0a9c576bf8328a  pkg/activesupport-7.2.2.gem
+46e8f06585d96615c4d99814067ad736c079e1fc9782feb4e3411e2362ee539c  pkg/activemodel-7.2.2.gem
+135954424b33093a0c77b4d6c27f3c055dfc2aaab762e2e9ba88134c2d071aeb  pkg/activerecord-7.2.2.gem
+e95da1f3d0e211a5817be1254e87622db898ea5e9975fb92cd01cde661f51776  pkg/actionview-7.2.2.gem
+c948965f3e2917acd3eb2548f06dd98778790d8dff995cc493c82226bbe59295  pkg/actionpack-7.2.2.gem
+704e5f6166a33bc122387525ad12d5ab387d44ad25cdce0fd23574b3dbed2a14  pkg/activejob-7.2.2.gem
+1cfe0e50ec5fb43ff580e3d251ecbebd19dbaad64dc033e80668aff04831d961  pkg/actionmailer-7.2.2.gem
+5355e87023207318c0b25c7ea90d2a6e76aacd782a78e9aaad47e7119c8cb94b  pkg/actioncable-7.2.2.gem
+2448162d87a874586515a15caae224b17c4693459e321d68ab54914de94b630e  pkg/activestorage-7.2.2.gem
+91df37614f57854a4f18278ab4b1340b8e689c65d7397a735887f523ccfaa5d6  pkg/actionmailbox-7.2.2.gem
+d58c5ab47501ea2b6eed48a520eb647f446a749109cecec0512c6416b683ecc5  pkg/actiontext-7.2.2.gem
+e8fd3dd1f0e1ff7f6f3d8e5305b0a8476a35cd840d7031f467e1a7d08efbf57c  pkg/railties-7.2.2.gem
+bf9d8847b70d2b84717b7b41d2e266cf268b8bf70ad0683a84cfd1657c1b8dd7  pkg/rails-7.2.2.gem
+</code></pre></div></div>
+
+<p>As always, huge thanks to the many contributors who helped with this release.</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

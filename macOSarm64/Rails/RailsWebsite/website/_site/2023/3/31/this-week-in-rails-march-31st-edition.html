@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; March 31st 2023 edition 🌸</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s zzak, writing in from Aomori, Japan, home of the great Jonan Scheffler.2023 is officially 25% over, time to enjoy 🌸 and explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="March 31st 2023 edition 🌸" />
+  <meta property="og:description" content="Hi, it’s zzak, writing in from Aomori, Japan, home of the great Jonan Scheffler.2023 is officially 25% over, time to enjoy 🌸 and explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/3/31/this-week-in-rails-march-31st-edition" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="March 31st 2023 edition 🌸" />
+  <meta name="twitter:description" content="Hi, it’s zzak, writing in from Aomori, Japan, home of the great Jonan Scheffler.2023 is officially 25% over, time to enjoy 🌸 and explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/3/31/this-week-in-rails-march-31st-edition"
+      },
+      "name": "Ruby on Rails",
+      "headline": "March 31st 2023 edition 🌸",
+      "description": "Hi, it’s zzak, writing in from Aomori, Japan, home of the great Jonan Scheffler.2023 is officially 25% over, time to enjoy 🌸 and explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2023/3/31/this-week-in-rails-march-31st-edition",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2023-03-31T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, March 31, 2023</h5>
+        <h2>March 31st 2023 edition 🌸</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://github.com/zzak">zzak</a>, writing in from <a href="https://aomori-tourism.com/en/spot/detail_101.html">Aomori, Japan</a>, home of the great <a href="https://twitter.com/thejonanshow">Jonan Scheffler</a>.<br />
+<strong>2023 is officially 25% over, time to enjoy 🌸 and explore this week’s changes in the Rails codebase.</strong></p>
+
+<p><a href="https://github.com/rails/rails/pull/47823">Add debug gem back to the Gemfile template</a><br />
+With the release of Ruby v3.2.2, which <a href="https://www.ruby-lang.org/en/news/2023/03/30/ruby-3-2-2-released/">happened today</a>, we can safely add the “debug” gem back to the Gemfile template for generated Rails apps.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47797">Infer <em>foreign_key</em> when <em>inverse_of</em> is present</a><br />
+This PR makes <code class="language-plaintext highlighter-rouge">has_one</code> and <code class="language-plaintext highlighter-rouge">has_many</code> associations automatically infer the <code class="language-plaintext highlighter-rouge">foreign_key</code> option when the <code class="language-plaintext highlighter-rouge">inverse_of</code> option is present.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47793">Action Cable: <em>assert_broadcasts</em> return the messages that were broadcast</a><br />
+This PR makes Action Cable’s <code class="language-plaintext highlighter-rouge">assert_broadcasts</code> return the messages that were broadcast.</p>
+
+<p>This way you can more easily test them, for example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">messages</span> <span class="o">=</span> <span class="n">assert_broadcasts</span><span class="p">(</span><span class="s2">"test"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">ActionCable</span><span class="p">.</span><span class="nf">server</span><span class="p">.</span><span class="nf">broadcast</span> <span class="s2">"test"</span><span class="p">,</span> <span class="p">{</span> <span class="ss">message: </span><span class="s2">"one"</span> <span class="p">}</span>
+  <span class="no">ActionCable</span><span class="p">.</span><span class="nf">server</span><span class="p">.</span><span class="nf">broadcast</span> <span class="s2">"test"</span><span class="p">,</span> <span class="p">{</span> <span class="ss">message: </span><span class="s2">"two"</span> <span class="p">}</span>
+<span class="k">end</span>
+<span class="n">assert_equal</span> <span class="mi">2</span><span class="p">,</span> <span class="n">messages</span><span class="p">.</span><span class="nf">length</span>
+<span class="n">assert_equal</span><span class="p">({</span> <span class="s2">"message"</span> <span class="o">=&gt;</span> <span class="s2">"one"</span> <span class="p">},</span> <span class="n">messages</span><span class="p">.</span><span class="nf">first</span><span class="p">)</span>
+<span class="n">assert_equal</span><span class="p">({</span> <span class="s2">"message"</span> <span class="o">=&gt;</span> <span class="s2">"two"</span> <span class="p">},</span> <span class="n">messages</span><span class="p">.</span><span class="nf">last</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>This is helpful if you expect lots of messages to be broadcast or if you want to only match on some element of the data; <code class="language-plaintext highlighter-rouge">assert_broadcast_on</code> doesn’t work well in either of those scenarios.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47773">Active Storage: Safe for Direct Uploads in js Libraries or Frameworks</a><br />
+This PR allows support for additional headers when using direct uploads from the client side, in order to support various types of authentication such as Bearer tokens, API keys, Basic auth, OAuth 1.0, Digest auth, etc.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47771">Add zettabyte to <em>number_to_human_size</em></a><br />
+Zettabytes (ZB) has been added to Active Support.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">ActiveSupport</span><span class="o">::</span><span class="no">NumberHelper</span><span class="p">.</span><span class="nf">number_to_human_size</span><span class="p">(</span><span class="mi">1</span><span class="p">.</span><span class="nf">kilobyte</span><span class="o">**</span><span class="mi">7</span><span class="p">)</span>
+<span class="c1">#=&gt; "1 ZB"</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/47758">Set charset in content type response headers (OWASP)</a><br />
+This PR ensures the charset is included in all Content-Type headers emitted from Rails.</p>
+
+<p><a href="https://github.com/OWASP/ASVS/blob/v4.0.3/4.0/en/0x22-V14-Config.md#v144-http-security-headers">OWASP</a> recommends that every HTTP Response contains a Content-Type header with safe character set.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47754">Active Storage: Remove <em>mini_mime</em> usage in favour of <em>marcel</em></a><br />
+One less dependency to worry about upgrading!</p>
+
+<p><a href="https://github.com/rails/rails/pull/47753">Fix Rails generated index name being too long</a><br />
+Auto generated index names are now limited to 62 bytes, which fits within the default index name length limits for MySQL, Postgres and SQLite.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47747">Implement <em>marshal_dump</em> and <em>marshal_load</em> on ActiveRecord::Base</a><br />
+A more stable and optimized Marshal serializer for Active Record models has been introduced.</p>
+
+<p>You can opt in via <code class="language-plaintext highlighter-rouge">config.active_record.marshalling_format_version = 7.1</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47737">Add ActiveSupport load hook for <em>ActionText::EncryptedRichText</em></a><br />
+Previously <code class="language-plaintext highlighter-rouge">ActionText::Record</code> and <code class="language-plaintext highlighter-rouge">ActionText::RichText</code> have dedicated load hooks.<br />
+This PR adds an additional hook for <code class="language-plaintext highlighter-rouge">ActionText::EncryptedRichText</code>, so that external libraries have a similarly simple way to run code after the subclass is loaded.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47732">Implement <em>provider_job_id</em> for Backburner jobs</a><br />
+This PR implements <code class="language-plaintext highlighter-rouge">provider_job_id</code> for the Beanstalk ActiveJob QueueAdapter.<br />
+For example, if you want to be able to cancel jobs:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Beaneater</span><span class="o">::</span><span class="no">Job</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+  <span class="no">Backburner</span><span class="o">::</span><span class="no">Connection</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Backburner</span><span class="p">.</span><span class="nf">configuration</span><span class="p">.</span><span class="nf">beanstalk_url</span><span class="p">),</span>
+  <span class="p">{</span><span class="ss">id: </span><span class="n">job</span><span class="p">.</span><span class="nf">provider_job_id</span><span class="p">}</span>
+<span class="p">).</span><span class="nf">delete</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/47718">Load Rake tasks only once for command suggestions</a><br />
+After this PR the <code class="language-plaintext highlighter-rouge">bin/rails --help</code> command will now list only framework and plugin commands. Rake tasks defined in <code class="language-plaintext highlighter-rouge">lib/tasks/*.rake</code> files will no longer be included.<br />
+For a list of those tasks, use <code class="language-plaintext highlighter-rouge">rake -T</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47717">Include READMEs in main framework pages of the API documentation</a><br />
+This PR teaches RDoc to include the Rails API docs to include each of the relevant libraries READMEs for the top-level constant.<br />
+Previously many of these libraries modules had empty descriptions in the API docs, so now they have all of the relevant information which is a nice improvement!</p>
+
+<p><a href="https://github.com/rails/rails/pull/47687">Alias ActionController::Parameters except as without</a><br />
+This PR adds support for <code class="language-plaintext highlighter-rouge">without</code> as an alias to <code class="language-plaintext highlighter-rouge">except</code> on StrongParameters.</p>
+
+<p>For example, you can now do:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vi">@params</span><span class="p">[</span><span class="ss">:person</span><span class="p">].</span><span class="nf">without</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Which is the same as:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="vi">@params</span><span class="p">[</span><span class="ss">:person</span><span class="p">].</span><span class="nf">except</span><span class="p">(</span><span class="ss">:name</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/47186">Rubocop markdown snippets</a><br />
+This PR adds <a href="https://github.com/rubocop/rubocop-md">rubocop-md</a> for linting all markdown files.<br />
+Ensuring any code snippets in the guides also follow the Rails coding conventions, without having to manually review every change that comes in.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47779">Add markdownlint to guides</a><br />
+A follow up to the previous PR, now all markdown content in the guides is linted using <a href="https://github.com/markdownlint/markdownlint">markdownlint</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47150">Allow destroying active storage variants</a><br />
+When creating active storage variants, <code class="language-plaintext highlighter-rouge">ActiveStorage::VariantRecord</code> is inserted, then a file is uploaded.<br />
+If the upload fails, the file can be missing even though an <code class="language-plaintext highlighter-rouge">ActiveStorage::VariantRecord</code> exists in the database.<br />
+In this case, we can now delete the corresponding record of just one variant via this API:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">attachable</span><span class="p">.</span><span class="nf">variant</span><span class="p">(</span><span class="ss">resize_to_limit: </span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]).</span><span class="nf">destroy</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/46101">Allow Attachables to override default template when attachment is missing</a><br />
+When rendering ActionText attachments, if the underlying attachable has been removed, currently Rails renders the <code class="language-plaintext highlighter-rouge">action_text/attachables/missing_attachable</code> partial for all attachable types. Consuming applications can override this partial, but it is global across all attachable models.</p>
+
+<p>Now you can render model-specific partials when necessary, for example, you could render a placeholder image for a file attachment or the text “Deleted User” for a User attachment.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-03-24%7D...main@%7B2023-03-31%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230324-20230331">34 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

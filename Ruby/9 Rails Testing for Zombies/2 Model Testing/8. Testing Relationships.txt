@@ -1,0 +1,62 @@
+8. Testing Relationships
+
+
+Create a test to ensure that the hello_world tweet contains zombie Ash. 
+
+
+zombies.yml
+ash:
+  id: 1
+  name: 'Ash'
+  graveyard: 'Oak Park Cemetary'
+
+
+tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+
+  validates :status, presence: true, length: {within: 3..140, allow_blank: true}
+  validates :zombie, presence: true
+  
+  def brains?
+    status =~ /(brains|breins)/i
+  end
+
+  def show_author_summary
+    self.status = self.zombie.zombie_summary
+  end
+
+  def status_image
+    image = ZwitPic.get_status_image(self.id) # This is returning an array
+    {image_name: image[0], image_url: image[1]}
+  end
+end
+
+
+tweets.yml
+hello_world:
+  zombie_id: 1
+  status: "Hello World"
+
+
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  test "contains a zombie" do
+    
+  end
+end
+
+
+Answer:
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  test "contains a zombie" do
+    assert_equal zombies(:ash), tweets(:hello_world).zombie
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.022790s, 43.8783 tests/s, 175.5132 assertions/s.

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails Versions 7.0.8.3 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi folks," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails Versions 7.0.8.3 has been released!" />
+  <meta property="og:description" content="Hi folks," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/5/18/Rails-Versions-7-0-8-3-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails Versions 7.0.8.3 has been released!" />
+  <meta name="twitter:description" content="Hi folks," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/5/18/Rails-Versions-7-0-8-3-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails Versions 7.0.8.3 has been released!",
+      "description": "Hi folks,",
+      "url": "http://localhost:4000/2024/5/18/Rails-Versions-7-0-8-3-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rafaelfranca"
+      },
+      "datePublished": "2024-05-18T01:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, May 18, 2024</h5>
+        <h2>Rails Versions 7.0.8.3 has been released!</h2>
+
+        <h6>Posted by rafaelfranca</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi folks,</p>
+
+<p>Rails versions 7.0.8.3 has been released!</p>
+
+<p>These is a security release, and substitute the 7.0.8.2 that was previously released by has a bug with Trix CSS.</p>
+
+<p>Here is a list of security issues that these releases address:</p>
+
+<ul>
+  <li><a href="https://discuss.rubyonrails.org/t/xss-vulnerabilities-in-trix-editor/85803">CVE-2024-34341 XSS Vulnerabilities in Trix Editor</a></li>
+</ul>
+
+<p>Here are the shasums for the released gems:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum *7.0.8.3*
+fc6c722547a6c42d62a1b728db60f28f97da44f1  actioncable-7.0.8.3.gem
+7abdf2c73233bf909eedf7ba56aa910b6d877c87  actionmailbox-7.0.8.3.gem
+58315b74710473a62aca408b7e54e2ce6d1242f6  actionmailer-7.0.8.3.gem
+27430a6d013397e7e7202c05b8d3e98c574596c5  actionpack-7.0.8.3.gem
+2798ab84e24a77fd7f9cd595411a9be35a35af79  actiontext-7.0.8.3.gem
+76bf89bf6c6ce8ffc1aa6278d28cdeebcd9aaa8e  actionview-7.0.8.3.gem
+e67983e7616f26e74e87b0bac5c01eb497cea30b  activejob-7.0.8.3.gem
+e7a2a0f6bb9cebafb97bf08d6203733e5a01abc9  activemodel-7.0.8.3.gem
+30c1a6898cf9d651058c3ff1761f7e8c92a21407  activerecord-7.0.8.3.gem
+a8642b5bb90c124cbf1bd0c5797d57270b7c1a19  activestorage-7.0.8.3.gem
+0ac0dfde07db38ad1e669c97cb3a0c4b7e24524a  activesupport-7.0.8.3.gem
+65ef7f5cade6848e777087256bd03e4c7e57ac13  rails-7.0.8.3.gem
+b4727d188065cd83fa3686e2985ca8ff1d74e62b  railties-7.0.8.3.gem
+</code></pre></div></div>
+
+<p>Have a good day!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

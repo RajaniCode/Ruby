@@ -1,0 +1,853 @@
+###########################################################################################################################
+
+# Ruby on Rails
+
+###########################################################################################################################
+***************************************************************************************************************************
+
+# Ruby on Rails App http 127.0.0.1 3000
+
+***************************************************************************************************************************
+===========================================================================================================================
+
+# ruby # gem # bundler # bundle # rake # rails
+
+===========================================================================================================================
+
+% ruby --version
+[
+ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+]
+
+% gem --version
+[
+3.6.3
+]
+
+% bundler --version
+[
+Bundler version 2.6.3
+]
+
+% bundle --version
+[
+Bundler version 2.6.3
+]
+
+% rake --version
+[
+rake, version 13.2.1
+]
+
+% rails --version
+[
+Rails 8.0.1
+]
+
+===========================================================================================================================
+
+# Rails New App
+
+===========================================================================================================================
+
+# 1 # Create Rails App
+% rails new store
+
+% cd store
+
+# Directory Structure
+% tree
+[
+.
+├── Dockerfile
+├── Gemfile
+├── Gemfile.lock
+├── README.md
+├── Rakefile
+├── app
+│   ├── assets
+│   │   ├── images
+│   │   └── stylesheets
+│   │       └── application.css
+│   ├── controllers
+│   │   ├── application_controller.rb
+│   │   └── concerns
+│   ├── helpers
+│   │   └── application_helper.rb
+│   ├── javascript
+│   │   ├── application.js
+│   │   └── controllers
+│   │       ├── application.js
+│   │       ├── hello_controller.js
+│   │       └── index.js
+│   ├── jobs
+│   │   └── application_job.rb
+│   ├── mailers
+│   │   └── application_mailer.rb
+│   ├── models
+│   │   ├── application_record.rb
+│   │   └── concerns
+│   └── views
+│       ├── layouts
+│       │   ├── application.html.erb
+│       │   ├── mailer.html.erb
+│       │   └── mailer.text.erb
+│       └── pwa
+│           ├── manifest.json.erb
+│           └── service-worker.js
+├── bin
+│   ├── brakeman
+│   ├── bundle
+│   ├── dev
+│   ├── docker-entrypoint
+│   ├── importmap
+│   ├── jobs
+│   ├── kamal
+│   ├── rails
+│   ├── rake
+│   ├── rubocop
+│   ├── setup
+│   └── thrust
+├── config
+│   ├── application.rb
+│   ├── boot.rb
+│   ├── cable.yml
+│   ├── cache.yml
+│   ├── credentials.yml.enc
+│   ├── database.yml
+│   ├── deploy.yml
+│   ├── environment.rb
+│   ├── environments
+│   │   ├── development.rb
+│   │   ├── production.rb
+│   │   └── test.rb
+│   ├── importmap.rb
+│   ├── initializers
+│   │   ├── assets.rb
+│   │   ├── content_security_policy.rb
+│   │   ├── filter_parameter_logging.rb
+│   │   └── inflections.rb
+│   ├── locales
+│   │   └── en.yml
+│   ├── master.key
+│   ├── puma.rb
+│   ├── queue.yml
+│   ├── recurring.yml
+│   ├── routes.rb
+│   └── storage.yml
+├── config.ru
+├── db
+│   ├── cable_schema.rb
+│   ├── cache_schema.rb
+│   ├── queue_schema.rb
+│   └── seeds.rb
+├── lib
+│   └── tasks
+├── log
+│   └── development.log
+├── public
+│   ├── 400.html
+│   ├── 404.html
+│   ├── 406-unsupported-browser.html
+│   ├── 422.html
+│   ├── 500.html
+│   ├── icon.png
+│   ├── icon.svg
+│   └── robots.txt
+├── script
+├── storage
+├── test
+│   ├── application_system_test_case.rb
+│   ├── controllers
+│   ├── fixtures
+│   │   └── files
+│   ├── helpers
+│   ├── integration
+│   ├── mailers
+│   ├── models
+│   ├── system
+│   └── test_helper.rb
+├── tmp
+│   ├── cache
+│   │   └── bootsnap
+│   │       ├── compile-cache-iseq
+│   │       │   ├── 00
+.   .       .   .
+.   .       .   .
+.   .       .   .
+│   │       │   └── ff
+│   │       └── load-path-cache
+│   ├── local_secret.txt
+│   ├── pids
+│   └── storage
+└── vendor
+    └── javascript
+]
+
+# 2 # Rails Server
+% bin/rails server
+
+# Terminal Window # curl # open
+% curl http://127.0.0.1:3000/
+% open http://127.0.0.1:3000/
+
+# Original Terminal Window 
+<control + c>
+
+===========================================================================================================================
+
+# Database Model
+
+===========================================================================================================================
+
+# 1 # Creating a Database Model
+% bin/rails generate model Product name:string
+[
+      invoke  active_record
+      create    db/migrate/20250204045540_create_products.rb
+      create    app/models/product.rb
+      invoke    test_unit
+      create      test/models/product_test.rb
+      create      test/fixtures/products.yml
+]
+
+# db/migrate/<timestamp>_create_products.rb
+% cat db/migrate/20250204045540_create_products.rb
+[
+class CreateProducts < ActiveRecord::Migration[8.0]
+  def change
+    create_table :products do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+end
+]
+
+# Active Record Model
+% cat app/models/product.rb
+[
+class Product < ApplicationRecord
+end
+]
+
+# 2 # Running Migrations
+% bin/rails db:migrate
+
+===========================================================================================================================
+
+# Active Record 
+
+===========================================================================================================================
+
+# 1 # Rails Console # Rails.version # RUBY_VERSION # RUBY_DESCRIPTION
+Loading development environment (Rails 8.0.1)
+store(dev)> Rails.version
+=> "8.0.1"
+store(dev)> RUBY_VERSION
+=> "3.4.1"
+store(dev)> RUBY_DESCRIPTION
+=> "ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +YJIT +PRISM [arm64-darwin24]"
+
+# 2 # Active Record Model
+store(dev)> Product.column_names
+=> ["id", "name", "created_at", "updated_at"]]
+
+# 3 # Creating Records
+store(dev)> product = Product.new(name: "Bloomberg")
+=> #<Product:0x000000010dc302e0 id: nil, name: "Bloomberg", created_at: nil, updated_at: nil>
+
+# 4 # Save Record
+store(dev)> product.save
+  TRANSACTION (0.3ms)  BEGIN immediate TRANSACTION /*application='Store'*/
+  Product Create (6.0ms)  INSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('Bloomberg', '2025-02-04 05:02:12.584379', '2025-02-04 05:02:12.584379') RETURNING "id" /*application='Store'*/
+  TRANSACTION (1.4ms)  COMMIT TRANSACTION /*application='Store'*/
+=> true
+
+# 5 # Rails updates the object in memory with the database record id along with the created_at and updated_at timestamps
+store(dev)> product
+=> 
+#<Product:0x000000010dc302e0
+ id: 1,
+ name: "Bloomberg",
+ created_at: "2025-02-04 05:02:12.584379000 +0000",
+ updated_at: "2025-02-04 05:02:12.584379000 +0000">
+
+# 6 # Similar to save, create to instantiate and save an Active Record object in a single call
+store(dev)> Product.create(name: "GitHub")
+  TRANSACTION (2.9ms)  BEGIN immediate TRANSACTION /*application='Store'*/
+  Product Create (11.1ms)  INSERT INTO "products" ("name", "created_at", "updated_at") VALUES ('GitHub', '2025-02-04 05:08:45.229133', '2025-02-04 05:08:45.229133') RETURNING "id" /*application='Store'*/
+  TRANSACTION (1.1ms)  COMMIT TRANSACTION /*application='Store'*/
+=> 
+#<Product:0x000000010c5ae8a0
+ id: 2,
+ name: "GitHub",
+ created_at: "2025-02-04 05:08:45.229133000 +0000",
+ updated_at: "2025-02-04 05:08:45.229133000 +0000">
+
+# 7 # Querying Records
+store(dev)> Product.all
+  Product Load (1.6ms)  SELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='Store'*/
+=> 
+[#<Product:0x000000010c546548
+  id: 1,
+  name: "Bloomberg",
+  created_at: "2025-02-04 05:02:12.584379000 +0000",
+  updated_at: "2025-02-04 05:02:12.584379000 +0000">,
+ #<Product:0x000000010c546408
+  id: 2,
+  name: "GitHub",
+  created_at: "2025-02-04 05:08:45.229133000 +0000",
+  updated_at: "2025-02-04 05:08:45.229133000 +0000">]
+
+# 8 # Filtering & Ordering Records
+store(dev)> Product.where(name: "Bloomberg")
+  Product Load (0.3ms)  SELECT "products".* FROM "products" WHERE "products"."name" = 'Bloomberg' /* loading for pp */ LIMIT 11 /*application='Store'*/
+=> 
+[#<Product:0x00000001086bd718
+  id: 1,
+  name: "Bloomberg",
+  created_at: "2025-02-04 05:02:12.584379000 +0000",
+  updated_at: "2025-02-04 05:02:12.584379000 +0000">]
+
+# 9 # Order(name: :asc) to sort records by name in ascending alphabetical order by name
+# Or
+# Order(name: :desc) to sort records by name in descending alphabetical order by name
+store(dev)> Product.order(name: :desc)
+  Product Load (0.6ms)  SELECT "products".* FROM "products" /* loading for pp */ ORDER BY "products"."name" DESC LIMIT 11 /*application='Store'*/
+=> 
+[#<Product:0x00000001086ba298
+  id: 2,
+  name: "GitHub",
+  created_at: "2025-02-04 05:08:45.229133000 +0000",
+  updated_at: "2025-02-04 05:08:45.229133000 +0000">,
+ #<Product:0x00000001086ba158
+  id: 1,
+  name: "Bloomberg",
+  created_at: "2025-02-04 05:02:12.584379000 +0000",
+  updated_at: "2025-02-04 05:02:12.584379000 +0000">]
+
+# 10 # Finding Records
+store(dev)> Product.find(1)
+  Product Load (0.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='Store'*/
+=> 
+#<Product:0x00000001086b6198
+ id: 1,
+ name: "Bloomberg",
+ created_at: "2025-02-04 05:02:12.584379000 +0000",
+ updated_at: "2025-02-04 05:02:12.584379000 +0000">
+
+# 11 # Updating Records # find
+store(dev)> product = Product.find(1)
+  Product Load (1.1ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='Store'*/
+=> 
+#<Product:0x00000001086b3358
+...
+
+# 12 # Updating Records # update
+store(dev)> product.update(name: "Zendesk")
+  TRANSACTION (0.1ms)  BEGIN immediate TRANSACTION /*application='Store'*/
+  Product Update (1.7ms)  UPDATE "products" SET "name" = 'Zendesk', "updated_at" = '2025-02-04 05:15:31.331471' WHERE "products"."id" = 1 /*application='Store'*/
+  TRANSACTION (0.1ms)  COMMIT TRANSACTION /*application='Store'*/
+=> true
+
+# 13 # Confirm the update of the name of the "T-Shirt" product to "Shoes" in the database by Product.all
+store(dev)> Product.all
+  Product Load (0.2ms)  SELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='Store'*/
+=> 
+[#<Product:0x000000010861c458
+  id: 1,
+  name: "Zendesk",
+  created_at: "2025-02-04 05:02:12.584379000 +0000",
+  updated_at: "2025-02-04 05:15:31.331471000 +0000">,
+ #<Product:0x000000010861c318
+  id: 2,
+  name: "GitHub",
+  created_at: "2025-02-04 05:08:45.229133000 +0000",
+  updated_at: "2025-02-04 05:08:45.229133000 +0000">]
+
+# 14 # Revert the name "Zendesk" to "Bloomberg" # find
+store(dev)> product = Product.find(1)
+  Product Load (0.2ms)  SELECT "products".* FROM "products" WHERE "products"."id" = 1 LIMIT 1 /*application='Store'*/
+=> 
+#<Product:0x000000010c5af520
+...
+
+# 15 # Revert the name "Zendesk" to "Bloomberg" # update
+store(dev)> product.name = "Bloomberg"
+=> "Bloomberg"
+
+# 16 # Deleting Records
+store(dev)> product.destroy
+  TRANSACTION (0.6ms)  BEGIN immediate TRANSACTION /*application='Store'*/
+  Product Destroy (1.3ms)  DELETE FROM "products" WHERE "products"."id" = 1 /*application='Store'*/
+  TRANSACTION (0.1ms)  COMMIT TRANSACTION /*application='Store'*/
+=> 
+#<Product:0x000000010c5af520
+ id: 1,
+ name: "Bloomberg",
+ created_at: "2025-02-04 05:02:12.584379000 +0000",
+ updated_at: "2025-02-04 05:15:31.331471000 +0000">
+
+# 17 # Confirm the deleted the T-Shirt product from our database, with Product.all to see that it only returns Pants
+store(dev)> Product.all
+  Product Load (0.3ms)  SELECT "products".* FROM "products" /* loading for pp */ LIMIT 11 /*application='Store'*/
+=> 
+[#<Product:0x000000010c5a6ba0
+  id: 2,
+  name: "GitHub",
+  created_at: "2025-02-04 05:08:45.229133000 +0000",
+  updated_at: "2025-02-04 05:08:45.229133000 +0000">]
+
+# 18 # Validations # Add a presence validation to the Product model
+# Terminal New Window # validates :name, presence: true # Reload!
+% nano app/models/product.rb
+[
+class Product < ApplicationRecord
+  validates :name, presence: true
+end
+]
+% cat app/models/product.rb
+
+# 19 # Reload!
+# Original Terminal Window
+store(dev)> reload!
+Reloading...
+=> nil
+
+# 20 # Create a Product without a name in the Rails console for false # new
+store(dev)> product = Product.new
+=> #<Product:0x000000010861c6d8 id: nil, name: nil, created_at: nil, updated_at: nil>
+
+# 21 # Create a Product without a name in the Rails console for false # save
+store(dev)> product.save
+=> false
+
+# 22 # Errors # List of errors generated by validations, call errors on the instance that returns an ActiveModel::Errors
+store(dev)> product.errors
+=> #<ActiveModel::Errors [#<ActiveModel::Error attribute=name, type=blank, options={}>]>
+
+# 23 # Errors # Generate friendly error messages 
+store(dev)> product.errors.full_messages
+=> ["Name can't be blank"]
+
+# 24 # Exit
+store(dev)> exit
+
+===========================================================================================================================
+
+# CRUD 
+
+===========================================================================================================================
+
+# 1 # CRUD Routes 
+[
+get "/products", to: "products#index"
+
+get "/products/new", to: "products#new"
+post "/products", to: "products#create"
+
+get "/products/:id", to: "products#show"
+
+get "/products/:id/edit", to: "products#edit"
+patch "/products/:id", to: "products#update"
+put "/products/:id", to: "products#update"
+
+delete "/products/:id", to: "products#destroy"
+]
+# Resource Routes
+# Original Terminal Window
+% nano config/routes.rb
+[
+Rails.application.routes.draw do
+  resources :products
+end
+]
+% cat config/routes.rb
+
+# 2 # Routes Command # Display all the routes
+% bin/rails routes
+[
+...
+      Prefix Verb   URI Pattern                     	Controller#Action
+                    /assets                         	Propshaft::Server
+    products GET    /products(.:format)             	products#index
+             POST   /products(.:format)             	products#create
+ new_product GET    /products/new(.:format)         	products#new
+edit_product GET    /products/:id/edit(.:format)	products#edit
+     product GET    /products/:id(.:format)         	products#show
+             PATCH  /products/:id(.:format)         	products#update
+             PUT    /products/:id(.:format)         	products#update
+             DELETE /products/:id(.:format)         	products#destroy
+...
+]
+
+# 3 # Controllers & Actions
+# Generate ProductsController with an index action
+# Having set up routes, skip that part of the generator using a flag
+% bin/rails generate controller Products index --skip-routes
+[
+      create  app/controllers/products_controller.rb
+      invoke  erb
+      create    app/views/products
+      create    app/views/products/index.html.erb
+      invoke  test_unit
+      create    test/controllers/products_controller_test.rb
+      invoke  helper
+      create    app/helpers/products_helper.rb
+      invoke    test_unit
+]
+
+# 4 # Rails root route should render the Products index action by adding # root "products#index"
+% nano config/routes.rb
+[
+Rails.application.routes.draw do
+  root "products#index"
+  resources :products
+end
+]   
+% cat config/routes.rb 
+
+# 5 # index
+% nano app/views/products/index.html.erb 
+[
+<h1>Ruby on Rails App</h1>
+
+<h2>Products</h2>
+
+<div id="products">
+  <% @products.each do |product| %>
+      <ul><li><h3><%= link_to product.name, product %></h3></li></ul>
+  <% end %>
+</div>
+
+<%= link_to "Add", new_product_path %>
+]
+% cat app/views/products/index.html.erb
+
+# 6 # show
+% nano app/views/products/show.html.erb
+[
+<h1>Ruby on Rails App</h1>
+
+<h2>Name</h2>
+  
+<h3><%= @product.name %></h3>
+  
+<%= link_to "Back", products_path %> | <%= link_to "Edit", edit_product_path(@product) %>
+  
+<p><%= button_to "Delete", @product, method: :delete, data: { turbo_confirm: "Are you sure?" } %></p>
+]
+% cat app/views/products/show.html.erb
+
+# 7 # new
+% nano app/views/products/new.html.erb
+[
+<h1>Ruby on Rails App</h1>
+
+<h2>Add</h2>
+
+<h3><%= render "form", product: @product %></h3>
+<%= link_to "Cancel", products_path %>
+]
+% cat app/views/products/new.html.erb
+
+# 8 # edit
+% nano app/views/products/edit.html.erb
+[
+<h1>Ruby on Rails App</h1>
+
+<h2>Edit</h2>
+
+<h3><%= render "form", product: @product %></h3>
+
+<p><%= link_to "Cancel", @product %></p>
+]
+% cat app/views/products/edit.html.erb
+
+# 9 # _form
+# Feature called "partials" help reuse a view in multiple places
+% nano app/views/products/_form.html.erb
+[
+<%= form_with model: product do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.submit %></p>
+<% end %>
+]
+% cat app/views/products/_form.html.erb
+
+# 10 #  CRUD # NB # Handling Errors # redirect_to @product
+% nano app/controllers/products_controller.rb
+[
+class ProductsController < ApplicationController
+  before_action :set_product, only: %i[ show edit update destroy ]
+
+  def index
+    @products = Product.all
+  end
+
+  def show
+  end
+
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      redirect_to @product
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @product.update(product_params)
+      redirect_to @product
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @product.destroy
+    redirect_to products_path
+  end
+
+  private
+    def set_product
+      @product = Product.find(params[:id])
+    end
+
+    def product_params
+      params.expect(product: [ :name ])
+    end
+end
+]
+% cat app/controllers/products_controller.rb
+
+# 11 # Rails Server   
+% bin/rails server   
+
+# 12 # Terminal Window # curl # open
+% curl http://127.0.0.1:3000/products/
+% open http://127.0.0.1:3000/products/
+
+***************************************************************************************************************************
+
+# Ruby on Rails # www.ruby-lang.org # https://github.com/ruby/www.ruby-lang.org
+
+***************************************************************************************************************************
+
+% ruby --version
+
+% gem --version
+
+% bundler --version
+
+% bundle --version
+
+% rails --version
+
+% bundle config set --local without production
+
+% bundle install
+
+% bundle exec rake build
+
+% bundle exec rake serve
+
+# Terminal Window # curl # open
+% curl http://127.0.0.1:4000/
+% open http://127.0.0.1:4000/
+
+***************************************************************************************************************************
+
+# Ruby on Rails # website # https://github.com/rails/website
+
+***************************************************************************************************************************
+
+% ruby --version
+
+% gem --version
+
+% bundler --version
+
+% bundle --version
+
+% rails --version
+
+% bundle install
+
+% jekyll --version
+[
+You have already activated bigdecimal 3.1.9, but your Gemfile requires bigdecimal 3.1.8. Prepending `bundle exec` to your command may solve this.
+]
+
+% bundle update
+
+[
+% bundle exec jekyll serve --livereload
+]
+% bundle exec jekyll serve
+
+# Terminal Window # curl # open
+% curl http://127.0.0.1:35729/
+% open http://127.0.0.1:35729/
+
+% curl http://127.0.0.1:4000/
+% open http://127.0.0.1:4000/
+
+***************************************************************************************************************************
+
+# Ruby on Rails # sdoc # https://github.com/rails/sdoc
+
+***************************************************************************************************************************
+
+% ruby --version
+
+% gem --version
+
+% bundler --version
+
+% bundle --version
+
+% rails --version
+
+% gem install sdoc
+
+% sdoc -o doc/rails -T direct rails
+
+% bundle install
+
+% bundle exec rake test:rails 
+
+% bundle exec rackup config.ru
+
+# Terminal Window # curl # open
+% curl http://localhost:9292/
+% open http://localhost:9292/
+
+# Origonal Terminal Window
+<control + c>
+
+[
+% bundle clean
+Cleaning all the gems on your system is dangerous! If you're sure you want to remove every system gem not in this bundle, run `bundle clean
+--force`.
+]
+% bundle clean --force
+
+% bundle exec rake test:ruby
+
+% bundle exec rackup config.ru
+
+***************************************************************************************************************************
+
+# Ruby on Rails # Docked Rails CLI # https://github.com/rails/docked
+
+***************************************************************************************************************************
+
+% ruby --version
+
+% gem --version
+
+% bundler --version
+
+% bundle --version
+
+% rails --version
+
+[
+% export PATH="/Applications/Docker.app/Contents/Resources/bin/:/Applications/Docker.app/Contents/Resources/cli-plugins/":$PATH
+]
+% docker --version
+
+% docker version
+
+% docker volume create ruby-bundle-cache
+
+% alias docked='docker run --rm -it -v ${PWD}:/rails -u $(id -u):$(id -g) -v ruby-bundle-cache:/bundle -p 3000:3000 ghcr.io/rails/cli'
+
+[
+# https://github.com/settings/tokens
+# Token Till Focus
+% export CR_PAT=****************************************
+% echo $CR_PAT | docker login ghcr.io -u RajaniCode --password-stdin
+]
+
+% docked rails new weblog
+
+% cd weblog
+
+% docked rails generate scaffold post title:string body:text
+
+% docked rails db:migrate
+
+% docked rails server
+
+# Terminal Window # curl # open
+% curl http://0.0.0.0:3000/
+[
+% open -n -a "Google Chrome" --args "--new-window" http://0.0.0.0:3000/
+]
+% curl http://localhost:3000/
+% open http://localhost:3000/
+% curl http://localhost:3000/posts/
+% open http://localhost:3000/posts/
+
+***************************************************************************************************************************
+
+# Docker # Cleanup
+
+***************************************************************************************************************************
+
+% docker version
+
+% docker container list --all
+% docker image list --all
+
+[
+% docker ps --all --quiet
+% docker stop $(docker ps -a -q)
+% docker rm $(docker ps -a -q) --force
+]
+
+% docker container list --all --quiet
+% docker stop $(docker container list -a -q)
+% docker rm $(docker container list -a -q) --force
+% docker container prune
+
+% docker image list --all --quiet
+% docker rmi $(docker image list -a -q) --force 
+% docker image prune --all
+
+% docker volume list --quiet
+% docker volume rm $(docker volume list --quiet) --force
+% docker volume prune --all
+
+% docker network list --quiet --filter "type=custom"
+% docker network rm $(docker network list --quiet --filter "type=custom")
+% docker network prune
+
+% docker system info
+% docker system prune --all --volumes
+
+***************************************************************************************************************************
+###########################################################################################################################
+
+
+// Credits
+/*
+https://rubyonrails.org/
+https://ruby-lang.org/
+https://rubygems.org/
+https://bundler.io/
+https://jekyllrb.com/
+*/

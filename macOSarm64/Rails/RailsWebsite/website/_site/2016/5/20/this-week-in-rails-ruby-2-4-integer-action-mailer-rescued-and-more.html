@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week In Rails: Ruby 2.4 Integer, Action Mailer rescued and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Shhh, stay quiet! Rails 5.0 lurks just around the corner and it’s a mean beast. " />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week In Rails: Ruby 2.4 Integer, Action Mailer rescued and more!" />
+  <meta property="og:description" content="Shhh, stay quiet! Rails 5.0 lurks just around the corner and it’s a mean beast. " />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/5/20/this-week-in-rails-ruby-2-4-integer-action-mailer-rescued-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week In Rails: Ruby 2.4 Integer, Action Mailer rescued and more!" />
+  <meta name="twitter:description" content="Shhh, stay quiet! Rails 5.0 lurks just around the corner and it’s a mean beast. " />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/5/20/this-week-in-rails-ruby-2-4-integer-action-mailer-rescued-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week In Rails: Ruby 2.4 Integer, Action Mailer rescued and more!",
+      "description": "Shhh, stay quiet! Rails 5.0 lurks just around the corner and it’s a mean beast. ",
+      "url": "http://localhost:4000/2016/5/20/this-week-in-rails-ruby-2-4-integer-action-mailer-rescued-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "kaspth"
+      },
+      "datePublished": "2016-05-20T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, May 20, 2016</h5>
+        <h2>This Week In Rails: Ruby 2.4 Integer, Action Mailer rescued and more!</h2>
+
+        <h6>Posted by kaspth</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Shhh, stay quiet! Rails 5.0 lurks just around the corner and it’s a mean beast. </p>
+
+<p>Rails’ maintainers, computer scient(-ish)sts, spliced commit DNA merged long ago in hopes of creating a better web framework. The result is Jurrails Park. </p>
+
+<p>Here’s <a href="https://twitter.com/kaspth">Kasper</a> alongside self-volunteering co-editor <a href="https://www.youtube.com/watch?v=lpuS7_NPv6U">Jeff Goldblum</a>, saying: </p>
+
+<p><em>They were so preoccupied with whether or not they could, they didn’t stop to think if they should.</em></p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160514-20160520">This Weeks Rails Contributors</a></h3>
+
+<p>Contributors! Contributors! Contributors!</p>
+
+<p>62 commits and 22 people makes us a happy newsletter team ❤️</p>
+
+<h3 id="fixnum--bignum--integer"><a href="https://github.com/rails/rails/pull/25056">Fixnum + Bignum = Integer</a></h3>
+
+<p>The next version of Ruby, 2.4,  <a href="https://bugs.ruby-lang.org/issues/12005">unifies Fixnum and Bignum into Integer</a>. Have no fear, Rails is already ready with both forward compatibility, backward compatibility and all around compatible compatibility. Int’ no Fix’ too Big’, folks.</p>
+
+<h3 id="action-mailer-rescue_from-and-more"><a href="https://github.com/rails/rails/pull/25018">Action Mailer: rescue_from and more</a></h3>
+
+<p>Action Mailer can now rescue itself from exceptions with <strong>rescue_from</strong>. </p>
+
+<p>This lets the mailer handle errors from the delivering job when run with Active Job. </p>
+
+<p>Third, the exhaustively documented pull request changes how <strong>rescue_from</strong> handles Exception causes. <a href="https://github.com/rails/rails/pull/25018">Read more</a>.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="support-nested-calls-to-suppress"><a href="https://github.com/rails/rails/pull/25009">Support nested calls to #suppress</a></h3>
+
+<p>Calling <strong>suppress</strong> within another suppression on the same class was previously a let down. </p>
+
+<p>Now the method doesn’t take its name too seriously and all should be good.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="relation-blocked-enumerable-count"><a href="https://github.com/rails/rails/pull/24203">Relation blocked Enumerable count</a></h3>
+
+<p>One of the first Rails 5.1 features brings the framework appropriately forward. Literally by forwarding <code class="language-plaintext highlighter-rouge">count</code> on a Relation to Enumerable when passed a block.</p>
+
+<h3 id="timeall_day-meet-dateall_day"><a href="https://github.com/rails/rails/pull/24930">Time#all_day meet Date#all_day</a></h3>
+
+<p>Rails has long had <code class="language-plaintext highlighter-rouge">Time#all_day</code> to really expand the horizon of past times. Now Date gets to go <code class="language-plaintext highlighter-rouge">all_day</code> too.</p>
+
+<p>Though personally, dating for a whole day sounds pretty extreme, but kids these days ¯\_(ツ)_/¯</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That concludes our report for this week. There were plenty of other things going on, so feel free to jump in and <a href="https://github.com/rails/rails/compare/master@%7B2016-05-14%7D...@%7B2016-05-20%7D">check them out yourself</a>!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

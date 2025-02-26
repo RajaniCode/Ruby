@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; New Rails beta release, immutable option in http_cache_forever and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, Wojtek here again. See another short list of changes from this past week." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="New Rails beta release, immutable option in http_cache_forever and more" />
+  <meta property="og:description" content="Hi, Wojtek here again. See another short list of changes from this past week." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/7/12/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="New Rails beta release, immutable option in http_cache_forever and more" />
+  <meta name="twitter:description" content="Hi, Wojtek here again. See another short list of changes from this past week." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/7/12/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "New Rails beta release, immutable option in http_cache_forever and more",
+      "description": "Hi, Wojtek here again. See another short list of changes from this past week.",
+      "url": "http://localhost:4000/2024/7/12/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "Wojtek"
+      },
+      "datePublished": "2024-07-12T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, July 12, 2024</h5>
+        <h2>New Rails beta release, immutable option in http_cache_forever and more</h2>
+
+        <h6>Posted by Wojtek</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://x.com/morgoth85">Wojtek</a> here again. See another short list of changes from this past week.</p>
+
+<p><a href="https://github.com/rails/rails/releases/tag/v7.2.0.beta3">Rails 7.2.0.beta3 have been released</a><br />
+With 91 commits since the last beta 2 version.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52283">Make http_cache_forever use immutable option</a><br />
+The <a href="https://github.com/rails/rails/pull/52197">immutable: true option was added to expires_in</a> in last week.
+This change sets <code class="language-plaintext highlighter-rouge">immutable: true</code> option for <code class="language-plaintext highlighter-rouge">http_cache_forever</code> which additionally affects proxied Active Storage files.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52271">Do not watch for translation changes from gems</a><br />
+Optimizes the load time for I18n initialization by restricting I18n load paths passed to the file watcher to only those within the applications directory.
+Previously, the watcher would grab all of the available locales, including those in gems which do not require a watcher because they don’t change.</p>
+
+<p><a href="https://github.com/rails/rails/pull/49847">Fix duplicate callback execution when child autosaves parent association</a><br />
+Before, persisting a new child record with a new associated parent record would run validation and save callbacks twice.
+Now, these callbacks are only executed once as expected.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-07-05%7D...main@%7B2024-07-12%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240705-20240712">19 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

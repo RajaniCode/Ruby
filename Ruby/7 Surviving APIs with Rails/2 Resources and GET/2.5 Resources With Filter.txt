@@ -1,0 +1,54 @@
+2.5 Resources With Filter
+
+Now it’s time to write production code and make our tests pass. From API::HumansController#index, we need to check for a specific parameter sent via URI query strings.
+
+
+app/controllers/api/humans_controller.rb
+module API
+  class HumansController < ApplicationController
+    def index
+      humans = Human.all
+
+      # your code here
+    end
+  end
+end
+
+
+1. Using the params object, check if brain_type is passed in as a parameter. If it is, then narrow down the list of humans to only those with that specific brain_type. Don’t forget to assign the new result back to the humans variable.
+
+
+Answer:
+app/controllers/api/humans_controller.rb
+module API
+  class HumansController < ApplicationController
+    def index
+      humans = Human.all
+
+      # your code here
+      if brain = params[:brain_type]
+        humans = humans.where(brain_type: brain)
+      end
+    end
+  end
+end
+
+
+2. Finally, render a json representation of humans with a 200 - Success* status code.
+
+
+Answer:
+app/controllers/api/humans_controller.rb
+module API
+  class HumansController < ApplicationController
+    def index
+      humans = Human.all
+
+      # your code here
+      if brain = params[:brain_type]
+        humans = humans.where(brain_type: brain)
+      end
+      render json: humans, status: 200
+    end
+  end
+end

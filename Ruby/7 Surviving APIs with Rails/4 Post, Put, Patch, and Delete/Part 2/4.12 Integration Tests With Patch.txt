@@ -1,0 +1,53 @@
+4.12 Integration Tests With Patch
+
+
+It’s time to add support for updating existing resources on our API. Some of the work has already been started by previous developers, but they were using the old put method. Let’s finish what they started.
+
+
+test/integration/updating_humans_test.rb
+class UpdatingHumansTest < ActionDispatch::IntegrationTest
+  setup { @human = Human.create!(name: 'Robert', brain_type: 'small') }
+
+  test 'successful update' do
+    put "/humans/#{@human.id}",
+      { human: { name: 'Ash', brain_type: 'large' } }.to_json,
+      { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+
+    assert_equal 200, response.status
+  end
+end
+
+
+1. Replace the put method with the proper method for partial updates.
+
+Answer:
+test/integration/updating_humans_test.rb
+class UpdatingHumansTest < ActionDispatch::IntegrationTest
+  setup { @human = Human.create!(name: 'Robert', brain_type: 'small') }
+
+  test 'successful update' do
+    patch "/humans/#{@human.id}",
+      { human: { name: 'Ash', brain_type: 'large' } }.to_json,
+      { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+
+    assert_equal 200, response.status
+  end
+end
+
+
+2. Now add an assertion to ensure that the name of our @human has been properly updated after the request. Don’t forget to use the reload method.
+
+Answer:
+test/integration/updating_humans_test.rb
+class UpdatingHumansTest < ActionDispatch::IntegrationTest
+  setup { @human = Human.create!(name: 'Robert', brain_type: 'small') }
+
+  test 'successful update' do
+    patch "/humans/#{@human.id}",
+      { human: { name: 'Ash', brain_type: 'large' } }.to_json,
+      { 'Accept' => Mime::JSON, 'Content-Type' => Mime::JSON.to_s }
+
+    assert_equal 200, response.status
+    assert_equal 'Ash', @human.reload.name
+  end
+end

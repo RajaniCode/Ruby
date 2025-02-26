@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; What's New in Edge Rails: The Hodgepodgery</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="What's New in Edge Rails: The Hodgepodgery" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/8/6/what-s-new-in-edge-rails-the-hodgepodgery" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="What's New in Edge Rails: The Hodgepodgery" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/8/6/what-s-new-in-edge-rails-the-hodgepodgery"
+      },
+      "name": "Ruby on Rails",
+      "headline": "What's New in Edge Rails: The Hodgepodgery",
+      "description": "",
+      "url": "http://localhost:4000/2009/8/6/what-s-new-in-edge-rails-the-hodgepodgery",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Nathaniel Bibler"
+      },
+      "datePublished": "2009-08-06T18:53:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, August 6, 2009</h5>
+        <h2>What's New in Edge Rails: The Hodgepodgery</h2>
+
+        <h6>Posted by Nathaniel Bibler</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><img src="/assets/2009/8/6/performance_1.png" height="79" width="416" alt="" /></p>
+
+<p>It’s been quite a while since we’ve had a new Edge Rails post.  I’ve really missed them and there have been a lot of changes, both big and small, on the Edge in the time since.  In this post I’ll cover a little bit of everything that’s been happening over the past week or so in Rails.  Along with this, you should expect to see more frequent and regular updates on all that is currently going on.</p>
+
+<h4 id="goodbye-sqlite-dbfile">Goodbye SQLite dbfile</h4>
+
+<p>This is a relatively <a href="http://github.com/rails/rails/commit/cdf60e46cc01e5f7b14e95a0b7d914516fcdcbc1">minor change</a>, unless you still refer to your SQLite database as a <code class="language-plaintext highlighter-rouge">dbfile</code> in your <code class="language-plaintext highlighter-rouge">database.yml</code>.  The <code class="language-plaintext highlighter-rouge">dbfile</code> option key is now gone, having been replaced a long time ago by the more standard, <code class="language-plaintext highlighter-rouge">database</code> key.  So, if you’re suddenly seeing, “<code class="language-plaintext highlighter-rouge">No database file specified</code>” errors after you update, this may be your cause.</p>
+
+<h4 id="кирилицаn祝您好運--we-got-your-кирилицаn祝您好運-right-here">Кирилица\n祝您好運 ??? We got your Кирилица\n祝您好運 RIGHT HERE</h4>
+
+<p>Sava Chankov provided a patch <a href="http://github.com/rails/rails/commit/ec94c2550dae463e646a18316bfcdaded9d140c9">fixing Content-length</a> HTTP response headers being incorrectly calculated with Ruby 1.9 and multi-byte characters.  The content length is now calculated based off of the <code class="language-plaintext highlighter-rouge">String#bytesize</code> rather than just the <code class="language-plaintext highlighter-rouge">String#size</code>.  This takes advantage of the multi-byte character support built in to Ruby 1.9, just as long as you remember to always properly tag your multi-byte file with the correct encoding header (i.e. <code class="language-plaintext highlighter-rouge"># encoding: utf-8</code>).</p>
+
+<h4 id="thats-not-our-job">That’s not our job</h4>
+
+<p>Some spring cleaning, mostly made possible through Rack support, allowed Edge to <a href="http://github.com/rails/rails/commit/b53f00690173797a39ff46e55dd25c20581c3d00">hand-off</a> some additional responsibilities to the stack.  The most interesting of which is now off-loading some of the content-length calculation to your web server rather than being processed directly from within Rails.  The largest benefit of this is not so much for the application developers as for you middleware developers.  This means that you no longer have to re-calculate the content length when manipulating the body of an HTTP response.</p>
+
+<p>This does not appear to affect the previously mentioned update by Sava, because his fix seems to most largely affect streaming file responses directly through Rails.</p>
+
+<h4 id="we-3-the-hash-and-now-so-does-the-cache">We &lt;3 the Hash, and now so does the Cache</h4>
+
+<p>Cache control is <a href="http://github.com/rails/rails/commit/503ce1d01ce6c8eee9818f4e76a9f880bb1a291d">now being handled</a> by an internal Hash rather than independent string values.  Old and busted: <code class="language-plaintext highlighter-rouge">headers['Cache-Control'] = 'private'</code>, new hotness: <code class="language-plaintext highlighter-rouge">response.cache_control[:public] = true</code>.  Additional <code class="language-plaintext highlighter-rouge">cache_control</code> options include: <code class="language-plaintext highlighter-rouge">:public</code>, <code class="language-plaintext highlighter-rouge">:max_age</code>, <code class="language-plaintext highlighter-rouge">:must_revalidate</code>, and the oh-so-descriptive <code class="language-plaintext highlighter-rouge">:extras</code>, which is used mostly for your custom header content.</p>
+
+<h4 id="what-time-is-it">What time is it!?</h4>
+
+<p>Geoff Buesing provided a <a href="http://github.com/rails/rails/commit/6f97ad07ded847f29159baf71050c63f04282170">useful fix</a> for <code class="language-plaintext highlighter-rouge">Time</code>, specifically when used in conjunction with ActiveRecord.  Now you can save and search ActiveRecord objects using whichever local time zone you like, regardless of what your default time zone is configured for and everything now will just work.  You no longer need to be concerned about converting your user’s local time into your default application time or vice versa.</p>
+
+<h4 id="its-state-of-the-art">It’s STATE of the art</h4>
+
+<p>ActiveRecord now has <a href="http://github.com/rails/rails/commit/aad5a30bf25d8a3167afd685fc91c99f4f09cc57">easy access</a> to ActiveModel’s <code class="language-plaintext highlighter-rouge">StateMachine</code> implementation.  I don’t know about you, but somehow I always seem to find a way to bring state machines into my Rails applications, and now building in - even fairly complex - state machines just got a whole lot easier.</p>
+
+<p>For an example of <code class="language-plaintext highlighter-rouge">ActiveModel::StateMachine</code> and to get an idea of how you might use it, check out my more detailed <a href="http://blog.envylabs.com/2009/08/the-rails-state-machine">blog post over at Envy Labs</a>.</p>
+
+<h4 id="front-back-side-to-side">Front. Back. Side to side.</h4>
+
+<p>Paul Gillard committed <a href="http://github.com/rails/rails/commit/c30a0ce3c8f88baebd369180a6e221706e2b5cbf">a patch</a> which now allows for both custom suffixes (which really isn’t new) and prefixes (omg THAT IS!) on your ActiveRecord attributes.  This gives you access to <code class="language-plaintext highlighter-rouge">attribute_method_prefix</code>, <code class="language-plaintext highlighter-rouge">attribute_method_suffix</code>, and now <code class="language-plaintext highlighter-rouge">attribute_method_affix</code>.  While it may sound a little silly, check this out:</p>
+
+<pre><code class="ruby">
+class Person &lt; ActiveRecord::Base
+  attribute_method_affix :prefix =&gt; 'me_mateys_', :suffix =&gt; '_is_in_pirate?'
+  
+  private
+  
+  def me_mateys_attribute_is_in_pirate?(attr)
+    send(attr).to_s =~ /\bYAR\b/i
+  end
+end
+
+person = Person.find(1)
+person.name                               #=&gt; 'Paul Gillard'
+person.profession                         #=&gt; 'A Pirate, yar!'
+person.me_mateys_name_is_in_pirate?       #=&gt; false
+person.me_mateys_profession_is_in_pirate? #=&gt; true
+</code></pre>
+
+<p>Okay, well, that’s still a little silly, but hopefully you get the idea and can think of a few usage scenarios of your own.  So, basically, now you can add your own dynamic ActiveRecord methods that can potentially affect any or all of it’s attributes.</p>
+
+<h4 id="clean-yourself-up">Clean yourself up</h4>
+
+<p>Paul Gillard posted <a href="http://github.com/rails/rails/commit/bada18dc36e3875dea1814ffaab1e8d1ac24b521">another useful patch</a>, utilizing that one previously mentioned, to now provide us all with this syntactic sugar:  <code class="language-plaintext highlighter-rouge">reset_attribute!</code>  And he even provided us with a pirate of his own to show off this new bounty:</p>
+
+<pre><code class="ruby">
+pirate = Pirate.create!(:catchphrase =&gt; 'Yar!')
+pirate.catchphrase = 'Ahoy!'
+pirate.reset_catchphrase!
+assert_equal "Yar!", pirate.catchphrase
+assert_equal Hash.new, pirate.changes
+assert !pirate.catchphrase_changed?
+</code></pre>
+
+<p>Nobody likes a dirty pirate.</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

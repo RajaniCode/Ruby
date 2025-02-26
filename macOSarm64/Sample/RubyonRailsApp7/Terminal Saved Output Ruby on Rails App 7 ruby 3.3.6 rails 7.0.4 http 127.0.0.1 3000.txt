@@ -1,0 +1,566 @@
+Last login: Tue Feb  4 00:23:07 on ttys001
+rajaniapple@Rajanis-MacBook-Pro ~ % sw_vers
+ProductName:		macOS
+ProductVersion:		15.1
+BuildVersion:		24B83
+rajaniapple@Rajanis-MacBook-Pro ~ % arch
+arm64
+rajaniapple@Rajanis-MacBook-Pro ~ % cd $HOME/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/RubyonRailsApp7
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp7 % cd ruby_on_rails_app_7
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % ls .ruby-version
+.ruby-version
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % cat .ruby-version
+3.3.6
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % ls Gemfile.lock
+Gemfile.lock
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rm -rf Gemfile.lock
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % ruby --version
+ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % gem --version
+3.6.3
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % bundler --version
+Bundler version 2.6.3
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % bundle --version
+Bundler version 2.6.3
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rake --version
+rake, version 13.2.1
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rails --version
+Your Ruby version is 3.4.1, but your Gemfile specified 3.3.6
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % cat Gemfile
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby "3.3.6"
+
+gem "rails",                      "7.0.4"
+gem "image_processing",           "1.12.2"
+gem "active_storage_validations", "0.9.8"
+gem "bcrypt",                     "3.1.18"
+gem "faker",                      "2.21.0"
+gem "will_paginate",              "3.3.1"
+gem "bootstrap-will_paginate",    "1.0.0"
+gem "bootstrap-sass",             "3.4.1"
+gem "sassc-rails",                "2.1.2"
+gem "sprockets-rails",            "3.4.2"
+gem "importmap-rails",            "1.1.0"
+gem "turbo-rails",                "1.1.1"
+gem "stimulus-rails",             "1.0.4"
+gem "jbuilder",                   "2.11.5"
+gem "puma",                       "5.6.4"
+gem "bootsnap",                   "1.12.0", require: false
+
+group :development, :test do
+  gem "sqlite3", "1.7.3"
+  gem "debug",   "1.5.0", platforms: %i[ mri mingw x64_mingw ]
+end
+
+group :development do
+  gem "web-console", "4.2.0"
+end
+
+group :test do
+  gem "capybara",                 "3.37.1"
+  gem "selenium-webdriver",       "4.2.0"
+  gem "webdrivers",               "5.0.0"
+  gem "rails-controller-testing", "1.0.5"
+  gem "minitest",                 "5.15.0"
+  gem "minitest-reporters",       "1.5.0"
+  gem "guard",                    "2.18.0"
+  gem "guard-minitest",           "2.4.6"
+  gem 'simplecov',                "0.21.2"
+end
+
+group :production do
+  gem "pg",         "1.3.5"
+  gem "aws-sdk-s3", "1.114.0", require: false
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem.
+# Uncomment the following line if you're running Rails
+# on a native Windows system:
+# gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % nano Gemfile
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % cat Gemfile
+source "https://rubygems.org"
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+
+ruby "3.3.6"
+
+gem "rails",                      "7.0.4"
+gem "mutex_m",                    "0.3.0"
+gem "bigdecimal",                 "3.1.9"
+gem "image_processing",           "1.12.2"
+gem "active_storage_validations", "0.9.8"
+gem "bcrypt",                     "3.1.18"
+gem "faker",                      "2.21.0"
+gem "will_paginate",              "3.3.1"
+gem "bootstrap-will_paginate",    "1.0.0"
+gem "bootstrap-sass",             "3.4.1"
+gem "sassc-rails",                "2.1.2"
+gem "sprockets-rails",            "3.4.2"
+gem "importmap-rails",            "1.1.0"
+gem "turbo-rails",                "1.1.1"
+gem "stimulus-rails",             "1.0.4"
+gem "jbuilder",                   "2.11.5"
+gem "puma",                       "5.6.4"
+gem "bootsnap",                   "1.12.0", require: false
+
+group :development, :test do
+  gem "sqlite3", "1.7.3"
+  gem "debug",   "1.5.0", platforms: %i[ mri mingw x64_mingw ]
+end
+
+group :development do
+  gem "web-console", "4.2.0"
+end
+
+group :test do
+  gem "capybara",                 "3.37.1"
+  gem "selenium-webdriver",       "4.2.0"
+  gem "webdrivers",               "5.0.0"
+  gem "rails-controller-testing", "1.0.5"
+  gem "minitest",                 "5.15.0"
+  gem "minitest-reporters",       "1.5.0"
+  gem "guard",                    "2.18.0"
+  gem "guard-minitest",           "2.4.6"
+  gem 'simplecov',                "0.21.2"
+end
+
+group :production do
+  gem "pg",         "1.3.5"
+  gem "aws-sdk-s3", "1.114.0", require: false
+end
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem.
+# Uncomment the following line if you're running Rails
+# on a native Windows system:
+# gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rbenv --version
+rbenv 1.3.2
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rbenv install 3.3.6
+ruby-build: using openssl@3 from homebrew
+==> Downloading ruby-3.3.6.tar.gz...
+-> curl -q -fL -o ruby-3.3.6.tar.gz https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.6.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 21.1M  100 21.1M    0     0  9481k      0  0:00:02  0:00:02 --:--:-- 9480k
+==> Installing ruby-3.3.6...
+ruby-build: using libyaml from homebrew
+ruby-build: using gmp from homebrew
+-> ./configure "--prefix=$HOME/.rbenv/versions/3.3.6" --with-openssl-dir=/opt/homebrew/opt/openssl@3 --enable-shared --with-libyaml-dir=/opt/homebrew/opt/libyaml --with-gmp-dir=/opt/homebrew/opt/gmp --with-ext=openssl,psych,+
+-> make -j 8
+-> make install
+==> Installed ruby-3.3.6 to /Users/rajaniapple/.rbenv/versions/3.3.6
+
+NOTE: to activate this Ruby version as the new default, run: rbenv global 3.3.6
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rbenv local 3.3.6
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % ls .ruby-version
+.ruby-version
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % cat .ruby-version
+3.3.6
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % gem env home
+/opt/homebrew/Cellar/ruby/3.4.1/lib/ruby/gems/3.4.0
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % export PATH="$HOME/.rbenv/bin:$PATH"
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % eval "$(rbenv init -)"
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % ruby --version
+ruby 3.3.6 (2024-11-05 revision 75015d4c1f) [arm64-darwin24]
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % bundle add concurrent-ruby -v 1.3.4
+Fetching gem metadata from https://rubygems.org/...........
+Resolving dependencies...
+Fetching gem metadata from https://rubygems.org/.........
+Fetching rake 13.2.1
+Installing rake 13.2.1
+Fetching concurrent-ruby 1.3.4
+Fetching builder 3.3.0
+Fetching erubi 1.13.1
+Fetching minitest 5.15.0
+Fetching racc 1.8.1
+Fetching crass 1.0.6
+Fetching rack 2.2.10
+Fetching nio4r 2.7.4
+Installing concurrent-ruby 1.3.4
+Installing builder 3.3.0
+Fetching base64 0.2.0
+Installing erubi 1.13.1
+Fetching websocket-extensions 0.1.5
+Fetching marcel 1.0.4
+Installing minitest 5.15.0
+Fetching mini_mime 1.1.5
+Installing racc 1.8.1 with native extensions
+Installing crass 1.0.6
+Fetching date 3.4.1
+Installing rack 2.2.10
+Fetching timeout 0.4.3
+Installing base64 0.2.0
+Installing nio4r 2.7.4 with native extensions
+Fetching public_suffix 6.0.1
+Installing websocket-extensions 0.1.5
+Fetching ansi 1.5.0
+Installing marcel 1.0.4
+Fetching execjs 2.10.0
+Fetching aws-eventstream 1.3.0
+Installing mini_mime 1.1.5
+Fetching aws-partitions 1.1044.0
+Installing date 3.4.1 with native extensions
+Installing timeout 0.4.3
+Fetching jmespath 1.6.2
+Installing public_suffix 6.0.1
+Fetching bcrypt 3.1.18
+Installing ansi 1.5.0
+Fetching bigdecimal 3.1.9
+Installing execjs 2.10.0
+Fetching bindex 0.8.1
+Installing aws-eventstream 1.3.0
+Fetching msgpack 1.7.5
+Installing aws-partitions 1.1044.0
+Fetching ffi 1.17.1 (arm64-darwin)
+Installing jmespath 1.6.2
+Fetching will_paginate 3.3.1
+Installing bcrypt 3.1.18 with native extensions
+Installing bigdecimal 3.1.9 with native extensions
+Installing bindex 0.8.1 with native extensions
+Installing msgpack 1.7.5 with native extensions
+Installing ffi 1.17.1 (arm64-darwin)
+Installing will_paginate 3.3.1
+Fetching regexp_parser 2.10.0
+Fetching childprocess 4.1.0
+Installing regexp_parser 2.10.0
+Installing childprocess 4.1.0
+Fetching coderay 1.1.3
+Fetching prettyprint 0.2.0
+Fetching stringio 3.1.2
+Installing coderay 1.1.3
+Fetching io-console 0.8.0
+Installing prettyprint 0.2.0
+Fetching docile 1.4.1
+Installing stringio 3.1.2 with native extensions
+Installing io-console 0.8.0 with native extensions
+Installing docile 1.4.1
+Fetching formatador 1.1.0
+Installing formatador 1.1.0
+Fetching rb-fsevent 0.11.2
+Fetching lumberjack 1.2.10
+Installing rb-fsevent 0.11.2
+Fetching nenv 0.3.0
+Installing lumberjack 1.2.10
+Fetching shellany 0.0.1
+Fetching method_source 1.1.0
+Fetching thor 1.3.2
+Installing nenv 0.3.0
+Fetching guard-compat 1.2.1
+Installing shellany 0.0.1
+Fetching mini_magick 4.13.2
+Installing method_source 1.1.0
+Fetching logger 1.6.5
+Installing thor 1.3.2
+Fetching zeitwerk 2.7.1
+Fetching ruby-progressbar 1.13.0
+Installing guard-compat 1.2.1
+Fetching mutex_m 0.3.0
+Installing mini_magick 4.13.2
+Fetching pg 1.3.5
+Installing logger 1.6.5
+Fetching rexml 3.4.0
+Installing zeitwerk 2.7.1
+Fetching rubyzip 2.4.1
+Installing ruby-progressbar 1.13.0
+Fetching tilt 2.6.0
+Installing mutex_m 0.3.0
+Fetching websocket 1.2.11
+Installing pg 1.3.5 with native extensions
+Installing rexml 3.4.0
+Fetching simplecov-html 0.13.1
+Installing rubyzip 2.4.1
+Fetching simplecov_json_formatter 0.1.4
+Installing tilt 2.6.0
+Fetching sqlite3 1.7.3 (arm64-darwin)
+Installing websocket 1.2.11
+Fetching i18n 1.14.7
+Installing simplecov-html 0.13.1
+Fetching tzinfo 2.0.6
+Installing simplecov_json_formatter 0.1.4
+Fetching rack-test 2.2.0
+Fetching sprockets 4.2.1
+Fetching websocket-driver 0.7.7
+Installing sqlite3 1.7.3 (arm64-darwin)
+Installing i18n 1.14.7
+Fetching nokogiri 1.18.2 (arm64-darwin)
+Installing tzinfo 2.0.6
+Fetching net-protocol 0.2.2
+Fetching addressable 2.8.7
+Installing rack-test 2.2.0
+Fetching autoprefixer-rails 10.4.19.0
+Installing sprockets 4.2.1
+Fetching aws-sigv4 1.11.0
+Installing websocket-driver 0.7.7 with native extensions
+Fetching bootstrap-will_paginate 1.0.0
+Fetching sassc 2.4.0
+Installing net-protocol 0.2.2
+Fetching rb-inotify 0.11.1
+Installing nokogiri 1.18.2 (arm64-darwin)
+Installing addressable 2.8.7
+Fetching pp 0.6.2
+Fetching puma 5.6.4
+Installing autoprefixer-rails 10.4.19.0
+Fetching notiffany 0.1.3
+Installing aws-sigv4 1.11.0
+Fetching pry 0.15.2
+Installing bootstrap-will_paginate 1.0.0
+Fetching psych 5.2.3
+Installing sassc 2.4.0 with native extensions
+Installing rb-inotify 0.11.1
+Fetching guard-minitest 2.4.6
+Installing pp 0.6.2
+Fetching ruby-vips 2.2.2
+Installing puma 5.6.4 with native extensions
+Installing notiffany 0.1.3
+Fetching minitest-reporters 1.5.0
+Installing pry 0.15.2
+Fetching selenium-webdriver 4.2.0
+Installing psych 5.2.3 with native extensions
+Installing guard-minitest 2.4.6
+Fetching simplecov 0.21.2
+Installing ruby-vips 2.2.2
+Fetching bootsnap 1.12.0
+Installing minitest-reporters 1.5.0
+Fetching reline 0.6.0
+Installing selenium-webdriver 4.2.0
+Installing simplecov 0.21.2
+Fetching faker 2.21.0
+Fetching activesupport 7.0.4
+Installing bootsnap 1.12.0 with native extensions
+Installing reline 0.6.0
+Fetching net-imap 0.5.5
+Installing faker 2.21.0
+Fetching net-smtp 0.5.0
+Installing activesupport 7.0.4
+Installing net-smtp 0.5.0
+Installing net-imap 0.5.5
+Fetching loofah 2.24.0
+Fetching xpath 3.2.0
+Fetching aws-sdk-core 3.217.1
+Installing loofah 2.24.0
+Fetching listen 3.9.0
+Fetching image_processing 1.12.2
+Installing xpath 3.2.0
+Fetching webdrivers 5.0.0
+Fetching rdoc 6.11.0
+Installing aws-sdk-core 3.217.1
+Installing listen 3.9.0
+Fetching mail 2.8.1
+Installing image_processing 1.12.2
+Fetching rails-html-sanitizer 1.6.2
+Fetching rails-dom-testing 2.2.0
+Installing webdrivers 5.0.0
+Fetching globalid 1.2.1
+Installing rdoc 6.11.0
+Fetching activemodel 7.0.4
+Fetching capybara 3.37.1
+Installing mail 2.8.1
+Installing rails-html-sanitizer 1.6.2
+Fetching guard 2.18.0
+Fetching aws-sdk-kms 1.97.0
+Installing rails-dom-testing 2.2.0
+Fetching irb 1.15.1
+Installing globalid 1.2.1
+Fetching actionview 7.0.4
+Installing activemodel 7.0.4
+Fetching activejob 7.0.4
+Fetching activerecord 7.0.4
+Installing capybara 3.37.1
+Installing guard 2.18.0
+Installing aws-sdk-kms 1.97.0
+Fetching aws-sdk-s3 1.114.0
+Installing irb 1.15.1
+Fetching debug 1.5.0
+Installing actionview 7.0.4
+Fetching actionpack 7.0.4
+Fetching jbuilder 2.11.5
+Installing activejob 7.0.4
+Installing activerecord 7.0.4
+Installing aws-sdk-s3 1.114.0
+Installing debug 1.5.0 with native extensions
+Installing actionpack 7.0.4
+Installing jbuilder 2.11.5
+Fetching actioncable 7.0.4
+Fetching activestorage 7.0.4
+Fetching actionmailer 7.0.4
+Fetching railties 7.0.4
+Fetching rails-controller-testing 1.0.5
+Fetching sprockets-rails 3.4.2
+Installing actioncable 7.0.4
+Installing activestorage 7.0.4
+Fetching actionmailbox 7.0.4
+Fetching actiontext 7.0.4
+Installing actionmailer 7.0.4
+Fetching active_storage_validations 0.9.8
+Installing railties 7.0.4
+Installing rails-controller-testing 1.0.5
+Fetching importmap-rails 1.1.0
+Fetching stimulus-rails 1.0.4
+Installing sprockets-rails 3.4.2
+Fetching turbo-rails 1.1.1
+Installing actionmailbox 7.0.4
+Fetching web-console 4.2.0
+Installing actiontext 7.0.4
+Fetching rails 7.0.4
+Installing active_storage_validations 0.9.8
+Installing importmap-rails 1.1.0
+Installing stimulus-rails 1.0.4
+Installing turbo-rails 1.1.1
+Installing web-console 4.2.0
+Installing rails 7.0.4
+Fetching bootstrap-sass 3.4.1
+Fetching sassc-rails 2.1.2
+Installing bootstrap-sass 3.4.1
+Installing sassc-rails 2.1.2
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rails --version                    
+Rails 7.0.4
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % bundle update
+Fetching gem metadata from https://rubygems.org/...........
+Resolving dependencies...
+Bundle updated!
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % bundle config set without 'production'
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % bundle install
+Bundle complete! 33 Gemfile dependencies, 118 gems now installed.
+Gems in the group 'production' were not installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % yarn install --check-files
+yarn install v1.22.22
+info No lockfile found.
+[1/4] 🔍  Resolving packages...
+[2/4] 🚚  Fetching packages...
+[3/4] 🔗  Linking dependencies...
+[4/4] 🔨  Building fresh packages...
+success Saved lockfile.
+✨  Done in 0.02s.
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % yarn install
+yarn install v1.22.22
+[1/4] 🔍  Resolving packages...
+success Already up-to-date.
+✨  Done in 0.01s.
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rails db:migrate
+== 20220408200125 CreateUsers: migrating ======================================
+-- create_table(:users)
+   -> 0.0006s
+== 20220408200125 CreateUsers: migrated (0.0007s) =============================
+
+== 20220408200454 AddIndexToUsersEmail: migrating =============================
+-- add_index(:users, :email, {:unique=>true})
+   -> 0.0006s
+== 20220408200454 AddIndexToUsersEmail: migrated (0.0006s) ====================
+
+== 20220408200615 AddPasswordDigestToUsers: migrating =========================
+-- add_column(:users, :password_digest, :string)
+   -> 0.0006s
+== 20220408200615 AddPasswordDigestToUsers: migrated (0.0006s) ================
+
+== 20220408205520 AddRememberDigestToUsers: migrating =========================
+-- add_column(:users, :remember_digest, :string)
+   -> 0.0006s
+== 20220408205520 AddRememberDigestToUsers: migrated (0.0006s) ================
+
+== 20220408205851 AddAdminToUsers: migrating ==================================
+-- add_column(:users, :admin, :boolean, {:default=>false})
+   -> 0.0009s
+== 20220408205851 AddAdminToUsers: migrated (0.0009s) =========================
+
+== 20220408210133 AddActivationToUsers: migrating =============================
+-- add_column(:users, :activation_digest, :string)
+   -> 0.0007s
+-- add_column(:users, :activated, :boolean, {:default=>false})
+   -> 0.0002s
+-- add_column(:users, :activated_at, :datetime)
+   -> 0.0003s
+== 20220408210133 AddActivationToUsers: migrated (0.0013s) ====================
+
+== 20220408210711 AddResetToUsers: migrating ==================================
+-- add_column(:users, :reset_digest, :string)
+   -> 0.0037s
+-- add_column(:users, :reset_sent_at, :datetime)
+   -> 0.0023s
+== 20220408210711 AddResetToUsers: migrated (0.0061s) =========================
+
+== 20220408210829 CreateMicroposts: migrating =================================
+-- create_table(:microposts)
+   -> 0.0058s
+-- add_index(:microposts, [:user_id, :created_at])
+   -> 0.0002s
+== 20220408210829 CreateMicroposts: migrated (0.0061s) ========================
+
+== 20220408210940 CreateActiveStorageTables: migrating ========================
+-- create_table(:active_storage_blobs, {:id=>:primary_key})
+   -> 0.0011s
+-- create_table(:active_storage_attachments, {:id=>:primary_key})
+   -> 0.0007s
+-- create_table(:active_storage_variant_records, {:id=>:primary_key})
+   -> 0.0006s
+== 20220408210940 CreateActiveStorageTables: migrated (0.0024s) ===============
+
+== 20220408211102 CreateRelationships: migrating ==============================
+-- create_table(:relationships)
+   -> 0.0006s
+== 20220408211102 CreateRelationships: migrated (0.0006s) =====================
+
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rails test
+/Users/rajaniapple/.rbenv/versions/3.3.6/lib/ruby/gems/3.3.0/gems/activesupport-7.0.4/lib/active_support/testing/parallelization.rb:3: warning: /Users/rajaniapple/.rbenv/versions/3.3.6/lib/ruby/3.3.0/drb.rb was loaded from the standard library, but will no longer be part of the default gems starting from Ruby 3.4.0.
+You can add drb to your Gemfile or gemspec to silence this warning.
+Also please contact the author of activesupport-7.0.4 to request adding drb into its gemspec.
+Started with run options --seed 53751
+
+  85/85: [=============================================================================================] 100% Time: 00:00:02, Time: 00:00:02
+
+Finished in 2.98686s
+85 tests, 362 assertions, 0 failures, 0 errors, 0 skips
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rails db:seed
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % rails server
+=> Booting Puma
+=> Rails 7.0.4 application starting in development 
+=> Run `bin/rails server --help` for more startup options
+[80409] Puma starting in cluster mode...
+[80409] * Puma version: 5.6.4 (ruby 3.3.6-p108) ("Birdie's Version")
+[80409] *  Min threads: 5
+[80409] *  Max threads: 5
+[80409] *  Environment: development
+[80409] *   Master PID: 80409
+[80409] *      Workers: 2
+[80409] *     Restarts: (✔) hot (✖) phased
+[80409] * Preloading application
+[80409] * Listening on http://127.0.0.1:3000
+[80409] * Listening on http://[::1]:3000
+[80409] Use Ctrl-C to stop
+DEBUGGER: Attaching after process 80409 fork to child process 80424
+DEBUGGER[bin/rails#80426]: Attaching after process 80409 fork to child process 80426
+[80409] - Worker 0 (PID: 80424) booted in 0.0s, phase: 0
+[80409] - Worker 1 (PID: 80426) booted in 0.0s, phase: 0
+Started GET "/" for 127.0.0.1 at 2025-02-04 01:11:57 +0530
+  ActiveRecord::SchemaMigration Pluck (0.0ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+Processing by StaticPagesController#home as */*
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 455.7ms | Allocations: 134239)
+  Rendered layouts/_shim.html.erb (Duration: 0.2ms | Allocations: 114)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 447)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 206)
+  Rendered layout layouts/application.html.erb (Duration: 472.0ms | Allocations: 159148)
+Completed 200 OK in 478ms (Views: 473.3ms | ActiveRecord: 0.0ms | Allocations: 162673)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-04 01:12:02 +0530
+  ActiveRecord::SchemaMigration Pluck (0.1ms)  SELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 38.2ms | Allocations: 30417)
+  Rendered layouts/_shim.html.erb (Duration: 0.3ms | Allocations: 114)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 447)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 206)
+  Rendered layout layouts/application.html.erb (Duration: 65.2ms | Allocations: 55508)
+Completed 200 OK in 71ms (Views: 66.6ms | ActiveRecord: 0.0ms | Allocations: 58950)
+
+
+^C[80409] - Gracefully shutting down workers...
+[80409] === puma shutdown: 2025-02-04 01:13:31 +0530 ===
+[80409] - Goodbye!
+Exiting
+rajaniapple@Rajanis-MacBook-Pro ruby_on_rails_app_7 % 

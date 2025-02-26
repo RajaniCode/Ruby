@@ -1,0 +1,23 @@
+1.5 HTTP PATCH
+
+
+Update the following controller test to use the new HTTP verb for partial updates.
+
+
+test/controllers/weapons_controller_test.rb
+class WeaponsControllerTest < ActionController::TestCase
+  test "updates weapon" do
+    put :update, zombie_id: @zombie, weapons: { name: 'Scythe' }
+    assert_redirected_to zombie_url(@zombie)
+  end
+end
+
+
+Answer:
+test/controllers/weapons_controller_test.rb
+class WeaponsControllerTest < ActionController::TestCase
+  test "updates weapon" do
+    patch :update, zombie_id: @zombie, weapons: { name: 'Scythe' }
+    assert_redirected_to zombie_url(@zombie)
+  end
+end

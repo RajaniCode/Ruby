@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 7 alpha released</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, Wojtek here with more new Rails 7 changes." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 7 alpha released" />
+  <meta property="og:description" content="Hi, Wojtek here with more new Rails 7 changes." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2021/9/17/this-week-in-rails-rails-7-alpha-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 7 alpha released" />
+  <meta name="twitter:description" content="Hi, Wojtek here with more new Rails 7 changes." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2021/9/17/this-week-in-rails-rails-7-alpha-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 7 alpha released",
+      "description": "Hi, Wojtek here with more new Rails 7 changes.",
+      "url": "http://localhost:4000/2021/9/17/this-week-in-rails-rails-7-alpha-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "morgoth85"
+      },
+      "datePublished": "2021-09-17T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, September 17, 2021</h5>
+        <h2>Rails 7 alpha released</h2>
+
+        <h6>Posted by morgoth85</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://twitter.com/morgoth85">Wojtek</a> here with more new Rails 7 changes.</p>
+
+<h3 id="rails-70-alpha-released"><a href="https://rubyonrails.org/2021/9/15/Rails-7-0-alpha-1-released">Rails 7.0 alpha released</a></h3>
+
+<p>The new Rails frontend approach and all the other new goodies can already be checked in this release.</p>
+
+<h3 id="introduce-activemodelapi"><a href="https://github.com/rails/rails/pull/43223">Introduce ActiveModel::API</a></h3>
+
+<p>Make <em>ActiveModel::API</em> the minimum API to talk with Action Pack and Action View. This will allow adding more functionality to <em>ActiveModel::Model</em>.</p>
+
+<h3 id="add-support-for-generated-columns-in-postgresql"><a href="https://github.com/rails/rails/pull/41856">Add support for generated columns in PostgreSQL</a></h3>
+
+<p>Generated columns are supported since version 12.0 of PostgreSQL. This adds<br />
+ support of those to the Active Record PostgreSQL adapter.</p>
+
+<h3 id="generate-less-initializers-in-newupgraded-rails-apps"><a href="https://github.com/rails/rails/pull/42538">Generate less initializers in new/upgraded Rails apps</a></h3>
+
+<p>Removed configurations are set by the default Rails configuration and can be still changed when needed.</p>
+
+<h3 id="use-correct-precision-when-touching-updated_at-column-in-upsert-"><a href="https://github.com/rails/rails/pull/42993">Use correct precision when touching updated_at column in upsert </a></h3>
+
+<p><em>CURRENT_TIMESTAMP</em> provides differing precision depending on the database,<br />
+ and not all databases support explicitly specifying additional precision. Instead, delegate to the new <em>connection.high_precision_current_timestamp</em><br />
+ for the SQL to produce a high precision timestamp on the current database.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20210913-20210917">13 people</a> contributed to Rails since last time. All the changes can be checked <a href="https://github.com/rails/rails/compare/@%7B2021-09-13%7D...main@%7B2021-09-17%7D">here</a>. Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

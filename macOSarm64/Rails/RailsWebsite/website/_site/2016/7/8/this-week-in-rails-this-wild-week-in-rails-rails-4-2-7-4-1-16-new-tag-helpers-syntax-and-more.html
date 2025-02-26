@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; 🌵 This Wild Week in Rails 🌵: Rails 4.2.7/4.1.16, new tag helpers syntax and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hola desperados!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="🌵 This Wild Week in Rails 🌵: Rails 4.2.7/4.1.16, new tag helpers syntax and more!" />
+  <meta property="og:description" content="Hola desperados!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/7/8/this-week-in-rails-this-wild-week-in-rails-rails-4-2-7-4-1-16-new-tag-helpers-syntax-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="🌵 This Wild Week in Rails 🌵: Rails 4.2.7/4.1.16, new tag helpers syntax and more!" />
+  <meta name="twitter:description" content="Hola desperados!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/7/8/this-week-in-rails-this-wild-week-in-rails-rails-4-2-7-4-1-16-new-tag-helpers-syntax-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "🌵 This Wild Week in Rails 🌵: Rails 4.2.7/4.1.16, new tag helpers syntax and more!",
+      "description": "Hola desperados!",
+      "url": "http://localhost:4000/2016/7/8/this-week-in-rails-this-wild-week-in-rails-rails-4-2-7-4-1-16-new-tag-helpers-syntax-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "jonatack"
+      },
+      "datePublished": "2016-07-08T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, July 8, 2016</h5>
+        <h2>🌵 This Wild Week in Rails 🌵: Rails 4.2.7/4.1.16, new tag helpers syntax and more!</h2>
+
+        <h6>Posted by jonatack</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hola desperados!</p>
+
+<p><a href="https://twitter.com/jonatack">Jon</a> (aka Juan el bandido) here saying “Howdy” from the Navarro desert near Pamplona 🇪🇸 to bring you outlaws a back-slappin’ sagebrush issue of <strong>This Wild Week in Rails</strong> 🌵.</p>
+
+<p>We’ll be covering a selection of the past 2 weeks’ commits. That’s a dadgummit lotta ground to cover, so pack a saddlebag o’ water, watch out fer rattlesnakes, and dontcha hesitate to click through to the <strong>pull requests</strong> for more info!</p>
+
+<p>Giddyup!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160702-201607008">This Week’s Rails Contributors</a></h3>
+
+<p>Let rip some proper hootin’ &amp; hollerin’ fer these <a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160702-201607008">38 heroic wranglers</a>who contributed to Rails this week, including 8 first-timers! Check out the <a href="https://github.com/rails/rails/issues">current issues</a> and the <a href="http://edgeguides.rubyonrails.org/contributing_to_ruby_on_rails.html">contributing guide</a> if ye’d like to join ‘em!</p>
+
+<h3 id="rails-427rc1-and-4116rc1-released-gold-fever-ensues"><a href="https://rubyonrails.org/2016/7/2/Rails-4-2-7-rc1-and-4-1-16-rc1-have-been-released">Rails 4.2.7.rc1 and 4.1.16.rc1 released, gold fever ensues</a></h3>
+
+<p>These two release candidates hit the trail this week. The final release of Rails 4.1.16 should be on its way shortly if no regressions are found. It will probably be the last release of Rails 4.1, so please take some time soon to upgrade your application to Rails 4.2 or Rails 5.</p>
+
+<h3 id="new-syntax-for-action-view-tag-helpers"><a href="https://github.com/rails/rails/pull/25543">New syntax for Action View tag helpers</a></h3>
+
+<p>Building on an implementation proposal by DHH, new syntactical sugar has been introduced for tag helpers that supports HTML5 markup by default and avoids positional parameters. See the PR for details and code examples as well as <a href="https://github.com/rails/rails/pull/25289">#25289</a> for the groundwork and discussion.</p>
+
+<h3 id="updated-and-improved-rails-guides"><a href="http://edgeguides.rubyonrails.org">Updated and improved Rails Guides</a></h3>
+
+<p>Many vital documentation contributions were made these past 2 weeks, including completion of the <a href="http://edgeguides.rubyonrails.org/testing.html">Rails Testing Guide</a> (yeehaw!) and updates for Rails 5.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="cleaner-simpler-stack-traces"><a href="https://github.com/rails/rails/pull/25222">Cleaner, simpler stack traces</a></h3>
+
+<p>Scheduled for Rails 5.1, this commit aims to clean up noisy stack traces and log only the traces relevant to the developer. The discussion in the PR and in <a href="https://github.com/rails/rails/pull/25343">#25343</a> is worth reading.</p>
+
+<h3 id="update-action-view-tag-helpers-attributes"><a href="https://github.com/rails/rails/pull/25555">Update Action View tag helpers attributes</a></h3>
+
+<p>This commit brings the boolean attributes for the Action View tag helpers up to date with the current <a href="https://www.w3.org/TR/html51/single-page.html">w3.org spec</a>, while dropping <code class="language-plaintext highlighter-rouge">autobuffer</code> in favor of <code class="language-plaintext highlighter-rouge">preload</code> and removing <code class="language-plaintext highlighter-rouge">pubdate</code>.</p>
+
+<h3 id="raise-on-nested-time-travel-helpers"><a href="https://github.com/rails/rails/pull/24890">Raise on nested time travel helpers</a></h3>
+
+<p>Nested time travel calls in tests can lead to confusion in time stubbing. To discourage this practice, Rails now raises on nested <code class="language-plaintext highlighter-rouge">travel</code> and <code class="language-plaintext highlighter-rouge">travel_to</code> time helper calls.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="use-correct-timezone-when-parsing-dates-in-json"><a href="https://github.com/rails/rails/pull/23011">Use correct timezone when parsing dates in json</a></h3>
+
+<p>Time specified in ISO 8601 format without <strong>Z</strong> should be parsed as local time, yet until now it was treated as UTC. This commit fixes the problem by parsing time using the timezone specified in the application config. Additionally, <strong>YYYY-MM-DD</strong> format is now parsed as <strong>Date</strong> , not <strong>DateTime</strong> as it was until now.</p>
+
+<p>Ported to Rails 5-0-stable since this is a potential breaking change.</p>
+
+<h3 id="routes-using-as-option-now-work-with-get-requests"><a href="https://github.com/rails/rails/pull/25435">Routes using <code class="language-plaintext highlighter-rouge">as</code> option now work with GET requests</a></h3>
+
+<p>This fix adds the option to the end of the URL path rather than the query params. The PR discussion contains an example of checking impact on performance and working around it. Backported to 5-0-stable.</p>
+
+<h3 id="dont-reap-reassigned-connections"><a href="https://github.com/rails/rails/pull/25707">Don’t reap reassigned connections</a></h3>
+
+<p>This fix ensures that concurrent invocations of the connection reaper cannot allocate the same connection to two threads. Backported to 5-0-stable.</p>
+
+<h3 id="fix-race-condition-with-websocket-stream-writes"><a href="https://github.com/rails/rails/pull/25624">Fix race condition with websocket stream writes</a></h3>
+
+<p>ActionCable::Connection::Stream now safeguards against concurrent writes to a websocket connection from multiple threads. Backported to 5-0-stable.</p>
+
+<h3 id="close-hijacked-io-socket-after-use"><a href="https://github.com/rails/rails/pull/25615">Close hijacked I/O socket after use</a></h3>
+
+<p>ActionCable::Connection::Stream now properly closes hijacked sockets when the connection was shut down. Backported to 5-0-stable.</p>
+
+<h3 id="fix-adding-implicitly-rendered-template-digests-to-etags"><a href="https://github.com/rails/rails/pull/25546">Fix adding implicitly-rendered template digests to ETags</a></h3>
+
+<p>Modifying an implicitly-rendered template for a controller action using <code class="language-plaintext highlighter-rouge">fresh_when</code> or <code class="language-plaintext highlighter-rouge">stale?</code> now correctly results in a new ETag value.</p>
+
+<h3 id="fix-typedateserialize-to-consistently-return-a-date-object"><a href="https://github.com/rails/rails/pull/25364">Fix Type::Date#serialize to consistently return a date object</a></h3>
+
+<p>Type::Date#serialize now properly casts values to date objects when making <code class="language-plaintext highlighter-rouge">where</code> and <code class="language-plaintext highlighter-rouge">find</code> queries on a date field. Backported to 5-0-stable.</p>
+
+<h2 id="new">New</h2>
+
+<h3 id="new-middleware-for-debugging-reloadingexecuting-deadlocks"><a href="https://github.com/rails/rails/pull/25344">New middleware for debugging reloading/executing deadlocks</a></h3>
+
+<p>Backported to 5-0-stable, this PR adds new <code class="language-plaintext highlighter-rouge">ActionDispatch::DebugLocks</code> middleware that can be used to diagnose deadlocks in the autoload interlock.</p>
+
+<h3 id="enable-using-rake-notes-with-other-directories"><a href="https://github.com/rails/rails/pull/25692">Enable using <code class="language-plaintext highlighter-rouge">rake notes</code> with other directories</a></h3>
+
+<p>Developers and gems can now use <code class="language-plaintext highlighter-rouge">rake notes</code> to extract notes from other directories (like <code class="language-plaintext highlighter-rouge">/spec</code>) by registering them with the SourceAnnotationExtractor.</p>
+
+<h2 id="wrappin-up-ye-saddle-bums">Wrappin’ Up, Ye Saddle Bums</h2>
+
+<p>Luddy Mussy, ah’m all sewn up! That’s all for <strong>This Wild Week in Rails</strong> 🌵. Der wuz more improvements than we had room to cover here, so doncher hesitate to <a href="https://github.com/rails/rails/compare/master@%7B2016-07-02%7D...@%7B2016-07-08%7D">check ‘em out!</a></p>
+
+<p>‘Til next week, amigos!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

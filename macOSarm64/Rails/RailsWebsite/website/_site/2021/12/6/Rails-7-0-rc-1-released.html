@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 7.0 RC1: New JavaScript Answers, At-Work Encryption, Query Origin Logging, Zeitwerk Exclusively</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We’re almost ready to declare Rails 7 done! The feedback since the first alpha release has been wonderful, we’ve eliminated a slew of issues, and we’ve seen Basecamp, HEY, GitHub, and Shopify all run in production on this alpha series. So we now feel so confident that this is nearly ready that we’re skipping straight from alpha to release candidate. This is RC1." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 7.0 RC1: New JavaScript Answers, At-Work Encryption, Query Origin Logging, Zeitwerk Exclusively" />
+  <meta property="og:description" content="We’re almost ready to declare Rails 7 done! The feedback since the first alpha release has been wonderful, we’ve eliminated a slew of issues, and we’ve seen Basecamp, HEY, GitHub, and Shopify all run in production on this alpha series. So we now feel so confident that this is nearly ready that we’re skipping straight from alpha to release candidate. This is RC1." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2021/12/6/Rails-7-0-rc-1-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 7.0 RC1: New JavaScript Answers, At-Work Encryption, Query Origin Logging, Zeitwerk Exclusively" />
+  <meta name="twitter:description" content="We’re almost ready to declare Rails 7 done! The feedback since the first alpha release has been wonderful, we’ve eliminated a slew of issues, and we’ve seen Basecamp, HEY, GitHub, and Shopify all run in production on this alpha series. So we now feel so confident that this is nearly ready that we’re skipping straight from alpha to release candidate. This is RC1." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2021/12/6/Rails-7-0-rc-1-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 7.0 RC1: New JavaScript Answers, At-Work Encryption, Query Origin Logging, Zeitwerk Exclusively",
+      "description": "We’re almost ready to declare Rails 7 done! The feedback since the first alpha release has been wonderful, we’ve eliminated a slew of issues, and we’ve seen Basecamp, HEY, GitHub, and Shopify all run in production on this alpha series. So we now feel so confident that this is nearly ready that we’re skipping straight from alpha to release candidate. This is RC1.",
+      "url": "http://localhost:4000/2021/12/6/Rails-7-0-rc-1-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2021-12-06T22:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, December 6, 2021</h5>
+        <h2>Rails 7.0 RC1: New JavaScript Answers, At-Work Encryption, Query Origin Logging, Zeitwerk Exclusively</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We’re almost ready to declare Rails 7 done! The feedback since <a href="https://rubyonrails.org/2021/9/15/Rails-7-0-alpha-1-released">the first alpha release</a> has been wonderful, we’ve eliminated a slew of issues, and we’ve seen Basecamp, HEY, GitHub, and Shopify all run in production on this alpha series. So we now feel so confident that this is nearly ready that we’re skipping straight from alpha to release candidate. This is RC1.</p>
+
+<p>Please help us do the final testing of all this new stuff so we can ensure a solid final release of Rails 7 this year!</p>
+
+<h2 id="all-new-answers-on-the-front-end">All New Answers On The Front-End</h2>
+
+<p>After almost five years with <a href="https://github.com/rails/webpacker">Webpacker</a> as our default answer to writing modern JavaScript in Rails, <a href="https://www.youtube.com/watch?v=PtxZvFnL2i0">it’s time to move on</a>. Advancements in browser support for ES6/ESM, widespread adoption of HTTP/2, and <a href="https://github.com/rails/importmap-rails">the exciting new standard for import maps</a> has <a href="https://world.hey.com/dhh/modern-web-apps-without-javascript-bundling-or-transpiling-a20f2755">paved the way</a> for <a href="https://world.hey.com/dhh/rails-7-will-have-three-great-answers-to-javascript-in-2021-8d68191b">a no-Node approach to JavaScript in Rails 7</a> – <a href="https://github.com/rails/importmap-rails#using-node-modules-via-javascript-cdns">without giving up on npm packages</a>.</p>
+
+<p>Together with the replacement of Turbolinks and Rails UJS by the <a href="https://hotwired.dev">Hotwire</a> combination of <a href="https://stimulus.hotwired.dev">Stimulus</a> and <a href="https://turbo.hotwired.dev">Turbo</a>, we now have the most complete in-the-box front-end setup for writing great Rails applications ever. Without needing thousands of node dependencies in <code class="language-plaintext highlighter-rouge">node_modules</code>, fighting with bundler configurations, or any of the other challenges common with JavaScript development.</p>
+
+<p>At the same time, we’ve also <a href="https://www.youtube.com/watch?v=JsNtLiph87Y">dramatically improved the integration</a> between Rails and JavaScript + CSS bundlers for those who need that. Through two new companion gems that can be triggered via rails new <a href="https://github.com/rails/jsbundling-rails">–javascript [bundler]</a> and <a href="https://github.com/rails/cssbundling-rails">–css [bundler]</a>, you get easy access to starting a new application or changing one that starts with import maps to use <a href="https://github.com/evanw/esbuild">esbuild</a>, <a href="https://rollupjs.org/guide/en">rollup.js</a>, <a href="https://webpack.js.org">Webpack</a>, <a href="https://tailwindcss.com">Tailwind CSS</a>, <a href="https://postcss.org">PostCSS</a>, <a href="https://sass-lang.com/dart-sass">Dart Sass</a>, and <a href="https://getbootstrap.com">Bootstrap</a>.</p>
+
+<h2 id="at-work-encryption-with-active-record">At-Work Encryption With Active Record</h2>
+
+<p>Extracted from <a href="https://hey.com/security">HEY</a>, we’ve added <a href="https://github.com/rails/rails/pull/41659">encrypted attributes to Active Record</a>, so your application can offer at-work encryption in addition to the traditional at-rest and in-transit coverage.</p>
+
+<p>As an immediate practical benefit, encrypting sensitive attributes adds an additional security layer. For example, if an attacker gained access to your database, a snapshot of it, or your application logs, they wouldn’t be able to make sense of the encrypted information. And even without thinking about malicious actors, checking application logs for legit reasons shouldn’t expose personal information from customers either.</p>
+
+<p>But more importantly, by using Active Record Encryption, you define what constitutes sensitive information in your application at the code level. This enables controlling how this information is accessed and building services around it. As examples, think about auditable Rails consoles that protect encrypted data or check the built-in system to filter controller params automatically.</p>
+
+<p>Checkout the <a href="https://edgeguides.rubyonrails.org/active_record_encryption.html">full guide on how to use encrypted attributes</a>.</p>
+
+<h2 id="trace-query-origins-with-marginalia-style-tagging">Trace Query Origins With Marginalia-Style Tagging</h2>
+
+<p>Almost a decade ago, <a href="https://signalvnoise.com/posts/3130-tech-note-mysql-query-comments-in-rails">Marginalia was extracted from Basecamp</a> to trace query origins with SQL comment tagging. Now this external gem has been <a href="https://github.com/rails/rails/pull/42240">upstreamed into Active Record as QueryLogs</a>.</p>
+
+<h2 id="asynchronous-query-loading">Asynchronous Query Loading</h2>
+
+<p>When you have a controller action that needs to load two unrelated queries, you can now do it concurrently through <a href="https://github.com/rails/rails/pull/41372">Relation#load_async</a>. If you have three complex queries that each take 100ms, you’d have to spend 300ms executing them one by one before. Now you can run them in parallel, spending only a total of 100ms on the set.</p>
+
+<h2 id="zeitwerk-exclusively">Zeitwerk Exclusively</h2>
+
+<p>Autoloading in Rails is one of those magical quality of life realities that it’s easy to just take for granted. The trusty old <code class="language-plaintext highlighter-rouge">const_missing</code> approach which came with a range of quirks and missing features has finally been replaced exclusively with the <a href="https://github.com/fxn/zeitwerk#introduction">Zeitwerk code loader</a>. There are a few upgrade gotchas to be aware of, especially for older applications, but with this <a href="https://guides.rubyonrails.org/upgrading_ruby_on_rails.html#autoloading">upgrade guide</a> you should be on your way in no time</p>
+
+<h2 id="a-few-other-highlights">A Few Other Highlights</h2>
+
+<ul>
+  <li><a href="https://github.com/rails/spring">Spring</a> is no longer on by default, as faster computers have made it less relevant on anything but the largest applications.</li>
+  <li><a href="https://github.com/rails/rails/pull/41488">ActionController::Live#send_stream</a> makes it easy to stream files that are being generated on-the-fly in controller actions.</li>
+  <li>Parallelized testing will now compare your CPU core count to your test count and <a href="https://github.com/rails/rails/pull/42761">scale the parallelization accordingly</a>.</li>
+  <li>Active Storage now uses the faster and more secure <code class="language-plaintext highlighter-rouge">libvips</code> as its <a href="https://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html#activestorage-variant-processor-changed-to-vips">default variant processor</a>.</li>
+</ul>
+
+<h2 id="from-all-of-us-to-all-of-you">From All Of Us To All Of You</h2>
+
+<p>There are <a href="https://github.com/rails/rails/compare/v7.0.0.alpha2...7-0-stable">over seven hundred commits</a> that have gone into this release candidate since we released the alpha three months ago. We hope to get this work in the hands of everyone before Christmas this year 🎄🎁❤️.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Fixing Ruby on OS X Tiger</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Apple has done a great thing by including Ruby 1.8.2 in OS X 10.4, but unfortunately they stumbled just as they were to cross the finish line. Tiger has some deficiency that prevents it from installing native extensions properly. But there is quick room for remedy.You can either grab the cool new Ruby on Rails installer for Tiger that fixes Ruby itselfs and installs RubyGems, FCGI, and Rails in one fell swoop. Or if you already have stuff like RubyGems and the Rails installed, you can just grab this correction gem:sudo gem install fixrbconfigsudo fixrbconfigCurtsey of the RubyGems team." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Fixing Ruby on OS X Tiger" />
+  <meta property="og:description" content="Apple has done a great thing by including Ruby 1.8.2 in OS X 10.4, but unfortunately they stumbled just as they were to cross the finish line. Tiger has some deficiency that prevents it from installing native extensions properly. But there is quick room for remedy.You can either grab the cool new Ruby on Rails installer for Tiger that fixes Ruby itselfs and installs RubyGems, FCGI, and Rails in one fell swoop. Or if you already have stuff like RubyGems and the Rails installed, you can just grab this correction gem:sudo gem install fixrbconfigsudo fixrbconfigCurtsey of the RubyGems team." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/4/30/fixing-ruby-on-os-x-tiger" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Fixing Ruby on OS X Tiger" />
+  <meta name="twitter:description" content="Apple has done a great thing by including Ruby 1.8.2 in OS X 10.4, but unfortunately they stumbled just as they were to cross the finish line. Tiger has some deficiency that prevents it from installing native extensions properly. But there is quick room for remedy.You can either grab the cool new Ruby on Rails installer for Tiger that fixes Ruby itselfs and installs RubyGems, FCGI, and Rails in one fell swoop. Or if you already have stuff like RubyGems and the Rails installed, you can just grab this correction gem:sudo gem install fixrbconfigsudo fixrbconfigCurtsey of the RubyGems team." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/4/30/fixing-ruby-on-os-x-tiger"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Fixing Ruby on OS X Tiger",
+      "description": "Apple has done a great thing by including Ruby 1.8.2 in OS X 10.4, but unfortunately they stumbled just as they were to cross the finish line. Tiger has some deficiency that prevents it from installing native extensions properly. But there is quick room for remedy.You can either grab the cool new Ruby on Rails installer for Tiger that fixes Ruby itselfs and installs RubyGems, FCGI, and Rails in one fell swoop. Or if you already have stuff like RubyGems and the Rails installed, you can just grab this correction gem:sudo gem install fixrbconfigsudo fixrbconfigCurtsey of the RubyGems team.",
+      "url": "http://localhost:4000/2005/4/30/fixing-ruby-on-os-x-tiger",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-04-30T11:30:02+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, April 30, 2005</h5>
+        <h2>Fixing Ruby on OS X Tiger</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Apple has done a great thing by including Ruby 1.8.2 in OS X 10.4, but unfortunately they stumbled just as they were to cross the finish line. Tiger has some deficiency that prevents it from installing native extensions properly. But there is quick room for remedy.</p>
+<p>You can either grab the cool new <a href="http://wiki.rubyonrails.com/rails/show/HowtoInstallOnOSXTiger">Ruby on Rails installer for Tiger</a> that fixes Ruby itselfs and installs RubyGems, <span class="caps">FCGI</span>, and Rails in one fell swoop. Or if you already have stuff like RubyGems and the Rails installed, you can just grab this correction gem:</p>
+<pre>sudo gem install fixrbconfig
+sudo fixrbconfig</pre>
+<p><a href="http://www.chadfowler.com/index.cgi/Computing/Programming/Ruby/FixTiger.rdoc,v">Curtsey</a> of the RubyGems team.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

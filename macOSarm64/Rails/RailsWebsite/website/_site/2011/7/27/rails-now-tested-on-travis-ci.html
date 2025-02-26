@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails now tested on Travis CI</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Setting up continuous integration for Rails has been a complicated undertaking in the past.Rails needs to be tested against different Ruby versions and various modes (such as running test cases in isolation/non-isolation, running ActiveRecord with identitymap enabled/disabled). This made the test suite run for an isanely long time (up to 2 hours on 1.9.2 alone) and required regular maintenance bythe Rails core team.Over the past weeks the folks at Travis CI have been working hard to provide a better experience to Rails continous integration and today we can happily announce thatRails is now testing on Travis CI!Travis CI is doing a great job in providing multi-ruby testing capabilities and it is dead-simple to use. There&#8217;s some great potential to this project and it might change the way we see open-source development and testing quite a bit.So, if you are publishing any kind of open-source code, library or web application, we recommend you have a look at it. And if you have a spare hour once in a while then consider potentially jumping on board to help improve the code base.Travis CI is using a separate physical worker server (and a quite beefy one!) for running workers dedicated to Rails builds. This server has kindly been sponsored by the great folks over at Enterprise Rails.[Guest post by Josh Kalderimis &amp; Sven Fuchs]" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails now tested on Travis CI" />
+  <meta property="og:description" content="Setting up continuous integration for Rails has been a complicated undertaking in the past.Rails needs to be tested against different Ruby versions and various modes (such as running test cases in isolation/non-isolation, running ActiveRecord with identitymap enabled/disabled). This made the test suite run for an isanely long time (up to 2 hours on 1.9.2 alone) and required regular maintenance bythe Rails core team.Over the past weeks the folks at Travis CI have been working hard to provide a better experience to Rails continous integration and today we can happily announce thatRails is now testing on Travis CI!Travis CI is doing a great job in providing multi-ruby testing capabilities and it is dead-simple to use. There&#8217;s some great potential to this project and it might change the way we see open-source development and testing quite a bit.So, if you are publishing any kind of open-source code, library or web application, we recommend you have a look at it. And if you have a spare hour once in a while then consider potentially jumping on board to help improve the code base.Travis CI is using a separate physical worker server (and a quite beefy one!) for running workers dedicated to Rails builds. This server has kindly been sponsored by the great folks over at Enterprise Rails.[Guest post by Josh Kalderimis &amp; Sven Fuchs]" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/7/27/rails-now-tested-on-travis-ci" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails now tested on Travis CI" />
+  <meta name="twitter:description" content="Setting up continuous integration for Rails has been a complicated undertaking in the past.Rails needs to be tested against different Ruby versions and various modes (such as running test cases in isolation/non-isolation, running ActiveRecord with identitymap enabled/disabled). This made the test suite run for an isanely long time (up to 2 hours on 1.9.2 alone) and required regular maintenance bythe Rails core team.Over the past weeks the folks at Travis CI have been working hard to provide a better experience to Rails continous integration and today we can happily announce thatRails is now testing on Travis CI!Travis CI is doing a great job in providing multi-ruby testing capabilities and it is dead-simple to use. There&#8217;s some great potential to this project and it might change the way we see open-source development and testing quite a bit.So, if you are publishing any kind of open-source code, library or web application, we recommend you have a look at it. And if you have a spare hour once in a while then consider potentially jumping on board to help improve the code base.Travis CI is using a separate physical worker server (and a quite beefy one!) for running workers dedicated to Rails builds. This server has kindly been sponsored by the great folks over at Enterprise Rails.[Guest post by Josh Kalderimis &amp; Sven Fuchs]" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/7/27/rails-now-tested-on-travis-ci"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails now tested on Travis CI",
+      "description": "Setting up continuous integration for Rails has been a complicated undertaking in the past.Rails needs to be tested against different Ruby versions and various modes (such as running test cases in isolation/non-isolation, running ActiveRecord with identitymap enabled/disabled). This made the test suite run for an isanely long time (up to 2 hours on 1.9.2 alone) and required regular maintenance bythe Rails core team.Over the past weeks the folks at Travis CI have been working hard to provide a better experience to Rails continous integration and today we can happily announce thatRails is now testing on Travis CI!Travis CI is doing a great job in providing multi-ruby testing capabilities and it is dead-simple to use. There&#8217;s some great potential to this project and it might change the way we see open-source development and testing quite a bit.So, if you are publishing any kind of open-source code, library or web application, we recommend you have a look at it. And if you have a spare hour once in a while then consider potentially jumping on board to help improve the code base.Travis CI is using a separate physical worker server (and a quite beefy one!) for running workers dedicated to Rails builds. This server has kindly been sponsored by the great folks over at Enterprise Rails.[Guest post by Josh Kalderimis &amp; Sven Fuchs]",
+      "url": "http://localhost:4000/2011/7/27/rails-now-tested-on-travis-ci",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2011-07-27T14:48:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, July 27, 2011</h5>
+        <h2>Rails now tested on Travis CI</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Setting up continuous integration for Rails has been a complicated undertaking in the past.</p>
+<p>Rails needs to be tested against different Ruby versions and various modes (such as running test cases in isolation/non-isolation, running ActiveRecord with identitymap enabled/disabled). This made the test suite run for an isanely long time (up to 2 hours on 1.9.2 alone) and required regular maintenance by<br />
+the Rails core team.</p>
+<p>Over the past weeks the folks at <a href="http://travis-ci.org">Travis CI</a> have been working hard to provide a better experience to Rails continous integration and today we can happily announce that<br />
+<a href="http://travis-ci.org/#!/rails/rails">Rails is now testing on Travis CI</a>!</p>
+<p>Travis CI is doing a great job in providing multi-ruby testing capabilities and it is dead-simple to use. There&#8217;s some great potential to this project and it might change the way we see open-source development and testing quite a bit.</p>
+<p>So, if you are publishing any kind of open-source code, library or web application, we recommend you have a look at it. And if you have a spare hour once in a while then consider potentially jumping on board to help improve the code base.</p>
+<p>Travis CI is using a separate physical worker server (and a quite beefy one!) for running workers dedicated to Rails builds. This server has kindly been sponsored by the great folks over at <a href="http://enterprise-rails.com">Enterprise Rails</a>.</p>
+<p>[Guest post by Josh Kalderimis &amp; Sven Fuchs]</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

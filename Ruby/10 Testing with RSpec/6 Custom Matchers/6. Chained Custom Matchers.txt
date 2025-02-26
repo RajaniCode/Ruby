@@ -1,0 +1,133 @@
+6. Chained Custom Matchers
+
+
+We've decided to also test that the number being passed in is only an integer. We've added most of the code you need below. All that is left is to create a new method called only_integers which sets the only_integers option to true and returns self. Then update the last line on the matches? method to return true or false depending on if the @errors array is empty.
+
+
+zombie_spec
+describe Zombie do
+  subject { Zombie.new }
+  it { should validate_numericality_of(:iq) }
+end
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :iq
+  validates :iq, presence: true, 
+                 numericality: {
+                   only_integers: true
+                 }
+end
+
+
+validate_numericality_of.rb
+module ValidateNumericalityOf
+  class Matcher
+    def initialize(attribute)
+      @attribute = attribute
+      @options = {}
+      @errors = []
+    end
+
+    def matches?(model)
+      @model = model
+      @model[@attribute] = "not a number"
+      @model.valid?
+
+      if !@model.errors[@attribute].include?("is not a number")
+        @errors << "numericality" 
+      end
+
+      if @options[:only_integers]
+        @model[@attribute] = 1.5
+        @model.valid?
+        if !@model.errors[@attribute].include?("must be an integer")
+          @errors << "as an integer"
+        end
+      end
+
+      pending
+    end
+
+    def failure_message
+      "#{@model.class} failed to validate: #{@attribute} #{@errors.join(', ')}"
+    end
+
+    def negative_failure_message
+      "#{@model.class} unexpected validation: #{@attribute} #{@errors.join(', ')}"
+    end
+
+    def description
+      "validate numericality of #{@attribute}"
+    end
+  end
+
+  def validate_numericality_of(attribute)
+    Matcher.new(attribute)
+  end
+end
+
+RSpec.configure do |config|
+  config.include ValidateNumericalityOf, type: :model
+end
+
+
+Answer:
+validate_numericality_of.rb
+module ValidateNumericalityOf
+  class Matcher
+    def initialize(attribute)
+      @attribute = attribute
+      @options = {}
+      @errors = []
+    end
+
+    def matches?(model)
+      @model = model
+      @model[@attribute] = "not a number"
+      @model.valid?
+
+      if !@model.errors[@attribute].include?("is not a number")
+        @errors << "numericality" 
+      end
+
+      if @options[:only_integers]
+        @model[@attribute] = 1.5
+        @model.valid?
+        if !@model.errors[@attribute].include?("must be an integer")
+          @errors << "as an integer"
+        end
+      end
+
+      if @errors.empty?
+        return true
+      end
+    end
+    
+    def only_integers
+      @options[:only_integers] = true
+      self
+    end
+    
+    def failure_message
+      "#{@model.class} failed to validate: #{@attribute} #{@errors.join(', ')}"
+    end
+
+    def negative_failure_message
+      "#{@model.class} unexpected validation: #{@attribute} #{@errors.join(', ')}"
+    end
+
+    def description
+      "validate numericality of #{@attribute}"
+    end
+  end
+
+  def validate_numericality_of(attribute)
+    Matcher.new(attribute)
+  end
+end
+
+RSpec.configure do |config|
+  config.include ValidateNumericalityOf, type: :model
+end

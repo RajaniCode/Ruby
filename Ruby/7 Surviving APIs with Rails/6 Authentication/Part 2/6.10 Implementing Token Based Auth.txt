@@ -1,0 +1,59 @@
+6.10 Implementing Token Based Auth
+
+Finally, let’s add the Token Based Authentication strategy to our API. We’ll go back to ApplicationController and add a callback, which will be run for each request that comes in.
+
+class ApplicationController < ActionController::Base
+  before_action :authenticate
+
+  protected
+    def authenticate
+      authenticate_token
+    end
+
+    def authenticate_token
+      # code here
+    end
+end
+
+
+1. Implement the authenticate_token method. This method should call authenticate_with_http_token, which takes a block as an argument. The block should take token as its first argument.
+
+
+Answer:
+app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  before_action :authenticate
+
+  protected
+    def authenticate
+      authenticate_token
+    end
+
+    def authenticate_token
+      # code here
+      authenticate_with_http_token do |token, options|        
+      end
+    end
+end
+
+
+2. Inside the block, authenticate the request using User.find_by and the token from the block argument. The field on the users table that holds the token is called auth_token.
+
+
+Answer:
+app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  before_action :authenticate
+
+  protected
+    def authenticate
+      authenticate_token
+    end
+
+    def authenticate_token
+      # code here
+      authenticate_with_http_token do |token, options|  
+        User.find_by(auth_token: token)
+      end
+    end
+end

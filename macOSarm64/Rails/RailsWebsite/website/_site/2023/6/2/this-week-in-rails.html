@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; HTML5 sanitizer, path_params and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, Wojtek here. Let’s explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="HTML5 sanitizer, path_params and more" />
+  <meta property="og:description" content="Hi, Wojtek here. Let’s explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/6/2/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="HTML5 sanitizer, path_params and more" />
+  <meta name="twitter:description" content="Hi, Wojtek here. Let’s explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/6/2/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "HTML5 sanitizer, path_params and more",
+      "description": "Hi, Wojtek here. Let’s explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2023/6/2/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Wojtek"
+      },
+      "datePublished": "2023-06-02T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, June 2, 2023</h5>
+        <h2>HTML5 sanitizer, path_params and more</h2>
+
+        <h6>Posted by Wojtek</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, <a href="https://twitter.com/morgoth85">Wojtek</a> here. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48293">Update Action View to use HTML5 standards-compliant sanitizers</a><br />
+Add support for HTML5 standards-compliant sanitizers, and default to <code class="language-plaintext highlighter-rouge">Rails::HTML5::Sanitizer</code> in the Rails 7.1 configuration if it is supported.
+Action View’s HTML sanitizers can be configured by setting <code class="language-plaintext highlighter-rouge">config.action_view.sanitizer_vendor</code>. Supported values are <code class="language-plaintext highlighter-rouge">Rails::HTML4::Sanitizer</code> or <code class="language-plaintext highlighter-rouge">Rails::HTML5::Sanitizer</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/43770">Add “path_params” to “url_for”</a><br />
+The <code class="language-plaintext highlighter-rouge">url_for</code> helpers now support a new option called <code class="language-plaintext highlighter-rouge">path_params</code>. This might be useful in situations where you only want to add a required param that is part of the route’s URL but for other route not append an extraneous query param.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48241">Assign auto populated columns on Active Record object creation</a><br />
+Changes record creation logic to allow for the <code class="language-plaintext highlighter-rouge">auto_increment</code> column to be assigned right after creation regardless of it’s relation to model’s primary key.
+PostgreSQL adapter benefits the most from the change allowing for any number of auto-populated columns to be assigned on the object immediately after row insertion utilizing the <code class="language-plaintext highlighter-rouge">RETURNING</code> statement.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48355">Handle “sanitize_options” in “simple_format” helper</a><br />
+Sanitize functionality can now be configured via passed options.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48353">Set “default_shard” from “connects_to” hash</a><br />
+Some applications may not want to use <code class="language-plaintext highlighter-rouge">:default</code> as a shard name in their connection model. Unfortunately Active Record expects there to be a <code class="language-plaintext highlighter-rouge">:default</code> shard because it must assume a shard to get the right connection from the pool manager. Rather than force applications to manually set this, <code class="language-plaintext highlighter-rouge">connects_to</code> can infer the default shard name from the hash of shards and will now assume that the first shard is your default.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48222">Add health check configuration</a><br />
+Added <code class="language-plaintext highlighter-rouge">health_check_path</code> and <code class="language-plaintext highlighter-rouge">health_check_application</code> config to mount a given health check rack app on a given path.
+Useful when mounting Action Cable standalone.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48374">Support VISUAL env var and prefer it over EDITOR</a><br />
+When opening a temporary file for editing encrypted files.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48339">Allow an Active Storage attachment to be removed via a form post</a><br />
+Attachments can already be removed by updating the attachment to be nil such as:
+<code class="language-plaintext highlighter-rouge">User.find(params[:id]).update!(avatar: nil)</code></p>
+
+<p>However, a form cannot post a nil param, it can only post an empty string. But, posting an empty string would result in an <code class="language-plaintext highlighter-rouge">ActiveSupport::MessageVerifier::InvalidSignature: mismatched digest</code> error being raised, because it’s being treated as a signed blob id.
+Now, nil and an empty string are treated as a delete, which allows attachments to be removed via:
+<code class="language-plaintext highlighter-rouge">User.find(params[:id]).update!(params.require(:user).permit(:avatar))</code></p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-05-26%7D...main@%7B2023-06-02%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230526-20230602">23 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

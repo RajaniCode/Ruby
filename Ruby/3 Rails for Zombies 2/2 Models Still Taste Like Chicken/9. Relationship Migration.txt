@@ -1,0 +1,28 @@
+9. Relationship Migration
+
+
+Objective
+
+A Tweet can belong to one or more Categories (e.g. eating flesh, walking dead, searching for brains). Write a migration that creates two tables, categories, and categorizations. Give categories one column named name of type string; and give categorizations two integer columns: tweet_id and category_id.
+
+
+20150717151913_add_tweet_categories.rb
+class AddTweetCategories < ActiveRecord::Migration
+  def change
+  end 
+end
+
+
+Answer:
+20150717151913_add_tweet_categories.rb
+class AddTweetCategories < ActiveRecord::Migration
+  def change
+    create_table :categories do |c|
+      c.string :name
+    end  
+    create_table :categorizations do |c|
+      c.integer :tweet_id
+      c.integer :category_id
+    end 
+  end
+end

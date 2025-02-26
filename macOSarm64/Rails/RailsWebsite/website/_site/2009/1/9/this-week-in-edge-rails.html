@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Edge Rails</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="January 3, 2009 -January 9, 2009It was a pretty light week for the edge Rails tree: about 20 commits. We&#8217;re starting to see things coalesce for a 2.3 release, though there&#8217;s no official release date yet. Here&#8217;s some of the highlights of what&#8217;s been going on.AssetTag Timestamp CachingYou&#8217;re likely familiar with Rails&#8217; practice of adding timestamps to static asset paths as a &#8220;cache buster.&#8221; This helps ensure that stale copies of things like images and stylesheets don&#8217;t get served out of the user&#8217;s browser cache when you change them on the server. You can now modify this behavior with the cache_asset_timestamps configuration option for Action View. If you enable the cache, then Rails will calculate the timestamp once when it first serves an asset, and save that value. This means fewer (expensive) file system calls to serve static assets &#8211; but it also means that you can&#8217;t modify any of the assets while the server is running and expect the changes to get picked up by clients. commitObject#tap BackportObject#tap is an addition to Ruby 1.9 and 1.8.7 that is similar to the returning method that Rails has had for a while: it yields to a block, and then returns the object that was yielded. Rails now includes code to make this available to older versions of Ruby as well. commitRack Version BumpDuring the week, the Rack project released version 0.9 and Rails was quick to respond &#8211; the required version of Rack for Rails is now 0.9. So, if you&#8217;re running on edge, it&#8217;s time to update your gems. commitContinuous Integration SetupIf you&#8217;re interested in setting up your own continuous integration server to build the Rails source, the embedded instructions have been updated with the latest requirements and clarifications. Even if you want a CI server for something else, they&#8217;re worth looking at, as they&#8217;ll get you from zero to a running cc.rb instance very quickly. commit" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Edge Rails" />
+  <meta property="og:description" content="January 3, 2009 -January 9, 2009It was a pretty light week for the edge Rails tree: about 20 commits. We&#8217;re starting to see things coalesce for a 2.3 release, though there&#8217;s no official release date yet. Here&#8217;s some of the highlights of what&#8217;s been going on.AssetTag Timestamp CachingYou&#8217;re likely familiar with Rails&#8217; practice of adding timestamps to static asset paths as a &#8220;cache buster.&#8221; This helps ensure that stale copies of things like images and stylesheets don&#8217;t get served out of the user&#8217;s browser cache when you change them on the server. You can now modify this behavior with the cache_asset_timestamps configuration option for Action View. If you enable the cache, then Rails will calculate the timestamp once when it first serves an asset, and save that value. This means fewer (expensive) file system calls to serve static assets &#8211; but it also means that you can&#8217;t modify any of the assets while the server is running and expect the changes to get picked up by clients. commitObject#tap BackportObject#tap is an addition to Ruby 1.9 and 1.8.7 that is similar to the returning method that Rails has had for a while: it yields to a block, and then returns the object that was yielded. Rails now includes code to make this available to older versions of Ruby as well. commitRack Version BumpDuring the week, the Rack project released version 0.9 and Rails was quick to respond &#8211; the required version of Rack for Rails is now 0.9. So, if you&#8217;re running on edge, it&#8217;s time to update your gems. commitContinuous Integration SetupIf you&#8217;re interested in setting up your own continuous integration server to build the Rails source, the embedded instructions have been updated with the latest requirements and clarifications. Even if you want a CI server for something else, they&#8217;re worth looking at, as they&#8217;ll get you from zero to a running cc.rb instance very quickly. commit" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/1/9/this-week-in-edge-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Edge Rails" />
+  <meta name="twitter:description" content="January 3, 2009 -January 9, 2009It was a pretty light week for the edge Rails tree: about 20 commits. We&#8217;re starting to see things coalesce for a 2.3 release, though there&#8217;s no official release date yet. Here&#8217;s some of the highlights of what&#8217;s been going on.AssetTag Timestamp CachingYou&#8217;re likely familiar with Rails&#8217; practice of adding timestamps to static asset paths as a &#8220;cache buster.&#8221; This helps ensure that stale copies of things like images and stylesheets don&#8217;t get served out of the user&#8217;s browser cache when you change them on the server. You can now modify this behavior with the cache_asset_timestamps configuration option for Action View. If you enable the cache, then Rails will calculate the timestamp once when it first serves an asset, and save that value. This means fewer (expensive) file system calls to serve static assets &#8211; but it also means that you can&#8217;t modify any of the assets while the server is running and expect the changes to get picked up by clients. commitObject#tap BackportObject#tap is an addition to Ruby 1.9 and 1.8.7 that is similar to the returning method that Rails has had for a while: it yields to a block, and then returns the object that was yielded. Rails now includes code to make this available to older versions of Ruby as well. commitRack Version BumpDuring the week, the Rack project released version 0.9 and Rails was quick to respond &#8211; the required version of Rack for Rails is now 0.9. So, if you&#8217;re running on edge, it&#8217;s time to update your gems. commitContinuous Integration SetupIf you&#8217;re interested in setting up your own continuous integration server to build the Rails source, the embedded instructions have been updated with the latest requirements and clarifications. Even if you want a CI server for something else, they&#8217;re worth looking at, as they&#8217;ll get you from zero to a running cc.rb instance very quickly. commit" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/1/9/this-week-in-edge-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Edge Rails",
+      "description": "January 3, 2009 -January 9, 2009It was a pretty light week for the edge Rails tree: about 20 commits. We&#8217;re starting to see things coalesce for a 2.3 release, though there&#8217;s no official release date yet. Here&#8217;s some of the highlights of what&#8217;s been going on.AssetTag Timestamp CachingYou&#8217;re likely familiar with Rails&#8217; practice of adding timestamps to static asset paths as a &#8220;cache buster.&#8221; This helps ensure that stale copies of things like images and stylesheets don&#8217;t get served out of the user&#8217;s browser cache when you change them on the server. You can now modify this behavior with the cache_asset_timestamps configuration option for Action View. If you enable the cache, then Rails will calculate the timestamp once when it first serves an asset, and save that value. This means fewer (expensive) file system calls to serve static assets &#8211; but it also means that you can&#8217;t modify any of the assets while the server is running and expect the changes to get picked up by clients. commitObject#tap BackportObject#tap is an addition to Ruby 1.9 and 1.8.7 that is similar to the returning method that Rails has had for a while: it yields to a block, and then returns the object that was yielded. Rails now includes code to make this available to older versions of Ruby as well. commitRack Version BumpDuring the week, the Rack project released version 0.9 and Rails was quick to respond &#8211; the required version of Rack for Rails is now 0.9. So, if you&#8217;re running on edge, it&#8217;s time to update your gems. commitContinuous Integration SetupIf you&#8217;re interested in setting up your own continuous integration server to build the Rails source, the embedded instructions have been updated with the latest requirements and clarifications. Even if you want a CI server for something else, they&#8217;re worth looking at, as they&#8217;ll get you from zero to a running cc.rb instance very quickly. commit",
+      "url": "http://localhost:4000/2009/1/9/this-week-in-edge-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Mike Gunderloy"
+      },
+      "datePublished": "2009-01-09T18:56:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, January 9, 2009</h5>
+        <h2>This Week in Edge Rails</h2>
+
+        <h6>Posted by Mike Gunderloy</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <h3>January 3, 2009 -January 9, 2009</h3>
+<p>It was a pretty light week for the edge Rails tree: about 20 commits. We&#8217;re starting to see things coalesce for a 2.3 release, though there&#8217;s no official release date yet. Here&#8217;s some of the highlights of what&#8217;s been going on.</p>
+<h2>AssetTag Timestamp Caching</h2>
+<p>You&#8217;re likely familiar with Rails&#8217; practice of adding timestamps to static asset paths as a &#8220;cache buster.&#8221; This helps ensure that stale copies of things like images and stylesheets don&#8217;t get served out of the user&#8217;s browser cache when you change them on the server. You can now modify this behavior with the <code>cache_asset_timestamps</code> configuration option for Action View. If you enable the cache, then Rails will calculate the timestamp once when it first serves an asset, and save that value. This means fewer (expensive) file system calls to serve static assets &#8211; but it also means that you can&#8217;t modify any of the assets while the server is running and expect the changes to get picked up by clients. <a href="http://github.com/rails/rails/commit/ce706b4b9be03a3f2e7d11438e6550d64c5f4461">commit</a></p>
+<h2>Object#tap Backport</h2>
+<p><code>Object#tap</code> is an addition to <a href="http://www.ruby-doc.org/core-1.9/classes/Object.html#M000309">Ruby 1.9</a> and 1.8.7 that is similar to the <code>returning</code> method that Rails has had for a while: it yields to a block, and then returns the object that was yielded. Rails now includes code to make this available to older versions of Ruby as well. <a href="http://github.com/rails/rails/commit/0f9e65b71f9af30dac17689e81f4353e9fcac5b6">commit</a></p>
+<h2>Rack Version Bump</h2>
+<p>During the week, the Rack project <a href="http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/324073">released version 0.9</a> and Rails was quick to respond &#8211; the required version of Rack for Rails is now 0.9. So, if you&#8217;re running on edge, it&#8217;s time to update your gems. <a href="http://github.com/rails/rails/commit/b7ea4add86231ef628d479516c8a09ca55e610bc">commit</a></p>
+<h2>Continuous Integration Setup</h2>
+<p>If you&#8217;re interested in setting up your own continuous integration server to build the Rails source, the embedded instructions have been updated with the latest requirements and clarifications. Even if you want a CI server for something else, they&#8217;re worth looking at, as they&#8217;ll get you from zero to a running cc.rb instance very quickly. <a href="http://github.com/rails/rails/commit/19818eb0ea72cb99e98bd097d03ac8a69f204b6a">commit</a></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

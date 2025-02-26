@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: expiring counters, flush db connections, connection fork safety and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi! Prathamesh here! Let’s see what we have in store today from the Rails world." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: expiring counters, flush db connections, connection fork safety and more!" />
+  <meta property="og:description" content="Hi! Prathamesh here! Let’s see what we have in store today from the Rails world." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/11/26/this-week-in-rails-expiring-counters-flush-db-connections-connection-fork-safety-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: expiring counters, flush db connections, connection fork safety and more!" />
+  <meta name="twitter:description" content="Hi! Prathamesh here! Let’s see what we have in store today from the Rails world." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/11/26/this-week-in-rails-expiring-counters-flush-db-connections-connection-fork-safety-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: expiring counters, flush db connections, connection fork safety and more!",
+      "description": "Hi! Prathamesh here! Let’s see what we have in store today from the Rails world.",
+      "url": "http://localhost:4000/2017/11/26/this-week-in-rails-expiring-counters-flush-db-connections-connection-fork-safety-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "_cha1tanya"
+      },
+      "datePublished": "2017-11-26T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, November 26, 2017</h5>
+        <h2>This Week in Rails: expiring counters, flush db connections, connection fork safety and more!</h2>
+
+        <h6>Posted by _cha1tanya</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi! <a href="https://twitter.com/_cha1tanya">Prathamesh</a> here! Let’s see what we have in store today from the Rails world.</p>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20171119-20171126">This Week’s Contributors</a></h3>
+
+<p>This week we had 25 contributors. 8 of them were first time contributors!!!! 🎉</p>
+
+<h3 id="support-expiring-counters-for-memcached-store"><a href="https://github.com/rails/rails/commit/b22ee64b5b30c6d5039c292235e10b24b1057f6d">Support expiring counters for Memcached Store</a></h3>
+
+<p>This change adds supports for passing <strong>expires_in</strong> options to the <strong>#increment</strong> and <strong>#decrement</strong> methods of the Memcached  store.</p>
+
+<h3 id="flush-idle-database-connections-automatically"><a href="https://github.com/rails/rails/pull/31221">Flush idle database connections automatically</a></h3>
+
+<p>A new configuration to flush the idle database connections after a specified period. Defaults to 300 seconds. This change will ensure that you don’t have idle database connections hanging around in your connection pool.</p>
+
+<h3 id="improve-active-record-connection-fork-safety"><a href="https://github.com/rails/rails/pull/31173">Improve Active Record connection fork safety</a></h3>
+
+<p>This change ensures that forked children don’t send quit/shutdown/goodbye messages to the server on connections that belonged to their parent. It will prevent the <a href="https://github.com/rails/rails/pull/31173">connection leakage</a>that might happen when connections are not closed when workers are forked from parent process.</p>
+
+<h3 id="generate-ids-by-default-for-form_with-helper"><a href="https://github.com/rails/rails/commit/d3893ec38ec61282c2598b01a298124356d6b35a">Generate ids by default for form_with helper</a></h3>
+
+<p>When <strong>form_with</strong> was introduced the auto generation of <em>ids</em> was disabled. Labels don’t play well in such cases when the inputs don’t have ids and it also made it harder to test the forms. This change enables the auto-generation of ids by default and allows to disable it using a config.</p>
+
+<h3 id="pass-informative-arguments-to-all-calls-of-activerecordrecordnotfound-error"><a href="https://github.com/rails/rails/pull/31184">Pass informative arguments to all calls of ActiveRecord::RecordNotFound error</a></h3>
+
+<p><strong>ActiveRecord::RecordNotFoundError</strong> accepts arguments such as <strong>primary_key,</strong>  <strong>model_name</strong> and the arguments besides the error message. This change makes all the calls to this error uniform by passing these arguments wherever they were missing.</p>
+
+<h3 id="make-secure_compare-method-not-leak-length-information"><a href="https://github.com/rails/rails/pull/24510/files">Make secure_compare method not leak length information</a></h3>
+
+<p>This change makes sure that even in case of variable length strings, the <strong>ActiveSupport::SecurityUtils.secure_compare</strong> doesn’t leak the length information.</p>
+
+<p>That’s all we’ve got for this week, but do check out the <a href="https://github.com/rails/rails/compare/master@%7B2017-11-19%7D...@%7B2017-11-26%7D">full list of changes</a> yourself. Over and out! See you next week ✌️</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

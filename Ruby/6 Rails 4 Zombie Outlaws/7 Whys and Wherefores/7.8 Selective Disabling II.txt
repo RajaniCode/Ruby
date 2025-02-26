@@ -1,0 +1,19 @@
+7.8 Selective Disabling II
+
+
+On the home page, disable Turbolinks for all links in the navigation element.
+
+
+app/views/welcome/show.html.erb
+<div id="navigation">
+  <div><%= link_to 'Zombies', zombies_path %></div>
+  <div><%= link_to 'Weapons', weapons_path %></div>
+</div>
+
+
+Answer:
+app/views/welcome/show.html.erb
+<div id="navigation" data-no-turbolink="true">
+  <div><%= link_to 'Zombies', zombies_path %></div>
+  <div><%= link_to 'Weapons', weapons_path %></div>
+</div>

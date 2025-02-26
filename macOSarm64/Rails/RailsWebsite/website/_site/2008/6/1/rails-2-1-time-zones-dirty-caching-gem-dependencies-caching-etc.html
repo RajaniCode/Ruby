@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 2.1: Time zones, dirty, caching, gem dependencies, caching, etc</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rails 2.1 is now available for general consumption with all the features and fixes we&#8217;ve been putting in over the last six months since 2.0. This has been a huge effort by a very wide range of contributors helping to make it happen.Over the past six months, we&#8217;ve had 1,400 contributors creating patches and vetting them. This has resulted in 1,600+ patches. A truly staggering number. And lots of that has made it into this release.New featuresThe new major features are:	Time zones (by Geoff Buesing): Tutorial | Introdction | Railscast	Dirty tracking: Introduction (partial updates) | Railscast	Gem Dependencies: Introduction | Railscast	Named scope (by Nick Kallen): Introduction | Railscast	UTC-based migrations: Introduction | Railscast	Better caching: IntroductionThanks to Ryan Daigle for the feature introductions and Ryan Bates for the Railscasts. It makes writing the release notes so much easier :).As always, you can install with:gem install rails&#8230;or you can use the Git tag for 2.1.0.Enjoy!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 2.1: Time zones, dirty, caching, gem dependencies, caching, etc" />
+  <meta property="og:description" content="Rails 2.1 is now available for general consumption with all the features and fixes we&#8217;ve been putting in over the last six months since 2.0. This has been a huge effort by a very wide range of contributors helping to make it happen.Over the past six months, we&#8217;ve had 1,400 contributors creating patches and vetting them. This has resulted in 1,600+ patches. A truly staggering number. And lots of that has made it into this release.New featuresThe new major features are:	Time zones (by Geoff Buesing): Tutorial | Introdction | Railscast	Dirty tracking: Introduction (partial updates) | Railscast	Gem Dependencies: Introduction | Railscast	Named scope (by Nick Kallen): Introduction | Railscast	UTC-based migrations: Introduction | Railscast	Better caching: IntroductionThanks to Ryan Daigle for the feature introductions and Ryan Bates for the Railscasts. It makes writing the release notes so much easier :).As always, you can install with:gem install rails&#8230;or you can use the Git tag for 2.1.0.Enjoy!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2008/6/1/rails-2-1-time-zones-dirty-caching-gem-dependencies-caching-etc" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 2.1: Time zones, dirty, caching, gem dependencies, caching, etc" />
+  <meta name="twitter:description" content="Rails 2.1 is now available for general consumption with all the features and fixes we&#8217;ve been putting in over the last six months since 2.0. This has been a huge effort by a very wide range of contributors helping to make it happen.Over the past six months, we&#8217;ve had 1,400 contributors creating patches and vetting them. This has resulted in 1,600+ patches. A truly staggering number. And lots of that has made it into this release.New featuresThe new major features are:	Time zones (by Geoff Buesing): Tutorial | Introdction | Railscast	Dirty tracking: Introduction (partial updates) | Railscast	Gem Dependencies: Introduction | Railscast	Named scope (by Nick Kallen): Introduction | Railscast	UTC-based migrations: Introduction | Railscast	Better caching: IntroductionThanks to Ryan Daigle for the feature introductions and Ryan Bates for the Railscasts. It makes writing the release notes so much easier :).As always, you can install with:gem install rails&#8230;or you can use the Git tag for 2.1.0.Enjoy!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2008/6/1/rails-2-1-time-zones-dirty-caching-gem-dependencies-caching-etc"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 2.1: Time zones, dirty, caching, gem dependencies, caching, etc",
+      "description": "Rails 2.1 is now available for general consumption with all the features and fixes we&#8217;ve been putting in over the last six months since 2.0. This has been a huge effort by a very wide range of contributors helping to make it happen.Over the past six months, we&#8217;ve had 1,400 contributors creating patches and vetting them. This has resulted in 1,600+ patches. A truly staggering number. And lots of that has made it into this release.New featuresThe new major features are:	Time zones (by Geoff Buesing): Tutorial | Introdction | Railscast	Dirty tracking: Introduction (partial updates) | Railscast	Gem Dependencies: Introduction | Railscast	Named scope (by Nick Kallen): Introduction | Railscast	UTC-based migrations: Introduction | Railscast	Better caching: IntroductionThanks to Ryan Daigle for the feature introductions and Ryan Bates for the Railscasts. It makes writing the release notes so much easier :).As always, you can install with:gem install rails&#8230;or you can use the Git tag for 2.1.0.Enjoy!",
+      "url": "http://localhost:4000/2008/6/1/rails-2-1-time-zones-dirty-caching-gem-dependencies-caching-etc",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2008-06-01T06:42:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, June 1, 2008</h5>
+        <h2>Rails 2.1: Time zones, dirty, caching, gem dependencies, caching, etc</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Rails 2.1 is now available for general consumption with all the features and fixes we&#8217;ve been putting in over the last six months since 2.0. This has been a huge effort by a very wide range of contributors helping to make it happen.</p>
+<p>Over the past six months, we&#8217;ve had 1,400 contributors creating patches and vetting them. This has resulted in 1,600+ patches. A truly staggering number. And lots of that has made it into this release.</p>
+<p><b>New features</b><br />
+The new major features are:</p>
+<ul>
+	<li>Time zones (by Geoff Buesing): <a href="http://mad.ly/2008/04/09/rails-21-time-zone-support-an-overview/">Tutorial</a> | <a href="http://ryandaigle.com/articles/2008/1/25/what-s-new-in-edge-rails-easier-timezones">Introdction</a> | <a href="http://railscasts.com/episodes/106">Railscast</a></li>
+	<li>Dirty tracking: <a href="http://ryandaigle.com/articles/2008/3/31/what-s-new-in-edge-rails-dirty-objects">Introduction</a> (<a href="http://ryandaigle.com/articles/2008/4/1/what-s-new-in-edge-rails-partial-updates">partial updates</a>) | <a href="http://railscasts.com/episodes/109">Railscast</a></li>
+	<li>Gem Dependencies: <a href="http://ryandaigle.com/articles/2008/4/1/what-s-new-in-edge-rails-gem-dependencies">Introduction</a> | <a href="http://railscasts.com/episodes/110">Railscast</a></li>
+	<li>Named scope (by Nick Kallen): <a href="http://ryandaigle.com/articles/2008/3/24/what-s-new-in-edge-rails-has-finder-functionality">Introduction</a> | <a href="http://railscasts.com/episodes/108">Railscast</a></li>
+	<li><span class="caps">UTC</span>-based migrations: <a href="http://ryandaigle.com/articles/2008/4/2/what-s-new-in-edge-rails-utc-based-migration-versioning">Introduction</a> | <a href="http://railscasts.com/episodes/109">Railscast</a></li>
+	<li>Better caching: <a href="http://ryandaigle.com/articles/2007/12/19/what-s-new-in-edge-rails-pluggable-controller-caching">Introduction</a></li>
+</ul>
+<p>Thanks to <a href="http://ryandaigle.com/">Ryan Daigle</a> for the feature introductions and <a href="http://railscasts.com/">Ryan Bates</a> for the Railscasts. It makes writing the release notes so much easier :).</p>
+<p>As always, you can install with:</p>
+<p>gem install rails</p>
+<p>&#8230;or you can use the <a href="http://github.com/rails/rails/commits/v2.1.0">Git tag for 2.1.0</a>.</p>
+<p>Enjoy!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

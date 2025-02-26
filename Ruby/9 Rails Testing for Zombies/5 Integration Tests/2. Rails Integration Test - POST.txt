@@ -1,0 +1,78 @@
+2. Rails Integration Test - POST
+
+
+Notice below how we're creating a tweet using POST. Complete the integration test below to assert that the user is redirected to the tweet page of the last Tweet created (Tweet.last).
+
+
+tweets_controller.rb
+class TweetsController < ApplicationController
+
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def new
+    @tweet = Tweet.new
+  end
+
+  def create
+    @tweet = Tweet.new(params[:tweet])
+    if @tweet.save
+      redirect_to @tweet
+    else
+      render :new
+    end
+  end
+
+end
+
+
+new.html.erb
+<h1>New tweet</h1>
+
+<%= form_for @tweet do |form| %>
+  <% @tweet.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+
+  <%= form.label :status %>
+  <%= form.text_field :status %>
+
+  <%= form.label :zombie_id %>
+  <%= form.collection_select :zombie_id, Zombie.all, :id, :name %>
+
+  <%= form.submit %>
+<% end %>  
+
+
+test/integration/creating_a_tweet_test.rb
+class CreatingATweetTest < ActionDispatch::IntegrationTest
+  def setup
+    @zombie = zombies(:ash)
+    @tweet_attributes = {tweet: {zombie_id: @zombie.id, status: 'Test tweet'}}
+  end
+  test "Responds with a redirect to the tweet page" do
+    post tweets_url, @tweet_attributes
+  end
+end
+
+
+Answer:
+test/integration/creating_a_tweet_test.rb
+class CreatingATweetTest < ActionDispatch::IntegrationTest
+  def setup
+    @zombie = zombies(:ash)
+    @tweet_attributes = {tweet: {zombie_id: @zombie.id, status: 'Test tweet'}}
+  end
+
+  test "Responds with a redirect to the tweet page" do
+    post tweets_url, @tweet_attributes    
+    assert_redirected_to tweet_path(Tweet.last)
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.098343s, 10.1685 tests/s, 81.3480 assertions/s.

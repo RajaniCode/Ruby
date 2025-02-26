@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: no-clash thread vars, a way to contribute and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Straight from the mail room, it’s this week in Rails!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: no-clash thread vars, a way to contribute and more!" />
+  <meta property="og:description" content="Straight from the mail room, it’s this week in Rails!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/3/18/this-week-in-rails-no-clash-thread-vars-a-way-to-contribute-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: no-clash thread vars, a way to contribute and more!" />
+  <meta name="twitter:description" content="Straight from the mail room, it’s this week in Rails!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/3/18/this-week-in-rails-no-clash-thread-vars-a-way-to-contribute-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: no-clash thread vars, a way to contribute and more!",
+      "description": "Straight from the mail room, it’s this week in Rails!",
+      "url": "http://localhost:4000/2016/3/18/this-week-in-rails-no-clash-thread-vars-a-way-to-contribute-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "kaspth"
+      },
+      "datePublished": "2016-03-18T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, March 18, 2016</h5>
+        <h2>This week in Rails: no-clash thread vars, a way to contribute and more!</h2>
+
+        <h6>Posted by kaspth</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Straight from the mail room, it’s this week in Rails!</p>
+
+<p>We made sure to squeeze our <del>lone chimp with a typewriter</del> extremely talented editor <a href="https://twitter.com/kaspth">Kasper</a> for just a few more keystrokes this week.</p>
+
+<p>The result is not a novel, but it’s pretty damn close to legible.</p>
+
+<p>Let’s check it out!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160311-20160318">This week’s Rails contributors</a></h3>
+
+<p>Did you know? Rails is written by people no smarter than you (I know, low bar! 😘). They show up, Google a few things for the common good and submit patches. They even get their name on this here fancy page!</p>
+
+<h3 id="a-rails-conference-in-the-pacific"><a href="http://www.railspacific.com">A Rails conference in the Pacific</a></h3>
+
+<p>The pacific Rails conference is rolling, from May 20th to 21st in Taipei, Taiwan. Several editors of this newsletter will be <a href="http://www.railspacific.com/#speakers">speaking</a>, so we recommend checking it out!</p>
+
+<h3 id="thread_mattr_accessor-doesnt-clash-with-thread-locals"><a href="https://github.com/rails/rails/pull/24143"><code class="language-plaintext highlighter-rouge">thread_mattr_accessor</code> doesn’t clash with thread-locals</a></h3>
+
+<p>Rails 5’s <code class="language-plaintext highlighter-rouge">thread_mattr_accessor</code> wouldn’t expose a variable set at the class level to instances and vice versa, because it generated a key that wasn’t uniform both at the class and instance level. Now it does 😁</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="once-more-dbmigrate-creates-the-test-database"><a href="https://github.com/rails/rails/pull/24201">Once more, <code class="language-plaintext highlighter-rouge">db:migrate</code> creates the test database.</a></h3>
+
+<p>Rails considers the test database a part of the complete dev environment, as such running <code class="language-plaintext highlighter-rouge">db:create</code> in development creates the test database as well. You’ll be up, running, and testing in no time.</p>
+
+<h3 id="document-rails-logger--formatter-interface"><a href="https://github.com/rails/rails/pull/24218">Document Rails’ logger + formatter interface</a></h3>
+
+<p>Rails’ logger and formatter — <code class="language-plaintext highlighter-rouge">ActiveSupport::TaggedLogging</code> — had a habit of saying, “tag, you’re it!”, when figuring out how to glue the pieces together. With new documentation, this rigamarole is easier to suss out.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="break-up-an-action-pack-and-action-view-circular-require"><a href="https://github.com/rails/rails/commit/12cce89c89b48b15dcf2fcdb41feaaa5b7c06991">Break up an Action Pack and Action View circular require</a></h3>
+
+<p>Spinning <code class="language-plaintext highlighter-rouge">assigns</code> and <code class="language-plaintext highlighter-rouge">assert_template</code> out into its own gem exposed a circular require in Action View and Action Pack. Good news is, adding <code class="language-plaintext highlighter-rouge">gem 'rails-controller-testing'</code> to your Gemfile should be hassle-free after this (though if you’re using RSpec it needs <a href="https://github.com/rails/rails-controller-testing#rspec">a teensy bit more setup</a>).</p>
+
+<h3 id="generate-applicationmailer-if-its-missing"><a href="https://github.com/rails/rails/pull/24161">Generate <code class="language-plaintext highlighter-rouge">ApplicationMailer</code> if it’s missing</a></h3>
+
+<p>Rails 5 adds new application wide classes to inherit from, one being <code class="language-plaintext highlighter-rouge">ApplicationMailer</code>. New mailers automatically inherit from said class. However, the file for it wasn’t being generated if missing. Rest assured, it now is.</p>
+
+<h2 id="call-for-contributors">Call for contributors</h2>
+
+<h3 id="improve-rails-multi-database-support"><a href="https://github.com/rails/rails/issues/14176#issuecomment-196977338">Improve Rails’ multi database support</a></h3>
+
+<p>Want to give back to Rails, but don’t know where to start? Here’s something to do, straight from a Rails core member. Take a stab at improving multi database support with the suggestions at the link.</p>
+
+<p>Could make a great Google Summer of Code project too 😉</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are plenty of things we’re not able to cover here, so take a look at the <a href="https://github.com/rails/rails/compare/master@%7B2016-03-11%7D...@%7B2016-03-18%7D">changes</a> yourself.</p>
+
+<p>Until next time!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

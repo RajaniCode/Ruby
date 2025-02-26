@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: class_attribute default, mini_racer and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone! This is Roque bringing you the latest news from the Rails world." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: class_attribute default, mini_racer and more!" />
+  <meta property="og:description" content="Hello everyone! This is Roque bringing you the latest news from the Rails world." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/6/3/this-week-in-rails-class_attribute-default-mini_racer-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: class_attribute default, mini_racer and more!" />
+  <meta name="twitter:description" content="Hello everyone! This is Roque bringing you the latest news from the Rails world." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/6/3/this-week-in-rails-class_attribute-default-mini_racer-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: class_attribute default, mini_racer and more!",
+      "description": "Hello everyone! This is Roque bringing you the latest news from the Rails world.",
+      "url": "http://localhost:4000/2017/6/3/this-week-in-rails-class_attribute-default-mini_racer-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "repinel"
+      },
+      "datePublished": "2017-06-03T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, June 3, 2017</h5>
+        <h2>This Week in Rails: class_attribute default, mini_racer and more!</h2>
+
+        <h6>Posted by repinel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone! This is <a href="https://twitter.com/repinel">Roque</a> bringing you the latest news from the Rails world.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20170527-20170603">This Week’s Rails contributors!</a></h3>
+
+<p>We had 32 people who helped make Rails better this week.
+Three of them contributed for the first time ever!
+If you would like to help out, check the <a href="https://github.com/rails/rails/issues">issues list</a>.</p>
+
+<h3 id="allow-a-default-value-to-be-declared-for-class_attribute"><a href="https://github.com/rails/rails/pull/29270">Allow a default value to be declared for <code class="language-plaintext highlighter-rouge">class_attribute</code></a></h3>
+
+<p>Rails will now make it easier to set default values to class attributes like <code class="language-plaintext highlighter-rouge">class_attribute :timeout, default: 5</code></p>
+
+<h3 id="replace-therubyracer-with-mini_racer"><a href="https://github.com/rails/rails/pull/29285">Replace therubyracer with mini_racer</a></h3>
+
+<p>New apps generated with JavaScript and Sprockets support will use <code class="language-plaintext highlighter-rouge">mini_racer</code> for the Ruby platform. A faster and more reliable interpreter.</p>
+
+<h2 id="new">New</h2>
+
+<h3 id="add-previous-and-next-day-of-week-api-to-active-support"><a href="https://github.com/rails/rails/pull/26600">Add previous and next day of week API to Active Support</a></h3>
+
+<p>The methods <code class="language-plaintext highlighter-rouge">prev_occurring</code> and <code class="language-plaintext highlighter-rouge">next_occurring</code> expect a day of the week and return the appropriate value based on the <code class="language-plaintext highlighter-rouge">DateTime</code>, e.g. <code class="language-plaintext highlighter-rouge">DateTime.now.prev_occurring(:monday)</code>.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="fix-number_to_human-round-calculation"><a href="https://github.com/rails/rails/pull/26628">Fix <code class="language-plaintext highlighter-rouge">number_to_human</code> round calculation</a></h3>
+
+<p>This fix a regression introduced in Rails 5, where a case like <code class="language-plaintext highlighter-rouge">number_to_human(1_000_000, units: { unit: 'meter', thousand: 'kilometer' })</code> would return <code class="language-plaintext highlighter-rouge">"1"</code> instead of <code class="language-plaintext highlighter-rouge">"1000 kilometer"</code>.</p>
+
+<h3 id="fix-pluralization-of-uncountable-expressions-when-given-a-locale"><a href="https://github.com/rails/rails/commit/7c45146b15e682de11251180eaa4e75ac50e07cd">Fix pluralization of uncountable expressions when given a locale</a></h3>
+
+<p>Previously, methods like <code class="language-plaintext highlighter-rouge">pluralize</code> and <code class="language-plaintext highlighter-rouge">singularize</code> would only use the English uncountable rules rather then the ones for the locale that was passed.</p>
+
+<h3 id="rename-primary-key-index-from-rename_table"><a href="https://github.com/rails/rails/pull/29248">Rename primary key index from <code class="language-plaintext highlighter-rouge">rename_table</code></a></h3>
+
+<p>Formerly, <code class="language-plaintext highlighter-rouge">rename_table</code> would only rename primary key index if the column’s data type was sequential. Tables with primary keys with types like UUID would still keep the old name.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="allow-additional-options-for-poltergeist-or-capybara-webkit-in-system-tests"><a href="https://github.com/rails/rails/pull/29315">Allow additional options for poltergeist or capybara-webkit in System Tests</a></h3>
+
+<p>If using <code class="language-plaintext highlighter-rouge">poltergeist</code> or <code class="language-plaintext highlighter-rouge">capybara-webkit</code>, <code class="language-plaintext highlighter-rouge">driven_by</code> will register it as the driver and set additional options passed via <code class="language-plaintext highlighter-rouge">:options</code> param.</p>
+
+<p>Please refer to drivers documentation to learn what options can be passed.</p>
+
+<p>That’s it for this week, as always, we couldn’t cover all of the changes, but feel free to check the <a href="https://github.com/rails/rails/compare/master@%7B2017-05-27%7D...@%7B2017-06-03%7D">commits</a> if you are interested.
+Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

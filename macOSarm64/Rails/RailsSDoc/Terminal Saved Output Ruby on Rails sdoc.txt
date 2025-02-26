@@ -1,0 +1,860 @@
+Last login: Mon Feb  3 17:47:57 on ttys001
+rajaniapple@Rajanis-MacBook-Pro ~ % sw_vers
+ProductName:		macOS
+ProductVersion:		15.1
+BuildVersion:		24B83
+rajaniapple@Rajanis-MacBook-Pro ~ % arch
+arm64
+rajaniapple@Rajanis-MacBook-Pro ~ % cd $HOME/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/Rails/RailsSDoc
+rajaniapple@Rajanis-MacBook-Pro RailsSDoc % cd sdoc
+rajaniapple@Rajanis-MacBook-Pro sdoc % ruby --version
+ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+rajaniapple@Rajanis-MacBook-Pro sdoc % gem --version
+3.6.3
+rajaniapple@Rajanis-MacBook-Pro sdoc % bundler --version
+Bundler version 2.6.3
+rajaniapple@Rajanis-MacBook-Pro sdoc % bundle --version
+Bundler version 2.6.3
+rajaniapple@Rajanis-MacBook-Pro sdoc % rails --version
+Rails 8.0.1
+rajaniapple@Rajanis-MacBook-Pro sdoc % gem install sdoc
+Successfully installed sdoc-2.6.1
+Parsing documentation for sdoc-2.6.1
+Done installing documentation for sdoc after 0 seconds
+1 gem installed
+rajaniapple@Rajanis-MacBook-Pro sdoc % sdoc -o doc/rails -T direct rails
+could not find template direct
+Parsing sources...
+100% [41/41]  /Users/rajaniapple/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/Rails/RailsSDoc/sdoc/netlify.toml
+
+Generating SDoc format into /Users/rajaniapple/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/Rails/RailsSDoc/sdoc/doc/rails...
+
+You can visit the home page at: file:///Users/rajaniapple/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/Rails/RailsSDoc/sdoc/doc/rails/index.html
+
+  Files:       41
+
+  Classes:      5 (  5 undocumented)
+  Modules:      7 (  7 undocumented)
+  Constants:    8 (  8 undocumented)
+  Attributes:   5 (  4 undocumented)
+  Methods:     94 ( 84 undocumented)
+
+  Total:      119 (108 undocumented)
+    9.24% documented
+
+  Elapsed: 0.5s
+
+rajaniapple@Rajanis-MacBook-Pro sdoc % bundle install
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+Fetching gem metadata from https://rubygems.org/..........
+Resolving dependencies...
+Bundle complete! 8 Gemfile dependencies, 48 gems now installed.
+Use `bundle info [gemname]` to see where a bundled gem is installed.
+rajaniapple@Rajanis-MacBook-Pro sdoc % bundle exec rake test:rails 
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+git clone --depth=1 https://github.com/rails/rails
+Cloning into 'rails'...
+remote: Enumerating objects: 5491, done.
+remote: Counting objects: 100% (5491/5491), done.
+remote: Compressing objects: 100% (4587/4587), done.
+remote: Total 5491 (delta 406), reused 2828 (delta 260), pack-reused 0 (from 0)
+Receiving objects: 100% (5491/5491), 9.65 MiB | 16.98 MiB/s, done.
+Resolving deltas: 100% (406/406), done.
+Parsing sources...
+100% [1352/1352]  rails/railties/lib/rails/zeitwerk_checker.rb
+
+Generating API format into /Users/rajaniapple/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/Rails/RailsSDoc/sdoc/doc/rails...
+
+You can visit the home page at: file:///Users/rajaniapple/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/Rails/RailsSDoc/sdoc/doc/rails/index.html
+classes/ActionDispatch/IntegrationTest.html: `rdoc-ref:ActionDispatch::Integration::RequestHelpers)` can't be resolved for `ActionDispatch::Integration::RequestHelpers)`
+classes/ActiveRecord/Base.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/Base.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/SubclassNotFound.html: `rdoc-ref:ModelSchema::ClassMethods#inheritance_column` can't be resolved for `ActiveRecord::Base.inheritance_column`
+classes/ActiveRecord/AttributeAssignmentError.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/MultiparameterAssignmentErrors.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/Relation.html: `rdoc-ref:Core#new` can't be resolved for `new`
+classes/ActionDispatch/IntegrationTest.html: `rdoc-ref:ActionDispatch::Integration::RequestHelpers)` can't be resolved for `ActionDispatch::Integration::RequestHelpers)`
+classes/ActionDispatch/IntegrationTest.html: `rdoc-ref:ActionDispatch::Integration::RequestHelpers)` can't be resolved for `ActionDispatch::Integration::RequestHelpers)`
+classes/ActiveRecord/AttributeAssignmentError.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/AttributeAssignmentError.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/Base.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/Base.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/Base.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/Base.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/MultiparameterAssignmentErrors.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/MultiparameterAssignmentErrors.html: `rdoc-ref:AttributeAssignment#attributes=` can't be resolved for `ActiveRecord::Base#attributes=`
+classes/ActiveRecord/Relation.html: `rdoc-ref:Core#new` can't be resolved for `new`
+classes/ActiveRecord/SubclassNotFound.html: `rdoc-ref:ModelSchema::ClassMethods#inheritance_column` can't be resolved for `ActiveRecord::Base.inheritance_column`
+classes/ActiveRecord/SubclassNotFound.html: `rdoc-ref:ModelSchema::ClassMethods#inheritance_column` can't be resolved for `ActiveRecord::Base.inheritance_column`
+
+  Files:      1352
+
+  Classes:     673 ( 275 undocumented)
+  Modules:     609 ( 368 undocumented)
+  Constants:   472 ( 416 undocumented)
+  Attributes:  576 ( 515 undocumented)
+  Methods:    5581 (2219 undocumented)
+
+  Total:      7911 (3793 undocumented)
+   52.05% documented
+
+  Elapsed: 28.9s
+
+rajaniapple@Rajanis-MacBook-Pro sdoc % bundle exec rackup config.ru
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+Puma starting in single mode...
+* Puma version: 6.6.0 ("Return to Forever")
+* Ruby version: ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+*  Min threads: 0
+*  Max threads: 5
+*  Environment: development
+*          PID: 3016
+* Listening on http://127.0.0.1:9292
+* Listening on http://[::1]:9292
+Use Ctrl-C to stop
+::1 - - [03/Feb/2025:17:59:20 +0530] "GET / HTTP/1.1" 200 - 0.0008
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET / HTTP/1.1" 200 - 0.0006
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /fonts/Bitter-Roman.woff2 HTTP/1.1" 200 27104 0.0046
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /fonts/Bitter-Italic.woff2 HTTP/1.1" 200 27532 0.0043
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /fonts/Jost-Roman.woff2 HTTP/1.1" 200 25112 0.0022
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /fonts/Jost-Italic.woff2 HTTP/1.1" 200 28920 0.0022
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /js/search.js HTTP/1.1" 200 4402 0.0016
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /fonts/RobotoMono-Roman.woff2 HTTP/1.1" 200 32268 0.0019
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /css/main.css HTTP/1.1" 200 15666 0.0019
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /css/highlight.css HTTP/1.1" 200 7025 0.0014
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /js/main.js HTTP/1.1" 200 2558 0.0011
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /js/@hotwired--turbo.js HTTP/1.1" 200 140254 0.0008
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /i/logo.svg HTTP/1.1" 200 2770 0.0004
+::1 - - [03/Feb/2025:17:59:28 +0530] "GET /i/search.svg HTTP/1.1" 200 304 0.0008
+::1 - - [03/Feb/2025:17:59:29 +0530] "GET /js/search-index.js HTTP/1.1" 200 11601684 0.0104
+::1 - - [03/Feb/2025:17:59:29 +0530] "GET /favicon.ico HTTP/1.1" 200 - 0.0009
+::1 - - [03/Feb/2025:17:59:35 +0530] "GET /classes/AbstractController.html HTTP/1.1" 200 7716 0.0023
+::1 - - [03/Feb/2025:17:59:35 +0530] "GET /i/list.svg HTTP/1.1" 200 478 0.0014
+::1 - - [03/Feb/2025:17:59:35 +0530] "GET /i/filter.svg HTTP/1.1" 200 286 0.0012
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2025-02-03 18:00:48 +0530 ===
+- Goodbye!
+rajaniapple@Rajanis-MacBook-Pro sdoc % bundle clean
+Cleaning all the gems on your system is dangerous! If you're sure you want to remove every system gem not in this bundle, run `bundle clean
+--force`.
+rajaniapple@Rajanis-MacBook-Pro sdoc % bundle clean --force                    
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+Removing Ascii85 (1.1.1)
+Removing abbrev (0.1.2)
+Removing actioncable (8.0.1)
+Removing actionmailbox (8.0.1)
+Removing actionmailer (8.0.1)
+Removing actiontext (8.0.1)
+Removing activejob (8.0.1)
+Removing activemodel (8.0.1)
+Removing activerecord (8.0.1)
+Removing activestorage (8.0.1)
+Removing activesupport (7.1.3.4)
+Removing addressable (2.8.7)
+Removing afm (0.2.2)
+Removing async (2.15.3)
+Removing bigdecimal (3.1.8)
+Removing bundler (2.5.10)
+Removing bundler (2.5.17)
+Removing bundler (2.6.2)
+Removing coffee-script (2.4.1)
+Removing coffee-script-source (1.12.2)
+Removing colorator (1.1.0)
+Removing commonmarker (0.23.10)
+Removing commonmarker (0.23.11)
+Removing concurrent-ruby (1.3.3)
+Removing concurrent-ruby (1.3.4)
+Removing connection_pool (2.4.1)
+Removing console (1.27.0)
+Removing csv (3.3.0)
+Removing csv (3.3.2)
+Removing debug (1.10.0)
+Removing dnsruby (1.72.2)
+Removing dnsruby (1.72.3)
+Removing em-websocket (0.5.3)
+Removing ethon (0.16.0)
+Removing eventmachine (1.2.7)
+Removing execjs (2.10.0)
+Removing execjs (2.9.1)
+Removing faraday (2.10.1)
+Removing faraday (2.12.2)
+Removing faraday-net_http (3.1.1)
+Removing faraday-net_http (3.4.0)
+Removing ffi-1.17.1-arm64 (darwin)
+Removing fiber-annotation (0.2.0)
+Removing fiber-local (1.1.0)
+Removing fiber-storage (1.0.0)
+Removing forwardable-extended (2.6.0)
+Removing gemoji (4.1.0)
+Removing getoptlong (0.2.1)
+Removing github-pages (231)
+Removing github-pages (232)
+Removing github-pages-health-check (1.18.2)
+Removing global (3.0.0)
+Removing globalid (1.2.1)
+Removing google-protobuf-4.29.3-arm64 (darwin)
+Removing hashery (2.1.2)
+Removing html-pipeline (2.14.3)
+Removing html-proofer (5.0.9)
+Removing http_parser.rb (0.8.0)
+Removing i18n (1.14.5)
+Removing io-event (1.6.5)
+Removing irb (1.14.3)
+Removing jekyll (3.10.0)
+Removing jekyll (3.9.5)
+Removing jekyll (4.3.3)
+Removing jekyll-avatar (0.8.0)
+Removing jekyll-coffeescript (1.2.2)
+Removing jekyll-commonmark (1.4.0)
+Removing jekyll-commonmark-ghpages (0.4.0)
+Removing jekyll-commonmark-ghpages (0.5.1)
+Removing jekyll-default-layout (0.1.5)
+Removing jekyll-feed (0.17.0)
+Removing jekyll-gist (1.5.0)
+Removing jekyll-github-metadata (2.16.1)
+Removing jekyll-include-cache (0.2.1)
+Removing jekyll-mentions (1.6.0)
+Removing jekyll-optional-front-matter (0.3.2)
+Removing jekyll-paginate (1.1.0)
+Removing jekyll-readme-index (0.3.0)
+Removing jekyll-redirect-from (0.16.0)
+Removing jekyll-relative-links (0.6.1)
+Removing jekyll-remote-theme (0.4.3)
+Removing jekyll-sass-converter (1.5.2)
+Removing jekyll-sass-converter (3.0.0)
+Removing jekyll-seo-tag (2.8.0)
+Removing jekyll-sitemap (1.4.0)
+Removing jekyll-swiss (1.0.0)
+Removing jekyll-theme-architect (0.2.0)
+Removing jekyll-theme-cayman (0.2.0)
+Removing jekyll-theme-dinky (0.2.0)
+Removing jekyll-theme-hacker (0.2.0)
+Removing jekyll-theme-leap-day (0.2.0)
+Removing jekyll-theme-merlot (0.2.0)
+Removing jekyll-theme-midnight (0.2.0)
+Removing jekyll-theme-minimal (0.2.0)
+Removing jekyll-theme-modernist (0.2.0)
+Removing jekyll-theme-primer (0.6.0)
+Removing jekyll-theme-slate (0.2.0)
+Removing jekyll-theme-tactile (0.2.0)
+Removing jekyll-theme-time-machine (0.2.0)
+Removing jekyll-titles-from-headings (0.5.3)
+Removing jekyll-watch (2.2.1)
+Removing jemoji (0.13.0)
+Removing json (2.7.2)
+Removing kramdown (2.4.0)
+Removing kramdown-parser-gfm (1.1.0)
+Removing liquid (4.0.4)
+Removing listen (3.9.0)
+Removing logger (1.6.0)
+Removing mail (2.8.1)
+Removing marcel (1.0.4)
+Removing matrix (0.4.2)
+Removing mercenary (0.3.6)
+Removing mercenary (0.4.0)
+Removing mini_mime (1.1.5)
+Removing minima (2.5.1)
+Removing minitest (5.24.1)
+Removing minitest (5.25.1)
+Removing mutex_m (0.2.0)
+Removing mutex_m (0.3.0)
+Removing net-ftp (0.3.8)
+Removing net-http (0.4.1)
+Removing net-imap (0.5.4)
+Removing net-imap (0.5.5)
+Removing net-pop (0.1.2)
+Removing net-smtp (0.5.0)
+Removing nkf (0.2.0)
+Removing observer (0.1.2)
+Removing octokit (4.25.1)
+Removing paint (2.3.0)
+Removing pathutil (0.16.2)
+Removing pdf-reader (2.12.0)
+Removing power_assert (2.0.5)
+Removing prime (0.1.3)
+Removing prism (1.3.0)
+Removing public_suffix (5.1.1)
+Removing public_suffix (6.0.1)
+Removing rails (8.0.1)
+Removing rainbow (3.1.1)
+Removing rb-fsevent (0.11.2)
+Removing rb-inotify (0.11.1)
+Removing rbs (3.8.0)
+Removing rbs (3.8.1)
+Removing rdoc (6.10.0)
+Removing repl_type_completor (0.1.10)
+Removing repl_type_completor (0.1.9)
+Removing resolv-replace (0.1.1)
+Removing rexml (3.3.6)
+Removing rexml (3.3.9)
+Removing rexml (3.4.0)
+Removing rinda (0.2.0)
+Removing rouge (3.30.0)
+Removing rouge (4.3.0)
+Removing rss (0.3.1)
+Removing ruby-rc4 (0.1.5)
+Removing rubyzip (2.3.2)
+Removing rubyzip (2.4.1)
+Removing safe_yaml (1.0.5)
+Removing sass (3.7.4)
+Removing sass-embedded-1.77.8-arm64 (darwin)
+Removing sass-listen (4.0.0)
+Removing sawyer (0.9.2)
+Removing sdoc (2.6.1)
+Removing simpleidn (0.2.3)
+Removing slop (4.10.1)
+Removing spidr (0.7.1)
+Removing strscan (3.1.0)
+Removing syslog (0.2.0)
+Removing terminal-table (1.8.0)
+Removing terminal-table (3.0.2)
+Removing test-unit (3.6.7)
+Removing tidy_ffi (1.0.1)
+Removing ttfunk (1.8.0)
+Removing typeprof (0.30.1)
+Removing typhoeus (1.4.1)
+Removing unicode-display_width (1.8.0)
+Removing unicode-display_width (2.5.0)
+Removing uri (0.13.0)
+Removing validate-website (1.12.0)
+Removing w3c_validators (1.3.7)
+Removing webrick (1.8.1)
+Removing webrick (1.8.2)
+Removing webrick (1.9.1)
+Removing websocket-driver (0.7.7)
+Removing websocket-extensions (0.1.5)
+Removing yell (2.2.2)
+Removing zeitwerk (2.6.17)
+rajaniapple@Rajanis-MacBook-Pro sdoc % bundle exec rake test:ruby
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+git clone --depth=1 https://github.com/ruby/ruby
+Cloning into 'ruby'...
+remote: Enumerating objects: 12161, done.
+remote: Counting objects: 100% (12161/12161), done.
+remote: Compressing objects: 100% (9664/9664), done.
+remote: Total 12161 (delta 1481), reused 5998 (delta 1202), pack-reused 0 (from 0)
+Receiving objects: 100% (12161/12161), 15.74 MiB | 12.25 MiB/s, done.
+Resolving deltas: 100% (1481/1481), done.
+Updating files: 100% (11067/11067), done.
+Parsing sources...
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/strscan.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/terminate.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/get_pos.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/set_pos.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/get_charpos.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/get_pos.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/set_pos.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/scan.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/skip.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/scan_until.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/skip_until.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/getch.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/methods/get_byte.md' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'strscan/link_refs.txt' from ruby/ext/strscan/strscan.c
+Couldn't find file to include 'doc/net-http/examples.rdoc' from ruby/lib/net/http.rb
+Couldn't find file to include 'doc/net-http/examples.rdoc' from ruby/lib/net/http/generic_request.rb
+Couldn't find file to include 'doc/net-http/examples.rdoc' from ruby/lib/net/http/header.rb
+Couldn't find file to include 'doc/net-http/examples.rdoc' from ruby/lib/net/http/response.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+Couldn't find file to include 'doc/net-http/included_getters.rdoc' from ruby/lib/net/http/responses.rb
+100% [751/751]  ruby/yjit.rb
+
+Generating SDoc format into /Users/rajaniapple/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/Rails/RailsSDoc/sdoc/doc/ruby...
+
+You can visit the home page at: file:///Users/rajaniapple/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64/Rails/RailsSDoc/sdoc/doc/ruby/index.html
+classes/Array.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `array literal`
+classes/Array.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `%w or %W string-array Literal`
+classes/Array.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `%i or %I symbol-array Literal`
+classes/Integer.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `integer literal`
+classes/Complex.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `complex literal`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `string literal`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `heredoc literal`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `String Literals`
+classes/Float.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `floating-point literal`
+classes/RDoc/MarkupReference.html: `rdoc-ref:RDoc::Markup` can't be resolved for `Markup Formats`
+classes/RDoc/MarkupReference.html: `rdoc-ref:RDoc::Alias` can't be resolved for `Alias`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `Julian and Gregorian Calendars`
+classes/Range.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `range literal`
+classes/Rational.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `rational literal`
+classes/Regexp.html: `rdoc-ref:regexp/methods.rdoc` can't be resolved for `Regexp Methods`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Regexp Literals`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `%r: Regexp Literals`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Double-Quoted String Literals`
+classes/Regexp.html: `rdoc-ref:regexp/unicode_properties.rdoc` can't be resolved for `Unicode Properties`
+classes/Symbol.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `symbol literal`
+classes/Hash.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `hash literal`
+classes/Proc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Lambda proc literal`
+classes/Ractor.html: `rdoc-ref:syntax/comments.rdoc` can't be resolved for `Comments syntax`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `string literal`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `here document literal`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Regexp Literals`
+files/ruby/doc/NEWS/NEWS-3_0_0_md.html: `rdoc-ref:syntax/comments.rdoc` can't be resolved for `Magic Comments`
+files/ruby/doc/NEWS/NEWS-3_0_0_md.html: `rdoc-ref:syntax/comments.rdoc` can't be resolved for `Magic Comments`
+files/ruby/doc/date/calendars_rdoc.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `Julian and Gregorian calendars`
+files/ruby/doc/date/calendars_rdoc.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `Julian and Gregorian calendars`
+files/ruby/doc/index_md.html: `rdoc-ref:contributing/documentation_guide.md` can't be resolved for `Documentation Guide`
+files/ruby/doc/index_md.html: `rdoc-ref:contributing/reporting_issues.md` can't be resolved for `Reporting Issues`
+files/ruby/doc/index_md.html: `rdoc-ref:contributing/building_ruby.md` can't be resolved for `Building Ruby`
+files/ruby/doc/index_md.html: `rdoc-ref:contributing/testing_ruby.md` can't be resolved for `Testing Ruby`
+files/ruby/doc/index_md.html: `rdoc-ref:contributing/documentation_guide.md` can't be resolved for `Documentation Guide`
+files/ruby/doc/index_md.html: `rdoc-ref:contributing/reporting_issues.md` can't be resolved for `Reporting Issues`
+files/ruby/doc/index_md.html: `rdoc-ref:contributing/building_ruby.md` can't be resolved for `Building Ruby`
+files/ruby/doc/index_md.html: `rdoc-ref:contributing/testing_ruby.md` can't be resolved for `Testing Ruby`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -a`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -F`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -l`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -n`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -p`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -0`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -F`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -l`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -n`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -p`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -0`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -a`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -l`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -n`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -p`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -0`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -a`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -F`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -n`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -p`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -0`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -a`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -F`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -l`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -p`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -0`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -a`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -F`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -l`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -n`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `option -e`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `option -d`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `option -c`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `option -h`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `option -E`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -a`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -F`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -l`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -n`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -p`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -0`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -F`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -l`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -n`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -p`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -0`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -a`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -l`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -n`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -p`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -0`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -a`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -F`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -n`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -p`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -0`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -a`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -F`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -l`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -p`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -0`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -a`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -F`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -l`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `Option -n`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `option -e`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `option -d`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `option -c`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `option -h`
+files/ruby/doc/ruby/options_md.html: `rdoc-ref:ruby/options.md` can't be resolved for `option -E`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Literals`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/assignment.rdoc` can't be resolved for `Assignment`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `Control Expressions`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/pattern_matching.rdoc` can't be resolved for `Pattern matching`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `Methods`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/calling_methods.rdoc` can't be resolved for `Calling Methods`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/modules_and_classes.rdoc` can't be resolved for `Modules and Classes`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `Exceptions`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/precedence.rdoc` can't be resolved for `Precedence`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/refinements.rdoc` can't be resolved for `Refinements`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/miscellaneous.rdoc` can't be resolved for `Miscellaneous`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/comments.rdoc` can't be resolved for `Comments`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/operators.rdoc` can't be resolved for `Operators`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Literals`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/assignment.rdoc` can't be resolved for `Assignment`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `Control Expressions`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/pattern_matching.rdoc` can't be resolved for `Pattern matching`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `Methods`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/calling_methods.rdoc` can't be resolved for `Calling Methods`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/modules_and_classes.rdoc` can't be resolved for `Modules and Classes`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `Exceptions`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/precedence.rdoc` can't be resolved for `Precedence`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/refinements.rdoc` can't be resolved for `Refinements`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/miscellaneous.rdoc` can't be resolved for `Miscellaneous`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/comments.rdoc` can't be resolved for `Comments`
+files/ruby/doc/syntax_rdoc.html: `rdoc-ref:syntax/operators.rdoc` can't be resolved for `Operators`
+files/ruby/doc/syntax/assignment_rdoc.html: `rdoc-ref:syntax/assignment.rdoc` can't be resolved for `assignment methods`
+files/ruby/doc/syntax/assignment_rdoc.html: `rdoc-ref:syntax/calling_methods.rdoc` can't be resolved for `calling methods`
+files/ruby/doc/syntax/assignment_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `method arguments`
+files/ruby/doc/syntax/assignment_rdoc.html: `rdoc-ref:syntax/assignment.rdoc` can't be resolved for `assignment methods`
+files/ruby/doc/syntax/assignment_rdoc.html: `rdoc-ref:syntax/calling_methods.rdoc` can't be resolved for `calling methods`
+files/ruby/doc/syntax/assignment_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `method arguments`
+files/ruby/doc/syntax/calling_methods_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `syntax documentation on defining methods`
+files/ruby/doc/syntax/calling_methods_rdoc.html: `rdoc-ref:syntax/refinements.rdoc` can't be resolved for `refinements documentation`
+files/ruby/doc/syntax/calling_methods_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `syntax documentation on defining methods`
+files/ruby/doc/syntax/calling_methods_rdoc.html: `rdoc-ref:syntax/refinements.rdoc` can't be resolved for `refinements documentation`
+files/ruby/doc/syntax/control_expressions_rdoc.html: `rdoc-ref:syntax/pattern_matching.rdoc` can't be resolved for `its own page`
+files/ruby/doc/syntax/control_expressions_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `Exceptions`
+files/ruby/doc/syntax/control_expressions_rdoc.html: `rdoc-ref:syntax/pattern_matching.rdoc` can't be resolved for `its own page`
+files/ruby/doc/syntax/control_expressions_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `Exceptions`
+files/ruby/doc/syntax/exceptions_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `Control Expressions`
+files/ruby/doc/syntax/exceptions_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `Control Expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/miscellaneous.rdoc` can't be resolved for `miscellaneous syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/miscellaneous.rdoc` can't be resolved for `miscellaneous syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/modules_and_classes.rdoc` can't be resolved for `modules and classes syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `exceptions syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/modules_and_classes.rdoc` can't be resolved for `modules and classes syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `methods syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/miscellaneous.rdoc` can't be resolved for `miscellaneous syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `exception handling`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `literals`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/pattern_matching.rdoc` can't be resolved for `pattern matching`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/modules_and_classes.rdoc` can't be resolved for `modules and classes syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `literals`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `exception handling`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `exception handling`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `methods`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `methods`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `methods`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `literals`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/modules_and_classes.rdoc` can't be resolved for `modules and classes`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `methods`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/miscellaneous.rdoc` can't be resolved for `miscellaneous syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/miscellaneous.rdoc` can't be resolved for `miscellaneous syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/modules_and_classes.rdoc` can't be resolved for `modules and classes syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `exceptions syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/modules_and_classes.rdoc` can't be resolved for `modules and classes syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `methods syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/miscellaneous.rdoc` can't be resolved for `miscellaneous syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `exception handling`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `literals`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/pattern_matching.rdoc` can't be resolved for `pattern matching`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/modules_and_classes.rdoc` can't be resolved for `modules and classes syntax`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `literals`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `exception handling`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `exception handling`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `methods`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `methods`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `methods`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `literals`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/modules_and_classes.rdoc` can't be resolved for `modules and classes`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/control_expressions.rdoc` can't be resolved for `control expressions`
+files/ruby/doc/syntax/keywords_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `methods`
+files/ruby/doc/syntax/methods_rdoc.html: `rdoc-ref:syntax/calling_methods.rdoc` can't be resolved for `syntax documentation on calling methods`
+files/ruby/doc/syntax/methods_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `exception handling`
+files/ruby/doc/syntax/methods_rdoc.html: `rdoc-ref:syntax/calling_methods.rdoc` can't be resolved for `syntax documentation on calling methods`
+files/ruby/doc/syntax/methods_rdoc.html: `rdoc-ref:syntax/exceptions.rdoc` can't be resolved for `exception handling`
+files/ruby/doc/syntax/miscellaneous_rdoc.html: `rdoc-ref:syntax/precedence.rdoc` can't be resolved for `low precedence`
+files/ruby/doc/syntax/miscellaneous_rdoc.html: `rdoc-ref:syntax/precedence.rdoc` can't be resolved for `low precedence`
+files/ruby/doc/syntax/modules_and_classes_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `syntax documentation for methods`
+files/ruby/doc/syntax/modules_and_classes_rdoc.html: `rdoc-ref:syntax/miscellaneous.rdoc` can't be resolved for `miscellaneous syntax section`
+files/ruby/doc/syntax/modules_and_classes_rdoc.html: `rdoc-ref:syntax/methods.rdoc` can't be resolved for `syntax documentation for methods`
+files/ruby/doc/syntax/modules_and_classes_rdoc.html: `rdoc-ref:syntax/miscellaneous.rdoc` can't be resolved for `miscellaneous syntax section`
+files/ruby/doc/syntax/operators_rdoc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Literals`
+files/ruby/doc/syntax/operators_rdoc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Literals`
+files/ruby/ractor_rb.html: `rdoc-ref:syntax/comments.rdoc` can't be resolved for `Comments syntax`
+files/ruby/ractor_rb.html: `rdoc-ref:syntax/comments.rdoc` can't be resolved for `Comments syntax`
+files/ruby/string_rb.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `string literal`
+files/ruby/string_rb.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `heredoc literal`
+files/ruby/string_rb.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `String Literals`
+files/ruby/string_rb.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `string literal`
+files/ruby/string_rb.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `heredoc literal`
+files/ruby/string_rb.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `String Literals`
+classes/Array.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `array literal`
+classes/Array.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `%w or %W string-array Literal`
+classes/Array.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `%i or %I symbol-array Literal`
+classes/Array.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `array literal`
+classes/Array.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `%w or %W string-array Literal`
+classes/Array.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `%i or %I symbol-array Literal`
+classes/Complex.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `complex literal`
+classes/Complex.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `complex literal`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `Julian and Gregorian Calendars`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `Julian and Gregorian Calendars`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Date.html: `rdoc-ref:date/calendars.rdoc` can't be resolved for `start`
+classes/Float.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `floating-point literal`
+classes/Float.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `floating-point literal`
+classes/Hash.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `hash literal`
+classes/Hash.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `hash literal`
+classes/Integer.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `integer literal`
+classes/Integer.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `integer literal`
+classes/Proc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Lambda proc literal`
+classes/Proc.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Lambda proc literal`
+classes/RDoc/MarkupReference.html: `rdoc-ref:RDoc::Markup` can't be resolved for `Markup Formats`
+classes/RDoc/MarkupReference.html: `rdoc-ref:RDoc::Alias` can't be resolved for `Alias`
+classes/RDoc/MarkupReference.html: `rdoc-ref:RDoc::Markup` can't be resolved for `Markup Formats`
+classes/RDoc/MarkupReference.html: `rdoc-ref:RDoc::Alias` can't be resolved for `Alias`
+classes/Ractor.html: `rdoc-ref:syntax/comments.rdoc` can't be resolved for `Comments syntax`
+classes/Ractor.html: `rdoc-ref:syntax/comments.rdoc` can't be resolved for `Comments syntax`
+classes/Range.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `range literal`
+classes/Range.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `range literal`
+classes/Rational.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `rational literal`
+classes/Rational.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `rational literal`
+classes/Regexp.html: `rdoc-ref:regexp/methods.rdoc` can't be resolved for `Regexp Methods`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Regexp Literals`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `%r: Regexp Literals`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Double-Quoted String Literals`
+classes/Regexp.html: `rdoc-ref:regexp/unicode_properties.rdoc` can't be resolved for `Unicode Properties`
+classes/Regexp.html: `rdoc-ref:regexp/methods.rdoc` can't be resolved for `Regexp Methods`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Regexp Literals`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `%r: Regexp Literals`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Double-Quoted String Literals`
+classes/Regexp.html: `rdoc-ref:regexp/unicode_properties.rdoc` can't be resolved for `Unicode Properties`
+classes/Regexp.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `Regexp Literals`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `string literal`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `heredoc literal`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `String Literals`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `string literal`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `heredoc literal`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `String Literals`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `string literal`
+classes/String.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `here document literal`
+classes/Symbol.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `symbol literal`
+classes/Symbol.html: `rdoc-ref:syntax/literals.rdoc` can't be resolved for `symbol literal`
+
+  Files:        751
+
+  Classes:      970 ( 274 undocumented)
+  Modules:      164 (  54 undocumented)
+  Constants:    999 ( 391 undocumented)
+  Attributes:   692 ( 157 undocumented)
+  Methods:     7450 (1012 undocumented)
+
+  Total:      10275 (1888 undocumented)
+   81.63% documented
+
+  Elapsed: 46.6s
+
+rajaniapple@Rajanis-MacBook-Pro sdoc % bundle exec rackup config.ru
+fatal: not a git repository (or any of the parent directories): .git
+fatal: not a git repository (or any of the parent directories): .git
+Puma starting in single mode...
+* Puma version: 6.6.0 ("Return to Forever")
+* Ruby version: ruby 3.4.1 (2024-12-25 revision 48d4efcb85) +PRISM [arm64-darwin24]
+*  Min threads: 0
+*  Max threads: 5
+*  Environment: development
+*          PID: 3331
+* Listening on http://127.0.0.1:9292
+* Listening on http://[::1]:9292
+Use Ctrl-C to stop
+::1 - - [03/Feb/2025:18:07:27 +0530] "GET / HTTP/1.1" 200 - 0.0008
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /css/main.css HTTP/1.1" 304 - 0.0003
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /js/search.js HTTP/1.1" 304 - 0.0002
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /js/@hotwired--turbo.js HTTP/1.1" 304 - 0.0003
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /fonts/Jost-Roman.woff2 HTTP/1.1" 304 - 0.0004
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /fonts/Jost-Italic.woff2 HTTP/1.1" 304 - 0.0005
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /fonts/Bitter-Italic.woff2 HTTP/1.1" 304 - 0.0004
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /css/highlight.css HTTP/1.1" 304 - 0.0006
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /fonts/RobotoMono-Roman.woff2 HTTP/1.1" 304 - 0.0005
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /js/main.js HTTP/1.1" 304 - 0.0004
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /i/logo.svg HTTP/1.1" 304 - 0.0004
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /i/search.svg HTTP/1.1" 304 - 0.0002
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /js/search-index.js HTTP/1.1" 304 - 0.0001
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /js/search-index.js HTTP/1.1" 304 - 0.0001
+::1 - - [03/Feb/2025:18:07:30 +0530] "GET /fonts/Bitter-Roman.woff2 HTTP/1.1" 304 - 0.0007
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET / HTTP/1.1" 200 - 0.0003
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /fonts/Bitter-Roman.woff2 HTTP/1.1" 200 27104 0.0036
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /fonts/Bitter-Italic.woff2 HTTP/1.1" 200 27532 0.0017
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /fonts/Jost-Italic.woff2 HTTP/1.1" 200 28920 0.0017
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /fonts/RobotoMono-Roman.woff2 HTTP/1.1" 200 32268 0.0015
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /js/search.js HTTP/1.1" 200 4402 0.0014
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /fonts/Jost-Roman.woff2 HTTP/1.1" 200 25112 0.0017
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /css/main.css HTTP/1.1" 200 15666 0.0014
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /js/main.js HTTP/1.1" 200 2558 0.0014
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /css/highlight.css HTTP/1.1" 200 7025 0.0017
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /js/@hotwired--turbo.js HTTP/1.1" 200 140254 0.0010
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /i/logo.svg HTTP/1.1" 200 2770 0.0003
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /i/search.svg HTTP/1.1" 200 304 0.0003
+::1 - - [03/Feb/2025:18:07:53 +0530] "GET /js/search-index.js HTTP/1.1" 200 11601684 0.0070
+::1 - - [03/Feb/2025:18:07:54 +0530] "GET /favicon.ico HTTP/1.1" 200 - 0.0005
+^C- Gracefully stopping, waiting for requests to finish
+=== puma shutdown: 2025-02-03 18:08:54 +0530 ===
+- Goodbye!
+rajaniapple@Rajanis-MacBook-Pro sdoc % 

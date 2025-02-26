@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails World CFP, picture_tag helper and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, this is Greg, bringing you this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails World CFP, picture_tag helper and more!" />
+  <meta property="og:description" content="Hi, this is Greg, bringing you this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/5/12/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails World CFP, picture_tag helper and more!" />
+  <meta name="twitter:description" content="Hi, this is Greg, bringing you this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/5/12/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails World CFP, picture_tag helper and more!",
+      "description": "Hi, this is Greg, bringing you this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2023/5/12/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Greg"
+      },
+      "datePublished": "2023-05-12T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, May 12, 2023</h5>
+        <h2>Rails World CFP, picture_tag helper and more!</h2>
+
+        <h6>Posted by Greg</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, this is <a href="https://greg.molnar.io">Greg</a>, bringing you this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://rubyonrails.org/2023/5/9/rails-world-call-for-papers-now-open">Rails World Call for Papers now open</a><br />
+This CFP is open until June 16, with space in the agenda for 26 talks on two tracks, and up to six workshops. Read the full announcement for more details and submit your proposal!</p>
+
+<p><a href="https://github.com/rails/rails/pull/48182">Prevent duplicate filters for encrypted attributes</a><br />
+When an Active Record encrypted attribute is declared, a filter for it is automatically added to <code class="language-plaintext highlighter-rouge">config.filter_parameters</code>.  Prior to this pull request, the filter would be re-added every time the model was reloaded. This change ensures filters are only added once so that config.filter_parameters does not grow unbounded.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48178">Prevent non-anonymous modules from becoming frozen</a><br />
+In #48106, <code class="language-plaintext highlighter-rouge">Module#deep_dup</code> was changed to return the module itself (not a copy) when the module is not anonymous.  However, that causes non-anonymous modules to become frozen via <code class="language-plaintext highlighter-rouge">value.deep_dup.freeze</code> when passed to <code class="language-plaintext highlighter-rouge">ActiveModel::Type::Helpers::Mutable#immutable_value</code>.  So, for example, class attributes can no longer be set on the module.<br />
+To prevent such issues, this pull request removes the <code class="language-plaintext highlighter-rouge">freeze</code> from <code class="language-plaintext highlighter-rouge">immutable_value</code>.  <code class="language-plaintext highlighter-rouge">immutable_value</code> is only called by <code class="language-plaintext highlighter-rouge">ActiveRecord::PredicateBuilder#build_bind_attribute</code>, which only cares that other code cannot mutate the value, not that the value is actually frozen.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48171">Allow PredicateBuilder to recognize schema namespaced table names</a><br />
+Before this change, <code class="language-plaintext highlighter-rouge">ActiveRecord::PredicateBuilder</code> assumed that a column name will only be specified in dot notation with a single period. If a column is specified in dot notation for a table that is namespaced in a schema, it used the schema name as the table name. This pull request allows columns to specified in the format <strong>schema.table.column</strong> as well as <strong>table.column</strong>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48103">Support <em>:message_pack</em> as cookies serializer</a><br />
+This commit adds support for <code class="language-plaintext highlighter-rouge">:message_pack</code> and <code class="language-plaintext highlighter-rouge">:message_pack_allow_marshal</code> as serializers for <code class="language-plaintext highlighter-rouge">config.action_dispatch.cookies_serializer</code>, just like <code class="language-plaintext highlighter-rouge">config.active_support.message_serializer</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47964">Support <em>:message_pack</em> as message serializer </a><br />
+This change adds support for <code class="language-plaintext highlighter-rouge">:message_pack</code> as a serializer for <code class="language-plaintext highlighter-rouge">MessageEncryptor</code> and <code class="language-plaintext highlighter-rouge">MessageVerifier</code>, and, consequently, as an option for <code class="language-plaintext highlighter-rouge">config.active_support.message_serializer</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48170">Default message serializer to <em>:json_allow_marshal</em></a><br />
+This pull request changes the default message serializer set by <code class="language-plaintext highlighter-rouge">config.load_defaults 7.1</code> from <code class="language-plaintext highlighter-rouge">:json</code> to <code class="language-plaintext highlighter-rouge">:json_allow_marshal</code> so that upgraded apps can continue to read old messages without additional configuration.<br />
+The intention is to eventually change the default to <code class="language-plaintext highlighter-rouge">:json</code> (with no Marshal fallback) in Rails 7.2, after some time has passed with apps generating JSON-serialized messages.<br />
+Apps can opt in to JSON-only serialization before Rails 7.2 by manually setting <code class="language-plaintext highlighter-rouge">config.active_support.message_serializer = :json</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48154">Handle empty list of cache keys</a><br />
+With this change, <code class="language-plaintext highlighter-rouge">read_multi</code>, <code class="language-plaintext highlighter-rouge">write_multi</code> and <code class="language-plaintext highlighter-rouge">fetch multi</code> will bail out early if somehow called with an empty list.<br />
+The same change was done for <a href="https://github.com/rails/rails/pull/48159"><code class="language-plaintext highlighter-rouge">delete_multi</code></a> in a follow-up pull request.</p>
+
+<p><a href="https://github.com/rails/rails/pull/48128">Make <em>increment_counter</em>/<em>decrement_counter</em> accept an amount argument</a><br />
+This pull request introduces the <code class="language-plaintext highlighter-rouge">by</code> option to <code class="language-plaintext highlighter-rouge">increment_counter</code> and <code class="language-plaintext highlighter-rouge">decrement_counter</code> to make it easier to change counters by an arbitrary value. Example usage:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Company.increment_counter(:users_count, 5, by: 3)
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48110">Make Active Record’s query cache an LRU</a><br />
+Active Record query cache is now evicts least recently used entries, with 100 entries as a default. The cache size can be configured via <code class="language-plaintext highlighter-rouge">database.yml</code></p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">development</span><span class="pi">:</span>
+  <span class="na">adapter</span><span class="pi">:</span> <span class="s">mysql2</span>
+  <span class="na">query_cache</span><span class="pi">:</span> <span class="m">100</span>
+</code></pre></div></div>
+
+<p>It can also be entirely disabled:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">development</span><span class="pi">:</span>
+  <span class="na">adapter</span><span class="pi">:</span> <span class="s">mysql2</span>
+  <span class="na">query_cache</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/48100">Add a <em>picture_tag</em> helper</a><br />
+This pull request adds support for the HTML picture tag. It supports passing a String, an Array or a Block and passing properties directly to the img tag via the <code class="language-plaintext highlighter-rouge">:image</code> key.<br />
+Since the picture tag requires an img tag, the last element you provide will be used for the img tag.<br />
+For complete control over the picture tag, a block can be passed, which will populate the contents of the tag accordingly.
+See the pull request for usage examples.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46626">Add matcher support to <em>assert_enqueued_email_with</em></a><br />
+Currently <code class="language-plaintext highlighter-rouge">assert_enqueued_with</code> allows you to pass procs for matching <code class="language-plaintext highlighter-rouge">args</code>. However, <code class="language-plaintext highlighter-rouge">assert_enqueued_email_with</code> doesn’t let you do that for <code class="language-plaintext highlighter-rouge">args</code> and <code class="language-plaintext highlighter-rouge">params</code>.<br />
+This pull request made <code class="language-plaintext highlighter-rouge">assert_enqueued_email_with</code> accept procs for args and params:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assert_enqueued_email_with</span> <span class="no">DeliveryJob</span><span class="p">,</span> <span class="ss">params: </span><span class="o">-&gt;</span> <span class="nb">p</span> <span class="p">{</span> <span class="nb">p</span><span class="p">[</span><span class="ss">:token</span><span class="p">]</span> <span class="o">=~</span> <span class="sr">/\w+/</span> <span class="p">}</span> <span class="k">do</span>
+  <span class="no">UserMailer</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="ss">token: </span><span class="n">user</span><span class="p">.</span><span class="nf">generate_token</span><span class="p">).</span><span class="nf">email_verification</span><span class="p">.</span><span class="nf">deliver_later</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-05-05%7D...main@%7B2023-05-12%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230505-20230512">28 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

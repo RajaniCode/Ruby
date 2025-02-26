@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Composite primary keys improvements and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s Wojtek with this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Composite primary keys improvements and more" />
+  <meta property="og:description" content="Hi, it’s Wojtek with this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/3/24/this-week-in-rails-composite-primary-keys-improvements-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Composite primary keys improvements and more" />
+  <meta name="twitter:description" content="Hi, it’s Wojtek with this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/3/24/this-week-in-rails-composite-primary-keys-improvements-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Composite primary keys improvements and more",
+      "description": "Hi, it’s Wojtek with this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2023/3/24/this-week-in-rails-composite-primary-keys-improvements-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Wojtek"
+      },
+      "datePublished": "2023-03-24T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, March 24, 2023</h5>
+        <h2>Composite primary keys improvements and more</h2>
+
+        <h6>Posted by Wojtek</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://twitter.com/morgoth85">Wojtek</a> with this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47729">Allow specifying WHERE clauses with column-tuple syntax.</a><br />
+Querying through <em>Active Record</em> <code class="language-plaintext highlighter-rouge">where</code> now accepts a tuple syntax which accepts, as a key, an array of columns and, as a value, an array of corresponding tuples.
+This improves support for composite primary keys.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47720">Accept composite primary key in <code class="language-plaintext highlighter-rouge">id=</code></a><br />
+This feature modifies the <em>Active Record</em> <code class="language-plaintext highlighter-rouge">id</code> accessor to accept an array in composite primary key contexts.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47749">Extract sample rate in the Audio Analyzer</a><br />
+Add <code class="language-plaintext highlighter-rouge">sample_rate</code> to <code class="language-plaintext highlighter-rouge">ActiveStorage::Analyzer::AudioAnalyzer</code> output.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47690">Run a load hook when TestFixtures is included</a><br />
+Introduces <code class="language-plaintext highlighter-rouge">active_record_fixtures</code> lazy load hook.
+Hooks defined with this name will be run whenever <code class="language-plaintext highlighter-rouge">TestFixtures</code> is included in a class.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">ActiveSupport</span><span class="p">.</span><span class="nf">on_load</span><span class="p">(</span><span class="ss">:active_record_fixtures</span><span class="p">)</span> <span class="k">do</span>
+  <span class="nb">self</span><span class="p">.</span><span class="nf">fixture_paths</span> <span class="o">&lt;&lt;</span> <span class="s2">"test/fixtures"</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/47650">Allow SQL Warnings to be ignored using error codes</a><br />
+<em>Active Record</em> configuration allows now to ignore the warning codes like this:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">config</span><span class="p">.</span><span class="nf">active_record</span><span class="p">.</span><span class="nf">db_warnings_ignore</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="s2">"1062"</span> <span class="c1"># MySQL Error 1062: Duplicate entry</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2023-03-17%7D...main@%7B2023-03-24%7D">here</a>.</em><br />
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230317-20230324">21 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

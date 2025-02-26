@@ -1,0 +1,601 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-02-03T17:46:58+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Ruby on Rails</title><subtitle>A web-app framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern.</subtitle><entry><title type="html">Minimal apps, reply_to address, rotate secrets, podman support</title><link href="http://localhost:4000/2025/1/31/this-week-in-rails" rel="alternate" type="text/html" title="Minimal apps, reply_to address, rotate secrets, podman support" /><published>2025-01-31T00:00:00+05:30</published><updated>2025-01-31T00:00:00+05:30</updated><id>http://localhost:4000/2025/1/31/this-week-in-rails</id><content type="html" xml:base="http://localhost:4000/2025/1/31/this-week-in-rails"><![CDATA[<p>Hi, it’s <a href="https://github.com/claudiob">Claudio Baccigalupo</a>.
+Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54313">Extend –minimal option</a><br />
+<code class="language-plaintext highlighter-rouge">rails new --minimal</code> allows to create a basic Rails app, but recent additions to Rails were still included.
+Moving forward, this option will also skip Brakeman, CI, Docker, Kamal, Rubocop, Solid trifecta, and Thruster.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53513">Add reply_to_address to Mail::Message</a><br />
+When using Action Mailer you can now specify a <code class="language-plaintext highlighter-rouge">reply_to:</code> email address in addition to the <code class="language-plaintext highlighter-rouge">to:</code> recipient.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54380">Load the routes in the console when calling app</a><br />
+Have you ever needed to see what route helpers are available inside an IRB session?
+Moving forward they will be loaded in the <code class="language-plaintext highlighter-rouge">app</code> IRB helper.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bin/rails c
+<span class="nv">$ </span><span class="o">&gt;</span> app.root_path <span class="c"># =&gt; "/"</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/54371">Fix rotate(on_rotation:)</a><br />
+<code class="language-plaintext highlighter-rouge">MessageVerifier</code> and <code class="language-plaintext highlighter-rouge">MessageEncryptor</code> were intended to accept an <code class="language-plaintext highlighter-rouge">on_rotation</code> callback but that wasn’t the case.
+This PR fixes the behavior.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54373">Accept on_rotation argument in find_signed</a><br />
+Building on the previous change, <code class="language-plaintext highlighter-rouge">find_signed</code> and <code class="language-plaintext highlighter-rouge">find_signed!</code> now accept an <code class="language-plaintext highlighter-rouge">on_rotation</code> callback.
+This callback is triggered whenever the <code class="language-plaintext highlighter-rouge">signed_id_verifier</code> uses rotated secret keys, making it valuable for monitoring and tracking purposes.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54378">Make the devcontainer script work with podman</a><br />
+<a href="https://podman.io/">podman</a> is an alternative to Docker. 
+If you have it installed, the devcontainer script will use it, otherwise it will fall back to Docker.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54344">Fix Active Record instrumentation to be thread safe</a><br />
+When using Active Record async feature, the instrumentation was not thread safe.
+With the right race condition, instrumentation subscriptions would never fire up.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54394">Fix inverting rename_enum_value options</a><br />
+Did you know that you can rename an <code class="language-plaintext highlighter-rouge">enum</code> in your migrations using <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/PostgreSQLAdapter.html#method-i-rename_enum_value">rename_enum_value</a>?
+This commit fixes a bug so the <code class="language-plaintext highlighter-rouge">:from</code> and <code class="language-plaintext highlighter-rouge">:to</code> options are parsed correctly.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54306">Fix routes being cleared when using reload_routes!</a><br />
+Calling <code class="language-plaintext highlighter-rouge">Rails.application.reload_routes!</code> will now load all the routes without resetting them if they were already loaded.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2025-01-24%7D...main@%7B2025-01-31%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20250124-20250131">23 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>]]></content><author><name>claudiob</name></author><category term="news" /><summary type="html"><![CDATA[Hi, it’s Claudio Baccigalupo. Let’s explore this week’s changes in the Rails codebase.]]></summary></entry><entry><title type="html">Devcontainers without VSCode, a deprecation and more!</title><link href="http://localhost:4000/2025/1/24/this-week-in-rails" rel="alternate" type="text/html" title="Devcontainers without VSCode, a deprecation and more!" /><published>2025-01-24T00:00:00+05:30</published><updated>2025-01-24T00:00:00+05:30</updated><id>http://localhost:4000/2025/1/24/this-week-in-rails</id><content type="html" xml:base="http://localhost:4000/2025/1/24/this-week-in-rails"><![CDATA[<p>Hi, it’s <a href="https://greg.molnar.io">Greg</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54333">Eliminate queries loading dumped model schema on Postgres</a><br />
+This pull request improves resiliency by avoiding the need to open a database connection to load the type map, while defining attribute methods at boot, when a schema cache file is configured on PostgreSQL databases.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54303">Allow passing in a date or time to ActiveSupport::Testing::TimeHelpers#freeze_time</a><br />
+This change allows the <code class="language-plaintext highlighter-rouge">#freeze_time</code> testing helper to accept a date or time argument.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="no">Time</span><span class="p">.</span><span class="nf">current</span> <span class="c1"># =&gt; Sun, 09 Jul 2024 15:34:49 EST -05:00</span>
+    <span class="n">freeze_time</span> <span class="no">Time</span><span class="p">.</span><span class="nf">current</span> <span class="o">+</span> <span class="mi">1</span><span class="p">.</span><span class="nf">day</span>
+    <span class="nb">sleep</span> <span class="mi">1</span>
+    <span class="no">Time</span><span class="p">.</span><span class="nf">current</span> <span class="c1"># =&gt; Mon, 10 Jul 2024 15:34:49 EST -05:00</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/54298">Make column name optional for <em>index_exists?</em></a><br />
+This pull request makes the column name optional for <code class="language-plaintext highlighter-rouge">index_exists?</code>. It aligns well with <code class="language-plaintext highlighter-rouge">remove_index</code> signature, where the index name doesn’t need to be derived from the column names.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54285">Add a script for using dev containers outside VSCode</a><br />
+I you want to use the devcontainer info, but don’t want to use VSCode, the small script added by this pull request will be handy. It reads the devcontainer JSON file and runs docker commands based on the information in the JSON file.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54257">Add <em>application-name</em> metadata to application layout</a><br />
+To better support Progressive Web Apps(PWAs), this pull request adds an
+<code class="language-plaintext highlighter-rouge">application-name</code> meta tag to application layout.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54172">JSON serialized attributes can return symbolized keys</a><br />
+With this change, options can now be passed to <code class="language-plaintext highlighter-rouge">ActiveRecord::Coder::JSON</code> when instantiating the coder. This allows to pass in the <code class="language-plaintext highlighter-rouge">symbolize_names</code> option for instance:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">serialize</span> <span class="ss">:config</span><span class="p">,</span> <span class="ss">coder: </span><span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Coder</span><span class="o">::</span><span class="no">JSON</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">symbolize_names: </span><span class="kp">true</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/53920">Deprecate <em>insert_all</em> with unpersisted associations</a><br />
+This pull request deprecates using <code class="language-plaintext highlighter-rouge">insert_all</code>/<code class="language-plaintext highlighter-rouge">upsert_all</code> with unpersisted records in associations. Using these methods on associations containing unpersisted records will now show a deprecation warning, as the unpersisted records will be lost after the operation. This will become an error in Rails 8.2.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2025-01-17%7D...main@%7B2025-01-24%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20250117-20250124">34 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>]]></content><author><name>Greg</name></author><category term="news" /><summary type="html"><![CDATA[Hi, it’s Greg. Let’s explore this week’s changes in the Rails codebase.]]></summary></entry><entry><title type="html">Fresh Rails apps Dependabot updates reduced to weekly, and Auth generator gets a safer logout</title><link href="http://localhost:4000/2025/1/17/this-week-in-rails" rel="alternate" type="text/html" title="Fresh Rails apps Dependabot updates reduced to weekly, and Auth generator gets a safer logout" /><published>2025-01-17T00:00:00+05:30</published><updated>2025-01-17T00:00:00+05:30</updated><id>http://localhost:4000/2025/1/17/this-week-in-rails</id><content type="html" xml:base="http://localhost:4000/2025/1/17/this-week-in-rails"><![CDATA[<p>Hi, it’s <a href="https://github.com/zzak">zzak</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54265">Reduce the frequency of Dependabot updates in new projects.</a><br />
+This changes frequency of Dependabot updates from <code class="language-plaintext highlighter-rouge">daily</code> to <code class="language-plaintext highlighter-rouge">weekly</code> for freshly generated Rails apps.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54230">Authentication generator’s SessionsController clears browser cache at logout</a><br />
+On logout the <code class="language-plaintext highlighter-rouge">SessionsController#destroy</code> action sets a “Clear-Site-Data” header to clear the browser cache. This is in order to prevent possible data leakage after logout via the browser’s “back/forward cache”.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54231">Fix inconsistency between “delete_all” &amp; “update_all” allowed methods</a><br />
+After this change, trying to call <code class="language-plaintext highlighter-rouge">update_all</code> with <code class="language-plaintext highlighter-rouge">distinct</code> or a CTE (<code class="language-plaintext highlighter-rouge">with</code>, <code class="language-plaintext highlighter-rouge">with_recursive</code>) is deprecated and will raise an error in Rails 8.2. This is consistent with the behavior of <code class="language-plaintext highlighter-rouge">delete_all</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54243">Enable “exists?” queries to be retryable</a><br />
+Previously, <code class="language-plaintext highlighter-rouge">#exists?</code> queries could never be retryable because <code class="language-plaintext highlighter-rouge">"1 AS one"</code> was passed as a String, which was marked as non-retryable.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54236">Fix incorrect expiration time in ActiveSupport::Cache::Store#fetch</a><br />
+This PR fixes a bug when fetching an expired entry from the cache store, due to the expiration time not being handled correctly.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54226">Don’t include “script” or “style” content to node plain-text conversion</a><br />
+This is a reminder that Action Text content should not be rendered in browsers without additional sanitization first.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54201">Flash.add_flash_types should define helpers as private</a><br />
+This PR restores the pre-Rails 7.0 behavior where <code class="language-plaintext highlighter-rouge">notice</code> and <code class="language-plaintext highlighter-rouge">alert</code> actions could be defined on a controller, due to the <code class="language-plaintext highlighter-rouge">flash</code> helper methods.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54186">Eliminate allocations on Model.respond_to? calls</a><br />
+In an effort to make instantiating models cheaper (for example doing <code class="language-plaintext highlighter-rouge">Post.new</code>), <code class="language-plaintext highlighter-rouge">respond_to?</code> was optimized to avoid unnecessary allocations during initialization (as well as other queries).</p>
+
+<p><a href="https://github.com/rails/rails/pull/54185">Delegate Active Storage’s Filename “to_str” to “to_s”</a><br />
+This change allows string equality (<code class="language-plaintext highlighter-rouge">String#==</code>) to work with <code class="language-plaintext highlighter-rouge">ActiveStorage::Filename</code> objects.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54171">Ensure that Active Storage “analyzers” config doesn’t contain nil</a><br />
+You may want to disable Active Storage’s variant processor by setting <code class="language-plaintext highlighter-rouge">config.active_storage.variant_processor = nil</code>, but this would cause other issues when booting Rails before this patch.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2025-01-10%7D...main@%7B2025-01-17%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20250110-20250117">31 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>]]></content><author><name>zzak</name></author><category term="news" /><summary type="html"><![CDATA[Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.]]></summary></entry><entry><title type="html">Saeloun joins the Rails Foundation as a Contributing member</title><link href="http://localhost:4000/2025/1/10/saeloun-joins-rails-foundation" rel="alternate" type="text/html" title="Saeloun joins the Rails Foundation as a Contributing member" /><published>2025-01-10T00:00:00+05:30</published><updated>2025-01-10T00:00:00+05:30</updated><id>http://localhost:4000/2025/1/10/saeloun-joins-rails-foundation</id><content type="html" xml:base="http://localhost:4000/2025/1/10/saeloun-joins-rails-foundation"><![CDATA[<p>Happy new year everyone! The Rails Foundation is kicking off the year with great news: <a href="https://www.saeloun.com/">Saeloun</a> has joined the Rails Foundation as its newest Contributing member!</p>
+
+<p style="text-align: center; margin-top: 20px"><img src="/assets/images/logo-saeloun-2.svg" style="width: 50%" /></p>
+
+<p>Saeloun is a Ruby on Rails consulting agency, based out of Boston, MA, and Pune, India. The team helps lead and grow startups and large corporations such as HaulHub and Methodology, helping with full stack Rails development, Rails upgrades, maintenance, scaling and performance, and helping companies implement AI solutions with their Rails apps.</p>
+
+<p>Saeloun is joining the Rails Foundation after years of actively making contributions to both the framework and the community.</p>
+
+<p>In fact, you might recognize two Saeloun names - CEO <a href="https://contributors.rubyonrails.org/contributors/vipul-a-m/commits">Vipul A M</a>, and Lead Software Developer <a href="https://contributors.rubyonrails.org/contributors/akhil-g-krishnan/commits">Akhil G Krishnan</a> - from the Rails Issues team, where they help the Core and Committer teams triage issues. Both are also in the top 85 <a href="https://contributors.rubyonrails.org/">contributors</a> to the Rails framework, along with other Saeloun engineers on the full list.</p>
+
+<p>Saeloun helps run the Pune Ruby Meetup, React Pune Meetup, and they sponsor numerous <a href="https://www.saeloun.com/ruby-on-rails-community#open_source">Ruby events and conferences</a> including Rails Girls, Ruby Conf India and Rails World 2025.</p>
+
+<p>They also help document the latest Rails and Ruby features and updates on both the <a href="https://blog.saeloun.com/category/rails/">Saeloun blog</a> and the <a href="https://world.hey.com/this.week.in.rails">This Week in Rails newsletter</a>, where Vipul is a regular contributor.</p>
+
+<blockquote>
+  <p>While working with the Rails Newsletter team and Rails Docs/Triage team, I get a front row seat to see the amount of work that the Foundation has done and keeps shipping every day!
+I have worked or have been contributing to the Rails ecosystem for more than a decade. But these last two years, I can clearly see the immense effects the Foundation has had in pushing Rails, with the documentation, marketing, and various events it hosts. Growth of Rails as a framework and its community helps Saeloun greatly, and being part of the Foundation helps us be part of this growth in a small way. We have for the past decade and will continue to be ALL-IN with Rails!
+<br /><br /><em>Vipul A M, Saeloun CEO</em></p>
+
+</blockquote>
+
+<p>Welcome, Saeloun, to the Rails Foundation! It’s great to have you onboard.</p>
+
+<p>**</p>
+
+<p>Saeloun joins a growing list of members who support the Rails Foundation mission: Core members <a href="https://cookpad.com/">Cookpad</a>, <a href="https://www.doximity.com">Doximity</a>, <a href="https://www.fleetio.com">Fleetio</a>, <a href="https://github.com">GitHub</a>, <a href="https://www.intercom.com">Intercom</a>, <a href="https://www.procore.com">Procore</a>, <a href="https://www.shopify.com">Shopify</a>, <a href="https://1password.com/">1Password</a>, and <a href="https://37signals.com">37signals</a>, and Contributing members <a href="https://www.appsignal.com">AppSignal</a>, <a href="https://www.bigbinary.com">BigBinary</a>, <a href="https://www.cedarcode.com">Cedarcode</a>, <a href="https://gusto.com/">Gusto</a>, <a href="https://makandra.de/">makandra</a>, <a href="https://www.planetargon.com">Planet Argon</a>, <a href="https://www.renuo.ch/">Renuo</a>, and <a href="https://tablecheck.com/en/join">TableCheck</a>.</p>
+
+<p>Learn more about the Rails Foundation and its mission <a href="/foundation">here</a>. If your company would like to join the list, please reach out to <a href="mailto:foundation@rubyonrails.org">foundation@rubyonrails.org</a>.</p>]]></content><author><name>Amanda Perino</name></author><category term="news," /><category term="foundation" /><summary type="html"><![CDATA[Happy new year everyone! The Rails Foundation is kicking off the year with great news: Saeloun has joined the Rails Foundation as its newest Contributing member!]]></summary></entry><entry><title type="html">Sorted Columns in Schema Dumper, Deprecations, and lots of fixes!</title><link href="http://localhost:4000/2025/1/10/this-week-in-rails" rel="alternate" type="text/html" title="Sorted Columns in Schema Dumper, Deprecations, and lots of fixes!" /><published>2025-01-10T00:00:00+05:30</published><updated>2025-01-10T00:00:00+05:30</updated><id>http://localhost:4000/2025/1/10/this-week-in-rails</id><content type="html" xml:base="http://localhost:4000/2025/1/10/this-week-in-rails"><![CDATA[<p>Hey everyone, Happy Friday!</p>
+
+<p><a href="https://www.saeloun.com/team/vipul">Vipul</a> here with the latest updates for This Week in Rails.</p>
+
+<p>Before we start, a small update - I am happy to share that my team at Saeloun is joining the Rails Foundation as a contributing member.
+Read more about the reasons why we decided to join <a href="https://rubyonrails.org/2025/1/10/saeloun-joins-rails-foundation">here</a>, and why you should too!</p>
+
+<p><a href="https://github.com/rails/rails/pull/53027">Colorize console prompt on non standard environments</a><br />
+Currently, the Rails console prompt is colored according to the following rules: blue for dev and test, red of prod.
+On non-standard environments (like staging), the prompt is not colored. With this change, it will now be set to Magenta, for these environments.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54098">Fix running individual app:update commands</a><br />
+This change fixes a regression, where the individual <code class="language-plaintext highlighter-rouge">app:update</code> commands (like <code class="language-plaintext highlighter-rouge">app:update:configs</code> or <code class="language-plaintext highlighter-rouge">app:update:bin</code>) could no longer be run on their own, 
+as they require the app to be loaded and it no longer was.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54133">Fix backtrace of ArgumentErrors raised during template rendering</a><br />
+Before this fix, any argument error in a template with strict locals would be swallowed and be replaced by an exception with unrelated backtrace, 
+which made debugging templates difficult.
+With this change, any <code class="language-plaintext highlighter-rouge">ArgumentError</code> unrelated to strict locals is re-raised, preserving the original backtrace for developers.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54020">Fix local variable access in layouts</a><br />
+Layouts now have access to local variables passed to <code class="language-plaintext highlighter-rouge">render</code>.
+This fixes a very old regression introduced in Rails 5.1!</p>
+
+<p><a href="https://github.com/rails/rails/pull/53281">Sort table columns by name when dumping schema</a><br />
+The table columns inside <code class="language-plaintext highlighter-rouge">schema.rb</code> are now sorted alphabetically.
+Previously they’d be sorted by creation order, which can cause merge conflicts when two branches modify the same table concurrently.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54126">Update NotificationAssertions’s assert_notifcation to match against payload subsets and return matched notification</a><br />
+<code class="language-plaintext highlighter-rouge">ActiveSupport::Testing::NotificationAssertions</code>’s <code class="language-plaintext highlighter-rouge">assert_notification</code> now matches against payload subsets by default.</p>
+
+<p>Previously the following assertion would fail due to excess key values in the notification payload. Now with payload subset matching, it will pass.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assert_notification</span><span class="p">(</span><span class="s2">"post.submitted"</span><span class="p">,</span> <span class="ss">title: </span><span class="s2">"Cool Post"</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">instrument</span><span class="p">(</span><span class="s2">"post.submitted"</span><span class="p">,</span> <span class="ss">title: </span><span class="s2">"Cool Post"</span><span class="p">,</span> <span class="ss">body: </span><span class="s2">"Cool Body"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>Additionally, you can now persist a matched notification for more customized assertions.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">notification</span> <span class="o">=</span> <span class="n">assert_notification</span><span class="p">(</span><span class="s2">"post.submitted"</span><span class="p">,</span> <span class="ss">title: </span><span class="s2">"Cool Post"</span><span class="p">)</span> <span class="k">do</span>
+  <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">Notifications</span><span class="p">.</span><span class="nf">instrument</span><span class="p">(</span><span class="s2">"post.submitted"</span><span class="p">,</span> <span class="ss">title: </span><span class="s2">"Cool Post"</span><span class="p">,</span> <span class="ss">body: </span><span class="no">Body</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Cool Body"</span><span class="p">))</span>
+<span class="k">end</span>
+<span class="n">assert_instance_of</span><span class="p">(</span><span class="no">Body</span><span class="p">,</span> <span class="n">notification</span><span class="p">.</span><span class="nf">payload</span><span class="p">[</span><span class="ss">:body</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/45100">Load configured Active Storage plugins during boot</a>  <br />
+Previously, the parts of Active Storage using <code class="language-plaintext highlighter-rouge">ruby-vips</code>, <code class="language-plaintext highlighter-rouge">mini_magick</code>, or <code class="language-plaintext highlighter-rouge">image_processing</code> would try to load gems only when used. 
+This strategy works well because it allows apps that don’t need these features to easily ignore them and not have to depend on gems they don’t need.</p>
+
+<p>However, the downsides to this strategy was that it requires loading code during requests and that it moves potential error messages into request
+logs instead of those errors being immediately visible on boot.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52230">Introduce RAILS_MASTER_KEY placeholder to CI template</a><br />
+The existing CI templates do not work as expected if custom credentials are utilized, or if <code class="language-plaintext highlighter-rouge">config.require_master_key</code> is enabled.
+This change introduces <code class="language-plaintext highlighter-rouge">RAILS_MASTER_KEY</code> placeholder in generated <code class="language-plaintext highlighter-rouge">ci.yml</code> files, to address this issue.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54142">Don’t load ActiveStorage::Blob when validating the service</a><br />
+For tasks like <code class="language-plaintext highlighter-rouge">assets:precompile</code> that don’t need it, we should not be loading the entire ActiveStorage code, and instead just relevant parts.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51746">Use the given form in html_options for the hidden field in collection_check_boxes</a><br />
+Respect <code class="language-plaintext highlighter-rouge">html_options[:form]</code> when <code class="language-plaintext highlighter-rouge">collection_checkboxes</code> generates the hidden <code class="language-plaintext highlighter-rouge">&lt;input&gt;</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54081">Deprecate String#mb_chars and AS::Multibyte::Chars</a><br />
+These APIs are a relic of the Ruby 1.8 days when Ruby strings weren’t encoding aware.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53970">Deprecate ActiveSupport::Configurable</a><br />
+This was only used once internally by Rails, and is now deprecated going ahead.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2025-01-04%7D...main@%7B2025-01-10%7D">here</a>.</em></p>
+
+<p><em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20250104-20250110">30 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>]]></content><author><name>vipulnsward</name></author><category term="news" /><summary type="html"><![CDATA[Hey everyone, Happy Friday!]]></summary></entry><entry><title type="html">Schema dumper versions formatter and more</title><link href="http://localhost:4000/2025/1/3/this-week-in-rails" rel="alternate" type="text/html" title="Schema dumper versions formatter and more" /><published>2025-01-03T00:00:00+05:30</published><updated>2025-01-03T00:00:00+05:30</updated><id>http://localhost:4000/2025/1/3/this-week-in-rails</id><content type="html" xml:base="http://localhost:4000/2025/1/3/this-week-in-rails"><![CDATA[<p>Hi, <a href="https://x.com/morgoth85">Wojtek</a> here. Let’s explore the first changes of the new year in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53797">Introduce versions formatter for the schema dumper</a><br />
+It is now possible to override how schema dumper formats versions information inside the <em>structure.sql</em> file. Currently, the versions are simply sorted in the decreasing order. Within large teams, this can potentially cause many merge conflicts near the top of the list.</p>
+
+<p>Now, the custom formatter can be provided with a custom sorting logic (e.g. by hash values of the versions), which can greatly reduce the number of conflicts.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54050">Replace SyntaxTree with Prism in rail_inspector</a><br />
+Now that <em>Prism</em> has been stable for a while and is the default parser in Ruby 3.4, use it in the <em>rail_inspector</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51496">Handle path_params gracefully when a user sends a string</a><br />
+When url contains the query part <em>?path_params=string</em> it is now ignored and does not error.</p>
+
+<p><a href="https://github.com/rails/rails/pull/54017">Fix setting to_time_preserves_timezone from “new framework defaults”</a><br />
+Previously setting <code class="language-plaintext highlighter-rouge">Rails.application.config.active_support.to_time_preserves_timezone = :zone</code> in the initializer did not have effect.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-12-27%7D...main@%7B2025-01-03%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20241227-20250103">21 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>]]></content><author><name>Wojtek</name></author><category term="news" /><summary type="html"><![CDATA[Hi, Wojtek here. Let’s explore the first changes of the new year in the Rails codebase.]]></summary></entry><entry><title type="html">This year in Rails</title><link href="http://localhost:4000/2024/12/27/this-week-in-rails" rel="alternate" type="text/html" title="This year in Rails" /><published>2024-12-27T00:00:00+05:30</published><updated>2024-12-27T00:00:00+05:30</updated><id>http://localhost:4000/2024/12/27/this-week-in-rails</id><content type="html" xml:base="http://localhost:4000/2024/12/27/this-week-in-rails"><![CDATA[<p>This is Greg, Vipul, Wojciech, and Zzak, bringing you the summary of what happened with Rails in the past year. It was a busy year with close to <a href="https://github.com/rails/rails/compare/@%7B2024-01-01%7D...main@%7B2024-12-31%7D">4000 commits</a> from <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240101-20241231">555 contributors</a> and 50 releases, including Rails 8!</p>
+
+<p>For this year end issue, as a team we each hand-picked some of our favorite pull requests from the year.</p>
+
+<p><a href="https://rubyonrails.org/2024/12/18/wrap-up-2024-from-rails-foundation">2024 Wrap Up from the Rails Foundation</a><br />
+Amanda wrote a summary of what the Rails Foundation has been up to this year and what she is plannning for next year.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50528">Add default PWA manifest and service worker file</a><br />
+Progressive Web Apps got a lot of support in Rails this year starting with freshly generated Rails apps now include a manifest and service worker file to become full-fledged Progressive Web Applications.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50505">Add allow_browser to set minimum versions for your application</a><br />
+Now you can easily specify which browsers you’ve supported to allow access to your application.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50490">Add rate limiting to Action Controller via the Kredis limiter type</a><br />
+Rails got a built in rate limiter this year. Originally it was dependent on
+Kredis, but it was <a href="https://github.com/rails/rails/pull/50781">quickly refactored</a> to use the Rails cache store.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">SessionsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">rate_limit</span> <span class="ss">to: </span><span class="mi">10</span><span class="p">,</span> <span class="ss">within: </span><span class="mi">3</span><span class="p">.</span><span class="nf">minutes</span><span class="p">,</span> <span class="ss">only: :create</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">SignupsController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+  <span class="n">rate_limit</span> <span class="ss">to: </span><span class="mi">1000</span><span class="p">,</span> <span class="ss">within: </span><span class="mi">10</span><span class="p">.</span><span class="nf">seconds</span><span class="p">,</span>
+    <span class="ss">by: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="n">request</span><span class="p">.</span><span class="nf">domain</span> <span class="p">},</span> <span class="ss">with: </span><span class="o">-&gt;</span> <span class="p">{</span> <span class="n">redirect_to</span> <span class="n">busy_controller_url</span><span class="p">,</span> <span class="ss">alert: </span><span class="s2">"Too many signups!"</span> <span class="p">},</span> <span class="ss">only: :new</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/50914">Generate devcontainer files by default</a><br />
+This change generates a <code class="language-plaintext highlighter-rouge">.devcontainer</code> folder and its contents when creating a new app.
+The <code class="language-plaintext highlighter-rouge">.devcontainer</code> folder includes everything needed to <a href="https://containers.dev/">boot the app and do development in a remote container</a>.
+These files can be skipped using the <code class="language-plaintext highlighter-rouge">--skip-devcontainer</code> option.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50796">Add customized prompt for Rails console</a><br />
+Rails console now indicates the current Rails environment with the name and color (red for production).</p>
+
+<p><a href="https://github.com/rails/rails/pull/51798">Add Kamal by default to Rails 8 </a><br />
+This PR adds Kamal for deployment by default, which includes generating a Rails-specific <code class="language-plaintext highlighter-rouge">config/deploy.yml</code>.
+This can be skipped using  <code class="language-plaintext highlighter-rouge">--skip-kamal</code>. Check out more about Kamal on its <a href="https://kamal-deploy.org/">official site</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51799">Change asset pipeline default to Propshaft in Rails 8</a><br />
+Sprockets has served us well, but it’s time to hand over the torch to <a href="https://github.com/rails/propshaft">Propshaft</a> in Rails 8.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52328">Add a basic sessions generator</a><br />
+This change adds a new sessions generator to give a basic start to an authentication system using database-tracked sessions.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Generate with...</span>
+bin/rails generate session
+
+<span class="c"># Generated files</span>
+app/models/current.rb
+app/models/user.rb
+app/models/session.rb
+app/controllers/sessions_controller.rb
+app/views/sessions/new.html.erb
+db/migrate/xxxxxxx_create_users.rb
+db/migrate/xxxxxxx_create_sessions.rb
+</code></pre></div></div>
+
+<p>The generator was later renamed to “authentication” generator and got a bunch of improvements.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52471">Implement new maintenance policy</a><br />
+The Rails maintenance policy was updated this year. The main changes are:</p>
+<ul>
+  <li>Releases are maintained by a pre-defined, fixed period of time. One year for bug fixes and two years for security fixes.</li>
+  <li>Distinction between severe security issues and regular security issues is removed.</li>
+  <li>Npm versioning is updated to match not use the pre-release - separator.</li>
+</ul>
+
+<p><a href="https://github.com/rails/rails/pull/51793">Use Thruster by default for Rails 8</a><br />
+<a href="https://github.com/basecamp/thruster/">Thruster</a> is an asset compression and caching proxy with X-Sendfile acceleration that speeds up simple production-ready deployments of Rails applications.
+It runs alongside the Puma and usually behind the Kamal 2 proxy, which offers HTTP/2 and SSL auto-certificates,
+to help your app run efficiently and safely on the open Internet.</p>
+
+<p>This change configures the use of Thruster in the Dockerfile by default, starting with Rails 8.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52354">Add support for SQLite3 full-text search and other virtual tables</a><br />
+SQLite3 full-text search and other virtual tables are now supported in Rails.
+Previously, adding SQLite3 virtual tables messed up <code class="language-plaintext highlighter-rouge">schema.rb</code>, but with this change, virtual tables can safely be added using <code class="language-plaintext highlighter-rouge">create_virtual_table</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52790">Add Solid Cache</a><br />
+Solid Cache will be the new default caching backend for production deployments out of the box in Rails 8.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52804">Add Solid Queue</a><br />
+Configure Solid Queue as the default Active Job backend alongside Solid Cache. Both can be skipped with <code class="language-plaintext highlighter-rouge">--skip-solid</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52889">Add Solid Cable</a><br />
+This change starts to use <a href="https://github.com/rails/solid_cable">Solid Cable</a> as the default Action Cable adapter in production, configured as a separate queue database in <code class="language-plaintext highlighter-rouge">config/database.yml</code>. 
+It keeps messages in a table and continuously polls for updates.</p>
+
+<p>This makes it possible to drop the common dependency on Redis, if it isn’t needed for any other purpose. 
+Despite polling, the performance of Solid Cable is comparable to Redis in most situations. 
+And in all circumstances, it makes it easier to deploy Rails when Redis is no longer a required dependency for Action Cable functionality.</p>
+
+<p><a href="https://github.com/rails/rails/pull/52789">Silence healthcheck requests from the log</a><br />
+Add <code class="language-plaintext highlighter-rouge">Rails::Rack::SilenceRequest</code> middleware and use it via <code class="language-plaintext highlighter-rouge">config.silence_healthcheck_path = path</code> to silence requests to “/up”.
+This prevents the Kamal-required healthchecks from clogging up the production logs.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51674">Add Parameters#expect to safely filter and require params</a><br />
+This PR adds a new way to handle params giving more control over what you expect to receive in your controller actions.</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Before</span>
+<span class="n">params</span><span class="p">.</span><span class="nf">require</span><span class="p">(</span><span class="ss">:table</span><span class="p">).</span><span class="nf">permit</span><span class="p">(</span><span class="ss">:attr</span><span class="p">)</span>
+
+<span class="c1"># After</span>
+<span class="n">params</span><span class="p">.</span><span class="nf">expect</span><span class="p">(</span><span class="ss">table: </span><span class="p">[</span> <span class="ss">:attr</span> <span class="p">])</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/53045">Tidy up the error pages</a><br />
+The error pages built into Rails have been updated, here’s a preview of the new look:
+<img width="1512" alt="Screenshot 2024-09-26 at 10 46 56 AM" src="https://github.com/user-attachments/assets/225dbc1f-309e-4f31-9da7-106f7d312424" /></p>
+
+<p><a href="https://github.com/rails/rails/pull/53827">Support loading SQLite3 extensions</a><br />
+The <em>sqlite3</em> gem v2.4.0 introduces support for loading extensions passed as a kwarg to <em>Database.new</em>. This PR leverages that feature to allow configuration of extensions in the <em>config/database.yml</em> file using either filesystem paths or the names of modules that respond to <em>to_path</em> method.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53065">Add ActiveSupport::Testing::NotificationAssertions test helper module</a><br />
+With this addition, we can now use various test helper methods for notification assertions:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">assert_notification</span><span class="p">(</span><span class="s2">"post.submitted"</span><span class="p">,</span> <span class="ss">title: </span><span class="s2">"Cool Post"</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">post</span><span class="p">.</span><span class="nf">submit</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"Cool Post"</span><span class="p">)</span> <span class="c1"># =&gt; emits matching notification</span>
+<span class="k">end</span>
+
+<span class="n">assert_notifications_count</span><span class="p">(</span><span class="s2">"post.submitted"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">post</span><span class="p">.</span><span class="nf">submit</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"Cool Post"</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">assert_no_notifications</span><span class="p">(</span><span class="s2">"post.submitted"</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">post</span><span class="p">.</span><span class="nf">destroy</span>
+<span class="k">end</span>
+
+<span class="n">notifications</span> <span class="o">=</span> <span class="n">capture_notifications</span><span class="p">(</span><span class="s2">"post.submitted"</span><span class="p">)</span> <span class="k">do</span>
+  <span class="n">post</span><span class="p">.</span><span class="nf">submit</span><span class="p">(</span><span class="ss">title: </span><span class="s2">"Cool Post"</span><span class="p">)</span> <span class="c1"># =&gt; emits matching notification</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-01-01%7D...main@%7B2024-12-31%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240101-20241231">555 contributors</a> to the Rails codebase this year!</em></p>
+
+<p>Merry Christmas and a happy New Year! Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>]]></content><author><name>Greg</name></author><category term="news" /><summary type="html"><![CDATA[This is Greg, Vipul, Wojciech, and Zzak, bringing you the summary of what happened with Rails in the past year. It was a busy year with close to 4000 commits from 555 contributors and 50 releases, including Rails 8!]]></summary></entry><entry><title type="html">Revert Active Model’s Normalization and Cache Store gets session ID uniqueness flag</title><link href="http://localhost:4000/2024/12/21/this-week-in-rails" rel="alternate" type="text/html" title="Revert Active Model’s Normalization and Cache Store gets session ID uniqueness flag" /><published>2024-12-21T00:00:00+05:30</published><updated>2024-12-21T00:00:00+05:30</updated><id>http://localhost:4000/2024/12/21/this-week-in-rails</id><content type="html" xml:base="http://localhost:4000/2024/12/21/this-week-in-rails"><![CDATA[<p>Hi, it’s <a href="https://github.com/zzak">zzak</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53962">Fix “#to_query” to not include setter for nil values</a><br />
+To keep the behavior consistent with <code class="language-plaintext highlighter-rouge">Rack::Utils.parse_nested_query</code>.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Before
+nil.to_query("key") #=&gt; key=
+# After
+nil.to_query("key") #=&gt; key
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/53961">Raise “ActiveRecordError” when “#increment!” called on new records</a><br />
+Similar to the behavior of <code class="language-plaintext highlighter-rouge">#update_columns</code>, an exception will be raised on records that haven’t been saved yet or were destroyed.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53954">Revert “ActiveModel::Attributes::Normalization”</a><br />
+In the last episode, we announced that <code class="language-plaintext highlighter-rouge">ActiveRecord::Normalization</code> was moved to Active Model.<br />
+That PR was reverted because the API wasn’t ready and is still being worked on.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53946">Add “:comparable” option to serialized attributes</a><br />
+This option was added to ease migration between different coders.<br />
+Refer to the <a href="https://edgeapi.rubyonrails.org/classes/ActiveRecord/AttributeMethods/Serialization/ClassMethods.html#method-i-serialize">API docs</a> for more information.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53929">Remove monkey patches of “Range#each” and “Range#step”</a><br />
+Technically these methods are equivalent to the native Ruby methods, so they can be safely removed.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53918">Add “check_collisions” option to Cache Store</a><br />
+This new options was added for situations where guaranteeing uniqueness of the session ID is required.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53623">Prevent Active Storage Blob from autosaving Attachments</a><br />
+This change should have no impact on existing applications, but will ensure that adding an attachment to a record doesn’t automatically save it, causing other callbacks to run unexpectedly.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-12-14%7D...main@%7B2024-12-21%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20241214-20241221">24 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>]]></content><author><name>zzak</name></author><category term="news" /><summary type="html"><![CDATA[Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.]]></summary></entry><entry><title type="html">2024 Wrap Up from the Rails Foundation</title><link href="http://localhost:4000/2024/12/18/wrap-up-2024-from-rails-foundation" rel="alternate" type="text/html" title="2024 Wrap Up from the Rails Foundation" /><published>2024-12-18T00:00:00+05:30</published><updated>2024-12-18T00:00:00+05:30</updated><id>http://localhost:4000/2024/12/18/wrap-up-2024-from-rails-foundation</id><content type="html" xml:base="http://localhost:4000/2024/12/18/wrap-up-2024-from-rails-foundation"><![CDATA[<p>It’s amazing how quickly a year flies by.</p>
+
+<p>It’s a total cliché, but it feels like only a few days ago that I sat by my Christmas tree and wrote <a href="/2023/12/27/reflecting-on-2023">last year’s</a> final reflection post.</p>
+
+<p>Back then, I was excited for all of the plans the Rails Foundation had in the works for 2024. Rails 7.1 was just released and already Rails 8 was on the horizon. There was so much to do! <em>Documentation! Tutorial! Videos! Toronto! Merch store! Case studies!</em> I couldn’t wait to hit the ground running and start assembling the teams to make all this happen.</p>
+
+<p>…Then the motherboard in my new laptop died and I was forced to take the next week off until Apple provided a new one. I’m sure there was a ‘blessing in disguise’ lesson in there somewhere, but at the time I was too annoyed to see it.</p>
+
+<p>I digress.</p>
+
+<p>Now, one year later, seated again in the glow of my Christmas tree with a cautious eye on my <em>second</em> new laptop (don’t fail me now), I can look back and say with confidence that we did what we set out to do in 2024. Within two years the Rails Foundation has all 4 pillars of our mission up and running, and all pistons firing: Documentation, Education, Marketing, and Events.</p>
+
+<p>And once again, I am looking ahead with excitement to next year. We have a lot in store, and I can’t wait to get started.</p>
+
+<p>Before we sprint forward, I’d like to share all that we accomplished this year in support of our mission.</p>
+
+<p><strong>But first: the Rails Foundation grew this year.</strong></p>
+
+<p>The Rails Foundation expanded this year when <a href="/2024/12/2/rails-foundation-welcomes-1password-as-core-member"><strong>1Password</strong> joined as a brand new Core member</a>. This is huge news for the Rails community that such a well-known SaaS company (and beloved tool) is so enthusiastic about Rails that they are contributing at our highest tier of membership. And not a Rails shop <em>by origin</em>, I might add, but rather a Rails shop <em>by acquisition</em>. That speaks <em>volumes</em> about Rails.</p>
+
+<p>VP of Product at 1Password <strong>Jason Meller</strong> joined the Rails Foundation board as a director. On the Remote Ruby podcast recently, he shared more about how this all came to be when his company Kollide was acquired by 1Password, and how joining the foundation took little convincing internally: “<em>It felt like the right time for 1Password to step in and start getting formally involved in the community. It was a no-brainer. <strong>Instantly everybody saw the value.</strong></em>” (It’s a great episode, listen to it <a href="https://www.remoteruby.com/2260490/episodes/16235279-jason-meller-on-1password-joining-the-rails-foundation">here</a>.)</p>
+
+<p><a href="https://1password.com/">1Password</a> joins the eight founding members of the Rails Foundation Core, all of which have a seat on the board: <a href="https://cookpad.com/">Cookpad</a>, <a href="https://www.doximity.com">Doximity</a>, <a href="https://www.fleetio.com">Fleetio</a>, <a href="https://github.com">GitHub</a>, <a href="https://www.intercom.com">Intercom</a>, <a href="https://www.procore.com">Procore</a>, <a href="https://www.shopify.com">Shopify</a>, and <a href="https://37signals.com">37signals</a>.</p>
+
+<p>Other changes to the board included <strong>Neha Batra</strong> stepping in as GitHub’s director, and <strong>Ryan Sherlock</strong> taking over the director role for Intercom. (Big thanks to <strong>Kyle Daigle</strong> and <strong>Darragh Curran</strong>, who previously acted as directors before passing the baton.)</p>
+
+<p>The Rails Foundation also welcomed three new Contributing members this year: <a href="https://makandra.de/"><strong>makandra</strong></a>, <a href="https://tablecheck.com/en/join"><strong>TableCheck</strong></a>, and <a href="https://gusto.com/"><strong>Gusto</strong></a>, joining <a href="https://www.cedarcode.com">Cedarcode</a>, <a href="https://www.planetargon.com">Planet Argon</a>, <a href="https://www.appsignal.com">AppSignal</a>, <a href="https://www.bigbinary.com">BigBinary</a>, and <a href="https://www.renuo.ch/">Renuo</a>.</p>
+
+<p>This year has been an incredible show of support for the Rails community. All of the companies you see above not only fund the work we are doing, they also advise, suggest ideas, contribute time, and share resources - all because they believe in our mission to support the Rails community and want to see it thrive for decades to come.</p>
+
+<p>Our work is 100% made possible because of the ongoing support by these members. Here’s a look back on what that support meant for you in the Rails community in 2024.</p>
+
+<p><strong>We updated the Rails Guides.</strong> (<em>Documentation</em>)</p>
+
+<p>Work on the Rails documentation began in <a href="/2024/2/6/documentation-update-work-has-begun">February</a>, and carried on throughout the year. In total, <a href="https://github.com/rails/rails/issues?q=label%3A%22rails+foundation%22+is%3Aclosed+RF-DOCS">21 guides</a> were updated, including the addition of most of the recent Rails 8 defaults.</p>
+
+<p>These guides are now up-to-date and more consistent in tone, content, context, and readability, thanks to the efforts of <strong>Ridhwana Khan</strong>, <strong>Bhumi Shah</strong>, <strong>Harriet Oughton</strong>, <strong>Petrik de Heus</strong>, <strong>Carlos Antonio Da Silva</strong>, and the many, many folks in the community who helped by reviewing the PRs. There is more work to do here, but we are off to a good start.</p>
+
+<p><strong>We improved the design &amp; UX of the Rails Guides.</strong> (<em>Documentation</em>)</p>
+
+<p>The previous design of the Rails Guides served its purpose well for nearly 15 years, but it’s just as important for the UX and design of a website to evolve along with the framework it promotes. So this year, we fixed that and <a href="/2024/3/20/rails-guides-get-a-facelift">gave the Guides a facelift</a> so that visitors will see a more clean, sleek, and modern design, more in keeping with what Rails is today.</p>
+
+<p><strong>John Athayde</strong> refreshed the existing design, added RTL rendering, and added convenient little UX features such as a floating, scrollable Chapters nav bar, and a guide version selector (a crowd favorite). <strong>Alisa Wandzilak</strong> added a highlight to the rolling scrollbar, and <strong>Derk-Jan Karrenbeld</strong> did a lot of work to improve the accessibility of the guides. All of this work was carried out with feedback and direction from the three <strong>Rails teams</strong>, and a lot of help from the community. Thank you all!</p>
+
+<p><strong>We introduced Rails case studies.</strong> (<em>Marketing - Documentation</em>)</p>
+
+<p>What better way to demonstrate that Rails is the ideal choice for building fast, flexible, and scalable applications than with <a href="/2024/12/12/introducing-doximity-case-study">case studies</a> showcasing how companies like <a href="/docs/case-studies/doximity">Doximity</a> have successfully done so?</p>
+
+<p>The Rails community is rich with stories of successful companies of all sizes, building with Rails and delivering big results - it’s time to start sharing these stories with the world.</p>
+
+<p>This case study was a collaboration made possible by <strong>Robby Russell</strong> from Planet Argon, <strong>Bruno Miranda</strong> from Doximity, and the <strong>Doximity leadership team</strong>.</p>
+
+<p><strong>We shipped a brand new flagship Getting Started tutorial.</strong> (<em>Education</em>)</p>
+
+<p>With Rails 8, the framework is better than ever, making it the perfect time to introduce a new flagship Getting Started tutorial that showcases everything Rails can do.</p>
+
+<p>The revamped <a href="https://guides.rubyonrails.org/getting_started.html">Getting Started Guide</a> now walks you through building an e-commerce app and is the most up-to-date, comprehensive Rails 8 tutorial to be found, introducing Rails fundamentals and the latest Rails 8 defaults.</p>
+
+<p>We also made it more beginner-friendly, designed to make Rails accessible to everyone and to welcome beginners to Rails for years to come. And: it’s expandable, so get ready for more tutorials in the future.</p>
+
+<p>Special thanks to <strong>Chris Oliver</strong> for his work on this tutorial, with help from <strong>Rafael França</strong>, <strong>Xavier Noria</strong>, <strong>Jeremy Daer</strong>, <strong>Matthew Draper</strong>, <strong>Collin Jilbert</strong>, <strong>Kent Crutchfield</strong>, <strong>Harriet Oughton</strong>, <strong>Julian Duss</strong>, <strong>Santiago Rodriguez</strong>, <strong>Gianlo Occhipinti</strong>, <strong>Kim Perino</strong>, and all the reviewers on GitHub.</p>
+
+<p><strong>We introduced the Docs landing page.</strong> (<em>Documentation</em>)</p>
+
+<p>To create space for tutorials and case studies, and to make the Rails website more welcoming and beginner-friendly to navigate, <a href="/2024/12/17/introducing-new-docs-landing-page">we introduced Docs</a>, the starting point for everything you need to install Rails, learn it, get better at it, and get involved. From <a href="/docs">one convenient page</a>, you can now access the Installation Guide, Tutorials, Guides, API Docs, Case Studies, the Forum, and the Contributing Guide.</p>
+
+<p><strong>John Athayde</strong> designed and shipped this new page with input and direction from all three Rails teams.</p>
+
+<p><strong>We collaborated with Typecraft on the Rails 8 Unpacked video series.</strong> (<em>Education - Marketing</em>)</p>
+
+<p>DHH recorded a new Rails 8 <a href="https://youtu.be/X_Hw9P1iZfQ">demo</a> for the website which is a fantastic upgrade on the previous demo - now showing how easy it is to take an app from <code class="language-plaintext highlighter-rouge">rails new</code> all the way through to deployment - all within 30 minutes.</p>
+
+<p>But we wanted to dive deeper. We wanted videos that answered the questions you probably had: what was introduced as default or new in Rails 8, what does that change, and why does it matter?</p>
+
+<p>But who could tell the story in a compelling, engaging way?</p>
+
+<p>The answer came to us at Rails World when I found myself seated next to Chris Power of the popular YouTube channel Typecraft after the Opening Keynote. “Hey,” he said, “This Rails 8 stuff is so cool. Who do I speak to about creating content for Rails?”.</p>
+
+<p><em>Bingo.</em></p>
+
+<p><a href="https://www.youtube.com/playlist?list=PLHFP2OPUpCebdA4-xR07SPpoBWVERkHR6">Rails 8 Unpacked with Typecraft</a> is a 9-part video series exploring Rails 8’s default features through the lens of a demo task management app. It’s told with the right blend humor, panache, and expertise befitting the Ruby community, and we hope you like it.</p>
+
+<p>Thanks to <strong>Chris Power</strong> and <strong>Robert Beene</strong> from Typecraft for pulling this series together in record time after Rails 8 was launched, with help from reviewers <strong>Rosa Gutiérrez</strong>, <strong>Donal McBreen</strong>, <strong>Breno Gazzola</strong>, <strong>Miles Woodroffe</strong>, <strong>Bruno Miranda</strong>, and the <strong>Rails Core</strong> team.</p>
+
+<p><strong>We kicked off the Rails in Focus video series.</strong> (<em>Education - Marketing</em>)</p>
+
+<p><a href="https://youtu.be/TZXj-LITY2E">Rails in Focus</a> is a video series of quick tips and best practices for Rails devs of all levels to help you get the most out of Rails.</p>
+
+<p>These videos are made by the community, for the community. <strong>Emmanuel Hayford</strong> is our first host for the series, but there will be more hosts as the mic is passed to other Rails devs. What feature of Rails do you love working with? What little-known tip has helped you? If you have something to share and want to host, please <a href="https://shorturl.at/CecD6">get in touch</a>. And subscribe to the <a href="https://www.youtube.com/@railsofficial">Rails YouTube</a> to be notified of when more videos drop.</p>
+
+<p><strong>We sponsored Rails Girls São Paulo.</strong> (<em>Events</em>)</p>
+
+<p>After being asked to speak on a panel at Tropical on Rails, the Rails Foundation teamed up with Doximity to sponsor the coinciding <a href="/2024/2/27/rails-foundation-doximity-sponsor-rails-girls-sao-paolo">Rails Girls São Paulo</a>, which was starting up again after a hiatus with a new format to help women with some level of Rails experience gain skills to advance further in their career.</p>
+
+<p>On a break from working on their demo apps, the 30 attendees had a chance to ask Rails Core <strong>Eileen Uchitelle</strong>, Shopify Engineering Manager <strong>Gabi Stefanini</strong>, Rails dev <strong>Mayra Navarro</strong>, and myself questions and tips on how to succeed in tech and advance in their careers.</p>
+
+<p>Foundation members <strong>Bruno Miranda</strong> (Doximity) and <strong>Robby Russell</strong> (Planet Argon) and I were grateful for an opportunity to spend time with such a fantastic group of women from the Brazilian Rails community. Thank you to <strong>Debora Fernandes</strong>, <strong>Camila Campos</strong>, and <strong>Cirdes Henrique</strong> for organizing and inviting us, and Doximity’s <strong>Douglas Andrade</strong>, <strong>Camila Tormena</strong>, <strong>Julio Monteiro</strong> and <strong>David Bruisius</strong> for mentoring the teams.</p>
+
+<p><strong>We launched the Rails Merch Store.</strong> (<em>Marketing - Community</em>)</p>
+
+<p>Many of you asked over the past two years, so we finally launched the official <a href="https://merch.rubyonrails.org/">Rails Merch Store</a>, starting with timeless classic items - t-shirt, hoodie, cap, mug, and a baby onesie. We’ll be adding more items over time, and we hope to add shipping to more regions as soon as possible.</p>
+
+<p>We can’t wait to see you out in the wild wearing your Rails pride! (Don’t forget to tag Rails in your shots on social media.)</p>
+
+<p>This looks like a small merch store, but it took some heavy lifting to get it live, and it would not have happened without <strong>Anne Gonschorek</strong>, <strong>Melissa Miller</strong>, <strong>Jackie Gregoire</strong>, and <strong>Lukas Perez</strong>, <strong>Brandon Sooknanan</strong>, <strong>Niklas Arsenault</strong> from Shopify’s launch team (because the merch store is built on Shopify).</p>
+
+<p><strong>We gathered 1,000 devs in Toronto for Rails World.</strong> (<em>Events - Marketing - Education - Community</em>)</p>
+
+<p>Rails devs from 57 countries gathered in Toronto for the second edition of Rails World. We had two days of technical talks, workshops, networking, and evening parties, and folks were live in the audience when the <a href="/2024/9/27/rails-8-beta1-no-paas-required">Rails 8 beta</a> was released to the world <a href="https://youtu.be/-cEn_83zRFw?si=u59AqcCX2egnh3AM&amp;t=3651">during the Opening Keynote</a>.</p>
+
+<p>This was a memorable edition in a beautiful venue that was made possible by support from many sponsors, but especially by our three primary supporters: Platinum sponsors <strong>AppSignal</strong> and <strong>GitHub</strong>, and our City Host <strong>Shopify</strong>, who was excited to host us in their hometown.</p>
+
+<p>There’s a lot that comes together during an event; this is just some of what went down this year:</p>
+
+<ul>
+  <li>The <strong>Rails Core</strong> team had their second ever offsite - meeting all day to discuss the direction of the framework, and enjoying a private dinner together at night before Rails World activity kicked off. This year 11 of the 12 members were in attendance.</li>
+  <li>Shopify CEO <strong>Tobi Lütke</strong> invited <strong>DHH</strong> and <strong>Matz</strong> to a fireside chat on Ruby, Rails, and the joy of working with both.</li>
+  <li>DHH surprised <strong>Matz</strong> with his first-ever award - the Rails Lifetime Award, and Xavier Noria awarded <strong>Akira Matsuda</strong> from the Rails Committers team with the 2024 Rails Luminary Award. Read about both award winners <a href="/2024/9/27/2024-rails-luminary-awards-matz-and-akira">here</a>.</li>
+  <li><strong>Clio</strong> and the <strong>Toronto Ruby</strong> meetup group co-hosted an awesome Day 1 party.</li>
+  <li><strong>Shopify</strong> hosted the a Lightning Track, allowing 14 attendees to give quick talks on topics from gaming to Hotwire Native.</li>
+  <li><strong>Buzzsprout</strong> hosted the podcast booth once again, allowing 6 podcasts in our community to record as many interviews as they could and take advantage of having 1,000 Rails devs all in one space.</li>
+  <li><strong>Telos Labs</strong> created and open-sourced <a href="/2024/8/1/building-the-rails-world-app-with-telos-labs">an event app</a> for the entire community that we used for creating our agendas and getting notified when our next session was starting.</li>
+  <li><strong>Shopify</strong> closed out Rails World with an epic party spanning three floors of fun—food, drinks, games, and music overlooking the skyline of Toronto.</li>
+</ul>
+
+<p>There were also wasps, but we don’t talk about them.</p>
+
+<p>Huge shout out to all of the <a href="https://rubyonrails.org/world/2024/speakers">speakers</a> who presented this year, and everyone who made the Hallway Track as special and engaging as ever.</p>
+
+<p>The Toronto edition will be hard to top, but we’re certainly going to try <a href="/2024/11/27/rails-world-2025-save-the-date">next year in Amsterdam</a>.</p>
+
+<p><strong>And last but not least, we localized videos in 3 languages.</strong> (<em>Marketing - Education - Community</em>)</p>
+
+<p>Thanks to <a href="https://www.happyscribe.com/">Happy Scribe</a>, a transcription service built on Rails, we were able to offer <strong>Japanese</strong>, <strong>Brazilian Portuguese</strong>, and <strong>Spanish</strong> subtitles on all 24 Rails World 2024 videos, and all 9 Rails Unpacked videos. We hope this removes a barrier and makes Rails videos accessible to a wider audience of developers and Rails enthusiasts around the world.</p>
+
+<p><strong>That’s a wrap on 2024.</strong></p>
+
+<p>Like I said at the start, we achieved everything we set out to do in 2024, and that feels good. But all this work is just the blast of the starting gun.</p>
+
+<p>Next year, all of it continues: more tutorials, more videos, more supporting whatever updates the Rails Core team has in store for you, and of course, another Rails World to start planning.</p>
+
+<p>By the way, we have added a <a href="https://rubyonrails.org/category/foundation">Foundation category</a> to the blog feed. Drop in any time throughout the year to see what we are working on. (Thank you <strong>Beatriz Mitre</strong> for adding that functionality.) Our <a href="https://app.todohelpers.com/forms/4758b5b0-d6f9-4f41-8041-992cc9b748fb">suggestion box</a> is also always open if you have ideas on how we can support you.</p>
+
+<p><strong>To close, one more thing.</strong></p>
+
+<p>Thank you all for your enthusiasm and energy. Not only does it make working for this community fun and exciting, but over the past year, I’ve heard from countless developers from other communities and languages who recognize that something <strong>special is happening in Rails</strong>. That’s a testament to the Rails community’s genuine passion and excitement for the future. It’s enough positivity and pride to make others sit up and notice, and that’s powerful stuff.</p>
+
+<p>So let’s keep the momentum going in 2025. Let’s continue making waves and showing the tech world what Rails is all about.</p>
+
+<p>Wishing everyone in the Rails community a fantastic close to 2024. See you all next year!</p>]]></content><author><name>Amanda Perino</name></author><category term="news," /><category term="foundation" /><summary type="html"><![CDATA[It’s amazing how quickly a year flies by.]]></summary></entry><entry><title type="html">Introducing the new Docs landing page</title><link href="http://localhost:4000/2024/12/17/introducing-new-docs-landing-page" rel="alternate" type="text/html" title="Introducing the new Docs landing page" /><published>2024-12-17T00:00:00+05:30</published><updated>2024-12-17T00:00:00+05:30</updated><id>http://localhost:4000/2024/12/17/introducing-new-docs-landing-page</id><content type="html" xml:base="http://localhost:4000/2024/12/17/introducing-new-docs-landing-page"><![CDATA[<p>Last week, we published a bunch of <a href="https://rubyonrails.org/2024/12/12/introducing-doximity-case-study">new</a> and <a href="https://rubyonrails.org/2024/12/13/learn-Rails-8-tutorial-and-unpacked-videos">updated</a> resources to help you learn Rails and learn how companies leverage Rails to build successful businesses. But we also made a few structural and navigational changes to the website that you may not have noticed (yet).</p>
+
+<p><strong>The challenge: lots of resources, little space</strong></p>
+
+<p>Earlier this year, we had big plans:</p>
+<ul>
+  <li>Create a new flagship tutorial (with more planned soon).</li>
+  <li>Extract the Rails installation instructions from the tutorial into a standalone Installation Guide (because you shouldn’t have to find this information buried in chapter 3 of a tutorial).</li>
+  <li>Publish the first case study (with more planned soon).</li>
+  <li>On top of all that, launch a merch store.</li>
+</ul>
+
+<p>We were excited that all this was coming, but the navbar was already quite crowded…<em>where were all these new resources going to live?</em></p>
+
+<p><strong>The solution: a unified Docs landing page</strong></p>
+
+<p>Introducing <strong><a href="/docs">Docs</a></strong>, the friendly new starting point for everything you need to install Rails, learn it, get better at it, and get involved.</p>
+
+<p>From one convenient page, you can now access the following: Installation Guide, Tutorials, Guides, API Docs, Case Studies, the Forum, and the Contributing Guide.</p>
+
+<p><img src="/assets/images/docs-landing-page.png" /></p>
+
+<p>Other changes you might notice in the navbar:</p>
+<ul>
+  <li>We’ve renamed ‘Contribute’ to <strong>Source</strong> to clarify the difference between the GitHub repository and the Contributing Guide. (We also made the <strong>Contributing Guide</strong> easier to find. Rails is an open-source project, but this important info was buried 85% down the Guides index page. It’s now featured more prominently on the Docs landing page.)</li>
+  <li>‘Team’ is now called <strong>Community</strong>, where you can find all of the Rails teams and the Contributors site. This renaming also balances out the navbar.</li>
+  <li>The ‘Blog’ is now called <strong>News</strong> since it also contains Rails Foundation news alongside Rails updates and This Week in Rails newsletters.</li>
+  <li>With <strong>Guides</strong>, <strong>API docs</strong>, and the <strong>Forum</strong> now nested under <strong>Docs</strong>, this gave us room in the navbar to add 
+<strong>Merch</strong> and <strong>Events</strong>.</li>
+</ul>
+
+<p>These changes aim to make the Rails website more welcoming and friendly-to-navigate for beginners, while helping you, as a more experienced Rails dev, find what you need quickly. This (re)structure also gives the Rails Foundation a clear home for future tutorials and case studies, so expect more of those released next year.</p>
+
+<p><a href="/docs">Take a look at the new Docs page</a> and let us know what you think!</p>
+
+<p>The Docs landing page was designed and shipped by <a href="https://www.meticulous.com/">John Athayde</a> with feedback and direction from the <strong>Rails Core</strong>, <strong>Issues</strong>, and <strong>Committers</strong> teams, and made possible by the support of the <strong>members of the Rails Foundation</strong>. Thank you to everyone involved for your input!</p>]]></content><author><name>Amanda Perino</name></author><category term="news," /><category term="foundation" /><summary type="html"><![CDATA[Last week, we published a bunch of new and updated resources to help you learn Rails and learn how companies leverage Rails to build successful businesses. But we also made a few structural and navigational changes to the website that you may not have noticed (yet).]]></summary></entry></feed>

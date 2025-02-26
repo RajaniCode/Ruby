@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; New Rails maintenance policy and end of maintenance announcements</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We’re excited to announce updates to our maintenance policy for Ruby on Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="New Rails maintenance policy and end of maintenance announcements" />
+  <meta property="og:description" content="We’re excited to announce updates to our maintenance policy for Ruby on Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/10/16/new-maintenance-policy-and-eol-annouments" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="New Rails maintenance policy and end of maintenance announcements" />
+  <meta name="twitter:description" content="We’re excited to announce updates to our maintenance policy for Ruby on Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/10/16/new-maintenance-policy-and-eol-annouments"
+      },
+      "name": "Ruby on Rails",
+      "headline": "New Rails maintenance policy and end of maintenance announcements",
+      "description": "We’re excited to announce updates to our maintenance policy for Ruby on Rails.",
+      "url": "http://localhost:4000/2024/10/16/new-maintenance-policy-and-eol-annouments",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rafaelfranca"
+      },
+      "datePublished": "2024-10-16T01:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, October 16, 2024</h5>
+        <h2>New Rails maintenance policy and end of maintenance announcements</h2>
+
+        <h6>Posted by rafaelfranca</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We’re excited to announce updates to our maintenance policy for Ruby on Rails.</p>
+
+<p>These changes are designed to provide clarity on our support timelines and help you plan your Rails upgrades effectively. You can find the full details of our new policy in <a href="https://rubyonrails.org/maintenance">our site</a>.</p>
+
+<h2 id="new-maintenance-policy-overview">New Maintenance Policy Overview</h2>
+
+<p>Our support is now divided into three categories:</p>
+
+<ol>
+  <li><strong>New Features</strong>
+    <ul>
+      <li>We aim to release a version containing new features every six months.</li>
+    </ul>
+  </li>
+  <li><strong>Bug Fixes</strong>
+    <ul>
+      <li>Minor releases will receive bug fixes for one year after the first release in their series.</li>
+      <li>For example, if version 1.1.0 is released on January 1, 2023, it will receive bug fixes until January 1, 2024.</li>
+    </ul>
+  </li>
+  <li><strong>Security Issues</strong>
+    <ul>
+      <li>Minor releases will receive security fixes for two years after the first release in their series.</li>
+      <li>For example, if version 1.1.0 is released on January 1, 2023, it will receive security fixes until January 1, 2025.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="currently-supported-releases">Currently Supported Releases</h2>
+
+<p>As of now, the following releases are supported:</p>
+
+<ul>
+  <li>7.2.x - Bug fixes until August 9, 2025; Security fixes until August 9, 2026</li>
+  <li>7.1.x - Bug fixes until October 1, 2024; Security fixes until October 1, 2025</li>
+  <li>7.0.x - Security fixes until April 1, 2025</li>
+  <li>6.1.x - Reached end of maintenance (see Important Updates)</li>
+</ul>
+
+<h2 id="important-updates">Important Updates</h2>
+
+<ol>
+  <li><strong>Rails 6.1.x End of Maintenance</strong>
+    <ul>
+      <li>Rails 6.1.x reached its end of maintenance on October 1, 2024.</li>
+      <li>While regular maintenance has concluded, we will provide one extra security release for Rails 6.1.x.</li>
+      <li>After this additional security release, no further updates will be provided for this version.</li>
+      <li>We strongly urge users of Rails 6.1.x to plan their upgrade to a supported version as soon as possible.</li>
+    </ul>
+  </li>
+  <li><strong>Rails 7.0.x Bug Fix Release</strong>
+    <ul>
+      <li>We will be releasing one final bug fix update for Rails 7.0.x later this month.</li>
+      <li>After this release, Rails 7.0.x will no longer receive bug fix updates.</li>
+      <li>Security updates for Rails 7.0.x will continue until April 1, 2025, as previously scheduled.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="what-this-means-for-you">What This Means for You</h2>
+
+<p>As we move forward with these changes, it’s important to understand how they affect your Rails applications.</p>
+
+<p>If you’re running Rails 6.1.x, while we’re providing one last security release, it’s crucial to upgrade to a supported version as soon as possible.
+This extra release provides a brief window to plan and execute your upgrade, but remember that after this, no further updates will be available, potentially leaving your application vulnerable.</p>
+
+<p>For those using Rails 7.0.x, you’ll benefit from one last bug fix release this month, but it’s advisable to start planning your upgrade to ensure continued support.</p>
+
+<p>Users of Rails 7.1.x and 7.2.x can rest assured knowing they’ll continue to receive both bug fixes and security updates as outlined in our new policy.</p>
+
+<p>We encourage all users to stay on supported versions to ensure the security and stability of their applications.</p>
+
+<h2 id="our-commitment-to-you">Our Commitment to You</h2>
+
+<p>We remain committed to providing a stable and secure framework for all our users. These policy updates allow us to focus our resources on improving the latest versions of Rails and developing new features that benefit the entire community.</p>
+
+<p>For unsupported release series, it becomes the responsibility of the user to deal with bugs and security issues. While we may provide backports of fixes and publish them to git, no new versions will be released for unsupported series.</p>
+
+<p>We appreciate your continued support and understanding as we work to keep Ruby on Rails at the forefront of web development frameworks.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

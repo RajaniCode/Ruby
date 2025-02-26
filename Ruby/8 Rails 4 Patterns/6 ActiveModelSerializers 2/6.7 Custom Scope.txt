@@ -1,0 +1,29 @@
+6.7 Custom Scope
+
+In our Rails application, we are now using current_session instead of current_user and it broke our code. Using the serialization_scope method, set the authorization scope to use current_session
+
+
+item_serializer.rb
+class ItemSerializer < ActiveModel::Serializer
+  attributes :id, :name
+
+  def attributes
+    data = super
+    if current_session
+      data[:price] = object.price
+    end
+    data
+  end
+end
+
+
+application_controller.rb
+class ApplicationController < ActionController::Base
+end
+
+
+Answer:
+application_controller.rb
+class ApplicationController < ActionController::Base
+  serialization_scope :current_session
+end

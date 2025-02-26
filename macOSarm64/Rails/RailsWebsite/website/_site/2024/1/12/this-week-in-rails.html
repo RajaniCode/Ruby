@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Updated Puma configuration, Object#with block support, and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi! Vipul here with the second edition of This Week in Rails for 2024!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Updated Puma configuration, Object#with block support, and more!" />
+  <meta property="og:description" content="Hi! Vipul here with the second edition of This Week in Rails for 2024!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/1/12/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Updated Puma configuration, Object#with block support, and more!" />
+  <meta name="twitter:description" content="Hi! Vipul here with the second edition of This Week in Rails for 2024!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/1/12/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Updated Puma configuration, Object#with block support, and more!",
+      "description": "Hi! Vipul here with the second edition of This Week in Rails for 2024!",
+      "url": "http://localhost:4000/2024/1/12/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "vipulnsward"
+      },
+      "datePublished": "2024-01-12T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, January 12, 2024</h5>
+        <h2>Updated Puma configuration, Object#with block support, and more!</h2>
+
+        <h6>Posted by vipulnsward</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi! <a href="https://www.saeloun.com/team/vipul">Vipul</a> here with the second edition of This Week in Rails for 2024!</p>
+
+<p>This second week continues with a flurry of activity with more than <a href="https://github.com/rails/rails/compare/@%7B2024-01-06%7D...main@%7B2024-01-12%7D">140+</a> changes making in.</p>
+
+<p>Lets dive into some of these changes!</p>
+
+<p><a href="https://github.com/rails/rails/pull/50669">Update the default Puma configuration</a><br />
+There was an extensive discussion in this issue about - <a href="https://github.com/rails/rails/issues/50450">setting a new default for the Puma thread count</a>, over the last few days. 
+Give it a read to get some insights from different members in community sharing details about latency vs throughput tradeoffs wrt to the number of threads in Puma config.
+Based on this discussion, the default number of threads in Puma config has now been updated from 5 to 3.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50470">Yield instance to Object#with block</a><br />
+The introduction of the block argument means that <code class="language-plaintext highlighter-rouge">Object#with</code> can now achieve something like below:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">client</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="ss">timeout: </span><span class="mi">5_000</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+  <span class="n">c</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="s2">"/commits"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/50482">Add explain support for methods like last, pluck and count</a><br />
+The object returned by <code class="language-plaintext highlighter-rouge">explain</code> now responds to <code class="language-plaintext highlighter-rouge">pluck</code>, <code class="language-plaintext highlighter-rouge">first</code>, <code class="language-plaintext highlighter-rouge">last</code>, <code class="language-plaintext highlighter-rouge">average</code>, <code class="language-plaintext highlighter-rouge">count</code>, <code class="language-plaintext highlighter-rouge">maximum</code>, <code class="language-plaintext highlighter-rouge">minimum</code>, and <code class="language-plaintext highlighter-rouge">sum</code>. Those new methods run <code class="language-plaintext highlighter-rouge">EXPLAIN</code> on the corresponding queries, ex:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">User</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">explain</span><span class="p">.</span><span class="nf">count</span>
+<span class="c1"># EXPLAIN SELECT COUNT(*) FROM `users`</span>
+
+<span class="no">User</span><span class="p">.</span><span class="nf">all</span><span class="p">.</span><span class="nf">explain</span><span class="p">.</span><span class="nf">maximum</span><span class="p">(</span><span class="ss">:id</span><span class="p">)</span>
+<span class="c1"># EXPLAIN SELECT MAX(`users`.`id`) FROM `users`</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/50644">Do not generate server pidfile in production environments</a><br />
+When running Rails applications with Docker containers may fail to restart if they crashed (e.g. because of OOM) because the <code class="language-plaintext highlighter-rouge">/rails/tmp/pids/server.pid</code> file is already present. To avoid this, new Apps now avoid generating this pid file.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50261">Support :on option in #set_callback </a><br />
+Introduces <code class="language-plaintext highlighter-rouge">ActiveRecord::Transactions::ClassMethods#set_callback</code> which behaves like <code class="language-plaintext highlighter-rouge">ActiveSupport::Callbacks::ClassMethods#set_callback</code> with support for the <code class="language-plaintext highlighter-rouge">:on</code> option available on <code class="language-plaintext highlighter-rouge">#after_commit</code> and <code class="language-plaintext highlighter-rouge">#after_rollback</code> callbacks. Ex:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">User</span>
+  <span class="n">set_callback</span> <span class="ss">:commit</span><span class="p">,</span> <span class="ss">:after</span><span class="p">,</span> <span class="ss">:do_some_work</span><span class="p">,</span> <span class="ss">on: :update</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/50677">Add default: support for ActiveSupport::CurrentAttributes.attribute</a><br />
+This change extends the <code class="language-plaintext highlighter-rouge">.attribute</code> class method to accept a <code class="language-plaintext highlighter-rouge">:default</code> option for its list of attributes:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Current</span> <span class="o">&lt;</span> <span class="no">ActiveSupport</span><span class="o">::</span><span class="no">CurrentAttributes</span>
+  <span class="n">attribute</span> <span class="ss">:counter</span><span class="p">,</span> <span class="ss">default: </span><span class="mi">0</span>
+<span class="k">end</span> 
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/50636">Add oven-sh/setup-bun to GitHub CI when generating an app with bun</a><br />
+This is a follow-up change for <a href="https://github.com/rails/rails/issues/50502">adding GitHub CI workflow by default to new applications</a>.
+It adds <code class="language-plaintext highlighter-rouge">oven-sh/setup-bun</code> to GitHub CI when generating an app with bun, for proper CI env setup.</p>
+
+<p><a href="https://github.com/rails/rails/pull/50708">Prevent unnecessary application reloads in development</a><br />
+This PR fixes this issue by ensuring the application reloads correctly according to <code class="language-plaintext highlighter-rouge">Rails.autoloaders.main.dirs</code>, thereby preventing unnecessary reloads, ex: when editing <code class="language-plaintext highlighter-rouge">app/README.md</code> would trigger a reload.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-01-06%7D...main@%7B2024-01-12%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240106-20240112">28 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

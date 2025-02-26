@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; RailsConf 2018 Edition</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello 🌨 from Pittsburgh! RailsConf was amazing: more than a thousand attendees showing that Rails is more alive and welcoming than ever." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="RailsConf 2018 Edition" />
+  <meta property="og:description" content="Hello 🌨 from Pittsburgh! RailsConf was amazing: more than a thousand attendees showing that Rails is more alive and welcoming than ever." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2018/4/22/this-week-in-rails-railsconf-2018-edition" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="RailsConf 2018 Edition" />
+  <meta name="twitter:description" content="Hello 🌨 from Pittsburgh! RailsConf was amazing: more than a thousand attendees showing that Rails is more alive and welcoming than ever." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2018/4/22/this-week-in-rails-railsconf-2018-edition"
+      },
+      "name": "Ruby on Rails",
+      "headline": "RailsConf 2018 Edition",
+      "description": "Hello 🌨 from Pittsburgh! RailsConf was amazing: more than a thousand attendees showing that Rails is more alive and welcoming than ever.",
+      "url": "http://localhost:4000/2018/4/22/this-week-in-rails-railsconf-2018-edition",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "claudiob"
+      },
+      "datePublished": "2018-04-22T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, April 22, 2018</h5>
+        <h2>RailsConf 2018 Edition</h2>
+
+        <h6>Posted by claudiob</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello 🌨 from Pittsburgh! RailsConf was amazing: more than a thousand attendees showing that Rails is more alive and welcoming than ever.</p>
+
+<p>All the presentations will be available on YouTube in about a month. For now, you can take a sneak peek by browsing the slide decks: from <a href="https://speakerdeck.com/eileencodes/railsconf-2018-the-future-of-rails-6-scalable-by-default">Rails 6</a> to <a href="https://speakerdeck.com/claudiob/active-storage">Active Storage</a>, from <a href="https://speakerdeck.com/derekprior/up-and-down-again-a-migrations-tale">Migrations</a> to <a href="https://speakerdeck.com/tmikeschu/stop-testing-start-storytelling-railsconf-2018">Testing</a>, from <a href="https://speakerdeck.com/jnraine/ten-years-of-rails-upgrades">Upgrades</a> to <a href="https://speakerdeck.com/saarons/api-how-lendinghome-approaches-legacy-technologies">API</a>, from <a href="https://speakerdeck.com/vaidehijoshi/re-graphing-the-mental-model-of-the-rails-router-1">Router</a> to <a href="https://speakerdeck.com/dinahshi/your-first-contribution-and-beyond">Contributing</a>, from <a href="https://speakerdeck.com/qrush/the-graphql-way-a-new-path-for-json-apis">GraphQL</a> to <a href="https://speakerdeck.com/a_matsuda/turbo-boosting-real-world-applications">Performance</a>, from <a href="https://speakerdeck.com/justinweiss/building-a-collaborative-text-editor">Collaboration</a> to <a href="https://speakerdeck.com/lauramosher/harry-the-hedgehog-learns-you-a-communication">Communication</a>, from <a href="https://speakerdeck.com/stellacotton/so-youve-got-yourself-a-kafka-event-powered-rails-services">Kafka</a> to <a href="https://speakerdeck.com/genslein/postgres-10-performance-and-you">PostgreSQL</a>, from <a href="https://speakerdeck.com/tegon/warden-the-building-block-behind-devise">Warden</a> to <a href="https://speakerdeck.com/palkan/railsconf-2018-access-denied-the-missing-guide-to-authorization-in-rails">Authorization</a>, from <a href="https://speakerdeck.com/michaelherold/whats-in-a-price-how-to-price-your-products-and-services">Economy</a> to <a href="https://speakerdeck.com/wonderwoman13/draw-a-crowd-the-contextual-camouflage-story">Art</a>, from <a href="https://speakerdeck.com/rofreg/the-doctor-is-in-using-checkups-to-find-bugs-in-production">Bugs</a> to <a href="https://speakerdeck.com/presidentbeef/the-evolution-of-rails-security">Security</a>, from <a href="https://speakerdeck.com/dazuma/containerizing-rails-techniques-pitfalls-and-best-practices">Containers</a> to <a href="https://speakerdeck.com/xdite/blitzbuilding-product-with-rails">Crypto</a>, from <a href="https://speakerdeck.com/toomuchpete/the-code-free-developer-interview">Interviews</a> to <a href="https://speakerdeck.com/geoffreylitt/ruby-a-family-history-railsconf-2018">History</a>, from <a href="https://speakerdeck.com/sinthetix/leveling-up-a-heroic-team">Teams</a> to <a href="https://speakerdeck.com/awood45/broken-apis-break-trust-tips-for-creating-and-updating-apis">Trust</a>, from <a href="https://speakerdeck.com/edouardchin/upgrading-rails-at-scale-railsconf-2018">Shopify</a> to <a href="https://speakerdeck.com/talsafran/github-and-rails-10-years-together">GitHub</a>, from <a href="https://speakerdeck.com/lazyatom/heres-to-the-crazy-ones">Engines</a> to <a href="https://speakerdeck.com/andrewglass1/human-powered-rails-automated-crowdsourcing-in-your-rails-app">Crowdsourcing</a>, from <a href="https://speakerdeck.com/olivierlacan/the-life-and-death-of-a-rails-app">Mortality</a> to <a href="https://speakerdeck.com/erniemiller/stating-the-obvious">Life</a>, there was really something for everyone!</p>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20180414-20180420">This Week’s Contributors</a></h3>
+
+<p>37 people contributed to Rails in the last week, including 9 for the first time! A big thank you to all of you!</p>
+
+<p>If you’d like to see yourself on that board, why not check out the list of <a href="https://github.com/rails/rails/issues">open issues</a>, or get involved in the <a href="https://groups.google.com/d/forum/rubyonrails-core">core discussion list</a>.</p>
+
+<h3 id="inclusive-language-in-documentation-examples"><a href="https://github.com/rails/rails/pull/32582">Inclusive Language in Documentation Examples</a></h3>
+
+<p>A couple of changes to make the docs more inclusive of trans and non-binary individuals. Hurray! 💗🌈🏳️‍🌈</p>
+
+<h3 id="add-the-nonce-true-option-for-javascript_include_tag-helper"><a href="https://github.com/rails/rails/pull/32607">Add the <code class="language-plaintext highlighter-rouge">nonce: true</code> option for <code class="language-plaintext highlighter-rouge">javascript_include_tag</code> helper</a></h3>
+
+<p>Works the same way as <em>javascript_tag nonce: true</em> to support automatic nonce generation for Content Security Policy.</p>
+
+<h3 id="improve-performance-of-translation-helper"><a href="https://github.com/rails/rails/pull/32326">Improve performance of translation helper</a></h3>
+
+<p>A PR that is worth reading to learn how to benchmark a possible performance improvement using the right tools.</p>
+
+<h3 id="dont-pass-splat-keyword-arguments-as-a-single-hash"><a href="https://github.com/rails/rails/pull/32612">Don’t pass splat keyword arguments as a single Hash</a></h3>
+
+<p>Looking ahead at Ruby 2.6, which will raise a warning when a method is called with <em>(*args)</em>. Declaring the arguments makes for more readable code.</p>
+
+<h3 id="fix-exception-in-astimezoneall-when-any-tzinfo-data-is-missing"><a href="https://github.com/rails/rails/pull/32613">Fix exception in AS::Timezone.all when any tzinfo data is missing</a></h3>
+
+<p>Time zones change every year, even <a href="https://www.iana.org/time-zones">multiple times a year</a>. <em>ActiveSupport::Timezone.all</em> won’t raise an error even when a time zone is missing from TZInfo.</p>
+
+<h3 id="output-only-one-nonce-in-csp-header-per-request"><a href="https://github.com/rails/rails/pull/32602">Output only one nonce in CSP header per request</a></h3>
+
+<p>Nonces from old requests were saved, causing the header to grow infinitely after every request.</p>
+
+<h3 id="avoid-blocking-the-server-in-delete_matched"><a href="https://github.com/rails/rails/commit/ef2af628a9ec1cc4e7b6997a021dd3f85cfe4665">Avoid blocking the server in <code class="language-plaintext highlighter-rouge">#delete_matched</code></a></h3>
+
+<p>A fix to the newly added redis-cache-store feature of Rails 5.2. Calling <em>delete_matched</em> will no longer block the Redis server.</p>
+
+<p>Coming back home after an amazing event like RailsConf is always tough. Can’t wait to see you all next year at RailsConf 2019 in Minneapolis from April 30th to May 2nd. Hopefully it won’t snow! 🤞– <a href="http://claudiob.github.io">Claudio</a></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

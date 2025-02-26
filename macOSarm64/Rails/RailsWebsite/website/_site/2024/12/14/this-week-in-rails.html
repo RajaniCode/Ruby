@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; New Rails Tutorial and Unpacked Videos, Releases, ActiveModel::Attributes::Normalization and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey everyone, Happy Saturday!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="New Rails Tutorial and Unpacked Videos, Releases, ActiveModel::Attributes::Normalization and more!" />
+  <meta property="og:description" content="Hey everyone, Happy Saturday!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/12/14/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="New Rails Tutorial and Unpacked Videos, Releases, ActiveModel::Attributes::Normalization and more!" />
+  <meta name="twitter:description" content="Hey everyone, Happy Saturday!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/12/14/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "New Rails Tutorial and Unpacked Videos, Releases, ActiveModel::Attributes::Normalization and more!",
+      "description": "Hey everyone, Happy Saturday!",
+      "url": "http://localhost:4000/2024/12/14/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "vipulnsward"
+      },
+      "datePublished": "2024-12-14T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, December 14, 2024</h5>
+        <h2>New Rails Tutorial and Unpacked Videos, Releases, ActiveModel::Attributes::Normalization and more!</h2>
+
+        <h6>Posted by vipulnsward</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey everyone, Happy Saturday!</p>
+
+<p><a href="https://www.saeloun.com/team/vipul">Vipul</a> here with the latest updates for This Week in Rails. Let’s dive in!</p>
+
+<p>This week, the Rails Foundation released a series of updated resources to help you learn the new Rails 8 defaults, 
+including a brand new <a href="https://guides.rubyonrails.org/getting_started.html">Getting Started Tutorial</a>, 
+a <a href="https://www.youtube.com/watch?v=Qw_Um-tMiYI&amp;list=PLHFP2OPUpCebdA4-xR07SPpoBWVERkHR6">9-part video series on YouTube</a>, 
+and updated Rails Guides.</p>
+
+<p><a href="https://rubyonrails.org/2024/12/13/learn-Rails-8-tutorial-and-unpacked-videos">Read the announcement here</a>.
+The <a href="https://edgeguides.rubyonrails.org/install_ruby_on_rails.html">Installation Guide</a> has also been decoupled so it is easier to find, 
+and includes the basics of installing Ruby with a version manager - arguably one of the biggest barriers to newcomers.</p>
+
+<p><a href="https://rubyonrails.org/2024/12/10/Rails-Versions-8-0-0-1-7-2-2-1-7-1-5-1-7-0-8-7-have-been-released">Rails Versions 7.0.8.7, 7.1.5.1, 7.2.2.1, and 8.0.0.1 have been released!</a> <br />
+These are security patches addressing one new issue where using the <code class="language-plaintext highlighter-rouge">content_security_policy</code> helper with untrusted user input could lead to a bypass of the browser Content Security Policy.</p>
+
+<p><a href="https://rubyonrails.org/2024/12/13/Rails-Version-8-0-1-has-been-released">Rails Version 8.0.1 has been released!</a><br />
+A new minor release - 8.0.1, is also out! Head over the <a href="https://github.com/rails/rails/releases/tag/v8.0.1">CHANGELOG</a>, to check the full set of changes in this release.</p>
+
+<p><a href="https://rubyonrails.org/docs/case-studies/doximity">Doximity Case Study - Fast, Flexible, and Scalable</a><br />
+We also have a new official case study in! Check out how Rails powers Doximity’s Healthcare Platform.
+Here are some Highlights from the study:</p>
+
+<ul>
+  <li>Rails accelerates development: Doximity’s team rapidly iterates on new products and features, helping doctors save time and focus on patient care.</li>
+  <li>Rails ensures long-term stability: By maintaining and evolving their 15-year-old monolith, Doximity avoids rewrites.</li>
+  <li>Rails scales with success: As Doximity grows, Rails helps optimize the performance of 45+ applications and handle increasing traffic with ease.</li>
+</ul>
+
+<p><a href="https://github.com/rails/rails/pull/53859">Accept a block for <code class="language-plaintext highlighter-rouge">ActiveJob::ConfiguredJob#perform_later</code></a><br />
+This pull request adds support for accepting a block for <code class="language-plaintext highlighter-rouge">ActiveJob::ConfiguredJob#perform_later</code>. 
+This was previously inconsistent with a regular <code class="language-plaintext highlighter-rouge">ActiveJob::Base#perform_later</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53863">Fix <code class="language-plaintext highlighter-rouge">if_exists</code>/<code class="language-plaintext highlighter-rouge">if_not_exists</code> for foreign keys addition and removal</a><br />
+This PR addresses a few improvements with foreign keys additions/removals and <code class="language-plaintext highlighter-rouge">if_exists/if_not_exists</code>:</p>
+<ul>
+  <li>If there is a foreign key on a custom column and <code class="language-plaintext highlighter-rouge">add_foreign_key</code> on a default column with <code class="language-plaintext highlighter-rouge">if_not_exists</code> is used, an error was raised.</li>
+  <li>When adding a foreign key with <code class="language-plaintext highlighter-rouge">if_not_exists</code>, <code class="language-plaintext highlighter-rouge">:primary_key</code> was not considered.</li>
+  <li>When removing a foreign key with <code class="language-plaintext highlighter-rouge">if_exists</code>, custom column was not being considered.</li>
+</ul>
+
+<p><a href="https://github.com/rails/rails/pull/53838">Changing column nullability does not change default function</a><br />
+This Pull Requests fixes <code class="language-plaintext highlighter-rouge">MySQL</code> default functions getting dropped when changing a column’s nullability.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53887">Migrate <code class="language-plaintext highlighter-rouge">ActiveRecord::Normalization</code> to Active Model</a><br />
+<code class="language-plaintext highlighter-rouge">ActiveRecord::Normalization</code> has now been moved to Active Model.
+This change backports <code class="language-plaintext highlighter-rouge">ActiveRecord::Normalization</code> to <code class="language-plaintext highlighter-rouge">ActiveModel::Attributes::Normalization</code>. 
+With this change we can now use this feature in PORO with <code class="language-plaintext highlighter-rouge">ActiveModel::Attributes::Normalization</code> -</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">User</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Attributes</span>
+  <span class="kp">include</span> <span class="no">ActiveModel</span><span class="o">::</span><span class="no">Attributes</span><span class="o">::</span><span class="no">Normalization</span>
+
+  <span class="n">attribute</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">:string</span>
+
+  <span class="n">normalizes</span> <span class="ss">:email</span><span class="p">,</span> <span class="ss">with: </span><span class="o">-&gt;</span> <span class="n">email</span> <span class="p">{</span> <span class="n">email</span><span class="p">.</span><span class="nf">strip</span><span class="p">.</span><span class="nf">downcase</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="p">.</span><span class="nf">new</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">email</span> <span class="o">=</span> <span class="s2">" CRUISE-CONTROL@EXAMPLE.COM</span><span class="se">\n</span><span class="s2">"</span>
+<span class="n">user</span><span class="p">.</span><span class="nf">email</span> <span class="c1"># =&gt; "cruise-control@example.com"</span>
+</code></pre></div></div>
+
+<p><a href="https://github.com/rails/rails/pull/53847">Change <code class="language-plaintext highlighter-rouge">ActionText::RichText#embeds</code> assignment to <code class="language-plaintext highlighter-rouge">before_validation</code></a><br />
+Prior to this change, assignment to the <code class="language-plaintext highlighter-rouge">embeds</code> association happened <strong>after</strong> validation callbacks, so it wasn’t possible to incorporate Rich Text-related file validation.</p>
+
+<p><a href="https://github.com/rails/rails/pull/53882">SQLite3: Use default function as default insert value</a><br />
+Previously, if a column defined a function as its default value, the function would never be called during fixture insertion. It now works as expected with this addition.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-12-07%7D...main@%7B2024-12-13%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20241207-20241213">41 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

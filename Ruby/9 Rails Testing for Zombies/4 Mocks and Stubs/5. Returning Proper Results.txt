@@ -1,0 +1,58 @@
+5. Returning Proper Results
+
+
+Notice that the status_image method on Tweet now returns an HTML image tag with an alt attribute set to the image name, and the ZwitPic.get_status_image method is now returning a hash. Write a test which stubs, instead of mocks, get_status_image and tests that @tweet.status_image returns the proper result (which should also be an image tag).
+
+
+models/tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+
+  validates :status, presence: true, length: {within: 3..140, allow_blank: true}
+  validates :zombie, presence: true
+  
+  def brains?
+    status =~ /(brains|breins)/i
+  end
+
+  def show_author_summary
+    self.status = self.zombie.zombie_summary
+  end
+
+  def status_image
+    status_image = ZwitPic.get_status_image(self.id)
+    "<img src='#{status_image[:url]}' alt='#{status_image[:name]}' />".html_safe
+  end
+end
+
+
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+  test "status_image returns a properly formated HTML image element with alt and src" do
+    
+  end
+end
+
+
+Answer:
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+
+  test "status_image returns a properly formated HTML image element with alt and src" do
+    ZwitPic.stubs(:get_status_image).with(@tweet.id)
+    .returns({ url: 'url.com', name: 'pic.png' })
+    assert_equal "<img src='url.com' alt='pic.png' />".html_safe, @tweet.status_image
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.010369s, 96.4410 tests/s, 385.7640 assertions/s.

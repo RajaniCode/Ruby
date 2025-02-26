@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: Rails API, fun with minitest and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="####" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: Rails API, fun with minitest and more!" />
+  <meta property="og:description" content="####" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/6/13/this-week-in-rails-rails-api-fun-with-minitest-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: Rails API, fun with minitest and more!" />
+  <meta name="twitter:description" content="####" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/6/13/this-week-in-rails-rails-api-fun-with-minitest-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: Rails API, fun with minitest and more!",
+      "description": "####",
+      "url": "http://localhost:4000/2015/6/13/this-week-in-rails-rails-api-fun-with-minitest-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "toddbealmear"
+      },
+      "datePublished": "2015-06-13T02:21:37+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, June 13, 2015</h5>
+        <h2>This week in Rails: Rails API, fun with minitest and more!</h2>
+
+        <h6>Posted by toddbealmear</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>####</p>
+
+<p>Howdy folks!</p>
+
+<p>My name is <a href="https://twitter.com/toddbealmear">Todd</a> and I’ll be your guide through the land of <a href="https://github.com/rails/rails">Rails</a> this week. Straight from the comfort of my couch with awful lumbar support, I proudly present bad posture and the highlights from <a href="https://rails-weekly.ongoodbits.com">This Week in Rails</a>.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20150606-201506122000">This week’s Rails Contributors</a></h3>
+
+<p>42 people made Rails even more awesome this week.</p>
+
+<h3 id="rails-api-has-landed-on-master"><a href="https://github.com/rails/rails/pull/19832#event-328922869">Rails API has landed on master!</a></h3>
+
+<p>After 52 days, lots of great comments, and a ton of incredible work by <a href="https://github.com/spastorino">Santiago</a> and <a href="https://github.com/jmbejar">Jorge</a>, Rails API has been merged into master and will be released as part of Rails 5!</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="optional-scaffoldcss"><a href="https://github.com/rails/rails/pull/20479">Optional scaffold.css</a></h3>
+
+<p>If you’ve ever wanted the ability to avoid generating <code class="language-plaintext highlighter-rouge">scaffold.css</code> when performing a scaffold, you’re in luck. Simply use the <code class="language-plaintext highlighter-rouge">--no-scaffold-stylesheet</code> switch and you’re good to go!</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="better-minitest-integration-for-rails-test-runner"><a href="https://github.com/rails/rails/pull/19571">Better minitest integration for Rails’ test runner</a></h3>
+
+<p>The new Rails test runner has been modified to take better advantage of <a href="https://github.com/seattlerb/minitest">minitest</a>’s extension system.</p>
+
+<h3 id="added-a-point-object-for-postgres-point-types"><a href="https://github.com/rails/rails/pull/20448">Added a Point object for Postgres point types</a></h3>
+
+<p>Rails 5 will deprecate the current behavior for Postgres point types. Moving forward, the Postgres adapter will return a <code class="language-plaintext highlighter-rouge">Point</code> object instead of an <code class="language-plaintext highlighter-rouge">Array</code>.</p>
+
+<h3 id="reversible-remove_foreign_key"><a href="https://github.com/rails/rails/pull/20226">Reversible <code class="language-plaintext highlighter-rouge">remove_foreign_key</code></a></h3>
+
+<p>Migrations using <code class="language-plaintext highlighter-rouge">remove_foreign_key</code> can now be automatically reverted with <code class="language-plaintext highlighter-rouge">rake db:rollback</code> without manually defining the <code class="language-plaintext highlighter-rouge">down</code> operations.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="prefix-and-suffix-options-for-enums"><a href="https://github.com/rails/rails/pull/19813">Prefix and suffix options for enums</a></h3>
+
+<p>This allows you to add a prefix or suffix to enum’s auto-generated methods. Useful if you have multiple enums with the same values.</p>
+
+<h3 id="fixed-ignore_blank-for-required-select-fields"><a href="https://github.com/rails/rails/pull/20124">Fixed ignore_blank for required select fields</a></h3>
+
+<p>This change will now cause an <code class="language-plaintext highlighter-rouge">ArgumentError</code> to be raised in the event <code class="language-plaintext highlighter-rouge">ignore_blank</code> is set to <code class="language-plaintext highlighter-rouge">false</code> on a required select field.</p>
+
+<h3 id="fixed-abstract-class-fixtures-with-belongs_to"><a href="https://github.com/rails/rails/pull/20437">Fixed abstract class fixtures with belongs_to</a></h3>
+
+<p>Fixes an issue where using <code class="language-plaintext highlighter-rouge">belongs_to</code> in abstract classes would result in a crash when loading test fixtures.</p>
+
+<h2 id="thats-a-wrap">That’s a wrap</h2>
+
+<p>That’s all for This week in Rails. As always, there are many more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2015-06-06%7D...@%7B2015-06-12%7D">check them out yourself</a>!</p>
+
+<p>Have you been thinking about writing for us, but you’re scared of putting yourself out there? Don’t worry, you can help our editors improve their writing with thoughtful critique and general grammar policing.</p>
+
+<p>You up for that? Tell <a href="mailto:godfrey@brewhouse.io">Godfrey</a> today.</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+3. Using Scopes
+
+
+Objective
+
+In this controller action create an instance variable called @graveyard_tweets which uses both of the two scopes recent and graveyard together.
+
+
+tweet.rb
+class TweetsController < ApplicationController
+  def index
+    @tweets = Tweet.all
+  end
+end
+	
+
+app/controllers/tweets_controller.rb
+class Tweet < ActiveRecord::Base
+  scope :recent, order('created_at desc').limit(4)
+  scope :graveyard, where(show_location: true, location: "graveyard")
+end
+
+
+Answer:
+app/controllers/tweets_controller.rb
+class TweetsController < ApplicationController
+  def index
+    @tweets = Tweet.all
+    @graveyard_tweets = Tweet.recent && Tweet.graveyard
+  end
+end

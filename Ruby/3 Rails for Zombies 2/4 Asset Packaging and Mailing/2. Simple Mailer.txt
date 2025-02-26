@@ -1,0 +1,23 @@
+2. Simple Mailer
+
+
+Objective
+
+Code up the low_ammo mailer with the subject of "#{weapon.name} has low ammo", the email should be sent to the zombie.email. Lastly, set the default from address for all emails in WeaponMailer to admin@rfz.com
+
+
+app/mailers/weapon_mailer.rb
+class WeaponMailer < ActionMailer::Base
+  def low_ammo(weapon, zombie) 
+  end
+end
+
+
+Answer:
+app/mailers/weapon_mailer.rb
+class WeaponMailer < ActionMailer::Base
+  default from: "admin@rfz.com"
+  def low_ammo(weapon, zombie)
+    mail to: zombie.email, subject: "#{weapon.name} has low ammo"
+  end
+end

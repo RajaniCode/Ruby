@@ -1,0 +1,25 @@
+7.3 Sensitive Parameters
+
+For security purposes, our application asks a security question during sign up. Just like passwords, we can't let those answers be written to the log. Make sure we are filtering the value for security_answer.
+
+
+config/application.rb
+class Rails4Patterns::Application
+  # hiding other config for brevity...
+  config.filter_parameters += [:password]
+end
+
+
+Answer:
+config/application.rb
+class Rails4Patterns::Application
+  # hiding other config for brevity...
+  config.filter_parameters += [:password, :security_answer]
+end
+
+
+#Note:
+class Rails4Patterns::Application
+  # hiding other config for brevity...
+  config.filter_parameters += [:password] + [:security_answer]
+end

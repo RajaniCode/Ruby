@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; A week dedicated to composite primary keys 😎</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Saluton! That’s Esperanto for “Hello!” 😜… Emmanuel Hayford here, let’s see what’s new in Rails as we gear up for Composite Primary Keys (CPKs) support." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="A week dedicated to composite primary keys 😎" />
+  <meta property="og:description" content="Saluton! That’s Esperanto for “Hello!” 😜… Emmanuel Hayford here, let’s see what’s new in Rails as we gear up for Composite Primary Keys (CPKs) support." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/4/14/this-week-in-rails-a-week-dedicated-to-composite-primary-keys-32298f96" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="A week dedicated to composite primary keys 😎" />
+  <meta name="twitter:description" content="Saluton! That’s Esperanto for “Hello!” 😜… Emmanuel Hayford here, let’s see what’s new in Rails as we gear up for Composite Primary Keys (CPKs) support." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/4/14/this-week-in-rails-a-week-dedicated-to-composite-primary-keys-32298f96"
+      },
+      "name": "Ruby on Rails",
+      "headline": "A week dedicated to composite primary keys 😎",
+      "description": "Saluton! That’s Esperanto for “Hello!” 😜… Emmanuel Hayford here, let’s see what’s new in Rails as we gear up for Composite Primary Keys (CPKs) support.",
+      "url": "http://localhost:4000/2023/4/14/this-week-in-rails-a-week-dedicated-to-composite-primary-keys-32298f96",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Emmanuel Hayford"
+      },
+      "datePublished": "2023-04-14T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, April 14, 2023</h5>
+        <h2>A week dedicated to composite primary keys 😎</h2>
+
+        <h6>Posted by Emmanuel Hayford</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Saluton! That’s Esperanto for “Hello!” 😜… <a href="https://hayford.dev/">Emmanuel Hayford</a> here, let’s see what’s new in Rails as we gear up for <strong>Composite Primary Keys (CPKs)</strong> support.</p>
+
+<p>But first, here’s a fine opportunity for junior Ruby on Rails developers: As part of <a href="https://rubyonrails.org/2023/4/13/attention-junior-devs-want-to-build-the-rails-world-website">preparations for the upcoming Rails World conference in Amsterdam, Netherlands</a> this year, The Rails Foundation is presenting an opportunity to junior Ruby on Rails developers. Paired with a mentor, the goal is for the junior developer to build a website to host the event!</p>
+
+<p><a href="https://github.com/rails/rails/pull/47928">Support deleting records from associations for CPK</a>
+This PR improves the behaviour around deleting records from associations in composite contexts. Previously, an <em>ArgumentError</em> would raise if one attempted to delete records from associations in composite contexts.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47925">Ensure that ids_writer and ids_reader are working for CPK</a>
+The latest update to <em>ids_writer</em> addresses an issue with handling composite primary keys. Previously, the writer was able to handle a CPK model associated with a non-CPK model without any errors. However, when it came to a CPK model associated with another CPK model, the writer produced incorrect IDs. This PR fixes the issue.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47901">Support batching using composite primary keys</a>
+Batching was previously limited to tables with simple primary keys, but it can now be used with tables that have composite primary keys.</p>
+
+<p><a href="https://github.com/rails/rails/pull/47899">Rewrite Asset Pipeline guide for Rails 7</a>
+This PR was created to update the asset pipeline guide, which had become outdated in several ways. It didn’t mention some important updates, such as the <strong>importmaps-rails</strong> gem that is now the default solution for JavaScript.</p>
+
+<p>This update is one that’s long due.</p>
+
+<p>The guide on Sprockets was also outdated as it was written before Sprockets 4.0, which introduced the <em>manifest.js</em> file, and some of its parts were no longer relevant. Furthermore, the guide failed to mention several useful gems, including <strong>jsbundling-rails</strong> , <strong>cssbundling-rails</strong> , <strong>dartsass-rails</strong> , and <strong>tailwindcss-rails</strong>.</p>
+
+<p>This PR aims to bring the guide up-to-date with the latest changes in Rails and highlight the best practices for managing assets.</p>
+
+<p>We had  <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230407-20230414">29 contributors</a> in the last seven days.</p>
+
+<p>See you next week!</p>
+
+<p>Your weekly inside scoop of interesting commits, pull requests and more from <a href="https://github.com/rails/rails"><strong>Rails</strong></a>.</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

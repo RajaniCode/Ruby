@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; News from the Documentation Front</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="New Configuration Guide" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="News from the Documentation Front" />
+  <meta property="og:description" content="New Configuration Guide" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/6/3/news-from-the-documentation-front" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="News from the Documentation Front" />
+  <meta name="twitter:description" content="New Configuration Guide" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/6/3/news-from-the-documentation-front"
+      },
+      "name": "Ruby on Rails",
+      "headline": "News from the Documentation Front",
+      "description": "New Configuration Guide",
+      "url": "http://localhost:4000/2011/6/3/news-from-the-documentation-front",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "fxn"
+      },
+      "datePublished": "2011-06-03T01:17:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, June 3, 2011</h5>
+        <h2>News from the Documentation Front</h2>
+
+        <h6>Posted by fxn</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <h2 id="new-configuration-guide">New Configuration Guide</h2>
+
+<p>Rails 3.1 will come with a new comprehensive guide about configuring Rails applications written by Ryan Bigg (<a href="https://twitter.com/ryanbigg">@ryanbigg</a>). The current draft is already <a href="http://edgeguides.rubyonrails.org/configuring.html">available in the edge guides</a>.</p>
+
+<h2 id="rails-documentation-team">Rails Documentation Team</h2>
+
+<p>The documentation team, which was created some three years ago and consisted of Pratik Naik (<a href="https://twitter.com/lifo">@lifo</a>), Mike Gunderloy (<a href="https://twitter.com/MikeG1">@MikeG1</a>), and me, played a key role at bootstrapping docrails. Together with lots of API contributors and guides authors. Kudos to Pratik and Mike, their effort was outstanding and gave a definitive push to this aspect of the project.</p>
+
+<p>After all these years, documentation maintenance happens regularly in master. Because of that, we are no longer going to have a separate documentation team. The same way we do not have a separate testing team. Tests and docs are an integral part of Ruby on Rails and complete patches have or should have proper tests and docs coverage.</p>
+
+<h2 id="rails-guides-reviewers">Rails Guides Reviewers</h2>
+
+<p>Reviewing guides needs a special profile and dedication that has its own standards and pace. There’s going to be a team of guides reviewers that will take care of new material. I am very glad to announce that Vijay Dev (<a href="https://twitter.com/vijay_dev">@vijay_dev</a>) is going to be the first member of this team. Vijay has done an awesome work in docrails in the last months. Welcome aboard :).</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>The Rails documentation has improved a lot in the last years, it has more content, and it has better editorial quality. But there’s still a lot to do. Here are some ideas to work on:</p>
+
+<ul>
+  <li>
+    <p>A new documentation generator that evaluates the source tree and introspects to generate the API, mixed with a parser to extract documentation snippets.</p>
+  </li>
+  <li>
+    <p>Methods in the API have a link that toggles the visibility of their source code. Wouldn’t it be awesome if there was a toggler that disclosed their tests?</p>
+  </li>
+  <li>
+    <p>Test coverage for the guides.</p>
+  </li>
+  <li>
+    <p>What about a gorgeus template design?</p>
+  </li>
+</ul>
+
+<p>If you’d like to hack on any of them please go ahead!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

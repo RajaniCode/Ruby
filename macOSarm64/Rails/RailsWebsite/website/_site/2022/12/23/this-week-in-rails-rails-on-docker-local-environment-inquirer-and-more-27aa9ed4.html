@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails on Docker, local? environment inquirer and more! </title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there, this is Greg, bringing you the latest changes in Rails!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails on Docker, local? environment inquirer and more! " />
+  <meta property="og:description" content="Hi there, this is Greg, bringing you the latest changes in Rails!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2022/12/23/this-week-in-rails-rails-on-docker-local-environment-inquirer-and-more-27aa9ed4" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails on Docker, local? environment inquirer and more! " />
+  <meta name="twitter:description" content="Hi there, this is Greg, bringing you the latest changes in Rails!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2022/12/23/this-week-in-rails-rails-on-docker-local-environment-inquirer-and-more-27aa9ed4"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails on Docker, local? environment inquirer and more! ",
+      "description": "Hi there, this is Greg, bringing you the latest changes in Rails!",
+      "url": "http://localhost:4000/2022/12/23/this-week-in-rails-rails-on-docker-local-environment-inquirer-and-more-27aa9ed4",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2022-12-23T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, December 23, 2022</h5>
+        <h2>Rails on Docker, local? environment inquirer and more! </h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there, this is <a href="https://greg.molnar.io">Greg</a>, bringing you the latest changes in Rails!</p>
+
+<p><a href="https://github.com/rails/rails/pull/46742">Only include all_queries default scopes on reload</a>
+This pull request changes the current behaviour on reload, which applies all the default scopes, if any are marked as <em>all_queries: true</em>. The correct behaviour is to only apply <em>all_queries: true</em> default scopes on reload.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46760">Allow assets:precompile to be run in a production build step without passing in RAILS_MASTER_KEY
+</a>When compiling assets in production as part of an image build step, it’s inconvenient to have to pass in the real <em>RAILS_MASTER_KEY</em>. So allow passing in a dummy secret_key_base, just like we do in development and test, via <em>ENV[“SECRET_KEY_BASE_DUMMY”] = 1</em>. This will not give access to any of the real credentials or message verifiers, but allow the build step to complete, since it typically does not need it anyway.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46751">Avoid unnecessary replacements in action text when the replacement node is unchanged</a>
+This is a performance improvement for the case where the replacement logic is based on some condition, and it returns the same unchanged node. And example and a benchmark can be found on the pull request.</p>
+
+<p><a href="https://github.com/rails/docked">Docked Rails CLI</a>
+Setting up Rails for the first time with all the dependencies necessary can be daunting for beginners. Docked Rails CLI uses a Docker image to make it much easier, requiring only Docker to be installed. </p>
+
+<p><a href="https://github.com/rails/rails/pull/46762">Add default Dockerfiles</a>
+This pull request adds Docker files by default to new apps: <em>Dockerfile</em>, <em>.dockerignore</em>, <em>bin/docker-entrypoint</em>. These files can be skipped with <em>–skip-docker</em>. They’re intended as a starting point for a production deploy of the application. Not intended for development (use the above mentioned Docked Rails for that). You can see more details about using it on the pull request.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46755">Add Message{Encryptors,Verifiers}#transitional</a></p>
+
+<p>This commit adds a <em>transitional</em> attribute to <em>ActiveSupport::MessageEncryptors</em> and <em>ActiveSupport::MessageVerifiers</em>. Setting it to true will swap the first two rotations when building a message encryptor/verifier. </p>
+
+<p>This can be useful when performing a rolling deploy of an application, wherein servers that have not yet been updated must still be able to verify messages from updated servers. </p>
+
+<p><a href="https://github.com/rails/rails/pull/46786">Add Rails.env.local?</a>
+This pull requests adds a shorthand for <em>Rails.env.development? || Rails.env.test?.</em></p>
+
+<p><a href="https://github.com/rails/rails/pull/46728">Add support for pattern argument to <em>ActiveRecord::Relation#none?/#any?/#one?</em></a>
+The Enumerable versions of the <a href="https://ruby-doc.org/core-2.7.0/Enumerable.html#method-i-none-3F">#none?</a>, <a href="https://ruby-doc.org/core-2.7.0/Enumerable.html#method-i-any-3F">#any?</a>, and <a href="https://ruby-doc.org/core-2.7.0/Enumerable.html#method-i-one-3F">#one?</a> predicate methods each take an optional pattern argument instead of a block, but the <em>ActiveRecord::Relation</em> versions didn’t before this change.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20221216-202201223">23 people</a> contributed to Rails this past week! Merry Christmas and see you next week with our yearly special</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

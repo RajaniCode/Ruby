@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: connection statistics, query caching fixes and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: connection statistics, query caching fixes and more!" />
+  <meta property="og:description" content="Hello everyone!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/11/11/this-week-in-rails-better-statistics-query-caching-fixes-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: connection statistics, query caching fixes and more!" />
+  <meta name="twitter:description" content="Hello everyone!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/11/11/this-week-in-rails-better-statistics-query-caching-fixes-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: connection statistics, query caching fixes and more!",
+      "description": "Hello everyone!",
+      "url": "http://localhost:4000/2016/11/11/this-week-in-rails-better-statistics-query-caching-fixes-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "vipulnsward"
+      },
+      "datePublished": "2016-11-11T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, November 11, 2016</h5>
+        <h2>This Week in Rails: connection statistics, query caching fixes and more!</h2>
+
+        <h6>Posted by vipulnsward</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone!</p>
+
+<p>And welcome to our special edition from, live from <a href="http://rubyconf.org">RubyConf</a> in Cincinnati 😎.</p>
+
+<p>This is <a href="https://twitter.com/vipulnsward">Vipul</a> along with <a href="https://twitter.com/imtayadeway">Tim</a> and <a href="https://twitter.com/_cha1tanya">Prathamesh</a> teaming together to bring you all the latest news from the Rails community. 
+Lets get started!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20161105-20161111">Rails Contributors</a></h3>
+
+<p>This week 20 people contributed to Rails. We also got 3 first time contributors.
+Thanks all for your amazing contributions ❤️</p>
+
+<p>If you too are looking to help out, head over to our <a href="https://github.com/rails/rails/issues">issues</a>.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="active-record-connection-pool-adds-a-stat-method"><a href="https://github.com/rails/rails/pull/26988">Active Record connection pool adds a stat method</a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">ActiveRecord::Base.connection_pool</code> now has a <code class="language-plaintext highlighter-rouge">stat</code> method that returns statistics about the current status of a connection pool. For Example:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">connection_pool</span><span class="p">.</span><span class="nf">stat</span>
+<span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">max: </span><span class="mi">25</span><span class="p">,</span> <span class="ss">total: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">busy: </span><span class="mi">1</span><span class="p">,</span> <span class="ss">dead: </span><span class="mi">0</span><span class="p">,</span> <span class="ss">idle: </span><span class="mi">0</span><span class="p">,</span> <span class="ss">num_waiting: </span><span class="mi">0</span><span class="p">,</span> <span class="ss">checkout_timeout: </span><span class="mi">5</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="avoid-unscopeorder-when-limit-is-passed-for-a-count-query"><a href="https://github.com/rails/rails/pull/26972">Avoid <code class="language-plaintext highlighter-rouge">unscope(:order)</code> when limit is passed for a count query</a></h3>
+
+<p>If a <code class="language-plaintext highlighter-rouge">limit</code> is passed, record fetching order is very important for performance.</p>
+
+<p>This fix makes changes so that we don’t unscope and remove the <code class="language-plaintext highlighter-rouge">order</code> from a count query when a <code class="language-plaintext highlighter-rouge">limit</code> clause is passed to it.</p>
+
+<h3 id="jruby-dependencies-are-now-resolved-for-the-latest-version"><a href="https://github.com/rails/rails/pull/26990">JRuby dependencies are now resolved for the latest version</a></h3>
+
+<p>As part of the ongoing effort of making Rails 5 compatible with JRuby, the test suite got updates for the JRuby version it runs on, to make it satisfy the dependencies required for the tests.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="clear-query-cache-during-checkin-instead-of-an-execution-callback"><a href="https://github.com/rails/rails/pull/26909">Clear query cache during checkin, instead of an execution callback</a></h3>
+
+<p>Previously <code class="language-plaintext highlighter-rouge">ActiveRecord::QueryCache</code> using the new Rails executor may result in dirty query caches across threads. </p>
+
+<p>Releasing a connection in one thread may return it to the pool with cache still enabled and dirty, and the executor lost track of the connection so it may clear another, and another thread may pick up the dirty cache and never turn it off.</p>
+
+<p>This fix makes changes so that query cache does not persist while a connection moves through the pool and is assigned to a new thread.</p>
+
+<h3 id="configure-query-caching-per-thread-on-the-connection-pool"><a href="https://github.com/rails/rails/pull/26978">Configure query caching (per thread) on the connection pool</a></h3>
+
+<p>If the result of <code class="language-plaintext highlighter-rouge">ActiveRecord::Base.connection</code> is different across different threads, enabling the query cache in one thread will have been leaked, which could change the state of another.</p>
+
+<p>This addresses the issue by making query caching local to the current thread.</p>
+
+<h2 id="one-more-thing-">One More Thing ™</h2>
+
+<h3 id="bona-fide-system-testing-in-rails-51"><a href="https://twitter.com/dhh/status/796782788263321600">Bona fide system testing in Rails 5.1</a></h3>
+
+<p>From DHH on Twitter:</p>
+
+<blockquote class="twitter-tweet" data-cards="hidden" data-lang="en">
+  <p lang="en" dir="ltr">System tests have finally taken strong hold at <a href="https://twitter.com/basecamp">@Basecamp</a>. Can&#39;t wait for us to level-up <a href="https://twitter.com/rails">@Rails</a> with great defaults for it in 5.1! <a href="https://t.co/eptnu8OcAc">pic.twitter.com/eptnu8OcAc</a></p>
+  &mdash; DHH (@dhh) <a href="https://twitter.com/dhh/status/796782788263321600">November 10, 2016</a>
+</blockquote>
+
+<p>The <a href="https://github.com/rails/rails/pull/26703">work being done</a> is soon to be bundled into a new gem inside of Rails, that will hopefully be part of Rails 5.1!</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s it from This Week in Rails! There were many other great contributions, too numerous to list here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2016-11-05%7D...@%7B2016-11-11%7D">check them out</a>!</p>
+
+<p>Until next week!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

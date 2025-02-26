@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [ANN] Rails 3.0.8 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Security Issues!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[ANN] Rails 3.0.8 has been released!" />
+  <meta property="og:description" content="Security Issues!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/6/8/ann-rails-3-0-8-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[ANN] Rails 3.0.8 has been released!" />
+  <meta name="twitter:description" content="Security Issues!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/6/8/ann-rails-3-0-8-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[ANN] Rails 3.0.8 has been released!",
+      "description": "Security Issues!",
+      "url": "http://localhost:4000/2011/6/8/ann-rails-3-0-8-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "aaronp"
+      },
+      "datePublished": "2011-06-08T20:25:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, June 8, 2011</h5>
+        <h2>[ANN] Rails 3.0.8 has been released!</h2>
+
+        <h6>Posted by aaronp</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <h1 id="security-issues">Security Issues!</h1>
+
+<p>This release contains fixes for possible XSS problems in your rails application.  It is unlikely that your application is vulnerable, but you should take precautions by updating your application.</p>
+
+<p>For more information about the XSS issue that was fixed in this release, please <a href="https://rubyonrails.org/2011/6/8/potential-xss-vulnerability-in-ruby-on-rails-applications">read this blog post</a>.</p>
+
+<h2 id="welcome">WELCOME!</h2>
+
+<p>Hi everyone!  I’ve released Rails version 3.0.8!</p>
+
+<p>I know I told you I would release Rails 3.0.8 on June 2nd.  I may put many hearts in my emails, but I’m quite serious about sticking to announced deadlines.  The reason this release was delayed is due to the above security issue.  I needed to coordinate three different versions to be released simultaniously, and that delayed this release.</p>
+
+<p>Sorry about that!  Barring “perfect storm” issues like this, I will keep you up to date on release dates as I know them.  :-)</p>
+
+<h2 id="changes">CHANGES</h2>
+
+<p>The big changes in this release are:</p>
+
+<ul>
+  <li>Fixing Rake 0.9.x integration</li>
+  <li>Fixing rubygems deprecation warnings</li>
+  <li>Refactoring YAML support to work well with Psych and Syck</li>
+  <li>Joins on polymorphic <code class="language-plaintext highlighter-rouge">has_one</code> associations are fixed</li>
+</ul>
+
+<p>For an exaustive log of changes, please <a href="https://github.com/rails/rails/compare/v3.0.7...v3.0.8">see the commit list on github</a>, or the CHANGELOG for each project.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week In Rails: Doctrine, Weak ETags, Cabled Postgres and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey passengers!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week In Rails: Doctrine, Weak ETags, Cabled Postgres and more!" />
+  <meta property="og:description" content="Hey passengers!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/1/24/this-week-in-rails-doctrine-weak-etags-cabled-postgres-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week In Rails: Doctrine, Weak ETags, Cabled Postgres and more!" />
+  <meta name="twitter:description" content="Hey passengers!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/1/24/this-week-in-rails-doctrine-weak-etags-cabled-postgres-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week In Rails: Doctrine, Weak ETags, Cabled Postgres and more!",
+      "description": "Hey passengers!",
+      "url": "http://localhost:4000/2016/1/24/this-week-in-rails-doctrine-weak-etags-cabled-postgres-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "kaspth"
+      },
+      "datePublished": "2016-01-24T00:10:36+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, January 24, 2016</h5>
+        <h2>This Week In Rails: Doctrine, Weak ETags, Cabled Postgres and more!</h2>
+
+        <h6>Posted by kaspth</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey passengers!</p>
+
+<p>Have your luggage ready and get those ticket stubs out, a new issue is just about to roll in to the station. <a href="https://twitter.com/chancancode">Godfrey</a> and <a href="https://twitter.com/kaspth">Kasper</a> are co-conducting this beast of steel — eh, newsletter with Rails news, we mean.</p>
+
+<p>Hop aboard before we roll off, and start choo-chooing toward…</p>
+
+<p>Hey, does that sign say “Tracks End Here”?</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="fresh-off-the-tracks-a-new-rails-site"><a href="https://rubyonrails.org">Fresh off the tracks, a new Rails site!</a></h3>
+
+<p>Ahead of the coming major release of Rails, we got a new website and logo and… doctrine?</p>
+
+<p>Yes! See, Rails has been going strong for over 10 years, <a href="https://rubyonrails.org/doctrine">the Rails Doctrine</a> just captures that magic and spells it out. Thus Rails is ready to roll on for the next decade. The <a href="https://rubyonrails.org/2016/1/19/new-rails-identity">blog post</a> dishes on the new design’s backstory.</p>
+
+<p>P.S. The Rails core team got some <a href="https://rubyonrails.org/2016/1/19/new-rails-identity">awesome new pictures</a> too!</p>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160115-20160123">This weeks Rails Contributors</a></h3>
+
+<p>This week 41 people contributed managed to rivet themselves away from the shiny new pixels above and buckle down some contributions. Kudos to you folks 😁</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="action-cable-postgres-pubsub-can-sub-for-redis"><a href="https://github.com/rails/rails/pull/22950">Action Cable: Postgres pubsub can sub for Redis</a></h3>
+
+<p>Action Cable uses Redis to handle publishing and subscribing, but this week Postgres became a proper pubsub’er and is swappable with Redis.</p>
+
+<h3 id="sql-expressions-as-a-columns-default-value"><a href="https://github.com/rails/rails/pull/20005">SQL expressions as a column’s default value</a></h3>
+
+<p>With this pull request, you will be able to use a SQL expression (such as a SQL function) as the default value for any column type!</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="weaker-etags-makes-http-caches-stronger"><a href="https://github.com/rails/rails/pull/17573">Weaker ETags makes HTTP caches stronger</a></h3>
+
+<p><a href="https://en.wikipedia.org/wiki/HTTP_ETag">HTTP ETags</a> help cut bandwidth by sending along a tag that the server could use to validate the cached content.</p>
+
+<p>Rails supports it <a href="http://edgeguides.rubyonrails.org/caching_with_rails.html#conditional-get-support">out-of-the-box</a> but issues <a href="https://en.wikipedia.org/wiki/HTTP_ETag#Strong_and_weak_validation">“strong” ETags</a>, which has stronger cachability implications than Rails can guarantee.</p>
+
+<p>Not anymore! In Rails 5, Rails now correctly issue “weak” ETags — matching <a href="https://github.com/rack/rack/issues/681"><code class="language-plaintext highlighter-rouge">Rack::ETag</code>’s behavior</a>.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="removed-action-cables-celluloid-dependency"><a href="https://github.com/rails/rails/pull/22934">Removed Action Cable’s celluloid dependency</a></h3>
+
+<p>Action Cable’s dependency on the <code class="language-plaintext highlighter-rouge">celluloid</code> gem has been removed by using the thread pool from <code class="language-plaintext highlighter-rouge">concurrent-ruby</code> (which Rails already uses). While <a href="https://github.com/rails/rails/pull/22977">temporarily reverted</a> it was <a href="https://github.com/rails/rails/commit/01c320001bcce617196270f3d398d48a89a6ea2a">reintroduced</a> this week.</p>
+
+<h3 id="better-configuration-documentation-for-action-cable"><a href="https://github.com/rails/rails/pull/23096">Better configuration documentation for Action Cable</a></h3>
+
+<p>Now rejiggered: the Action Cable documentation on how to configure the library has been clarified and better highlights how useful some methods are.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are plenty of things we’re not able to cover here, so take a peek at <a href="https://github.com/rails/rails/compare/master@%7B2016-01-15%7D...@%7B2016-01-23%7D">the changes</a> yourself.</p>
+
+<p>Until next time!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+3.4 Authenticity Tokens
+
+
+We've modified the Zombie form to use AJAX, but now clients without Javascript support are getting ActionController::InvalidAuthenticityToken errors. We still need a remote form, though. Can you fix the error?
+
+
+config/application.rb
+module ZombieOutlaws
+  class Application < Rails::Application
+    config.time_zone = 'Central Time (US & Canada)'
+    config.action_view.embed_authenticity_token_in_remote_forms = false
+  end
+end
+
+
+Answer:
+config/application.rb
+module ZombieOutlaws
+  class Application < Rails::Application
+    config.time_zone = 'Central Time (US & Canada)'
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+  end
+end

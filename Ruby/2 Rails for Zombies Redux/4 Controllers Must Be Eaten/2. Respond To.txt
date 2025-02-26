@@ -1,0 +1,47 @@
+2. Respond To
+
+
+Finish the respond_to block so the action returns the XML of the @zombie record
+
+
+Database:
+zombies
+id	name	graveyard
+1	Ashley	Glen Haven Memorial Cemetery
+2	Bob	Chapel Hill Cemetery
+3	Katie	My Fathers Basement
+
+
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def show
+    @zombie = Zombie.find(params[:id])
+
+    respond_to do |format|
+
+    end
+  end
+end
+
+
+Answer:
+app/controllers/zombies_controller.rb
+class ZombiesController < ApplicationController
+  def show
+    @zombie = Zombie.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml {render xml: @zombie}
+    end
+  end
+end
+
+
+Output:
+<?xml version="1.0" encoding="UTF-8"?>
+<zombie>
+  <id type="integer">1</id>
+  <name>Ashley</name>
+  <graveyard>Glen Haven Memorial Cemetery</graveyard>
+</zombie>

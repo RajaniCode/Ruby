@@ -1,0 +1,33 @@
+1. Render
+
+Objective
+
+Complete the method below so that if the ammo is low it will render the fire_and_reload view, otherwise it should render the fire_weapon view.
+
+
+app/controllers/weapons_controller.rb
+class WeaponsController < ApplicationController
+  def fire_weapon
+    @weapon = Weapon.find(params[:id]) 
+    @weapon.fire!
+    if @weapon.low_ammo?
+    end
+  end
+end
+
+
+Answer:
+app/controllers/weapons_controller.rb
+class WeaponsController < ApplicationController
+  def fire_weapon
+    @weapon = Weapon.find(params[:id]) 
+    @weapon.fire!
+
+    if @weapon.low_ammo?
+      render :fire_and_reload
+    else
+      render :fire_weapon
+    end
+
+  end
+end

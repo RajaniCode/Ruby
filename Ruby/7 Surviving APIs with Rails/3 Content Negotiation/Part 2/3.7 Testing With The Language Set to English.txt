@@ -1,0 +1,75 @@
+3.7 Testing With The Language Set to English
+
+During the Zombie Apocalypse we were contacted by both English and Portuguese speaking human survivors. Unfortunately, our API doesn’t support responses in multiple languages yet. We will need to change that if we want to communicate with everyone. In order to do this, we need to make sure our application accepts different language options as part of each request. Let’s start with some tests.
+
+
+test/integration/changing_locales_test.rb
+class ChangingLocalesTest < ActionDispatch::IntegrationTest
+  test 'returns list of humans in English' do
+    get '/humans', {}, {}
+    # assertion here
+    human = json(response.body).first
+    # assertion here
+  end
+end
+
+
+test/test_helper.rb
+ENV['RAILS_ENV'] = 'test'
+require File.expand_path('../../config/environment', __FILE__)
+  require 'rails/test_help'
+  class ActiveSupport::TestCase
+  ActiveRecord::Migration.check_pending!
+  fixtures :all
+  def json(body)
+    JSON.parse(body, symbolize_names: true)
+  end
+end
+
+
+1. Issue a GET request to the humans resources URI. Specify the accepted language as en and the accepted Mime Type as JSON.
+
+Answer:
+test/integration/changing_locales_test.rb
+class ChangingLocalesTest < ActionDispatch::IntegrationTest
+  test 'returns list of humans in English' do
+    get '/humans', {}, {'Accept-Language' => 'en', 'Accept' => Mime::JSON}    
+    # assertion here
+    human = json(response.body).first
+    # assertion here
+  end
+end
+
+
+2. Using assert_equal, check for a 200 - Success status code.
+
+
+Answer:
+test/integration/changing_locales_test.rb
+class ChangingLocalesTest < ActionDispatch::IntegrationTest
+  test 'returns list of humans in English' do
+    get '/humans', {}, {'Accept-Language' => 'en', 'Accept' => Mime::JSON}    
+    # assertion here
+    assert_equal 200, response.status
+    human = json(response.body).first
+    # assertion here
+  end
+end
+
+
+3. We’ve selected the first human out of the array for you, and assigned it to the human variable. Using that human, assert its :message property is set to “My name is #{human[:name]} and I am alive!”.
+
+
+Answer:
+test/integration/changing_locales_test.rb
+class ChangingLocalesTest < ActionDispatch::IntegrationTest
+  test 'returns list of humans in English' do
+    get '/humans', {}, {'Accept-Language' => 'en', 'Accept' => Mime::JSON}    
+    # assertion here
+    assert_equal 200, response.status
+    human = json(response.body).first
+    # assertion here
+    assert_equal "My name is #{human[:name]} and I am alive!", human[:message]
+  end
+end
+

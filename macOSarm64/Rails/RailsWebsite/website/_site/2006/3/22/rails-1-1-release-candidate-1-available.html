@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 1.1: Release Candidate 1 available</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="It&#8217;s been roughly three months since the release of the big one-oh. That&#8217;s obviously an eternity in Rails time, so its about high time we&#8217;re getting ready for the release for 1.1. And boy, is this an exciting upgrade!I do believe this is the biggest upgrade to Rails we&#8217;ve ever done. We have recorded about 500 fixes, tweaks, and new features in the changelogs. That&#8217;s a lot and that&#8217;s just counting major new features like RJS as one.So with all these goodies, we want to make sure we launch without any obvious blunders or backwards compatibility breaking changes. This is why we&#8217;re doing a release candidate and why we need your help to test it.Rails 1.1 is supposed to be just fully backwards compatible with 1.0, but we did change just a couple of defaults, see CHANGED DEFAULT notes in the changelogs. That means we want to test Rails 1.1 with as many 1.0 applications as possible.To install the release candidate gems, you just need to do:gem install rakegem install rails --source http://gems.rubyonrails.orgOr you can just install the new Rake gem (Rails 1.1 depends on Rake 0.7) and then call rake freeze_edge. That&#8217;ll pull the latest Rails down from the Subversion repository and bind just that one application to it.Or you can set svn:externals on vendor/ to be against http://dev.rubyonrails.org/svn/rails/tags/rel_1-1-0_RC1, if you want to pull it in through Subversion automatically.Lots of options, no excuses. We really need your help to make sure the final release is as solid as Rails 1.0 was. And so we don&#8217;t need 1.1.1 two days later.Once you have the latest Rails installed, you can do rake rails:update to get the latest scripts and the latest version of Prototype and script.aculo.us installed in public/javascripts. That&#8217;s about all the upgrading you need to do to existing applications.Do note, though, that all plugins may not be upgraded to be compatible with Rails 1.1. Or you may indeed just have an old version of a plugin that has been updated. Keep an eye out for that.If you&#8217;re wondering why to even bother with Rails 1.1, Scott Raymond currently has the best play-by-play overview of what&#8217;s new. We&#8217;ll be adding to that with more walkthroughs and hopefully movies around release time.If you need more documentation, I strongly encourage you to pick up Chad Fowler&#8217;s Rails Recipe book. It&#8217;s currently out in its 3rd beta release and includes a bunch of great recipes on the new 1.1 features. Including RJS, polymorphic associations (and how to do better tagging with them), join models, integration testing, and more. You can get it as a PDF right now for $21.50.So help us help you. Test Rails 1.1 with your existing applications. Try building new stuff with it. And let us know if something breaks in the process. We will be taking care of all heinous bugs before release. Thank you all!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 1.1: Release Candidate 1 available" />
+  <meta property="og:description" content="It&#8217;s been roughly three months since the release of the big one-oh. That&#8217;s obviously an eternity in Rails time, so its about high time we&#8217;re getting ready for the release for 1.1. And boy, is this an exciting upgrade!I do believe this is the biggest upgrade to Rails we&#8217;ve ever done. We have recorded about 500 fixes, tweaks, and new features in the changelogs. That&#8217;s a lot and that&#8217;s just counting major new features like RJS as one.So with all these goodies, we want to make sure we launch without any obvious blunders or backwards compatibility breaking changes. This is why we&#8217;re doing a release candidate and why we need your help to test it.Rails 1.1 is supposed to be just fully backwards compatible with 1.0, but we did change just a couple of defaults, see CHANGED DEFAULT notes in the changelogs. That means we want to test Rails 1.1 with as many 1.0 applications as possible.To install the release candidate gems, you just need to do:gem install rakegem install rails --source http://gems.rubyonrails.orgOr you can just install the new Rake gem (Rails 1.1 depends on Rake 0.7) and then call rake freeze_edge. That&#8217;ll pull the latest Rails down from the Subversion repository and bind just that one application to it.Or you can set svn:externals on vendor/ to be against http://dev.rubyonrails.org/svn/rails/tags/rel_1-1-0_RC1, if you want to pull it in through Subversion automatically.Lots of options, no excuses. We really need your help to make sure the final release is as solid as Rails 1.0 was. And so we don&#8217;t need 1.1.1 two days later.Once you have the latest Rails installed, you can do rake rails:update to get the latest scripts and the latest version of Prototype and script.aculo.us installed in public/javascripts. That&#8217;s about all the upgrading you need to do to existing applications.Do note, though, that all plugins may not be upgraded to be compatible with Rails 1.1. Or you may indeed just have an old version of a plugin that has been updated. Keep an eye out for that.If you&#8217;re wondering why to even bother with Rails 1.1, Scott Raymond currently has the best play-by-play overview of what&#8217;s new. We&#8217;ll be adding to that with more walkthroughs and hopefully movies around release time.If you need more documentation, I strongly encourage you to pick up Chad Fowler&#8217;s Rails Recipe book. It&#8217;s currently out in its 3rd beta release and includes a bunch of great recipes on the new 1.1 features. Including RJS, polymorphic associations (and how to do better tagging with them), join models, integration testing, and more. You can get it as a PDF right now for $21.50.So help us help you. Test Rails 1.1 with your existing applications. Try building new stuff with it. And let us know if something breaks in the process. We will be taking care of all heinous bugs before release. Thank you all!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2006/3/22/rails-1-1-release-candidate-1-available" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 1.1: Release Candidate 1 available" />
+  <meta name="twitter:description" content="It&#8217;s been roughly three months since the release of the big one-oh. That&#8217;s obviously an eternity in Rails time, so its about high time we&#8217;re getting ready for the release for 1.1. And boy, is this an exciting upgrade!I do believe this is the biggest upgrade to Rails we&#8217;ve ever done. We have recorded about 500 fixes, tweaks, and new features in the changelogs. That&#8217;s a lot and that&#8217;s just counting major new features like RJS as one.So with all these goodies, we want to make sure we launch without any obvious blunders or backwards compatibility breaking changes. This is why we&#8217;re doing a release candidate and why we need your help to test it.Rails 1.1 is supposed to be just fully backwards compatible with 1.0, but we did change just a couple of defaults, see CHANGED DEFAULT notes in the changelogs. That means we want to test Rails 1.1 with as many 1.0 applications as possible.To install the release candidate gems, you just need to do:gem install rakegem install rails --source http://gems.rubyonrails.orgOr you can just install the new Rake gem (Rails 1.1 depends on Rake 0.7) and then call rake freeze_edge. That&#8217;ll pull the latest Rails down from the Subversion repository and bind just that one application to it.Or you can set svn:externals on vendor/ to be against http://dev.rubyonrails.org/svn/rails/tags/rel_1-1-0_RC1, if you want to pull it in through Subversion automatically.Lots of options, no excuses. We really need your help to make sure the final release is as solid as Rails 1.0 was. And so we don&#8217;t need 1.1.1 two days later.Once you have the latest Rails installed, you can do rake rails:update to get the latest scripts and the latest version of Prototype and script.aculo.us installed in public/javascripts. That&#8217;s about all the upgrading you need to do to existing applications.Do note, though, that all plugins may not be upgraded to be compatible with Rails 1.1. Or you may indeed just have an old version of a plugin that has been updated. Keep an eye out for that.If you&#8217;re wondering why to even bother with Rails 1.1, Scott Raymond currently has the best play-by-play overview of what&#8217;s new. We&#8217;ll be adding to that with more walkthroughs and hopefully movies around release time.If you need more documentation, I strongly encourage you to pick up Chad Fowler&#8217;s Rails Recipe book. It&#8217;s currently out in its 3rd beta release and includes a bunch of great recipes on the new 1.1 features. Including RJS, polymorphic associations (and how to do better tagging with them), join models, integration testing, and more. You can get it as a PDF right now for $21.50.So help us help you. Test Rails 1.1 with your existing applications. Try building new stuff with it. And let us know if something breaks in the process. We will be taking care of all heinous bugs before release. Thank you all!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2006/3/22/rails-1-1-release-candidate-1-available"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 1.1: Release Candidate 1 available",
+      "description": "It&#8217;s been roughly three months since the release of the big one-oh. That&#8217;s obviously an eternity in Rails time, so its about high time we&#8217;re getting ready for the release for 1.1. And boy, is this an exciting upgrade!I do believe this is the biggest upgrade to Rails we&#8217;ve ever done. We have recorded about 500 fixes, tweaks, and new features in the changelogs. That&#8217;s a lot and that&#8217;s just counting major new features like RJS as one.So with all these goodies, we want to make sure we launch without any obvious blunders or backwards compatibility breaking changes. This is why we&#8217;re doing a release candidate and why we need your help to test it.Rails 1.1 is supposed to be just fully backwards compatible with 1.0, but we did change just a couple of defaults, see CHANGED DEFAULT notes in the changelogs. That means we want to test Rails 1.1 with as many 1.0 applications as possible.To install the release candidate gems, you just need to do:gem install rakegem install rails --source http://gems.rubyonrails.orgOr you can just install the new Rake gem (Rails 1.1 depends on Rake 0.7) and then call rake freeze_edge. That&#8217;ll pull the latest Rails down from the Subversion repository and bind just that one application to it.Or you can set svn:externals on vendor/ to be against http://dev.rubyonrails.org/svn/rails/tags/rel_1-1-0_RC1, if you want to pull it in through Subversion automatically.Lots of options, no excuses. We really need your help to make sure the final release is as solid as Rails 1.0 was. And so we don&#8217;t need 1.1.1 two days later.Once you have the latest Rails installed, you can do rake rails:update to get the latest scripts and the latest version of Prototype and script.aculo.us installed in public/javascripts. That&#8217;s about all the upgrading you need to do to existing applications.Do note, though, that all plugins may not be upgraded to be compatible with Rails 1.1. Or you may indeed just have an old version of a plugin that has been updated. Keep an eye out for that.If you&#8217;re wondering why to even bother with Rails 1.1, Scott Raymond currently has the best play-by-play overview of what&#8217;s new. We&#8217;ll be adding to that with more walkthroughs and hopefully movies around release time.If you need more documentation, I strongly encourage you to pick up Chad Fowler&#8217;s Rails Recipe book. It&#8217;s currently out in its 3rd beta release and includes a bunch of great recipes on the new 1.1 features. Including RJS, polymorphic associations (and how to do better tagging with them), join models, integration testing, and more. You can get it as a PDF right now for $21.50.So help us help you. Test Rails 1.1 with your existing applications. Try building new stuff with it. And let us know if something breaks in the process. We will be taking care of all heinous bugs before release. Thank you all!",
+      "url": "http://localhost:4000/2006/3/22/rails-1-1-release-candidate-1-available",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2006-03-22T07:05:03+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, March 22, 2006</h5>
+        <h2>Rails 1.1: Release Candidate 1 available</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>It&#8217;s been roughly three months since the release of the big one-oh. That&#8217;s obviously an eternity in Rails time, so its about high time we&#8217;re getting ready for the release for 1.1. And boy, is this an exciting upgrade!</p>
+<p>I do believe this is the biggest upgrade to Rails we&#8217;ve ever done. We have recorded about 500 fixes, tweaks, and new features in the changelogs. That&#8217;s a lot and that&#8217;s just counting major new features like <span class="caps">RJS</span> as one.</p>
+<p>So with all these goodies, we want to make sure we launch without any obvious blunders or backwards compatibility breaking changes. This is why we&#8217;re doing a release candidate and why we need your help to test it.</p>
+<p>Rails 1.1 is supposed to be just fully backwards compatible with 1.0, but we did change just a couple of defaults, see <span class="caps">CHANGED</span> <span class="caps">DEFAULT</span> notes in the changelogs. That means we want to test Rails 1.1 with as many 1.0 applications as possible.</p>
+<p>To install the release candidate gems, you just need to do:</p>
+<pre>
+gem install rake
+gem install rails --source http://gems.rubyonrails.org
+</pre>
+<p>Or you can just install the new Rake gem (Rails 1.1 depends on Rake 0.7) and then call <code>rake freeze_edge</code>. That&#8217;ll pull the latest Rails down from the Subversion repository and bind just that one application to it.</p>
+<p>Or you can set svn:externals on vendor/ to be against http://dev.rubyonrails.org/svn/rails/tags/rel_1-1-0_RC1, if you want to pull it in through Subversion automatically.</p>
+<p>Lots of options, no excuses. We really need your help to make sure the final release is as solid as Rails 1.0 was. And so we don&#8217;t need 1.1.1 two days later.</p>
+<p>Once you have the latest Rails installed, you can do <code>rake rails:update</code> to get the latest scripts and the latest version of Prototype and script.aculo.us installed in public/javascripts. That&#8217;s about all the upgrading you need to do to existing applications.</p>
+<p>Do note, though, that all plugins may not be upgraded to be compatible with Rails 1.1. Or you may indeed just have an old version of a plugin that has been updated. Keep an eye out for that.</p>
+<p>If you&#8217;re wondering why to even bother with Rails 1.1, Scott Raymond currently has the <a href="http://scottraymond.net/articles/2006/02/28/rails-1.1">best play-by-play overview of what&#8217;s new</a>. We&#8217;ll be adding to that with more walkthroughs and hopefully movies around release time.</p>
+<p>If you need more documentation, I <i>strongly</i> encourage you to pick up <a href="http://pragmaticprogrammer.com/titles/fr_rr/index.html">Chad Fowler&#8217;s Rails Recipe book</a>. It&#8217;s currently out in its 3rd beta release and includes a bunch of great recipes on the new 1.1 features. Including <span class="caps">RJS</span>, polymorphic associations (and how to do better tagging with them), join models, integration testing, and more. You can get it as a <span class="caps">PDF</span> right now for $21.50.</p>
+<p>So help us help you. Test Rails 1.1 with your existing applications. Try building new stuff with it. And <a href="http://dev.rubyonrails.org/">let us know</a> if something breaks in the process. We will be taking care of all heinous bugs before release. Thank you all!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

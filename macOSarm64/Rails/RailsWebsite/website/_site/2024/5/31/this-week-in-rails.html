@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Propshaft default for Rails 8, Guides updates, transaction.active_record events, and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Propshaft default for Rails 8, Guides updates, transaction.active_record events, and more!" />
+  <meta property="og:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/5/31/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Propshaft default for Rails 8, Guides updates, transaction.active_record events, and more!" />
+  <meta name="twitter:description" content="Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/5/31/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Propshaft default for Rails 8, Guides updates, transaction.active_record events, and more!",
+      "description": "Hi, it’s zzak. Let’s explore this week’s changes in the Rails codebase.",
+      "url": "http://localhost:4000/2024/5/31/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "zzak"
+      },
+      "datePublished": "2024-05-31T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, May 31, 2024</h5>
+        <h2>Propshaft default for Rails 8, Guides updates, transaction.active_record events, and more!</h2>
+
+        <h6>Posted by zzak</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, it’s <a href="https://github.com/zzak">zzak</a>. Let’s explore this week’s changes in the Rails codebase.</p>
+
+<p><a href="https://rubyonrails.org/world/2024">Rails World 2024 speaker lineup announced!</a><br />
+As well as another small run of tickets going live on June 4 at 2pm ET!</p>
+
+<p>The Rails Foundation documentation team has also submitted two Rails guides for community review. If you have feedback, please submit it here: <a href="https://github.com/rails/rails/pull/51936">Action View Form Helpers Guide</a> and the <a href="https://github.com/rails/rails/pull/51928">Active Record Migrations Guide</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51799">Change asset pipeline default to Propshaft in Rails 8</a><br />
+Sprockets has served us well, but it’s time to hand over the torch to <a href="https://github.com/rails/propshaft">Propshaft</a> in Rails 8.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51924">Add a Rails Guide called “Tuning Performance for Deployment”</a><br />
+This guide explains major concurrency and performance principles for Puma and CRuby.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51955">Pass the transaction object to “transaction.active_record” subscribers</a><br />
+The Active Support Instrumentation event for <code class="language-plaintext highlighter-rouge">transaction.active_record</code> now comes with the transaction in the payload, way you can refer to transactions if you need to trace database activity.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51965">Include the current transaction in “sql.active_record” event payloads</a><br />
+After the previous change, we also include the current transaction in <code class="language-plaintext highlighter-rouge">sql.active_record</code> event payloads. This allows tracing database activity including the ability to group queries by transaction, thanks to the <a href="https://github.com/rails/rails/pull/51949">recently added</a> <code class="language-plaintext highlighter-rouge">ActiveRecord::Transaction#uuid</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51937">Define Digest::UUID.nil_uuid</a><br />
+As defined in <a href="https://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a> the so-called nil UUID is now added to <code class="language-plaintext highlighter-rouge">Digest::UUID</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51952">Update public directory during app:update command</a><br />
+This PR fixes a bug when upgrading Rails versions where the <code class="language-plaintext highlighter-rouge">app:update</code> command did not generate new files in <code class="language-plaintext highlighter-rouge">/public</code>.
+For example, upgrading from Rails 7.1 to 7.2 does not create the new <code class="language-plaintext highlighter-rouge">406-unsupported-browser.html</code> file.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51944">Update permissions policy list with display-capture and keyboard-map</a><br />
+Since <code class="language-plaintext highlighter-rouge">display-capture</code> (Chrome 94) and <code class="language-plaintext highlighter-rouge">keyboard-map</code> (Chrome 97) are now <a href="https://github.com/w3c/webappsec-permissions-policy/blob/main/features.md#policy-controlled-features">standardized policy controlled features</a>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51939">Improve compatibility for “ActiveSupport::BroadcastLogger”</a><br />
+This PR changes the return value for all logging methods to return true, similar to the <code class="language-plaintext highlighter-rouge">Logger</code> class in Ruby.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51934">Add CSP mapping for “wasm-unsafe-eval”</a><br />
+The <code class="language-plaintext highlighter-rouge">'wasm-unsafe-eval'</code> keyword for the Content Security Policy allows the loading and execution of WebAssembly modules without the need to allow unsafe JavaScript execution via <code class="language-plaintext highlighter-rouge">'unsafe-eval'</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51930">Improve ActionCable’s TestCookieJar interface</a><br />
+This PR makes using <code class="language-plaintext highlighter-rouge">ActionCable::Connection::TestCookieJar</code> similar to <code class="language-plaintext highlighter-rouge">ActionDispatch::Cookies::CookieJar</code> with regards to setting the cookie value.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51898">Raise a descriptive error when a Store column is misconfigured</a><br />
+If a developer has neglected to use a structured column type (hstore or json) or to declare a serializer with <code class="language-plaintext highlighter-rouge">ActiveRecord.store</code>, then a <code class="language-plaintext highlighter-rouge">ConfigurationError</code> will now be raised with a nice error message instead of a <code class="language-plaintext highlighter-rouge">NoMethodError</code> with no detail.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51892">Make <code class="language-plaintext highlighter-rouge">pretty_print</code> behave more similar to <code class="language-plaintext highlighter-rouge">inspect</code></a><br />
+This Pull Request makes the behavior of <code class="language-plaintext highlighter-rouge">pretty_print</code> on Active Record objects match that of <code class="language-plaintext highlighter-rouge">inspect</code>, instead of using the “raw” attribute it uses <code class="language-plaintext highlighter-rouge">attribute_for_inspect</code>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51859">Fix non-partial inserts for models with composite identity primary keys</a><br />
+When doing non-partial inserts, we should ignore not only unchanged columns with a default function, but also which are autoincremented in the database (and so don’t have a default function).</p>
+
+<p><a href="https://github.com/rails/rails/pull/51846">Catch StandardError during Base64 decoding in message encryptor</a><br />
+RubyGems.org got recently facing 500 HTTP responses since user mangled cookies (app uses cookie store) and provided custom value which (thanks to series of edge-cases) ended up triggering <code class="language-plaintext highlighter-rouge">NoMethodError: undefined method unpack1' for nil</code> raised down from <code class="language-plaintext highlighter-rouge">Base64</code> class.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51744">Index Result rows rather than to convert them into hashes</a><br />
+This optimization improves the performance of <code class="language-plaintext highlighter-rouge">Result#each</code> by avoiding to convert each row into a hash.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51371">Add “ActiveRecord::Relation#readonly?”</a><br />
+A new method added to the relation object lets developers check if it was marked readonly.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51121">Fix AllowBrowser versions</a><br />
+This PR updates the <code class="language-plaintext highlighter-rouge">:modern</code> browser settings when using the <code class="language-plaintext highlighter-rouge">allow_browser</code> helper to support Chrome v120+ and Opera v106+, which includes support for CSS nesting.</p>
+
+<p><em>You can view the whole list of changes <a href="https://github.com/rails/rails/compare/@%7B2024-05-24%7D...main@%7B2024-05-31%7D">here</a>.</em>
+<em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240524-20240531">31 contributors</a> to the Rails codebase this past week!</em></p>
+
+<p>Until next time!</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

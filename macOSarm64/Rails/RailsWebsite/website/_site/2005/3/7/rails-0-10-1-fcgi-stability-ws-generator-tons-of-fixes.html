@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 0.10.1: FCGI stability, WS generator, tons of fixes</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This is the point release to tie up the various loose ends introduced with Rails 0.10.0. Action Web Service has seen the most interesting improvements feature-wise with a new generator and tie-ins with the testing setup. There&#8217;s better support for XML-RPC: Instead of performing type checking on the parameters the remote client sends, AWS does casting to try and make it compatible with the signature instead, but if it fails, passes the parameter through anyway. And cleaner support for &#8220;prefix.methodName&#8221; XML-RPC methods with a new dispatching mode named :layered (this is an incompatible change for XML-RPC services that use namespaced XML method names: metaWeblog/blogger implementations will require changes).As Basecamp moved to lighttpd/FCGI this past week, we also got a bunch of good fixes in that increases the stability of FCGI in a production environment quite a lot. No more FCGI dying and in case uncaught exceptions are raised, you&#8217;ll know about it in log/fastcgi.crash.log.In total, we managed to squeeze in no less than 52 additions, changes, fixes, and tweaks. See all the changes in the changelogs for Rails, Active Record, Action Pack, Active Support, and Action Web Service.No application changes should be required. Update using gem update rails" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 0.10.1: FCGI stability, WS generator, tons of fixes" />
+  <meta property="og:description" content="This is the point release to tie up the various loose ends introduced with Rails 0.10.0. Action Web Service has seen the most interesting improvements feature-wise with a new generator and tie-ins with the testing setup. There&#8217;s better support for XML-RPC: Instead of performing type checking on the parameters the remote client sends, AWS does casting to try and make it compatible with the signature instead, but if it fails, passes the parameter through anyway. And cleaner support for &#8220;prefix.methodName&#8221; XML-RPC methods with a new dispatching mode named :layered (this is an incompatible change for XML-RPC services that use namespaced XML method names: metaWeblog/blogger implementations will require changes).As Basecamp moved to lighttpd/FCGI this past week, we also got a bunch of good fixes in that increases the stability of FCGI in a production environment quite a lot. No more FCGI dying and in case uncaught exceptions are raised, you&#8217;ll know about it in log/fastcgi.crash.log.In total, we managed to squeeze in no less than 52 additions, changes, fixes, and tweaks. See all the changes in the changelogs for Rails, Active Record, Action Pack, Active Support, and Action Web Service.No application changes should be required. Update using gem update rails" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/3/7/rails-0-10-1-fcgi-stability-ws-generator-tons-of-fixes" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 0.10.1: FCGI stability, WS generator, tons of fixes" />
+  <meta name="twitter:description" content="This is the point release to tie up the various loose ends introduced with Rails 0.10.0. Action Web Service has seen the most interesting improvements feature-wise with a new generator and tie-ins with the testing setup. There&#8217;s better support for XML-RPC: Instead of performing type checking on the parameters the remote client sends, AWS does casting to try and make it compatible with the signature instead, but if it fails, passes the parameter through anyway. And cleaner support for &#8220;prefix.methodName&#8221; XML-RPC methods with a new dispatching mode named :layered (this is an incompatible change for XML-RPC services that use namespaced XML method names: metaWeblog/blogger implementations will require changes).As Basecamp moved to lighttpd/FCGI this past week, we also got a bunch of good fixes in that increases the stability of FCGI in a production environment quite a lot. No more FCGI dying and in case uncaught exceptions are raised, you&#8217;ll know about it in log/fastcgi.crash.log.In total, we managed to squeeze in no less than 52 additions, changes, fixes, and tweaks. See all the changes in the changelogs for Rails, Active Record, Action Pack, Active Support, and Action Web Service.No application changes should be required. Update using gem update rails" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/3/7/rails-0-10-1-fcgi-stability-ws-generator-tons-of-fixes"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 0.10.1: FCGI stability, WS generator, tons of fixes",
+      "description": "This is the point release to tie up the various loose ends introduced with Rails 0.10.0. Action Web Service has seen the most interesting improvements feature-wise with a new generator and tie-ins with the testing setup. There&#8217;s better support for XML-RPC: Instead of performing type checking on the parameters the remote client sends, AWS does casting to try and make it compatible with the signature instead, but if it fails, passes the parameter through anyway. And cleaner support for &#8220;prefix.methodName&#8221; XML-RPC methods with a new dispatching mode named :layered (this is an incompatible change for XML-RPC services that use namespaced XML method names: metaWeblog/blogger implementations will require changes).As Basecamp moved to lighttpd/FCGI this past week, we also got a bunch of good fixes in that increases the stability of FCGI in a production environment quite a lot. No more FCGI dying and in case uncaught exceptions are raised, you&#8217;ll know about it in log/fastcgi.crash.log.In total, we managed to squeeze in no less than 52 additions, changes, fixes, and tweaks. See all the changes in the changelogs for Rails, Active Record, Action Pack, Active Support, and Action Web Service.No application changes should be required. Update using gem update rails",
+      "url": "http://localhost:4000/2005/3/7/rails-0-10-1-fcgi-stability-ws-generator-tons-of-fixes",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-03-07T07:42:39+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, March 7, 2005</h5>
+        <h2>Rails 0.10.1: FCGI stability, WS generator, tons of fixes</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>This is the point release to tie up the various loose ends introduced with Rails 0.10.0. Action Web Service has seen the most interesting improvements feature-wise with a new generator and tie-ins with the testing setup. There&#8217;s better support for <span class="caps">XML</span>-<span class="caps">RPC</span>: Instead of performing type checking on the parameters the remote client sends, <span class="caps">AWS</span> does casting to try and make it compatible with the signature instead, but if it fails, passes the parameter through anyway. And cleaner support for &#8220;prefix.methodName&#8221; <span class="caps">XML</span>-<span class="caps">RPC</span> methods with a new dispatching mode named :layered (this is an incompatible change for <span class="caps">XML</span>-<span class="caps">RPC</span> services that use namespaced <span class="caps">XML</span> method names: metaWeblog/blogger implementations will require changes).</p>
+<p>As Basecamp moved to lighttpd/<span class="caps">FCGI</span> this past week, we also got a bunch of good fixes in that increases the stability of <span class="caps">FCGI</span> in a production environment quite a lot. No more <span class="caps">FCGI</span> dying and in case uncaught exceptions are raised, you&#8217;ll know about it in log/fastcgi.crash.log.</p>
+<p>In total, we managed to squeeze in no less than 52 additions, changes, fixes, and tweaks. See all the changes in the changelogs for <a href="http://rails.rubyonrails.com/files/CHANGELOG.html">Rails</a>, <a href="http://rails.rubyonrails.com/files/vendor/activerecord/CHANGELOG.html">Active Record</a>, <a href="http://rails.rubyonrails.com/files/vendor/actionpack/CHANGELOG.html">Action Pack</a>, <a href="http://as.rubyonrails.com/files/CHANGELOG.html">Active Support</a>, and <a href="http://aws.rubyonrails.com/files/CHANGELOG.html">Action Web Service</a>.</p>
+<p>No application changes should be required. Update using <code>gem update rails</code></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

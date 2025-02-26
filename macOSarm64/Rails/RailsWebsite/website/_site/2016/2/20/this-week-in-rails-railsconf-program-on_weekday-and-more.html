@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: RailsConf program, on_weekday? and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello, this is Godfrey and Prathamesh bringing you the latest developments from Rails!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: RailsConf program, on_weekday? and more!" />
+  <meta property="og:description" content="Hello, this is Godfrey and Prathamesh bringing you the latest developments from Rails!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/2/20/this-week-in-rails-railsconf-program-on_weekday-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: RailsConf program, on_weekday? and more!" />
+  <meta name="twitter:description" content="Hello, this is Godfrey and Prathamesh bringing you the latest developments from Rails!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/2/20/this-week-in-rails-railsconf-program-on_weekday-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: RailsConf program, on_weekday? and more!",
+      "description": "Hello, this is Godfrey and Prathamesh bringing you the latest developments from Rails!",
+      "url": "http://localhost:4000/2016/2/20/this-week-in-rails-railsconf-program-on_weekday-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "chancancode"
+      },
+      "datePublished": "2016-02-20T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, February 20, 2016</h5>
+        <h2>This week in Rails: RailsConf program, on_weekday? and more!</h2>
+
+        <h6>Posted by chancancode</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello, this is <a href="https://twitter.com/chancancode">Godfrey</a> and <a href="https://twitter.com/_cha1tanya">Prathamesh</a> bringing you the latest developments from <a href="https://github.com/rails/rails">Rails</a>!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="railsconf-2016-program-announced"><a href="http://railsconf.com/program">RailsConf 2016 program announced</a></h3>
+
+<p>The conference is looking pretty awesome, with a good mix of talks on various topics. I hope you are as excited as I am!</p>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160213-20160219">This week’s Rails contributors</a></h3>
+
+<p>This week, we have recorded 136 commits from 37 contributors (including 8 first-time contributors)! Thank you for making Rails better for everyone!</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="on_weekday-method-to-date-time-and-datetime"><a href="https://github.com/rails/rails/pull/23687"><code class="language-plaintext highlighter-rouge">#on_weekday?</code> method to <code class="language-plaintext highlighter-rouge">Date</code>, <code class="language-plaintext highlighter-rouge">Time</code>, and <code class="language-plaintext highlighter-rouge">DateTime</code></a></h3>
+
+<p>Along with <a href="https://github.com/rails/rails/pull/18335"><code class="language-plaintext highlighter-rouge">#on_weekend?</code></a>, you can now easily find out if a certain day falls on a weekday (M-F). The question is, do you <em>really</em> want to know?</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="fix-incorrect-behavior-with-unsubscribing-to-channels"><a href="https://github.com/rails/rails/pull/23715">Fix incorrect behavior with unsubscribing to channels</a></h3>
+
+<p>Saying goodbye is certainly hard, but having to listen for one might just be worse. Luckily for us, all of these are abstracted deep inside Action Cable, so we will never have to go through that ourselves.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="inject-rails-configurations-through-railtie"><a href="https://github.com/rails/rails/pull/23505">Inject Rails configurations through Railtie</a></h3>
+
+<p>Dependency injection might not be a virtue, but in this case, it certainly helps keeping things neatly isolated from each other.</p>
+
+<h3 id="tagged-errors-in-logs"><a href="https://github.com/rails/rails/pull/23203">Tagged errors in logs</a></h3>
+
+<p>A while ago, tagged logging <a href="https://github.com/rails/rails/pull/22949">became the default on production</a> on Rails 5. Now the tags are included in the logs for errors too!</p>
+
+<h3 id="automatically-reset-actionmailerbasedeliveries-in-integration-tests"><a href="https://github.com/rails/rails/commit/9d378747326d26cf1afdac4433ead22967af0984">Automatically reset <code class="language-plaintext highlighter-rouge">ActionMailer::Base.deliveries</code> in integration tests</a></h3>
+
+<p>With this patch, Rails 5 will automatically clear the <code class="language-plaintext highlighter-rouge">ActionMailer::Base.deliveries</code> array in between your integration tests.</p>
+
+<h3 id="support-nested-params-in-button_to-helper"><a href="https://github.com/rails/rails/pull/17043">Support nested params in <code class="language-plaintext highlighter-rouge">button_to</code> helper</a></h3>
+
+<p>We can now pass nested hashes or arrays to <code class="language-plaintext highlighter-rouge">button_to</code> helpers’s params option.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are plenty of things we’re not able to cover here, so take a look at the <a href="https://github.com/rails/rails/compare/master@%7B2016-02-13%7D...@%7B2016-02-19%7D">changes</a> yourself.</p>
+
+<p>Until next time!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

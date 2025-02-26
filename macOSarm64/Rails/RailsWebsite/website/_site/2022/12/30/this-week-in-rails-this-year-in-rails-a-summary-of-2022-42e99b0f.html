@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Year in Rails, a summary of 2022!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hey!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Year in Rails, a summary of 2022!" />
+  <meta property="og:description" content="Hey!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2022/12/30/this-week-in-rails-this-year-in-rails-a-summary-of-2022-42e99b0f" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Year in Rails, a summary of 2022!" />
+  <meta name="twitter:description" content="Hey!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2022/12/30/this-week-in-rails-this-year-in-rails-a-summary-of-2022-42e99b0f"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Year in Rails, a summary of 2022!",
+      "description": "Hey!",
+      "url": "http://localhost:4000/2022/12/30/this-week-in-rails-this-year-in-rails-a-summary-of-2022-42e99b0f",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2022-12-30T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, December 30, 2022</h5>
+        <h2>This Year in Rails, a summary of 2022!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hey!</p>
+
+<p>This is <a href="https://twitter.com/siaw23">Emmanuel</a>, <a href="https://greg.molnar.io">Greg</a> and <a href="https://twitter.com/morgoth85">Wojciech</a>, bringing you the summary of what happened with Rails in the past year. It was a busy year with <a href="https://github.com/rails/rails/compare/@%7B2022-01-01%7D...main@%7B2022-12-31%7D">3131 commits</a> from <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20220101-202212231">491 contributors</a> and 31 releases!
+We carefully selected the most significant pull requests for inclusion, but it is possible that we may have overlooked some due to the need to keep the newsletter concise. That said, Emmanuel is compiling <a href="https://hayford.dev/this-week-in-rails-wrapped-an-overview-of-rails-7-1-features-part-i/">a comprehensive list of pull requests</a> for Rails this year.</p>
+
+<p><a href="https://rubyonrails.org/2022/11/14/the-rails-foundation">Introducing: The Rails Foundation</a>
+In case you missed it, with eight founding members, Rails has started The Rails Foundation! Together, the founding members have contributed a total sum of $1,000,000 that will aid the foundation’s mission to improve the documentation, education, marketing, and events in our ecosystem. More <a href="https://rubyonrails.org/2022/11/14/the-rails-foundation">here</a>.</p>
+
+<p><a href="https://github.com/hotwired/stimulus/pull/576">Stimulus gets an Outlets API</a>
+Around Hotwire, this pull request received a warm welcome. I reached out to the author, <a href="https://twitter.com/marcoroth_">Marco Roth</a>, who whipped out a documentation that perfectly summarises the Outlet API:</p>
+
+<p>The Outlets API lets you reference Stimulus Controller instances and their controller element from within another Stimulus Controller by using CSS selectors. The use of Outlets helps with cross-controller communication and coordination as an alternative to dispatching custom events on controller elements.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45660">Allow setting YAML serialization options on a per-attribute basis</a>
+This pull request adds functionality to allow setting YAML serialization options on a per-attribute basis - along with the current application-wide setting.</p>
+
+<p><a href="https://github.com/rails/docked">Docked Rails CLI</a>
+Setting up Rails for the first time with all the dependencies necessary can be daunting for beginners. Docked Rails CLI uses a Docker image to make it much easier, requiring only Docker to be installed.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46762">Add default Dockerfiles</a>
+This pull request adds Docker files by default to new apps: Dockerfile, .dockerignore, bin/docker-entrypoint. These files can be skipped with –skip-docker. They’re intended as a starting point for a production deploy of the application. Not intended for development (use the above mentioned Docked Rails for that). You can see more details about using it on the pull request.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45818">Use the error_highlight gem to locate the columns where an error was raised</a>
+Ruby 3.1 added the error_highlight gem to display the fine-grained location of where an error occurred. Rails will now use error_highlight on error pages to show the column range of where an error occurred.</p>
+
+<p><a href="https://github.com/rails/rails/pull/43688">Support password challenge via has_secure_password</a></p>
+
+<p>This allows a password challenge to be implemented with the same ease as a password confirmation, re-using the same error handling logic in the view, as well as the controller.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44707">Auto-create user and grant privileges when creating mysql databases</a>
+Creating the database user and granting privileges every time you need to set up Rails locally on a new computer can be tedious. This change adds it to the MySQL build rake task, using the <em>root</em> user with no password.</p>
+
+<p><a href="https://github.com/rails/rails/commit/acf48169943011834c4c885b956e29050548fa98">Stop autoclosing of PRs</a>
+While the idea of cleaning up the pull request list by nudging reviewers with the stale message and closing pull requests that didn’t got a review in time could work for the maintainers, in practice it discourages contributors to submit contributions.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44941">Add –name option to the app generator
+</a>The option <em>–name</em> will override the application name to be different from the folder name.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45149">Avoid validating a unique field if it has not changed and is backed by a unique index</a></p>
+
+<p>Previously, when saving a record, Active Record would perform an extra query to check for the uniqueness of each attribute having a uniqueness validation, even if that attribute hadn’t changed.
+If the database has the corresponding unique index, then this validation can never fail for persisted records, and we can safely skip it.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45501">Allow opting out of the SameSite cookie</a>
+You can now opt out of using <em>SameSite</em> on your cookies by passing <em>same_site: nil</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/37944">Common Table Expression support added “out-of-the-box</a>
+You can now build sophisticated queries with Common Table Expressions using the <em>.with</em> query method on models. The <em>.with</em> method allows the usage of Active Record relations without the need to manually build <em>Arel::Nodes::As</em> nodes.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45487">
+Allow passing Hash on secure password validations</a>
+You can now pass an option hash to _has_secure_password, with <em>:if / :unless / :on</em> keys, to control when should the validations be executed.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45735">
+Add <em>drop_enum</em> migration command for PostgreSQL</a>
+This does the inverse of <em>create_enum</em>. Before dropping an enum, ensure you have dropped columns that depend on it.</p>
+
+<p><a href="https://github.com/rails/rails/pull/43945">Add ActiveRecord::Base::normalizes</a>
+This method can be used to declare normalizations for attribute values. Normalizations are applied when attributes are assigned or updated, and the normalized values will be persisted to the database. Normalizations are also applied to matching keyword arguments of finder methods. This allows a record to be created and later queried using an un-normalized value.</p>
+
+<p>That’s a wrap! Have a great New Year’s Eve and see you next year!</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

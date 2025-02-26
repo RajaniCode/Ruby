@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: Ruby 2.4 on Rails 4.2</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello! This is Tim , bringing you another edition of This Week in Rails." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: Ruby 2.4 on Rails 4.2" />
+  <meta property="og:description" content="Hello! This is Tim , bringing you another edition of This Week in Rails." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/2/11/this-week-in-rails-ruby-2-4-on-rails-4-2" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: Ruby 2.4 on Rails 4.2" />
+  <meta name="twitter:description" content="Hello! This is Tim , bringing you another edition of This Week in Rails." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/2/11/this-week-in-rails-ruby-2-4-on-rails-4-2"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: Ruby 2.4 on Rails 4.2",
+      "description": "Hello! This is Tim , bringing you another edition of This Week in Rails.",
+      "url": "http://localhost:4000/2017/2/11/this-week-in-rails-ruby-2-4-on-rails-4-2",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "chancancode"
+      },
+      "datePublished": "2017-02-11T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, February 11, 2017</h5>
+        <h2>This Week in Rails: Ruby 2.4 on Rails 4.2</h2>
+
+        <h6>Posted by chancancode</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello! This is <a href="https://twitter.com/imtayadeway">Tim</a> , bringing you another edition of This Week in Rails.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20170204-20170211">This week’s Rails contributors</a></h3>
+
+<p>This week saw contributions from 26 contributors, including 4 for the first time! What a fantastic bunch!</p>
+
+<h3 id="rails-428rc1-has-been-released"><a href="https://rubyonrails.org/2017/2/10/Rails-4-2-8-rc1-has-been-released">Rails 4.2.8.rc1 has been released!</a></h3>
+
+<p>If you’re using Rails 4.2, you may want to get a head start by trying out the release candidate for the latest patch release. It’s the first Rails 4 release to support Ruby 2.4, so see if you can give it a try to help us iron out any kinks!</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="deprecate-locking-of-dirty-records"><a href="https://github.com/rails/rails/pull/25873">Deprecate locking of dirty records</a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">ActiveRecord::Base#lock!</code> and <code class="language-plaintext highlighter-rouge">#with_lock</code> reload the record before doing the actual locking. If there were any unsaved changes, they will be discarded without any warning. When this work is completed in Rails 5.2, an exception will be raised when trying to lock a dirty object. Until then, support for this has been deprecated, so keep an eye out for warnings like these!</p>
+
+<h3 id="remove-support-for-strings-in-callback-conditions"><a href="https://github.com/rails/rails/pull/27608">Remove support for strings in callback conditions</a></h3>
+
+<p>If you’ve seen deprecation notices concerning strings used in <code class="language-plaintext highlighter-rouge">if</code> and <code class="language-plaintext highlighter-rouge">unless</code> conditions in callbacks, listen up! Support for these have now been officially removed. Time to update, if you haven’t already!</p>
+
+<h2 id="fixes">Fixes</h2>
+
+<h3 id="allow-activerecordbaseas_json-to-accept-a-frozen-hash"><a href="https://github.com/rails/rails/pull/27945">Allow ActiveRecord::Base.as_json to accept a frozen Hash</a></h3>
+
+<p>As you may know, <code class="language-plaintext highlighter-rouge">ActiveRecord::Base.as_json</code> takes an (optional) options hash. That hash is modified internally, but Rails is nice enough to clone it first so that it doesn’t change the thing you passed to it. If your thing was frozen however, it would cause it to blow up! How can this be so, I hear you ask. Well, when you <code class="language-plaintext highlighter-rouge">clone</code> an object, you also clone its frozen-ness. <code class="language-plaintext highlighter-rouge">dup</code> , on the other hand, does not do this, which turned out to be the solution. Case closed!</p>
+
+<p>That’s it from This Week in Rails. There were many other great contributions, too numerous to list here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2017-02-04%7D...@%7B2017-02-11%7D">check them out</a>!</p>
+
+<p>See you next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

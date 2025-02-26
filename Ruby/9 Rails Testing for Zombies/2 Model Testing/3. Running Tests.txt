@@ -1,0 +1,18 @@
+3. Running Tests
+
+
+Execute the rake command which will run both db:test:prepare and all the tests. 
+
+
+Answer: rake test
+
+
+Console
+
+$ rake test
+Started
+.
+Finished in 0.146441 seconds.
+
+1 tests, 1 assertions, 0 failures, 0 errors, 0 skips
+Success!

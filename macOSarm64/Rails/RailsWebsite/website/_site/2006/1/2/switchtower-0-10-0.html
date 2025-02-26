@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; SwitchTower 0.10.0</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="You can read the complete changelog, but here&#8217;s a quick overview of some of the most notable changes:Bugs Fixed	Handle SSH password prompts formatted like &#8220;someone&#8217;s password:&#8221;	Allow the sudo password to be reentered if it was entered incorrectly	Errors during checkout are now caught and reported early	Avoid timeouts on long-running commands	Add a small sleep during command processing to give the CPU a rest	Rake tasks should work much more nicely on Windows (you&#8217;ll need to do switchtower --apply-to /path/to/app to update, keeping your config/deploy.rb and overwriting lib/tasks/switchtower.rake)New Featuresssh_options variableThere is now an ssh_options hash that you can use in your recipe files to set custom SSH connection options, like setting a non-standard port to connect on:ssh_options[:port] = 2345Allow svn checkouts to use export instead of coIf you don&#8217;t want to use an svn co to checkout your code, you can set the :checkout variable to :export, and SwitchTower will use svn export instead.set :checkout, :exportThis variable defaults to :co.update_current taskThere is now an update_current task that just does an svn up on the last-deployed release. This is useful for trivial updates, like when a template changed.cleanup taskYou can easily remove unused releases from your deployment directories with the cleanup task. It will (by default) keep the 5 most recent releases, and delete the rest.SFTP for file transfersNet::SFTP is now used (if it is available) for file transfers. This should make transferring large files more robust, as well as allow binary characters in files.restart_via variableYou can now set the :restart_via variable to :run, if you need to have the restart task use run instead of sudo.set :restart_via, :runThis defaults variable to :sudo." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="SwitchTower 0.10.0" />
+  <meta property="og:description" content="You can read the complete changelog, but here&#8217;s a quick overview of some of the most notable changes:Bugs Fixed	Handle SSH password prompts formatted like &#8220;someone&#8217;s password:&#8221;	Allow the sudo password to be reentered if it was entered incorrectly	Errors during checkout are now caught and reported early	Avoid timeouts on long-running commands	Add a small sleep during command processing to give the CPU a rest	Rake tasks should work much more nicely on Windows (you&#8217;ll need to do switchtower --apply-to /path/to/app to update, keeping your config/deploy.rb and overwriting lib/tasks/switchtower.rake)New Featuresssh_options variableThere is now an ssh_options hash that you can use in your recipe files to set custom SSH connection options, like setting a non-standard port to connect on:ssh_options[:port] = 2345Allow svn checkouts to use export instead of coIf you don&#8217;t want to use an svn co to checkout your code, you can set the :checkout variable to :export, and SwitchTower will use svn export instead.set :checkout, :exportThis variable defaults to :co.update_current taskThere is now an update_current task that just does an svn up on the last-deployed release. This is useful for trivial updates, like when a template changed.cleanup taskYou can easily remove unused releases from your deployment directories with the cleanup task. It will (by default) keep the 5 most recent releases, and delete the rest.SFTP for file transfersNet::SFTP is now used (if it is available) for file transfers. This should make transferring large files more robust, as well as allow binary characters in files.restart_via variableYou can now set the :restart_via variable to :run, if you need to have the restart task use run instead of sudo.set :restart_via, :runThis defaults variable to :sudo." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2006/1/2/switchtower-0-10-0" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="SwitchTower 0.10.0" />
+  <meta name="twitter:description" content="You can read the complete changelog, but here&#8217;s a quick overview of some of the most notable changes:Bugs Fixed	Handle SSH password prompts formatted like &#8220;someone&#8217;s password:&#8221;	Allow the sudo password to be reentered if it was entered incorrectly	Errors during checkout are now caught and reported early	Avoid timeouts on long-running commands	Add a small sleep during command processing to give the CPU a rest	Rake tasks should work much more nicely on Windows (you&#8217;ll need to do switchtower --apply-to /path/to/app to update, keeping your config/deploy.rb and overwriting lib/tasks/switchtower.rake)New Featuresssh_options variableThere is now an ssh_options hash that you can use in your recipe files to set custom SSH connection options, like setting a non-standard port to connect on:ssh_options[:port] = 2345Allow svn checkouts to use export instead of coIf you don&#8217;t want to use an svn co to checkout your code, you can set the :checkout variable to :export, and SwitchTower will use svn export instead.set :checkout, :exportThis variable defaults to :co.update_current taskThere is now an update_current task that just does an svn up on the last-deployed release. This is useful for trivial updates, like when a template changed.cleanup taskYou can easily remove unused releases from your deployment directories with the cleanup task. It will (by default) keep the 5 most recent releases, and delete the rest.SFTP for file transfersNet::SFTP is now used (if it is available) for file transfers. This should make transferring large files more robust, as well as allow binary characters in files.restart_via variableYou can now set the :restart_via variable to :run, if you need to have the restart task use run instead of sudo.set :restart_via, :runThis defaults variable to :sudo." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2006/1/2/switchtower-0-10-0"
+      },
+      "name": "Ruby on Rails",
+      "headline": "SwitchTower 0.10.0",
+      "description": "You can read the complete changelog, but here&#8217;s a quick overview of some of the most notable changes:Bugs Fixed	Handle SSH password prompts formatted like &#8220;someone&#8217;s password:&#8221;	Allow the sudo password to be reentered if it was entered incorrectly	Errors during checkout are now caught and reported early	Avoid timeouts on long-running commands	Add a small sleep during command processing to give the CPU a rest	Rake tasks should work much more nicely on Windows (you&#8217;ll need to do switchtower --apply-to /path/to/app to update, keeping your config/deploy.rb and overwriting lib/tasks/switchtower.rake)New Featuresssh_options variableThere is now an ssh_options hash that you can use in your recipe files to set custom SSH connection options, like setting a non-standard port to connect on:ssh_options[:port] = 2345Allow svn checkouts to use export instead of coIf you don&#8217;t want to use an svn co to checkout your code, you can set the :checkout variable to :export, and SwitchTower will use svn export instead.set :checkout, :exportThis variable defaults to :co.update_current taskThere is now an update_current task that just does an svn up on the last-deployed release. This is useful for trivial updates, like when a template changed.cleanup taskYou can easily remove unused releases from your deployment directories with the cleanup task. It will (by default) keep the 5 most recent releases, and delete the rest.SFTP for file transfersNet::SFTP is now used (if it is available) for file transfers. This should make transferring large files more robust, as well as allow binary characters in files.restart_via variableYou can now set the :restart_via variable to :run, if you need to have the restart task use run instead of sudo.set :restart_via, :runThis defaults variable to :sudo.",
+      "url": "http://localhost:4000/2006/1/2/switchtower-0-10-0",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "jamis"
+      },
+      "datePublished": "2006-01-02T23:49:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, January 2, 2006</h5>
+        <h2>SwitchTower 0.10.0</h2>
+
+        <h6>Posted by jamis</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>You can read the <a href="http://rubyforge.org/frs/shownotes.php?release_id=3930">complete changelog</a>, but here&#8217;s a quick overview of some of the most notable changes:</p>
+<h3>Bugs Fixed</h3>
+<ul>
+	<li>Handle <span class="caps">SSH</span> password prompts formatted like &#8220;someone&#8217;s password:&#8221;</li>
+	<li>Allow the sudo password to be reentered if it was entered incorrectly</li>
+	<li>Errors during checkout are now caught and reported early</li>
+	<li>Avoid timeouts on long-running commands</li>
+	<li>Add a small sleep during command processing to give the <span class="caps">CPU</span> a rest</li>
+	<li>Rake tasks should work much more nicely on Windows (you&#8217;ll need to do <code>switchtower --apply-to /path/to/app</code> to update, keeping your <code>config/deploy.rb</code> and overwriting <code>lib/tasks/switchtower.rake</code>)</li>
+</ul>
+<h3>New Features</h3>
+<p><strong><code>ssh_options</code> variable</strong></p>
+<p>There is now an <code>ssh_options</code> hash that you can use in your recipe files to set custom <span class="caps">SSH</span> connection options, like setting a non-standard port to connect on:</p>
+<typo:code lang="ruby">
+ssh_options[:port] = 2345
+</typo:code>
+<p><strong>Allow svn checkouts to use <code>export</code> instead of <code>co</code></strong></p>
+<p>If you don&#8217;t want to use an <code>svn co</code> to checkout your code, you can set the <code>:checkout</code> variable to <code>:export</code>, and SwitchTower will use <code>svn export</code> instead.</p>
+<typo:code lang="ruby">
+set :checkout, :export
+</typo:code>
+<p>This variable defaults to <code>:co</code>.</p>
+<p><strong><code>update_current</code> task</strong></p>
+<p>There is now an <code>update_current</code> task that just does an <code>svn up</code> on the last-deployed release. This is useful for trivial updates, like when a template changed.</p>
+<p><strong><code>cleanup</code> task</strong></p>
+<p>You can easily remove unused releases from your deployment directories with the <code>cleanup</code> task. It will (by default) keep the 5 most recent releases, and delete the rest.</p>
+<p><strong><span class="caps">SFTP</span> for file transfers</strong></p>
+<p>Net::<span class="caps">SFTP</span> is now used (if it is available) for file transfers. This should make transferring large files more robust, as well as allow binary characters in files.</p>
+<p><strong><code>restart_via</code> variable</strong></p>
+<p>You can now set the <code>:restart_via</code> variable to <code>:run</code>, if you need to have the <code>restart</code> task use <code>run</code> instead of <code>sudo</code>.</p>
+<typo:code lang="ruby">
+set :restart_via, :run
+</typo:code>
+<p>This defaults variable to <code>:sudo</code>.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

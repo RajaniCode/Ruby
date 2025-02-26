@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 7.1.1 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 7.1.1 has been released!" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/10/12/Rails-7-1-1-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 7.1.1 has been released!" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/10/12/Rails-7-1-1-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 7.1.1 has been released!",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2023/10/12/Rails-7-1-1-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "rafaelfranca"
+      },
+      "datePublished": "2023-10-12T04:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, October 12, 2023</h5>
+        <h2>Rails 7.1.1 has been released!</h2>
+
+        <h6>Posted by rafaelfranca</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>I am happy to announce that Rails 7.1.1 has been released.</p>
+
+<h2 id="changes-since-710">CHANGES since 7.1.0</h2>
+
+<p>To see a summary of changes, please read the release on GitHub:</p>
+
+<p><a href="https://github.com/rails/rails/releases/tag/v7.1.1">7.1.1 CHANGELOG</a>
+To view the changes for each gem, please read the changelogs on GitHub:</p>
+<ul>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/actioncable/CHANGELOG.md">Action Cable CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/actionmailbox/CHANGELOG.md">Action Mailbox CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/actionmailer/CHANGELOG.md">Action Mailer CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/actionpack/CHANGELOG.md">Action Pack CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/actiontext/CHANGELOG.md">Action Text CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/actionview/CHANGELOG.md">Action View CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/activejob/CHANGELOG.md">Active Job CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/activemodel/CHANGELOG.md">Active Model CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/activerecord/CHANGELOG.md">Active Record CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/activestorage/CHANGELOG.md">Active Storage CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/activesupport/CHANGELOG.md">Active Support CHANGELOG</a></li>
+  <li><a href="https://github.com/rails/rails/blob/v7.1.1/railties/CHANGELOG.md">Railties CHANGELOG</a></li>
+</ul>
+
+<p><em>Full listing</em></p>
+
+<p>To see the full list of changes, <a href="https://github.com/rails/rails/compare/v7.1.0...v7.1.1">check out all the commits on
+GitHub</a>.</p>
+
+<h2 id="sha-256">SHA-256</h2>
+
+<p>If you’d like to verify that your gem is the same as the one I’ve uploaded,
+please use these SHA-256 hashes.</p>
+
+<p>Here are the checksums for 7.1.1:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum -a 256 *-7.1.1.gem
+e96962eb545403838299140f087257b933574992baf6ec639406f45caffca37d  actioncable-7.1.1.gem
+e1e9e9d9072953edad32bddbfab855c4ddfab7f34140bdb5b8c26375d109c78e  actionmailbox-7.1.1.gem
+82506adb5fd9cf4c5552a7f8d9d853e338072b62359a71317d8c5d93a9b427db  actionmailer-7.1.1.gem
+2de4b4cc50becc3ca8746439214cc7fec221d1c8d2b1d889016d79070624592c  actionpack-7.1.1.gem
+dfc964fc60b90a5e1057a8afa3bb2d684f1b829a55c4ad7443700fe2e3e19213  actiontext-7.1.1.gem
+36c737f2ab6f1b90633964ee2928a93d7d2911e83a885a881e564da1860b8509  actionview-7.1.1.gem
+a565b3d575b1b2750a97ef0a99f81dc13aafba0ecffa10227ea86a04a9fc17e2  activejob-7.1.1.gem
+1f2fd3c2136b111fe523cf80ee5c141990290e8aedacb866b6fd68c8dfd7a69a  activemodel-7.1.1.gem
+f8dd03c0f3a462d616781dba3637a281ec86aaf6e643b56bea308e451ee96325  activerecord-7.1.1.gem
+0cc259e1fe5ff20777a206ed71f1b1ed03825c8e14a86a344e637fa25c5a0090  activestorage-7.1.1.gem
+8770bca4af1cbd6e9ffb944b41056321499ff82e8e7c2ed34e48eff4a5ee58a2  activesupport-7.1.1.gem
+66e736acc1d1ba5ca1b598fc8b6024715aee02025467bfa87682dbeb823ddc17  rails-7.1.1.gem
+3cf348b365e9a00285bceadef0ed7d264440fcf165541ab211e198bc75a2faa7  railties-7.1.1.gem
+</code></pre></div></div>
+
+<p>As always, huge thanks to the many contributors who helped with this release.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

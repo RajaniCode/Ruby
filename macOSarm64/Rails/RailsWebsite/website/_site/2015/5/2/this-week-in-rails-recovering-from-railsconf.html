@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: recovering from RailsConf</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Happy Friday! It’s Claudio with the latest updates on Rails. Overall, this has been a relaxed week. Many documentation fixes have made their way into master while features uncovered at RailsConf (like the integration of Rails API) are being heavily discussed on GitHub." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: recovering from RailsConf" />
+  <meta property="og:description" content="Happy Friday! It’s Claudio with the latest updates on Rails. Overall, this has been a relaxed week. Many documentation fixes have made their way into master while features uncovered at RailsConf (like the integration of Rails API) are being heavily discussed on GitHub." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/5/2/this-week-in-rails-recovering-from-railsconf" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: recovering from RailsConf" />
+  <meta name="twitter:description" content="Happy Friday! It’s Claudio with the latest updates on Rails. Overall, this has been a relaxed week. Many documentation fixes have made their way into master while features uncovered at RailsConf (like the integration of Rails API) are being heavily discussed on GitHub." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/5/2/this-week-in-rails-recovering-from-railsconf"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: recovering from RailsConf",
+      "description": "Happy Friday! It’s Claudio with the latest updates on Rails. Overall, this has been a relaxed week. Many documentation fixes have made their way into master while features uncovered at RailsConf (like the integration of Rails API) are being heavily discussed on GitHub.",
+      "url": "http://localhost:4000/2015/5/2/this-week-in-rails-recovering-from-railsconf",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "claudiob"
+      },
+      "datePublished": "2015-05-02T06:57:52+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, May 2, 2015</h5>
+        <h2>This week in Rails: recovering from RailsConf</h2>
+
+        <h6>Posted by claudiob</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Happy Friday! It’s <a href="https://claudiob.github.io">Claudio</a> with the latest updates on Rails. Overall, this has been a relaxed week. Many documentation fixes have made their way into <code class="language-plaintext highlighter-rouge">master</code> while features uncovered at RailsConf (like the <a href="https://github.com/rails/rails/pull/19832">integration of Rails API</a>) are being heavily discussed on GitHub.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20150425-20150501">This Week’s Contributors</a></h3>
+
+<p>This week 31 people helped Rails out. Six people had their first commit merged into rails/rails. Hooray!</p>
+
+<h3 id="railsconf-2015-videos"><a href="http://confreaks.tv/events/railsconf2015">RailsConf 2015 videos</a></h3>
+
+<p>One by one, all the presentations of RailsConf are being uploaded. Lots of great talks to fill your weekend!</p>
+
+<h3 id="gsoc-students-announced"><a href="https://rubyonrails.org/2015/5/2/welcome-to-gsoc-15">GSoC students announced!</a></h3>
+
+<p>We are proud to announce that 8 students will be working on improving Rails as part of the Google Summer of Code 2015. Congratulations and welcome to Rails!</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="better-docs-for-minitest-assertions"><a href="https://github.com/rails/rails/commit/a66a64aa2a82b755f754bd42b8a4a4697ac89f83">Better docs for minitest assertions</a></h3>
+
+<p>Rails ships with minitest by default but has different naming conventions for inverse assertion methods. The new guides clarify this difference. And give us a great excuse to link to <a href="https://www.youtube.com/watch?v=MA4jJNUG_dI">Ruby on Rails on Minitest</a>.</p>
+
+<h3 id="toward-a-better-caching-with-rails-guide"><a href="https://github.com/rails/rails/commit/ae5c5b2237ee4c1aae98a048c09b6a98bd352475">Toward a better “Caching with Rails” guide</a></h3>
+
+<p>Everyone can help make Rails better by improving its guides. <a href="http://guides.rubyonrails.org/caching_with_rails.html">“Caching with Rails”</a> is an awesome place to start. If you think you can improve it, don’t hesitate to submit a pull request!</p>
+
+<h3 id="remove-use-of-mocha-in-the-named-base-tests"><a href="https://github.com/rails/rails/commit/3ca5ae57b517b7a5a8d07dff83703dcd1f199870">Remove use of mocha in the named-base tests</a></h3>
+
+<p>Some tests in the Rails codebase use the <code class="language-plaintext highlighter-rouge">mocha</code> library and can be faster by using <code class="language-plaintext highlighter-rouge">minitest/mock</code> instead. This commit fixes one of those tests; you are all invited to do the same for <a href="https://github.com/rails/rails/search?utf8=%E2%9C%93&amp;q=%22stop+using+mocha%22&amp;type=Code">the remaining ones</a>.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="rake-routes-not-showing-right-format-when-nested"><a href="https://github.com/rails/rails/issues/18373">Rake routes not showing right format when nested</a></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">rake routes</code> command was not properly showing nested routes with a scope constraint for the format override by a resource… but that just got fixed!</p>
+
+<h2 id="thats-a-wrap">That’s a wrap</h2>
+
+<p>That’s all for This week in Rails. As always, there are more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails">check them out yourself</a>!</p>
+
+<p>P.S. If you enjoyed this newsletter, why not share it with your friends? :) If you wish to be part of this project please don’t hesitate to <a href="mailto:godfrey@brewhouse.io">contact Godfrey</a> – there’re a lot of ways you could help make this newsletter more awesome!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

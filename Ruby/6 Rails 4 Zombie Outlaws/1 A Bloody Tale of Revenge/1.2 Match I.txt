@@ -1,0 +1,16 @@
+1.2 Match I
+
+
+The route definition in our routes file raises an error. Change the match method so that this route only responds to the POST HTTP method.
+
+
+config/routes.rb
+ZombieOutlaws::Application.routes.draw do
+  match '/create_outlaws', to: 'zombies#create'
+end
+
+
+Answer:
+ZombieOutlaws::Application.routes.draw do
+  post '/create_outlaws', to: 'zombies#create'
+end

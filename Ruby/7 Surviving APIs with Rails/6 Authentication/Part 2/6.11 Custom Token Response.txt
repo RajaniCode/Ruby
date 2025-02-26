@@ -1,0 +1,81 @@
+6.11 Custom Token Response
+
+Now that you’re getting the hang of this, we need to implement the response for invalid Token Based authentication attempts. It is up to us to set the correct response status code and the correct response header.
+
+
+app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  before_action :authenticate
+
+  protected
+    def authenticate
+      authenticate_token || render_unauthorized
+    end
+
+    def authenticate_token
+      authenticate_with_http_token do |token|
+        User.find_by(auth_token: token)
+      end
+    end
+
+    def render_unauthorized
+      # code here
+    end
+end
+
+
+1. On the render_unauthorized method, set the WWW-Authenticate header to 'Token realm="Zombies"'.
+
+Answer:
+app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  before_action :authenticate
+
+  protected
+    def authenticate
+      authenticate_token || render_unauthorized
+    end
+
+    def authenticate_token
+      authenticate_with_http_token do |token|
+        User.find_by(auth_token: token)
+      end
+    end
+
+    def render_unauthorized
+      # code here
+      self.headers['WWW-Authenticate'] = 'Token realm="Zombies"'
+    end
+end
+
+
+2. Now add support for both JSON and XML responses. Both should return the message Bad credentials with a 401 - Unauthorized status code.
+
+
+Answer:
+app/controllers/application_controller.rb
+class ApplicationController < ActionController::Base
+  before_action :authenticate
+
+  protected
+    def authenticate
+      authenticate_token || render_unauthorized
+    end
+
+    def authenticate_token
+      authenticate_with_http_token do |token|
+        User.find_by(auth_token: token)
+      end
+    end
+
+    def render_unauthorized
+      # code here
+      self.headers['WWW-Authenticate'] = 'Token realm="Zombies"'
+      
+      respond_to do |format|
+        format.json {render json: 'Bad credentials', status: 401}
+        format.xml {render xml: 'Bad credentials', status: 401}
+      end          
+    end
+end
+

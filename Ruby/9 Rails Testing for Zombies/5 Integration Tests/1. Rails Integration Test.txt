@@ -1,0 +1,56 @@
+1. Rails Integration Test
+
+
+Using Rails integration test helpers complete the two tests below by calling the tweet_url(@tweet) path using GET, and asserting a successful response and that the h1 tag contains the @tweet.status.
+ 
+tweets_controller.rb
+class TweetsController < ApplicationController
+
+  def show
+    @tweet = Tweet.find(params[:id])
+  end
+
+end
+
+
+show.html.erb
+<h1><%= @tweet.status %></h1>
+<p>Posted by <%= link_to @tweet.zombie.name, zombie_tweets_path(@tweet.zombie) %></p>
+
+
+test/integration/tweet_display_status_test.rb
+class TweetDisplaysStatusTest < ActionDispatch::IntegrationTest
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+  test "Tweet page responds successfully" do
+ 
+  end
+  test "Tweet displays status in heading" do 
+  end
+end
+
+
+Answer:
+test/integration/tweet_display_status_test.rb
+class TweetDisplaysStatusTest < ActionDispatch::IntegrationTest
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+
+  test "Tweet page responds successfully" do
+    get tweet_url(@tweet)
+    assert_response :success
+  end
+
+  test "Tweet displays status in heading" do 
+    get tweet_url(@tweet)
+    assert_select "h1", @tweet.status
+  end
+end
+
+
+Test Output:
+..
+
+Finished tests in 0.034473s, 58.0165 tests/s, 377.1073 assertions/s.

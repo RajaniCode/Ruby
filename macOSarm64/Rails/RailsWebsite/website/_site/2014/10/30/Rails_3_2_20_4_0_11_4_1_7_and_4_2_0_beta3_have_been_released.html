@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 3.2.20, 4.0.11, 4.1.7, and 4.2.0.beta3 have been released</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone!!! It’s that time again." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 3.2.20, 4.0.11, 4.1.7, and 4.2.0.beta3 have been released" />
+  <meta property="og:description" content="Hello everyone!!! It’s that time again." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2014/10/30/Rails_3_2_20_4_0_11_4_1_7_and_4_2_0_beta3_have_been_released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 3.2.20, 4.0.11, 4.1.7, and 4.2.0.beta3 have been released" />
+  <meta name="twitter:description" content="Hello everyone!!! It’s that time again." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2014/10/30/Rails_3_2_20_4_0_11_4_1_7_and_4_2_0_beta3_have_been_released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 3.2.20, 4.0.11, 4.1.7, and 4.2.0.beta3 have been released",
+      "description": "Hello everyone!!! It’s that time again.",
+      "url": "http://localhost:4000/2014/10/30/Rails_3_2_20_4_0_11_4_1_7_and_4_2_0_beta3_have_been_released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "tenderlove"
+      },
+      "datePublished": "2014-10-30T23:46:55+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, October 30, 2014</h5>
+        <h2>Rails 3.2.20, 4.0.11, 4.1.7, and 4.2.0.beta3 have been released</h2>
+
+        <h6>Posted by tenderlove</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone!!! It’s that time again.</p>
+
+<p>I would like to announce that Rails 3.2.20, 4.0.11, 4.1.7, and 4.2.0.beta3 have been released.  These releases contain a security fix where the existence of arbitrary files on the file system can be leaked, but the contents of the file <strong>will not</strong> be leaked.  The issue generally only impacts people who are using Rails to serve static assets, and will generally not impact people who use a proxy to serve static assets.  You can read more about the issue <a href="https://groups.google.com/forum/#!topic/rubyonrails-security/dCp7duBiQgo">here (CVE-2014-7818)</a>.  A release of sprockets has also been made to help with this issue.  You can read about it <a href="https://groups.google.com/forum/#!topic/rubyonrails-security/doAVp0YaTqY">here (CVE-2014-7819)</a>.</p>
+
+<p>For ease of upgrading, the only changes in these releases are the security fixes.</p>
+
+<p>Here are the checksums for the gems:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[aaron@TC release]$ shasum *3.2.20*
+b14ca1ad923e035ab2a7785e657c5653447c3149  actionmailer-3.2.20.gem
+d6fea767996a954e4bc95fd0ca101ec912fcb093  actionpack-3.2.20.gem
+97f5bb424aee73fbbd319baab3fd35c3f5eeb5f4  activemodel-3.2.20.gem
+32d76836675a4c88685c3904271b16d9d2338ce9  activerecord-3.2.20.gem
+640d83a96accc24e6afcae3cc5b253e5d355983f  activeresource-3.2.20.gem
+d1d0a19a589c62278e7d9ac4275d5f8d75df20b3  activesupport-3.2.20.gem
+f8b4d3c56d89760c02b37d4c67efd31dedd4df80  rails-3.2.20.gem
+41c272d53dd748407210a2270ad17bc7c9f30594  railties-3.2.20.gem
+[aaron@TC release]$ shasum *4.0.11*
+9718b62f4428a7e4bbf66df4ac57dd82d197905a  actionmailer-4.0.11.gem
+f1aec3d29e781e3beb685852db00ecf495150077  actionpack-4.0.11.gem
+2ba4ceeff0a76df850d6294e2e1da703f3f6e7cb  activemodel-4.0.11.gem
+714dca99a452adfec76b507241896ffd7978a254  activerecord-4.0.11.gem
+2791791c5c1eeefb3eee76712656bf674a20867d  activesupport-4.0.11.gem
+56bb306d4f0309dcf3a804a97104a3ee26b64b94  rails-4.0.11.gem
+243e265c879db8876cce8688374cb7f9bb752d7d  railties-4.0.11.gem
+[aaron@TC release]$ shasum *4.1.7*
+4e4ce2530ff8773af784340e17e925b3b2c8cb20  actionmailer-4.1.7.gem
+81628e433ca4335409677a33cfe9b56627f6ae1a  actionpack-4.1.7.gem
+7dc2626f5bc85379c55e49a712f5c0e060340ca8  actionview-4.1.7.gem
+83c8be73d22973c843d43a988b27a449d2ca8a9d  activemodel-4.1.7.gem
+001156373c248a20c69bcf1451d6f7166dac3ddb  activerecord-4.1.7.gem
+217f25a911f8e89cd2834849232555cbc47ca850  activesupport-4.1.7.gem
+a1d9bb181d718e7f6cf380136425444e627c2345  rails-4.1.7.gem
+1b9c8d08afc8fa77786fef13c54d4e6985cdc6d6  railties-4.1.7.gem
+[aaron@TC release]$ shasum *4.2.0*
+e5d608e8ce32abdd73c73c91fd34cb8f7075a251  actionmailer-4.2.0.beta3.gem
+2e2034c285943777ad325c35292e202a46b937c2  actionpack-4.2.0.beta3.gem
+a008833cd1045c926fb6f36ee03e3d34499a0aa9  actionview-4.2.0.beta3.gem
+02f4438363419c59b33d85b2dda4d4cf741a6098  activejob-4.2.0.beta3.gem
+c8a7dc2134c885ad3b23d4c36be95abc1ec1b769  activemodel-4.2.0.beta3.gem
+192e33ab3b9d54954ff834ce6ee7f67a9197cb36  activerecord-4.2.0.beta3.gem
+00437ab52df0ed0dd9afe571d083c92c3cdbe361  activesupport-4.2.0.beta3.gem
+ca81d6ac9fdd658775d32a6dbfe248ee13f5c87b  rails-4.2.0.beta3.gem
+cc302e363248e4bc2d245201f922c576f9fe6f15  railties-4.2.0.beta3.gem
+</code></pre></div></div>
+
+<p>Have a great day!!! &lt;3</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

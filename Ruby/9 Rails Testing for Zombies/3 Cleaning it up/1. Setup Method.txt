@@ -1,0 +1,42 @@
+1. Setup Method
+
+
+Refactor the following code using a setup method to create the tweet, and properly use instance variables. 
+
+
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  test "invalid without a status" do
+    tweet = tweets(:hello_world)
+    tweet.status = nil
+    assert !tweet.valid?, "Status is not being Validated"
+  end
+  test "valid with all attributes" do
+    tweet = tweets(:hello_world)
+    assert tweet.valid?, "tweet isn't valid"
+  end
+end
+
+
+Answer:
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+  def setup
+    @tweet = tweets(:hello_world)
+  end
+  
+  test "invalid without a status" do    
+    @tweet.status = nil
+    assert !@tweet.valid?, "Status is not being Validated"
+  end
+
+  test "valid with all attributes" do
+    assert @tweet.valid?, "tweet isn't valid"
+  end
+end
+
+
+Test Output:
+..
+
+Finished tests in 0.025393s, 78.7625 tests/s, 196.9064 assertions/s.

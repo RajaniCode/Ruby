@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 4.2.4 is out, params.require accepts arrays, Rack 2 is on its way and I'm no longer a teapot!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi, everybody! This is Tim and Claudio reporting here from sunny Los Angeles. It’s been a week of intense weather here, and even more intense activity in the Rails community. Let’s take a look at the highlights…" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 4.2.4 is out, params.require accepts arrays, Rack 2 is on its way and I'm no longer a teapot!" />
+  <meta property="og:description" content="Hi, everybody! This is Tim and Claudio reporting here from sunny Los Angeles. It’s been a week of intense weather here, and even more intense activity in the Rails community. Let’s take a look at the highlights…" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/8/29/this-week-in-rails-rails-4-2-4-is-out-params-require-accepts-arrays-rack-2-is-on-its-way-and-i-m-no-longer-a-teapot" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 4.2.4 is out, params.require accepts arrays, Rack 2 is on its way and I'm no longer a teapot!" />
+  <meta name="twitter:description" content="Hi, everybody! This is Tim and Claudio reporting here from sunny Los Angeles. It’s been a week of intense weather here, and even more intense activity in the Rails community. Let’s take a look at the highlights…" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/8/29/this-week-in-rails-rails-4-2-4-is-out-params-require-accepts-arrays-rack-2-is-on-its-way-and-i-m-no-longer-a-teapot"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 4.2.4 is out, params.require accepts arrays, Rack 2 is on its way and I'm no longer a teapot!",
+      "description": "Hi, everybody! This is Tim and Claudio reporting here from sunny Los Angeles. It’s been a week of intense weather here, and even more intense activity in the Rails community. Let’s take a look at the highlights…",
+      "url": "http://localhost:4000/2015/8/29/this-week-in-rails-rails-4-2-4-is-out-params-require-accepts-arrays-rack-2-is-on-its-way-and-i-m-no-longer-a-teapot",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "imtayadeway"
+      },
+      "datePublished": "2015-08-29T08:54:30+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, August 29, 2015</h5>
+        <h2>Rails 4.2.4 is out, params.require accepts arrays, Rack 2 is on its way and I'm no longer a teapot!</h2>
+
+        <h6>Posted by imtayadeway</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi, everybody! This is <a href="https://twitter.com/imtayadeway">Tim</a> and <a href="http://claudiob.github.io">Claudio</a> reporting here from sunny Los Angeles. It’s been a week of intense weather here, and even more intense activity in the Rails community. Let’s take a look at the highlights…</p>
+
+<h2 id="releases">Releases</h2>
+
+<h3 id="rails-424-and-4113-have-been-released"><a href="https://rubyonrails.org/2015/8/24/Rails-4-2-4-and-4-1-13-have-been-released">Rails 4.2.4 and 4.1.13 have been released!</a></h3>
+
+<p>The new versions are backward compatible, so if you are using any 4.2.x version, you can safely upgrade to 4.2.4. And if you are using 4.1.x, bump your Gemfile to 4.1.13.</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20150821-20150828">This week’s Rails contributors</a></h3>
+
+<p>This week 47 awesome people helped to make Rails even better, including 3 for the first time. If you are interested in becoming a contributor, you can have a look at the <a href="https://github.com/rails/rails/issues">issues list</a>.</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="an-asyncadapter-for-active-job"><a href="https://github.com/rails/rails/pull/21257">An <code class="language-plaintext highlighter-rouge">AsyncAdapter</code> for Active Job</a></h3>
+
+<p>Do you need to create asynchronous jobs without installing additional gems? Set <code class="language-plaintext highlighter-rouge">config.active_job.queue_adapter = :async</code> and post your jobs to a concurrent-ruby thread pool.</p>
+
+<h3 id="a-new-format-for-paramsrequire"><a href="https://github.com/rails/rails/pull/19565">A new format for params.require</a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">params.require</code> can now take multiple values as an array, allowing for more succinct code such as <code class="language-plaintext highlighter-rouge">params.require(:person).require([:first_name, :last_name])</code></p>
+
+<h3 id="getting-ready-for-rack-2"><a href="https://github.com/rails/rails/commit/51c7ac142d31095d4c699f44cc44ddea627da1eb">Getting ready for Rack 2</a></h3>
+
+<p>In Rack 2, the <code class="language-plaintext highlighter-rouge">env</code> hash will be changed to be actual request and response objects. This commit paves the way for Rails to be compatible when Rack 2 is released.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="speed-improvements-for-loadable_constants_for_path"><a href="https://github.com/rails/rails/pull/21411">Speed improvements for <code class="language-plaintext highlighter-rouge">loadable_constants_for_path</code></a></h3>
+
+<p>Pull requests that improve the performance of Rails are always welcome, especially when they come with benchmarks showing a speed increase of 9x!</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="goodbye-418-im-a-teapot"><a href="https://github.com/rails/rails/pull/20757">Goodbye 418 (I’m a teapot)</a></h3>
+
+<p><a href="https://tools.ietf.org/html/rfc7231">RFC 7231</a> changed the list of HTTP status codes (dropping “418 I’m a Teapot” among others). Rails documentation has now been fixed to list the symbols that can be used to represent status codes.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>One last thing that deserves a mention is that the new Code of Conduct has gone live on <a href="https://rubyonrails.org/conduct">the main website</a>. Hurrah!</p>
+
+<p>That’s all for This week in Rails. As always, there are many more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2015-08-22%7D...@%7B2015-08-28%7D">check them out yourself</a>!</p>
+
+<p>Have you been thinking about writing for us, but you’re scared of putting yourself out there? Don’t worry, you can help our editors improve their writing with thoughtful critique and general grammar policing.</p>
+
+<p>You up for that? Tell <a href="mailto:godfreykfc@gmail.com">Godfrey</a> today.</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails World 2024 tickets on April 30, legacy index name format for Rails 7.0, etc</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Emmanuel Hayford here, writing from Toruń, Poland." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails World 2024 tickets on April 30, legacy index name format for Rails 7.0, etc" />
+  <meta property="og:description" content="Emmanuel Hayford here, writing from Toruń, Poland." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/4/26/this-week-in-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails World 2024 tickets on April 30, legacy index name format for Rails 7.0, etc" />
+  <meta name="twitter:description" content="Emmanuel Hayford here, writing from Toruń, Poland." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/this-week-in-rails.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/4/26/this-week-in-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails World 2024 tickets on April 30, legacy index name format for Rails 7.0, etc",
+      "description": "Emmanuel Hayford here, writing from Toruń, Poland.",
+      "url": "http://localhost:4000/2024/4/26/this-week-in-rails",
+      "image": "http://localhost:4000/assets/images/this-week-in-rails.png",
+      "author": {
+        "@type": "Person",
+        "name": "Emmanuel Hayford"
+      },
+      "datePublished": "2024-04-26T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, April 26, 2024</h5>
+        <h2>Rails World 2024 tickets on April 30, legacy index name format for Rails 7.0, etc</h2>
+
+        <h6>Posted by Emmanuel Hayford</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><a href="https://twitter.com/siaw23">Emmanuel Hayford</a> here, writing from Toruń, Poland.</p>
+
+<p>We’ll keep this one short.</p>
+
+<p>Tickets for this year’s Rails World will be available for purchase on Tuesday, April 30, 2024, at 1 PM EDT from the <a href="https://rubyonrails.org/world/2024">official Rails World site</a>. The Foundation has more information on tickets <a href="https://rubyonrails.org/2024/4/24/rails-world-tickets-on-sale-april-30">here</a>.</p>
+
+<p>On to your weekly dose of Rails updates:</p>
+
+<p><a href="https://github.com/rails/rails/pull/50837">Pre-7.1 Rails migrations use legacy index names when using rename_table</a><br />
+This pull request ensures compatibility for Rails versions before 7.1 by retaining the legacy index name format. Beginning with version 7.1, Rails introduced a new index name format. Consequently, migrations containing rename_table might generate index names distinct from those created between Rails 7.0 and 7.1. A <a href="https://github.com/rails/rails/pull/47863">similar pull request</a> addressing migrations containing create_table was initiated last year.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51631">Support hexBinary type in XML</a><br />
+This pull request introduces a hexBinary parser in XML. hexBinary stands out as one of the fundamental data types in XML that’s not included in Rails until this addition.</p>
+
+<p><a href="https://github.com/rails/rails/pull/51638">Deprecate ActiveSupport::ProxyObject</a><br />
+This pull request deprecates ActiveSupport::ProxyObject in favor of Ruby’s built-in BasicObject.</p>
+
+<p><em>We had <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20240419-20240426">31 contributors</a> to the Rails codebase this past week! You can view this week’s contributions in its entirety <a href="https://github.com/rails/rails/compare/@%7B2024-04-19%7D...main@%7B2024-04-26%7D">here</a>.</em></p>
+
+<p>Take care.</p>
+
+<p><em><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</em></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

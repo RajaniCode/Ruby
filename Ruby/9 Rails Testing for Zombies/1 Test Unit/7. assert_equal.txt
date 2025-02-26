@@ -1,0 +1,40 @@
+7. assert_equal
+
+
+Now, using assert_equal, write a test to make sure zombify returns the expected string, upcase with 'BRAINS'. ex. "HELLO WORLD BRAINS" is expected when we call Zombifier.new("Hello world").zombify
+
+
+zombifier.rb
+class Zombifier
+  def initialize(str)
+    @str = str
+  end
+
+  def zombify
+    "#{@str.upcase} BRAINS"
+  end
+end
+
+
+test/unit/zombifier_test.rb
+class ZombifierTest < Test::Unit::TestCase
+  def test_zombify_upcase
+
+  end
+end
+
+
+Answer:
+test/unit/zombifier_test.rb
+class ZombifierTest < Test::Unit::TestCase
+  def test_zombify_upcase
+    z = Zombifier.new("Hello world")
+    assert_equal z.zombify, "HELLO WORLD BRAINS"
+  end
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.000774s, 1292.3704 tests/s, 5169.4814 assertions/s.

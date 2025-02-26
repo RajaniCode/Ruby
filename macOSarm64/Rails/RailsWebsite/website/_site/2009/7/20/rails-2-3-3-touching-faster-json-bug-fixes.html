@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 2.3.3: Touching, faster JSON, bug fixes</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="We&#8217;ve released Ruby on Rails version 2.3.3. This release fixes a lot of bugs and introduces a handful of new features.Active Record	touch is a convenient method to update a record&#8217;s timestamp and nothing else. This is extracted from apps whose models &#8220;touch&#8221; others when they change, such as a comment updating the parent.replies_changed_at timestamp after save and destroy. Timestamping an entire has_many association makes it easy to build a key for fragment caching that covers changes to the parent object and any of its children. This pattern is wrapped up as belongs_to :parent, :touch =&gt; :replies_changed_at. When the child changes, parent.replies_changed_at is touched. :touch =&gt; true is defaults to :touch =&gt; :updated_at.	:primary_key option for belongs_to for broader support of legacy schemas and those using a separate UUID primary key: belongs_to :employee, :primary_key =&gt; 'SSN', :foreign_key =&gt; 'EMPID' changesetJSON	decoding backends for the json and yajl libraries. Both are significantly faster than the default YAML backend. To get started, install the json gem and set ActiveSupport::JSON.backend = 'JSONGem'.	leaner user-facing encoding API. Since a JSON libraries implement to_json with varying compatibility, safely overriding it is difficult. Most custom to_json looks like def to_json(*encoder_specific_args)  { :some =&gt; "json representation" }.to_json(*encoder_specific_args)end so we DRYed the user-facing API down to a more natural def as_json(options = {})  { :some =&gt; "json representation" }end without the ugly internal state exposed by overloading to_json as both public-facing and internal builder API. Rails 3 splits the API explicitly, so prepare now by switching from to_json to as_json.Other Features	Add :concat option to asset tag helpers to force concatenation. changeset	Restore backwards compatibility for AR::Base#to_xml. changeset	Move from BlueCloth to Markdown for the markdown helper.   Users using BlueCloth to provide their markdown functionality should upgrade to version 1.0.1 or 2.0.5 in order to restore compatibility.Notable Bug Fixes	Fix errors caused by class-reloading with streaming responses in development mode.	Several fixes to the gem bundling, unpacking and installing system.	Make text_area_tag escape contents by default.	Make filter_parameters work correctly with array parameters.	Thread-safety fixes for postgresql string quoting.	Performance fixes for large response bodies." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 2.3.3: Touching, faster JSON, bug fixes" />
+  <meta property="og:description" content="We&#8217;ve released Ruby on Rails version 2.3.3. This release fixes a lot of bugs and introduces a handful of new features.Active Record	touch is a convenient method to update a record&#8217;s timestamp and nothing else. This is extracted from apps whose models &#8220;touch&#8221; others when they change, such as a comment updating the parent.replies_changed_at timestamp after save and destroy. Timestamping an entire has_many association makes it easy to build a key for fragment caching that covers changes to the parent object and any of its children. This pattern is wrapped up as belongs_to :parent, :touch =&gt; :replies_changed_at. When the child changes, parent.replies_changed_at is touched. :touch =&gt; true is defaults to :touch =&gt; :updated_at.	:primary_key option for belongs_to for broader support of legacy schemas and those using a separate UUID primary key: belongs_to :employee, :primary_key =&gt; 'SSN', :foreign_key =&gt; 'EMPID' changesetJSON	decoding backends for the json and yajl libraries. Both are significantly faster than the default YAML backend. To get started, install the json gem and set ActiveSupport::JSON.backend = 'JSONGem'.	leaner user-facing encoding API. Since a JSON libraries implement to_json with varying compatibility, safely overriding it is difficult. Most custom to_json looks like def to_json(*encoder_specific_args)  { :some =&gt; "json representation" }.to_json(*encoder_specific_args)end so we DRYed the user-facing API down to a more natural def as_json(options = {})  { :some =&gt; "json representation" }end without the ugly internal state exposed by overloading to_json as both public-facing and internal builder API. Rails 3 splits the API explicitly, so prepare now by switching from to_json to as_json.Other Features	Add :concat option to asset tag helpers to force concatenation. changeset	Restore backwards compatibility for AR::Base#to_xml. changeset	Move from BlueCloth to Markdown for the markdown helper.   Users using BlueCloth to provide their markdown functionality should upgrade to version 1.0.1 or 2.0.5 in order to restore compatibility.Notable Bug Fixes	Fix errors caused by class-reloading with streaming responses in development mode.	Several fixes to the gem bundling, unpacking and installing system.	Make text_area_tag escape contents by default.	Make filter_parameters work correctly with array parameters.	Thread-safety fixes for postgresql string quoting.	Performance fixes for large response bodies." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/7/20/rails-2-3-3-touching-faster-json-bug-fixes" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 2.3.3: Touching, faster JSON, bug fixes" />
+  <meta name="twitter:description" content="We&#8217;ve released Ruby on Rails version 2.3.3. This release fixes a lot of bugs and introduces a handful of new features.Active Record	touch is a convenient method to update a record&#8217;s timestamp and nothing else. This is extracted from apps whose models &#8220;touch&#8221; others when they change, such as a comment updating the parent.replies_changed_at timestamp after save and destroy. Timestamping an entire has_many association makes it easy to build a key for fragment caching that covers changes to the parent object and any of its children. This pattern is wrapped up as belongs_to :parent, :touch =&gt; :replies_changed_at. When the child changes, parent.replies_changed_at is touched. :touch =&gt; true is defaults to :touch =&gt; :updated_at.	:primary_key option for belongs_to for broader support of legacy schemas and those using a separate UUID primary key: belongs_to :employee, :primary_key =&gt; 'SSN', :foreign_key =&gt; 'EMPID' changesetJSON	decoding backends for the json and yajl libraries. Both are significantly faster than the default YAML backend. To get started, install the json gem and set ActiveSupport::JSON.backend = 'JSONGem'.	leaner user-facing encoding API. Since a JSON libraries implement to_json with varying compatibility, safely overriding it is difficult. Most custom to_json looks like def to_json(*encoder_specific_args)  { :some =&gt; "json representation" }.to_json(*encoder_specific_args)end so we DRYed the user-facing API down to a more natural def as_json(options = {})  { :some =&gt; "json representation" }end without the ugly internal state exposed by overloading to_json as both public-facing and internal builder API. Rails 3 splits the API explicitly, so prepare now by switching from to_json to as_json.Other Features	Add :concat option to asset tag helpers to force concatenation. changeset	Restore backwards compatibility for AR::Base#to_xml. changeset	Move from BlueCloth to Markdown for the markdown helper.   Users using BlueCloth to provide their markdown functionality should upgrade to version 1.0.1 or 2.0.5 in order to restore compatibility.Notable Bug Fixes	Fix errors caused by class-reloading with streaming responses in development mode.	Several fixes to the gem bundling, unpacking and installing system.	Make text_area_tag escape contents by default.	Make filter_parameters work correctly with array parameters.	Thread-safety fixes for postgresql string quoting.	Performance fixes for large response bodies." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/7/20/rails-2-3-3-touching-faster-json-bug-fixes"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 2.3.3: Touching, faster JSON, bug fixes",
+      "description": "We&#8217;ve released Ruby on Rails version 2.3.3. This release fixes a lot of bugs and introduces a handful of new features.Active Record	touch is a convenient method to update a record&#8217;s timestamp and nothing else. This is extracted from apps whose models &#8220;touch&#8221; others when they change, such as a comment updating the parent.replies_changed_at timestamp after save and destroy. Timestamping an entire has_many association makes it easy to build a key for fragment caching that covers changes to the parent object and any of its children. This pattern is wrapped up as belongs_to :parent, :touch =&gt; :replies_changed_at. When the child changes, parent.replies_changed_at is touched. :touch =&gt; true is defaults to :touch =&gt; :updated_at.	:primary_key option for belongs_to for broader support of legacy schemas and those using a separate UUID primary key: belongs_to :employee, :primary_key =&gt; 'SSN', :foreign_key =&gt; 'EMPID' changesetJSON	decoding backends for the json and yajl libraries. Both are significantly faster than the default YAML backend. To get started, install the json gem and set ActiveSupport::JSON.backend = 'JSONGem'.	leaner user-facing encoding API. Since a JSON libraries implement to_json with varying compatibility, safely overriding it is difficult. Most custom to_json looks like def to_json(*encoder_specific_args)  { :some =&gt; "json representation" }.to_json(*encoder_specific_args)end so we DRYed the user-facing API down to a more natural def as_json(options = {})  { :some =&gt; "json representation" }end without the ugly internal state exposed by overloading to_json as both public-facing and internal builder API. Rails 3 splits the API explicitly, so prepare now by switching from to_json to as_json.Other Features	Add :concat option to asset tag helpers to force concatenation. changeset	Restore backwards compatibility for AR::Base#to_xml. changeset	Move from BlueCloth to Markdown for the markdown helper.   Users using BlueCloth to provide their markdown functionality should upgrade to version 1.0.1 or 2.0.5 in order to restore compatibility.Notable Bug Fixes	Fix errors caused by class-reloading with streaming responses in development mode.	Several fixes to the gem bundling, unpacking and installing system.	Make text_area_tag escape contents by default.	Make filter_parameters work correctly with array parameters.	Thread-safety fixes for postgresql string quoting.	Performance fixes for large response bodies.",
+      "url": "http://localhost:4000/2009/7/20/rails-2-3-3-touching-faster-json-bug-fixes",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2009-07-20T21:58:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Monday, July 20, 2009</h5>
+        <h2>Rails 2.3.3: Touching, faster JSON, bug fixes</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>We&#8217;ve released Ruby on Rails version 2.3.3. This release fixes a lot of bugs and introduces a handful of new features.</p>
+<h4>Active Record</h4>
+<ul>
+	<li><code>touch</code> is a convenient method to update a record&#8217;s timestamp and nothing else. This is extracted from apps whose models &#8220;touch&#8221; others when they change, such as a comment updating the parent.replies_changed_at timestamp after save and destroy. Timestamping an entire has_many association makes it easy to build a key for fragment caching that covers changes to the parent object and any of its children. This pattern is wrapped up as <code>belongs_to :parent, :touch =&gt; :replies_changed_at</code>. When the child changes, <code>parent.replies_changed_at</code> is touched. <code>:touch =&gt; true</code> is defaults to <code>:touch =&gt; :updated_at</code>.</li>
+	<li><code>:primary_key</code> option for <code>belongs_to</code> for broader support of legacy schemas and those using a separate <span class="caps">UUID</span> primary key: <code>belongs_to :employee, :primary_key =&gt; 'SSN', :foreign_key =&gt; 'EMPID'</code> <a href="http://github.com/rails/rails/commit/b3ec7b2d03a52e43a4451d522eea7e6499289daa">changeset</a></li>
+</ul>
+<h4><span class="caps">JSON</span></h4>
+<ul>
+	<li>decoding backends for the json and yajl libraries. Both are significantly faster than the default <span class="caps">YAML</span> backend. To get started, install the json gem and set <code>ActiveSupport::JSON.backend = 'JSONGem'</code>.</li>
+	<li>leaner user-facing encoding <span class="caps">API</span>. Since a <span class="caps">JSON</span> libraries implement <code>to_json</code> with varying compatibility, safely overriding it is difficult. Most custom <code>to_json</code> looks like <pre><code>
+def to_json(*encoder_specific_args)
+  { :some =&gt; "json representation" }.to_json(*encoder_specific_args)
+end</code></pre> so we DRYed the user-facing <span class="caps">API</span> down to a more natural <pre><code>
+def as_json(options = {})
+  { :some =&gt; "json representation" }
+end</code></pre> without the ugly internal state exposed by overloading <code>to_json</code> as both public-facing and internal builder <span class="caps">API</span>. Rails 3 splits the <span class="caps">API</span> explicitly, so prepare now by switching from <code>to_json</code> to <code>as_json</code>.</li>
+</ul>
+<h4>Other Features</h4>
+<ul>
+	<li>Add :concat option to asset tag helpers to force concatenation. <a href="http://github.com/rails/rails/commit/a491b19502781266b05918cf99b6ba67898e3be9">changeset</a></li>
+	<li>Restore backwards compatibility for AR::Base#to_xml. <a href="http://github.com/rails/rails/commit/7bf9bf3dd6b4c4d78214917f0877536d222098bb">changeset</a></li>
+	<li>Move from BlueCloth to Markdown for the markdown helper.   Users using BlueCloth to provide their markdown functionality should upgrade to version 1.0.1 or 2.0.5 in order to restore compatibility.</li>
+</ul>
+<h4>Notable Bug Fixes</h4>
+<ul>
+	<li>Fix errors caused by class-reloading with streaming responses in development mode.</li>
+	<li>Several fixes to the gem bundling, unpacking and installing system.</li>
+	<li>Make text_area_tag escape contents by default.</li>
+	<li>Make filter_parameters work correctly with array parameters.</li>
+	<li>Thread-safety fixes for postgresql string quoting.</li>
+	<li>Performance fixes for large response bodies.</li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

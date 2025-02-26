@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: PhantomJS replaced with Chrome headless, bugfixes and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there! It’s Kir, bringing you a new edition of This Week in Rails!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: PhantomJS replaced with Chrome headless, bugfixes and more!" />
+  <meta property="og:description" content="Hi there! It’s Kir, bringing you a new edition of This Week in Rails!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2017/10/21/this-week-in-rails-phantomjs-replaced-with-chrome-headless-bugfixes-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: PhantomJS replaced with Chrome headless, bugfixes and more!" />
+  <meta name="twitter:description" content="Hi there! It’s Kir, bringing you a new edition of This Week in Rails!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2017/10/21/this-week-in-rails-phantomjs-replaced-with-chrome-headless-bugfixes-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: PhantomJS replaced with Chrome headless, bugfixes and more!",
+      "description": "Hi there! It’s Kir, bringing you a new edition of This Week in Rails!",
+      "url": "http://localhost:4000/2017/10/21/this-week-in-rails-phantomjs-replaced-with-chrome-headless-bugfixes-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "kirshatrov"
+      },
+      "datePublished": "2017-10-21T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, October 21, 2017</h5>
+        <h2>This Week in Rails: PhantomJS replaced with Chrome headless, bugfixes and more!</h2>
+
+        <h6>Posted by kirshatrov</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there! It’s <a href="https://twitter.com/kirshatrov">Kir</a>, bringing you a new edition of This Week in Rails!</p>
+
+<h3 id="replace-phantomjs-with-seleniumchrome-headless"><a href="https://github.com/rails/rails/pull/30930">Replace PhantomJS with Selenium/Chrome headless</a></h3>
+
+<p>PhantomJS has been abandoned. At the same time Chrome provides native support for headless mode that is now the recommended way.</p>
+
+<h3 id="allow-symbol-list-for-ignored_columns"><a href="https://github.com/rails/rails/pull/30629/files">Allow symbol list for ignored_columns</a></h3>
+
+<p>This PR fixes a bug when assigning symbols to <em>ignored_columns</em> in Active Record was ignored. Now the accessor accepts both strings and symbols.</p>
+
+<h3 id="fix-ajax-callbacks-in-ujs"><a href="https://github.com/rails/rails/pull/29127">Fix ajax callbacks in UJS</a></h3>
+
+<p>Previously, returning false from the <em>ajax:beforeSend</em> callback didn’t cancel the request as it was expected.</p>
+
+<p>That’s it for this now! As always, there isn’t enough time to cover every change if you’d like check out the <a href="https://github.com/rails/rails/compare/master@%7B2017-10-14%7D...@%7B2017-10-21%7D">full list of changes</a> yourself.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

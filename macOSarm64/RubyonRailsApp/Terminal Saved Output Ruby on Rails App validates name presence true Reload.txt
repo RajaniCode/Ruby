@@ -1,0 +1,24 @@
+Last login: Tue Feb  4 10:22:56 on ttys001
+rajaniapple@Rajanis-MacBook-Pro ~ % sw_vers                                         
+ProductName:		macOS
+ProductVersion:		15.1
+BuildVersion:		24B83
+rajaniapple@Rajanis-MacBook-Pro ~ % arch                                            
+arm64
+rajaniapple@Rajanis-MacBook-Pro ~ % cd $HOME/Desktop/GitHub/Ruby-Add/Ruby/macOSarm64
+rajaniapple@Rajanis-MacBook-Pro macOSarm64 % cd RubyonRailsApp                          
+rajaniapple@Rajanis-MacBook-Pro RubyonRailsApp % cd store                                        
+rajaniapple@Rajanis-MacBook-Pro store % nano app/models/product.rb
+rajaniapple@Rajanis-MacBook-Pro store % cat app/models/product.rb
+class Product < ApplicationRecord
+  validates :name, presence: true
+end
+rajaniapple@Rajanis-MacBook-Pro store % 
+
+
+
+
+
+
+
+

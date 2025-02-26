@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Make your Ta-da list today</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Todo lists have long been one of the favorite features in Basecamp, so we thought it would be a nice experiment to share that particular feature with the world at large. Free of charge. And Ta-da List was born!A few user-oriented highlights of Ta-da:Extensive use of XMLHttpRequest: Adding new items and checking them on and off are done with remote calls that change their state in the database while simultaneously updating the view using Javascript. This makes it really, really fast to add new items to a list &mdash; and you&#8217;re not restricted by the 10 predefined fields that most apps like this does.Loose sharing with unique URLs: Sharing a list with a single or group of buddies is easier than ever as there is no password to remember. Instead, everyone just gets a unique URL that they can bookmark right away. At 32 characters and as a MD5 hash, it&#8217;s plenty of security for this type of application and much easier to use.Collecting all the shares: By allowing you to share any list with any email address, we already got the viral thing going. The barrier of signing up has been postponed until you&#8217;re hooked, and once you are, you automatically collect all the shares as you signup. This means that they&#8217;re all available from your dashboard and you can reduce the bookmarked lists down to one URL.And for the technically inclined:Three levels of caching: I implemented page, action, and fragment caching for the Action Pack in Rails so I could be able to use it in Ta-da. And it&#8217;s working exceedingly well. Lots of pages went from 50-70 req/sec to 400-1100 req/sec due to caching.579 lines of code: That&#8217;s including models, controllers, and helpers. It&#8217;s really lean and really readable too. It was great to see just how small you can make an application with a recent version of Rails (especially the 0.9.x series) on a fresh code base. In Basecamp, I&#8217;m often working on code that predates the release of Rails, so it&#8217;s a nice change of scenery.Finally FastCGI: Basecamp is still running mod_ruby for various reasons, but Ta-da is fresh out the gate on FastCGI. And what a difference it makes in memory consumption! We&#8217;re currently running five FCGI processes (which is more than plenty) that come in at about 15MB a piece. On top of that, we got 50 Apache processes at just around 3.5MB a piece. That&#8217;s just 250MB for the entire setup. Much unlike the situation on Basecamp where we have 40-60 Apache processes of 40MB a piece.In addition, it seems we&#8217;re off to a flying start as we blew through 1,000 people signed up in just a matter of hours! And it&#8217;s getting blogged all over the place. Justin French has a really nice post about how he switched his workflow over. And Tobias Luetke already whipped up a script to integrate Ta-da into your site using Ruby." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Make your Ta-da list today" />
+  <meta property="og:description" content="Todo lists have long been one of the favorite features in Basecamp, so we thought it would be a nice experiment to share that particular feature with the world at large. Free of charge. And Ta-da List was born!A few user-oriented highlights of Ta-da:Extensive use of XMLHttpRequest: Adding new items and checking them on and off are done with remote calls that change their state in the database while simultaneously updating the view using Javascript. This makes it really, really fast to add new items to a list &mdash; and you&#8217;re not restricted by the 10 predefined fields that most apps like this does.Loose sharing with unique URLs: Sharing a list with a single or group of buddies is easier than ever as there is no password to remember. Instead, everyone just gets a unique URL that they can bookmark right away. At 32 characters and as a MD5 hash, it&#8217;s plenty of security for this type of application and much easier to use.Collecting all the shares: By allowing you to share any list with any email address, we already got the viral thing going. The barrier of signing up has been postponed until you&#8217;re hooked, and once you are, you automatically collect all the shares as you signup. This means that they&#8217;re all available from your dashboard and you can reduce the bookmarked lists down to one URL.And for the technically inclined:Three levels of caching: I implemented page, action, and fragment caching for the Action Pack in Rails so I could be able to use it in Ta-da. And it&#8217;s working exceedingly well. Lots of pages went from 50-70 req/sec to 400-1100 req/sec due to caching.579 lines of code: That&#8217;s including models, controllers, and helpers. It&#8217;s really lean and really readable too. It was great to see just how small you can make an application with a recent version of Rails (especially the 0.9.x series) on a fresh code base. In Basecamp, I&#8217;m often working on code that predates the release of Rails, so it&#8217;s a nice change of scenery.Finally FastCGI: Basecamp is still running mod_ruby for various reasons, but Ta-da is fresh out the gate on FastCGI. And what a difference it makes in memory consumption! We&#8217;re currently running five FCGI processes (which is more than plenty) that come in at about 15MB a piece. On top of that, we got 50 Apache processes at just around 3.5MB a piece. That&#8217;s just 250MB for the entire setup. Much unlike the situation on Basecamp where we have 40-60 Apache processes of 40MB a piece.In addition, it seems we&#8217;re off to a flying start as we blew through 1,000 people signed up in just a matter of hours! And it&#8217;s getting blogged all over the place. Justin French has a really nice post about how he switched his workflow over. And Tobias Luetke already whipped up a script to integrate Ta-da into your site using Ruby." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2005/1/20/make-your-ta-da-list-today" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Make your Ta-da list today" />
+  <meta name="twitter:description" content="Todo lists have long been one of the favorite features in Basecamp, so we thought it would be a nice experiment to share that particular feature with the world at large. Free of charge. And Ta-da List was born!A few user-oriented highlights of Ta-da:Extensive use of XMLHttpRequest: Adding new items and checking them on and off are done with remote calls that change their state in the database while simultaneously updating the view using Javascript. This makes it really, really fast to add new items to a list &mdash; and you&#8217;re not restricted by the 10 predefined fields that most apps like this does.Loose sharing with unique URLs: Sharing a list with a single or group of buddies is easier than ever as there is no password to remember. Instead, everyone just gets a unique URL that they can bookmark right away. At 32 characters and as a MD5 hash, it&#8217;s plenty of security for this type of application and much easier to use.Collecting all the shares: By allowing you to share any list with any email address, we already got the viral thing going. The barrier of signing up has been postponed until you&#8217;re hooked, and once you are, you automatically collect all the shares as you signup. This means that they&#8217;re all available from your dashboard and you can reduce the bookmarked lists down to one URL.And for the technically inclined:Three levels of caching: I implemented page, action, and fragment caching for the Action Pack in Rails so I could be able to use it in Ta-da. And it&#8217;s working exceedingly well. Lots of pages went from 50-70 req/sec to 400-1100 req/sec due to caching.579 lines of code: That&#8217;s including models, controllers, and helpers. It&#8217;s really lean and really readable too. It was great to see just how small you can make an application with a recent version of Rails (especially the 0.9.x series) on a fresh code base. In Basecamp, I&#8217;m often working on code that predates the release of Rails, so it&#8217;s a nice change of scenery.Finally FastCGI: Basecamp is still running mod_ruby for various reasons, but Ta-da is fresh out the gate on FastCGI. And what a difference it makes in memory consumption! We&#8217;re currently running five FCGI processes (which is more than plenty) that come in at about 15MB a piece. On top of that, we got 50 Apache processes at just around 3.5MB a piece. That&#8217;s just 250MB for the entire setup. Much unlike the situation on Basecamp where we have 40-60 Apache processes of 40MB a piece.In addition, it seems we&#8217;re off to a flying start as we blew through 1,000 people signed up in just a matter of hours! And it&#8217;s getting blogged all over the place. Justin French has a really nice post about how he switched his workflow over. And Tobias Luetke already whipped up a script to integrate Ta-da into your site using Ruby." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2005/1/20/make-your-ta-da-list-today"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Make your Ta-da list today",
+      "description": "Todo lists have long been one of the favorite features in Basecamp, so we thought it would be a nice experiment to share that particular feature with the world at large. Free of charge. And Ta-da List was born!A few user-oriented highlights of Ta-da:Extensive use of XMLHttpRequest: Adding new items and checking them on and off are done with remote calls that change their state in the database while simultaneously updating the view using Javascript. This makes it really, really fast to add new items to a list &mdash; and you&#8217;re not restricted by the 10 predefined fields that most apps like this does.Loose sharing with unique URLs: Sharing a list with a single or group of buddies is easier than ever as there is no password to remember. Instead, everyone just gets a unique URL that they can bookmark right away. At 32 characters and as a MD5 hash, it&#8217;s plenty of security for this type of application and much easier to use.Collecting all the shares: By allowing you to share any list with any email address, we already got the viral thing going. The barrier of signing up has been postponed until you&#8217;re hooked, and once you are, you automatically collect all the shares as you signup. This means that they&#8217;re all available from your dashboard and you can reduce the bookmarked lists down to one URL.And for the technically inclined:Three levels of caching: I implemented page, action, and fragment caching for the Action Pack in Rails so I could be able to use it in Ta-da. And it&#8217;s working exceedingly well. Lots of pages went from 50-70 req/sec to 400-1100 req/sec due to caching.579 lines of code: That&#8217;s including models, controllers, and helpers. It&#8217;s really lean and really readable too. It was great to see just how small you can make an application with a recent version of Rails (especially the 0.9.x series) on a fresh code base. In Basecamp, I&#8217;m often working on code that predates the release of Rails, so it&#8217;s a nice change of scenery.Finally FastCGI: Basecamp is still running mod_ruby for various reasons, but Ta-da is fresh out the gate on FastCGI. And what a difference it makes in memory consumption! We&#8217;re currently running five FCGI processes (which is more than plenty) that come in at about 15MB a piece. On top of that, we got 50 Apache processes at just around 3.5MB a piece. That&#8217;s just 250MB for the entire setup. Much unlike the situation on Basecamp where we have 40-60 Apache processes of 40MB a piece.In addition, it seems we&#8217;re off to a flying start as we blew through 1,000 people signed up in just a matter of hours! And it&#8217;s getting blogged all over the place. Justin French has a really nice post about how he switched his workflow over. And Tobias Luetke already whipped up a script to integrate Ta-da into your site using Ruby.",
+      "url": "http://localhost:4000/2005/1/20/make-your-ta-da-list-today",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "admin"
+      },
+      "datePublished": "2005-01-20T04:22:24+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, January 20, 2005</h5>
+        <h2>Make your Ta-da list today</h2>
+
+        <h6>Posted by admin</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Todo lists have long been one of the favorite features in Basecamp, so we thought it would be a nice experiment to share that particular feature with the world at large. Free of charge. And <a href="http://www.tadalist.com">Ta-da List</a> was born!</p>
+<p>A few user-oriented highlights of Ta-da:</p>
+<ul><li><b>Extensive use of XMLHttpRequest:</b> Adding new items and checking them on and off are done with remote calls that change their state in the database while simultaneously updating the view using Javascript. This makes it really, really fast to add new items to a list &mdash; and you&#8217;re not restricted by the 10 predefined fields that most apps like this does.</li><li><b>Loose sharing with unique URLs:</b> Sharing a list with a single or group of buddies is easier than ever as there is no password to remember. Instead, everyone just gets a unique <span class="caps">URL</span> that they can bookmark right away. At 32 characters and as a MD5 hash, it&#8217;s plenty of security for this type of application and much easier to use.</li><li><b>Collecting all the shares:</b> By allowing you to share any list with any email address, we already got the viral thing going. The barrier of signing up has been postponed until you&#8217;re hooked, and once you are, you automatically collect all the shares as you signup. This means that they&#8217;re all available from your dashboard and you can reduce the bookmarked lists down to one <span class="caps">URL</span>.</li></ul>
+<p>And for the technically inclined:</p>
+<ul><li><b>Three levels of caching:</b> I implemented page, action, and fragment <a href="http://ap.rubyonrails.com/classes/ActionController/Caching.html">caching for the Action Pack</a> in Rails so I could be able to use it in Ta-da. And it&#8217;s working exceedingly well. Lots of pages went from 50-70 req/sec to 400-1100 req/sec due to caching.</li><li><b>579 lines of code:</b> That&#8217;s including models, controllers, and helpers. It&#8217;s really lean and really readable too. It was great to see just how small you can make an application with a recent version of Rails (especially the 0.9.x series) on a fresh code base. In Basecamp, I&#8217;m often working on code that predates the release of Rails, so it&#8217;s a nice change of scenery.</li><li><b>Finally FastCGI:</b> Basecamp is still running mod_ruby for various reasons, but Ta-da is fresh out the gate on FastCGI. And what a difference it makes in memory consumption! We&#8217;re currently running five <span class="caps">FCGI</span> processes (which is more than plenty) that come in at about 15MB a piece. On top of that, we got 50 Apache processes at just around 3.5MB a piece. That&#8217;s just 250MB for the entire setup. Much unlike the situation on Basecamp where we have 40-60 Apache processes of 40MB a piece.</li></ul>
+<p>In addition, it seems we&#8217;re off to a flying start as we blew through 1,000 people signed up in just a matter of hours! And it&#8217;s getting blogged all over the place. Justin French has a really nice post about how he <a href="http://justinfrench.com/index.php?id=89">switched his workflow</a> over. And Tobias Luetke already whipped up a <a href="http://blog.leetsoft.com/article/25/tada-list-launched">script to integrate Ta-da</a> into your site using Ruby.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

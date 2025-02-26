@@ -1,0 +1,42 @@
+1.3 Restricting Multiple Actions
+
+We’ve now changed our API to only allow listing resources for zombies, humans, medical_kits and broadcasts. Some unnecessary duplication is starting to smell, so now may be a good time to refactor our routes.
+
+
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+  resources :zombies, only: :index
+  resources :humans, only: :index
+  resources :medical_kits, only: :index
+  resources :broadcasts, only: :index
+end
+
+
+1. Refactor the current routes to use the with_options method. This method takes the options as the first argument and the resources definition as a block. Remember that the block takes one argument, which you will need to use in the resources definition.
+
+Answer:
+config/routes.rb
+SurvivingRails::Application.routes.draw do 
+  with_options only: :index do |list_only|
+    list_only.resources :zombies
+    list_only.resources :humans
+    list_only.resources :medical_kits
+    list_only.resources :broadcasts
+  end
+end
+
+
+2. Outside of the with_options block, create the messages resources and prohibit access to the destroy action.
+
+Answer:
+config/routes.rb
+SurvivingRails::Application.routes.draw do
+   with_options only: :index do |list_only|
+    list_only.resources :zombies
+    list_only.resources :humans
+    list_only.resources :medical_kits
+    list_only.resources :broadcasts
+  end
+  resources :messages, except: :destroy
+end
+

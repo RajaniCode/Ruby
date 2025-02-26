@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: new query methods, Action Cable enhancements and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="####" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: new query methods, Action Cable enhancements and more!" />
+  <meta property="og:description" content="####" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/4/1/this-week-in-rails-new-query-methods-action-cable-enhancements-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: new query methods, Action Cable enhancements and more!" />
+  <meta name="twitter:description" content="####" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/4/1/this-week-in-rails-new-query-methods-action-cable-enhancements-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: new query methods, Action Cable enhancements and more!",
+      "description": "####",
+      "url": "http://localhost:4000/2016/4/1/this-week-in-rails-new-query-methods-action-cable-enhancements-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "imtayadeway"
+      },
+      "datePublished": "2016-04-01T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, April 1, 2016</h5>
+        <h2>This week in Rails: new query methods, Action Cable enhancements and more!</h2>
+
+        <h6>Posted by imtayadeway</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>####</p>
+
+<p>Hey everybody! <a href="https://twitter.com/imtayadeway">Tim</a> here reporting from Portland, OR on another solid week for the Rails community. As a protest to April Fools’ typical tomfoolery, this edition is coming to you 100% jape-free. No, really!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20160326-20160401">This Week’s Rails Contributors</a></h3>
+
+<p>This week 29 lovely people contributed to Rails, including 5 for the first time! A big Friday Hug goes out to all of them! Feel free to check out the list of current <a href="https://github.com/rails/rails/issues">issues</a> for ideas if you’d like to join them ❤️</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="active-record-gets-a-few-extra-query-methods"><a href="https://github.com/rails/rails/pull/24315">Active Record gets a few extra query methods</a></h3>
+
+<p>Ever find yourself writing cumbersome things like <code class="language-plaintext highlighter-rouge">User.count.zero?</code>? You can now use the terser <code class="language-plaintext highlighter-rouge">User.none?</code>, as well as <code class="language-plaintext highlighter-rouge">User.one?</code> and <code class="language-plaintext highlighter-rouge">User.empty?</code>, as these three methods just got added.</p>
+
+<h3 id="the-default-worker-pool-size-for-action-cable-just-got-lowered-considerably"><a href="https://github.com/rails/rails/pull/24376">The default worker pool size for Action Cable just got lowered considerably!</a></h3>
+
+<p>The author of this revision put it best: “Whack it down from 100 to 4”. This will decrease the number of db connections for most, who probably don’t need so many.</p>
+
+<h3 id="notifications-can-now-hook-into-action-cable"><a href="https://github.com/rails/rails/pull/23723">Notifications can now hook into Action Cable</a></h3>
+
+<p>Just as you can subscribe to Action Controller’s <code class="language-plaintext highlighter-rouge">#process_action</code>, so you can now with <code class="language-plaintext highlighter-rouge">ActionCable::Channel::Base#perform_action</code> after this fine addition. Get notified!</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="prepared-statements-to-have-a-cache-separate-from-unprepared-statements"><a href="https://github.com/rails/rails/commit/3af40b71f34c70a274e261cd6e6468c613de648e">Prepared statements to have a cache separate from unprepared statements</a></h3>
+
+<p>This subtle bug was fixed this week, wherein a connection that was established with prepared statements enabled could fail if a query that had been previously run was run again with prepared statements disabled. This was because it was hitting the same cache as the prepared statements-enabled query. Prepared statements now have their own cache, which solves the problem. Hurrah!</p>
+
+<h3 id="rails-runner-now-shows-the-correct-command-name-when-run-with-spring"><a href="https://github.com/rails/rails/pull/24325">rails runner now shows the correct command name when run with Spring</a></h3>
+
+<p>Running <code class="language-plaintext highlighter-rouge">rails runner</code> with no arguments or with the <code class="language-plaintext highlighter-rouge">--help</code> flag shows you some information on how to use the runner as a shebang line. Unfortunately, if you were using Spring, it would get the path wrong because Spring changes a variable that relates to the command that was run (<code class="language-plaintext highlighter-rouge">bin/rails</code>). That just got fixed in this revision!</p>
+
+<h3 id="using-rails-restart-with-puma-now-works"><a href="https://github.com/rails/rails/pull/24331">Using rails restart with Puma now works!</a></h3>
+
+<p>Previously, when issuing <code class="language-plaintext highlighter-rouge">rails restart</code> with Puma running, it would fail to bring it up again since Puma was trying to inspect <code class="language-plaintext highlighter-rouge">ARGV</code> to decide how to go about it. The fix involved changing Puma to allow its configuration options to be overridden by Rails. Great job!</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are plenty of things we’re not able to cover here, so take a look at the <a href="https://github.com/rails/rails/compare/master@%7B2016-03-26%7D...@%7B2016-04-01%7D">changes</a> yourself.</p>
+
+<p>Until next time!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

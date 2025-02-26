@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; [ANN] Rails 3.1.1.rc1</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="[ANN] Rails 3.1.1.rc1" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2011/9/15/ann-rails-3-1-1-rc1" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="[ANN] Rails 3.1.1.rc1" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2011/9/15/ann-rails-3-1-1-rc1"
+      },
+      "name": "Ruby on Rails",
+      "headline": "[ANN] Rails 3.1.1.rc1",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2011/9/15/ann-rails-3-1-1-rc1",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "spastorino"
+      },
+      "datePublished": "2011-09-15T05:25:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, September 15, 2011</h5>
+        <h2>[ANN] Rails 3.1.1.rc1</h2>
+
+        <h6>Posted by spastorino</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>Rails 3.1.1.rc1 has been released. Please give it a try, it’s our chance to fix regressions you might find and make a beautiful 3.1.1 stable release. If there are no regressions I will be releasing 3.1.1 final next September 16th during GoGaRuCo.</p>
+
+<h2 id="changes">CHANGES</h2>
+
+<p><em>Action Mailer</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Action Pack</em></p>
+
+<ul>
+  <li>
+    <p>Allow asset tag helper methods to accept :digest =&gt; false option in order to completely avoid the digest generation.
+Useful for linking assets from static html files or from emails when the user
+could probably look at an older html email with an older asset. [Santiago Pastorino]</p>
+  </li>
+  <li>
+    <p>Don’t mount Sprockets server at config.assets.prefix if config.assets.compile is false. [Mark J. Titorenko]</p>
+  </li>
+  <li>
+    <p>Set relative url root in assets when controller isn’t available for Sprockets (eg. Sass files using asset_path). Fixes #2435 [Guillermo Iguaran]</p>
+  </li>
+  <li>
+    <p>Fix basic auth credential generation to not make newlines. GH #2882</p>
+  </li>
+  <li>
+    <p>Fixed the behavior of asset pipeline when config.assets.digest and config.assets.compile are false and requested asset isn’t precompiled.
+Before the requested asset were compiled anyway ignoring that the config.assets.compile flag is false. [Guillermo Iguaran]</p>
+  </li>
+  <li>
+    <p>CookieJar is now Enumerable. Fixes #2795</p>
+  </li>
+  <li>
+    <p>Fixed AssetNotPrecompiled error raised when rake assets:precompile is compiling certain .erb files. See GH #2763 #2765 #2805 [Guillermo Iguaran]</p>
+  </li>
+  <li>
+    <p>Manifest is correctly placed in assets path when default assets prefix is changed. Fixes #2776 [Guillermo Iguaran]</p>
+  </li>
+  <li>
+    <p>Fixed stylesheet_link_tag and javascript_include_tag to respect additional options passed by the users when debug is on. [Guillermo Iguaran]</p>
+  </li>
+  <li>
+    <p>Fix ActiveRecord#exists? when passsed a nil value</p>
+  </li>
+  <li>
+    <p>Fix assert_select_email to work on multipart and non-multipart emails as the method stopped working correctly in Rails 3.x due to changes in the new mail gem.</p>
+  </li>
+</ul>
+
+<p><em>Active Model</em></p>
+
+<ul>
+  <li>
+    <p>Remove hard dependency on bcrypt-ruby to avoid make ActiveModel dependent on a binary library.
+You must add the gem explicitly to your Gemfile if you want use ActiveModel::SecurePassword:</p>
+
+    <p>gem ‘bcrypt-ruby’, ‘~&gt; 3.0.0’</p>
+
+    <p>See GH #2687. [Guillermo Iguaran]</p>
+  </li>
+</ul>
+
+<p><em>Active Record</em></p>
+
+<ul>
+  <li>
+    <p>LRU cache in mysql and sqlite are now per-process caches.</p>
+
+    <ul>
+      <li>lib/active_record/connection_adapters/mysql_adapter.rb: LRU cache
+keys are per process id.</li>
+      <li>lib/active_record/connection_adapters/sqlite_adapter.rb: ditto</li>
+    </ul>
+  </li>
+  <li>
+    <p>Database adapters use a statement pool for limiting the number of open
+prepared statments on the database.  The limit defaults to 1000, but can
+be adjusted in your database config by changing ‘statement_limit’.</p>
+  </li>
+  <li>
+    <p>Fix clash between using ‘preload’, ‘joins’ or ‘eager_load’ in a default scope and including the
+default scoped model in a nested through association. (GH #2834.) [Jon Leighton]</p>
+  </li>
+  <li>
+    <p>Ensure we are not comparing a string with a symbol in HasManyAssociation#inverse_updates_counter_cache?.
+Fixes GH #2755, where a counter cache could be decremented twice as far as it was supposed to be.</p>
+
+    <p>[Jon Leighton]</p>
+  </li>
+  <li>
+    <p>Don’t send any queries to the database when the foreign key of a belongs_to is nil. Fixes
+GH #2828. [Georg Friedrich]</p>
+  </li>
+  <li>
+    <p>Fixed find_in_batches method to not include order from default_scope. See GH #2832 [Arun Agrawal]</p>
+  </li>
+  <li>
+    <p>Don’t compute table name for abstract classes. Fixes problem with setting the primary key
+in an abstract class. See GH #2791. [Akira Matsuda]</p>
+  </li>
+  <li>
+    <p>Psych errors with poor yaml formatting are proxied. Fixes GH #2645 and
+GH #2731</p>
+  </li>
+  <li>
+    <p>Use the LIMIT word with the methods #last and #first. Fixes GH #2783 [Damien Mathieu]</p>
+  </li>
+</ul>
+
+<p><em>Active Resource</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Support</em></p>
+
+<ul>
+  <li>
+    <p>Fixed performance issue where TimeZone lookups would require tzinfo each time [Tim Lucas]</p>
+  </li>
+  <li>
+    <p>ActiveSupport::OrderedHash is now marked as extractable when using Array#extract_options! [Prem Sichanugrist]</p>
+  </li>
+</ul>
+
+<p><em>Railties</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p>You can find an exhaustive list of changes on <a href="https://github.com/rails/rails/compare/v3.1.0...v3.1.1.rc1">github</a>. Along with the <a href="https://github.com/rails/rails/issues?milestone=6&amp;state=closed">closed issues marked for v3.1.1</a>.</p>
+
+<p>You can also see issues <a href="https://github.com/rails/rails/issues?milestone=8&amp;state=open">we haven’t closed yet</a>.</p>
+
+<p>Thanks to everyone!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: GZipped Asset, API error responses and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone! 🌨" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: GZipped Asset, API error responses and more!" />
+  <meta property="og:description" content="Hello everyone! 🌨" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/12/11/this-week-in-rails-gzipped-asset-api-error-responses-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: GZipped Asset, API error responses and more!" />
+  <meta name="twitter:description" content="Hello everyone! 🌨" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/12/11/this-week-in-rails-gzipped-asset-api-error-responses-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: GZipped Asset, API error responses and more!",
+      "description": "Hello everyone! 🌨",
+      "url": "http://localhost:4000/2015/12/11/this-week-in-rails-gzipped-asset-api-error-responses-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "vipulnsward"
+      },
+      "datePublished": "2015-12-11T16:38:52+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, December 11, 2015</h5>
+        <h2>This week in Rails: GZipped Asset, API error responses and more!</h2>
+
+        <h6>Posted by vipulnsward</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone! 🌨</p>
+
+<p>This is <a href="https://twitter.com/vipulnsward">Vipul</a>, bringing you the latest from <a href="https://github.com/rails/rails">Rails</a>.</p>
+
+<p>P.S: Here’s something for all those at <a href="http://rubykaigi.org/2015">RubyKaigi</a> 🍣. Enjoy!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20151205-201512110930">This Week’s Rails Contributors</a></h3>
+
+<p>This week 26 fabulous people contributed to Rails, including 6 first-time contributors! Check out the <a href="https://github.com/rails/rails/issues">list of issues</a> if you’d like to help out as well.</p>
+
+<h3 id="sprockets-reintroduce-gzip-file-generation"><a href="https://github.com/rails/sprockets/pull/193">Sprockets: Reintroduce gzip file generation</a></h3>
+
+<p>GZip file generation was taken out <a href="https://github.com/sstephenson/sprockets/pull/589">last year</a> from sprockets. This change re-introduces compressed file generation and parallel file writing, which is useful for web servers that don’t support gzipping static assets. This is pretty useful if you are on a service like Heroku.</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="introduce-after_createupdatedelete_commit-callbacks"><a href="https://github.com/rails/rails/pull/22516">Introduce after_{create,update,delete}_commit callbacks</a></h3>
+
+<p>New shortcuts were added to <code class="language-plaintext highlighter-rouge">after_commit .. on: :action</code>.</p>
+
+<p>For example, <code class="language-plaintext highlighter-rouge">after_commit :add_to_index_later, on: :create</code> can now be written as <code class="language-plaintext highlighter-rouge">after_create_commit :add_to_index_later</code>.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="rails-api-ability-to-return-error-responses-in-json-format-in-development"><a href="https://github.com/rails/rails/pull/20831">Rails API: Ability to return error responses in json format in development</a></h3>
+
+<p>Previously error pages are always being delivered in html pages in development mode, which is not handy when you would like to view json responses. This change adds support for viewing errors in json format. It also makes sure that when requesting resources like <code class="language-plaintext highlighter-rouge">post/1.json</code>, when error occurs, it returns json response based on json format in url, unlike previously used html format.</p>
+
+<h3 id="changed-the-protect_from_forgery-prepend-default-to-false"><a href="https://github.com/rails/rails/commit/39794037817703575c35a75f1961b01b83791191">Changed the <code class="language-plaintext highlighter-rouge">protect_from_forgery</code> prepend default to <code class="language-plaintext highlighter-rouge">false</code></a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">protect_from_forgery</code> will now be inserted into the callback chain at the point it is called in the application. This is useful for cases where you want to <code class="language-plaintext highlighter-rouge">protect_from_forgery</code> after you perform required authentication callbacks or other callbacks that are required to run after forgery protection.</p>
+
+<p>If needed, you can use <code class="language-plaintext highlighter-rouge">protect_from_forgery prepend: true</code> to always run <code class="language-plaintext highlighter-rouge">protect_from_forgery</code> before others.</p>
+
+<h3 id="request_forgery_protection-initializer-is-removed-from-rails-api"><a href="https://github.com/rails/rails/pull/22508"><code class="language-plaintext highlighter-rouge">request_forgery_protection</code> initializer is removed from Rails API</a></h3>
+
+<p>Usually in Rails API, you would not use <code class="language-plaintext highlighter-rouge">protect_from_forgery</code>, by default. The initializer to add this option- <code class="language-plaintext highlighter-rouge">request_forgery_protection</code> is now removed if you are creating an API.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="subscribing-to-notifications-while-inside-the-instrumented-section"><a href="https://github.com/rails/rails/commit/ab3c4a4083cce34131eeb23df42041fafe063fc3">Subscribing to notifications while inside the instrumented section.</a></h3>
+
+<p>Previously if we tried to do</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ActiveSupport::Notifications.instrument('foo') do
+  ActiveSupport::Notifications.subscribe('foo') {}
+end
+</code></pre></div></div>
+
+<p>it would create an error, because for the <code class="language-plaintext highlighter-rouge">subscribe</code> inside block, the dynamic <code class="language-plaintext highlighter-rouge">subscription</code> does not yet exist. This change make sure that subscriptions inside <code class="language-plaintext highlighter-rouge">instrumentation</code> get notified as well.</p>
+
+<h3 id="add-redirection-path-in-the-error-message-of-assert_response-if-response-is-redirect"><a href="https://github.com/rails/rails/pull/19977">Add redirection path in the error message of assert_response if response is :redirect</a></h3>
+
+<p>Previously, if <code class="language-plaintext highlighter-rouge">assert_response</code> was checking for any non-redirect response like <code class="language-plaintext highlighter-rouge">:success</code> and actual response was a <code class="language-plaintext highlighter-rouge">:redirect</code> then, the error message displayed was like - <code class="language-plaintext highlighter-rouge">Expected response to be a &lt;success&gt;</code>. This change, now shows the redirected path in error response as - <code class="language-plaintext highlighter-rouge">Expected response to be a &lt;success&gt;, but was a redirect to &lt;http://test.host/posts/lol&gt;</code></p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are many more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2015-12-05%7D...@%7B2015-12-11%7D">check them out yourself</a>.</p>
+
+<p>Until next time!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

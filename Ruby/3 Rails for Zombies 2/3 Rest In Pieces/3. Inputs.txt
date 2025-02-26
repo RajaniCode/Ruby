@@ -1,0 +1,27 @@
+3. Inputs
+
+
+Objective
+
+Look at the following database table and create the proper input fields for the columns listed here.
+
+
+schema.rb
+ActiveRecord::Schema.define(:version => 20110814152905) do
+ 
+  create_table "weapons" do |t|
+    t.string "name"
+    t.integer "ammo"
+    t.boolean "is_broken"
+  end
+ 
+end
+
+
+app/views/weapons/new.html.erb
+<%= form_for(@weapon) do |f| %>
+  <%= f.text_field :name %>
+  <%= f.number_field :ammo %>
+  <%= f.check_box :is_broken %>
+  <%= f.submit %>
+<% end %>

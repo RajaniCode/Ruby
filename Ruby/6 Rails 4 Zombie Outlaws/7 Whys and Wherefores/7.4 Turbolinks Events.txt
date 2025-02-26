@@ -1,0 +1,30 @@
+7.4 Turbolinks Events
+
+
+We're trying to run some Javascript on page load. It's working whenever we reload the page or type in a URL directly, but when we click on a Turbolink, it doesn't. Can you get it working with Turbolinks as well?
+
+
+app/assets/javascripts/sightings.js
+function initialize() {
+  alert('Welcome, Deputy! Check back often for new zombie sightings!');
+}
+
+$(document).ready(initialize);
+
+
+Answer:
+app/assets/javascripts/sightings.js
+//= require turbolinks
+//= require jquery.turbolinks
+function initialize() {
+   alert('Welcome, Deputy! Check back often for new zombie sightings!');
+}
+$(document).ready(initialize);
+$(document).on('page:load', initialize);
+
+
+#Note:
+function checkAlert() {
+  alert('Welcome, Deputy! Check back often for new zombie sightings!');
+}
+$(document).on('page:load', '#owner_active', checkAlert);

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 3.2.8 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Good news everyone! Rails version 3.2.8 has been released." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 3.2.8 has been released!" />
+  <meta property="og:description" content="Good news everyone! Rails version 3.2.8 has been released." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2012/8/9/ann-rails-3-2-8-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 3.2.8 has been released!" />
+  <meta name="twitter:description" content="Good news everyone! Rails version 3.2.8 has been released." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2012/8/9/ann-rails-3-2-8-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 3.2.8 has been released!",
+      "description": "Good news everyone! Rails version 3.2.8 has been released.",
+      "url": "http://localhost:4000/2012/8/9/ann-rails-3-2-8-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "spastorino"
+      },
+      "datePublished": "2012-08-09T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, August 9, 2012</h5>
+        <h2>Rails 3.2.8 has been released!</h2>
+
+        <h6>Posted by spastorino</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Good news everyone! Rails version 3.2.8 has been released.</p>
+
+<h2 id="important">IMPORTANT</h2>
+
+<p>This version contains three important security fixes, please upgrade immediately.</p>
+
+<ul>
+  <li><a href="https://groups.google.com/d/msg/rubyonrails-security/fV3QUToSMSw/eHBSFOUYHpYJ">CVE-2012-3463 Ruby on Rails Potential XSS Vulnerability in select_tag prompt</a></li>
+  <li><a href="https://groups.google.com/d/msg/rubyonrails-security/kKGNeMrnmiY/r2yM7xy-G48J">CVE-2012-3464 Potential XSS Vulnerability in Ruby on Rails</a></li>
+  <li><a href="https://groups.google.com/d/msg/rubyonrails-security/FgVEtBajcTY/tYLS1JJTu38J">CVE-2012-3465 XSS Vulnerability in strip_tags</a></li>
+</ul>
+
+<p>One of security fixes impacts all users and is related to HTML escaping code. The other two fixes impacts people using select_tag’s prompt option and strip_tags helper from ActionPack.</p>
+
+<p>We are also removing all the deprecation warnings that we introduced in 3.2.x.
+We have decided to stop introducing API deprecations in all point releases going forward. From now on, it’ll only happen in majors/minors.</p>
+
+<h2 id="changes-since-327">CHANGES since 3.2.7</h2>
+
+<p><em>Action Mailer</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Action Pack</em></p>
+
+<ul>
+  <li>
+    <p>html_escape should escape single quotes. <em>Santiago Pastorino</em></p>
+  </li>
+  <li>
+    <p>Reverted the deprecation of <code class="language-plaintext highlighter-rouge">:confirm</code>. <em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Reverted the deprecation of <code class="language-plaintext highlighter-rouge">:disable_with</code>. <em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Reverted the deprecation of <code class="language-plaintext highlighter-rouge">:mouseover</code> option to <code class="language-plaintext highlighter-rouge">image_tag</code>. <em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Reverted the deprecation of <code class="language-plaintext highlighter-rouge">button_to_function</code> and <code class="language-plaintext highlighter-rouge">link_to_function</code> helpers. <em>Rafael Mendonça França</em></p>
+  </li>
+</ul>
+
+<p><em>Active Model</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Record</em></p>
+
+<ul>
+  <li>
+    <p>Do not set RAILS_ENV to “development” when using <code class="language-plaintext highlighter-rouge">db:test:prepare</code> and related rake tasks.
+This was causing the truncation of the development database data when using RSpec.
+In RC2 was fixed again when using config.active_record.schema_format = :sql
+<em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Do not consider the numeric attribute as changed if the old value is zero and the new value is not a string. Fixes #7237. <em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Removes the deprecation of <code class="language-plaintext highlighter-rouge">update_attribute</code>. <em>fxn</em></p>
+  </li>
+  <li>
+    <p>Reverted the deprecation of <code class="language-plaintext highlighter-rouge">composed_of</code>. <em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Reverted the deprecation of <code class="language-plaintext highlighter-rouge">*_sql</code> association options. They will
+be deprecated in 4.0 instead. <em>Jon Leighton</em></p>
+  </li>
+  <li>
+    <p>Do not eager load AR session store. ActiveRecord::SessionStore depends on the abstract store
+in Action Pack. Eager loading this class would break client code that eager loads Active Record
+standalone.
+Fixes #7160</p>
+
+    <p><em>Xavier Noria</em></p>
+  </li>
+  <li>
+    <p>Do not set RAILS_ENV to “development” when using <code class="language-plaintext highlighter-rouge">db:test:prepare</code> and related rake tasks.
+This was causing the truncation of the development database data when using RSpec.
+Fixes #7175.</p>
+
+    <p><em>Rafael Mendonça França</em></p>
+  </li>
+</ul>
+
+<p><em>Active Resource</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Support</em></p>
+
+<ul>
+  <li>
+    <p>Fix ActiveSupport integration with Mocha &gt; 0.12.1. <em>Mike Gunderloy</em></p>
+  </li>
+  <li>
+    <p>Reverted the deprecation of ActiveSupport::JSON::Variable. <em>Rafael Mendonça França</em></p>
+  </li>
+</ul>
+
+<p><em>Railties</em></p>
+
+<ul>
+  <li>ERB scaffold generator use the <code class="language-plaintext highlighter-rouge">:data =&gt; { :confirm =&gt; "Text" }</code> syntax instead of <code class="language-plaintext highlighter-rouge">:confirm</code>. <em>Rafael Mendonça França</em></li>
+</ul>
+
+<h2 id="sha-1">SHA-1</h2>
+
+<ul>
+  <li>20525face84f3cdc8b0fc039e0f75ec4963e3677  actionmailer-3.2.8.gem</li>
+  <li>ccc63cc2fcb3131b92d45cf5834aa629857d7258  actionpack-3.2.8.gem</li>
+  <li>df7fb9febe248201fd1ad741a2044324f4c90cc9  activemodel-3.2.8.gem</li>
+  <li>96e876f625b98915d2b1994c06ea057bf7dd23b8  activerecord-3.2.8.gem</li>
+  <li>195e1e4653e6e06f469ea20e181727ef9d940ee7  activeresource-3.2.8.gem</li>
+  <li>e5136f556b62343425cc147a8990bd043430354d  activesupport-3.2.8.gem</li>
+  <li>35581ffc256d73d217537170b0e116cf4545752e  rails-3.2.8.gem</li>
+  <li>e44accc5d057866087856a521398250fe082b70b  railties-3.2.8.gem</li>
+</ul>
+
+<p>You can find an exhaustive list of changes on
+<a href="https://github.com/rails/rails/compare/v3.2.7...v3.2.8">github</a>.</p>
+
+<p>Thanks to everyone!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

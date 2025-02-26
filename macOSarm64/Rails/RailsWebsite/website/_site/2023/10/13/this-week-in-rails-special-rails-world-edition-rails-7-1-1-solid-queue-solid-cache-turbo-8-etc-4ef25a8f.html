@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Special Rails World Edition: Rails 7.1.1, Solid Queue, Solid Cache, Turbo 8, etc.</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rails World concluded last week, and calling it a success would be an understatement. With 29 exceptional speakers and a diverse audience of over 700 attendees representing various corners of the globe, Rails Foundation, under the leadership of Executive Director Amanda Perino, executed an inaugural Rails conference that exuded the maturity and excellence of an event in its 100th iteration." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Special Rails World Edition: Rails 7.1.1, Solid Queue, Solid Cache, Turbo 8, etc." />
+  <meta property="og:description" content="Rails World concluded last week, and calling it a success would be an understatement. With 29 exceptional speakers and a diverse audience of over 700 attendees representing various corners of the globe, Rails Foundation, under the leadership of Executive Director Amanda Perino, executed an inaugural Rails conference that exuded the maturity and excellence of an event in its 100th iteration." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2023/10/13/this-week-in-rails-special-rails-world-edition-rails-7-1-1-solid-queue-solid-cache-turbo-8-etc-4ef25a8f" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Special Rails World Edition: Rails 7.1.1, Solid Queue, Solid Cache, Turbo 8, etc." />
+  <meta name="twitter:description" content="Rails World concluded last week, and calling it a success would be an understatement. With 29 exceptional speakers and a diverse audience of over 700 attendees representing various corners of the globe, Rails Foundation, under the leadership of Executive Director Amanda Perino, executed an inaugural Rails conference that exuded the maturity and excellence of an event in its 100th iteration." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2023/10/13/this-week-in-rails-special-rails-world-edition-rails-7-1-1-solid-queue-solid-cache-turbo-8-etc-4ef25a8f"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Special Rails World Edition: Rails 7.1.1, Solid Queue, Solid Cache, Turbo 8, etc.",
+      "description": "Rails World concluded last week, and calling it a success would be an understatement. With 29 exceptional speakers and a diverse audience of over 700 attendees representing various corners of the globe, Rails Foundation, under the leadership of Executive Director Amanda Perino, executed an inaugural Rails conference that exuded the maturity and excellence of an event in its 100th iteration.",
+      "url": "http://localhost:4000/2023/10/13/this-week-in-rails-special-rails-world-edition-rails-7-1-1-solid-queue-solid-cache-turbo-8-etc-4ef25a8f",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Emmanuel Hayford"
+      },
+      "datePublished": "2023-10-13T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, October 13, 2023</h5>
+        <h2>Special Rails World Edition: Rails 7.1.1, Solid Queue, Solid Cache, Turbo 8, etc.</h2>
+
+        <h6>Posted by Emmanuel Hayford</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Rails World concluded last week, and calling it a success would be an understatement. With 29 exceptional speakers and a diverse audience of over 700 attendees representing various corners of the globe, Rails Foundation, under the leadership of Executive Director <a href="https://twitter.com/AmandaBPerino">Amanda Perino</a>, executed an inaugural Rails conference that exuded the maturity and excellence of an event in its 100th iteration.</p>
+
+<p>DHH, with the opening keynote, <a href="https://world.hey.com/dhh/one-happy-rails-world-96c46506">announced a plethora</a> of exciting features, tools, and updates for Ruby on Rails. Among what he announced were Turbo 8, Solid Cache, Solid Queue, Mission Control, and a whole lot more. DHH’s <a href="https://youtu.be/iqXjGiQ_D-A">opening keynote</a> has all the details and is available on the Foundation’s <a href="https://www.youtube.com/@railsofficial">official YouTube channel</a>.</p>
+
+<p>In the coming days, The Foundation will be diligently uploading all the recorded sessions to the official YouTube channel. I strongly encourage you to subscribe to the channel and click on the notification bell icon. By doing so, you’ll stay informed about the upcoming updates, and trust me, there’s going to be a lot of exciting content!</p>
+
+<p>In case you missed it, Rails 7.1 made its debut during DHH’s keynote at Rails World, with a 7.1.1 patch release two days ago.</p>
+
+<p>A subset of the This Week In Rails Team (excluding DHH) was also at the conference and we have a group photo!</p>
+
+<p><a href="https://world.hey.com/this.week.in.rails/4ef25a8f/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHNLd2RXcENkVCIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--af87125ce6e10cc8b63a5e4db4670bfe7f84ccd3/PXL_20231005_142552658.MP.jpg?disposition=attachment" title="Download PXL\_20231005\_142552658.MP.jpg"><img src="https://world.hey.com/this.week.in.rails/4ef25a8f/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHNLd2RXcENkVCIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--af87125ce6e10cc8b63a5e4db4670bfe7f84ccd3/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDam9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVFLQUIya0NBQVU2REhGMVlXeHBkSGxwU3pvTGJHOWhaR1Z5ZXdZNkNYQmhaMlV3T2cxamIyRnNaWE5qWlZRPSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--0b5e092e6240e14fab357b4c1013c9a0c881ff87/PXL_20231005_142552658.MP.jpg" alt="PXL_20231005_142552658.MP.jpg" /></a></p>
+
+<p>From left to right, we have <a href="https://twitter.com/four54">Petrik</a> (alum), <a href="https://twitter.com/GregMolnar">Greg</a>, <a href="https://twitter.com/dhh">DHH</a>, <a href="https://twitter.com/morgoth85">Wojciech</a>, and <a href="https://twitter.com/siaw23">myself</a>.</p>
+
+<p>The next Rails World will be in September 2024 in Canada, Toronto, I hope to see many of you there.</p>
+
+<p>Over the past 14 days, Rails has received contributions from <a href="https://contributors.rubyonrails.org/contributors/in-time-window/20230929-20231013">64 individuals</a>. While many of these changes are indeed substantial improvements, they primarily involve aspects that you may not directly interact with. This is why I opted not to include any of these pull requests in this update.</p>
+
+<p>Until next time,
+Emmanuel</p>
+
+<p>Your weekly inside scoop of interesting commits, pull requests and more from <a href="https://github.com/rails/rails"><strong>Rails</strong></a>.</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

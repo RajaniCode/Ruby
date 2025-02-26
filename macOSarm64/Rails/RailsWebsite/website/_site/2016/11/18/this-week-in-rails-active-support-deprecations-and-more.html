@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: Active Support deprecations and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hello everyone!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: Active Support deprecations and more!" />
+  <meta property="og:description" content="Hello everyone!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2016/11/18/this-week-in-rails-active-support-deprecations-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: Active Support deprecations and more!" />
+  <meta name="twitter:description" content="Hello everyone!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2016/11/18/this-week-in-rails-active-support-deprecations-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: Active Support deprecations and more!",
+      "description": "Hello everyone!",
+      "url": "http://localhost:4000/2016/11/18/this-week-in-rails-active-support-deprecations-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "imtayadeway"
+      },
+      "datePublished": "2016-11-18T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, November 18, 2016</h5>
+        <h2>This Week in Rails: Active Support deprecations and more!</h2>
+
+        <h6>Posted by imtayadeway</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hello everyone!</p>
+
+<p><a href="https://twitter.com/imtayadeway">Tim</a> here bringing you all the latest from This Week in Rails…..</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20161112-20161118">This Week’s Rails Contributors</a></h3>
+
+<p>This week 29 lovely people contributed to Rails, including an incredible 9 for the time! Why not put yourself in the next installment of This Week in Rails by tackling one of the <a href="https://github.com/rails/rails/issues">open issues</a> out there?</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="remove-active-support-deprecations"><a href="https://github.com/rails/rails/pull/27035">Remove Active Support deprecations</a></h3>
+
+<p>In preparation for the 5.1 release, methods marked as deprecated in 5.0 are being removed. If you’ve been seeing any of these warnings, you need to get on ‘em now! Notably, this PR waves goodbye to ‘alias_method_chain’ , which was made obsolete by Ruby 2.0+’s ‘Module#prepend’</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="support-acparameters-for-pg-hstore"><a href="https://github.com/rails/rails/pull/27058">Support AC::Parameters for PG HStore</a></h3>
+
+<p>As of Rails 5, Active Record determines that a value needs to be serialized if it is a ‘Hash’ object. If passed an ‘ActionController::Parameters’ object instead (which no longer inherits from ‘Hash’ ), serialization would break. This change restores the original behavior.</p>
+
+<h3 id="fix-json-encoding-of-infinity-and-nan-values"><a href="https://github.com/rails/rails/pull/26933">Fix JSON encoding of “Infinity” and “NaN” values</a></h3>
+
+<p>If ‘as_json’ returns “Infinity” or “NaN” for any value, it causes ‘JSON.generate’ to 💥 because these values are not allowed in JSON. Instead of being treated as primitives, ‘as_json’ is called on these values recursively, so that they are properly serialized as “null”. Phew!</p>
+
+<h3 id="fix-incorrect-output-from-rails-routes-when-using-singular-resources"><a href="https://github.com/rails/rails/pull/27089">Fix incorrect output from rails routes when using singular resources</a></h3>
+
+<p>‘rails routes’ was showing some incorrect output if you had singular resources defined. Specifically, routes for the # ‘show’ action would appear under the “edit” helper, which is clearly wrong. Thanks to the rjigging of the order in which they appear in this PR, your routes should now be correct!</p>
+
+<h3 id="correctly-count-new-records-when-calling-uniq-on-associations"><a href="https://github.com/rails/rails/pull/26980">Correctly count new records when calling uniq on associations</a></h3>
+
+<p>If ‘CollectionProxy’ has more than one new record, a call to ‘uniq’ would yield the wrong result. This was because this method was aliased to ‘distinct’ , which is really a different concept. The original behavior was restored thanks to this reversion.</p>
+
+<h2 id="wrapping-up">Wrapping up</h2>
+
+<p>That’s it from This Week in Rails! There were many other great contributions, too numerous to list here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2016-11-12%7D...@%7B2016-11-18%7D">check them out</a>!</p>
+
+<p>Until next week!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

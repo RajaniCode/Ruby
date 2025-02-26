@@ -1,0 +1,45 @@
+6. Shoulda II
+
+
+Using shoulda, test to make sure tweet.status has to be between 3 and 140 characters in length. 
+
+
+models/tweet.rb
+class Tweet < ActiveRecord::Base
+  belongs_to :zombie
+
+  validates :status, presence: true, length: {within: 3..140, allow_blank: true}
+  validates :zombie, presence: true
+  
+  def brains?
+    status =~ /(brains|breins)/i
+  end
+
+  def show_author_summary
+    self.status = self.zombie.zombie_summary
+  end
+
+  def status_image
+    image = ZwitPic.get_status_image(self.id) # This is returning an array
+    {image_name: image[0], image_url: image[1]}
+  end
+end
+
+
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+
+end
+
+
+Answer:
+test/models/tweet_test.rb
+class TweetTest < ActiveSupport::TestCase
+   should ensure_length_of(:status).is_at_least(3).is_at_most(140)
+end
+
+
+Test Output:
+.
+
+Finished tests in 0.011942s, 83.7369 tests/s, 502.4216 assertions/s.

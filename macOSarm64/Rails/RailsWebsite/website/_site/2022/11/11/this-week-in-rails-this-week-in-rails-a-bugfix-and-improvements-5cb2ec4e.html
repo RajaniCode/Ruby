@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Week in Rails: A bugfix and improvements!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Week in Rails: A bugfix and improvements!" />
+  <meta property="og:description" content="Hi there," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2022/11/11/this-week-in-rails-this-week-in-rails-a-bugfix-and-improvements-5cb2ec4e" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Week in Rails: A bugfix and improvements!" />
+  <meta name="twitter:description" content="Hi there," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2022/11/11/this-week-in-rails-this-week-in-rails-a-bugfix-and-improvements-5cb2ec4e"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Week in Rails: A bugfix and improvements!",
+      "description": "Hi there,",
+      "url": "http://localhost:4000/2022/11/11/this-week-in-rails-this-week-in-rails-a-bugfix-and-improvements-5cb2ec4e",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "gregmolnar"
+      },
+      "datePublished": "2022-11-11T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, November 11, 2022</h5>
+        <h2>This Week in Rails: A bugfix and improvements!</h2>
+
+        <h6>Posted by gregmolnar</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there,</p>
+
+<p>This is <a href="https://twitter.com/gregmolnar">Greg</a>, bringing you the latest changes in Rails.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46448">Fix Enumerable#many? to handle all block parameters</a>
+Before this fix, <em>Enumerable#many?</em> didn’t forward the block parameters to the block, so if someone called it in a chain with <em>each_with_index</em>, the index wasn’t passed to the block.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46461">Use filename when printing pending migrations</a>
+By using <em>filename</em>, instead of <em>basename</em>, the full path of the migration will be displayed, which can be useful when migration files are stored in multiple directories, for instance in a multi-db app.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46425">Make error highlight readable on dark mode</a>
+The recently introduced error highlighting on the error pages were hard to read in dark mode, but not anymore.</p>
+
+<p><a href="https://github.com/rails/rails/pull/46469">Improve the MissingExactTemplate error page</a>
+This improvement to the MissingExactTemplate error page adds the actual controller and action name to the page, replacing the generic example there before.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20221104-20221111">19 people</a> contributed to Rails this past week! Until next time!</p>
+
+<p><i><a href="https://world.hey.com/this.week.in.rails">Subscribe</a> to get these updates mailed to you.</i></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+6. Predicate Matchers
+
+
+Refactor the following spec to use an include matcher.
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  validates :name, presence: true
+	
+  def genius?
+    iq >= 3
+  end
+end
+
+
+zombie_spec.rb
+describe Zombie do
+  it 'includes a tweet' do
+    tweet = Tweet.new
+    zombie = Zombie.new(tweets: [tweet])
+    zombie.tweets.first.should == tweet
+  end
+end
+
+
+Answer:
+zombie_spec.rb
+describe Zombie do
+  it 'includes a tweet' do
+    tweet = Tweet.new
+    zombie = Zombie.new(tweets: [tweet])
+    zombie.tweets.should include(tweet)
+  end
+end

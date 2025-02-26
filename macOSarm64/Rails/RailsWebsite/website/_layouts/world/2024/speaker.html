@@ -1,0 +1,103 @@
+---
+layout: world/2024/default
+---
+
+{% assign speaker_id = page.path | split: '/' | last %}
+{% assign filteredSessions = site.world_sessions | where_exp: 'item', 'item.path contains "2024"'%}
+{% assign speakerSessions = filteredSessions | where: 'speaker', speaker_id %}
+{% assign secondarySessions = filteredSessions | where: 'second_speaker', speaker_id %}
+{% assign thirdSessions = filteredSessions | where: 'third_speaker', speaker_id %}
+
+<div class="speakerPage">
+    <div class="speakerSwooshContainer">
+        <div class="swooshContainer common-shape--top-blue-down-left">
+        </div>
+    </div>
+    <div class="speakerCardBackground">
+        <div class="theLine"></div>
+        <div class="speakerCardContainer">
+            <div class="topSection">
+                <div class="left">
+                    <img src="{{ page.image_path }}" alt="{{ page.first_name }}'s Profile Picture" class="speakerImage">
+                </div>
+                <div class="right">
+                    <div>
+                        <h2 class="speakerName">{{ page.first_name}} {{ page.last_name }}</h1>
+                            <p class="speakerRole">{{ page.role }}{% if include.company and include.company != "false" %}, {{ include.company }}{% endif %}</p>
+                    </div>
+                    {{ content }}
+
+                    <div class="socialLinks">
+                        {% if page.github %}
+                        <a href="{{ page.github }}">
+                            {% include world/2023/icons/github.html %}
+                        </a>
+                        {% endif %}
+                        {% if page.linkedin %}
+                        <a href="{{ page.linkedin }}">
+                            {% include world/2023/icons/linkedin.html %}
+                        </a>
+                        {% endif %}
+                        {% if page.twitter %}
+                        <a href="{{ page.twitter }}">
+                            {% include world/2023/icons/twitter.html %}
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="bottomSpeakersPage">
+                <div class="leftPage">
+                    <div class="sessionsSection">
+                        <h3>Session</h3>
+                        {% for session in speakerSessions %}
+                        {% include world/2024/speaker-session-card.html session=session %}
+                        {% endfor %}
+                        {% for session in secondarySessions %}
+                        {% include world/2024/speaker-session-card.html session=session %}
+                        {% endfor %}
+                        {% for session in thirdSessions %}
+                        {% include world/2024/speaker-session-card.html session=session %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="socialLinks">
+                        {% if page.github %}
+                        <a href="{{ page.github }}">
+                            {% include world/2023/icons/github.html %}
+                        </a>
+                        {% endif %}
+                        {% if page.linkedin %}
+                        <a href="{{ page.linkedin }}">
+                            {% include world/2023/icons/linkedin.html %}
+                        </a>
+                        {% endif %}
+                        {% if page.twitter %}
+                        <a href="{{ page.twitter }}">
+                            {% include world/2023/icons/twitter.html %}
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function openWindow(url, openTab = false) {
+        const openType = openTab ? '_blank' : '_self';
+
+        if (openTab) {
+            window.open(url, openType);
+        } else {
+            window.location.href = url;
+        }
+    }
+
+    function handleEnterOrSpaceWindowOpen(e, url) {
+        if (e.key === " " || e.key === "Enter" || e.key === "Spacebar") {
+            openWindow(url);
+        }
+    }
+</script>

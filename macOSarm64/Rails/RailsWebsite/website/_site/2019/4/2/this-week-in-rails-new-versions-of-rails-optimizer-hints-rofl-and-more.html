@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; New versions of Rails, optimizer hints, ROFL, and more</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there! This is Daniel reporting fromBrooklyn, NY." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="New versions of Rails, optimizer hints, ROFL, and more" />
+  <meta property="og:description" content="Hi there! This is Daniel reporting fromBrooklyn, NY." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2019/4/2/this-week-in-rails-new-versions-of-rails-optimizer-hints-rofl-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="New versions of Rails, optimizer hints, ROFL, and more" />
+  <meta name="twitter:description" content="Hi there! This is Daniel reporting fromBrooklyn, NY." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2019/4/2/this-week-in-rails-new-versions-of-rails-optimizer-hints-rofl-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "New versions of Rails, optimizer hints, ROFL, and more",
+      "description": "Hi there! This is Daniel reporting fromBrooklyn, NY.",
+      "url": "http://localhost:4000/2019/4/2/this-week-in-rails-new-versions-of-rails-optimizer-hints-rofl-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dodecadaniel"
+      },
+      "datePublished": "2019-04-02T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, April 2, 2019</h5>
+        <h2>New versions of Rails, optimizer hints, ROFL, and more</h2>
+
+        <h6>Posted by dodecadaniel</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there! This is <a href="https://twitter.com/dodecadaniel">Daniel</a> reporting from
+Brooklyn, NY.</p>
+
+<h3 id="new-versions-of-rails-released"><a href="https://rubyonrails.org/2019/3/28/Rails-5-2-3-has-been-released/">New versions of Rails released</a></h3>
+
+<p><a href="https://rubyonrails.org/2019/3/28/Rails-5-2-3-has-been-released/">Rails 5.2.3</a> and <a href="https://rubyonrails.org/2019/3/28/Rails-5-1-7-has-been-released/">Rails 5.1.7</a> were released last week. Check out
+the CHANGELOG and upgrade today!</p>
+
+<h3 id="optimizer-hints-and-annotations"><a href="https://github.com/rails/rails/pull/35615">Optimizer Hints and Annotations</a></h3>
+
+<p>These two related PRs were opened within a couple hours of each other. The new
+<a href="https://github.com/rails/rails/pull/35615"><code class="language-plaintext highlighter-rouge">optimizer_hints</code></a> method offers a simple way to
+include optimizer hints in your queries. The new <a href="https://github.com/rails/rails/pull/35617"><code class="language-plaintext highlighter-rouge">annotate</code></a>
+method offers a simple way to annotate your queries with comments.</p>
+
+<h3 id="the-best-pr-that-i-saw-this-year"><a href="https://github.com/rails/rails/pull/34405/#issuecomment-437004244">The best PR that I saw this year!</a></h3>
+
+<p>This PR elegantly ensures that <code class="language-plaintext highlighter-rouge">ActiveSupport::SafeBuffer</code>’s <code class="language-plaintext highlighter-rouge">sub</code>, <code class="language-plaintext highlighter-rouge">sub!</code>,
+<code class="language-plaintext highlighter-rouge">gsub</code>, and <code class="language-plaintext highlighter-rouge">gsub!</code> methods set back references. I learned a lot about Ruby by
+reading through this code and the review comments.</p>
+
+<h3 id="stop-rofl"><a href="https://github.com/rails/rails/pull/35664">Stop ROFL</a></h3>
+
+<p>I always enjoy removing code that is no longer needed. It must be especially fun
+to remove code that includes the comment “I will explain the roflscale so that
+others will not rm this code.”</p>
+
+<h3 id="use-weak-references-in-the-descendants-tracker"><a href="https://github.com/rails/rails/pull/31442">Use weak references in the descendants tracker</a></h3>
+
+<p>Nobody wants a memory leak. Keeping track of these references allows us to
+garbage collect anonymous subclasses.</p>
+
+<h3 id="advancing-to-dates-before-1001-03-07"><a href="https://github.com/rails/rails/pull/35659">Advancing to dates before 1001-03-07</a></h3>
+
+<p>I am constantly plagued by bugs related to time. This PR reminds me how
+complicated time really is.</p>
+
+<h3 id="allow-disabling-of-console-sandbox"><a href="https://github.com/rails/rails/pull/35723">Allow disabling of console sandbox</a></h3>
+
+<p>Has anybody else ever opened a production console session and fogotten to close
+it? ✋ Ever done it with the <code class="language-plaintext highlighter-rouge">--sandbox</code> flag and caused your database to run
+out of memory? 😭 Thanks, Rails, for protecting me against myself.</p>
+
+<h3 id="improved-error-messages-from-views"><a href="https://github.com/rails/rails/pull/35308">Improved error messages from views</a></h3>
+
+<p>Thinking about contributing to Rails? Check out this PR from a first-time
+contributor for inspiration.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20190315-20190330">55 people</a> contributed to Rails in the last 2 weeks, including 6
+first-time contributors. You can see the <a href="https://github.com/rails/rails/compare/master@%7B2019-03-15%7D...@%7B2019-03-30%7D">full list of changes here</a>.</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+2.5 Merging Scopes I
+
+In the Item.recent scope, use the joins and merge methods to combine the Review.approved scope.
+
+
+review.rb
+class Review < ActiveRecord::Base
+  belongs_to :item
+  scope :approved, -> { where(approved: true) }
+end
+
+
+item.rb
+class Item < ActiveRecord::Base
+  has_many :reviews
+  scope :recent, ->{
+    where('published_on > ?', 2.days.ago)
+      .joins(:reviews).where('reviews.approved = ?', true)
+  }
+end
+
+
+Answer:
+item.rb
+class Item < ActiveRecord::Base
+  has_many :reviews
+  scope :recent, ->{
+    where('published_on > ?', 2.days.ago)
+    .joins(:reviews).merge(Review.approved)
+  }
+end

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 3.2.8.rc2 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 3.2.8.rc2 has been released!" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2012/8/3/ann-rails-3-2-8-rc2-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 3.2.8.rc2 has been released!" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2012/8/3/ann-rails-3-2-8-rc2-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 3.2.8.rc2 has been released!",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2012/8/3/ann-rails-3-2-8-rc2-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "spastorino"
+      },
+      "datePublished": "2012-08-03T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, August 3, 2012</h5>
+        <h2>Rails 3.2.8.rc2 has been released!</h2>
+
+        <h6>Posted by spastorino</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>Rails 3.2.8.rc2 has been released. If no regressions are found we will
+release 3.2.8 final around Wednesday 8th.</p>
+
+<h2 id="important">IMPORTANT</h2>
+
+<p>We are removing all the deprecation warnings that we introduced in 3.2.x.
+We have decided to stop introducing API deprecations in all point releases going forward. From now on, it’ll only happen in majors/minors.</p>
+
+<h2 id="changes-since-328rc1">CHANGES since 3.2.8.rc1</h2>
+
+<p><em>Action Mailer</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Action Pack</em></p>
+
+<ul>
+  <li>html_escape should escape single quotes. <em>Santiago Pastorino</em></li>
+</ul>
+
+<p><em>Active Model</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Record</em></p>
+
+<ul>
+  <li>
+    <p>Do not set RAILS_ENV to “development” when using <code class="language-plaintext highlighter-rouge">db:test:prepare</code> and related rake tasks.
+This was causing the truncation of the development database data when using RSpec.
+In RC2 was fixed again when using config.active_record.schema_format = :sql
+<em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Do not consider the numeric attribute as changed if the old value is zero and the new value is not a string. Fixes #7237. <em>Rafael Mendonça França</em></p>
+  </li>
+</ul>
+
+<p><em>Active Resource</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Support</em></p>
+
+<ul>
+  <li>Fix ActiveSupport integration with Mocha &gt; 0.12.1. <em>Mike Gunderloy</em></li>
+</ul>
+
+<p><em>Railties</em></p>
+
+<ul>
+  <li>ERB scaffold generator use the <code class="language-plaintext highlighter-rouge">:data =&gt; { :confirm =&gt; "Text" }</code> syntax instead of <code class="language-plaintext highlighter-rouge">:confirm</code>. <em>Rafael Mendonça França</em></li>
+</ul>
+
+<h2 id="sha-1">SHA-1</h2>
+
+<ul>
+  <li>351b13c792517534b68df02f550cfc335c8d3f5f  actionmailer-3.2.8.rc2.gem</li>
+  <li>0b0f92bb3f2fad426f3b9c0849e5f5457c029586  actionpack-3.2.8.rc2.gem</li>
+  <li>c19868c2f4fc20ebf20c1a27c89a65b80592b6e6  activemodel-3.2.8.rc2.gem</li>
+  <li>9d247e14feb6d453aded4ba9edc8bae1cf940891  activerecord-3.2.8.rc2.gem</li>
+  <li>7db76b428fdec2aeea190773d5daea139c7732ba  activeresource-3.2.8.rc2.gem</li>
+  <li>b93d62722c854fde8acda511f53481c4f3ceeaf2  activesupport-3.2.8.rc2.gem</li>
+  <li>7fd2e2035469e89e17b3872d51968a5856d6ed8c  rails-3.2.8.rc2.gem</li>
+  <li>bf685a73a55fd5ffa77c7c0160b2bec898fa15eb  railties-3.2.8.rc2.gem</li>
+</ul>
+
+<p>You can find a list of changes between v3.2.8.rc1 and v3.2.8.rc2 <a href="https://github.com/rails/rails/compare/v3.2.8.rc1...v3.2.8.rc2">here</a>
+and an exhaustive list of changes since v3.2.7 <a href="https://github.com/rails/rails/compare/v3.2.7...v3.2.8.rc2">here</a>.</p>
+
+<p>Thanks to everyone!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

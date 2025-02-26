@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This Year in Rails! A summary of 2021 in the Rails world</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi there, this is Greg, bringing you a summary of what happened in the Rails world in 2021. There were so many changes, it is difficult to decide which one to mention, but I tried my best to find a few notable changesFind and assert the presence of exactly one recordAdd FinderMethods#sole and #find_sole_by to find and assert the presence of exactly one record. Based on this, Enumerable#sole returns the sole item of the enumerable. If there are no items, or more than one item it will raise an exception.Add ActionController::Live#send_streamAdds the ability to live stream binary data to the browser like send_data does for static files.Add Model.update! that is similar to Model.update but raises exceptionsYou may be familiar with the instance method Model#update!, but now you can do that on the class!Active Record destroy_all performs in batchesBy default it will load records in batches of 100 and allow to specify the custom batch size.Add possibility to configure Active Storage for Action MailboxIt is now possible to configure Active Storage service for storing email raw source via config.action_mailbox.storage_service.Raise error on unpermitted open redirectsAdd allow_other_host_ options to redirect_to. One can opt in to this behaviour with ActionController::Base.raise_on_open_redirects = true.Update Capybara driversDeprecate poltergeist and webkit (capybara-webkit) driver registration for system testing (they will be removed in Rails 7.1) and add cuprite instead.Create database via UI when ActiveRecord::NoDatabaseErrorThis PR adds the possibility to create the database via the UI when database has not been created in development mode.Add ActiveRecord::QueryMethods#in_order_of#in_order_of allows you to specify an explicit order that you’d like records returned in based on a SQL expression, for instance: Post.in_order_of(:id, [3, 5, 1])Support for byte ranges in Active StorageThis PR allows serving uploads in chunks in order to stream buffered files as is required e.g. audio podcasts from S3 to an iPhone.Replace Byebug with ruby/debugRuby 3.1 will launch with a new first-class debugger that works great with Rails.  Let’s all appreciate the many years Byebug has helped us ship software.Add SSL support for postgresql in “bin/rails dbconsole”This PR fixes the dbconsole command when used with PostgreSQL to support encrypted connections.Introduce ActiveModel::APIMake ActiveModel::API the minimum API to talk with Action Pack and Action View. This will allow adding more functionality to ActiveModel::Model.GitHub Codespaces configurationThis PR adds support for GitHub Codespaces, which allows contributors to easily boot a fully functional environment to create patches and test changes to Rails.Standardised error reporting interfaceRails.error is a new error reporting interface, with two block based methods. handle, which swallows errors and forwards them to the subscribers:   Rails.error.handle do 1 + ‘1’ # raises TypeError end 1 + 1 # This will be executedand record, which forwards the errors to the subscribes but lets it continue rewinding the call stack:    Rails.error.record do 1 + ‘1’ # raises TypeError end 1 + 1 # This won’t be executed.For cases where the blocked based API isn’t suitable, the lower level report method can be used:    Rails.error.report(error, handled: true / false)529 amazing people contributed 3716 commits to Rails this year! A new major version of Rails has been released recently, including features like At-Work Encryption with Active Record, Async Query Loading, Zeitwerk code loader better CSS and Javascript bundling, and Rails also got a new website and booting screen!Thanks for everyone and see you next year!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This Year in Rails! A summary of 2021 in the Rails world" />
+  <meta property="og:description" content="Hi there, this is Greg, bringing you a summary of what happened in the Rails world in 2021. There were so many changes, it is difficult to decide which one to mention, but I tried my best to find a few notable changesFind and assert the presence of exactly one recordAdd FinderMethods#sole and #find_sole_by to find and assert the presence of exactly one record. Based on this, Enumerable#sole returns the sole item of the enumerable. If there are no items, or more than one item it will raise an exception.Add ActionController::Live#send_streamAdds the ability to live stream binary data to the browser like send_data does for static files.Add Model.update! that is similar to Model.update but raises exceptionsYou may be familiar with the instance method Model#update!, but now you can do that on the class!Active Record destroy_all performs in batchesBy default it will load records in batches of 100 and allow to specify the custom batch size.Add possibility to configure Active Storage for Action MailboxIt is now possible to configure Active Storage service for storing email raw source via config.action_mailbox.storage_service.Raise error on unpermitted open redirectsAdd allow_other_host_ options to redirect_to. One can opt in to this behaviour with ActionController::Base.raise_on_open_redirects = true.Update Capybara driversDeprecate poltergeist and webkit (capybara-webkit) driver registration for system testing (they will be removed in Rails 7.1) and add cuprite instead.Create database via UI when ActiveRecord::NoDatabaseErrorThis PR adds the possibility to create the database via the UI when database has not been created in development mode.Add ActiveRecord::QueryMethods#in_order_of#in_order_of allows you to specify an explicit order that you’d like records returned in based on a SQL expression, for instance: Post.in_order_of(:id, [3, 5, 1])Support for byte ranges in Active StorageThis PR allows serving uploads in chunks in order to stream buffered files as is required e.g. audio podcasts from S3 to an iPhone.Replace Byebug with ruby/debugRuby 3.1 will launch with a new first-class debugger that works great with Rails.  Let’s all appreciate the many years Byebug has helped us ship software.Add SSL support for postgresql in “bin/rails dbconsole”This PR fixes the dbconsole command when used with PostgreSQL to support encrypted connections.Introduce ActiveModel::APIMake ActiveModel::API the minimum API to talk with Action Pack and Action View. This will allow adding more functionality to ActiveModel::Model.GitHub Codespaces configurationThis PR adds support for GitHub Codespaces, which allows contributors to easily boot a fully functional environment to create patches and test changes to Rails.Standardised error reporting interfaceRails.error is a new error reporting interface, with two block based methods. handle, which swallows errors and forwards them to the subscribers:   Rails.error.handle do 1 + ‘1’ # raises TypeError end 1 + 1 # This will be executedand record, which forwards the errors to the subscribes but lets it continue rewinding the call stack:    Rails.error.record do 1 + ‘1’ # raises TypeError end 1 + 1 # This won’t be executed.For cases where the blocked based API isn’t suitable, the lower level report method can be used:    Rails.error.report(error, handled: true / false)529 amazing people contributed 3716 commits to Rails this year! A new major version of Rails has been released recently, including features like At-Work Encryption with Active Record, Async Query Loading, Zeitwerk code loader better CSS and Javascript bundling, and Rails also got a new website and booting screen!Thanks for everyone and see you next year!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2021/12/31/this-week-in-rails-this-year-in-rails-a-summary-of-2021-in-the-rails-world-43323c03" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This Year in Rails! A summary of 2021 in the Rails world" />
+  <meta name="twitter:description" content="Hi there, this is Greg, bringing you a summary of what happened in the Rails world in 2021. There were so many changes, it is difficult to decide which one to mention, but I tried my best to find a few notable changesFind and assert the presence of exactly one recordAdd FinderMethods#sole and #find_sole_by to find and assert the presence of exactly one record. Based on this, Enumerable#sole returns the sole item of the enumerable. If there are no items, or more than one item it will raise an exception.Add ActionController::Live#send_streamAdds the ability to live stream binary data to the browser like send_data does for static files.Add Model.update! that is similar to Model.update but raises exceptionsYou may be familiar with the instance method Model#update!, but now you can do that on the class!Active Record destroy_all performs in batchesBy default it will load records in batches of 100 and allow to specify the custom batch size.Add possibility to configure Active Storage for Action MailboxIt is now possible to configure Active Storage service for storing email raw source via config.action_mailbox.storage_service.Raise error on unpermitted open redirectsAdd allow_other_host_ options to redirect_to. One can opt in to this behaviour with ActionController::Base.raise_on_open_redirects = true.Update Capybara driversDeprecate poltergeist and webkit (capybara-webkit) driver registration for system testing (they will be removed in Rails 7.1) and add cuprite instead.Create database via UI when ActiveRecord::NoDatabaseErrorThis PR adds the possibility to create the database via the UI when database has not been created in development mode.Add ActiveRecord::QueryMethods#in_order_of#in_order_of allows you to specify an explicit order that you’d like records returned in based on a SQL expression, for instance: Post.in_order_of(:id, [3, 5, 1])Support for byte ranges in Active StorageThis PR allows serving uploads in chunks in order to stream buffered files as is required e.g. audio podcasts from S3 to an iPhone.Replace Byebug with ruby/debugRuby 3.1 will launch with a new first-class debugger that works great with Rails.  Let’s all appreciate the many years Byebug has helped us ship software.Add SSL support for postgresql in “bin/rails dbconsole”This PR fixes the dbconsole command when used with PostgreSQL to support encrypted connections.Introduce ActiveModel::APIMake ActiveModel::API the minimum API to talk with Action Pack and Action View. This will allow adding more functionality to ActiveModel::Model.GitHub Codespaces configurationThis PR adds support for GitHub Codespaces, which allows contributors to easily boot a fully functional environment to create patches and test changes to Rails.Standardised error reporting interfaceRails.error is a new error reporting interface, with two block based methods. handle, which swallows errors and forwards them to the subscribers:   Rails.error.handle do 1 + ‘1’ # raises TypeError end 1 + 1 # This will be executedand record, which forwards the errors to the subscribes but lets it continue rewinding the call stack:    Rails.error.record do 1 + ‘1’ # raises TypeError end 1 + 1 # This won’t be executed.For cases where the blocked based API isn’t suitable, the lower level report method can be used:    Rails.error.report(error, handled: true / false)529 amazing people contributed 3716 commits to Rails this year! A new major version of Rails has been released recently, including features like At-Work Encryption with Active Record, Async Query Loading, Zeitwerk code loader better CSS and Javascript bundling, and Rails also got a new website and booting screen!Thanks for everyone and see you next year!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2021/12/31/this-week-in-rails-this-year-in-rails-a-summary-of-2021-in-the-rails-world-43323c03"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This Year in Rails! A summary of 2021 in the Rails world",
+      "description": "Hi there, this is Greg, bringing you a summary of what happened in the Rails world in 2021. There were so many changes, it is difficult to decide which one to mention, but I tried my best to find a few notable changesFind and assert the presence of exactly one recordAdd FinderMethods#sole and #find_sole_by to find and assert the presence of exactly one record. Based on this, Enumerable#sole returns the sole item of the enumerable. If there are no items, or more than one item it will raise an exception.Add ActionController::Live#send_streamAdds the ability to live stream binary data to the browser like send_data does for static files.Add Model.update! that is similar to Model.update but raises exceptionsYou may be familiar with the instance method Model#update!, but now you can do that on the class!Active Record destroy_all performs in batchesBy default it will load records in batches of 100 and allow to specify the custom batch size.Add possibility to configure Active Storage for Action MailboxIt is now possible to configure Active Storage service for storing email raw source via config.action_mailbox.storage_service.Raise error on unpermitted open redirectsAdd allow_other_host_ options to redirect_to. One can opt in to this behaviour with ActionController::Base.raise_on_open_redirects = true.Update Capybara driversDeprecate poltergeist and webkit (capybara-webkit) driver registration for system testing (they will be removed in Rails 7.1) and add cuprite instead.Create database via UI when ActiveRecord::NoDatabaseErrorThis PR adds the possibility to create the database via the UI when database has not been created in development mode.Add ActiveRecord::QueryMethods#in_order_of#in_order_of allows you to specify an explicit order that you’d like records returned in based on a SQL expression, for instance: Post.in_order_of(:id, [3, 5, 1])Support for byte ranges in Active StorageThis PR allows serving uploads in chunks in order to stream buffered files as is required e.g. audio podcasts from S3 to an iPhone.Replace Byebug with ruby/debugRuby 3.1 will launch with a new first-class debugger that works great with Rails.  Let’s all appreciate the many years Byebug has helped us ship software.Add SSL support for postgresql in “bin/rails dbconsole”This PR fixes the dbconsole command when used with PostgreSQL to support encrypted connections.Introduce ActiveModel::APIMake ActiveModel::API the minimum API to talk with Action Pack and Action View. This will allow adding more functionality to ActiveModel::Model.GitHub Codespaces configurationThis PR adds support for GitHub Codespaces, which allows contributors to easily boot a fully functional environment to create patches and test changes to Rails.Standardised error reporting interfaceRails.error is a new error reporting interface, with two block based methods. handle, which swallows errors and forwards them to the subscribers:   Rails.error.handle do 1 + ‘1’ # raises TypeError end 1 + 1 # This will be executedand record, which forwards the errors to the subscribes but lets it continue rewinding the call stack:    Rails.error.record do 1 + ‘1’ # raises TypeError end 1 + 1 # This won’t be executed.For cases where the blocked based API isn’t suitable, the lower level report method can be used:    Rails.error.report(error, handled: true / false)529 amazing people contributed 3716 commits to Rails this year! A new major version of Rails has been released recently, including features like At-Work Encryption with Active Record, Async Query Loading, Zeitwerk code loader better CSS and Javascript bundling, and Rails also got a new website and booting screen!Thanks for everyone and see you next year!",
+      "url": "http://localhost:4000/2021/12/31/this-week-in-rails-this-year-in-rails-a-summary-of-2021-in-the-rails-world-43323c03",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "debug"
+      },
+      "datePublished": "2021-12-31T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, December 31, 2021</h5>
+        <h2>This Year in Rails! A summary of 2021 in the Rails world</h2>
+
+        <h6>Posted by debug</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi there, this is Greg, bringing you a summary of what happened in the Rails world in 2021. <br />
+There were so many changes, it is difficult to decide which one to mention, but I tried my best to find a few notable changes</p>
+
+<p><a href="https://github.com/rails/rails/pull/40768">Find and assert the presence of exactly one record</a><br />
+Add <em>FinderMethods#sole and #find_sole_by</em> to find and assert the presence of exactly one record. <a href="https://github.com/rails/rails/pull/40914">Based on this, <em>Enumerable#sole</em> returns the sole item of the enumerable</a>. If there are no items, or more than one item it will raise an exception.</p>
+
+<p><a href="https://github.com/rails/rails/pull/41488">Add ActionController::Live#send_stream</a><br />
+Adds the ability to live stream binary data to the browser like <em>send_data</em> does for static files.</p>
+
+<p><a href="https://github.com/rails/rails/pull/42423">Add Model.update! that is similar to Model.update but raises exceptions</a><br />
+You may be familiar with the instance method <em>Model#update!</em>, but now you can do that on the class!</p>
+
+<p><a href="https://github.com/rails/rails/pull/40445">Active Record destroy_all performs in batches</a><br />
+By default it will load records in batches of 100 and allow to specify the custom batch size.</p>
+
+<p><a href="https://github.com/rails/rails/pull/42634">Add possibility to configure Active Storage for Action Mailbox</a><br />
+It is now possible to configure Active Storage service for storing email raw source via <em>config.action_mailbox.storage_service.</em></p>
+
+<p><a href="https://github.com/rails/rails/commit/5e93cff83599833380b4cb3d99c020b5efc7dd96">Raise error on unpermitted open redirects</a><br />
+Add <em>allow_other_host_ options</em> to <em>redirect_to</em>. One can opt in to this behaviour with <em>ActionController::Base.raise_on_open_redirects = true</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/42790">Update Capybara drivers</a><br />
+Deprecate <em>poltergeist</em> and <em>webkit</em> (capybara-webkit) driver registration for system testing (they will be removed in Rails 7.1) and add <em>cuprite</em> instead.</p>
+
+<p><a href="https://github.com/rails/rails/pull/39723">Create database via UI when ActiveRecord::NoDatabaseError</a><br />
+This PR adds the possibility to create the database via the UI when database has not been created in development mode.</p>
+
+<p><a href="https://github.com/rails/rails/pull/42061">Add ActiveRecord::QueryMethods#in_order_of</a><br />
+<em>#in_order_of</em> allows you to specify an explicit order that you’d like records returned in based on a SQL expression, for instance: <em>Post.in_order_of(:id, [3, 5, 1])</em></p>
+
+<p><a href="https://github.com/rails/rails/pull/41437">Support for byte ranges in Active Storage</a><br />
+This PR allows serving uploads in chunks in order to stream buffered files as is required e.g. audio podcasts from S3 to an iPhone.</p>
+
+<p><a href="https://github.com/rails/rails/pull/43187">Replace Byebug with ruby/debug</a><br />
+Ruby 3.1 will launch with a new first-class <a href="https://github.com/ruby/debug">debugger</a> that works great with Rails.  <br />
+Let’s all appreciate the many years Byebug has helped us ship software.</p>
+
+<p><a href="https://github.com/rails/rails/pull/43118">Add SSL support for postgresql in “bin/rails dbconsole”</a><br />
+This PR fixes the <em>dbconsole</em> command when used with PostgreSQL to support encrypted connections.</p>
+
+<p><a href="https://github.com/rails/rails/pull/43223">Introduce ActiveModel::API</a><br />
+Make <em>ActiveModel::API</em> the minimum API to talk with Action Pack and Action View. This will allow adding more functionality to <em>ActiveModel::Model</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/43061">GitHub Codespaces configuration</a><br />
+This PR adds support for <a href="https://github.com/features/codespaces">GitHub Codespaces</a>, which allows contributors to easily boot a fully functional environment to create patches and test changes to Rails.</p>
+
+<p><a href="https://github.com/rails/rails/pull/43625">Standardised error reporting interface</a><br />
+<em>Rails.error</em> is a new error reporting interface, with two block based methods. <em>handle</em>, which swallows errors and forwards them to the subscribers:<br />
+   <em>Rails.error.handle do 1 + ‘1’ # raises TypeError end 1 + 1 # This will be executed</em></p>
+
+<p>and <em>record</em>, which forwards the errors to the subscribes but lets it continue rewinding the call stack:<br />
+    <em>Rails.error.record do 1 + ‘1’ # raises TypeError end 1 + 1 # This won’t be executed.</em></p>
+
+<p>For cases where the blocked based API isn’t suitable, the lower level <em>report</em> method can be used:</p>
+
+<p>    <em>Rails.error.report(error, handled: true / false)</em></p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20210101-20211231">529 amazing people</a> contributed 3716 commits to Rails this year! A <a href="https://rubyonrails.org/2021/12/15/Rails-7-fulfilling-a-vision">new major version of Rails</a> has been released recently, including features like At-Work Encryption with Active Record, Async Query Loading, Zeitwerk code loader better CSS and Javascript bundling, and Rails also got a new website and booting screen!<br />
+Thanks for everyone and see you next year!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

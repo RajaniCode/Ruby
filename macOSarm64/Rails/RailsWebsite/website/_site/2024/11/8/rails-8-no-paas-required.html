@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 8.0: No PaaS Required</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Deploying modern web apps – with all the provisions needed to be fast and secure while easily updateable – has become so hard that many developers don’t dare do it without a PaaS (platform-as-a-service). But that’s ridiculous. Nobody should have to pay orders of magnitude more for basic computing just to make deployment friendly and usable. That’s a job for open source, and Rails 8 is ready to solve it. So it’s with great pleasure that we are now ready with the final version of Rails 8.0, after a successful beta release and several release candidates!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 8.0: No PaaS Required" />
+  <meta property="og:description" content="Deploying modern web apps – with all the provisions needed to be fast and secure while easily updateable – has become so hard that many developers don’t dare do it without a PaaS (platform-as-a-service). But that’s ridiculous. Nobody should have to pay orders of magnitude more for basic computing just to make deployment friendly and usable. That’s a job for open source, and Rails 8 is ready to solve it. So it’s with great pleasure that we are now ready with the final version of Rails 8.0, after a successful beta release and several release candidates!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2024/11/8/rails-8-no-paas-required" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 8.0: No PaaS Required" />
+  <meta name="twitter:description" content="Deploying modern web apps – with all the provisions needed to be fast and secure while easily updateable – has become so hard that many developers don’t dare do it without a PaaS (platform-as-a-service). But that’s ridiculous. Nobody should have to pay orders of magnitude more for basic computing just to make deployment friendly and usable. That’s a job for open source, and Rails 8 is ready to solve it. So it’s with great pleasure that we are now ready with the final version of Rails 8.0, after a successful beta release and several release candidates!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2024/11/8/rails-8-no-paas-required"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 8.0: No PaaS Required",
+      "description": "Deploying modern web apps – with all the provisions needed to be fast and secure while easily updateable – has become so hard that many developers don’t dare do it without a PaaS (platform-as-a-service). But that’s ridiculous. Nobody should have to pay orders of magnitude more for basic computing just to make deployment friendly and usable. That’s a job for open source, and Rails 8 is ready to solve it. So it’s with great pleasure that we are now ready with the final version of Rails 8.0, after a successful beta release and several release candidates!",
+      "url": "http://localhost:4000/2024/11/8/rails-8-no-paas-required",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "dhh"
+      },
+      "datePublished": "2024-11-08T03:30:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, November 8, 2024</h5>
+        <h2>Rails 8.0: No PaaS Required</h2>
+
+        <h6>Posted by dhh</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Deploying modern web apps – with all the provisions needed to be fast and secure while easily updateable – has become so hard that many developers don’t dare do it without a PaaS (platform-as-a-service). But that’s ridiculous. Nobody should have to pay orders of magnitude more for basic computing just to make deployment friendly and usable. That’s a job for open source, and Rails 8 is ready to solve it. So it’s with great pleasure that we are now ready with the final version of Rails 8.0, after a successful beta release and several release candidates!</p>
+
+<p>Here are all the major new bits in box:</p>
+
+<h2 id="enter-kamal-2--thruster">Enter Kamal 2 + Thruster</h2>
+
+<p>Rails 8 comes preconfigured with <a href="https://kamal-deploy.org">Kamal 2</a> for deploying your application anywhere. Whether to a cloud VM or your own hardware. Kamal takes a fresh Linux box and turns it into an application or accessory server with just a single “kamal setup” command. All it needs is the IP addresses for a set of servers with your SSH key deposited, and you’ll be ready to go into production in under two minutes.</p>
+
+<p>Kamal can do this so easily because Rails already comes with a highly efficient and tuned <a href="https://github.com/rails/rails/blob/main/railties/lib/rails/generators/rails/app/templates/Dockerfile.tt">Dockerfile</a> for turning your application into a production-ready container image out of the box. All you need to bring is your own container registry account, like Docker Hub or GitHub, for storing the images.</p>
+
+<p>In Rails 8, this Dockerfile has been upgraded to include a new proxy called <a href="https://github.com/basecamp/thruster">Thruster</a>, which sits in front of the Puma web server to provide X-Sendfile acceleration, asset caching, and asset compression. This means there’s no need to put an Nginx or any other web server in front. The default Rails container is ready to accept traffic from the internet immediately.</p>
+
+<p>Kamal 2 also includes a proxy, this time a bespoke unit called <a href="https://github.com/basecamp/kamal-proxy">Kamal Proxy</a> to replace the generic Traefik option it used at launch. This proxy provides super fast zero-downtime deploys, automated SSL certificates via Let’s Encrypt, and support for multiple applications on a single server without any complicated configuration.</p>
+
+<p>Together with a revised strategy for handling secrets (featuring built-in integration for 1password, Bitwarden, and LastPass) and a new aliases feature to get commands like “kamal console” to start a remote Rails console session, it provides a complete package for handling not just the deployment but the operation of your application in production.</p>
+
+<p>Kamal 2 was lead by Donal McBreen and Kamal Proxy + Thruster was created by Kevin McConnell, both from <a href="https://37signals.com">37signals</a>.</p>
+
+<h2 id="a-solid-reduction-of-dependencies">A Solid Reduction of Dependencies</h2>
+
+<p>Part of making Rails easier to deploy is to cut down on the number of accessory services required to get going. In the past, Rails needed either MySQL or PostgreSQL as well as Redis to take full advantage of all its features, like jobs, caching, and WebSockets. Now all of it can be done with SQLite thanks to a trifecta of new database-backed adapters named Solid Cable, Solid Cache, and Solid Queue.</p>
+
+<p>These adapters are all created from the same premise: Disks have gotten fast enough that we don’t need RAM for as many tasks. This allows us to reap the simplification benefits of SSD and NVMe drives being orders of magnitude faster than good-old spinning rust.</p>
+
+<h3 id="solid-cable">Solid Cable</h3>
+
+<p><a href="https://github.com/rails/solid_cable">Solid Cable</a> replaces the need for Redis to act as the pubsub server to relay WebSocket messages from the application to clients connected to different processes. It uses fast polling, but it’s still almost as quick as Redis, when run through the same server on SQLite. Beyond plenty fast enough for most applications. As a bonus, Solid Cable retains the messages sent in the database for a day by default, which may ease debugging of tricky live update issues.</p>
+
+<p>Solid Cable has been created by Nick Pezza from <a href="https://workingnotworking.com/">Working Not Working</a>.</p>
+
+<h3 id="solid-cache">Solid Cache</h3>
+
+<p><a href="https://github.com/rails/solid_cache">Solid Cache</a> replaces the need for either Redis or Memcached for storing HTML fragment caches in particular. In addition to getting rid of the accessory service dependency, it also allows for a vastly larger and cheaper cache thanks to its use of disk storage rather than RAM storage. This means your cache can live longer and cover even more requests out the plank of the 95th or 99th percentile. Additionally, this cache can be encrypted <em>and</em> managed by an explicit retention limit (like 30 or 60 days). Making it easier to live up to modern privacy policies and expectations.</p>
+
+<p>Solid Cache has been in production at Basecamp for well over a year where it stores 10 terabytes of data, enables a full 60-day retention window, and cut the P95 render times in half after it’s introduction.</p>
+
+<p>Solid Cache was created by Donal McBreen from 37signals.</p>
+
+<h3 id="solid-queue">Solid Queue</h3>
+
+<p><a href="https://github.com/rails/solid_queue">Solid Queue</a> replaces the need for not just Redis, but also a separate job-running framework, like Resque, Delayed Job, or Sidekiq, for most people. For high-performance installations, it’s built on the new <code class="language-plaintext highlighter-rouge">FOR UPDATE SKIP LOCKED</code> mechanism first introduced in PostgreSQL 9.5, but now also available in MySQL 8.0 and beyond. For more modest needs, it also works with SQLite, which makes it ideal for that no-dependency path to the first HELLO WORLD dopamine hit you get from seeing your work in production right away.</p>
+
+<p>Solid Queue can either run as a puma plugin, which is the default on a single-server installation, or by using the new <code class="language-plaintext highlighter-rouge">bin/jobs</code> command for starting a dedicated dispatcher. It’s possible to run multiple dispatchers dealing with dedicated queues according to bespoke performance tuning all with a flexible configuration scheme that asks for no tweaking out of the box, but gives you all the dials once you need it.</p>
+
+<p>It has virtually all the features you could want from a modern job queuing system. Including robust concurrency controls, failure retries and alerting, recurring job scheduling, and so much more. In HEY, it replaced no less than 6(!) different Resque gems, as the one integrated solution.</p>
+
+<p>Solid Queue has been meticulously developed within the pressures of a real production environment over the last 18 months, and today it’s running 20 million jobs per day for HEY alone at 37signals.</p>
+
+<p>Solid Queue was created by Rosa Gutiérrez from 37signals.</p>
+
+<h2 id="getting-sqlite-ready-for-production">Getting SQLite ready for production</h2>
+
+<p>On top of the trifecta of Solid adapters that makes it possible for SQLite to power Action Cable, Rails.cache, and Active Job, a bunch of work has gone into making the SQLite adapter and Ruby driver suitable for real production use in Rails 8.</p>
+
+<p>At 37signals, we’re building a growing suite of apps that use SQLite in production with <a href="https://once.com/">ONCE</a>. There are now thousands of installations of both <a href="https://once.com/campfire">Campfire</a> and <a href="https://once.com/writebook">Writebook</a> running in the wild that all run SQLite. This has meant a lot of real-world pressure on ensuring that Rails (and Ruby) is working that wonderful file-based database as well as it can be. Through proper defaults like WAL and IMMEDIATE mode. Special thanks to Stephen Margheim for <a href="https://github.com/rails/rails/pulls?q=is%3Apr+author%3Afractaledmind">a slew of such improvements</a> and Mike Dalessio for <a href="https://github.com/sparklemotion/SQLite3-ruby/pull/558">solving a last-minute SQLite file corruption issue</a> in the Ruby driver.</p>
+
+<h2 id="replacing-sprockets-with-propshaft">Replacing Sprockets with Propshaft</h2>
+
+<p>But Rails 8 is not just about the better deployment story and database-backed adapters. We’re also making Propshaft the new default asset pipeline. Propshaft is a dividend from the mission to focus on #NOBUILD as the default path in Rails 7 (and offloading more complicated JavaScript setups to bun/esbuild/vite/etc). As the <a href="https://world.hey.com/dhh/introducing-propshaft-ee60f4f6">new asset pipeline</a> it replaces the old Sprockets system, which hails from all the way back in 2009. A time before JavaScript transpilers and build pipelines as we know them today existed. And long, long before we could imagine browsers with stellar JavaScript implementations, import maps, and no constraints from many small files thanks to HTTP/2.</p>
+
+<p>It’s a great example of the need to occasionally pull a fresh sheet of paper and consider a familiar problem from first principles again. And it turns out, <a href="https://world.hey.com/dhh/once-1-is-entirely-nobuild-for-the-front-end-ce56f6d7">in our new #NOBUILD world</a>, the asset pipeline only needs to do two primary things: Provide a load path for assets and stamp them with digests to allow for far-future expiry. That’s basically it. Sprockets did a million other things than that, many of them in a way that had long since fallen out of favor, and from a state of disrepair that had few contributors willing or able to help remedy it.</p>
+
+<p>So we thank Sprockets for 15 years of service, but the future of the asset pipeline in Rails is called Propshaft. And it’s now the default for all Rails 8 applications, though we’ll continue to support Sprockets for existing applications.</p>
+
+<p>Propshaft was created by David Heinemeier Hansson, from 37signals, and Breno Gazzola, from <a href="https://festalab.com.br/">FestaLab</a>.</p>
+
+<h2 id="generating-the-authentication-basics">Generating the authentication basics</h2>
+
+<p>Finally, making it easier to go to production also means we ought to make it easy to be secure. Rails has been assembling high-level abstractions for the key components of an excellent authentication system for a long time to bring that ease. We’ve had <code class="language-plaintext highlighter-rouge">has_secure_password</code> since Rails 5, but also recently introduced <code class="language-plaintext highlighter-rouge">generates_token_for :password_reset</code> along with <code class="language-plaintext highlighter-rouge">authenticate_by</code> in Rails 7.1. Now, with Rails 8, we’re putting all the pieces together in a complete authentication system generator, which creates an excellent starting point for a session-based, password-resettable, metadata-tracking authentication system.</p>
+
+<p>Just run <code class="language-plaintext highlighter-rouge">bin/rails generate authentication</code> and you’ll get basic models for <code class="language-plaintext highlighter-rouge">Session</code> and <code class="language-plaintext highlighter-rouge">User</code>, together with a <code class="language-plaintext highlighter-rouge">PasswordsMailer</code>, <code class="language-plaintext highlighter-rouge">SessionsController</code>, and an <code class="language-plaintext highlighter-rouge">Authentication</code> concern. All you have to bring yourself is a user sign-up flow (since those are usually bespoke to each application). No need to fear rolling your own authentication setup with these basics provided (or, heaven forbid, paying a vendor for it!).</p>
+
+<h2 id="and-everything-else">And everything else</h2>
+
+<p>Rails 8 is dropping just a few months after <a href="https://rubyonrails.org/2024/8/10/Rails-7-2-0-has-been-released">Rails 7.2</a>, but on top of all these incredible new tools presented above, also includes a wealth of fixes and improvements. Rails has never been firing harder on all cylinders than what we’re doing at the moment. It’s an incredible time to be involved with the framework and an excellent moment to hop on our train for the first time. Whether you’re into #NOBUILD or #NOPAAS or simply attracted to the mission of compressing complexity in general, you’ll be right at home with a community of passionate builders who value beautiful code as much as they do productivity.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+4. Run Migration
+
+
+Objective
+
+Enter the command to run the migration you just created.
+
+Answer: rake db:mi­grate
+
+$ rake db:mi­grate
+==  CreateTweets: migrating ===================================================
+-- create_table(:tweets)
+   -> 0.0017s
+==  CreateTweets: migrated (0.0025s) ==========================================
+Successfully completed the Challenge!
+$  

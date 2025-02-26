@@ -1,0 +1,88 @@
+1.2 Skinny Controllers I
+
+
+Our controllers are kind of chubby, so let's make things better. Combine the two conditionals that involve validating and creating a review into a single conditional that calls @review.add_to_item and returns a boolean. Don't worry, we'll implement this method next.
+
+
+review.rb
+class Review < ActiveRecord::Base
+  belongs_to :item
+
+  def add_to_item
+    # We'll fill this in next!
+  end
+
+  private
+
+  def bad_words?
+    description =~ /BAD_WORD/
+  end
+end
+
+
+reviews_controller.rb
+class ReviewsController < ApplicationController
+  def create
+    @item = Item.find(params[:review][:item_id])
+    @review = @item.reviews.build(review_params)
+    # start refactoring here...
+    if @review.bad_words?
+      flash[:error] = 'Did not save review.'
+      render :new
+    elsif @review.save
+      redirect_to @review, notice: 'Successfully created'
+    else
+      flash[:error] = 'Did not save review.'
+      render :new
+    end
+  end
+
+  def new
+    @review = Review.new
+  end
+
+  def show
+    @review = Review.find(review_params)
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:description)
+  end
+end
+
+
+Answer:
+reviews_controller.rb
+class ReviewsController < ApplicationController
+  def create
+    @item = Item.find(params[:review][:item_id])
+    @review = @item.reviews.build(review_params)
+    # start refactoring here...
+    #if @review.bad_words?
+      #flash[:error] = 'Did not save review.'
+      #render :new
+    #elsif @review.save
+    if @review.add_to_item
+      redirect_to @review, notice: 'Successfully created'
+    else
+      flash[:error] = 'Did not save review.'
+      render :new
+    end
+  end
+
+  def new
+    @review = Review.new
+  end
+
+  def show
+    @review = Review.find(review_params)
+  end
+
+  private
+
+  def review_params
+    params.require(:review).permit(:description)
+  end
+end

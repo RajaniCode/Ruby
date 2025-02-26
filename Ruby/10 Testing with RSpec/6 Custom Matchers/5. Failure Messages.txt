@@ -1,0 +1,104 @@
+5. Failure Messages
+
+
+Our spec is working, but what if someone removed the numericality validation from our model? All of the sudden our spec would fail and we'd see a "Not implemented" error message. Change the failure message to instead return "Zombie failed to validate: iq numericality" when the example fails. Also add an error message for the negative failure message case.
+
+
+zombie_spec
+describe Zombie do
+  subject { Zombie.new }
+  it { should validate_numericality_of(:iq) }
+end
+
+
+zombie.rb
+class Zombie < ActiveRecord::Base
+  attr_accessible :iq
+  validates :iq, presence: true, 
+                 numericality: {
+                   only_integers: true
+                 }
+end
+
+
+validate_numericality_of.rb
+module ValidateNumericalityOf
+  class Matcher
+    def initialize(attribute)
+      @attribute = attribute
+    end
+
+    def matches?(model)
+      @model = model
+      check_for_number
+    end
+
+    def failure_message
+      "Not implemented"
+    end
+
+    def negative_failure_message
+      "Not implemented"
+    end
+
+    def description
+      "validate numericality of "
+    end
+    
+    def check_for_number
+      @model[@attribute] = "not a number"
+      @model.valid?
+      @model.errors[@attribute].include?("is not a number")
+    end
+  end
+
+  def validate_numericality_of(attribute)
+    Matcher.new(attribute)
+  end
+end
+
+RSpec.configure do |config|
+  config.include ValidateNumericalityOf, type: :model
+end
+
+
+Answer:
+validate_numericality_of.rb
+module ValidateNumericalityOf
+  class Matcher
+    def initialize(attribute)
+      @attribute = attribute
+    end
+
+    def matches?(model)
+      @model = model
+      check_for_number
+    end
+
+    def failure_message
+      "#{@model.class} failed to validate: #{@attribute} numericality"
+    end
+
+    def negative_failure_message
+       "#{@model.class} failed to validate: #{@attribute} numericality"
+    end
+
+    def description
+      "validate numericality of "
+    end
+    
+    def check_for_number
+      @model[@attribute] = "not a number"
+      @model.valid?
+      @model.errors[@attribute].include?("is not a number")
+    end
+  end
+
+  def validate_numericality_of(attribute)
+    Matcher.new(attribute)
+  end
+end
+
+RSpec.configure do |config|
+  config.include ValidateNumericalityOf, type: :model
+end

@@ -1,0 +1,177 @@
+<!doctype html>
+
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Maintenance policy</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A web-app framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Maintenance policy" />
+  <meta property="og:description" content="A web-app framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/maintenance" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:title" content="Maintenance policy" />
+  <meta name="twitter:description" content="A web-app framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/maintenance"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Maintenance policy",
+      "description": "A web-app framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern.",
+      "url": "http://localhost:4000/maintenance",
+      "image": "http://localhost:4000/assets/images/opengraph.png"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="heading common-padding--bottom common-padding--top-small">
+  <div class="container">
+    <div class="heading__body">
+      <div class="heading__headline common-headline">
+        <h1>Maintenance policy.</h1>
+        <h4><strong>Support is divided into three groups:</strong> new features, bug fixes, and security issues.</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text common-padding--bottom">
+  <div class="container">
+    <div class="text__body">
+      <div class="text__content common-content">
+        <h3 id="new_features">New Features</h3>
+        <p>We aim to release a version containing new features every six months. In the rare case where
+          no release was made in one year, we will extend the support period for the previous release
+          until the next release is made.</p>
+        <h3 id="bug-fixes">Bug Fixes</h3>
+        <p>Minor releases will receive bug fixes for one year after the first release in
+          its series. For example, if a theoretical 1.1.0 is released on January 1, 2023, it
+          will receive bug fixes until January 1, 2024. After that, it will be considered
+          unsupported.</p>
+        <h6>List of currently supported releases</h6>
+        <ul>
+          <li><strong>8.0.x</strong> - Supported until November 7, 2025</li>
+          <li><strong>7.2.x</strong> - Supported until August 9, 2025</li>
+        </ul>
+        <h3 id="security">Security Issues</h3>
+        <p>
+          Minor releases will receive security fixes for two years after the first release in
+          its series. For example, if a theoretical 1.1.0 is released on January 1, 2023, it
+          will receive security fixes until January 1, 2025. After that, it will reach its
+          end-of-life.
+        </p>
+        <h6>List of currently supported releases</h6>
+        <ul>
+          <li><strong>8.0.x</strong> - Supported until November 7, 2026</li>
+          <li><strong>7.2.x</strong> - Supported until August 9, 2026</li>
+          <li><strong>7.1.x</strong> - Supported until October 1, 2025</li>
+          <li><strong>7.0.x</strong> - Supported until April 1, 2025</li>
+        </ul>
+        <h3 id="unsupported">Unsupported Release Series</h3>
+        <p>When a release series is no longer supported, it’s your own responsibility to deal with bugs and security issues. We may provide backports of the fixes and publish them to git, however there will be no new versions released. If you are not comfortable maintaining your own versions, you should upgrade to a supported version.</p>
+        <hr class="divider" />
+        <p>You can read the <a href="https://guides.rubyonrails.org/maintenance_policy.html" title="Rails maintenance policy">full policy in the Rails guides</a>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

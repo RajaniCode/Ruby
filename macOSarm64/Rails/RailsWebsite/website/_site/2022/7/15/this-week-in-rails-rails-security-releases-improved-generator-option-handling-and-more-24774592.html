@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails security releases, Improved generator option handling and more...</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi! Emmanuel here with updates from Rails over the last week." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails security releases, Improved generator option handling and more..." />
+  <meta property="og:description" content="Hi! Emmanuel here with updates from Rails over the last week." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2022/7/15/this-week-in-rails-rails-security-releases-improved-generator-option-handling-and-more-24774592" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails security releases, Improved generator option handling and more..." />
+  <meta name="twitter:description" content="Hi! Emmanuel here with updates from Rails over the last week." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2022/7/15/this-week-in-rails-rails-security-releases-improved-generator-option-handling-and-more-24774592"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails security releases, Improved generator option handling and more...",
+      "description": "Hi! Emmanuel here with updates from Rails over the last week.",
+      "url": "http://localhost:4000/2022/7/15/this-week-in-rails-rails-security-releases-improved-generator-option-handling-and-more-24774592",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Emmanuel Hayford"
+      },
+      "datePublished": "2022-07-15T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Friday, July 15, 2022</h5>
+        <h2>Rails security releases, Improved generator option handling and more...</h2>
+
+        <h6>Posted by Emmanuel Hayford</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi! <a href="https://twitter.com/siaw23">Emmanuel</a> here with updates from Rails over the last week.</p>
+
+<p><a href="https://discuss.rubyonrails.org/t/cve-2022-32224-possible-rce-escalation-bug-with-serialized-columns-in-active-record/81017">Rails Versions 7.0.3.1, 6.1.6.1, 6.0.5.1, and 5.2.8.1 have been released!</a>
+A few days ago Rails released versions 7.0.3.1, 6.1.6.1, 6.0.5.1, and 5.2.8.1. These are security updates that impact applications that use serialised attributes on Active Record models. These updates, identified by CVE-2022-32224 cover a possible escalation to RCE when using YAML serialised columns in Active Record.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45501">Allow opting out of the SameSite cookie</a>
+You can now opt out of using <em>SameSite</em> on your cookies by passing <em>same_site: nil</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45520">Improve generator implied option handling</a>
+<em>AppGenerator</em> and <em>PluginGenerator</em> implied options have gotten some improvements: Implied options will now be reported in your shell. Conflicting options will raise an error. Meta options and <em>–no-*</em> options are reported with more precision.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45470">Add Formatting Full Messages with I18n section in ActiveRecordValidations guides</a>
+Rails Guides received some love. There’s now a section on the Active Record Validations guides to demonstrate how full validation messages can be formatted with the help of I18n.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45528">Add –parent option to job generator to specify parent class of job</a>
+There’s now a superclass option in the job generator. It’s possible to do <em>bin/rails g job process_payment –parent=payment_job</em> to get <em>class ProcessPaymentJob &lt; PaymentJob; end</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45188">Add include_seconds option to datetime_local_field</a>
+According to <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time#time_value_format">input elements of type time</a> browsers render time differently if you format time without the seconds bit. This PR adds an option to omit the seconds part of formatted time with <em>include_seconds: false</em>.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44601">Add timestamptz as a time zone aware type for PostgreSQL</a>
+Previously, support for the <em>timestamptz</em> type on the Postgres adapter was added, this caused issues in some cases where the newly-added <em>timestamptz</em> was not considered timezone-aware attribute. This PR fixes the issue for Postgres users.</p>
+
+<p><a href="https://github.com/rails/rails/pull/37944">Common Table Expression support added “out-of-the-box</a>
+You can now build sophisticated queries with Common Table Expressions using the <em>.with</em> query method on models. The <em>.with</em> allows the usage of Active Record relations without the need to manually build <em>Arel::Nodes::As</em> nodes.</p>
+
+<p><a href="https://github.com/rails/rails/pull/44189">Add ActiveRecord::Base::generates_token_for</a>
+With this PR, <em>signed_id</em> is relieved of token generation. Token generation is now directly associated with a record allowing record state to be tracked easily.</p>
+
+<p><a href="https://github.com/rails/rails/pull/45009">Add quarter to date/time</a>
+<em>DateAndTime::Calculations</em> gets a new method, <em>quarter</em>, that returns the quarter of the receiver’s calendar year. Here are some examples: <em>Date.new(2010, 12, 25).quarter # =&gt; 4</em> and <em>Date.new(2010, 4, 12).quarter  # =&gt; 2</em>.</p>
+
+<p><a href="https://contributors.rubyonrails.org/contributors/in-time-window/20220704-20220715">32 people contributed to Rails</a> since the last time. Until next time!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

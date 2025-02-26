@@ -1,0 +1,80 @@
+2.4 Test Listing Resources With Query Strings
+
+Let’s add the ability to filter the list of humans we get back from our API. Before we implement this feature, we’ll need to write some integration tests.
+
+
+test/integration/listing_humans_test.rb
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  setup { }
+
+  test 'returns a list of humans by brain type' do
+    # test code here
+  end
+end
+
+
+1. On the setup method, set the host to api.example.com.
+
+Answer:
+test/integration/listing_humans_test.rb
+require 'test_helper'
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  setup {host! 'api.example.com'}
+
+  test 'returns a list of humans by brain type' do
+    # test code here
+  end
+end
+
+
+2. Now, let’s create two humans. Set the first one’s name to Allan with the brain_type set to large. Then set the second one’s name to John with the brain_type set to small.
+
+Answer:
+test/integration/listing_humans_test.rb
+require 'test_helper'
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  setup {host! 'api.example.com'}  
+  allan = Human.create!(name: 'Allan', brain_type: 'large')
+  john = Human.create!(name: 'John', brain_type: 'small')  
+  test 'returns a list of humans by brain type' do
+    # test code here
+  end
+end
+
+
+3. Issue a GET request to the humans resources URI and pass a query string with brain_type set to small. Assert the response status code is 200 - Success.
+
+Answer:
+test/integration/listing_humans_test.rb
+require 'test_helper'
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  setup {host! 'api.example.com'}  
+  allan = Human.create!(name: 'Allan', brain_type: 'large')
+  john = Human.create!(name: 'John', brain_type: 'small')  
+  test 'returns a list of humans by brain type' do
+    # test code here
+    get '/humans?brain_type=small'
+    assert_equal 200, response.status
+  end
+end
+
+
+4. Parse the response.body from json into a Ruby hash. Make sure John is included in the body, and that Allan is not.
+
+Answer:
+test/integration/listing_humans_test.rb
+require 'test_helper'
+class ListingHumansTest < ActionDispatch::IntegrationTest
+  setup {host! 'api.example.com'}  
+  allan = Human.create!(name: 'Allan', brain_type: 'large')
+  john = Human.create!(name: 'John', brain_type: 'small')  
+  test 'returns a list of humans by brain type' do
+    # test code here
+    get '/humans?brain_type=small'
+    assert_equal 200, response.status
+    humans = JSON.parse(response.body, symbolize_names: true)
+    names = humans.collect{|h| h[:name]}
+    assert_includes names, 'John'
+    refute_includes names, 'Allan'
+  end
+end

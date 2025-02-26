@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 3.2.9.rc2 has been released!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hi everyone," />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 3.2.9.rc2 has been released!" />
+  <meta property="og:description" content="Hi everyone," />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2012/11/1/ann-rails-3-2-9-rc2-has-been-released" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 3.2.9.rc2 has been released!" />
+  <meta name="twitter:description" content="Hi everyone," />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2012/11/1/ann-rails-3-2-9-rc2-has-been-released"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 3.2.9.rc2 has been released!",
+      "description": "Hi everyone,",
+      "url": "http://localhost:4000/2012/11/1/ann-rails-3-2-9-rc2-has-been-released",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "spastorino"
+      },
+      "datePublished": "2012-11-01T00:00:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, November 1, 2012</h5>
+        <h2>Rails 3.2.9.rc2 has been released!</h2>
+
+        <h6>Posted by spastorino</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Hi everyone,</p>
+
+<p>Rails 3.2.9.rc2 has been released. If no regressions are found I will
+release 3.2.9 final this Monday 5th. If you find a regression open an
+issue on github and mention me on it, mail me or tweet me, whatever but
+let me know :).</p>
+
+<h2 id="changes-since-329rc1">CHANGES since 3.2.9.rc1</h2>
+
+<p><em>Action Mailer</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Action Pack</em></p>
+
+<ul>
+  <li>
+    <p>Revert the <code class="language-plaintext highlighter-rouge">assert_template</code> fix to not pass with ever string that matches the template name.
+This added a regression since people were relying on this buggy behavior.
+This will introduce back #3849 but this stable release will be backward compatible.
+Fixes #8068.</p>
+
+    <p><em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Revert the rename of internal variable on ActionController::TemplateAssertions to prevent
+naming collisions. This added a regression related with shoulda-matchers, since it is
+expecting the <a href="https://github.com/thoughtbot/shoulda-matchers/blob/9e1188eea68c47d9a56ce6280e45027da6187ab1/lib/shoulda/matchers/action_controller/render_with_layout_matcher.rb#L74">instance variable @layouts</a>.
+This will introduce back #7459 but this stable release will be backward compatible.
+Fixes #8068.</p>
+
+    <p><em>Rafael Mendonça França</em></p>
+  </li>
+</ul>
+
+<p><em>Active Model</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Record</em></p>
+
+<ul>
+  <li>
+    <p>Fix issue with collection associations calling first(n)/last(n) and attempting
+to set the inverse association when <code class="language-plaintext highlighter-rouge">:inverse_of</code> was used. Fixes #8087.</p>
+
+    <p><em>Carlos Antonio da Silva</em></p>
+  </li>
+  <li>
+    <p>Fix ActiveRecord#update_column return value.</p>
+
+    <p><em>Aliaxandr</em></p>
+  </li>
+  <li>
+    <p>Fix bug when Column is trying to type cast boolean values to integer.
+Fixes #8067.</p>
+
+    <p><em>Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Fix bug where <code class="language-plaintext highlighter-rouge">rake db:test:prepare</code> tries to load the structure.sql into development database.
+Fixes #8032.</p>
+
+    <p><em>Grace Liu + Rafael Mendonça França</em></p>
+  </li>
+  <li>
+    <p>Fixed support for <code class="language-plaintext highlighter-rouge">DATABASE_URL</code> environment variable for rake db tasks. <em>Grace Liu</em></p>
+  </li>
+</ul>
+
+<p><em>Active Resource</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Active Support</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<p><em>Railties</em></p>
+
+<ul>
+  <li>No changes</li>
+</ul>
+
+<h2 id="sha-1">SHA-1</h2>
+
+<ul>
+  <li>3aaf1d1e6057177988b646b86650c5cb5bf0e16e  actionmailer-3.2.9.rc2.gem</li>
+  <li>c2ff861876ed951a33c01caacf2c17301319c7b1  actionpack-3.2.9.rc2.gem</li>
+  <li>642da29371a877fda18fc69c51daa882429d609a  activemodel-3.2.9.rc2.gem</li>
+  <li>f695caa3cac3b1d3f316bfd7d8f0ec69d61211ae  activerecord-3.2.9.rc2.gem</li>
+  <li>baec057af0cf2a6146b000282b86cf6eb87989e2  activeresource-3.2.9.rc2.gem</li>
+  <li>b15f9f13de730343448f35ed3b2f26af1ddd76e9  activesupport-3.2.9.rc2.gem</li>
+  <li>40b5e77a5123545b4e4b6c2e993a30cdb3a38bae  rails-3.2.9.rc2.gem</li>
+  <li>7921cbcd52302d31188537fb62fa5c75c2be5b2d  railties-3.2.9.rc2.gem</li>
+</ul>
+
+<p>You can find a list of changes between v3.2.9.rc1 and v3.2.9.rc2 <a href="https://github.com/rails/rails/compare/v3.2.9.rc1...v3.2.9.rc2">here</a>
+and an exhaustive list of changes since v3.2.8 <a href="https://github.com/rails/rails/compare/v3.2.8...v3.2.9.rc2">here</a>.</p>
+
+<p>Thanks to everyone!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

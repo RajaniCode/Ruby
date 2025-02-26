@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 1.2.3: Compatible with Ruby 1.8.6 (and other fixes)</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="While Rails Edge continues to move forward at a rapid clip, we&#8217;ve still had the time to make sure that Rails 1.2.x stays in the game. This release irons out the few wrinkles there was between Ruby 1.8.6 and Rails 1.2.2. So now you can enjoy the latest Ruby with the latest Rails.Besides the 1.8.6 compatibility, we&#8217;ve included a few minor fixes. Nothing major. This should be a drop-in replacement for Rails 1.2.2.As always, you can upgrade with gems or use the latest svn tag (rel_1-2-3). Enjoy!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 1.2.3: Compatible with Ruby 1.8.6 (and other fixes)" />
+  <meta property="og:description" content="While Rails Edge continues to move forward at a rapid clip, we&#8217;ve still had the time to make sure that Rails 1.2.x stays in the game. This release irons out the few wrinkles there was between Ruby 1.8.6 and Rails 1.2.2. So now you can enjoy the latest Ruby with the latest Rails.Besides the 1.8.6 compatibility, we&#8217;ve included a few minor fixes. Nothing major. This should be a drop-in replacement for Rails 1.2.2.As always, you can upgrade with gems or use the latest svn tag (rel_1-2-3). Enjoy!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2007/3/14/rails-1-2-3-compatible-with-ruby-1-8-6-and-other-fixes" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 1.2.3: Compatible with Ruby 1.8.6 (and other fixes)" />
+  <meta name="twitter:description" content="While Rails Edge continues to move forward at a rapid clip, we&#8217;ve still had the time to make sure that Rails 1.2.x stays in the game. This release irons out the few wrinkles there was between Ruby 1.8.6 and Rails 1.2.2. So now you can enjoy the latest Ruby with the latest Rails.Besides the 1.8.6 compatibility, we&#8217;ve included a few minor fixes. Nothing major. This should be a drop-in replacement for Rails 1.2.2.As always, you can upgrade with gems or use the latest svn tag (rel_1-2-3). Enjoy!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2007/3/14/rails-1-2-3-compatible-with-ruby-1-8-6-and-other-fixes"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 1.2.3: Compatible with Ruby 1.8.6 (and other fixes)",
+      "description": "While Rails Edge continues to move forward at a rapid clip, we&#8217;ve still had the time to make sure that Rails 1.2.x stays in the game. This release irons out the few wrinkles there was between Ruby 1.8.6 and Rails 1.2.2. So now you can enjoy the latest Ruby with the latest Rails.Besides the 1.8.6 compatibility, we&#8217;ve included a few minor fixes. Nothing major. This should be a drop-in replacement for Rails 1.2.2.As always, you can upgrade with gems or use the latest svn tag (rel_1-2-3). Enjoy!",
+      "url": "http://localhost:4000/2007/3/14/rails-1-2-3-compatible-with-ruby-1-8-6-and-other-fixes",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "David"
+      },
+      "datePublished": "2007-03-14T05:57:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Wednesday, March 14, 2007</h5>
+        <h2>Rails 1.2.3: Compatible with Ruby 1.8.6 (and other fixes)</h2>
+
+        <h6>Posted by David</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>While Rails Edge continues to move forward at a rapid clip, we&#8217;ve still had the time to make sure that Rails 1.2.x stays in the game. This release irons out the few wrinkles there was between Ruby 1.8.6 and Rails 1.2.2. So now you can enjoy the latest Ruby with the latest Rails.</p>
+<p>Besides the 1.8.6 compatibility, we&#8217;ve included a few minor fixes. Nothing major. This should be a drop-in replacement for Rails 1.2.2.</p>
+<p>As always, you can upgrade with gems or use the latest svn tag (rel_1-2-3). Enjoy!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

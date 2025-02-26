@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: Performance, MySQL prepared statements and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="This is Prathamesh after a long long time bringing you latest and greatest news from Rails world!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: Performance, MySQL prepared statements and more!" />
+  <meta property="og:description" content="This is Prathamesh after a long long time bringing you latest and greatest news from Rails world!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/9/12/this-week-in-rails-performance-mysql-prepared-statements-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: Performance, MySQL prepared statements and more!" />
+  <meta name="twitter:description" content="This is Prathamesh after a long long time bringing you latest and greatest news from Rails world!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/9/12/this-week-in-rails-performance-mysql-prepared-statements-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: Performance, MySQL prepared statements and more!",
+      "description": "This is Prathamesh after a long long time bringing you latest and greatest news from Rails world!",
+      "url": "http://localhost:4000/2015/9/12/this-week-in-rails-performance-mysql-prepared-statements-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "_cha1tanya"
+      },
+      "datePublished": "2015-09-12T06:31:36+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, September 12, 2015</h5>
+        <h2>This week in Rails: Performance, MySQL prepared statements and more!</h2>
+
+        <h6>Posted by _cha1tanya</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>This is <a href="https://twitter.com/_cha1tanya">Prathamesh</a> after a long long time bringing you latest and greatest news from Rails world!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20150904-201509011">This weeks Rails contributors</a></h3>
+
+<p>37 people contributed to Rails this week, including 7 first-time contributors. If you are interested in becoming a contributor, you can have a look at the <a href="https://github.com/rails/rails/issues">issues</a> list.</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="drop-indexes-concurrently-in-postgresql"><a href="https://github.com/rails/rails/pull/21317">Drop indexes concurrently in PostgreSQL</a></h3>
+
+<p>Now you can drop PostgreSQL indices concurrently in Rails 5, just like how you can already add indices concurrently today.</p>
+
+<h3 id="approachable-ssl-handling"><a href="https://github.com/rails/rails/pull/21520">Approachable SSL handling</a></h3>
+
+<p>Remember good ‘ol <code class="language-plaintext highlighter-rouge">config.force_ssl</code>? You can now use it with greater control. With improvements in SSL redirect and better handling of Strict Transport Security, you will surely love this improved version of <code class="language-plaintext highlighter-rouge">config.force_ssl</code>.</p>
+
+<h3 id="mult-context-validations"><a href="https://github.com/rails/rails/pull/21069">Mult-context validations</a></h3>
+
+<p>Ever faced the need of running validations of <code class="language-plaintext highlighter-rouge">create</code> and <code class="language-plaintext highlighter-rouge">update</code> contexts both at the same time? Now you can do that by passing multiple contexts to the <code class="language-plaintext highlighter-rouge">#valid?</code> and <code class="language-plaintext highlighter-rouge">#invalid?</code> methods.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="active-record-performance-improvements"><a href="https://github.com/rails/rails/pull/21523">Active Record performance improvements</a></h3>
+
+<p>This week lot of work was done for improving Active Record internals by reducing object allocations, avoid creating relations when not required and so on. Kudos to <a href="https://twitter.com/tgxworld">@tgxworld</a>!</p>
+
+<h3 id="prepared-statements-with-mysql"><a href="https://github.com/rails/rails/pull/21536">Prepared statements with MySQL</a></h3>
+
+<p>Rails now supports latest version of mysql2 gem. Is this a big deal? Yes!! You can now use prepared statements using this version. Now that’s awesome!</p>
+
+<h3 id="improve-sql-logging-coloration"><a href="https://github.com/rails/rails/pull/20921">Improve sql logging coloration</a></h3>
+
+<p>If you are using custom SQL queries with Ruby herredoc, you will be able to identify them instantly in your logs. Why? Because they will have better colors thanks to this patch.</p>
+
+<p>Not just that, overall coloration of all SQL queries is improved here as well!</p>
+
+<h3 id="reaching-into-the-cookie-jar"><a href="https://github.com/rails/rails/compare/ed3d213eb6b79218eee9bd8b4fa8ac8c147cd114...72889a6be4ec4afd68d3e4c3ae972099e080478a">Reaching into the cookie jar</a></h3>
+
+<p>The cookie-handling code in Rails is one of the more complicated code in the framework, largely due to the need to support and migrate legacy cookies produced by older versions of Rails.</p>
+
+<p>Kasper refactored some of those code to make it less hostile to future improvements, nice!</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="generator-errors-messages-will-be-in-plain-english"><a href="https://github.com/rails/rails/pull/21524">Generator errors messages will be in plain English</a></h3>
+
+<p>If you have seen some weird characters showing up in error messages of <code class="language-plaintext highlighter-rouge">rails g</code> commands due to localization of some messages, it is now fixed!</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are many more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2015-09-05%7D...@%7B2015-09-11%7D">check them out yourself</a>!</p>
+
+<p>Have you been thinking about writing for us, but you’re scared of putting yourself out there? Don’t worry, you can help our editors improve their writing with thoughtful critique and general grammar policing.</p>
+
+<p>You up for that? Tell <a href="mailto:godfreykfc@gmail.com">Godfrey</a> today.</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; This week in Rails: Performance, Test Helper Changes, Mailer Preview Improvements and More!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="####" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="This week in Rails: Performance, Test Helper Changes, Mailer Preview Improvements and More!" />
+  <meta property="og:description" content="####" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2015/10/10/this-week-in-rails-performance-test-helper-changes-mailer-preview-improvements-and-more" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="This week in Rails: Performance, Test Helper Changes, Mailer Preview Improvements and More!" />
+  <meta name="twitter:description" content="####" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2015/10/10/this-week-in-rails-performance-test-helper-changes-mailer-preview-improvements-and-more"
+      },
+      "name": "Ruby on Rails",
+      "headline": "This week in Rails: Performance, Test Helper Changes, Mailer Preview Improvements and More!",
+      "description": "####",
+      "url": "http://localhost:4000/2015/10/10/this-week-in-rails-performance-test-helper-changes-mailer-preview-improvements-and-more",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "toddbealmear"
+      },
+      "datePublished": "2015-10-10T03:16:57+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Saturday, October 10, 2015</h5>
+        <h2>This week in Rails: Performance, Test Helper Changes, Mailer Preview Improvements and More!</h2>
+
+        <h6>Posted by toddbealmear</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>####</p>
+
+<p><em>tap tap</em></p>
+
+<p>Is this thing on?</p>
+
+<p>Hey, everyone! Welcome to the latest edition of This Week in Rails - your one stop shop for all the goings-on in the <a href="https://github.com/rails/rails">Rails</a> universe. My name is <a href="https://www.twitter.com/toddbealmear">Todd</a> and I’ll be your guide. Let’s get this party started!</p>
+
+<h2 id="featured">Featured</h2>
+
+<h3 id="this-weeks-rails-contributors"><a href="http://contributors.rubyonrails.org/contributors/in-time-window/20151002-20151009">This Week’s Rails Contributors</a></h3>
+
+<p>We had 41 extraordinary people commit to Rails this past week, including 15 (!) newcomers. Wanna see your name on this list? Check out the list of <a href="https://github.com/rails/rails/issues">issues</a>.</p>
+
+<h2 id="new-stuff">New Stuff</h2>
+
+<h3 id="add-equality-comparison-for-attributeset"><a href="https://github.com/rails/rails/commit/9e25e0e1735f2ccca69679243aa8cf0885104164">Add Equality Comparison for AttributeSet</a></h3>
+
+<p>Exposes an equality comparison method (<code class="language-plaintext highlighter-rouge">==</code>) for comparing <code class="language-plaintext highlighter-rouge">ActiveRecord::AttributeSet</code> objects to each other.</p>
+
+<h2 id="improved">Improved</h2>
+
+<h3 id="persist-format-in-mailer-previews"><a href="https://github.com/rails/rails/pull/20983">Persist Format in Mailer Previews</a></h3>
+
+<p>Have you ever changed the format for a mailer preview, made a code change, and reloaded the preview only to have the desired format change back to the default? How annoying! This change utilizes JavaScript’s <code class="language-plaintext highlighter-rouge">history.pushState</code> to persist your desired format across refreshes. Nifty!</p>
+
+<h3 id="performance-improvement-for-active-record-preload"><a href="https://github.com/rails/rails/pull/21033">Performance Improvement for Active Record preload</a></h3>
+
+<p>This patch conditionally skips an expensive method call unless it’s explicitly required when calling <code class="language-plaintext highlighter-rouge">preload</code> on an <code class="language-plaintext highlighter-rouge">ActiveRecord::Relation</code>. The net benefit is an overall reduction in allocated objects and ~40% increase in speed.</p>
+
+<h3 id="support-arrays-in-active-jobs-assert_enqueued_jobs"><a href="https://github.com/rails/rails/pull/21852">Support Arrays in Active Job’s assert_enqueued_jobs</a></h3>
+
+<p>This brings Active Job’s <code class="language-plaintext highlighter-rouge">assert_enqueued_jobs</code> into parity with <code class="language-plaintext highlighter-rouge">assert_performed_jobs</code>. Specifically, the <code class="language-plaintext highlighter-rouge">:only</code> option now accepts <code class="language-plaintext highlighter-rouge">Array</code>s.</p>
+
+<h2 id="fixed">Fixed</h2>
+
+<h3 id="fix-mounted-engine-route-regression"><a href="https://github.com/rails/rails/pull/21804">Fix Mounted Engine Route Regression</a></h3>
+
+<p>A regression in 4.2.3 would cause the <code class="language-plaintext highlighter-rouge">relative_url_root</code> and <code class="language-plaintext highlighter-rouge">script_name</code> to each be included in routes for mounted Engines (the expected behavior is for one, not both to be used). This patch resolves that issue on master and 4-2-stable.</p>
+
+<h3 id="fix-test-helper-casting-for-active-job"><a href="https://github.com/rails/rails/pull/21854">Fix Test Helper Casting for Active Job</a></h3>
+
+<p>Fixes an issue where the <code class="language-plaintext highlighter-rouge">at:</code> argument wouldn’t be cast properly for <code class="language-plaintext highlighter-rouge">assert_enqueued_with</code> and <code class="language-plaintext highlighter-rouge">assert_performed_with</code>, causing tests to fail.</p>
+
+<h2 id="removed">Removed</h2>
+
+<h3 id="remove-pk_and_sequence_for-for-mysql-adapters"><a href="https://github.com/rails/rails/pull/21686">Remove pk_and_sequence_for for MySQL Adapters</a></h3>
+
+<p><code class="language-plaintext highlighter-rouge">pk_and_sequence_for</code> is not used by MySQL adapters and is being removed. There won’t be a deprecation cycle for this change, so note that your implementation may break if you’re overriding this method anywhere.</p>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+
+<p>That’s all for This week in Rails. As always, there are many more changes than we have room to cover here, but feel free to <a href="https://github.com/rails/rails/compare/master@%7B2015-10-02%7D...@%7B2015-10-09%7D">check them out yourself</a>.</p>
+
+<p>Until next time!</p>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Capistrano 1.4.1</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Here it is, another Capistrano release, and less than a month since the last one! Miracles truly never cease.Capistrano, for those embarrassingly late to the party, is a utility for executing commands in parallel on multiple remote servers. It is useful for lots of things, including automating deployment of Rails applications.Version 1.4.1, available just as soon as the mirrors get updated, is a pretty minor update, but has one new feature:	You can now pass :env to &#8216;run&#8217; (and friends), in order to specify environment variables that should be set for that command. For example:run “some_batch_thang.rb”, :env =&gt; { “DEBUG” =&gt; “1” }There is also one deprecation: if you are using UPPERCASE variables in your Capistrano recipes, you&#8217;ll being seeing warnings now. Support for variables that start with uppercase letters will be removed altogether in Capistrano 2.0. If you want uppercase identifiers, you should use Ruby constants.The two fixes in this release:	Actor#get will not close the SFTP channel when it finishes. This makes it possible to do multiple SFTP gets and puts in a single session.	The subversion adapter now passes the &#8220;no-auth-cache&#8221; option, so that if you configure an explicit subversion username for deployment other than your dev username, those deployment auth tokens won&#8217;t clobber your development tokens.So, go get it, &#8220;gem install capistrano.&#8221; Or download it directly from RubyForge. And at the risk of promising too much, too early: I expect this to be the last 1.x release of Capistrano, barring any critical problems that may arise with 1.4.1. Come on, cap2!" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Capistrano 1.4.1" />
+  <meta property="og:description" content="Here it is, another Capistrano release, and less than a month since the last one! Miracles truly never cease.Capistrano, for those embarrassingly late to the party, is a utility for executing commands in parallel on multiple remote servers. It is useful for lots of things, including automating deployment of Rails applications.Version 1.4.1, available just as soon as the mirrors get updated, is a pretty minor update, but has one new feature:	You can now pass :env to &#8216;run&#8217; (and friends), in order to specify environment variables that should be set for that command. For example:run “some_batch_thang.rb”, :env =&gt; { “DEBUG” =&gt; “1” }There is also one deprecation: if you are using UPPERCASE variables in your Capistrano recipes, you&#8217;ll being seeing warnings now. Support for variables that start with uppercase letters will be removed altogether in Capistrano 2.0. If you want uppercase identifiers, you should use Ruby constants.The two fixes in this release:	Actor#get will not close the SFTP channel when it finishes. This makes it possible to do multiple SFTP gets and puts in a single session.	The subversion adapter now passes the &#8220;no-auth-cache&#8221; option, so that if you configure an explicit subversion username for deployment other than your dev username, those deployment auth tokens won&#8217;t clobber your development tokens.So, go get it, &#8220;gem install capistrano.&#8221; Or download it directly from RubyForge. And at the risk of promising too much, too early: I expect this to be the last 1.x release of Capistrano, barring any critical problems that may arise with 1.4.1. Come on, cap2!" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2007/2/25/capistrano-1-4-1" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Capistrano 1.4.1" />
+  <meta name="twitter:description" content="Here it is, another Capistrano release, and less than a month since the last one! Miracles truly never cease.Capistrano, for those embarrassingly late to the party, is a utility for executing commands in parallel on multiple remote servers. It is useful for lots of things, including automating deployment of Rails applications.Version 1.4.1, available just as soon as the mirrors get updated, is a pretty minor update, but has one new feature:	You can now pass :env to &#8216;run&#8217; (and friends), in order to specify environment variables that should be set for that command. For example:run “some_batch_thang.rb”, :env =&gt; { “DEBUG” =&gt; “1” }There is also one deprecation: if you are using UPPERCASE variables in your Capistrano recipes, you&#8217;ll being seeing warnings now. Support for variables that start with uppercase letters will be removed altogether in Capistrano 2.0. If you want uppercase identifiers, you should use Ruby constants.The two fixes in this release:	Actor#get will not close the SFTP channel when it finishes. This makes it possible to do multiple SFTP gets and puts in a single session.	The subversion adapter now passes the &#8220;no-auth-cache&#8221; option, so that if you configure an explicit subversion username for deployment other than your dev username, those deployment auth tokens won&#8217;t clobber your development tokens.So, go get it, &#8220;gem install capistrano.&#8221; Or download it directly from RubyForge. And at the risk of promising too much, too early: I expect this to be the last 1.x release of Capistrano, barring any critical problems that may arise with 1.4.1. Come on, cap2!" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2007/2/25/capistrano-1-4-1"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Capistrano 1.4.1",
+      "description": "Here it is, another Capistrano release, and less than a month since the last one! Miracles truly never cease.Capistrano, for those embarrassingly late to the party, is a utility for executing commands in parallel on multiple remote servers. It is useful for lots of things, including automating deployment of Rails applications.Version 1.4.1, available just as soon as the mirrors get updated, is a pretty minor update, but has one new feature:	You can now pass :env to &#8216;run&#8217; (and friends), in order to specify environment variables that should be set for that command. For example:run “some_batch_thang.rb”, :env =&gt; { “DEBUG” =&gt; “1” }There is also one deprecation: if you are using UPPERCASE variables in your Capistrano recipes, you&#8217;ll being seeing warnings now. Support for variables that start with uppercase letters will be removed altogether in Capistrano 2.0. If you want uppercase identifiers, you should use Ruby constants.The two fixes in this release:	Actor#get will not close the SFTP channel when it finishes. This makes it possible to do multiple SFTP gets and puts in a single session.	The subversion adapter now passes the &#8220;no-auth-cache&#8221; option, so that if you configure an explicit subversion username for deployment other than your dev username, those deployment auth tokens won&#8217;t clobber your development tokens.So, go get it, &#8220;gem install capistrano.&#8221; Or download it directly from RubyForge. And at the risk of promising too much, too early: I expect this to be the last 1.x release of Capistrano, barring any critical problems that may arise with 1.4.1. Come on, cap2!",
+      "url": "http://localhost:4000/2007/2/25/capistrano-1-4-1",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "jamis"
+      },
+      "datePublished": "2007-02-25T02:09:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Sunday, February 25, 2007</h5>
+        <h2>Capistrano 1.4.1</h2>
+
+        <h6>Posted by jamis</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Here it is, another Capistrano release, and less than a month since the last one! Miracles truly never cease.</p>
+<p>Capistrano, for those embarrassingly late to the party, is a utility for executing commands in parallel on multiple remote servers. It is useful for lots of things, including automating deployment of Rails applications.</p>
+<p>Version 1.4.1, available just as soon as the mirrors get updated, is a pretty minor update, but has one new feature:</p>
+<ul>
+	<li>You can now pass :env to &#8216;run&#8217; (and friends), in order to specify environment variables that should be set for that command. For example:</li>
+</ul>
+<p>run “some_batch_thang.rb”, :env =&gt; { “<span class="caps">DEBUG</span>” =&gt; “1” }</p>
+<p>There is also one deprecation: if you are using <span class="caps">UPPERCASE</span> variables in your Capistrano recipes, you&#8217;ll being seeing warnings now. Support for variables that start with uppercase letters will be removed altogether in Capistrano 2.0. If you want uppercase identifiers, you should use Ruby constants.</p>
+<p>The two fixes in this release:</p>
+<ul>
+	<li>Actor#get will not close the <span class="caps">SFTP</span> channel when it finishes. This makes it possible to do multiple <span class="caps">SFTP</span> gets and puts in a single session.</li>
+	<li>The subversion adapter now passes the &#8220;no-auth-cache&#8221; option, so that if you configure an explicit subversion username for deployment <em>other</em> than your dev username, those deployment auth tokens won&#8217;t clobber your development tokens.</li>
+</ul>
+<p>So, go get it, &#8220;gem install capistrano.&#8221; Or download it directly from <a href="http://rubyforge.org/frs/?group_id=1420">RubyForge</a>. And at the risk of promising too much, too early: I expect this to be the last 1.x release of Capistrano, barring any critical problems that may arise with 1.4.1. Come on, cap2!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

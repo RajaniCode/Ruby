@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; Rails 6.1: Horizontal Sharding, Multi-DB Improvements, Strict Loading, Destroy Associations in Background, Error Objects, and more!</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Rails 6.1 has been released and wow does it have a lot of great stuff! We’ve been hardat work these past few months implementing improvements to multiple databases, adding support for destroyingassociations in jobs instead of in-memory, turning errors into objects, and so much more." />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="Rails 6.1: Horizontal Sharding, Multi-DB Improvements, Strict Loading, Destroy Associations in Background, Error Objects, and more!" />
+  <meta property="og:description" content="Rails 6.1 has been released and wow does it have a lot of great stuff! We’ve been hardat work these past few months implementing improvements to multiple databases, adding support for destroyingassociations in jobs instead of in-memory, turning errors into objects, and so much more." />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2020/12/10/Rails-6-1-0-release" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="Rails 6.1: Horizontal Sharding, Multi-DB Improvements, Strict Loading, Destroy Associations in Background, Error Objects, and more!" />
+  <meta name="twitter:description" content="Rails 6.1 has been released and wow does it have a lot of great stuff! We’ve been hardat work these past few months implementing improvements to multiple databases, adding support for destroyingassociations in jobs instead of in-memory, turning errors into objects, and so much more." />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2020/12/10/Rails-6-1-0-release"
+      },
+      "name": "Ruby on Rails",
+      "headline": "Rails 6.1: Horizontal Sharding, Multi-DB Improvements, Strict Loading, Destroy Associations in Background, Error Objects, and more!",
+      "description": "Rails 6.1 has been released and wow does it have a lot of great stuff! We’ve been hardat work these past few months implementing improvements to multiple databases, adding support for destroyingassociations in jobs instead of in-memory, turning errors into objects, and so much more.",
+      "url": "http://localhost:4000/2020/12/10/Rails-6-1-0-release",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "eileencodes"
+      },
+      "datePublished": "2020-12-10T01:45:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Thursday, December 10, 2020</h5>
+        <h2>Rails 6.1: Horizontal Sharding, Multi-DB Improvements, Strict Loading, Destroy Associations in Background, Error Objects, and more!</h2>
+
+        <h6>Posted by eileencodes</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p>Rails 6.1 has been released and wow does it have a lot of great stuff! We’ve been hard
+at work these past few months implementing improvements to multiple databases, adding support for destroying
+associations in jobs instead of in-memory, turning errors into objects, and so much more.</p>
+
+<p>It’s amazing how Rails has grown over the years and while we have some improvements to make to the
+<a href="https://rubyonrails.org/2020/5/7/A-May-of-WTFs">onboarding process</a>, Rails has never been better. The features
+in this release focus on adding the functionality you need to keep your application up and running for years to come.</p>
+
+<p>Let’s look at some of the new functionality:</p>
+
+<h2 id="multi-db-improvements">Multi-DB Improvements</h2>
+
+<h3 id="per-database-connection-switching">Per-database Connection Switching</h3>
+
+<p>Rails 6.1 provides you with the ability to <a href="https://github.com/rails/rails/pull/40370">switch connections per-database</a>. In 6.0 if you switched to the <code class="language-plaintext highlighter-rouge">reading</code> role then all database connections also switched to the reading role. Now in 6.1 if you set <code class="language-plaintext highlighter-rouge">legacy_connection_handling</code> to <code class="language-plaintext highlighter-rouge">false</code> in your configuration, Rails will allow you to switch connections for a single database by calling <code class="language-plaintext highlighter-rouge">connected_to</code> on the corresponding abstract class.</p>
+
+<h3 id="horizontal-sharding">Horizontal Sharding</h3>
+
+<p>Rails 6.0 provided the ability to functionally partition (multiple partitions, different schemas) your database but wasn’t able to support horizontal sharding (same schema, multiple partitions). Rails wasn’t able to support horizontal sharding because models in Active Record could only have one connection per-role per-class. This is now fixed and <a href="https://github.com/rails/rails/pull/38531">horizontal sharding</a> with Rails is available.</p>
+
+<h3 id="additional-improvements">Additional Improvements</h3>
+
+<p>In addition to adding horizontal sharding support we added tons of new functionality and improved a lot of internals for multiple databases. <a href="https://github.com/kylekthompson">Kyle Thompson</a> added support for <a href="https://github.com/rails/rails/pull/38449">database namespaced tasks</a> like <code class="language-plaintext highlighter-rouge">db:schema:dump:namespace</code>, <code class="language-plaintext highlighter-rouge">db:schema:load:namespace</code>, <code class="language-plaintext highlighter-rouge">db:structure:dump:namespace</code>, and <code class="language-plaintext highlighter-rouge">db:structure:load:namespace</code>. <a href="https://github.com/casperisfine">Jean Boussier</a> from Shopify improved <a href="https://github.com/rails/rails/pull/37296">connection pool management</a>.</p>
+
+<h2 id="strict-loading-associations">Strict Loading Associations</h2>
+
+<p>In addition to the many database and connection management improvements, <a href="https://github.com/tenderlove">Aaron Patterson</a> and <a href="https://github.com/eileencodes">Eileen M. Uchitelle</a> added support for <a href="https://github.com/rails/rails/pull/37400">strict loading associations</a>. With this feature you can ensure that all your associations are loaded eagerly and stop N+1’s before they happen. <a href="https://github.com/kddeisz">Kevin Deisz</a> added additional support to <a href="https://github.com/rails/rails/pull/38541">association declarations</a> and <a href="https://github.com/bogdanvlviv">bogdanvlviv</a> added support to turn <a href="https://github.com/rails/rails/pull/39491">strict loading on by default</a>.</p>
+
+<h2 id="delegated-types">Delegated Types</h2>
+
+<p>Rails 6.1 adds “Delegated Types” as an alternative to single-table inheritance. This is helpful for representing class hierarchies allowing the superclass to be a concrete class that is represented by its own table. Each subclass has its own table for additional attributes. Check out the <a href="https://github.com/rails/rails/pull/39341">pull request</a> written by <a href="https://github.com/dhh">DHH</a>.</p>
+
+<h2 id="destroy-associations-async">Destroy Associations Async</h2>
+
+<p>Destroy associations async adds the ability for applications to <code class="language-plaintext highlighter-rouge">destroy</code> associations in a background job. This can help you avoid timeouts and other performance issues in your application when destroying data. The <a href="https://github.com/rails/rails/pull/40157">implementation</a> was a group effort - the PR was started by <a href="https://github.com/georgeclaghorn">George Claghorn</a> from Basecamp, further support added by <a href="https://github.com/gwincr11">Cory Gwin</a> of GitHub and finalized by <a href="https://github.com/rafaelfranca">Rafael França</a> and <a href="https://github.com/adrianna-chang-shopify">Adrianna Chang</a> from Shopify.</p>
+
+<h2 id="error-objects">Error Objects</h2>
+
+<p>Active Model’s errors are now objects with an interface that allows your application to more easily handle and interact with errors thrown by models. <a href="https://github.com/rails/rails/pull/32313">The feature</a> was implemented by <a href="https://github.com/lulalala">lulalala</a> and includes a query interface, enables more precise testing, and access to error details.</p>
+
+<h2 id="active-storage-improvements">Active Storage Improvements</h2>
+
+<p>Active Storage got a nice update in Rails 6.1! You can now configure attachments for service you want to store them in. The <a href="https://github.com/rails/rails/pull/34935">feature</a> was implemented by <a href="https://github.com/DmitryTsepelev">Dmitry Tsepelev</a>.</p>
+
+<p>Additionally, Rails 6.1 adds support to Active Storage for <a href="https://github.com/rails/rails/pull/36729">permanent URLs for blobs</a>. Implemented by <a href="https://github.com/peterzhu2118">Peter Zhu</a> from Shopify, this feature allows configuring your attachments to use a private or public URL and ensures that public URLs will always use a permanent URL.</p>
+
+<h2 id="disallowed-deprecation-support">Disallowed Deprecation Support</h2>
+
+<p>If you like to run your application deprecation-warning free then this feature is for you. The feature allows applications to <a href="https://github.com/rails/rails/pull/37940">optionally raise an error</a> if a deprecation warning is thrown. This is useful for making sure developers don’t reintroduce deprecation warnings that have already been fixed. The feature was implemented by <a href="https://github.com/cpruitt">Cliff Pruitt</a> of Test Double!</p>
+
+<h2 id="performance-improvements-and-bug-fixes">Performance Improvements and Bug Fixes!</h2>
+
+<p>A release isn’t just about the awesome features you get. It’s also about fixing bugs, improving performance, and making Rails more stable for everyone. This release includes an improvement that <a href="https://github.com/rails/rails/pull/37266">avoids making a query if <code class="language-plaintext highlighter-rouge">where</code> passes an empty array</a> reported by <a href="https://github.com/mstruve">Molly Struve</a> and the fix implemented by <a href="https://github.com/jhawthorn">John Hawthorn</a>. <a href="https://github.com/eileencodes">Eileen M. Uchitelle</a> and <a href="https://github.com/tenderlove">Aaron Patterson</a> also implemented a <a href="https://github.com/rails/rails/pull/39009">performance improvement</a> that speeds up <code class="language-plaintext highlighter-rouge">where</code> queries when we know all the values are an integer.</p>
+
+<h2 id="the-classic-autoloader-is-deprecated">The <code class="language-plaintext highlighter-rouge">classic</code> Autoloader is Deprecated</h2>
+
+<p>The <code class="language-plaintext highlighter-rouge">classic</code> autoloader has served us well since the first Rails release, but there’s a new kid on the block and it is going to start its deprecation cycle.</p>
+
+<p>New Rails projects are strongly discouraged from using the <code class="language-plaintext highlighter-rouge">classic</code> autoloader, and we recommend that existing projects running on <code class="language-plaintext highlighter-rouge">classic</code> switch to <code class="language-plaintext highlighter-rouge">zeitwerk</code> mode when upgrading. Please check the <a href="https://edgeguides.rubyonrails.org/upgrading_ruby_on_rails.html"><em>Upgrading Ruby on Rails</em></a> guide for tips.</p>
+
+<h2 id="and-more">And more!</h2>
+
+<p>There are so many great changes in Rails 6.1. <a href="https://contributors.rubyonrails.org/releases/6-1-0/contributors">654</a> people made contributions to Rails. Check out the <a href="https://github.com/rails/rails/tree/v6.1.0">CHANGELOGS</a> for more details on bug fixes, performance improvements, and other features.</p>
+
+<p>Thank you to everyone who reported a bug, sent a pull request, and helped improve Rails. Rails is better because of your hard work!</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+6.3 Testing Invalid Authentication
+
+Now that we have tests in place for valid authentication requests, let’s write some tests that will ensure the correct behavior for requests with invalid authentication.
+
+
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  test 'invalid authentication responds with proper status code' do
+    get '/zombies'
+  end
+end
+
+
+1. Pass in an empty value for the ‘Authorization’ header.
+
+Answer:
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  test 'invalid authentication responds with proper status code' do
+    get '/zombies', {}, {'Authorization' => ''}
+  end
+end
+
+
+2. Assert the response status code is set to 401 - Unauthorized.
+
+Answer:
+test/integration/listing_zombies_test.rb
+class ListingZombiesTest < ActionDispatch::IntegrationTest
+  test 'invalid authentication responds with proper status code' do
+    get '/zombies', {}, {'Authorization' => ''}
+    assert_equal 401, response.status
+  end
+end

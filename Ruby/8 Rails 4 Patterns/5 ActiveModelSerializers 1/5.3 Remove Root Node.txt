@@ -1,0 +1,26 @@
+5.3 Remove Root Node
+
+In order to prevent breaking existing API clients, we need to remove the root node that is automatically added by AMS. Add a statement to our ReviewArraySerializer class used by the index action, that excludes the root node from serialization.
+
+
+reviews_controller.rb
+class ReviewsController < ApplicationController
+  respond_to :json, :html
+
+  def index
+    @reviews = Review.all
+    respond_with @reviews, serializer: ReviewArraySerializer
+  end
+end
+
+
+review_array_serializer.rb
+class ReviewArraySerializer < ActiveModel::ArraySerializer
+end
+
+
+Answer:
+review_array_serializer.rb
+class ReviewArraySerializer < ActiveModel::ArraySerializer
+  self.root = false
+end

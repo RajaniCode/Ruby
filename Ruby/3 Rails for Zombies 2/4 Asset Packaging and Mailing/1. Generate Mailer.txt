@@ -1,0 +1,18 @@
+1. Generate Mailer
+
+
+Objective
+
+Enter the command for generating a mailer called WeaponMailer which has the emails low_ammo and broken.
+
+Answer: rails g mailer WeaponMailer low_ammo broken
+
+$ rails g maile­r Weapo­nMailer low_a­mmo broke­n
+create  app/mailers/weapon_mailer.rb
+      invoke  erb
+      create    app/views/weapon_mailer
+      create    app/views/weapon_mailer/low_ammo.text.erb
+      create    app/views/weapon_mailer/broken.text.erb
+      invoke  test_unit
+      create    test/functional/weapon_mailer_test.rb
+Success! 

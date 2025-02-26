@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+
+
+
+
+
+
+
+<head>
+  <title>Ruby on Rails &mdash; What's New in Edge Rails</title>
+  <meta charset="utf-8" />
+  <meta content="ie=edge" http-equiv="x-ua-compatible" />
+  <meta name="handheldfriendly" content="true" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="" />
+
+  <meta property="og:site_name" content="Ruby on Rails" />
+  <meta property="og:title" content="What's New in Edge Rails" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta property="og:url" content="http://localhost:4000/2009/10/13/what-s-new-in-edge-rails" />
+  <meta property="og:type" content="article" />
+
+  <meta name="twitter:title" content="What's New in Edge Rails" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="http://localhost:4000/assets/images/opengraph.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@rails" />
+  <meta name="twitter:image:alt" content="Ruby on Rails" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2009/10/13/what-s-new-in-edge-rails"
+      },
+      "name": "Ruby on Rails",
+      "headline": "What's New in Edge Rails",
+      "description": "",
+      "url": "http://localhost:4000/2009/10/13/what-s-new-in-edge-rails",
+      "image": "http://localhost:4000/assets/images/opengraph.png",
+      "author": {
+        "@type": "Person",
+        "name": "Nathaniel Bibler"
+      },
+      "datePublished": "2009-10-13T02:10:00+05:30"
+    }
+  </script>
+  <script defer data-domain="rubyonrails.org" src="https://plausible.io/js/script.js"></script>
+  <link rel="icon" href="/assets/images/favicon.png" />
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link rel="alternate" type="application/rss+xml"  href="/feed.xml" title="The official Ruby on Rails blog">
+</head>
+
+
+<body>
+
+
+<nav class="nav">
+  <a class="nav__logo" href="/" aria-label="Ruby on Rails"></a>
+
+  <input class="nav__checkbox" id="nav__checkbox" type="checkbox" role="button" aria-label="menu" />
+
+  <label class="nav__toggle" for="nav__checkbox">
+    <span></span>
+  </label>
+
+  <div class="nav__options">
+    <div>
+      <ul>
+        
+          
+            <li><a href="https://github.com/rails/rails"><span>Source</span></a></li>
+          
+        
+          
+            <li><a href="/docs"><span>Docs</span></a></li>
+          
+        
+          
+            <li><a href="/community"><span>Community</span></a></li>
+          
+        
+          
+            <li><a href="/blog"><span>News</span></a></li>
+          
+        
+      </ul>
+
+      <ul>
+        
+          
+            <li><a href="/world"><span>Events</span></a></li>
+          
+        
+          
+            <li><a href="https://jobs.rubyonrails.org"><span>Jobs</span></a></li>
+          
+        
+          
+            <li><a href="https://merch.rubyonrails.org"><span>Merch</span></a></li>
+          
+        
+          
+            <li><a href="/foundation"><span>Foundation</span></a></li>
+          
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="layout">
+  <div class="post common-padding--bottom common-padding--top-small">
+    <div class="container">
+      <div class="post__headline common-headline">
+        <h5>Tuesday, October 13, 2009</h5>
+        <h2>What's New in Edge Rails</h2>
+
+        <h6>Posted by Nathaniel Bibler</h6>
+
+      </div>
+      <div class="post__content common-content common-content--post">
+        <p><img src="/assets/2009/10/12/clock-tower_1.jpg" height="100" width="450" alt="" /></p>
+
+<p>So, Edge Rails is still chugging right along.  There are new and interesting fixes, changes, and refactors going on all of the time.  So, lets take a look at just a few that’ve gone in since the last post <small>(it’s been a while, I know, I’m sorry!)</small>.</p>
+
+<h2 id="actionview-and-helpers">ActionView and Helpers</h2>
+
+<p>XSS escaping is now <a href="http://github.com/rails/rails/commit/9415935902f120a9bac0bfce7129725a0db38ed3">enabled by default</a>.  This means that if you want to explicitly output HTML to your views, you’ll probably have to mark it as <code class="language-plaintext highlighter-rouge">html_safe!</code> before sending it through.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;%= 'my &lt;a href="http://www.rubyonrails.org"&gt;safe&lt;/a&gt; string'.html_safe! %&gt;
+</code></pre></div></div>
+
+<p>Many of the built-in helpers have been updated for this change and if you see an issues with the Rails helpers being incorrectly sanitized, you should create a new ticket.</p>
+
+<p><code class="language-plaintext highlighter-rouge">distance_of_time_in_words</code> has gained ‘<a href="http://github.com/rails/rails/commit/8ef1cd9733cd12fc4e5ea25c149956a33fdffa70">over</a>’, ‘about’, and ‘<a href="http://github.com/rails/rails/commit/c9318e9010712aeae33b1dd0e8bed4795ae37caf">almost</a>’ keywords, thanks to Jay Pignata and John Trupiano.  This provides you with an improved level of granularity when approximating the amount time passed.  So, instead of just “2 years ago”, it can now also report “almost 2 years ago,” “about 2 years ago,” and “over 2 years ago,” depending on the proximity to being exactly 2 years old.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>assert_equal "almost 2 years",  distance_of_time_in_words(from, to + 2.years - 3.months + 1.day)
+assert_equal "about 2 years",   distance_of_time_in_words(from, to + 2.years + 3.months - 1.day)
+assert_equal "over 2 years",    distance_of_time_in_words(from, to + 2.years + 3.months + 1.day)
+assert_equal "over 2 years",    distance_of_time_in_words(from, to + 2.years + 9.months - 1.day)
+assert_equal "almost 3 years",  distance_of_time_in_words(from, to + 2.years + 9.months + 1.day)
+</code></pre></div></div>
+
+<p>The HTML form helper, <code class="language-plaintext highlighter-rouge">fields_for</code> - generally used for nesting additional model forms - now allows for <a href="http://github.com/rails/rails/commit/1b78e9bba3bd39c4669ff6c640b7df069185c22c">explicit collections</a> to be used, thanks to Andrew France.  So, instead of just including all of your blog.posts, you should have it only display your published blog.posts, for example.  Or:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;% form_for @person, :url =&gt; { :action =&gt; "update" } do |person_form| %&gt;
+  ...
+  &lt;% person_form.fields_for :projects, @active_projects do |project_fields| %&gt;
+    Name: &lt;%= project_fields.text_field :name %&gt;
+  &lt;% end %&gt;
+&lt;% end %&gt;
+</code></pre></div></div>
+
+<p><strong>API Change</strong> for <code class="language-plaintext highlighter-rouge">content_tag_for</code>: The third argument - being the optional CSS prefix - will now also <a href="http://github.com/rails/rails/commit/3b6bdfc1050a83c6339421257d60a6163bf3c687">affect the generated CSS class</a>.  This prefix will now be appended to the generated element’s <code class="language-plaintext highlighter-rouge">CLASS</code> attribute.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;%= content_tag_for(:li, @post, :published) %&gt;
+# =&gt; &lt;li id="published_post_123" class="published_post"&gt;...&lt;/li&gt;
+</code></pre></div></div>
+
+<h2 id="activeresource-and-activerecord">ActiveResource and ActiveRecord</h2>
+
+<p>Taryn East has <a href="http://github.com/rails/rails/commit/f4f68885efd0e1135217433cafd368902b1fd58a">added update_attribute(s)</a> methods to ActiveResource.  These methods act very similarly to the ActiveRecord methods we already know and love.</p>
+
+<p>Building or creating an object through a <code class="language-plaintext highlighter-rouge">has_one</code> association that contains conditionals will now <a href="http://github.com/rails/rails/commit/4168f876238982d0d584006f50188071928a8b7f">automatically append those conditions</a> to the newly created object, thanks to Luciano Panaro.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Blog
+  has_author :commit_author, :class_name =&gt; 'Author', :conditions =&gt; {:name =&gt; "Luciano Panaro"}
+end
+
+@blog.build_commit_author
+# =&gt; #&lt;Author name: "Luciano Panaro" ... &gt;
+</code></pre></div></div>
+
+<p>Pratik Naik added a new option to ActiveRecord’s <code class="language-plaintext highlighter-rouge">accepts_nested_attributes_for</code> to <a href="http://github.com/rails/rails/commit/68d416a58fb5a47df2365c4f3a6da9f8db5c7cb7">:limit</a> the number of records that are allowed to be processed.  Also, while we’re covering <code class="language-plaintext highlighter-rouge">accepts_nested_attributes_for</code>, José Valim as <a href="http://github.com/rails/rails/commit/3091252abaafd15bc085f0be2b17829bebb6522c">renamed the <code class="language-plaintext highlighter-rouge">_delete</code> option</a> to <code class="language-plaintext highlighter-rouge">_destroy</code> to better follow what is actually occurring.  A deprecation warning has been added to <code class="language-plaintext highlighter-rouge">_delete</code>, for the time being.</p>
+
+<p>Jacob Burkhart updated the new <code class="language-plaintext highlighter-rouge">autosave</code> option in Rails 2.3 to allow for an <a href="http://github.com/rails/rails/commit/6cc0b9638fbb6ede3c46b51d7dab17881416014c">:autosave =&gt; false</a>, which will disallow saving of associated objects, even when they are <code class="language-plaintext highlighter-rouge">new_record?</code>s.</p>
+
+<h2 id="some-internals">Some Internals</h2>
+
+<p>Previously, <code class="language-plaintext highlighter-rouge">CDATA</code> elements could be ignored when converting from XML to a Hash, so now, thanks to John Pignata, <code class="language-plaintext highlighter-rouge">Hash#from_xml</code> will now <a href="http://github.com/rails/rails/commit/0d762646c4285437c12ddec9d0938c4ff1c3ef42">properly parse and include CDATA elements</a> values.</p>
+
+<p>Josh Peek has <a href="http://github.com/rails/rails/commit/52aeb8d2e72223f9b40b0193c151c252a3f4fb09">relocated global exception handling</a> into ActionDispatch::Rescue.  So, this is now being handled at the Rack middleware level.</p>
+
+<p>And finally, Yehuda Katz and Carl Lerche began work on a <a href="http://github.com/rails/rails/commit/4129449594ad3d8ff2f8fb4836104f25406a104f">Rails::Application</a> object to better encapsulate some of the application start up and configuration details. Also, a good bit of <a href="http://github.com/rails/rails/commit/992c2db76cd6cd6aa9a6ba3711a6ea1ad8910062">initialization</a> has now gone on to move into this new object.</p>
+
+<p>Remember, if you prefer to have a shorter audio summary of some of this content and more, you should check out the <a href="http://ruby5.codeschool.com/">Ruby5 podcast</a> over at Envy Labs; it’s released every Tuesday and Friday with the latest news in the Ruby and Rails community.</p>
+
+<p><small>Photo: <a href="http://www.flickr.com/photos/briantaylor/357204888">Clock Tower</a> by Brian Taylor</small></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer common-background--grey common-padding--bottom common-padding--top common-shape--top-white-up-left">
+  <div class="footer__logo"><a href="/" aria-label="Ruby on Rails"></a></div>
+
+  
+</footer>
+
+</body>
+</html>
